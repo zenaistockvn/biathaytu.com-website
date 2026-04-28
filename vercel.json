@@ -1,16 +1,3 @@
 {
-  "crons": [
-    {
-      "path": "/api/cron/daily-planner",
-      "schedule": "0 17 * * *"
-    },
-    {
-      "path": "/api/cron/auto-publisher",
-      "schedule": "0 14 * * *"
-    },
-    {
-      "path": "/api/insights/fetch",
-      "schedule": "0 6 * * *"
-    }
-  ]
+  "crons": []
 }
