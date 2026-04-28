@@ -49,7 +49,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           USP BAR — 4 Điểm Mạnh
       ═══════════════════════════════════════════ */}
-      <section className="usp-bar" aria-label="Điểm nổi bật">
+      <section className="usp-bar reveal-on-scroll" aria-label="Điểm nổi bật">
         <div className="container usp-grid">
           {[
             { abbr: 'DE', title: '100% Nhập Khẩu', desc: 'Nguyên chai trực tiếp từ Đức' },
@@ -73,7 +73,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           FEATURED PRODUCTS
       ═══════════════════════════════════════════ */}
-      <section className="section" aria-label="Sản phẩm nổi bật">
+      <section className="section reveal-on-scroll" aria-label="Sản phẩm nổi bật">
         <div className="container">
           <SectionHeader label="Tuyển Chọn Đặc Biệt" title="Sản Phẩm Nổi Bật" />
 
@@ -109,7 +109,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           GIẢI THƯỞNG QUỐC TẾ — iTQi 3 Sao
       ═══════════════════════════════════════════ */}
-      <section className="section-alt" aria-label="Giải thưởng iTQi">
+      <section className="section-alt reveal-on-scroll delay-100" aria-label="Giải thưởng iTQi">
         <div className="container split-section">
           <div className="itqi-img-wrap">
             <Image 
@@ -160,7 +160,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           FOOD PAIRING — Nghệ Thuật Thưởng Thức
       ═══════════════════════════════════════════ */}
-      <section className="section" aria-label="Hướng dẫn Food Pairing">
+      <section className="section reveal-on-scroll delay-100" aria-label="Hướng dẫn Food Pairing">
         <div className="container">
           <SectionHeader label="Nghệ Thuật Food Pairing" title="Hương Vị Trọn Vẹn Cho Mọi Bữa Tiệc" />
 
@@ -222,7 +222,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           BRAND STORY — Câu Chuyện Thương Hiệu
       ═══════════════════════════════════════════ */}
-      <section className="section" aria-label="Câu chuyện thương hiệu">
+      <section className="section reveal-on-scroll delay-100" aria-label="Câu chuyện thương hiệu">
         <div className="container split-section">
           <div>
             <span className="section-label">Brand Story</span>
@@ -270,7 +270,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           TESTIMONIALS — Đánh Giá Khách Hàng
       ═══════════════════════════════════════════ */}
-      <section className="section-alt" aria-label="Đánh giá khách hàng">
+      <section className="section-alt reveal-on-scroll delay-100" aria-label="Đánh giá khách hàng">
         <div className="container">
           <SectionHeader label="Khách Hàng Nói Gì" title="Đánh Giá Từ Người Yêu Bia" />
 
@@ -345,7 +345,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           FAQ — SEO / AEO / AI Overview Section
       ═══════════════════════════════════════════ */}
-      <section className="section" aria-label="Câu hỏi thường gặp" id="faq">
+      <section className="section reveal-on-scroll delay-100" aria-label="Câu hỏi thường gặp" id="faq">
         <div className="container">
           <SectionHeader label="Câu Hỏi Thường Gặp" title="Về Bia Thầy Tu Benediktiner" />
 
@@ -374,7 +374,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           CTV & DOANH NGHIỆP — B2B CTA
       ═══════════════════════════════════════════ */}
-      <section className="section b2b-section" aria-label="Hợp tác kinh doanh">
+      <section className="section b2b-section reveal-on-scroll delay-100" aria-label="Hợp tác kinh doanh">
         {/* Cinematic Background */}
         <div className="b2b-bg" style={{ backgroundImage: 'url(/images/hero/lifestyle_garden_v2.png)' }} />
         <div className="b2b-overlay" />

@@ -13,7 +13,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
 
   if (!images || images.length === 0) {
     return (
-      <div className="product-img-box" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9f9f9', height: '500px' }}>
+      <div className="product-img-box product-gallery-main product-gallery-empty">
         <p style={{ color: 'var(--web-text-muted)' }}>Đang cập nhật hình</p>
       </div>
     );
@@ -22,7 +22,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
   return (
     <div className="product-gallery">
       {/* Main Image */}
-      <div className="product-img-box" style={{ position: 'relative', width: '100%', height: '500px', backgroundColor: '#fff', borderRadius: '16px', overflow: 'hidden' }}>
+      <div className="product-img-box product-gallery-main">
         <Image
           src={mainImage}
           alt={productName}

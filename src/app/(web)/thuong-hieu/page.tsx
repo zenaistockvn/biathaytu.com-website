@@ -77,7 +77,7 @@ export default function BrandStoryPage() {
               src="/images/products/hero_weissbier_v2.png" 
               alt="Bia lúa mì Benediktiner Weissbier Naturtrüb — không lọc, lên men tự nhiên trong chai" 
               fill 
-              style={{ objectFit: 'cover', objectPosition: 'center' }} 
+              style={{ objectFit: 'contain', objectPosition: 'center' }} 
             />
           </div>
           <div>

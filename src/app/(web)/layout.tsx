@@ -2,6 +2,10 @@ import '../web.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
 import Toast from './components/Toast';
+import FloatingZaloCTA from './components/FloatingZaloCTA';
+import MobileBottomNav from './components/MobileBottomNav';
+import ScrollRevealObserver from './components/ScrollRevealObserver';
+import FacebookPixel from './components/FacebookPixel';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
 import type { Metadata } from 'next';
@@ -81,7 +85,11 @@ export default function WebLayout({
         <WebHeader />
         <main>{children}</main>
         <WebFooter />
+        <FloatingZaloCTA />
+        <MobileBottomNav />
         <Toast />
+        <ScrollRevealObserver />
+        <FacebookPixel />
       </LanguageProvider>
     </div>
   );

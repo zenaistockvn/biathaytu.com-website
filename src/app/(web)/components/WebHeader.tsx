@@ -99,7 +99,7 @@ export default function WebHeader() {
         </nav>
 
         {/* Mobile Nav Right Area */}
-        <div className="web-nav-mobile-right" style={{ display: 'none', alignItems: 'center', gap: '16px' }}>
+        <div className="web-nav-mobile-right">
           <Link href="/dat-hang" className="cart-icon-wrap" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cartIconColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1"></circle>

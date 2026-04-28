@@ -23,7 +23,9 @@ const translations: Translations = {
     'hero.title.line1': 'Tuyệt Tác',
     'hero.title.line2': 'Bia Thầy Tu',
     'hero.title.highlight': 'Đẳng Cấp Nguyên Bản',
-    'hero.description': 'Thưởng thức nghệ thuật ủ bia trên 400 năm từ Tu Viện Ettal. Tuyệt tác bia lúa mì Đức nguyên bản chuẩn Luật Tinh Khiết 1516.',
+    'hero.description.1': 'Thưởng thức nghệ thuật ủ bia trên 400 năm từ Tu Viện Ettal.',
+    'hero.description.2': 'Tuyệt tác bia lúa mì Đức nguyên bản chuẩn',
+    'hero.description.3': 'Luật Tinh Khiết 1516.',
     'hero.btn.explore': 'Khám Phá Sản Phẩm',
     'hero.btn.quote': 'Báo Giá Sỉ / Đại Lý',
     
@@ -57,7 +59,9 @@ const translations: Translations = {
     'hero.title.line1': 'The Masterpiece',
     'hero.title.line2': 'Monastery Beer',
     'hero.title.highlight': 'Original Class',
-    'hero.description': 'Experience the 400-year brewing art from Ettal Monastery. A masterpiece of German wheat beer brewed to the 1516 Purity Law.',
+    'hero.description.1': 'Experience the 400-year brewing art from Ettal Monastery.',
+    'hero.description.2': 'A masterpiece of German wheat beer brewed to the',
+    'hero.description.3': '1516 Purity Law.',
     'hero.btn.explore': 'Explore Products',
     'hero.btn.quote': 'B2B/Wholesale Quote',
     
@@ -91,7 +95,9 @@ const translations: Translations = {
     'hero.title.line1': 'Das Meisterwerk',
     'hero.title.line2': 'Klosterbier',
     'hero.title.highlight': 'Originalklasse',
-    'hero.description': 'Erleben Sie die 400-jährige Braukunst des Klosters Ettal. Ein Meisterwerk des deutschen Weißbiers nach dem Reinheitsgebot von 1516.',
+    'hero.description.1': 'Erleben Sie die 400-jährige Braukunst des Klosters Ettal.',
+    'hero.description.2': 'Ein Meisterwerk des deutschen Weißbiers nach dem',
+    'hero.description.3': 'Reinheitsgebot von 1516.',
     'hero.btn.explore': 'Produkte Entdecken',
     'hero.btn.quote': 'B2B/Großhandel',
     

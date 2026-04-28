@@ -23,10 +23,13 @@
   --web-gold-dark: #8B6914;
   --web-gold-hover: #9A7209;
   --web-gold-bg: #FBF5E9;
+  --web-primary: var(--web-gold);
   --web-navy: #0D1B2A;
   --web-navy-light: #1B2D45;
   --web-cream: #F5F0E8;
   --web-border: #E8E3DA;
+  --web-card-bg: #FFFFFF;
+  --web-surface: var(--web-bg-warm);
   --web-red: #C12D35;
   --web-wine: #722F37;
   --web-wine-bg: #FDF8F4;
@@ -50,6 +53,7 @@
   /* Standardized Spacing */
   --web-section-py: 80px;
   --web-section-header-mb: 60px;
+  --web-mobile-bottom-nav-height: 74px;
 
   /* Grid Gap Tokens */
   --web-gap-sm: 24px;
@@ -91,6 +95,11 @@ body:has(.web-app) {
   font-weight: 700;
   margin: 0;
   color: var(--web-text);
+  text-wrap: balance;
+}
+
+.web-app p, .web-app li, .web-app .card-description {
+  text-wrap: pretty;
 }
 
 .web-app a {
@@ -109,6 +118,12 @@ body:has(.web-app) {
 
 .web-app p {
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .web-app main {
+    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
+  }
 }
 
 /* ─── Header / Navigation ─── */
@@ -506,6 +521,188 @@ body:has(.web-app) {
   opacity: 1 !important;
 }
 
+/* Floating Zalo CTA */
+.web-app .floating-contact-stack {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(var(--web-mobile-bottom-nav-height) + 18px + env(safe-area-inset-bottom));
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.web-app .floating-contact-button {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  border: 3px solid #fff;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.web-app .floating-contact-button:hover {
+  transform: translateY(-3px);
+  opacity: 1 !important;
+}
+
+.web-app .floating-contact-button:focus-visible {
+  outline: 3px solid rgba(13, 27, 42, 0.18);
+  outline-offset: 4px;
+}
+
+.web-app .floating-zalo-cta {
+  background: linear-gradient(145deg, #2ea3ff 0%, #0068ff 52%, #004bc1 100%);
+  box-shadow:
+    inset -7px -9px 16px rgba(0, 38, 115, 0.28),
+    inset 6px 8px 14px rgba(255, 255, 255, 0.26),
+    0 14px 34px rgba(0, 104, 255, 0.38),
+    0 4px 14px rgba(13, 27, 42, 0.18);
+}
+
+.web-app .floating-zalo-cta:hover {
+  box-shadow: 0 18px 42px rgba(0, 104, 255, 0.46), 0 6px 18px rgba(13, 27, 42, 0.2);
+}
+
+.web-app .floating-phone-cta {
+  background: linear-gradient(145deg, #35d86a 0%, #16a34a 55%, #087c34 100%);
+  box-shadow:
+    inset -7px -9px 16px rgba(4, 89, 37, 0.24),
+    inset 6px 8px 14px rgba(255, 255, 255, 0.2),
+    0 14px 34px rgba(22, 163, 74, 0.34),
+    0 4px 14px rgba(13, 27, 42, 0.18);
+}
+
+.web-app .floating-phone-cta:hover {
+  box-shadow: 0 18px 42px rgba(22, 163, 74, 0.42), 0 6px 18px rgba(13, 27, 42, 0.2);
+}
+
+.web-app .floating-zalo-logo {
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: -0.4px;
+  text-shadow: 0 2px 4px rgba(0, 43, 119, 0.35);
+}
+
+.web-app .floating-phone-icon {
+  filter: drop-shadow(0 2px 4px rgba(4, 89, 37, 0.28));
+}
+
+@media (min-width: 769px) {
+  .web-app .floating-contact-stack {
+    right: calc(24px + env(safe-area-inset-right));
+    bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .web-app .floating-contact-button {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+/* Mobile bottom navigation */
+.web-app .mobile-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 46;
+  min-height: var(--web-mobile-bottom-nav-height);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+  padding: 7px max(8px, env(safe-area-inset-left)) calc(7px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right));
+  background: rgba(254, 252, 248, 0.96);
+  border-top: 1px solid rgba(232, 227, 218, 0.9);
+  box-shadow: 0 -10px 32px rgba(13, 27, 42, 0.1);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+}
+
+.web-app .mobile-bottom-nav-item {
+  min-width: 0;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 12px;
+  color: var(--web-text-muted) !important;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.web-app .mobile-bottom-nav-item:hover,
+.web-app .mobile-bottom-nav-item.is-active {
+  color: var(--web-gold-dark) !important;
+  background: var(--web-gold-bg);
+  opacity: 1 !important;
+}
+
+.web-app .mobile-bottom-nav-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.web-app .mobile-bottom-nav-icon svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.web-app .mobile-bottom-nav-badge {
+  position: absolute;
+  top: -7px;
+  right: -11px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--web-red);
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.web-app .mobile-bottom-nav-label {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 769px) {
+  .web-app .mobile-bottom-nav {
+    display: none;
+  }
+}
+
 /* ─── Product Card ─── */
 .web-app .product-card {
   background: #fff !important;
@@ -560,6 +757,12 @@ body:has(.web-app) {
 
 .web-app .web-nav-desktop {
   display: none !important;
+}
+
+.web-app .web-nav-mobile-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 /* ─── Food Pairing Card ─── */
@@ -983,6 +1186,10 @@ body:has(.web-app) {
   }
   .web-app .web-nav-hamburger {
     display: none !important;
+  }
+
+  .web-app .web-nav-mobile-right {
+    display: none;
   }
 
   /* Sections scale up */
@@ -1622,3 +1829,138 @@ body:has(.web-app) {
 /* ─── iTQi Section (mobile-first) ─── */
 .web-app .itqi-img-wrap { position: relative; height: 320px; border-radius: var(--web-radius-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 
+/* Product gallery responsive sizing */
+.web-app .product-gallery-main {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 68svh, 420px);
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.web-app .product-gallery-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+@media (min-width: 769px) {
+  .web-app .product-gallery-main {
+    height: clamp(420px, 50vw, 500px);
+  }
+}
+
+/* Checkout responsive rows */
+.web-app .checkout-item-row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "image info remove"
+    "actions actions actions";
+  gap: 12px 16px;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--web-border);
+}
+
+.web-app .checkout-item-image {
+  grid-area: image;
+}
+
+.web-app .checkout-item-info {
+  grid-area: info;
+  min-width: 0;
+}
+
+.web-app .checkout-item-info h3 {
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.web-app .checkout-qty-controls {
+  grid-area: actions;
+  justify-content: flex-start;
+}
+
+.web-app .checkout-remove-btn {
+  grid-area: remove;
+  justify-self: end;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.web-app .checkout-promo-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 560px) {
+  .web-app .checkout-item-row {
+    grid-template-columns: 80px minmax(0, 1fr) auto auto;
+    grid-template-areas: "image info actions remove";
+    gap: 20px;
+  }
+
+  .web-app .checkout-promo-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+/* ─── UI/UX Pro Max Enhancements ─── */
+
+/* 1. Smooth Scroll & Focus Visible */
+html {
+  scroll-behavior: smooth;
+}
+
+.web-app *:focus-visible {
+  outline: 2px solid var(--web-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 2. Color Contrast Fixes */
+.web-app .section-label,
+.web-app .btn-outline {
+  color: var(--web-gold-dark) !important;
+  border-color: var(--web-gold-dark) !important;
+}
+
+.web-app .faq-summary {
+  color: var(--web-navy) !important;
+}
+
+/* 3. Touch Targets (Mobile) */
+.web-app .faq-summary {
+  padding: 16px 20px !important;
+  min-height: 48px;
+}
+
+.web-app .mobile-bottom-nav-item {
+  min-height: 60px !important;
+  padding: 8px 4px !important;
+}
+
+/* 4. Reveal on Scroll Animations (Dynamic Design) */
+.web-app .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.web-app .reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.web-app .delay-100 { transition-delay: 100ms; }
+.web-app .delay-200 { transition-delay: 200ms; }
+.web-app .delay-300 { transition-delay: 300ms; }
+.web-app .delay-400 { transition-delay: 400ms; }

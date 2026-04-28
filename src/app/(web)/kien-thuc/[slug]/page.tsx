@@ -5,6 +5,8 @@ import { createServerSupabase } from '@/lib/supabase/server';
 import { DEFAULT_TENANT_ID } from '@/constants';
 import ArticleBody from './ArticleBody';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../../components/JsonLd';
+import ProductCard from '../../components/ProductCard';
+import { getTastingNotes } from '../../utils/getTastingNotes';
 
 export const revalidate = 3600;
 
@@ -107,6 +109,16 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
     thumbnail_url: string | null;
   }>;
 
+  // Fetch suggested products for CTA
+  const { data: suggestedProducts } = await supabase
+    .from('products')
+    .select('*')
+    .eq('is_featured', true)
+    .neq('category', 'vang')
+    .not('name', 'ilike', '%bitburger%') // Suggest Benediktiner primarily
+    .order('sort_order', { ascending: true })
+    .limit(3);
+
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
       <JsonLd type="article" data={getArticleSchema({
@@ -178,14 +190,46 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-navy)', fontFamily: 'var(--font-serif)' }}>
             Sẵn sàng để thưởng thức?
           </h3>
-          <p style={{ color: 'var(--web-text-muted)', marginBottom: '32px', fontSize: '16px' }}>
+          <p style={{ color: 'var(--web-text-muted)', marginBottom: '40px', fontSize: '16px' }}>
             Trải nghiệm hương vị hoàng gia Đức ngay hôm nay với các dòng bia nhập khẩu chính hãng.
           </p>
+          
+          {suggestedProducts && suggestedProducts.length > 0 && (
+            <div style={{
+              display: 'flex',
+              gap: '20px',
+              textAlign: 'left',
+              marginBottom: '40px',
+              overflowX: 'auto',
+              paddingBottom: '16px',
+              scrollSnapType: 'x mandatory',
+              WebkitOverflowScrolling: 'touch',
+              msOverflowStyle: 'none', // Hide scrollbar IE and Edge
+              scrollbarWidth: 'none', // Hide scrollbar Firefox
+            }}>
+              <style dangerouslySetInnerHTML={{__html: `
+                .suggestions-row::-webkit-scrollbar { display: none; }
+              `}} />
+              <div className="suggestions-row" style={{ display: 'flex', gap: '20px', width: '100%' }}>
+                {suggestedProducts.map((product: any) => (
+                  <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
+                    <ProductCard
+                      {...product}
+                      description={product.short_description || `"${getTastingNotes(product.name)}"`}
+                      showCTA={true}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <Link href="/san-pham" style={{ 
-            display: 'inline-flex', padding: '16px 36px', background: 'var(--web-gold)', color: 'var(--web-navy)', 
-            fontWeight: 700, borderRadius: 'var(--web-radius)', textDecoration: 'none', transition: 'transform 0.3s ease' 
+            display: 'inline-flex', padding: '14px 32px', background: 'transparent', color: 'var(--web-gold-dark)', 
+            fontWeight: 700, borderRadius: 'var(--web-radius)', textDecoration: 'none', transition: 'all 0.3s ease',
+            border: '2px solid var(--web-gold)'
           }}>
-            Khám Phá Cửa Hàng
+            Xem Toàn Bộ Cửa Hàng
           </Link>
         </div>
       </article>

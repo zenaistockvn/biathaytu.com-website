@@ -175,20 +175,20 @@ export default function CheckoutPage() {
             <h2 style={{ fontSize: '24px', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Giỏ hàng</h2>
             <div style={{ border: '1px solid var(--web-border)', borderRadius: '12px', padding: '20px', backgroundColor: 'var(--web-card-bg)' }}>
               {items.map(item => (
-                <div key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingBottom: '20px', marginBottom: '20px', borderBottom: '1px solid var(--web-border)' }}>
-                  <div style={{ position: 'relative', width: '80px', height: '80px', flexShrink: 0, backgroundColor: 'white', borderRadius: '8px' }}>
+                <div key={item.id} className="checkout-item-row">
+                  <div className="checkout-item-image" style={{ position: 'relative', width: '80px', height: '80px', flexShrink: 0, backgroundColor: 'white', borderRadius: '8px' }}>
                     <Image src={item.image} alt={item.name} fill style={{ objectFit: 'contain', padding: '5px' }} sizes="80px" />
                   </div>
-                  <div style={{ flex: 1 }}>
+                  <div className="checkout-item-info">
                     <h3 style={{ fontSize: '16px', margin: '0 0 5px 0' }}>{item.name}</h3>
                     <div style={{ color: 'var(--web-primary)', fontWeight: 600 }}>{formatPrice(item.price)}</div>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div className="checkout-qty-controls" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <button onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))} style={{ padding: '5px 10px', border: '1px solid var(--web-border)', background: 'transparent', cursor: 'pointer', borderRadius: '4px' }}>-</button>
                     <span style={{ width: '20px', textAlign: 'center' }}>{item.quantity}</span>
                     <button onClick={() => updateQuantity(item.id, item.quantity + 1)} style={{ padding: '5px 10px', border: '1px solid var(--web-border)', background: 'transparent', cursor: 'pointer', borderRadius: '4px' }}>+</button>
                   </div>
-                  <button onClick={() => removeItem(item.id)} style={{ padding: '5px', color: 'red', border: 'none', background: 'transparent', cursor: 'pointer', marginLeft: '10px' }}>✕</button>
+                  <button className="checkout-remove-btn" onClick={() => removeItem(item.id)} style={{ padding: '5px', color: 'red', border: 'none', background: 'transparent', cursor: 'pointer' }}>✕</button>
                 </div>
               ))}
               
@@ -219,7 +219,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Promo Code Input */}
-              <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+              <div className="checkout-promo-row" style={{ marginTop: '20px' }}>
                 <input 
                   type="text" 
                   placeholder="Nhập mã giảm giá..." 
