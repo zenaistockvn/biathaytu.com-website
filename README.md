@@ -1,198 +1,22 @@
-# 🚀 AI Marketing Center (AMC)
+# 🍺 Bia Thầy Tu — Official Website (biathaytu.com)
 
-> **"Upload 1 ảnh → AI tạo content đa kênh + tự lên lịch đăng bài hàng ngày"**
+> Nền tảng bán lẻ và quảng bá thương hiệu chính thức cho Bia Thầy Tu (Bia Đức nhập khẩu cao cấp).
 
-Nền tảng SaaS tự động hóa marketing bằng AI, tích hợp **Claude 3.5** (Anthropic) và **Gemini 1.5** (Google) để phân tích sản phẩm, sinh nội dung đa kênh và lên lịch đăng bài tự động trên Facebook, Instagram, TikTok.
+Repository này chứa mã nguồn cho website bán lẻ (B2C/B2B) của Bia Thầy Tu, được tách ra từ hệ thống AMC (AI Marketing Center) nguyên bản để tối ưu hiệu suất, SEO và nâng cao trải nghiệm người dùng cuối.
 
 ---
 
 ## 📐 Kiến trúc Hệ thống
 
-```mermaid
-flowchart TB
-    subgraph CLIENT["🖥 Frontend (Next.js 15)"]
-        D[Dashboard]
-        L[Content Library]
-        S[AI Studio]
-        C[Calendar]
-        R[Auto Rules]
-    end
-
-    subgraph API["⚡ API Routes (Serverless)"]
-        A1["/api/products"]
-        A2["/api/content/generate"]
-        A3["/api/ai/analyze"]
-        A4["/api/rules"]
-        A5["/api/posts"]
-        A6["/api/cron/daily-planner"]
-    end
-
-    subgraph AI["🧠 AI Providers"]
-        CL["Claude Sonnet — Content Gen"]
-        CH["Claude Haiku — Auto-Review"]
-        GV["Gemini Flash — Vision Analysis"]
-    end
-
-    subgraph INFRA["☁️ Cloud Infrastructure"]
-        SB[(Supabase PostgreSQL)]
-        ST[Supabase Storage]
-        VC[Vercel Cron]
-    end
-
-    CLIENT --> API
-    A2 --> CL & CH
-    A3 --> GV
-    API --> SB
-    L --> ST
-    VC -->|"00:00 daily"| A6
-    A6 --> SB
-```
-
 ### Tech Stack
 
 | Layer | Công nghệ | Vai trò |
 |-------|-----------|---------|
-| **Framework** | Next.js 15 (App Router) | Fullstack: UI + API Routes |
-| **Database** | Supabase PostgreSQL | Multi-tenant, RLS enabled |
-| **Storage** | Supabase Storage | Upload ảnh sản phẩm |
-| **Auth** | Supabase Auth | *(Planned)* |
-| **AI Content** | Anthropic Claude 3.5 Sonnet | Sinh caption marketing |
-| **AI Review** | Anthropic Claude 3.5 Haiku | Tự chấm điểm chất lượng |
-| **AI Vision** | Google Gemini 1.5 Flash | Phân tích hình ảnh sản phẩm |
-| **Hosting** | Vercel | Serverless deploy + Cron jobs |
-| **CSS** | Vanilla CSS | Dark Glassmorphism theme |
-
----
-
-## ✨ Chức năng (Features)
-
-### 📊 Dashboard
-Tổng quan realtime: số sản phẩm, rules, bài đã tạo, bài đã đăng.
-
-### 📦 Content Library
-- CRUD sản phẩm (tên, mô tả, USP, giá, hạng mục)
-- Upload ảnh lên Supabase Storage
-- AI Vision tự trích xuất đặc điểm sản phẩm
-
-### 🎨 AI Studio ⭐
-Luồng chính của hệ thống:
-1. **Chọn sản phẩm** từ thư viện
-2. **Chọn nền tảng** (Facebook, Instagram, TikTok, LinkedIn)
-3. **Chọn góc nội dung** (Giới thiệu, Khuyến mãi, Viral, Kiến thức)
-4. **Claude Sonnet** sinh caption + hashtags tối ưu
-5. **Claude Haiku** chấm điểm 0-10 + gợi ý cải thiện
-6. Lưu bản nháp vào DB → sẵn sàng duyệt hoặc lên lịch
-
-### 📅 Calendar
-- Hiển thị posts dạng Timeline
-- Duyệt (Approve) / Hủy (Delete) bài nháp AI tạo
-
-### ⚙️ Auto Rules Engine
-- Quy tắc tự động: "Thứ 2-4-6 lúc 08:00 đăng bài Tips lên Facebook"
-- Bật/Tắt rules ngay trên UI
-- **Vercel Cron** chạy hàng đêm tự tạo content cho ngày mai
-
-### 🔗 Social Accounts *(Coming Soon)*
-- Kết nối Facebook, Instagram, TikTok
-
-### 📈 Analytics *(Coming Soon)*
-- Reach, Engagement, Conversion reports
-
----
-
-## 🗄️ Database Schema (10 tables)
-
-```mermaid
-erDiagram
-    tenants ||--o{ users : has
-    tenants ||--o{ products : has
-    tenants ||--o{ brand_settings : has
-    tenants ||--o{ schedule_rules : has
-    tenants ||--o{ posts : has
-    tenants ||--o{ social_accounts : has
-    products ||--o{ posts : "published from"
-    products ||--o{ generated_contents : "AI drafts"
-    posts ||--o| post_analytics : metrics
-
-    tenants {
-        text id PK
-        text name
-        text slug UK
-        text plan
-    }
-
-    products {
-        text id PK
-        text name
-        text description
-        float8 price
-        text category
-        text usp
-        jsonb images
-        jsonb ai_analysis
-        timestamptz last_posted_at
-        text tenant_id FK
-    }
-
-    brand_settings {
-        text id PK
-        text tenant_id FK_UK
-        text brand_name
-        text brand_voice
-        jsonb colors
-        jsonb hashtags
-        text logo_url
-    }
-
-    schedule_rules {
-        text id PK
-        text name
-        text time
-        text platform
-        text content_type
-        jsonb days_of_week
-        text rotation
-        boolean is_active
-        text tenant_id FK
-    }
-
-    posts {
-        text id PK
-        text product_id FK
-        text platform
-        text caption
-        jsonb image_urls
-        timestamptz scheduled_at
-        timestamptz published_at
-        text status
-        text external_id
-        text tenant_id FK
-    }
-
-    generated_contents {
-        text id PK
-        text product_id FK
-        text platform
-        text caption
-        text hashtags
-        jsonb image_urls
-        float8 ai_score
-        text status
-        text tenant_id FK
-    }
-
-    post_analytics {
-        text id PK
-        text post_id FK_UK
-        int4 likes
-        int4 comments
-        int4 shares
-        int4 reach
-        float8 engagement
-    }
-```
-
-> Tất cả tables đều có **RLS (Row Level Security)** enabled. Dữ liệu được cách ly theo `tenant_id`.
+| **Framework** | Next.js 15 (App Router) | Fullstack (React, SSR/SSG) |
+| **Styling** | Vanilla CSS / CSS Modules | Giao diện chuẩn Premium, Glassmorphism |
+| **Database** | Supabase (PostgreSQL) | Quản lý sản phẩm, đơn hàng, khách hàng |
+| **Authentication**| Supabase Auth | Quản lý người dùng, giỏ hàng |
+| **Hosting** | Vercel | Triển khai serverless, Edge caching tự động |
 
 ---
 
@@ -201,135 +25,71 @@ erDiagram
 ```
 📦 src/
  ┣ 📂 app/
- ┃ ┣ 📂 api/
- ┃ ┃ ┣ 📂 ai/analyze/           # POST — Gemini Vision
- ┃ ┃ ┣ 📂 content/generate/     # POST — Claude AI pipeline
- ┃ ┃ ┣ 📂 cron/daily-planner/   # POST — Vercel Cron trigger
- ┃ ┃ ┣ 📂 posts/[id]/           # PATCH, DELETE
- ┃ ┃ ┣ 📂 products/             # GET, POST
- ┃ ┃ ┃ ┗ 📂 [id]/               # PATCH, DELETE
- ┃ ┃ ┗ 📂 rules/                # GET, POST
- ┃ ┃   ┗ 📂 [id]/               # PATCH, DELETE
- ┃ ┣ 📂 accounts/               # Social Accounts UI
- ┃ ┣ 📂 analytics/              # Analytics UI
- ┃ ┣ 📂 calendar/               # Calendar + CalendarClient
- ┃ ┣ 📂 library/                # Library + LibraryClient
- ┃ ┣ 📂 rules/                  # Rules + RulesClient
- ┃ ┣ 📂 studio/                 # Studio + StudioClient
- ┃ ┣ 📜 globals.css             # Design System
- ┃ ┣ 📜 layout.tsx              # Root layout
- ┃ ┣ 📜 loading.tsx             # Global loading spinner
- ┃ ┗ 📜 page.tsx                # Dashboard
- ┣ 📂 components/
- ┃ ┣ 📜 AddProductModal.tsx     # Modal thêm sản phẩm
- ┃ ┣ 📜 DashboardLayout.tsx     # Layout wrapper
- ┃ ┗ 📜 Sidebar.tsx             # Navigation (client)
- ┗ 📂 lib/
-   ┣ 📂 ai/
-   ┃ ┣ 📜 claude.ts             # generateContent + reviewContent
-   ┃ ┗ 📜 gemini.ts             # analyzeProductImage
-   ┣ 📂 supabase/
-   ┃ ┣ 📜 client.ts             # Browser client (anon key)
-   ┃ ┗ 📜 server.ts             # Server client + Admin client
-   ┗ 📜 data.ts                 # Data fetching helpers
+ ┃ ┣ 📂 (web)/                # Routing chính của giao diện website bán lẻ
+ ┃ ┣ 📂 api/                  # Backend API routes
+ ┃ ┣ 📂 login/                # Giao diện Đăng nhập / Xác thực
+ ┃ ┣ 📜 globals.css           # Global Styles & Design Tokens
+ ┃ ┣ 📜 web.css               # Specific styles cho giao diện Web
+ ┃ ┣ 📜 layout.tsx            # Root layout 
+ ┃ ┣ 📜 sitemap.ts            # Dynamic Sitemap phục vụ SEO
+ ┃ ┗ 📜 robots.ts             # Dynamic Robots.txt
+ ┣ 📂 components/             # Reusable UI components (Buttons, Cards, Modals...)
+ ┣ 📂 lib/                    # Helpers, cấu hình Supabase clients
+ ┣ 📂 stores/                 # State Management (Zustand: useCartStore, v.v...)
+ ┗ 📂 types/                  # TypeScript types/interfaces
 ```
 
 ---
 
-## 🔌 API Reference
+## ✨ Tính năng cốt lõi
 
-### Core AI
-
-| Method | Endpoint | Mô tả | Body |
-|--------|----------|-------|------|
-| `POST` | `/api/content/generate` | AI sinh content đa kênh | `{ productId, platforms[], contentType }` |
-| `POST` | `/api/ai/analyze` | Gemini Vision phân tích ảnh | `{ imageUrl }` |
-
-### CRUD
-
-| Method | Endpoint | Mô tả |
-|--------|----------|-------|
-| `GET` | `/api/products` | Lấy danh sách sản phẩm |
-| `POST` | `/api/products` | Thêm sản phẩm mới |
-| `PATCH` | `/api/products/:id` | Cập nhật sản phẩm |
-| `DELETE` | `/api/products/:id` | Xóa sản phẩm |
-| `GET` | `/api/rules` | Lấy danh sách rules |
-| `POST` | `/api/rules` | Thêm rule |
-| `PATCH` | `/api/rules/:id` | Cập nhật / toggle rule |
-| `DELETE` | `/api/rules/:id` | Xóa rule |
-| `PATCH` | `/api/posts/:id` | Duyệt / sửa bài |
-| `DELETE` | `/api/posts/:id` | Hủy bài |
-
-### Automation
-
-| Method | Endpoint | Trigger | Auth |
-|--------|----------|---------|------|
-| `POST` | `/api/cron/daily-planner` | Vercel Cron 00:00 daily | `Bearer CRON_SECRET` |
+- 🛒 **Trải nghiệm mua sắm mượt mà:** Giao diện tối ưu UI/UX theo tiêu chuẩn Premium (Dark Mode, Vibrant Colors, Micro-animations), phù hợp với định vị thương hiệu bia cao cấp.
+- ⚡ **Hiệu suất cực cao:** Áp dụng Server Components của Next.js 15 giúp tăng tốc độ tải trang, giảm dung lượng JS gửi xuống client.
+- 🔍 **SEO Optimization:** Tối ưu hóa Meta tags, Open Graph (OG), Sitemap, và cấu trúc HTML Semantic để tăng hạng trên các công cụ tìm kiếm.
+- 📱 **Mobile-First Responsive:** Hiển thị hoàn hảo trên mọi kích thước màn hình (Mobile, Tablet, Desktop).
+- 🔐 **Bảo mật dữ liệu:** Áp dụng Row Level Security (RLS) của Supabase để cách ly và bảo vệ thông tin người dùng an toàn.
 
 ---
 
-## 🛠 Getting Started
+## 🚀 Hướng dẫn cài đặt & Chạy Local
 
-### 1. Clone & Install
+### 1. Clone & Cài đặt dependencies
 
 ```bash
-git clone <repo-url>
-cd biathaytu
+git clone https://github.com/zenaistockvn/biathaytu.com-website.git
+cd biathaytu.com-website
 npm install
 ```
 
-### 2. Cấu hình Environment
+### 2. Cấu hình Biến môi trường
 
-Tạo file `.env.local`:
+Tạo file `.env.local` ở thư mục gốc và sao chép các keys từ Supabase project:
 
 ```env
-# Supabase (Bắt buộc)
-NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
-SUPABASE_SERVICE_ROLE_KEY=eyJ...
-
-# AI APIs (Cần để chạy AI Studio)
-ANTHROPIC_API_KEY=sk-ant-...
-GOOGLE_AI_API_KEY=AIza...
-
-# Cron Job Auth
-CRON_SECRET=your-secret-here
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-### 3. Chạy Dev
+### 3. Khởi chạy Development Server
 
 ```bash
 npm run dev
-# → http://localhost:3000
 ```
 
-### 4. Deploy lên Vercel
-
-```bash
-# Vercel sẽ tự detect Next.js
-vercel --prod
-
-# Cấu hình env vars trong Vercel Dashboard
-# Cron job sẽ tự chạy theo vercel.json
-```
+Mở trình duyệt và truy cập `http://localhost:3000` (hoặc cổng được hiển thị trong terminal) để xem ứng dụng.
 
 ---
 
-## 🗺 Roadmap
+## 🚀 Triển khai (Deployment)
 
-- [x] Dashboard + Content Library
-- [x] AI Studio (Claude + Gemini pipeline)
-- [x] Calendar (Post approval workflow)
-- [x] Auto Rules Engine + Cron
-- [ ] Social OAuth (Facebook Graph API, IG, TikTok)
-- [ ] Auto Publishing (đăng bài tự động)
-- [ ] Analytics Dashboard (Engagement metrics)
-- [ ] AI Image Generation (Nano Banana)
-- [ ] MCP Server (expose tools cho AI agents khác)
-- [ ] Multi-tenant onboarding + RBAC
+Dự án được thiết kế để triển khai liền mạch trên **Vercel**:
+1. Push code lên nhánh `main`.
+2. Vercel tự động nhận diện framework Next.js và tiến hành build.
+3. Đảm bảo cung cấp đầy đủ Environment Variables trên Vercel Dashboard trước khi deploy.
 
 ---
 
 ## 📝 License
 
-Private — Internal use only.
+**Private** — Thuộc quyền sở hữu của Bia Thầy Tu. Mọi hành vi sao chép mã nguồn đều không được phép.
