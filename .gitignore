@@ -39,3 +39,6 @@ facebook-algorithm-research.html
 # agent configs
 .agents/
 skills-lock.json
+
+# test profiles
+.edge-test-profile/
