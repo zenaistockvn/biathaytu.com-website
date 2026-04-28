@@ -29,3 +29,13 @@ next-env.d.ts
 .DS_Store
 Thumbs.db
 flowkit-temp/
+
+# temp / research files
+tmp-*.html
+*.research.html
+scraped_images.json
+facebook-algorithm-research.html
+
+# agent configs
+.agents/
+skills-lock.json

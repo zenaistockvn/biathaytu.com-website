@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/stores/useCartStore';
 import { useToastStore } from '@/stores/useToastStore';
+import ZaloCTA from './ZaloCTA';
 
 export interface ProductCardProps {
   id: string;

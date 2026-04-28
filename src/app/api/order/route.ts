@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     const orderNumber = generateOrderNumber();
 
     // 4. INSERT INTO DB FIRST
-    const { data: orderData, error: insertOrderError } = await supabase
+    const { data: orderData, error: insertOrderError } = await (supabase as any)
       .from('orders')
       .insert({
         order_number: orderNumber,
@@ -128,7 +128,7 @@ export async function POST(req: Request) {
       subtotal: item.subtotal
     }));
 
-    const { error: insertItemsError } = await supabase
+    const { error: insertItemsError } = await (supabase as any)
       .from('order_items')
       .insert(itemsToInsert);
 
@@ -236,7 +236,7 @@ export async function POST(req: Request) {
     }
 
     if (emailSent) {
-      await supabase.from('orders').update({ email_sent: true }).eq('id', orderId);
+      await (supabase as any).from('orders').update({ email_sent: true }).eq('id', orderId);
     }
 
     // 6. Return Success with Order Number

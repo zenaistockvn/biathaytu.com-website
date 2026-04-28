@@ -9,7 +9,7 @@ export async function GET(req: Request) {
 
     const supabase = createAdminSupabase();
 
-    let query = supabase
+    let query = (supabase as any)
       .from('orders')
       .select('*, order_items(*)')
       .order('created_at', { ascending: false });
@@ -51,7 +51,7 @@ export async function PATCH(req: Request) {
     if (status !== undefined) updateData.status = status;
     if (admin_note !== undefined) updateData.admin_note = admin_note;
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('orders')
       .update(updateData)
       .eq('id', id)
