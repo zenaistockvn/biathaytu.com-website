@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import '../web.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
@@ -89,7 +90,9 @@ export default function WebLayout({
         <MobileBottomNav />
         <Toast />
         <ScrollRevealObserver />
-        <FacebookPixel />
+        <Suspense fallback={null}>
+          <FacebookPixel />
+        </Suspense>
       </LanguageProvider>
     </div>
   );
