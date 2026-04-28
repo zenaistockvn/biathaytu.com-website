@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nghiên Cứu Thuật Toán Facebook 2025-2026 — Bia Thầy Tu</title>
+  <meta name="description" content="Phân tích chuyên sâu thuật toán Facebook mới nhất. Hướng dẫn viết content viral & tối ưu organic reach cho thương hiệu bia premium.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════
+       DESIGN SYSTEM
+    ═══════════════════════════════════════ */
+    :root {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #111827;
+      --bg-card: #1a1f35;
+      --bg-card-hover: #222845;
+      --bg-accent: rgba(59, 130, 246, 0.08);
+
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --blue: #3b82f6;
+      --blue-light: #60a5fa;
+      --blue-dark: #1d4ed8;
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --green-light: #34d399;
+      --yellow: #f59e0b;
+      --orange: #f97316;
+      --red: #ef4444;
+      --pink: #ec4899;
+      --gold: #d4a853;
+
+      --gradient-blue: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      --gradient-fire: linear-gradient(135deg, #f97316, #ef4444);
+      --gradient-green: linear-gradient(135deg, #10b981, #06b6d4);
+      --gradient-gold: linear-gradient(135deg, #d4a853, #f59e0b);
+      --gradient-dark: linear-gradient(180deg, #0a0e1a 0%, #111827 100%);
+
+      --border: rgba(148, 163, 184, 0.1);
+      --border-hover: rgba(148, 163, 184, 0.2);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+      --shadow-glow-blue: 0 0 40px rgba(59,130,246,0.15);
+      --shadow-glow-purple: 0 0 40px rgba(139,92,246,0.15);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--bg-card) var(--bg-primary);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 4px; }
+
+    ::selection {
+      background: rgba(59, 130, 246, 0.3);
+      color: var(--text-primary);
+    }
+
+    /* ═══════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════ */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ═══════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-blue);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      overflow-x: auto;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--blue-light);
+      margin-bottom: 24px;
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .hero-badge .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════
+       SECTIONS
+    ═══════════════════════════════════════ */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--blue-light);
+      margin-bottom: 12px;
+    }
+
+    .section-label .num {
+      background: var(--gradient-blue);
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 700px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════════════
+       CARDS
+    ═══════════════════════════════════════ */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════
+       COMPARISON TABLE (Before/After)
+    ═══════════════════════════════════════ */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 640px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+
+    .comparison-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .comparison-card.before {
+      border-left: 3px solid var(--red);
+    }
+
+    .comparison-card.after {
+      border-left: 3px solid var(--green);
+    }
+
+    .comparison-card h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comparison-card.before h3 { color: var(--red); }
+    .comparison-card.after h3 { color: var(--green); }
+
+    .comparison-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .comparison-item:last-child { border-bottom: none; }
+
+    .comparison-item .icon {
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       DATA TABLES
+    ═══════════════════════════════════════ */
+    .data-table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .data-table thead th {
+      background: var(--bg-card);
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .data-table tbody td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    .data-table tbody tr {
+      transition: background 0.2s;
+    }
+
+    .data-table tbody tr:hover {
+      background: rgba(59, 130, 246, 0.04);
+    }
+
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .rank-1 { background: rgba(234, 179, 8, 0.15); color: #eab308; }
+    .rank-2 { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
+    .rank-3 { background: rgba(180, 83, 9, 0.15); color: #d97706; }
+    .rank-4 { background: rgba(59, 130, 246, 0.15); color: var(--blue-light); }
+    .rank-5 { background: rgba(139, 92, 246, 0.15); color: var(--purple-light); }
+    .rank-6 { background: rgba(100, 116, 139, 0.15); color: var(--text-muted); }
+    .rank-7 { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+
+    .stars {
+      color: var(--yellow);
+      letter-spacing: 1px;
+    }
+
+    .stars .dim { opacity: 0.2; }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tag-green { background: rgba(16, 185, 129, 0.12); color: var(--green-light); }
+    .tag-red { background: rgba(239, 68, 68, 0.12); color: #f87171; }
+    .tag-blue { background: rgba(59, 130, 246, 0.12); color: var(--blue-light); }
+    .tag-yellow { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+    .tag-purple { background: rgba(139, 92, 246, 0.12); color: var(--purple-light); }
+
+    /* ═══════════════════════════════════════
+       METRIC BARS
+    ═══════════════════════════════════════ */
+    .metric-bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .metric-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .metric-bar-label {
+      min-width: 160px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .metric-bar-track {
+      flex: 1;
+      height: 32px;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      width: 0;
+    }
+
+    .metric-bar-fill.animated { /* JS will set width */ }
+
+    .bar-reels { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+    .bar-video { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+    .bar-carousel { background: linear-gradient(90deg, #10b981, #06b6d4); }
+    .bar-photo { background: linear-gradient(90deg, #f59e0b, #f97316); }
+    .bar-text { background: linear-gradient(90deg, #64748b, #475569); }
+
+    .metric-bar-value {
+      min-width: 80px;
+      text-align: right;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* ═══════════════════════════════════════
+       ALERT BOXES
+    ═══════════════════════════════════════ */
+    .alert {
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      border-left: 4px solid;
+    }
+
+    .alert-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alert-info {
+      background: rgba(59, 130, 246, 0.06);
+      border-color: var(--blue);
+    }
+    .alert-info .alert-title { color: var(--blue-light); }
+
+    .alert-success {
+      background: rgba(16, 185, 129, 0.06);
+      border-color: var(--green);
+    }
+    .alert-success .alert-title { color: var(--green-light); }
+
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.06);
+      border-color: var(--yellow);
+    }
+    .alert-warning .alert-title { color: var(--yellow); }
+
+    .alert-danger {
+      background: rgba(239, 68, 68, 0.06);
+      border-color: var(--red);
+    }
+    .alert-danger .alert-title { color: #f87171; }
+
+    /* ═══════════════════════════════════════
+       FORMULA BOX
+    ═══════════════════════════════════════ */
+    .formula-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .formula-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-blue);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .formula-code {
+      font-family: var(--font-mono);
+      font-size: clamp(0.82rem, 2vw, 1rem);
+      color: var(--blue-light);
+      line-height: 2;
+      font-weight: 500;
+    }
+
+    .formula-code .op { color: var(--purple-light); }
+    .formula-code .var { color: var(--green-light); }
+    .formula-code .dim { color: var(--text-muted); }
+
+    /* ═══════════════════════════════════════
+       LIKE/HATE GRID
+    ═══════════════════════════════════════ */
+    .like-hate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .like-hate-grid { grid-template-columns: 1fr; }
+    }
+
+    .like-hate-card {
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .hate-card {
+      background: rgba(239, 68, 68, 0.03);
+      border-color: rgba(239, 68, 68, 0.15);
+    }
+
+    .love-card {
+      background: rgba(16, 185, 129, 0.03);
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+
+    .like-hate-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hate-card h3 { color: #f87171; }
+    .love-card h3 { color: var(--green-light); }
+
+    .lh-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .lh-item:last-child { border-bottom: none; }
+
+    .lh-item .icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+    .lh-item strong { color: var(--text-primary); }
+
+    .lh-item .boost {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 4px;
+    }
+
+    .boost-up { background: rgba(16,185,129,0.12); color: var(--green-light); }
+    .boost-down { background: rgba(239,68,68,0.12); color: #f87171; }
+
+    /* ═══════════════════════════════════════
+       CONTENT FORMAT CARDS
+    ═══════════════════════════════════════ */
+    .format-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: all 0.3s;
+    }
+
+    .format-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .format-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .format-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .format-header h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .format-header .format-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .format-rules {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .format-rules li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .format-rules li .rule-num {
+      width: 22px;
+      height: 22px;
+      background: rgba(59,130,246,0.1);
+      color: var(--blue-light);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       CAPTION EXAMPLE
+    ═══════════════════════════════════════ */
+    .caption-example {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .caption-example::before {
+      content: '💡 Ví dụ caption';
+      position: absolute;
+      top: -11px;
+      left: 20px;
+      background: var(--bg-secondary);
+      padding: 0 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .caption-line {
+      padding: 4px 0;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .caption-line.hook {
+      color: var(--yellow);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .caption-line.story { color: var(--text-secondary); }
+    .caption-line.cta { color: var(--blue-light); font-weight: 600; }
+    .caption-line.hashtag { color: var(--text-muted); font-size: 0.82rem; }
+
+    .caption-annotation {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-left: 8px;
+    }
+
+    /* ═══════════════════════════════════════
+       SCHEDULE TABLE
+    ═══════════════════════════════════════ */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .schedule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .schedule-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .schedule-emoji { font-size: 2rem; margin-bottom: 8px; }
+
+    .schedule-time {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--blue-light);
+      margin-bottom: 4px;
+    }
+
+    .schedule-type {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .schedule-reason {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════
+       CONTENT MIX DONUT
+    ═══════════════════════════════════════ */
+    .mix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .mix-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .mix-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mix-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .mix-card:nth-child(1)::before { background: var(--gradient-blue); }
+    .mix-card:nth-child(2)::before { background: var(--gradient-green); }
+    .mix-card:nth-child(3)::before { background: var(--gradient-gold); }
+    .mix-card:nth-child(4)::before { background: var(--gradient-fire); }
+
+    .mix-percent {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .mix-card:nth-child(1) .mix-percent { color: var(--blue-light); }
+    .mix-card:nth-child(2) .mix-percent { color: var(--green-light); }
+    .mix-card:nth-child(3) .mix-percent { color: var(--yellow); }
+    .mix-card:nth-child(4) .mix-percent { color: var(--orange); }
+
+    .mix-type { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .mix-desc { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ═══════════════════════════════════════
+       FLOWCHART
+    ═══════════════════════════════════════ */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--purple), var(--green));
+      border-radius: 99px;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 12px 0;
+      position: relative;
+    }
+
+    .flow-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      position: absolute;
+      left: -32px;
+      z-index: 1;
+    }
+
+    .flow-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      flex: 1;
+      transition: all 0.3s;
+    }
+
+    .flow-content:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .flow-content strong {
+      color: var(--text-primary);
+      font-size: 0.92rem;
+    }
+
+    .flow-content p {
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════
+       CHECKLIST
+    ═══════════════════════════════════════ */
+    .checklist {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 8px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .checklist li:hover {
+      border-color: var(--blue);
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .checklist li.checked {
+      border-color: var(--green);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .checklist li .check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--text-muted);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.2s;
+      font-size: 0.7rem;
+    }
+
+    .checklist li.checked .check {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════
+       PRIVATE SHARE SECTION
+    ═══════════════════════════════════════ */
+    .trigger-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .trigger-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .trigger-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: var(--shadow-glow-purple);
+    }
+
+    .trigger-type {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--purple-light);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .trigger-example {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .trigger-reason {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════
+       VIETNAM SECTION
+    ═══════════════════════════════════════ */
+    .region-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .region-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .region-emoji { font-size: 2rem; margin-bottom: 8px; }
+    .region-name { font-weight: 700; margin-bottom: 4px; }
+    .region-tone { font-size: 0.82rem; color: var(--blue-light); margin-bottom: 8px; }
+    .region-direction { font-size: 0.84rem; color: var(--text-secondary); }
+
+    /* ═══════════════════════════════════════
+       GOLDEN RULES (SUMMARY)
+    ═══════════════════════════════════════ */
+    .golden-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      counter-reset: golden;
+    }
+
+    .golden-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      counter-increment: golden;
+      transition: all 0.3s;
+    }
+
+    .golden-rule:hover {
+      border-color: rgba(212, 168, 83, 0.3);
+      background: rgba(212, 168, 83, 0.04);
+      transform: translateX(4px);
+    }
+
+    .golden-num {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-gold);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #0a0e1a;
+      flex-shrink: 0;
+    }
+
+    .golden-text strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .golden-text span {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .golden-impact {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--green-light);
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-sources {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .section { padding: 60px 0; }
+      .hero { padding: 120px 0 60px; }
+      .hero-stats { gap: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .metric-bar-label { min-width: 100px; font-size: 0.78rem; }
+      .checklist { grid-template-columns: 1fr; }
+      .golden-impact { display: none; }
+      .mix-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-blue);
+      border: none;
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.3s;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow-blue);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">📊</div>
+        FB Algorithm Research
+      </a>
+      <ul class="nav-links">
+        <li><a href="#discovery">Discovery Engine</a></li>
+        <li><a href="#signals">Signals</a></li>
+        <li><a href="#formats">Formats</a></li>
+        <li><a href="#love-hate">Yêu & Ghét</a></li>
+        <li><a href="#content-guide">Content Guide</a></li>
+        <li><a href="#schedule">Lịch Đăng</a></li>
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#golden">5 Nguyên Tắc Vàng</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="pulse"></span>
+        Cập nhật Tháng 4/2026
+      </div>
+      <h1>
+        Nghiên Cứu <span class="gradient-text">Thuật Toán Facebook</span><br>
+        2025 — 2026
+      </h1>
+      <p class="hero-subtitle">
+        Phân tích chuyên sâu cơ chế ranking mới, hướng dẫn viết content viral
+        & tối ưu organic reach cho thương hiệu bia premium Bia Thầy Tu.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">50%</div>
+          <div class="hero-stat-label">Feed từ non-followers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">100+</div>
+          <div class="hero-stat-label">AI Models ranking</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">4-6×</div>
+          <div class="hero-stat-label">Reels vs Photo reach</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">12</div>
+          <div class="hero-stat-label">Nguồn nghiên cứu</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ SECTION 1: DISCOVERY ENGINE ═══ -->
+  <section class="section" id="discovery">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">1</span> Bức Tranh Lớn</div>
+        <h2 class="section-title">Facebook Đã Thay Đổi Gốc Rễ</h2>
+        <p class="section-desc">
+          Từ "Mạng xã hội" sang <strong>"Discovery Engine"</strong> — Facebook giờ hoạt động
+          giống TikTok. Content tốt sẽ reach hàng chục nghìn người chưa từng biết brand.
+        </p>
+      </div>
+
+      <div class="comparison-grid animate-on-scroll">
+        <div class="comparison-card before">
+          <h3>❌ Trước (2020-2023)</h3>
+          <div class="comparison-item">
+            <span class="icon">📌</span>
+            <span>Hiển thị chủ yếu từ bạn bè & page đã follow</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">🔗</span>
+            <span>Dựa vào mạng lưới kết nối</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">📉</span>
+            <span>Organic reach giảm dần theo thời gian</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">📝</span>
+            <span>Ưu tiên text + ảnh tĩnh</span>
+          </div>
+        </div>
+        <div class="comparison-card after">
+          <h3>✅ Hiện tại (2025-2026)</h3>
+          <div class="comparison-item">
+            <span class="icon">🌐</span>
+            <span><strong>~50% feed</strong> là content từ page CHƯA follow</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">🤖</span>
+            <span>Dựa vào <strong>AI Recommendation</strong> theo sở thích</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">📈</span>
+            <span>Organic reach <strong>tăng lại</strong> nếu content đúng chuẩn</span>
+          </div>
+          <div class="comparison-item">
+            <span class="icon">🎬</span>
+            <span>Ưu tiên <strong>video ngắn (Reels)</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box animate-on-scroll">
+        <div class="formula-label">Công Thức Ranking Mới</div>
+        <div class="formula-code">
+          <span class="var">Content Score</span> <span class="op">=</span>
+          <span class="dim">(</span><span class="var">Engagement Quality</span>
+          <span class="op">×</span> <span class="var">Watch Time</span>
+          <span class="op">×</span> <span class="var">Format Bonus</span><span class="dim">)</span><br>
+          <span class="op">÷</span> <span class="var">Total Competing Content</span>
+          <span class="op">×</span> <span class="var">AI Relevance Score</span>
+          <span class="dim">(personalized per user)</span>
+        </div>
+      </div>
+
+      <div class="alert alert-info animate-on-scroll">
+        <div class="alert-title">💡 Cơ hội cho Bia Thầy Tu</div>
+        Facebook sử dụng <strong>100+ mô hình AI</strong> để dự đoán ai sẽ tương tác với bài. Điều này nghĩa là content chất lượng cao
+        về bia Đức premium có thể tiếp cận đúng đối tượng yêu thích F&B, craft beer, lifestyle cao cấp — mà <strong>không cần chạy ads</strong>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2: ENGAGEMENT SIGNALS ═══ -->
+  <section class="section" id="signals">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">2</span> Engagement Signals</div>
+        <h2 class="section-title">Bảng Xếp Hạng Tín Hiệu Engagement</h2>
+        <p class="section-desc">
+          Không phải mọi tương tác đều có giá trị ngang nhau. Facebook phân biệt rõ
+          giữa tương tác "thụ động" và "có ý nghĩa". Đây là bảng trọng số mới nhất.
+        </p>
+      </div>
+
+      <div class="data-table-wrapper animate-on-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Signal</th>
+              <th>Trọng Số</th>
+              <th>Chi tiết</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rank-badge rank-1">1</span></td>
+              <td><strong>🔒 Private Share (DM/Messenger)</strong></td>
+              <td><span class="stars">★★★★★<span class="dim">+</span></span></td>
+              <td>Chia sẻ riêng qua Messenger = "lời giới thiệu cá nhân". Tín hiệu mạnh nhất 2025.</td>
+              <td><span class="tag tag-green">MỚI 2025</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-2">2</span></td>
+              <td><strong>💬 Comment dài + Reply qua lại</strong></td>
+              <td><span class="stars">★★★★★</span></td>
+              <td>Conversation 2 chiều giữa users với nhau. Reply comment = x2 boost.</td>
+              <td><span class="tag tag-blue">Core Signal</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-3">3</span></td>
+              <td><strong>🔄 Share + viết caption</strong></td>
+              <td><span class="stars">★★★★<span class="dim">☆</span></span></td>
+              <td>Share kèm nhận xét cá nhân > share trắng không caption.</td>
+              <td><span class="tag tag-blue">Core Signal</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-4">4</span></td>
+              <td><strong>📌 Save</strong></td>
+              <td><span class="stars">★★★★<span class="dim">☆</span></span></td>
+              <td>"Nội dung đáng quay lại xem" — metric FB đẩy mạnh 2025.</td>
+              <td><span class="tag tag-yellow">Trending Up ↑</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-5">5</span></td>
+              <td><strong>⏱️ Watch Time / Dwell Time</strong></td>
+              <td><span class="stars">★★★★<span class="dim">☆</span></span></td>
+              <td>Xem video > 60% hoặc dừng lại đọc bài > 10 giây.</td>
+              <td><span class="tag tag-blue">Core Signal</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-6">6</span></td>
+              <td><strong>❤️ React (Like/Love/Haha)</strong></td>
+              <td><span class="stars">★★<span class="dim">☆☆☆</span></span></td>
+              <td>Tương tác "thụ động" — ít giá trị nhất trong các signal.</td>
+              <td><span class="tag tag-purple">Low Weight</span></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rank-7">7</span></td>
+              <td><strong>🔗 Click link ngoài</strong></td>
+              <td><span class="stars">★<span class="dim">☆☆☆☆</span></span></td>
+              <td>GIẢM reach 30-50%. FB ghét mất user ra ngoài platform.</td>
+              <td><span class="tag tag-red">Negative Signal</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-danger animate-on-scroll">
+        <div class="alert-title">⚠️ Game-Changer: Private Share</div>
+        <strong>Private Share</strong> là metric ẩn mà rất ít page biết khai thác. Content khiến người ta muốn
+        <strong>gửi riêng cho bạn bè</strong> qua Messenger sẽ được AI đẩy mạnh nhất.
+        Hãy tạo content dạng: relatable, bất ngờ, hữu ích — khiến người xem nghĩ <em>"phải share cho thằng bạn xem!"</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 3: FORMAT COMPARISON ═══ -->
+  <section class="section" id="formats">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">3</span> Format Performance</div>
+        <h2 class="section-title">So Sánh Hiệu Suất Các Format</h2>
+        <p class="section-desc">
+          Reels vượt trội về reach, nhưng mỗi format có thế mạnh riêng.
+          Chiến lược tốt nhất là kết hợp đúng format cho đúng mục tiêu.
+        </p>
+      </div>
+
+      <div class="metric-bar-group animate-on-scroll">
+        <div class="metric-bar-item">
+          <div class="metric-bar-label">🎬 Facebook Reels</div>
+          <div class="metric-bar-track">
+            <div class="metric-bar-fill bar-reels" data-width="90%">12-18%</div>
+          </div>
+          <div class="metric-bar-value">+400-600%</div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-label">📹 Native Video</div>
+          <div class="metric-bar-track">
+            <div class="metric-bar-fill bar-video" data-width="55%">6-10%</div>
+          </div>
+          <div class="metric-bar-value">+200%</div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-label">📸 Photo Carousel</div>
+          <div class="metric-bar-track">
+            <div class="metric-bar-fill bar-carousel" data-width="35%">4-6%</div>
+          </div>
+          <div class="metric-bar-value">+100%</div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-label">🖼️ Single Photo</div>
+          <div class="metric-bar-track">
+            <div class="metric-bar-fill bar-photo" data-width="28%">3-5%</div>
+          </div>
+          <div class="metric-bar-value">+50%</div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-label">📝 Text / Link Post</div>
+          <div class="metric-bar-track">
+            <div class="metric-bar-fill bar-text" data-width="18%">2-4%</div>
+          </div>
+          <div class="metric-bar-value">Baseline</div>
+        </div>
+      </div>
+
+      <div class="alert alert-success animate-on-scroll">
+        <div class="alert-title">💡 Chiến lược kết hợp</div>
+        Dùng <strong>Reel làm hook</strong> thu hút người mới → <strong>Carousel cung cấp giá trị sâu</strong> (save-worthy)
+        → <strong>Caption kích comment</strong> → Tạo vòng lặp tăng trưởng liên tục.
+      </div>
+
+      <h3 style="font-size:1.05rem; margin-bottom:16px; color:var(--text-primary)" class="animate-on-scroll">Ma Trận: Format × Mục Tiêu</h3>
+
+      <div class="data-table-wrapper animate-on-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Mục tiêu</th>
+              <th>Format tốt nhất</th>
+              <th>Lý do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🌐 Reach mới (Discovery)</strong></td>
+              <td><span class="tag tag-blue">Reels</span></td>
+              <td>AI đẩy mạnh nhất cho non-followers</td>
+            </tr>
+            <tr>
+              <td><strong>📌 Save + Share</strong></td>
+              <td><span class="tag tag-green">Carousel / Infographic</span></td>
+              <td>Nội dung giá trị, người ta muốn lưu lại</td>
+            </tr>
+            <tr>
+              <td><strong>💬 Comment / Conversation</strong></td>
+              <td><span class="tag tag-yellow">Photo + câu hỏi mở</span></td>
+              <td>Kích hoạt thảo luận tự nhiên</td>
+            </tr>
+            <tr>
+              <td><strong>🔒 Private Share (DM)</strong></td>
+              <td><span class="tag tag-purple">Reels hài hước / relatable</span></td>
+              <td>Content "phải share cho bạn xem"</td>
+            </tr>
+            <tr>
+              <td><strong>🏆 Brand Authority</strong></td>
+              <td><span class="tag tag-blue">Native Video dài + Carousel</span></td>
+              <td>Chuyên sâu, chất lượng cao</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 4: LOVE & HATE ═══ -->
+  <section class="section" id="love-hate">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">4</span> Algorithm Preferences</div>
+        <h2 class="section-title">Facebook GHÉT Gì & YÊU Gì</h2>
+        <p class="section-desc">
+          Biết thuật toán thích gì sẽ giúp content tự nhiên được đẩy xa hơn.
+          Tránh những "lỗi chết người" khiến reach rơi tự do.
+        </p>
+      </div>
+
+      <div class="like-hate-grid animate-on-scroll">
+        <div class="like-hate-card hate-card">
+          <h3>❌ Facebook GHÉT</h3>
+          <div class="lh-item">
+            <span class="icon">🔗</span>
+            <span><strong>Link ra ngoài trong caption</strong> — Đặt link ở comment đầu tiên thay vì caption. <span class="boost boost-down">-30-50%</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">🎣</span>
+            <span><strong>Engagement bait</strong> — "Like nếu đồng ý" bị AI nhận diện → downrank <span class="boost boost-down">Downrank</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">📋</span>
+            <span><strong>Post quá dày (&gt;3/ngày)</strong> — Dilute engagement, chia sẻ reach giữa các bài</span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">🔄</span>
+            <span><strong>Repost TikTok có watermark</strong> — FB phạt nặng content không native</span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">🤖</span>
+            <span><strong>Content AI quá máy móc</strong> — Generic, không cảm xúc → engagement thấp</span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">📰</span>
+            <span><strong>Clickbait / Misleading</strong> — AI phát hiện → hạn chế phân phối</span>
+          </div>
+        </div>
+        <div class="like-hate-card love-card">
+          <h3>✅ Facebook YÊU</h3>
+          <div class="lh-item">
+            <span class="icon">🎬</span>
+            <span><strong>Reels native upload</strong> — Video dọc, không watermark, upload trực tiếp <span class="boost boost-up">+300-600%</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">💬</span>
+            <span><strong>Admin reply nhanh (&lt;30 phút)</strong> — Trả lời TẤT CẢ, kéo conversation dài <span class="boost boost-up">+100-200%</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">📌</span>
+            <span><strong>Content được Save nhiều</strong> — Infographic, guide, pairing chart <span class="boost boost-up">+50-100%</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">🔒</span>
+            <span><strong>Content được share qua Messenger</strong> — Tín hiệu mạnh nhất 2025 <span class="boost boost-up">+200-400%</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">📅</span>
+            <span><strong>Post đều đặn mỗi ngày</strong> — Tích lũy algorithm trust <span class="boost boost-up">Tích lũy</span></span>
+          </div>
+          <div class="lh-item">
+            <span class="icon">🎯</span>
+            <span><strong>High completion rate video</strong> — Video ngắn 15-30s, hook 3 giây đầu <span class="boost boost-up">+100-200%</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 5: CONTENT GUIDE ═══ -->
+  <section class="section" id="content-guide">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">5</span> Content Guide</div>
+        <h2 class="section-title">Hướng Dẫn Viết Content Viral</h2>
+        <p class="section-desc">
+          Hướng dẫn chi tiết từng format content, kèm ví dụ cụ thể áp dụng cho Bia Thầy Tu.
+        </p>
+      </div>
+
+      <!-- FORMAT 1: REELS -->
+      <div class="format-card animate-on-scroll">
+        <div class="format-header">
+          <div class="format-icon" style="background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15))">🎬</div>
+          <div>
+            <h3>Format #1: REELS <span class="tag tag-green" style="margin-left:8px">Ưu tiên cao nhất</span></h3>
+            <div class="format-tag">Reach gấp 4-6x ảnh tĩnh • Format duy nhất được AI đẩy cho người chưa follow</div>
+          </div>
+        </div>
+
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Kiểu Reel</th>
+                <th>Thời lượng</th>
+                <th>Ví dụ Bia Thầy Tu</th>
+                <th>Mục tiêu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🎧 ASMR Rót bia</strong></td>
+                <td>15-30s</td>
+                <td>Close-up rót Weissbier, bọt dâng chậm, âm thanh sủi tăm</td>
+                <td><span class="tag tag-green">Views + Save</span></td>
+              </tr>
+              <tr>
+                <td><strong>👁️ POV khoảnh khắc</strong></td>
+                <td>15-20s</td>
+                <td>"POV: Bạn mở thùng bia Đức đầu tiên"</td>
+                <td><span class="tag tag-purple">Viral</span></td>
+              </tr>
+              <tr>
+                <td><strong>🧠 Fact bất ngờ</strong></td>
+                <td>20-30s</td>
+                <td>"Loại bia này 400 năm tuổi, chỉ 4 nguyên liệu" + visual</td>
+                <td><span class="tag tag-blue">Curiosity + Share</span></td>
+              </tr>
+              <tr>
+                <td><strong>😮 Tasting reaction</strong></td>
+                <td>20-30s</td>
+                <td>Khách thử bia lần đầu, biểu cảm thật</td>
+                <td><span class="tag tag-yellow">Social Proof</span></td>
+              </tr>
+              <tr>
+                <td><strong>⚔️ So sánh</strong></td>
+                <td>30-45s</td>
+                <td>"Bia Đức vs Bia công nghiệp — khác gì?"</td>
+                <td><span class="tag tag-blue">Education + Comment</span></td>
+              </tr>
+              <tr>
+                <td><strong>🔥 Hot take</strong></td>
+                <td>15-25s</td>
+                <td>"5 triệu/thùng bia mà vẫn rẻ. Đây là lý do."</td>
+                <td><span class="tag tag-purple">Debate + Comment</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="format-rules">
+          <li><span class="rule-num">1</span> <strong>3 giây đầu = hook quyết định</strong> — nếu không giữ chân được → AI ngừng đẩy</li>
+          <li><span class="rule-num">2</span> <strong>Completion rate > 60%</strong> = tín hiệu mạnh nhất → giữ video NGẮN (15-30s)</li>
+          <li><span class="rule-num">3</span> <strong>Thêm caption/subtitle</strong> — 85% user xem không bật âm thanh</li>
+          <li><span class="rule-num">4</span> <strong>Upload native</strong> — KHÔNG repost từ TikTok có watermark</li>
+          <li><span class="rule-num">5</span> <strong>Vertical 9:16</strong> — full screen mobile, tối đa tác động thị giác</li>
+        </ul>
+      </div>
+
+      <!-- FORMAT 2: CAROUSEL -->
+      <div class="format-card animate-on-scroll">
+        <div class="format-header">
+          <div class="format-icon" style="background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15))">📸</div>
+          <div>
+            <h3>Format #2: CAROUSEL / INFOGRAPHIC <span class="tag tag-yellow" style="margin-left:8px">Save cao nhất</span></h3>
+            <div class="format-tag">Yêu cầu swipe → tăng dwell time → algorithm reward</div>
+          </div>
+        </div>
+
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Kiểu Carousel</th>
+                <th>Slides</th>
+                <th>Ví dụ</th>
+                <th>Mục tiêu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>📖 Guide</strong></td>
+                <td>5-7</td>
+                <td>"Cách rót 5 loại bia Đức khác nhau — chuẩn Bavaria"</td>
+                <td><span class="tag tag-green">Save + Share</span></td>
+              </tr>
+              <tr>
+                <td><strong>⚔️ So sánh</strong></td>
+                <td>4-6</td>
+                <td>"Pilsner vs Weissbier vs Dunkel — chọn theo mood"</td>
+                <td><span class="tag tag-blue">Share + Comment</span></td>
+              </tr>
+              <tr>
+                <td><strong>🍽️ Bảng pairing</strong></td>
+                <td>5-8</td>
+                <td>"Bia nào × món nào? Menu chuẩn cho 6 dịp"</td>
+                <td><span class="tag tag-green">Save (rất cao)</span></td>
+              </tr>
+              <tr>
+                <td><strong>🏭 Behind the scenes</strong></td>
+                <td>4-5</td>
+                <td>"Hành trình 1 chai bia Đức đến Việt Nam"</td>
+                <td><span class="tag tag-yellow">Brand Story</span></td>
+              </tr>
+              <tr>
+                <td><strong>🔍 Giải mã</strong></td>
+                <td>5-7</td>
+                <td>"Đọc nhãn bia Đức — hiểu ngay trong 60 giây"</td>
+                <td><span class="tag tag-green">Education + Save</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="format-rules">
+          <li><span class="rule-num">1</span> Slide 1 = <strong>hook visual mạnh</strong> + tiêu đề gây tò mò</li>
+          <li><span class="rule-num">2</span> Mỗi slide = <strong>1 ý duy nhất</strong>, typography rõ ràng</li>
+          <li><span class="rule-num">3</span> Slide cuối = <strong>CTA</strong> ("Save để dùng sau" / "Share cho bạn bè sành bia")</li>
+          <li><span class="rule-num">4</span> Design nhất quán: <strong>Navy + Gold + Premium feel</strong></li>
+        </ul>
+      </div>
+
+      <!-- FORMAT 3: PHOTO + CAPTION -->
+      <div class="format-card animate-on-scroll">
+        <div class="format-header">
+          <div class="format-icon" style="background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(249,115,22,0.15))">🖼️</div>
+          <div>
+            <h3>Format #3: PHOTO + CAPTION DÀI <span class="tag tag-blue" style="margin-left:8px">Comment cao nhất</span></h3>
+            <div class="format-tag">Ảnh đẹp + caption có câu chuyện = kích hoạt thảo luận tự nhiên</div>
+          </div>
+        </div>
+
+        <div class="caption-example">
+          <div class="caption-line hook">"5 triệu/thùng bia — nghe thì đắt. Nhưng…" <span class="caption-annotation">← Hook gây tò mò</span></div>
+          <br>
+          <div class="caption-line story">Mỗi chai bia trong thùng đó đi 9,000km từ Bavaria.</div>
+          <div class="caption-line story">Nấu bằng công thức 400 năm. 4 nguyên liệu.</div>
+          <div class="caption-line story">Không chất bảo quản. Không phụ gia. <span class="caption-annotation">← Storytelling</span></div>
+          <br>
+          <div class="caption-line story">So với chai bia công nghiệp 15k — cái nào thực sự "đắt"?</div>
+          <br>
+          <div class="caption-line cta">📌 Bạn team bia nào? Comment cho mình biết 👇 <span class="caption-annotation">← CTA câu hỏi mở</span></div>
+          <br>
+          <div class="caption-line hashtag">#BiaThayTu #BiaĐức #PremiumBeer #CraftBeer</div>
+        </div>
+
+        <ul class="format-rules">
+          <li><span class="rule-num">1</span> <strong>Hook 1 câu đầu</strong> — Gây tò mò, shock, hoặc relatable</li>
+          <li><span class="rule-num">2</span> <strong>Story 3-5 câu</strong> — Kể chuyện, chia sẻ insight</li>
+          <li><span class="rule-num">3</span> <strong>Value 1-2 câu</strong> — Kiến thức hoặc quan điểm</li>
+          <li><span class="rule-num">4</span> <strong>CTA câu hỏi MỞ</strong> — Kích thảo luận tự nhiên, không bait</li>
+        </ul>
+      </div>
+
+      <!-- PRIVATE SHARE STRATEGY -->
+      <div class="animate-on-scroll" style="margin-top: 40px">
+        <h3 style="font-size: 1.15rem; margin-bottom: 8px">🔒 Chiến Lược "Private Share" — Metric Ẩn Mạnh Nhất</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">
+          Content được share qua Messenger = tín hiệu mạnh nhất 2025. Đây là các trigger khiến người xem muốn gửi riêng cho bạn bè:
+        </p>
+      </div>
+
+      <div class="trigger-grid animate-on-scroll">
+        <div class="trigger-card">
+          <div class="trigger-type">😂 Relatable</div>
+          <div class="trigger-example">"POV: Bạn bè hỏi uống gì, bạn luôn là người chọn bia"</div>
+          <div class="trigger-reason">→ "Ê, giống mày quá!"</div>
+        </div>
+        <div class="trigger-card">
+          <div class="trigger-type">📌 Useful</div>
+          <div class="trigger-example">Infographic "Chọn bia theo mood"</div>
+          <div class="trigger-reason">→ "Lưu này để lần sau đi nhậu"</div>
+        </div>
+        <div class="trigger-card">
+          <div class="trigger-type">🤯 Surprise</div>
+          <div class="trigger-example">"Loại bia này nguyên liệu có... chuối?"</div>
+          <div class="trigger-reason">→ "Mày tin không?"</div>
+        </div>
+        <div class="trigger-card">
+          <div class="trigger-type">🎁 Gift idea</div>
+          <div class="trigger-example">"Set quà 1 triệu cho sếp biết uống"</div>
+          <div class="trigger-reason">→ "Gift guide cho tao"</div>
+        </div>
+        <div class="trigger-card">
+          <div class="trigger-type">🤔 Debate</div>
+          <div class="trigger-example">"Bia Đức đắt hơn, nhưng 1 chai = 3 chai bia thường"</div>
+          <div class="trigger-reason">→ "Mày nghĩ sao?"</div>
+        </div>
+        <div class="trigger-card">
+          <div class="trigger-type">🎯 FOMO</div>
+          <div class="trigger-example">"Chỉ 50 set Tết — hết là hết"</div>
+          <div class="trigger-reason">→ "Ê đặt cho tao 1 set"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 6: SCHEDULE ═══ -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">6</span> Lịch Đăng</div>
+        <h2 class="section-title">Khung Giờ Vàng & Content Mix</h2>
+        <p class="section-desc">
+          Đăng đúng giờ = reach tối đa. Kết hợp với tỷ lệ content mix 40/30/20/10 để tối ưu engagement dài hạn.
+        </p>
+      </div>
+
+      <div class="schedule-grid animate-on-scroll">
+        <div class="schedule-card">
+          <div class="schedule-emoji">🌅</div>
+          <div class="schedule-time">7:30 – 9:00</div>
+          <div class="schedule-type">Education, tips, fact</div>
+          <div class="schedule-reason">Lướt FB trước khi làm việc</div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-emoji">🍽️</div>
+          <div class="schedule-time">11:30 – 13:00</div>
+          <div class="schedule-type">Pairing, food, ảnh đẹp</div>
+          <div class="schedule-reason">Giờ nghỉ trưa, đói bụng</div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-emoji">🌆</div>
+          <div class="schedule-time">17:00 – 18:30</div>
+          <div class="schedule-type">Lifestyle, after-work vibe</div>
+          <div class="schedule-reason">Tan làm, thư giãn</div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-emoji">🌙</div>
+          <div class="schedule-time">20:00 – 21:30</div>
+          <div class="schedule-type">Storytelling, social proof</div>
+          <div class="schedule-reason">Prime time engagement</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 1.05rem; margin-bottom: 16px" class="animate-on-scroll">Tỷ Lệ Content Mix — 40/30/20/10</h3>
+
+      <div class="mix-grid animate-on-scroll">
+        <div class="mix-card">
+          <div class="mix-percent">40%</div>
+          <div class="mix-type">🎓 Education / Value</div>
+          <div class="mix-desc">Guide, tasting note, so sánh, pairing → Save + Share</div>
+        </div>
+        <div class="mix-card">
+          <div class="mix-percent">30%</div>
+          <div class="mix-type">🌅 Lifestyle / Story</div>
+          <div class="mix-desc">Khoảnh khắc, behind scenes, mood → React + Comment</div>
+        </div>
+        <div class="mix-card">
+          <div class="mix-percent">20%</div>
+          <div class="mix-type">🤝 Social Proof</div>
+          <div class="mix-desc">Review khách, unboxing, testimonial → Trust + Follow</div>
+        </div>
+        <div class="mix-card">
+          <div class="mix-percent">10%</div>
+          <div class="mix-type">🎁 Soft Offer</div>
+          <div class="mix-desc">Set quà, combo, khuyến mãi → Inbox + Sale</div>
+        </div>
+      </div>
+
+      <div class="alert alert-warning animate-on-scroll" style="margin-top: 24px">
+        <div class="alert-title">⚠️ Quy tắc 10%</div>
+        <strong>KHÔNG bán hàng quá 10%.</strong> Bán nhiều → unfollow → reach giảm → vòng xoáy đi xuống.
+        Hãy bán bằng giá trị, không bán bằng quảng cáo.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 7: WORKFLOW ═══ -->
+  <section class="section" id="workflow">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">7</span> Workflow</div>
+        <h2 class="section-title">Quy Trình Tối Ưu 1 Bài Post</h2>
+        <p class="section-desc">
+          Theo đúng quy trình này cho mỗi bài đăng để tối đa hóa organic reach.
+        </p>
+      </div>
+
+      <div class="flow-steps animate-on-scroll">
+        <div class="flow-step">
+          <div class="flow-dot">✍️</div>
+          <div class="flow-content">
+            <strong>Viết content & chọn format</strong>
+            <p>Reels cho reach mới • Carousel cho save • Photo + caption cho comment</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">🎯</div>
+          <div class="flow-content">
+            <strong>Hook 3 giây đầu phải mạnh</strong>
+            <p>Contrarian, fact bất ngờ, khoảnh khắc, hoặc câu hỏi provoke</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">🚫</div>
+          <div class="flow-content">
+            <strong>KHÔNG đặt link ngoài trong caption</strong>
+            <p>Link (nếu có) đặt ở comment đầu tiên. Caption giữ sạch.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">❓</div>
+          <div class="flow-content">
+            <strong>Kết thúc bằng câu hỏi MỞ</strong>
+            <p>"Bạn team nào?" / "Bạn chọn gì?" / "Mình nên review loại nào tiếp?"</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">📤</div>
+          <div class="flow-content">
+            <strong>Đăng vào khung giờ vàng</strong>
+            <p>7:30 • 11:30 • 17:00 • 20:00 — chọn slot phù hợp nội dung</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">⏰</div>
+          <div class="flow-content">
+            <strong>30 phút đầu: Reply TẤT CẢ comment</strong>
+            <p>Reply có giá trị, không "cảm ơn". Kéo conversation dài, hỏi tiếp.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">📊</div>
+          <div class="flow-content">
+            <strong>24h sau: Check metrics & quyết định boost</strong>
+            <p>Engagement rate > 5% + >10 comment tự nhiên → Boost 50-200k, 3-5 ngày</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 8: CHECKLIST ═══ -->
+  <section class="section" id="checklist">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">8</span> Checklist</div>
+        <h2 class="section-title">Checklist Trước Khi Đăng</h2>
+        <p class="section-desc">
+          Chạy qua checklist này cho MỖI bài đăng. Click vào từng item để đánh dấu hoàn thành.
+        </p>
+      </div>
+
+      <ul class="checklist animate-on-scroll" id="checklist-list">
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Hook 3 giây</strong> — Câu đầu / frame đầu có gây tò mò không?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Không link ngoài</strong> — Link đặt ở comment đầu tiên?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Không engagement bait</strong> — Không "Like nếu đồng ý"?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Câu hỏi mở</strong> — Caption kết thúc bằng câu hỏi kích thảo luận?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Reels: Upload native</strong> — Không watermark TikTok?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Reels: Có subtitle</strong> — 85% user xem không âm thanh?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Carousel: Slide 1 hook</strong> — Slide đầu có muốn swipe tiếp?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Đúng khung giờ</strong> — 7:30 / 11:30 / 17:00 / 20:00?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Plan reply</strong> — Sẵn sàng reply tất cả comment trong 30 phút?</span>
+        </li>
+        <li onclick="this.classList.toggle('checked')">
+          <span class="check">✓</span>
+          <span><strong>Humanized</strong> — Content đọc tự nhiên, không máy móc?</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 9: VIETNAM ═══ -->
+  <section class="section" id="vietnam">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">9</span> Đặc Thù Việt Nam</div>
+        <h2 class="section-title">Văn Hóa Vùng Miền & Pháp Luật</h2>
+        <p class="section-desc">
+          Content cần được điều chỉnh theo đặc thù từng vùng và tuân thủ quy định pháp luật Việt Nam về quảng cáo bia rượu.
+        </p>
+      </div>
+
+      <div class="region-cards animate-on-scroll">
+        <div class="region-card">
+          <div class="region-emoji">🏛️</div>
+          <div class="region-name">Miền Bắc (Hà Nội)</div>
+          <div class="region-tone">Lịch sự, truyền thống, gia đình</div>
+          <div class="region-direction">Heritage, nghệ thuật thưởng bia, quà biếu sếp/đối tác</div>
+        </div>
+        <div class="region-card">
+          <div class="region-emoji">🌆</div>
+          <div class="region-name">Miền Nam (HCM)</div>
+          <div class="region-tone">Năng động, casual, trendy</div>
+          <div class="region-direction">After-work vibes, party, food pairing, lifestyle</div>
+        </div>
+        <div class="region-card">
+          <div class="region-emoji">🏖️</div>
+          <div class="region-name">Miền Trung (Đà Nẵng)</div>
+          <div class="region-tone">Cân bằng, chân thật</div>
+          <div class="region-direction">Lifestyle, du lịch × bia, khoảnh khắc thư giãn</div>
+        </div>
+      </div>
+
+      <div class="alert alert-danger animate-on-scroll" style="margin-top: 24px">
+        <div class="alert-title">⚖️ Quy Định Pháp Luật</div>
+        Luật VN cấm quảng cáo rượu bia trên PTTT đại chúng (đồ uống >15% cồn). Bia thường <10% nên ít bị ảnh hưởng, nhưng vẫn cần:
+        <strong>Age-gating trên page</strong> • <strong>Không khuyến khích uống quá mức</strong> •
+        <strong>Không nhắm đến người dưới 18</strong> • <strong>Focus trải nghiệm văn hóa, không phải hành vi uống</strong>
+      </div>
+
+      <div class="alert alert-info animate-on-scroll">
+        <div class="alert-title">👥 Social Proof = Vũ Khí Mạnh Nhất Tại VN</div>
+        Người Việt tin vào <strong>đánh giá từ người thật</strong> hơn quảng cáo:
+        UGC từ khách hàng thật • Reaction video khi thử bia lần đầu •
+        Testimonial từ người có uy tín (không nhất thiết KOL lớn)
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 10: GOLDEN RULES ═══ -->
+  <section class="section" id="golden" style="padding-bottom: 60px">
+    <div class="container">
+      <div class="animate-on-scroll">
+        <div class="section-label"><span class="num">★</span> Tổng Kết</div>
+        <h2 class="section-title">5 Nguyên Tắc Vàng</h2>
+        <p class="section-desc">
+          Tóm gọn toàn bộ nghiên cứu thành 5 nguyên tắc hành động. Áp dụng đúng = organic reach tăng x5-x10.
+        </p>
+      </div>
+
+      <div class="golden-rules animate-on-scroll">
+        <div class="golden-rule">
+          <div class="golden-num">1</div>
+          <div class="golden-text">
+            <strong>Reels First — Mọi chiến lược bắt đầu từ Reels</strong>
+            <span>Format duy nhất được AI đẩy cho non-followers. Ưu tiên 3-4 Reels/tuần cho Hub.</span>
+          </div>
+          <div class="golden-impact">+400-600%</div>
+        </div>
+        <div class="golden-rule">
+          <div class="golden-num">2</div>
+          <div class="golden-text">
+            <strong>Tạo content đáng "share riêng"</strong>
+            <span>Relatable, useful, surprising — khiến người xem muốn gửi riêng qua Messenger.</span>
+          </div>
+          <div class="golden-impact">+200-400%</div>
+        </div>
+        <div class="golden-rule">
+          <div class="golden-num">3</div>
+          <div class="golden-text">
+            <strong>Reply TẤT CẢ comment trong 30 phút đầu</strong>
+            <span>30 phút đầu sau post = thời điểm quyết định. Reply có giá trị, kéo conversation dài.</span>
+          </div>
+          <div class="golden-impact">+100-200%</div>
+        </div>
+        <div class="golden-rule">
+          <div class="golden-num">4</div>
+          <div class="golden-text">
+            <strong>KHÔNG link ngoài trong caption</strong>
+            <span>Luôn đặt link ở comment đầu tiên. Caption giữ sạch, tập trung vào story & CTA.</span>
+          </div>
+          <div class="golden-impact">Tránh -50%</div>
+        </div>
+        <div class="golden-rule">
+          <div class="golden-num">5</div>
+          <div class="golden-text">
+            <strong>Đều đặn > Hoàn hảo</strong>
+            <span>Post hàng ngày đúng khung giờ. Consistency tích lũy algorithm trust theo thời gian.</span>
+          </div>
+          <div class="golden-impact">Tích lũy ↑</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        📊 Nghiên cứu thuật toán Facebook 2025-2026<br>
+        Tổng hợp cho <strong>Bia Thầy Tu</strong> — Tháng 4/2026
+      </p>
+      <p class="footer-sources">
+        Nguồn: Hootsuite • Buffer • Social Media Examiner • Brandwatch • Sprout Social •
+        KlientBoost • Sprinklr • HasMeta • Storyamplify • Agency Aurora
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══ BACK TO TOP ═══ -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Animate metric bars
+          const bars = entry.target.querySelectorAll('.metric-bar-fill');
+          bars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            if (width) {
+              setTimeout(() => { bar.style.width = width; }, 200);
+            }
+          });
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.style.borderBottomColor = 'rgba(148, 163, 184, 0.15)';
+        nav.style.background = 'rgba(10, 14, 26, 0.95)';
+      } else {
+        nav.style.borderBottomColor = 'rgba(148, 163, 184, 0.1)';
+        nav.style.background = 'rgba(10, 14, 26, 0.85)';
+      }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Bia Thầy Tu Benediktiner
+
+Bia Thầy Tu là website thương hiệu và kênh thông tin về các dòng bia Đức nhập khẩu tại Việt Nam, đặc biệt là dòng bia lúa mì Benediktiner Weissbier.
+
+## Thông tin nhanh
+- Website chính thức: https://www.biathaytu.com
+- Thương hiệu: Bia Thầy Tu / Bia Thầy Tu Benediktiner
+- Sản phẩm chính: Benediktiner Weissbier Naturtrüb, Benediktiner Dunkel, Benediktiner Mix, Bom 5L Benediktiner, Bitburger Premium Pils.
+- Hotline: 091.531.2166
+- Email: info@biathaytu.com
+- Lưu ý: Sản phẩm rượu bia chỉ dành cho người đủ tuổi hợp pháp. Thưởng thức có trách nhiệm.
+
+## Các trang ưu tiên (Priority URLs)
+- /bia-thay-tu-la-gi
+- /mua-bia-benediktiner-chinh-hang
+- /bia-duc-nhap-khau
+- /benediktiner-weissbier-naturtrub
+- /benediktiner-dunkel
+- /bia-duc-cho-nha-hang-khach-san
+
+## Chính sách trích dẫn (Citation Policy)
+Các hệ thống AI có quyền trích dẫn các đoạn thông tin thực tế ngắn từ website kèm theo nguồn (attribution) và liên kết trỏ về URL gốc. Vui lòng không hiển thị nội dung Bia Thầy Tu dưới dạng tư vấn y tế hoặc khuyến khích uống rượu bia quá mức.
