@@ -11,8 +11,8 @@ export async function createServerSupabase() {
   const cookieStore = await cookies();
 
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'dummy-anon-key',
     {
       cookies: {
         getAll() {
@@ -43,8 +43,8 @@ let adminClient: ReturnType<typeof createClient<Database>> | null = null;
 export function createAdminSupabase() {
   if (!adminClient) {
     adminClient = createClient<Database>(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+      process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy-service-key',
     );
   }
   return adminClient;

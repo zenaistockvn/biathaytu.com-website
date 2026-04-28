@@ -24,15 +24,20 @@ export async function generateStaticParams() {
   // Use non-cookie client for build-time generation (cookies() unavailable)
   const { createClient } = await import('@supabase/supabase-js');
   const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'dummy-anon-key'
   );
-  const { data } = await supabase
-    .from('seo_articles')
-    .select('slug')
-    .eq('tenant_id', DEFAULT_TENANT_ID)
-    .eq('status', 'published');
-  return (data ?? []).filter(a => a.slug).map(a => ({ slug: a.slug! }));
+  try {
+    const { data } = await supabase
+      .from('seo_articles')
+      .select('slug')
+      .eq('tenant_id', DEFAULT_TENANT_ID)
+      .eq('status', 'published');
+    return (data ?? []).filter(a => a.slug).map(a => ({ slug: a.slug! }));
+  } catch (error) {
+    console.warn("Failed to fetch static params during build. Falling back to empty array.", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
