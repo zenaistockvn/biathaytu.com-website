@@ -6,7 +6,7 @@ import {
 } from './shared-prompts';
 
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
+  apiKey: process.env.ANTHROPIC_API_KEY || 'dummy-key-for-build',
 });
 
 interface ProductData {
