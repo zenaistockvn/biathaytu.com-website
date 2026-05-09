@@ -47,7 +47,7 @@ export default function WebHeader() {
           display: 'flex',
           alignItems: 'center',
           gap: '12px',
-          fontFamily: "'Playfair Display', serif", 
+          fontFamily: 'var(--font-serif)', 
           fontSize: '24px', 
           fontWeight: 800,
           color: logoColor,

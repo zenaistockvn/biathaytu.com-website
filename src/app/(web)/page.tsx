@@ -25,7 +25,7 @@ export default async function LandingPage() {
   // Fetch featured products
   const { data: featuredProducts } = await supabase
     .from('products')
-    .select('*')
+    .select('id, name, slug, images, abv, ibu, volume, short_description, price, haravan_url, category, sort_order')
     .eq('is_featured', true)
     .neq('category', 'vang')
     .not('name', 'ilike', '%bitburger%')

@@ -6,9 +6,6 @@
   globals.css (AMC dashboard) from overriding.
 */
 
-/* ─── Google Fonts ─── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap');
-
 /* ─── CSS Variables (scoped) ─── */
 .web-app {
   /* Colors */
@@ -46,19 +43,20 @@
   --web-radius-md: 8px;
   --web-radius-lg: 20px;
 
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', serif;
-
   /* Standardized Spacing */
+  --web-spacing-xs: 8px;
+  --web-spacing-sm: 16px;
+  --web-spacing-md: 24px;
+  --web-spacing-lg: 40px;
+  --web-spacing-xl: 60px;
   --web-section-py: 80px;
   --web-section-header-mb: 60px;
   --web-mobile-bottom-nav-height: 74px;
 
-  /* Grid Gap Tokens */
-  --web-gap-sm: 24px;
-  --web-gap-md: 40px;
-  --web-gap-lg: 60px;
+  /* Backward Compatibility (Optional) */
+  --web-gap-sm: var(--web-spacing-md);
+  --web-gap-md: var(--web-spacing-lg);
+  --web-gap-lg: var(--web-spacing-xl);
 }
 
 /* ─── Base Reset (override globals.css) ─── */

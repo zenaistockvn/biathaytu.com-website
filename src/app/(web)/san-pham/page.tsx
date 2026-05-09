@@ -37,7 +37,7 @@ export default async function ProductsPage() {
   
   const { data: beerProducts } = await supabase
     .from('products')
-    .select('*')
+    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('category', 'bia')
     .not('name', 'ilike', '%bitburger%')
     .order('sort_order', { ascending: true });
@@ -45,7 +45,7 @@ export default async function ProductsPage() {
 
   const { data: accessories } = await supabase
     .from('products')
-    .select('*')
+    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('category', 'phu-kien')
     .order('sort_order', { ascending: true });
 

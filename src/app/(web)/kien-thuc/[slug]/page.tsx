@@ -58,6 +58,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${article.title} — Kiến Thức Bia Thầy Tu`,
     description: article.meta_description,
+    alternates: {
+      canonical: `https://www.biathaytu.com/kien-thuc/${article.slug || slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.meta_description ?? undefined,
