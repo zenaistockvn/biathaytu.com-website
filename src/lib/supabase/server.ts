@@ -11,8 +11,8 @@ export async function createServerSupabase() {
   const cookieStore = await cookies();
 
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'dummy-anon-key',
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
@@ -36,15 +36,19 @@ export async function createServerSupabase() {
  * Admin client with service role key — bypasses RLS.
  * Use ONLY in API routes and cron jobs, never in client code.
  * 
- * Singleton pattern: reuses the same client instance across requests.
+ * [S4 FIX] Throws if SUPABASE_SERVICE_ROLE_KEY is missing — no fallback.
  */
 let adminClient: ReturnType<typeof createClient<Database>> | null = null;
 
 export function createAdminSupabase() {
   if (!adminClient) {
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!serviceRoleKey) {
+      throw new Error('SUPABASE_SERVICE_ROLE_KEY is not configured. Admin operations require a service role key.');
+    }
     adminClient = createClient<Database>(
-      process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
-      process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy-service-key',
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      serviceRoleKey,
     );
   }
   return adminClient;

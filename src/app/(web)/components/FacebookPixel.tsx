@@ -6,9 +6,16 @@ import Script from 'next/script';
 
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
+// Facebook Pixel type declaration
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 const pageview = () => {
-  if (typeof window !== 'undefined' && (window as any).fbq) {
-    (window as any).fbq('track', 'PageView');
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'PageView');
   }
 };
 

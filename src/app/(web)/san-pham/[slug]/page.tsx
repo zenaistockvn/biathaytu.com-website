@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { createServerSupabase } from '@/lib/supabase/server';
 import ZaloCTA from '../../components/ZaloCTA';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
 import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/JsonLd';
+import ProductCard from '../../components/ProductCard';
+import { getTastingNotes } from '../../utils/getTastingNotes';
 
 export const revalidate = 3600;
 
@@ -58,7 +61,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   const { data } = await supabase
     .from('products')
-    .select('*')
+    .select('id, name, slug, description, abv, ibu, volume, images, price, haravan_url, origin, category')
     .or(`slug.eq.${slug},id.eq.${slug}`)
     .single();
 
@@ -67,6 +70,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   if (!product) {
     notFound();
   }
+
+  // Fetch related products (Cross-sell)
+  const { data: relatedProductsData } = await supabase
+    .from('products')
+    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
+    .eq('category', 'bia')
+    .neq('id', product.id)
+    .not('name', 'ilike', '%bitburger%')
+    .order('sort_order', { ascending: true })
+    .limit(4);
 
   return (
     <div className="subpage-wrap">
@@ -89,8 +102,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <div className="container">
         {/* Breadcrumb */}
         <div className="product-breadcrumb">
-          <a href="/">Trang chủ</a> &rsaquo; 
-          <a href="/san-pham"> Sản phẩm</a> &rsaquo; 
+          <Link href="/">Trang chủ</Link> &rsaquo; 
+          <Link href="/san-pham"> Sản phẩm</Link> &rsaquo; 
           <span style={{ color: 'var(--web-text)' }}> {product.name}</span>
         </div>
 
@@ -165,6 +178,31 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <ProductDetailsAccordion productName={product.name} />
           </div>
         </div>
+
+        {/* RELATED PRODUCTS */}
+        {relatedProductsData && relatedProductsData.length > 0 && (
+          <section className="related-products" style={{ marginTop: '100px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
+            <div className="section-header-center" style={{ marginBottom: '40px' }}>
+              <span className="section-label">Gợi Ý Thêm</span>
+              <h2 className="section-title" style={{ fontSize: '32px' }}>Có Thể Bạn Sẽ Thích</h2>
+            </div>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '32px',
+            }}>
+              {(relatedProductsData as any[])?.map((relatedProduct) => (
+                <ProductCard
+                  key={relatedProduct.id}
+                  {...relatedProduct}
+                  description={relatedProduct.description?.substring(0, 80) || getTastingNotes(relatedProduct.name)}
+                  showCTA={true}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

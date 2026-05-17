@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ZaloCTA from './ZaloCTA';
+import { Button } from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function LandingHero() {
@@ -25,66 +26,23 @@ export default function LandingHero() {
         <div className="hero-grid">
           {/* Left: Typography */}
           <div>
-            <span className="hero-fade-in" style={{ 
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 18px', 
-              backgroundColor: 'rgba(184, 134, 11, 0.12)', 
-              color: 'var(--web-gold-light)', 
-              fontSize: '11px',
-              fontWeight: 700, 
-              letterSpacing: '2.5px', 
-              textTransform: 'uppercase', 
-              marginBottom: '28px', 
-              borderRadius: '6px',
-              border: '1px solid rgba(184, 134, 11, 0.2)',
-              fontFamily: "'Inter', sans-serif",
-            }}>
+            <span className="hero-fade-in hero-badge">
               {t('hero.badge')}
             </span>
 
-            <h1 className="hero-fade-in" style={{ 
-              fontSize: 'clamp(48px, 5.5vw, 72px)', 
-              marginBottom: '24px',
-              lineHeight: 1.08,
-              fontWeight: 800,
-              color: '#FFFFFF',
-              letterSpacing: '-1.5px',
-              fontFamily: "'Playfair Display', serif"
-            }}>
+            <h1 className="hero-fade-in hero-title">
               {t('hero.title.line1')}<br/>{t('hero.title.line2')}
-              <span style={{ 
-                color: 'var(--web-gold-light)', 
-                display: 'block', 
-                fontSize: 'clamp(32px, 3.5vw, 48px)', 
-                marginTop: '12px',
-                letterSpacing: '0px',
-                fontStyle: 'italic',
-                fontWeight: 600,
-              }}>{t('hero.title.highlight')}</span>
+              <span className="hero-title-highlight">{t('hero.title.highlight')}</span>
             </h1>
 
-            <p className="hero-fade-in" style={{ 
-              fontSize: 'clamp(16px, 1.8vw, 20px)', 
-              marginBottom: '36px',
-              color: 'rgba(255, 255, 255, 0.7)',
-              lineHeight: 1.7,
-              maxWidth: '520px',
-              fontWeight: 400,
-              fontFamily: "'Inter', sans-serif"
-            }}>
+            <p className="hero-fade-in hero-desc">
               {t('hero.description')}
             </p>
 
-            <div className="hero-fade-in" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <Link href="/san-pham" className="btn-primary" style={{ 
-                padding: '16px 36px', 
-                fontSize: '15px',
-                boxShadow: '0 4px 25px rgba(184, 134, 11, 0.35)',
-              }}>
+            <div className="hero-fade-in hero-actions">
+              <Button href="/san-pham" variant="primary" size="lg" className="hero-btn-shadow">
                 {t('hero.btn.explore')}
-              </Link>
+              </Button>
               <ZaloCTA 
                 label={t('hero.btn.quote')} 
                 variant="outline" 

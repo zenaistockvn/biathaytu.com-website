@@ -1,6 +1,18 @@
 import { MetadataRoute } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 
+interface SitemapProduct {
+  slug: string | null;
+  id: string;
+  updated_at: string | null;
+}
+
+interface SitemapArticle {
+  slug: string | null;
+  id: string;
+  updated_at: string | null;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = await createServerSupabase();
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.biathaytu.com';
@@ -22,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/kien-thuc`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'daily',
       priority: 0.8,
     },
     {
@@ -66,10 +78,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Fetch dynamic products
+  // [C1 FIX] Fetch dynamic products with proper typing
   const { data: products } = await supabase.from('products').select('slug, id, updated_at');
   if (products) {
-    for (const product of products as any[]) {
+    for (const product of products as SitemapProduct[]) {
       routes.push({
         url: `${baseUrl}/san-pham/${product.slug || product.id}`,
         lastModified: new Date(product.updated_at || new Date()),
@@ -79,10 +91,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Fetch dynamic blog posts
+  // [C1 FIX] Fetch dynamic articles with proper typing
   const { data: articles } = await supabase.from('seo_articles').select('slug, id, updated_at');
   if (articles) {
-    for (const article of articles as any[]) {
+    for (const article of articles as SitemapArticle[]) {
       routes.push({
         url: `${baseUrl}/kien-thuc/${article.slug || article.id}`,
         lastModified: new Date(article.updated_at || new Date()),

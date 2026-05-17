@@ -5,14 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/stores/useCartStore';
-
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat('vi-VN').format(price) + '₫';
-}
+import { useToastStore } from '@/stores/useToastStore';
+import { formatPrice } from '@/utils/formatPrice';
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
+  const showToast = useToastStore((state) => state.show);
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -27,8 +26,11 @@ export default function CheckoutPage() {
     note: ''
   });
 
+  // [S3 FIX] Promo code state — validated server-side only
   const [discountInput, setDiscountInput] = useState('');
   const [appliedCode, setAppliedCode] = useState('');
+  const [promoLabel, setPromoLabel] = useState('');
+  const [promoLoading, setPromoLoading] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -47,37 +49,50 @@ export default function CheckoutPage() {
     autoDiscountAmount = subTotal * 0.05;
   }
 
-  // 2. Promo codes
-  const promoCodes: Record<string, { percent?: number, amount?: number }> = {
-    'VIP10': { percent: 10 },
-    'FREESHIP': { amount: 30000 }
-  };
-
-  let promoDiscountAmount = 0;
-  if (appliedCode && promoCodes[appliedCode.toUpperCase()]) {
-    const promo = promoCodes[appliedCode.toUpperCase()];
-    if (promo.percent) {
-      promoDiscountAmount = subTotal * (promo.percent / 100);
-    } else if (promo.amount) {
-      promoDiscountAmount = promo.amount;
-    }
-  }
+  // 2. Promo discount (amount from server validation)
+  const [promoDiscountAmount, setPromoDiscountAmount] = useState(0);
 
   const totalDiscount = autoDiscountAmount + promoDiscountAmount;
   const finalTotal = Math.max(0, subTotal - totalDiscount);
 
-  const handleApplyCode = () => {
+  // [S3 FIX] Validate promo code via server API — no client-side exposure
+  const handleApplyCode = async () => {
     if (!discountInput.trim()) {
       setAppliedCode('');
+      setPromoDiscountAmount(0);
+      setPromoLabel('');
       return;
     }
-    const code = discountInput.trim().toUpperCase();
-    if (promoCodes[code]) {
-      setAppliedCode(code);
-      alert('Áp dụng mã giảm giá thành công!');
-    } else {
-      alert('Mã giảm giá không hợp lệ hoặc đã hết hạn.');
+    
+    setPromoLoading(true);
+    try {
+      const res = await fetch('/api/promo/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: discountInput, subTotal }),
+      });
+      const data = await res.json();
+
+      if (data.valid) {
+        setAppliedCode(data.code);
+        setPromoDiscountAmount(data.discountAmount);
+        setPromoLabel(data.label);
+        showToast(`✓ ${data.label}`);
+      } else {
+        showToast(data.message || 'Mã giảm giá không hợp lệ');
+      }
+    } catch {
+      showToast('Lỗi khi kiểm tra mã giảm giá');
+    } finally {
+      setPromoLoading(false);
     }
+  };
+
+  const handleClearPromo = () => {
+    setAppliedCode('');
+    setDiscountInput('');
+    setPromoDiscountAmount(0);
+    setPromoLabel('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -105,12 +120,7 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           customer: formData,
           items: items,
-          subTotal,
-          totalDiscount,
-          autoDiscountAmount,
-          promoDiscountAmount,
           appliedCode,
-          totalPrice: finalTotal
         })
       });
 
@@ -123,8 +133,9 @@ export default function CheckoutPage() {
       setOrderNumber(data.orderNumber || '');
       setSuccess(true);
       clearCart();
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Có lỗi xảy ra');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Có lỗi xảy ra';
+      setErrorMsg(message);
     } finally {
       setLoading(false);
     }
@@ -207,7 +218,7 @@ export default function CheckoutPage() {
 
                 {promoDiscountAmount > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', marginBottom: '10px', color: 'green' }}>
-                    <span>Mã giảm giá ({appliedCode}):</span>
+                    <span>{promoLabel || `Mã giảm giá (${appliedCode})`}:</span>
                     <span>-{formatPrice(promoDiscountAmount)}</span>
                   </div>
                 )}
@@ -230,15 +241,16 @@ export default function CheckoutPage() {
                 <button 
                   onClick={handleApplyCode}
                   type="button"
-                  style={{ padding: '10px 20px', backgroundColor: 'var(--web-surface)', border: '1px solid var(--web-border)', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}
+                  disabled={promoLoading}
+                  style={{ padding: '10px 20px', backgroundColor: 'var(--web-surface)', border: '1px solid var(--web-border)', borderRadius: '6px', cursor: promoLoading ? 'wait' : 'pointer', fontWeight: 600 }}
                 >
-                  Áp dụng
+                  {promoLoading ? '...' : 'Áp dụng'}
                 </button>
               </div>
               {appliedCode && (
                 <div style={{ fontSize: '13px', color: 'green', marginTop: '8px' }}>
-                  Đã áp dụng mã: <strong>{appliedCode}</strong>.
-                  <span onClick={() => {setAppliedCode(''); setDiscountInput('');}} style={{ marginLeft: '10px', color: 'red', cursor: 'pointer', textDecoration: 'underline' }}>Hủy mã</span>
+                  Đã áp dụng: <strong>{promoLabel || appliedCode}</strong>.
+                  <span onClick={handleClearPromo} style={{ marginLeft: '10px', color: 'red', cursor: 'pointer', textDecoration: 'underline' }}>Hủy mã</span>
                 </div>
               )}
             </div>

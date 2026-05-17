@@ -15,8 +15,8 @@ describe('mobile-first responsive regressions', () => {
 
     expect(header).toContain('className="web-nav-mobile-right"');
     expect(header).not.toContain("className=\"web-nav-mobile-right\" style={{ display: 'none'");
-    expect(css).toMatch(/\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*flex/s);
-    expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*none/s);
+    expect(css).toMatch(/\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*flex/);
+    expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*none/);
   });
 
   it('defines the web primary color token used by commerce CTAs', () => {
@@ -31,7 +31,7 @@ describe('mobile-first responsive regressions', () => {
 
     expect(gallery).toContain('product-gallery-main');
     expect(gallery).not.toContain("height: '500px'");
-    expect(css).toMatch(/\.web-app\s+\.product-gallery-main\s*\{[^}]*height:\s*clamp\(/s);
+    expect(css).toMatch(/\.web-app\s+\.product-gallery-main\s*\{[^}]*height:\s*clamp\(/);
   });
 
   it('uses responsive classes for checkout item rows and promo controls', () => {
@@ -40,8 +40,8 @@ describe('mobile-first responsive regressions', () => {
 
     expect(checkout).toContain('className="checkout-item-row"');
     expect(checkout).toContain('className="checkout-promo-row"');
-    expect(css).toMatch(/\.web-app\s+\.checkout-item-row\s*\{[^}]*display:\s*grid/s);
-    expect(css).toMatch(/@media\s*\(min-width:\s*560px\)[\s\S]*\.web-app\s+\.checkout-item-row\s*\{[^}]*grid-template-columns/s);
+    expect(css).toMatch(/\.web-app\s+\.checkout-item-row\s*\{[^}]*display:\s*grid/);
+    expect(css).toMatch(/@media\s*\(min-width:\s*560px\)[\s\S]*\.web-app\s+\.checkout-item-row\s*\{[^}]*grid-template-columns/);
   });
 
   it('mounts fixed floating Zalo and phone CTAs at the bottom right of public pages', () => {
@@ -58,8 +58,8 @@ describe('mobile-first responsive regressions', () => {
     expect(floatingCta).toContain('aria-label="Gọi Bia Thầy Tu"');
     expect(floatingCta).toContain('floating-zalo-cta');
     expect(floatingCta).toContain('floating-phone-cta');
-    expect(css).toMatch(/\.web-app\s+\.floating-contact-stack\s*\{[^}]*position:\s*fixed[^}]*right:\s*calc\([^}]*bottom:\s*calc\(/s);
-    expect(css).toMatch(/\.web-app\s+\.floating-contact-button\s*\{[^}]*width:\s*58px[^}]*height:\s*58px/s);
+    expect(css).toMatch(/\.web-app\s+\.floating-contact-stack\s*\{[^}]*position:\s*fixed[^}]*right:\s*calc\([^}]*bottom:\s*calc\(/);
+    expect(css).toMatch(/\.web-app\s+\.floating-contact-button\s*\{[^}]*width:\s*58px[^}]*height:\s*58px/);
   });
 
   it('mounts a mobile-only bottom navigation for primary choices', () => {
@@ -73,8 +73,8 @@ describe('mobile-first responsive regressions', () => {
     for (const href of ['/', '/san-pham', '/kien-thuc', '/dat-hang', '/lien-he']) {
       expect(bottomNav).toContain(`href: '${href}'`);
     }
-    expect(css).toMatch(/\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*position:\s*fixed[^}]*bottom:\s*0[^}]*display:\s*grid/s);
-    expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*display:\s*none/s);
+    expect(css).toMatch(/\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*position:\s*fixed[^}]*bottom:\s*0[^}]*display:\s*grid/);
+    expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*display:\s*none/);
     expect(css).toContain('--web-mobile-bottom-nav-height');
   });
 });

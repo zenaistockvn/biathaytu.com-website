@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Button } from '../components/ui/Button';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default function Page() {
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-gold)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Kết nối với chúng tôi</h3>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Trải nghiệm dịch vụ giao bia tận nơi nhanh chóng trong nội thành Hà Nội.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/lien-he" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-gold)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Đến Trang Liên Hệ</Link>
+            <Button href="/lien-he" variant="primary">Đến Trang Liên Hệ</Button>
           </div>
         </div>
       </article>

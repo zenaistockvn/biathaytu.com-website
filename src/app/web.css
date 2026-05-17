@@ -1962,3 +1962,158 @@ html {
 .web-app .delay-200 { transition-delay: 200ms; }
 .web-app .delay-300 { transition-delay: 300ms; }
 .web-app .delay-400 { transition-delay: 400ms; }
+
+/* ─── Standardized UI Kit Additions ─── */
+.web-app .btn-sm {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+}
+
+.web-app .btn-lg {
+  padding: 16px 36px !important;
+  font-size: 15px !important;
+}
+
+/* ─── Hero Specific Classes ─── */
+.web-app .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background-color: rgba(184, 134, 11, 0.12);
+  color: var(--web-gold-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  font-family: 'Inter', sans-serif;
+}
+
+.web-app .hero-title {
+  font-size: clamp(48px, 5.5vw, 72px);
+  margin-bottom: 24px;
+  line-height: 1.08;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -1.5px;
+  font-family: 'Playfair Display', serif;
+}
+
+.web-app .hero-title-highlight {
+  color: var(--web-gold-light);
+  display: block;
+  font-size: clamp(32px, 3.5vw, 48px);
+  margin-top: 12px;
+  letter-spacing: 0px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.web-app .hero-desc {
+  font-size: clamp(16px, 1.8vw, 20px);
+  margin-bottom: 36px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  max-width: 520px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── Zalo CTA Wrapper ─── */
+.web-app .hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── Web Header Phase 2 Refactor ─── */
+.web-app .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.web-app .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.web-app .header-logo img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.web-app .nav-desktop-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.web-app .nav-desktop-link {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.web-app .cart-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.web-app .cart-icon-wrap svg {
+  transition: stroke 0.3s ease;
+}
+
+.web-app .web-nav-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.web-app .web-mobile-menu-overlay {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(254, 252, 248, 0.98);
+  backdrop-filter: blur(12px);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 49;
+  animation: fadeIn 0.2s ease;
+}
+
+.web-app .web-mobile-menu-link {
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--web-text);
+  border-bottom: 1px solid var(--web-border);
+  display: block;
+}
+
+.web-app .web-mobile-menu-action {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}

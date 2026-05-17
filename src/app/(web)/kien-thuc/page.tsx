@@ -35,7 +35,7 @@ export default async function KienThucPage() {
   const standardArticles = articleList.length > 1 ? articleList.slice(1) : [];
 
   return (
-    <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+    <div style={{ backgroundColor: 'var(--web-bg)' }}>
       {/* ═══════════════════════════════════════════ 
           HERO SECTION — Dark Premium Magazine
       ═══════════════════════════════════════════ */}
@@ -180,14 +180,14 @@ export default async function KienThucPage() {
                       fontSize: '22px', fontWeight: 700, color: 'var(--web-navy)',
                       marginBottom: '12px', lineHeight: 1.4,
                       fontFamily: 'var(--font-serif)',
-                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any, overflow: 'hidden'
+                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as never, overflow: 'hidden'
                     }}>
                       {article.title}
                     </h3>
 
                     <p style={{ 
                       fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.7,
-                      display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' as any,
+                      display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' as never,
                       overflow: 'hidden', flex: 1, marginBottom: '24px'
                     }}>
                       {article.meta_description || 'Tìm hiểu trọn vẹn thông tin và ứng dụng trực tiếp từ câu chuyện bài viết đang đề cập.'}

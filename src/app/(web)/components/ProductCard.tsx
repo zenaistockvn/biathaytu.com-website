@@ -5,7 +5,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/stores/useCartStore';
 import { useToastStore } from '@/stores/useToastStore';
+import { formatPrice } from '@/utils/formatPrice';
 import ZaloCTA from './ZaloCTA';
+import { Button } from './ui/Button';
 
 export interface ProductCardProps {
   id: string;
@@ -22,11 +24,6 @@ export interface ProductCardProps {
   category?: string | null;
   /** Show full CTA buttons (for product listing page) */
   showCTA?: boolean;
-}
-
-function formatPrice(price: number | null): string {
-  if (!price) return '';
-  return new Intl.NumberFormat('vi-VN').format(price) + '₫';
 }
 
 /**
@@ -122,20 +119,22 @@ export default function ProductCard({
           <div className="card-actions card-actions-dual" style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
             {price ? (
               <>
-                <button
+                <Button
+                  variant="outline"
                   onClick={handleAddCart}
-                  style={{ flex: 1, textAlign: 'center', fontSize: '14px', padding: '10px', border: '1px solid var(--web-primary)', backgroundColor: 'transparent', color: 'var(--web-primary)', cursor: 'pointer', borderRadius: 'var(--web-radius-md)', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ flex: 1, padding: '10px' }}
                   title="Thêm vào giỏ"
+                  aria-label="Thêm vào giỏ hàng"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                </button>
-                <button
+                </Button>
+                <Button
+                  variant="primary"
                   onClick={handleBuyNow}
-                  className="btn-primary"
-                  style={{ flex: 3, textAlign: 'center', fontSize: '14px', padding: '10px 16px', border: 'none', cursor: 'pointer' }}
+                  style={{ flex: 3, padding: '10px 16px' }}
                 >
                   Mua Ngay
-                </button>
+                </Button>
               </>
             ) : (
               <ZaloCTA productName={name} label="Nhận ưu đãi sỉ/lẻ" variant="outline" />

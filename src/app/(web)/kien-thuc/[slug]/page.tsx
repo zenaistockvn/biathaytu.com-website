@@ -12,6 +12,20 @@ export const revalidate = 3600;
 
 const UUID_REGEX = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
+interface ArticleData {
+  id: string;
+  title: string;
+  slug: string | null;
+  content: string | null;
+  meta_description: string | null;
+  word_count: number | null;
+  created_at: string;
+  updated_at: string | null;
+  thumbnail_url: string | null;
+  tenant_id: string;
+  status: string;
+}
+
 function buildArticleQuery(supabase: Awaited<ReturnType<typeof createServerSupabase>>, slug: string, fields: string) {
   const isId = UUID_REGEX.test(slug);
   let query = supabase
@@ -88,8 +102,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const supabase = await createServerSupabase();
-  const { data } = await buildArticleQuery(supabase, slug, '*').single();
-  const article = data as any;
+  const { data } = await buildArticleQuery(supabase, slug, 'id, title, slug, content, meta_description, word_count, created_at, updated_at, thumbnail_url, tenant_id, status').single();
+  const article = data as unknown as ArticleData | null;
 
   if (!article) {
     notFound();
@@ -115,7 +129,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   // Fetch suggested products for CTA
   const { data: suggestedProducts } = await supabase
     .from('products')
-    .select('*')
+    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('is_featured', true)
     .neq('category', 'vang')
     .not('name', 'ilike', '%bitburger%') // Suggest Benediktiner primarily
@@ -130,6 +144,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         description: article.meta_description || article.title,
         datePublished: article.created_at,
         dateModified: article.updated_at || article.created_at,
+        imageUrl: article.thumbnail_url || undefined,
       })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
         { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },

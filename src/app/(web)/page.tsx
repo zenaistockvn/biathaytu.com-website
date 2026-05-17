@@ -376,7 +376,7 @@ export default async function LandingPage() {
       ═══════════════════════════════════════════ */}
       <section className="section b2b-section reveal-on-scroll delay-100" aria-label="Hợp tác kinh doanh">
         {/* Cinematic Background */}
-        <div className="b2b-bg" style={{ backgroundImage: 'url(/images/hero/lifestyle_garden_v2.png)' }} />
+        <div className="b2b-bg" style={{ backgroundImage: 'url(/images/products/lifestyle_garden_v2.png)' }} />
         <div className="b2b-overlay" />
 
         <div className="container b2b-grid">

@@ -1,6 +1,5 @@
 import { createServerSupabase } from '@/lib/supabase/server';
 import ProductCard from '../components/ProductCard';
-import SectionHeader from '../components/SectionHeader';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import type { Metadata } from 'next';
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
   description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
   alternates: {
-    canonical: 'https://biathaytu.com/san-pham',
+    canonical: 'https://www.biathaytu.com/san-pham',
   },
 };
 

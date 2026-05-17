@@ -1,30 +1,97 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createAdminSupabase } from '@/lib/supabase/server';
+import { formatPrice } from '@/utils/formatPrice';
 
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat('vi-VN').format(price) + '₫';
+// ─── Rate Limiting ─────────────────────────────────────────
+// [S2 FIX] Simple in-memory rate limiter (10 requests/min/IP)
+const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
+const RATE_LIMIT_MAX = 10;
+const requestCounts = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = requestCounts.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    requestCounts.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
 }
 
+// Cleanup stale entries every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of requestCounts.entries()) {
+    if (now > entry.resetAt) requestCounts.delete(ip);
+  }
+}, 5 * 60_000);
+
+// ─── Promo Codes (server-side only) ───────────────────────
+// [S3 FIX] Promo codes ONLY live on server — never exposed to client
+const PROMO_CODES: Record<string, { percent?: number; amount?: number }> = {
+  'VIP10': { percent: 10 },
+  'FREESHIP': { amount: 30000 },
+};
+
+// ─── Types ────────────────────────────────────────────────
+interface OrderCustomer {
+  name: string;
+  phone: string;
+  email?: string;
+  address: string;
+  note?: string;
+}
+
+interface OrderItem {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  quantity: number;
+}
+
+interface ValidatedItem extends OrderItem {
+  subtotal: number;
+}
+
+// ─── Helpers ──────────────────────────────────────────────
 function generateOrderNumber(): string {
   const date = new Date();
   const yyyy = date.getFullYear();
   const mm = String(date.getMonth() + 1).padStart(2, '0');
   const dd = String(date.getDate()).padStart(2, '0');
-  const randomSuffix = Math.floor(1000 + Math.random() * 9000); // 4 digit random
+  const randomSuffix = Math.floor(1000 + Math.random() * 9000);
   return `BTU-${yyyy}${mm}${dd}-${randomSuffix}`;
 }
 
-export async function POST(req: Request) {
+// ─── Main Handler ─────────────────────────────────────────
+export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { 
-      customer, items, subTotal, totalDiscount, autoDiscountAmount, 
-      promoDiscountAmount, appliedCode, totalPrice 
-    } = body;
+    // [S2] Rate limit check
+    const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+      || req.headers.get('x-real-ip')
+      || 'unknown';
 
-    // 1. Validate Input (Basic)
-    if (!customer || !customer.name || !customer.phone || !customer.address || !items || items.length === 0) {
+    if (isRateLimited(clientIp)) {
+      return NextResponse.json(
+        { error: 'Quá nhiều yêu cầu. Vui lòng thử lại sau 1 phút.' },
+        { status: 429 }
+      );
+    }
+
+    const body = await req.json();
+    const { customer, items, appliedCode } = body as {
+      customer: OrderCustomer;
+      items: OrderItem[];
+      appliedCode?: string;
+    };
+
+    // 1. Validate Input
+    if (!customer?.name || !customer?.phone || !customer?.address || !items || items.length === 0) {
       return NextResponse.json({ error: 'Dữ liệu không hợp lệ hoặc thiếu trường bắt buộc' }, { status: 400 });
     }
 
@@ -40,7 +107,7 @@ export async function POST(req: Request) {
     const supabase = createAdminSupabase();
 
     // 2. Re-validate prices against DB to prevent tampering
-    const productIds = items.map((item: any) => item.id);
+    const productIds = items.map((item) => item.id);
     const { data: dbProducts, error: dbError } = await supabase
       .from('products')
       .select('id, price')
@@ -52,31 +119,30 @@ export async function POST(req: Request) {
     }
 
     let calculatedSubTotal = 0;
-    const validatedItems = items.map((clientItem: any) => {
+    const validatedItems: ValidatedItem[] = items.map((clientItem) => {
       const dbProduct = dbProducts.find(p => p.id === clientItem.id);
       if (!dbProduct || !dbProduct.price) {
         throw new Error(`Sản phẩm ${clientItem.name} không tồn tại hoặc lỗi giá`);
       }
-      calculatedSubTotal += dbProduct.price * clientItem.quantity;
+      const subtotal = dbProduct.price * clientItem.quantity;
+      calculatedSubTotal += subtotal;
       return {
         ...clientItem,
-        price: dbProduct.price, // Trust DB price
-        subtotal: dbProduct.price * clientItem.quantity
+        price: dbProduct.price,
+        subtotal,
       };
     });
 
-    // Check subtotal logic (discount logic can be kept on server based on calculatedSubTotal)
+    // 3. Server-side discount calculation
     let calcAutoDiscount = 0;
-    if (calculatedSubTotal >= 2000000) calcAutoDiscount = calculatedSubTotal * 0.05;
-    
-    // Simplistic promo validation matching client logic for now
-    const promoCodes: Record<string, { percent?: number, amount?: number }> = {
-      'VIP10': { percent: 10 },
-      'FREESHIP': { amount: 30000 }
-    };
+    if (calculatedSubTotal >= 2000000) {
+      calcAutoDiscount = calculatedSubTotal * 0.05;
+    }
+
     let calcPromoDiscount = 0;
-    if (appliedCode && promoCodes[appliedCode.toUpperCase()]) {
-      const promo = promoCodes[appliedCode.toUpperCase()];
+    const validatedCode = appliedCode?.trim().toUpperCase();
+    if (validatedCode && PROMO_CODES[validatedCode]) {
+      const promo = PROMO_CODES[validatedCode];
       if (promo.percent) {
         calcPromoDiscount = calculatedSubTotal * (promo.percent / 100);
       } else if (promo.amount) {
@@ -87,12 +153,13 @@ export async function POST(req: Request) {
     const calcTotalDiscount = calcAutoDiscount + calcPromoDiscount;
     const calcTotalPrice = Math.max(0, calculatedSubTotal - calcTotalDiscount);
 
-    // 3. Generate Order Number
+    // 4. Generate Order Number
     const orderNumber = generateOrderNumber();
 
-    // 4. INSERT INTO DB FIRST
-    const { data: orderData, error: insertOrderError } = await (supabase as any)
-      .from('orders')
+    // 5. Insert order into DB
+    // Note: Using .from() with untyped table — will be resolved when DB types are regenerated
+    const { data: orderData, error: insertOrderError } = await (supabase as ReturnType<typeof createAdminSupabase>)
+      .from('orders' as never)
       .insert({
         order_number: orderNumber,
         customer_name: customer.name,
@@ -103,11 +170,11 @@ export async function POST(req: Request) {
         sub_total: calculatedSubTotal,
         auto_discount: calcAutoDiscount,
         promo_discount: calcPromoDiscount,
-        promo_code: appliedCode || null,
+        promo_code: validatedCode || null,
         total_price: calcTotalPrice,
         status: 'new',
-        email_sent: false
-      })
+        email_sent: false,
+      } as never)
       .select('id')
       .single();
 
@@ -116,28 +183,28 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Không thể tạo đơn hàng trong hệ thống' }, { status: 500 });
     }
 
-    const orderId = orderData.id;
+    const orderId = (orderData as { id: string }).id;
 
-    const itemsToInsert = validatedItems.map((item: any) => ({
+    // 6. Insert order items
+    const itemsToInsert = validatedItems.map((item) => ({
       order_id: orderId,
       product_id: item.id,
       product_name: item.name,
       product_image: item.image,
       price: item.price,
       quantity: item.quantity,
-      subtotal: item.subtotal
+      subtotal: item.subtotal,
     }));
 
-    const { error: insertItemsError } = await (supabase as any)
-      .from('order_items')
-      .insert(itemsToInsert);
+    const { error: insertItemsError } = await (supabase as ReturnType<typeof createAdminSupabase>)
+      .from('order_items' as never)
+      .insert(itemsToInsert as never);
 
     if (insertItemsError) {
       console.error('Insert Order Items Error:', insertItemsError);
-      // Optional: rollback order or mark as error, but we proceed for now
     }
 
-    // 5. Send Email (Best Effort)
+    // 7. Send Email (Best Effort)
     let emailSent = false;
     try {
       if (process.env.SMTP_USER && process.env.SMTP_PASS) {
@@ -151,7 +218,7 @@ export async function POST(req: Request) {
           },
         });
 
-        const itemsHtml = validatedItems.map((item: any) => `
+        const itemsHtml = validatedItems.map((item) => `
           <tr>
             <td style="padding: 10px; border: 1px solid #ddd;">${item.name}</td>
             <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${item.quantity}</td>
@@ -179,12 +246,15 @@ export async function POST(req: Request) {
           if (calcPromoDiscount > 0) {
             discountHtml += `
               <tr>
-                <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right; color: green;">Mã giảm giá (${appliedCode}):</td>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right; color: green;">Mã giảm giá (${validatedCode}):</td>
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: right; color: green;">-${formatPrice(calcPromoDiscount)}</td>
               </tr>
             `;
           }
         }
+
+        // [S6 FIX] Use env var for notification email
+        const notificationEmail = process.env.ORDER_NOTIFICATION_EMAIL || 'anhdt.hust@gmail.com';
 
         const htmlContent = `
           <h2>Đơn Đặt Hàng Mới Từ Bia Thầy Tu</h2>
@@ -221,7 +291,7 @@ export async function POST(req: Request) {
 
         await transporter.sendMail({
           from: `"Bia Thầy Tu" <${process.env.SMTP_USER}>`,
-          to: 'anhdt.hust@gmail.com',
+          to: notificationEmail,
           subject: `[Đơn Hàng Mới] ${orderNumber} - Từ ${customer.name}`,
           html: htmlContent,
         });
@@ -232,21 +302,24 @@ export async function POST(req: Request) {
       }
     } catch (emailErr) {
       console.error("Failed to send order email:", emailErr);
-      // We don't fail the request, fallback mechanism takes over
     }
 
     if (emailSent) {
-      await (supabase as any).from('orders').update({ email_sent: true }).eq('id', orderId);
+      await (supabase as ReturnType<typeof createAdminSupabase>)
+        .from('orders' as never)
+        .update({ email_sent: true } as never)
+        .eq('id' as never, orderId as never);
     }
 
-    // 6. Return Success with Order Number
+    // 8. Return Success
     return NextResponse.json({ 
       success: true, 
-      orderNumber 
+      orderNumber,
     });
 
-  } catch (error: any) {
-    console.error('Order API Generic Error:', error);
-    return NextResponse.json({ error: error.message || 'Lỗi server' }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Lỗi server';
+    console.error('Order API Error:', message);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
