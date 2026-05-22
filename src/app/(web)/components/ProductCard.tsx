@@ -79,11 +79,7 @@ export default function ProductCard({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          <div style={{
-            width: '100%', height: '100%',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'var(--web-text-muted)',
-          }}>
+          <div className="card-image-empty">
             Đang cập nhật hình
           </div>
         )}
@@ -116,13 +112,13 @@ export default function ProductCard({
 
         {/* CTA */}
         {showCTA && (
-          <div className="card-actions card-actions-dual" style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
+          <div className="card-actions card-actions-dual">
             {price ? (
               <>
                 <Button
                   variant="outline"
                   onClick={handleAddCart}
-                  style={{ flex: 1, padding: '10px' }}
+                  className="card-btn-cart shimmer-effect"
                   title="Thêm vào giỏ"
                   aria-label="Thêm vào giỏ hàng"
                 >
@@ -131,7 +127,7 @@ export default function ProductCard({
                 <Button
                   variant="primary"
                   onClick={handleBuyNow}
-                  style={{ flex: 3, padding: '10px 16px' }}
+                  className="card-btn-buy shimmer-effect"
                 >
                   Mua Ngay
                 </Button>

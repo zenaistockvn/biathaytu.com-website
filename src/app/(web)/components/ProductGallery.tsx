@@ -14,7 +14,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
   if (!images || images.length === 0) {
     return (
       <div className="product-img-box product-gallery-main product-gallery-empty">
-        <p style={{ color: 'var(--web-text-muted)' }}>Đang cập nhật hình</p>
+        <p className="text-muted">Đang cập nhật hình</p>
       </div>
     );
   }
@@ -35,22 +35,12 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
 
       {/* Thumbnails */}
       {images.length > 1 && (
-        <div style={{ display: 'flex', gap: '10px', marginTop: '16px', overflowX: 'auto', paddingBottom: '10px' }}>
+        <div className="gallery-thumb-list">
           {images.map((img, index) => (
             <div 
               key={index} 
               onClick={() => setMainImage(img)}
-              style={{
-                position: 'relative',
-                width: '80px',
-                height: '80px',
-                flexShrink: 0,
-                borderRadius: '8px',
-                border: mainImage === img ? '2px solid var(--web-primary)' : '1px solid var(--web-border)',
-                cursor: 'pointer',
-                overflow: 'hidden',
-                backgroundColor: '#fff'
-              }}
+              className={`gallery-thumb-item ${mainImage === img ? 'gallery-thumb-active' : 'gallery-thumb-inactive'}`}
             >
               <Image
                 src={img}

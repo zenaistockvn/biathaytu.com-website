@@ -104,7 +104,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="product-breadcrumb">
           <Link href="/">Trang chủ</Link> &rsaquo; 
           <Link href="/san-pham"> Sản phẩm</Link> &rsaquo; 
-          <span style={{ color: 'var(--web-text)' }}> {product.name}</span>
+          <span className="breadcrumb-active"> {product.name}</span>
         </div>
 
         <div className="product-detail-grid">
@@ -181,17 +181,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
         {/* RELATED PRODUCTS */}
         {relatedProductsData && relatedProductsData.length > 0 && (
-          <section className="related-products" style={{ marginTop: '100px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
-            <div className="section-header-center" style={{ marginBottom: '40px' }}>
+          <section className="related-products related-products-section">
+            <div className="section-header-center">
               <span className="section-label">Gợi Ý Thêm</span>
-              <h2 className="section-title" style={{ fontSize: '32px' }}>Có Thể Bạn Sẽ Thích</h2>
+              <h2 className="section-title related-products-title">Có Thể Bạn Sẽ Thích</h2>
             </div>
             
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '32px',
-            }}>
+            <div className="grid-featured-products">
               {(relatedProductsData as any[])?.map((relatedProduct) => (
                 <ProductCard
                   key={relatedProduct.id}

@@ -2117,3 +2117,329 @@ html {
   margin-bottom: 16px;
   width: 100%;
 }
+
+/* ═══════════════════════════════════════════
+   PREMIUM 2026 & STANDARD UI LAYOUT KIT
+   ═══════════════════════════════════════════ */
+
+/* Responsive and Anti-Overflow Product Grid */
+.web-app .grid-featured-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--web-spacing-md);
+}
+
+/* Product Card Actions and Button overrides */
+.web-app .card-actions-dual {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 16px !important;
+  width: 100% !important;
+}
+
+.web-app .card-btn-cart {
+  flex: 1 !important;
+  padding: 10px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.web-app .card-btn-buy {
+  flex: 3 !important;
+  padding: 10px 16px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Product Order Actions (Detail page) layout classes */
+.web-app .detail-product-actions {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 32px !important;
+}
+
+.web-app .detail-buy-block {
+  display: flex !important;
+  gap: 8px !important;
+  flex: 1 1 auto !important;
+}
+
+.web-app .detail-btn-cart {
+  flex: 1 !important;
+  text-align: center !important;
+  font-size: 16px !important;
+  padding: 16px !important;
+  border: 2px solid var(--web-primary) !important;
+  background-color: transparent !important;
+  color: var(--web-primary) !important;
+  cursor: pointer !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: inherit !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.web-app .detail-btn-cart svg {
+  margin-right: 8px !important;
+}
+
+.web-app .detail-btn-cart:hover {
+  background-color: rgba(184, 134, 11, 0.05) !important;
+  transform: translateY(-2px) !important;
+}
+
+.web-app .detail-btn-buy {
+  flex: 2 !important;
+  padding: 16px 24px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  min-height: 52px !important;
+}
+
+/* Product Gallery Thumbnail Slider */
+.web-app .gallery-thumb-list {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 16px !important;
+  overflow-x: auto !important;
+  padding-bottom: 10px !important;
+  scroll-behavior: smooth !important;
+}
+
+.web-app .gallery-thumb-item {
+  position: relative !important;
+  width: 80px !important;
+  height: 80px !important;
+  flex-shrink: 0 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  background-color: #fff !important;
+  transition: border-color 0.25s ease, transform 0.25s ease !important;
+}
+
+.web-app .gallery-thumb-item:hover {
+  transform: scale(1.05) !important;
+}
+
+.web-app .gallery-thumb-active {
+  border: 2px solid var(--web-primary) !important;
+}
+
+.web-app .gallery-thumb-inactive {
+  border: 1px solid var(--web-border) !important;
+}
+
+/* Zalo CTA component styles */
+.web-app .zalo-cta-class {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  font-weight: 700 !important;
+  padding: 14px 28px !important;
+  border-radius: 8px !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.web-app .zalo-cta-gold-class {
+  background: linear-gradient(135deg, var(--web-gold) 0%, var(--web-gold-light) 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(184, 134, 11, 0.2) !important;
+  border: none !important;
+}
+
+.web-app .zalo-cta-gold-class:hover {
+  background: linear-gradient(135deg, var(--web-gold-hover) 0%, var(--web-gold) 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3) !important;
+}
+
+.web-app .zalo-cta-outline-class {
+  background: transparent !important;
+  color: var(--web-gold-dark) !important;
+  border: 2px solid var(--web-gold-dark) !important;
+}
+
+.web-app .zalo-cta-outline-class:hover {
+  background: var(--web-gold-dark) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Premium 2026 Shimmer Effect */
+.web-app .shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-app .shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.web-app .shimmer-effect:hover::after {
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-100%, -100%) rotate(30deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(30deg);
+  }
+}
+
+/* Helper spacing classes */
+.web-app .text-center { text-align: center !important; }
+.web-app .text-gold { color: var(--web-gold-dark) !important; }
+.web-app .text-muted { color: var(--web-text-muted) !important; }
+.web-app .mt-lg { margin-top: var(--web-spacing-lg) !important; }
+.web-app .mt-md { margin-top: var(--web-spacing-md) !important; }
+.web-app .mb-sm { margin-bottom: var(--web-spacing-sm) !important; }
+.web-app .py-lg { padding-top: var(--web-spacing-lg) !important; padding-bottom: var(--web-spacing-lg) !important; }
+.web-app .py-xl { padding-top: var(--web-spacing-xl) !important; padding-bottom: var(--web-spacing-xl) !important; }
+.web-app .bg-warm { background-color: var(--web-bg-warm) !important; }
+.web-app .card-image-empty {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--web-text-muted) !important;
+}
+
+.web-app .usp-item-wrap {
+  padding: 8px 12px !important;
+}
+.web-app .p-lead {
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+  color: var(--web-text-secondary) !important;
+  margin-bottom: 20px !important;
+}
+.web-app .p-body {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: var(--web-text-muted) !important;
+  margin-bottom: 28px !important;
+}
+.web-app .stat-card-bordered {
+  border: 1px solid var(--web-border) !important;
+}
+.web-app .stat-value-dark {
+  color: var(--web-text) !important;
+}
+.web-app .story-img-container {
+  position: relative !important;
+  height: 500px !important;
+  border-radius: var(--web-radius-lg) !important;
+  overflow: hidden !important;
+}
+.web-app .stat-card-absolute {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 24px !important;
+  right: 24px !important;
+}
+.web-app .emoji-span {
+  font-size: 16px !important;
+}
+
+/* Classes to support full removal of inline styles in pages and components */
+.web-app .hero-container {
+  position: relative !important;
+  z-index: 2 !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.web-app .object-cover {
+  object-fit: cover !important;
+}
+
+.web-app .object-contain {
+  object-fit: contain !important;
+}
+
+.web-app .products-page-container {
+  padding-top: 80px !important;
+  padding-bottom: 120px !important;
+  background-color: var(--web-bg) !important;
+}
+
+.web-app .catalog-header {
+  text-align: center !important;
+  margin-bottom: 80px !important;
+}
+
+.web-app .empty-state-container {
+  text-align: center !important;
+  padding: 100px 0 !important;
+  color: var(--web-text-secondary) !important;
+}
+
+.web-app .empty-state-title {
+  font-family: var(--font-serif) !important;
+  font-size: 28px !important;
+}
+
+.web-app .mt-100 {
+  margin-top: 100px !important;
+}
+
+.web-app .mb-48 {
+  margin-bottom: 48px !important;
+}
+
+.web-app .accessories-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)) !important;
+  gap: 32px !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+
+.web-app .breadcrumb-active {
+  color: var(--web-text) !important;
+}
+
+.web-app .related-products-section {
+  margin-top: 100px !important;
+  border-top: 1px solid var(--web-border) !important;
+  padding-top: 60px !important;
+}
+
+.web-app .related-products-title {
+  font-size: 32px !important;
+}

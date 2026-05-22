@@ -49,14 +49,14 @@ export default async function ProductsPage() {
     .order('sort_order', { ascending: true });
 
   return (
-    <div style={{ paddingTop: '80px', paddingBottom: '120px', backgroundColor: 'var(--web-bg)' }}>
+    <div className="products-page-container">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
         { name: 'Trang Chủ', url: 'https://biathaytu.com' },
         { name: 'Sản Phẩm', url: 'https://biathaytu.com/san-pham' },
       ])} />
 
       {/* HEADER */}
-      <section className="container" style={{ textAlign: 'center', marginBottom: '80px' }}>
+      <section className="container catalog-header">
         <span className="section-label">Bộ Sưu Tập</span>
         <h1 className="page-title">Tuyệt Tác Nguyên Bản</h1>
         <p className="page-subtitle">
@@ -66,11 +66,7 @@ export default async function ProductsPage() {
 
       {/* BEER PRODUCTS */}
       <section className="container" aria-label="Bia Đức">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '32px',
-        }}>
+        <div className="grid-featured-products">
           {(beerProducts as Product[] | null)?.map((product) => (
             <ProductCard
               key={product.id}
@@ -82,8 +78,8 @@ export default async function ProductsPage() {
         </div>
 
         {(!beerProducts || beerProducts.length === 0) && (
-          <div style={{ textAlign: 'center', padding: '100px 0', color: 'var(--web-text-secondary)' }}>
-            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '28px' }}>Chưa có sản phẩm nào.</h2>
+          <div className="empty-state-container">
+            <h2 className="empty-state-title">Chưa có sản phẩm nào.</h2>
           </div>
         )}
       </section>
@@ -91,19 +87,13 @@ export default async function ProductsPage() {
 
       {/* ACCESSORIES */}
       {accessories && accessories.length > 0 && (
-        <section className="container" style={{ marginTop: '100px' }} aria-label="Phụ kiện">
-          <div className="section-header-center" style={{ marginBottom: '48px' }}>
+        <section className="container mt-100" aria-label="Phụ kiện">
+          <div className="section-header-center mb-48">
             <span className="section-label">Phụ Kiện</span>
             <h2 className="section-title">Hoàn Thiện Trải Nghiệm</h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '32px',
-            maxWidth: '700px',
-            margin: '0 auto',
-          }}>
+          <div className="accessories-grid">
             {(accessories as Product[] | null)?.map((product) => (
               <ProductCard
                 key={product.id}

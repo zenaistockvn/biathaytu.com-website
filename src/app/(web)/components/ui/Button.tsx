@@ -1,15 +1,26 @@
 import React from 'react';
 import Link from 'next/link';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type CommonProps = {
   variant?: 'primary' | 'outline' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-  href?: string;
-  target?: string;
-  rel?: string;
   className?: string;
   children: React.ReactNode;
+};
+
+interface ButtonAsButtonProps extends CommonProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+  href?: never;
+  target?: never;
+  rel?: never;
 }
+
+interface ButtonAsLinkProps extends CommonProps, Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+  href: string;
+  target?: string;
+  rel?: string;
+}
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 export function Button({
   variant = 'primary',
@@ -40,28 +51,30 @@ export function Button({
       variantClass = 'btn-primary';
   }
 
-  // Size classes can be handled with inline style or new CSS classes.
-  // For now, btn-primary and btn-outline have fixed padding in web.css (14px 32px), 
-  // so we'll just append size modifiers if needed later.
-  let sizeStyle = {};
+  // Size classes
+  let sizeClass = '';
   if (size === 'sm') {
-    sizeStyle = { padding: '8px 16px', fontSize: '13px' };
+    sizeClass = 'btn-sm';
   } else if (size === 'lg') {
-    sizeStyle = { padding: '18px 40px', fontSize: '16px' };
+    sizeClass = 'btn-lg';
   }
 
-  const combinedClassName = `${variantClass} ${className}`.trim();
+  const combinedClassName = `${variantClass} ${sizeClass} ${className}`.trim();
 
   if (href) {
+    // Safely cast props to Anchor attributes when href is present
+    const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
-      <Link href={href} className={combinedClassName} style={sizeStyle} target={target} rel={rel}>
+      <Link href={href} {...anchorProps} className={combinedClassName} target={target} rel={rel}>
         {children}
       </Link>
     );
   }
 
+  // Safely cast props to Button attributes when href is absent
+  const buttonProps = props as React.ButtonHTMLAttributes<HTMLButtonElement>;
   return (
-    <button className={combinedClassName} style={sizeStyle} {...props}>
+    <button {...buttonProps} className={combinedClassName}>
       {children}
     </button>
   );

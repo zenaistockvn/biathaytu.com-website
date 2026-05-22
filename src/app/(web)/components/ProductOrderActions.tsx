@@ -48,21 +48,20 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
   };
 
   return (
-    <div className="product-actions" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+    <div className="product-actions detail-product-actions">
       {product.price && (
-        <div style={{ display: 'flex', gap: '8px', flex: '1 1 auto' }}>
+        <div className="detail-buy-block">
           <button
             onClick={handleAddCart}
-            style={{ flex: 1, textAlign: 'center', fontSize: '16px', padding: '16px', border: '2px solid var(--web-primary)', backgroundColor: 'transparent', color: 'var(--web-primary)', cursor: 'pointer', borderRadius: '4px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'inherit' }}
+            className="detail-btn-cart shimmer-effect"
             title="Thêm vào giỏ"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
             Giỏ Hàng
           </button>
           <button
             onClick={handleBuyNow}
-            className="btn-primary"
-            style={{ flex: 2, padding: '16px 24px', fontSize: '16px', fontWeight: 700, border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+            className="btn-primary detail-btn-buy shimmer-effect"
           >
             Mua Ngay
           </button>

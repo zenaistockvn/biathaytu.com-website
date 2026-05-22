@@ -57,7 +57,7 @@ export default async function LandingPage() {
             { abbr: 'VN', title: 'Giao Hàng Toàn Quốc', desc: 'Ship COD mọi tỉnh thành Việt Nam' },
             { abbr: '★★★', title: 'Giải Thưởng Quốc Tế', desc: 'iTQi 3 Sao — Hương vị vượt trội' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '8px 12px' }}>
+            <div key={i} className="usp-item-wrap">
               <div className="usp-icon" style={{
                 fontSize: item.abbr.length > 3 ? '11px' : '14px',
                 letterSpacing: item.abbr === '★★★' ? '2px' : '0.5px',
@@ -77,11 +77,7 @@ export default async function LandingPage() {
         <div className="container">
           <SectionHeader label="Tuyển Chọn Đặc Biệt" title="Sản Phẩm Nổi Bật" />
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))',
-            gap: 'var(--web-gap-sm)',
-          }}>
+          <div className="grid-featured-products">
             {featuredProducts?.map((product: {
               id: string; name: string; slug: string; images: string[] | null;
               abv: string | null; ibu: number | null; volume: string | null;
@@ -97,8 +93,8 @@ export default async function LandingPage() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href="/san-pham" className="btn-outline">
+          <div className="text-center mt-lg">
+            <Link href="/san-pham" className="btn-outline shimmer-effect">
               Xem Toàn Bộ Sản Phẩm →
             </Link>
           </div>
@@ -122,24 +118,24 @@ export default async function LandingPage() {
           
           <div>
             <span className="section-label">Giải Thưởng Danh Giá</span>
-            <h2 className="section-title">Hương Vị Vượt Trội<br/><span style={{ color: 'var(--web-gold)' }}>3 Sao</span></h2>
+            <h2 className="section-title">Hương Vị Vượt Trội<br/><span className="text-gold">3 Sao</span></h2>
             <div className="inline-divider" />
             
-            <p style={{ fontSize: '17px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
-              Năm 2022, <strong style={{ color: 'var(--web-text)' }}>Viện Hương Vị Quốc Tế (iTQi)</strong> đã trao giải cao nhất — <strong style={{ color: 'var(--web-gold)' }}>&quot;Hương Vị Vượt Trội 3 Sao&quot;</strong> — cho Benediktiner Weissbier Naturtrüb.
+            <p className="p-lead">
+              Năm 2022, <strong style={{ color: 'var(--web-text)' }}>Viện Hương Vị Quốc Tế (iTQi)</strong> đã trao giải cao nhất — <strong className="text-gold">&quot;Hương Vị Vượt Trội 3 Sao&quot;</strong> — cho Benediktiner Weissbier Naturtrüb.
             </p>
-            <p style={{ fontSize: '15px', lineHeight: 1.8, color: 'var(--web-text-muted)', marginBottom: '28px' }}>
+            <p className="p-body">
               Danh hiệu &quot;3 Sao&quot; chỉ được trao cho những sản phẩm có chất lượng hương vị vượt trội và nổi bật trên toàn thế giới. Đây là minh chứng mạnh mẽ cho sự xuất sắc trong quy trình ủ bia tu viện truyền thống.
             </p>
 
-            <div className="stat-card" style={{ border: '1px solid var(--web-border)' }}>
+            <div className="stat-card stat-card-bordered">
               <div>
                 <div className="stat-value">3 ⭐</div>
                 <div className="stat-label">Superior Taste Award</div>
               </div>
               <div className="stat-separator" />
               <div>
-                <div className="stat-value" style={{ color: 'var(--web-text)' }}>1330</div>
+                <div className="stat-value stat-value-dark">1330</div>
                 <div className="stat-label">Năm lịch sử Tu Viện Ettal</div>
               </div>
             </div>
@@ -147,8 +143,7 @@ export default async function LandingPage() {
             <a 
               href="https://www.taste-institute.com/en/awarded-products/product-details/9022846" 
               target="_blank" rel="noopener noreferrer"
-              className="btn-outline"
-              style={{ marginTop: '28px' }}
+              className="btn-outline mt-md shimmer-effect"
             >
               Xem Chứng Nhận iTQi →
             </a>
@@ -210,7 +205,7 @@ export default async function LandingPage() {
               <div className="food-img-wrap food-img-wide">
                 <Image src="/images/products/food_pho.png" alt="Phở Việt Nam và bia Đức Benediktiner — Food Pairing đặc biệt" fill style={{ objectFit: 'cover' }} />
                 <div className="food-img-badge">
-                  <span style={{ fontSize: '16px' }}>🇻🇳</span> Bia Đức × Ẩm Thực Việt = Tuyệt Phẩm
+                  <span className="emoji-span">🇻🇳</span> Bia Đức × Ẩm Thực Việt = Tuyệt Phẩm
                 </div>
               </div>
             </div>
@@ -226,27 +221,27 @@ export default async function LandingPage() {
         <div className="container split-section">
           <div>
             <span className="section-label">Brand Story</span>
-            <h2 className="section-title">Hơn 400 Năm<br/><span style={{ color: 'var(--web-gold)' }}>Đam Mê Ủ Bia</span></h2>
+            <h2 className="section-title">Hơn 400 Năm<br/><span className="text-gold">Đam Mê Ủ Bia</span></h2>
             <div className="inline-divider" />
             
-            <p style={{ fontSize: '17px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
+            <p className="p-lead">
               Kể từ năm 1330 tại <strong style={{ color: 'var(--web-text)' }}>Tu Viện Ettal, Bavaria</strong>, các tu sĩ đã miệt mài lưu truyền phương pháp ủ bia khắt khe. 
               Quá trình lên men trong hầm tối kết hợp cùng dòng nước suối Bavaria tinh khiết tạo nên hương vị không thể trộn lẫn.
             </p>
-            <p style={{ fontSize: '15px', lineHeight: 1.8, color: 'var(--web-text-muted)', marginBottom: '28px' }}>
+            <p className="p-body">
               <strong style={{ color: 'var(--web-text)' }}>Bia Thầy Tu</strong> — nhà phân phối độc quyền tại Việt Nam — cam kết bảo tồn 100% hương vị lịch sử, 
               từ nhà máy Đức đến tận tay bạn với công nghệ vận chuyển nhiệt độ chuẩn.
             </p>
             
-            <Link href="/thuong-hieu" className="btn-primary">
+            <Link href="/thuong-hieu" className="btn-primary shimmer-effect">
               Khám Phá Lịch Sử Thương Hiệu
             </Link>
           </div>
           
-          <div style={{ position: 'relative', height: '500px', borderRadius: 'var(--web-radius-lg)', overflow: 'hidden' }}>
+          <div className="story-img-container">
             <Image src="/images/products/story_monastery_v2.png" alt="Tu Viện Ettal, Bavaria — nơi khởi nguồn bia Benediktiner từ năm 1330" fill style={{ objectFit: 'cover' }} />
             {/* Floating stat card */}
-            <div className="stat-card" style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px' }}>
+            <div className="stat-card stat-card-absolute">
               <div>
                 <div className="stat-value">693+</div>
                 <div className="stat-label">Năm Lịch Sử</div>

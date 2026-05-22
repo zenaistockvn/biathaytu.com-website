@@ -16,13 +16,13 @@ export default function LandingHero() {
           src="/images/products/lifestyle_garden_v2.png"
           alt="Thưởng thức bia Đức phong cách"
           fill
-          style={{ objectFit: 'cover' }}
+          className="object-cover"
           priority
         />
         <div className="hero-bg-overlay" />
       </div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '40px', paddingBottom: '40px' }}>
+      <div className="container hero-container">
         <div className="hero-grid">
           {/* Left: Typography */}
           <div>
@@ -75,7 +75,7 @@ export default function LandingHero() {
                 src="/images/products/official/benediktiner/bottle_removebg.png"
                 alt="Benediktiner Weissbier Naturtrüb 0.5L — Chai chính hãng"
                 fill
-                style={{ objectFit: 'contain' }}
+                className="object-contain"
                 priority
                 sizes="200px"
               />
@@ -85,7 +85,7 @@ export default function LandingHero() {
                 src="/images/products/official/benediktiner/glass_removebg.png"
                 alt="Cốc bia Benediktiner Weissbier 0.5L — Cốc chính hãng"
                 fill
-                style={{ objectFit: 'contain' }}
+                className="object-contain"
                 priority
                 sizes="220px"
               />
