@@ -403,6 +403,12 @@ body:has(.web-app) {
   flex-wrap: wrap;
 }
 
+@media (max-width: 640px) {
+  .web-app .product-card-v2 .card-actions {
+    gap: 12px !important;
+  }
+}
+
 /* Wine card variant */
 .web-app .product-card-v2.wine-card {
   border-color: rgba(114, 47, 55, 0.08);
@@ -2442,4 +2448,24 @@ html {
 
 .web-app .related-products-title {
   font-size: 32px !important;
+}
+
+/* ─── AEO & Design Standard Refactor Styles ─── */
+.web-app .usp-icon--small {
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.web-app .usp-icon--stars {
+  font-size: 14px !important;
+  letter-spacing: 2px !important;
+}
+
+.web-app .itqi-img-contain {
+  object-fit: contain !important;
+  padding: 30px !important;
+}
+
+.web-app .b2b-bg {
+  background-image: url('/images/products/lifestyle_garden_v2.png') !important;
 }

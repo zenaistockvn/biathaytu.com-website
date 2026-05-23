@@ -9,21 +9,26 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/api/', // Do not index internal APIs
-          '/login', // Do not index login page
-          '/studio', // Do not index admin routes
-          '/library',
-          '/calendar',
-          '/gallery',
-          '/accounts',
-          '/analytics',
-          '/activity',
-          '/rules'
+          '/api/', // Chặn bot crawl các API endpoints nội bộ để bảo mật và tối ưu Crawl Budget
         ],
       },
       {
-        userAgent: ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Perplexity-User'],
+        userAgent: [
+          'Googlebot',
+          'Bingbot',
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'PerplexityBot',
+          'Perplexity-User',
+          'ClaudeBot',          // Anthropic Claude
+          'Google-Extended',   // Google Gemini & AI Overviews
+          'Applebot-Extended', // Apple Intelligence
+          'cohere-bot',        // Cohere AI
+        ],
         allow: '/',
+        disallow: [
+          '/api/',
+        ],
       }
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

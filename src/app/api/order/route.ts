@@ -30,12 +30,8 @@ setInterval(() => {
   }
 }, 5 * 60_000);
 
-// ─── Promo Codes (server-side only) ───────────────────────
-// [S3 FIX] Promo codes ONLY live on server — never exposed to client
-const PROMO_CODES: Record<string, { percent?: number; amount?: number }> = {
-  'VIP10': { percent: 10 },
-  'FREESHIP': { amount: 30000 },
-};
+// ─── Promo Codes ──────────────────────────────────────────
+// Promo codes are now fetched dynamically from Supabase public.promo_codes table
 
 // ─── Types ────────────────────────────────────────────────
 interface OrderCustomer {
@@ -141,12 +137,34 @@ export async function POST(req: NextRequest) {
 
     let calcPromoDiscount = 0;
     const validatedCode = appliedCode?.trim().toUpperCase();
-    if (validatedCode && PROMO_CODES[validatedCode]) {
-      const promo = PROMO_CODES[validatedCode];
-      if (promo.percent) {
-        calcPromoDiscount = calculatedSubTotal * (promo.percent / 100);
-      } else if (promo.amount) {
-        calcPromoDiscount = promo.amount;
+    if (validatedCode) {
+      // Query promo code dynamically from Supabase
+      const { data: promoData, error: promoError } = await supabase
+        .from('promo_codes' as never)
+        .select('*' as never)
+        .eq('code' as never, validatedCode as never)
+        .eq('is_active' as never, true as never)
+        .single();
+
+      if (!promoError && promoData) {
+        const promo = promoData as {
+          discount_type: 'percent' | 'amount';
+          discount_value: number;
+          min_order_value?: number;
+          expires_at?: string | null;
+        };
+
+        const now = new Date();
+        const expiresAt = promo.expires_at ? new Date(promo.expires_at) : null;
+        const minOrderValue = promo.min_order_value || 0;
+
+        if ((!expiresAt || now <= expiresAt) && calculatedSubTotal >= minOrderValue) {
+          if (promo.discount_type === 'percent') {
+            calcPromoDiscount = calculatedSubTotal * (promo.discount_value / 100);
+          } else if (promo.discount_type === 'amount') {
+            calcPromoDiscount = promo.discount_value;
+          }
+        }
       }
     }
 
@@ -286,7 +304,7 @@ export async function POST(req: NextRequest) {
               </tr>
             </tfoot>
           </table>
-          <p><a href="${process.env.NEXT_PUBLIC_APP_URL || 'https://www.biathaytu.com'}/amc/orders">Vào trang Quản Lý Đơn Hàng</a></p>
+          <p><a href="${process.env.AMC_DASHBOARD_URL || 'https://amc.biathaytu.com'}/orders">Vào trang Quản Lý Đơn Hàng</a></p>
         `;
 
         await transporter.sendMail({

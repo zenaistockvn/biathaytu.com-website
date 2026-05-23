@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const supabase = await createServerSupabase();
   const { data } = await supabase
     .from('products')
-    .select('*')
+    .select('name, slug, id, description, images')
     .or(`slug.eq.${slug},id.eq.${slug}`)
     .single();
 

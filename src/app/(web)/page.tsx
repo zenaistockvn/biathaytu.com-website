@@ -58,10 +58,9 @@ export default async function LandingPage() {
             { abbr: '★★★', title: 'Giải Thưởng Quốc Tế', desc: 'iTQi 3 Sao — Hương vị vượt trội' },
           ].map((item, i) => (
             <div key={i} className="usp-item-wrap">
-              <div className="usp-icon" style={{
-                fontSize: item.abbr.length > 3 ? '11px' : '14px',
-                letterSpacing: item.abbr === '★★★' ? '2px' : '0.5px',
-              }}>{item.abbr}</div>
+              <div className={`usp-icon ${item.abbr.length > 3 ? 'usp-icon--small' : 'usp-icon--stars'}`}>
+                {item.abbr}
+              </div>
               <h3 className="usp-title">{item.title}</h3>
               <p className="usp-desc">{item.desc}</p>
             </div>
@@ -112,7 +111,7 @@ export default async function LandingPage() {
               src="/images/products/official/benediktiner/glass_removebg.png" 
               alt="Benediktiner Weissbier — Ly bia chính hãng đầy bọt, giải thưởng iTQi 3 Sao" 
               fill 
-              style={{ objectFit: 'contain', padding: '30px' }} 
+              className="itqi-img-contain"
             />
           </div>
           
@@ -217,7 +216,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           BRAND STORY — Câu Chuyện Thương Hiệu
       ═══════════════════════════════════════════ */}
-      <section className="section reveal-on-scroll delay-100" aria-label="Câu chuyện thương hiệu">
+      <section className="section-alt reveal-on-scroll delay-100" aria-label="Câu chuyện thương hiệu">
         <div className="container split-section">
           <div>
             <span className="section-label">Brand Story</span>
@@ -265,7 +264,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           TESTIMONIALS — Đánh Giá Khách Hàng
       ═══════════════════════════════════════════ */}
-      <section className="section-alt reveal-on-scroll delay-100" aria-label="Đánh giá khách hàng">
+      <section className="section reveal-on-scroll delay-100" aria-label="Đánh giá khách hàng">
         <div className="container">
           <SectionHeader label="Khách Hàng Nói Gì" title="Đánh Giá Từ Người Yêu Bia" />
 
@@ -340,7 +339,7 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           FAQ — SEO / AEO / AI Overview Section
       ═══════════════════════════════════════════ */}
-      <section className="section reveal-on-scroll delay-100" aria-label="Câu hỏi thường gặp" id="faq">
+      <section className="section-alt reveal-on-scroll delay-100" aria-label="Câu hỏi thường gặp" id="faq">
         <div className="container">
           <SectionHeader label="Câu Hỏi Thường Gặp" title="Về Bia Thầy Tu Benediktiner" />
 
@@ -371,7 +370,7 @@ export default async function LandingPage() {
       ═══════════════════════════════════════════ */}
       <section className="section b2b-section reveal-on-scroll delay-100" aria-label="Hợp tác kinh doanh">
         {/* Cinematic Background */}
-        <div className="b2b-bg" style={{ backgroundImage: 'url(/images/products/lifestyle_garden_v2.png)' }} />
+        <div className="b2b-bg" />
         <div className="b2b-overlay" />
 
         <div className="container b2b-grid">
