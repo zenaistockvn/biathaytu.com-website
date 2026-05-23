@@ -9,7 +9,7 @@ import JsonLd, { getLandingFAQSchema, getBreadcrumbSchema } from './components/J
 import { getTastingNotes } from './utils/getTastingNotes';
 import type { Metadata } from 'next';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng Từ Tu Viện Ettal',

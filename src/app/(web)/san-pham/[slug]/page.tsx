@@ -10,7 +10,7 @@ import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/
 import ProductCard from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 interface ProductData {
   id: string;

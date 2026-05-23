@@ -4,7 +4,7 @@ import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import type { Metadata } from 'next';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
