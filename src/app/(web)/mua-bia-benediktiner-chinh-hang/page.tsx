@@ -4,7 +4,7 @@ import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/Jso
 
 export const metadata: Metadata = {
   title: 'Mua Bia Benediktiner Chính Hãng — Giao Hàng Toàn Quốc',
-  description: 'Đặt mua bia Benediktiner Weissbier, Dunkel, Bom 5L chính hãng nhập khẩu từ Đức. Miễn phí giao nội thành Hà Nội. Hotline 091.531.2166.',
+  description: 'Đặt mua bia Benediktiner Weissbier, Dunkel, Bom 5L chính hãng nhập khẩu từ Đức. Miễn phí giao nội thành Hà Nội. Hotline 0899.191.313.',
   alternates: { canonical: 'https://www.biathaytu.com/mua-bia-benediktiner-chinh-hang' },
 };
 
@@ -36,7 +36,7 @@ export default function Page() {
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
         <div style={{ background: 'var(--web-gold)', color: 'var(--web-navy)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Mua bia Benediktiner ở đâu?</strong> Đặt mua trực tiếp tại website biathaytu.com, qua Zalo 091.531.2166, hoặc ghé Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc — miễn phí nội thành Hà Nội.
+          <strong>Mua bia Benediktiner ở đâu?</strong> Đặt mua trực tiếp tại website biathaytu.com, qua Zalo 0899.191.313, hoặc ghé Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc — miễn phí nội thành Hà Nội.
         </div>
 
         <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Bảng Giá Bia Benediktiner 2026</h2>
@@ -80,8 +80,8 @@ export default function Page() {
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Đặt hàng ngay</h3>
           <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Nhắn Zalo hoặc gọi Hotline để được tư vấn và đặt hàng nhanh nhất.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://zalo.me/0915312166" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-gold)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Nhắn Zalo 091.531.2166</a>
-            <a href="tel:0915312166" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-gold)', color: 'var(--web-gold)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline</a>
+            <a href="https://zalo.me/0899191313" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-gold)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Nhắn Zalo 0899.191.313</a>
+            <a href="tel:0899191313" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-gold)', color: 'var(--web-gold)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline</a>
           </div>
         </div>
       </article>
@@ -90,7 +90,7 @@ export default function Page() {
         <div className="container" style={{ maxWidth: '780px' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Mua bia Benediktiner chính hãng:</strong> biathaytu.com · Zalo 091.531.2166 · Showroom 218 Đội Cấn, Hà Nội.</p>
+            <p><strong>Mua bia Benediktiner chính hãng:</strong> biathaytu.com · Zalo 0899.191.313 · Showroom 218 Đội Cấn, Hà Nội.</p>
             <p><strong>Giá tham khảo:</strong> Két 24 lon 500ml từ 1.200.000đ — 1.608.000đ. Thùng 12 chai từ 1.092.000đ. Bom 5L: 963.000đ.</p>
             <p><strong>Giao hàng:</strong> Miễn phí nội thành Hà Nội (4h). Toàn quốc 30.000đ/thùng (2-3 ngày).</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>

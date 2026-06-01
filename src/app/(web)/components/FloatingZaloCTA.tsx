@@ -1,6 +1,6 @@
 export default function FloatingZaloCTA() {
   const message = 'Chào Bia Thầy Tu, mình cần tư vấn đặt hàng bia Đức';
-  const zaloUrl = `https://zalo.me/0915312166?text=${encodeURIComponent(message)}`;
+  const zaloUrl = `https://zalo.me/0899191313?text=${encodeURIComponent(message)}`;
 
   return (
     <div className="floating-contact-stack" aria-label="Liên hệ nhanh">
@@ -16,10 +16,10 @@ export default function FloatingZaloCTA() {
       </a>
 
       <a
-        href="tel:0915312166"
+        href="tel:0899191313"
         className="floating-contact-button floating-phone-cta"
         aria-label="Gọi Bia Thầy Tu"
-        title="Gọi 091.531.2166"
+        title="Gọi 0899.191.313"
       >
         <svg
           className="floating-phone-icon"

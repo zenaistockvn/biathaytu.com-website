@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng Từ Tu Viện Ettal',
-  description: 'Bia Thầy Tu Benediktiner Weissbier — bia lúa mì Đức 100% nhập khẩu nguyên chai từ Tu Viện Ettal, Bavaria. Đạt giải iTQi 3 Sao 2022. Chuẩn Luật Tinh Khiết 1516. Giao hàng toàn quốc — Hotline 091.531.2166.',
+  description: 'Bia Thầy Tu Benediktiner Weissbier — bia lúa mì Đức 100% nhập khẩu nguyên chai từ Tu Viện Ettal, Bavaria. Đạt giải iTQi 3 Sao 2022. Chuẩn Luật Tinh Khiết 1516. Giao hàng toàn quốc — Hotline 0899.191.313.',
   alternates: {
     canonical: 'https://www.biathaytu.com',
   },
@@ -347,7 +347,7 @@ export default async function LandingPage() {
             {[
               { q: 'Bia Thầy Tu là bia gì?', a: 'Bia Thầy Tu (Benediktiner Weissbier) là dòng bia lúa mì truyền thống của Đức, được ủ theo phương pháp tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria. Bia được sản xuất theo Luật Tinh Khiết 1516 (Reinheitsgebot), chỉ sử dụng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men bia.' },
               { q: 'Bia Benediktiner Weissbier có vị gì?', a: 'Benediktiner Weissbier Naturtrüb có hương vị đặc trưng gồm trái chuối chín, đinh hương, với lớp bọt trắng mịn dày và hậu vị ngọt dịu. Bia có màu vàng hổ phách tự nhiên, không lọc (Naturtrüb), giữ trọn men sống và hương vị tự nhiên.' },
-              { q: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?', a: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Đặt mua qua website biathaytu.com, Zalo (091.531.2166), hoặc tại Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc.' },
+              { q: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?', a: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Đặt mua qua website biathaytu.com, Zalo (0899.191.313), hoặc tại Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc.' },
               { q: 'Bia Benediktiner có giải thưởng gì?', a: 'Năm 2022, Benediktiner Weissbier Naturtrüb đã được Viện Hương Vị Quốc Tế (iTQi) trao giải "Superior Taste Award" — 3 Sao, mức cao nhất dành cho sản phẩm có hương vị vượt trội trên toàn thế giới.' },
               { q: 'Luật Tinh Khiết 1516 (Reinheitsgebot) là gì?', a: 'Reinheitsgebot là luật tinh khiết bia của Đức ban hành năm 1516. Luật quy định bia chỉ được sản xuất từ 4 nguyên liệu: nước, malt đại mạch, hoa bia và men. Đây là luật an toàn thực phẩm lâu đời nhất thế giới.' },
               { q: 'Bia Thầy Tu có bao nhiêu dòng sản phẩm?', a: 'Bia Thầy Tu hiện phân phối: Benediktiner Weissbier Naturtrüb (bia lúa mì), Benediktiner Dunkel (bia đen), Bom 5L Benediktiner, và Combo Mix 2 vị. Tất cả đều được nhập khẩu 100% nguyên chai từ Đức.' },

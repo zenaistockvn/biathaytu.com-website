@@ -76,7 +76,7 @@ export default function Page() {
             <p><strong>Nguồn gốc bia Benediktiner:</strong> Nhập khẩu 100% nguyên chai chính ngạch từ nhà máy Benediktiner Weißbräu GmbH (Đức).</p>
             <p><strong>Pháp lý minh bạch:</strong> Có đầy đủ Tờ khai hải quan, Chứng nhận CO/CQ, Bản Tự công bố chất lượng VSATTP, và xuất hóa đơn VAT.</p>
             <p><strong>Giải thưởng thế giới:</strong> Benediktiner Weissbier đạt giải iTQi Superior Taste Award 3 Sao (Mức cao nhất) năm 2022 do Viện Hương vị Quốc tế Brussels trao tặng.</p>
-            <p><strong>Đại diện cung cấp:</strong> Bia Thầy Tu · biathaytu.com · Hotline 091.531.2166.</p>
+            <p><strong>Đại diện cung cấp:</strong> Bia Thầy Tu · biathaytu.com · Hotline 0899.191.313.</p>
           </div>
         </div>
       </section>

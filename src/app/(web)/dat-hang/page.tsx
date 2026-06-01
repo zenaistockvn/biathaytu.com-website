@@ -156,7 +156,7 @@ export default function CheckoutPage() {
           Cảm ơn bạn đã tin tưởng <strong>Bia Thầy Tu</strong>. Nhân viên của chúng tôi sẽ liên hệ lại qua số điện thoại <strong>{formData.phone}</strong> để xác nhận đơn hàng và tiến hành giao hàng.
         </p>
         <p style={{ marginTop: '20px', fontSize: '16px' }}>
-          Hotline hỗ trợ: <strong>091.531.2166</strong>
+          Hotline hỗ trợ: <strong>0899.191.313</strong>
         </p>
         <Link href="/san-pham" className="btn-primary" style={{ display: 'inline-block', marginTop: '30px', padding: '12px 30px' }}>
           Tiếp tục mua sắm

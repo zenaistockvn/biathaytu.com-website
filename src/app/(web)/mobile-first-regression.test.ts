@@ -52,8 +52,8 @@ describe('mobile-first responsive regressions', () => {
     expect(layout).toContain("import FloatingZaloCTA from './components/FloatingZaloCTA'");
     expect(layout).toContain('<FloatingZaloCTA />');
     expect(floatingCta).toContain('className="floating-contact-stack"');
-    expect(floatingCta).toContain('https://zalo.me/0915312166');
-    expect(floatingCta).toContain('href="tel:0915312166"');
+    expect(floatingCta).toContain('https://zalo.me/0899191313');
+    expect(floatingCta).toContain('href="tel:0899191313"');
     expect(floatingCta).toContain('aria-label="Chat Zalo với Bia Thầy Tu"');
     expect(floatingCta).toContain('aria-label="Gọi Bia Thầy Tu"');
     expect(floatingCta).toContain('floating-zalo-cta');

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-  description: 'Liên hệ Bia Thầy Tu — Hotline 091.531.2166. Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+  description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
   alternates: {
     canonical: 'https://www.biathaytu.com/lien-he',
   },
@@ -46,7 +46,7 @@ export default function ContactPage() {
               
               <div>
                 <strong>Tổng đài CSKH</strong>
-                <a href="tel:0915312166" className="phone">091 531 2166</a>
+                <a href="tel:0899191313" className="phone">0899 191 313</a>
                 <span className="small">(Hỗ trợ: 09:00 - 21:00 hàng ngày)</span>
               </div>
 
@@ -91,7 +91,7 @@ export default function ContactPage() {
             </div>
 
             <p className="contact-alt-phone">
-              Hoặc gọi trực tiếp <a href="tel:0915312166">091.531.2166</a>
+              Hoặc gọi trực tiếp <a href="tel:0899191313">0899.191.313</a>
             </p>
           </div>
         </div>

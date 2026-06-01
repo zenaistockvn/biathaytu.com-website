@@ -55,8 +55,8 @@ export default function Page() {
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Lên đơn hàng Quà Tặng ngay</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để nhận catalog quà tặng mới nhất và báo giá chiết khấu, vui lòng liên hệ:</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://zalo.me/0915312166" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-navy)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo Bộ Phận B2B</a>
-            <a href="tel:0915312166" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-navy)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Hotline Tư Vấn Quà Tặng</a>
+            <a href="https://zalo.me/0899191313" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-navy)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo Bộ Phận B2B</a>
+            <a href="tel:0899191313" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-navy)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Hotline Tư Vấn Quà Tặng</a>
           </div>
         </div>
       </article>
@@ -68,7 +68,7 @@ export default function Page() {
             <p><strong>Quà tặng bia Đức cho doanh nghiệp:</strong> Gói quà sang trọng từ Bia Thầy Tu Benediktiner và Bitburger Pilsner.</p>
             <p><strong>Tùy chọn:</strong> Thùng mix 2 vị (bia đen + bia vàng), Bom bia 5 lít tiệc tùng, Set bia kèm ly pha lê Weizen.</p>
             <p><strong>Dịch vụ:</strong> Xuất hóa đơn VAT, giao hàng đa điểm, chiết khấu thương mại cao, hỗ trợ in logo doanh nghiệp.</p>
-            <p><strong>Liên hệ:</strong> biathaytu.com · Hotline B2B 091.531.2166.</p>
+            <p><strong>Liên hệ:</strong> biathaytu.com · Hotline B2B 0899.191.313.</p>
           </div>
         </div>
       </section>

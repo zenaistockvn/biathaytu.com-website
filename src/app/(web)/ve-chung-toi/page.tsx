@@ -54,7 +54,7 @@ export default function Page() {
         <div style={{ background: 'var(--web-bg-section)', padding: '32px', borderRadius: '16px', marginBottom: '48px', lineHeight: 1.8, fontSize: '16px', color: 'var(--web-text-secondary)' }}>
           <p><strong>Thương hiệu:</strong> Bia Thầy Tu</p>
           <p><strong>Showroom bán lẻ:</strong> 218 Đội Cấn, Quận Ba Đình, TP. Hà Nội</p>
-          <p><strong>Hotline tư vấn & đặt hàng:</strong> 091.531.2166</p>
+          <p><strong>Hotline tư vấn & đặt hàng:</strong> 0899.191.313</p>
           <p><strong>Email đối tác B2B:</strong> contact@biathaytu.com</p>
         </div>
 
@@ -73,7 +73,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Đơn vị:</strong> Thương hiệu Bia Thầy Tu.</p>
             <p><strong>Lĩnh vực:</strong> Nhập khẩu và phân phối độc quyền bia lúa mì Đức (Benediktiner Weissbier) và bia Bitburger Pilsner tại Việt Nam.</p>
-            <p><strong>Cơ sở:</strong> 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 091.531.2166.</p>
+            <p><strong>Cơ sở:</strong> 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 0899.191.313.</p>
             <p><strong>Website chính thức:</strong> biathaytu.com.</p>
           </div>
         </div>

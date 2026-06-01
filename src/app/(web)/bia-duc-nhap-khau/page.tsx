@@ -78,7 +78,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Bia Đức nhập khẩu tại Việt Nam:</strong> 3 dòng chính — Weissbier (Benediktiner), Dunkel, Pilsner (Bitburger).</p>
             <p><strong>Tiêu chuẩn:</strong> Reinheitsgebot 1516 — chỉ 4 nguyên liệu tự nhiên.</p>
-            <p><strong>Nhà phân phối:</strong> Bia Thầy Tu · biathaytu.com · Hotline 091.531.2166.</p>
+            <p><strong>Nhà phân phối:</strong> Bia Thầy Tu · biathaytu.com · Hotline 0899.191.313.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

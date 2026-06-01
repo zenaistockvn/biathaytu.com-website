@@ -168,7 +168,7 @@ export function getLandingFAQSchema() {
     },
     {
       question: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?',
-      answer: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Bạn có thể đặt mua trực tiếp qua website biathaytu.com, Zalo (091.531.2166), hoặc tại Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc.',
+      answer: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Bạn có thể đặt mua trực tiếp qua website biathaytu.com, Zalo (0899.191.313), hoặc tại Showroom 218 Đội Cấn, Ba Đình, Hà Nội. Giao hàng toàn quốc.',
     },
     {
       question: 'Bia Benediktiner có giải thưởng gì?',

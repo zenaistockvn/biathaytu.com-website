@@ -21,7 +21,7 @@ export default function WebFooter() {
               title="Zalo"
             >💬</a>
             <a 
-              href="tel:0915312166"
+              href="tel:0899191313"
               className="footer-social-icon"
               title="Hotline"
             >📞</a>

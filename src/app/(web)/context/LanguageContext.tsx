@@ -41,7 +41,7 @@ const translations: Translations = {
     'footer.company.b2b': 'Khách Hàng Doanh Nghiệp',
     'footer.company.policy': 'Chính Sách & Giao Hàng',
     'footer.contact.title': 'Liên Hệ',
-    'footer.contact.hotline': 'Hotline HN: 091.531.2166',
+    'footer.contact.hotline': 'Hotline HN: 0899.191.313',
     'footer.contact.time': 'Thứ 2 - Chủ Nhật (9:00 - 21:00)',
     'footer.contact.email': 'info@biathaytu.com',
     'footer.reserved': 'All rights reserved.',

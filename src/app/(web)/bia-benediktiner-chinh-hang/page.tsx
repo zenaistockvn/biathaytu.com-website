@@ -73,7 +73,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Bia Benediktiner chính hãng:</strong> 100% nhập khẩu từ Benediktiner Weißbräu GmbH (Bavaria, Đức).</p>
             <p><strong>Dấu hiệu nhận biết:</strong> Nhãn phụ tiếng Việt, mã vạch 400-440 (Đức), chất bia đục tự nhiên (Naturtrüb) do men sống.</p>
-            <p><strong>Mua hàng uy tín:</strong> biathaytu.com · Hotline 091.531.2166.</p>
+            <p><strong>Mua hàng uy tín:</strong> biathaytu.com · Hotline 0899.191.313.</p>
             <p><strong>Bảo quản:</strong> Cần giữ mát để bảo vệ men sống (Live yeast) bên trong chai.</p>
           </div>
         </div>
