@@ -25,7 +25,7 @@ export default async function LandingPage() {
   // Fetch featured products
   const { data: featuredProducts } = await supabase
     .from('products')
-    .select('id, name, slug, images, abv, ibu, volume, short_description, price, haravan_url, category, sort_order')
+    .select('id, name, slug, description, images, abv, ibu, volume, price, haravan_url, category, sort_order')
     .eq('is_featured', true)
     .neq('category', 'vang')
     .not('name', 'ilike', '%bitburger%')
@@ -80,13 +80,13 @@ export default async function LandingPage() {
             {featuredProducts?.map((product: {
               id: string; name: string; slug: string; images: string[] | null;
               abv: string | null; ibu: number | null; volume: string | null;
-              short_description: string | null; price: number | null;
+              description: string | null; price: number | null;
               haravan_url: string | null; category: string | null;
             }) => (
               <ProductCard
                 key={product.id}
                 {...product}
-                description={product.short_description || `"${getTastingNotes(product.name)}"`}
+                description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
                 showCTA={true}
               />
             ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -37,9 +38,12 @@ export default function ProductCard({
   const router = useRouter();
   const addItem = useCartStore((state) => state.addItem);
   const showToast = useToastStore((state) => state.show);
+  const [imageFailed, setImageFailed] = useState(false);
   
   const href = `/san-pham/${slug || id}`;
   const isWine = category === 'vang';
+  const primaryImage = images?.[0] || '';
+  const cartImage = !imageFailed ? primaryImage : '';
 
   const handleAddCart = () => {
     if (!price) return;
@@ -48,7 +52,7 @@ export default function ProductCard({
       name,
       slug: slug || id,
       price,
-      image: images?.[0] || '',
+      image: cartImage,
       quantity: 1,
     });
     showToast(`✓ Đã thêm ${name} vào giỏ hàng`);
@@ -61,7 +65,7 @@ export default function ProductCard({
       name,
       slug: slug || id,
       price,
-      image: images?.[0] || '',
+      image: cartImage,
       quantity: 1,
     });
     router.push('/dat-hang');
@@ -70,13 +74,14 @@ export default function ProductCard({
   return (
     <div className={`product-card-v2${isWine ? ' wine-card' : ''}`}>
       <Link href={href} className="card-image">
-        {images?.[0] ? (
+        {primaryImage && !imageFailed ? (
           <Image
-            src={images[0]}
+            src={primaryImage}
             alt={name}
             fill
             style={{ objectFit: 'contain' }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            onError={() => setImageFailed(true)}
           />
         ) : (
           <div className="card-image-empty">

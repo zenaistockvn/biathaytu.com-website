@@ -129,7 +129,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   // Fetch suggested products for CTA
   const { data: suggestedProducts } = await supabase
     .from('products')
-    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
+    .select('id, name, slug, description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('is_featured', true)
     .neq('category', 'vang')
     .not('name', 'ilike', '%bitburger%') // Suggest Benediktiner primarily
@@ -233,7 +233,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                   <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
                     <ProductCard
                       {...product}
-                      description={product.short_description || `"${getTastingNotes(product.name)}"`}
+                      description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
                       showCTA={true}
                     />
                   </div>

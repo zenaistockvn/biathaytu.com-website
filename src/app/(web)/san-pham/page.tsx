@@ -19,7 +19,6 @@ interface Product {
   name: string;
   slug: string;
   description: string | null;
-  short_description: string | null;
   abv: string | null;
   ibu: number | null;
   volume: string | null;
@@ -36,7 +35,7 @@ export default async function ProductsPage() {
   
   const { data: beerProducts } = await supabase
     .from('products')
-    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
+    .select('id, name, slug, description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('category', 'bia')
     .not('name', 'ilike', '%bitburger%')
     .order('sort_order', { ascending: true });
@@ -44,7 +43,7 @@ export default async function ProductsPage() {
 
   const { data: accessories } = await supabase
     .from('products')
-    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
+    .select('id, name, slug, description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('category', 'phu-kien')
     .order('sort_order', { ascending: true });
 

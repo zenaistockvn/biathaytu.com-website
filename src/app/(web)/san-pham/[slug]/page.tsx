@@ -74,7 +74,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   // Fetch related products (Cross-sell)
   const { data: relatedProductsData } = await supabase
     .from('products')
-    .select('id, name, slug, description, short_description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
+    .select('id, name, slug, description, abv, ibu, volume, images, price, haravan_url, category, sort_order, is_featured')
     .eq('category', 'bia')
     .neq('id', product.id)
     .not('name', 'ilike', '%bitburger%')
