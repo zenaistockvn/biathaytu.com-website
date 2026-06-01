@@ -1,15 +1,62 @@
 'use client';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import ZaloCTA from './ZaloCTA';
 import { Button } from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 
+gsap.registerPlugin(useGSAP);
+
 export default function LandingHero() {
   const { t } = useLanguage();
+  const heroRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const selector = gsap.utils.selector(heroRef);
+    const introItems = selector('.hero-badge, .hero-title, .hero-desc, .hero-actions, .hero-trust-bar');
+    const productItems = selector('.hero-product-bottle, .hero-product-glass');
+
+    if (reduceMotion) {
+      gsap.set([...introItems, ...productItems], {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+      });
+      return;
+    }
+
+    const timeline = gsap.timeline({
+      defaults: {
+        ease: 'power3.out',
+      },
+    });
+
+    timeline
+      .from(introItems, {
+        autoAlpha: 0,
+        y: 24,
+        duration: 0.72,
+        stagger: 0.09,
+      })
+      .from(
+        productItems,
+        {
+          autoAlpha: 0,
+          y: 34,
+          scale: 0.96,
+          duration: 0.86,
+          stagger: 0.12,
+        },
+        '-=0.42'
+      );
+  }, { scope: heroRef });
 
   return (
-    <section className="hero-dark">
+    <section ref={heroRef} className="hero-dark">
       {/* Background lifestyle image + dark overlay */}
       <div className="hero-bg-image">
         <Image 
