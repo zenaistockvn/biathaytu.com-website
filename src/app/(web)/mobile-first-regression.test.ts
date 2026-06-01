@@ -77,4 +77,29 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*display:\s*none/);
     expect(css).toContain('--web-mobile-bottom-nav-height');
   });
+
+  it('uses GSAP ScrollTrigger for class-based scroll reveal with reduced motion support', () => {
+    const reveal = readProjectFile('src/app/(web)/components/ScrollRevealObserver.tsx');
+
+    expect(reveal).toContain("import gsap from 'gsap'");
+    expect(reveal).toContain("import { ScrollTrigger } from 'gsap/ScrollTrigger'");
+    expect(reveal).toContain("import { useGSAP } from '@gsap/react'");
+    expect(reveal).toContain('gsap.registerPlugin(useGSAP, ScrollTrigger)');
+    expect(reveal).toContain("prefers-reduced-motion: reduce");
+    expect(reveal).toContain("'.reveal-on-scroll'");
+    expect(reveal).toContain('once: true');
+  });
+
+  it('uses a scoped GSAP timeline for the landing hero', () => {
+    const hero = readProjectFile('src/app/(web)/components/LandingHero.tsx');
+    const css = readProjectFile('src/app/web.css');
+
+    expect(hero).toContain("import gsap from 'gsap'");
+    expect(hero).toContain("import { useGSAP } from '@gsap/react'");
+    expect(hero).toContain('const heroRef = useRef<HTMLElement>(null)');
+    expect(hero).toContain('scope: heroRef');
+    expect(hero).toContain('gsap.timeline');
+    expect(hero).toContain("prefers-reduced-motion: reduce");
+    expect(css).toMatch(/\.web-app\s+\.hero-fade-in\s*\{[^}]*opacity:\s*1/);
+  });
 });
