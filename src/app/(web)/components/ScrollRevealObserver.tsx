@@ -1,39 +1,50 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function ScrollRevealObserver() {
-  useEffect(() => {
-    // Only run on client
-    if (typeof window === 'undefined') return;
+  useGSAP(() => {
+    const elements = gsap.utils.toArray<HTMLElement>('.reveal-on-scroll');
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.15,
-    };
+    if (elements.length === 0) return;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          // Optionally unobserve after revealing if we only want it to animate once
-          observer.unobserve(entry.target);
-        }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      gsap.set(elements, {
+        autoAlpha: 1,
+        y: 0,
+        clearProps: 'willChange',
       });
-    }, observerOptions);
+      return;
+    }
 
-    // Initial check for elements
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((element) => {
+      gsap.fromTo(
+        element,
+        {
+          autoAlpha: 0,
+          y: 28,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: 'power3.out',
+          clearProps: 'willChange',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 86%',
+            once: true,
+          },
+        }
+      );
+    });
+  }, []);
 
-    // For elements added dynamically later or after route changes (though App router manages DOM well, it's safe to observe on mount)
-    // Cleanup
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
-    };
-  }, []); // Run once on mount
-
-  return null; // This component does not render anything
+  return null;
 }
