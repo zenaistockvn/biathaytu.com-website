@@ -1,0 +1,799 @@
+{
+  "unused": [],
+  "used": [
+    {
+      "path": "public/images/ai_generated/batch10_img1_0d0c.png",
+      "size": 2558892
+    },
+    {
+      "path": "public/images/ai_generated/batch2_img3_48c7.png",
+      "size": 2131027
+    },
+    {
+      "path": "public/images/ai_generated/batch2_img6_001d.png",
+      "size": 2130484
+    },
+    {
+      "path": "public/images/ai_generated/batch2_img7_7139.png",
+      "size": 1963106
+    },
+    {
+      "path": "public/images/ai_generated/batch2_img8_1b5f.png",
+      "size": 2097016
+    },
+    {
+      "path": "public/images/ai_generated/batch3_img6_1dab.png",
+      "size": 1728051
+    },
+    {
+      "path": "public/images/ai_generated/batch4_img1_1a33.png",
+      "size": 2137510
+    },
+    {
+      "path": "public/images/ai_generated/batch4_img2_1f30.png",
+      "size": 2220031
+    },
+    {
+      "path": "public/images/ai_generated/batch4_img9_3863.png",
+      "size": 2102124
+    },
+    {
+      "path": "public/images/ai_generated/batch5_img3_c0aa.png",
+      "size": 1983002
+    },
+    {
+      "path": "public/images/ai_generated/batch5_img5_efe0.png",
+      "size": 2196403
+    },
+    {
+      "path": "public/images/ai_generated/batch5_img6_3f4a.png",
+      "size": 2434370
+    },
+    {
+      "path": "public/images/ai_generated/batch6_img1_aeed.png",
+      "size": 2009077
+    },
+    {
+      "path": "public/images/ai_generated/batch6_img4_0761.png",
+      "size": 2254020
+    },
+    {
+      "path": "public/images/ai_generated/batch6_img6_fe05.png",
+      "size": 2646503
+    },
+    {
+      "path": "public/images/ai_generated/batch6_img8_79ac.png",
+      "size": 2238943
+    },
+    {
+      "path": "public/images/ai_generated/batch7_img4_53ed.png",
+      "size": 2585910
+    },
+    {
+      "path": "public/images/ai_generated/batch8_img10_5cf7.png",
+      "size": 1726080
+    },
+    {
+      "path": "public/images/ai_generated/batch9_img6_4750.png",
+      "size": 2329190
+    },
+    {
+      "path": "public/images/ai_generated/batch9_img9_5d13.png",
+      "size": 2156919
+    },
+    {
+      "path": "public/images/ai_generated/bitburger_dose_hanoi_bb6d.png",
+      "size": 2095969
+    },
+    {
+      "path": "public/images/ai_generated/bitburger_uv_deb9.png",
+      "size": 1816575
+    },
+    {
+      "path": "public/images/avatars/do_quang_huy.png",
+      "size": 2460197
+    },
+    {
+      "path": "public/images/avatars/le_hoang_long.png",
+      "size": 2712078
+    },
+    {
+      "path": "public/images/avatars/nguyen_minh_tam.png",
+      "size": 1870642
+    },
+    {
+      "path": "public/images/avatars/pham_thanh_ha.png",
+      "size": 2453008
+    },
+    {
+      "path": "public/images/avatars/tran_thu_phuong.png",
+      "size": 2619660
+    },
+    {
+      "path": "public/images/avatars/tran_van_nam.png",
+      "size": 2325873
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Alkoholfrei - 0.5 l glass.webp",
+      "size": 9778
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Dunkel - product logo.webp",
+      "size": 46272
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Naturtrüb - 0.5 l glass.webp",
+      "size": 12706
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Naturtrüb - 4 x 6 x 0.33 l bottle.webp",
+      "size": 31584
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Naturtrüb - 4 x0.5 l can.webp",
+      "size": 37562
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Naturtrüb - 50 l keg.webp",
+      "size": 18640
+    },
+    {
+      "path": "public/images/benediktiner/Benediktiner Weissbier Naturtrüb - product logo.webp",
+      "size": 34156
+    },
+    {
+      "path": "public/images/facebook/cover_bia_am_thuc_v2_1775560881516.png",
+      "size": 1947546
+    },
+    {
+      "path": "public/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png",
+      "size": 1917891
+    },
+    {
+      "path": "public/images/facebook/cover_tiep_khach_v2_1775560932251.png",
+      "size": 2166630
+    },
+    {
+      "path": "public/images/marketing/social/bitburger-lifestyle-rooftop.png",
+      "size": 899348
+    },
+    {
+      "path": "public/images/products/ad_combo.png",
+      "size": 2032645
+    },
+    {
+      "path": "public/images/products/ad_combo_v2.png",
+      "size": 2114700
+    },
+    {
+      "path": "public/images/products/ad_hero_bene_v2.png",
+      "size": 1958333
+    },
+    {
+      "path": "public/images/products/amc_assets/benediktiner_composite_rustic_1775734047862.png",
+      "size": 2386324
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_bbq_food_1775741893404.png",
+      "size": 2813087
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_driving_lifestyle_1775733642452.png",
+      "size": 2234189
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_fusion_food_1775753401190.png",
+      "size": 2388915
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_macro_foam_1775733746609.png",
+      "size": 2160673
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_pour_tutorial_1775753451837.png",
+      "size": 1856066
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburger_zero_gym_9x16_1775735017778.png",
+      "size": 2053925
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburg_heritage_story_1775753219026.png",
+      "size": 2566135
+    },
+    {
+      "path": "public/images/products/amc_assets/bitburg_to_saigon_1775741871482.png",
+      "size": 2405830
+    },
+    {
+      "path": "public/images/products/amc_assets/dunkel_pork_ribs_16x9_1775734978767.png",
+      "size": 2614363
+    },
+    {
+      "path": "public/images/products/amc_assets/viet_balcony_sunset_9x16_1775734919638.png",
+      "size": 2271349
+    },
+    {
+      "path": "public/images/products/amc_assets/weissbier_seafood_16x9_1775734547769.png",
+      "size": 2105236
+    },
+    {
+      "path": "public/images/products/food_banhmi_v2.png",
+      "size": 2195227
+    },
+    {
+      "path": "public/images/products/food_bbq.png",
+      "size": 2307880
+    },
+    {
+      "path": "public/images/products/food_bbq_v2.png",
+      "size": 2078554
+    },
+    {
+      "path": "public/images/products/food_pho.png",
+      "size": 2407614
+    },
+    {
+      "path": "public/images/products/food_pho_v2.png",
+      "size": 2297086
+    },
+    {
+      "path": "public/images/products/food_seafood_flatlay.png",
+      "size": 2858479
+    },
+    {
+      "path": "public/images/products/hero_bitburger_keg.png",
+      "size": 2337413
+    },
+    {
+      "path": "public/images/products/hero_bitburger_v2.png",
+      "size": 1294315
+    },
+    {
+      "path": "public/images/products/hero_dunkel_v2.png",
+      "size": 1801543
+    },
+    {
+      "path": "public/images/products/hero_weissbier_v2.png",
+      "size": 1467036
+    },
+    {
+      "path": "public/images/products/lifestyle_friends_v2.png",
+      "size": 2137434
+    },
+    {
+      "path": "public/images/products/lifestyle_garden_v2.png",
+      "size": 2780902
+    },
+    {
+      "path": "public/images/products/lifestyle_relax_v2.png",
+      "size": 2376146
+    },
+    {
+      "path": "public/images/products/lifestyle_rooftop_v2.png",
+      "size": 2195671
+    },
+    {
+      "path": "public/images/products/macro_condensation_v2.png",
+      "size": 2006250
+    },
+    {
+      "path": "public/images/products/macro_pour_v2.png",
+      "size": 1849520
+    },
+    {
+      "path": "public/images/products/official/benediktiner/113_cbaf0be4ae9d4e8486a5e81de930bc46.png",
+      "size": 865595
+    },
+    {
+      "path": "public/images/products/official/benediktiner/124_43ed2d310d7b45a6a7c3cd065e139b25.png",
+      "size": 2395554
+    },
+    {
+      "path": "public/images/products/official/benediktiner/49717_Bene_GL_vO_WB_dunkel.jpg",
+      "size": 2791934
+    },
+    {
+      "path": "public/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.jpg",
+      "size": 3642059
+    },
+    {
+      "path": "public/images/products/official/benediktiner/83810_Bene_Weissbier_4x05l_Dose_schraeg.jpg",
+      "size": 3029116
+    },
+    {
+      "path": "public/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Sixpack_033l_Export.jpg",
+      "size": 2926328
+    },
+    {
+      "path": "public/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Tray_4x6x033l_Export.jpg",
+      "size": 2403370
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Flasche_Abbildung.jpg",
+      "size": 1828251
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Glas_Abbildung.jpg",
+      "size": 1273585
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.jpg",
+      "size": 2902872
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86480_Benediktiner_Weiss_NT_Flasche_05l_betaut.jpg",
+      "size": 2350923
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86480_bottle_nobg.png",
+      "size": 5096555
+    },
+    {
+      "path": "public/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.jpg",
+      "size": 2194867
+    },
+    {
+      "path": "public/images/products/official/benediktiner/87205_Bene_Weissbier_05l_Dose_frontal_Export.jpg",
+      "size": 1571164
+    },
+    {
+      "path": "public/images/products/official/benediktiner/89327_Bene_Weissbier_AF_Draufsicht_033l_betaut_001.jpg",
+      "size": 1830767
+    },
+    {
+      "path": "public/images/products/official/benediktiner/89327_Bene_Weissbier_NT_Draufsicht_033l_betaut.jpg",
+      "size": 1726622
+    },
+    {
+      "path": "public/images/products/official/benediktiner/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png",
+      "size": 224119
+    },
+    {
+      "path": "public/images/products/official/benediktiner/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png",
+      "size": 256803
+    },
+    {
+      "path": "public/images/products/official/benediktiner/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png",
+      "size": 239921
+    },
+    {
+      "path": "public/images/products/official/benediktiner/bottle_removebg.png",
+      "size": 418168
+    },
+    {
+      "path": "public/images/products/official/benediktiner/glass_nobg.png",
+      "size": 19486126
+    },
+    {
+      "path": "public/images/products/official/benediktiner/glass_removebg.png",
+      "size": 363569
+    },
+    {
+      "path": "public/images/products/official/bitburger/20201006_bitburger_flasche_033l_export_drive.jpg",
+      "size": 2669167
+    },
+    {
+      "path": "public/images/products/official/bitburger/60922_Bitb_Pils_Pokal.jpg",
+      "size": 2325073
+    },
+    {
+      "path": "public/images/products/official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg",
+      "size": 3119880
+    },
+    {
+      "path": "public/images/products/official/bitburger/76979_Bit_Pils_Drive_Alkoholfrei_Export_Sixpack_6er_6x033l.jpg",
+      "size": 2986290
+    },
+    {
+      "path": "public/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.jpg",
+      "size": 1710300
+    },
+    {
+      "path": "public/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.jpg",
+      "size": 1288045
+    },
+    {
+      "path": "public/images/products/official/bitburger/bitburger_330ml_ce3904b05a2943d280fdf9465d957b4b.png",
+      "size": 881968
+    },
+    {
+      "path": "public/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.jpg",
+      "size": 1452606
+    },
+    {
+      "path": "public/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.jpg",
+      "size": 1330052
+    },
+    {
+      "path": "public/images/products/official/rappenhof/riesling_auslese_bottle.png",
+      "size": 75401
+    },
+    {
+      "path": "public/images/products/official/rappenhof/riesling_kabinett_bottle.png",
+      "size": 77310
+    },
+    {
+      "path": "public/images/products/official/rappenhof/riesling_kabinett_label.png",
+      "size": 579656
+    },
+    {
+      "path": "public/images/products/official/rappenhof/riesling_trocken_bottle.png",
+      "size": 75014
+    },
+    {
+      "path": "public/images/products/official/thorle/austernkalk_magnum_bottle.jpg",
+      "size": 46003
+    },
+    {
+      "path": "public/images/products/official/thorle/austernkalk_magnum_detail.jpg",
+      "size": 49180
+    },
+    {
+      "path": "public/images/products/official/thorle/kabinett_bottle.png",
+      "size": 73326
+    },
+    {
+      "path": "public/images/products/official/thorle/riesling_750_bottle.png",
+      "size": 74815
+    },
+    {
+      "path": "public/images/products/official/thorle/riesling_750_detail.png",
+      "size": 637253
+    },
+    {
+      "path": "public/images/products/official/thorle/spatburgunder_bottle.png",
+      "size": 76216
+    },
+    {
+      "path": "public/images/products/official/thorle/spatburgunder_detail_1.png",
+      "size": 579270
+    },
+    {
+      "path": "public/images/products/official/thorle/spatburgunder_detail_2.png",
+      "size": 539519
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_beach.png",
+      "size": 2525309
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_chill.png",
+      "size": 2354423
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_cigar.png",
+      "size": 2220209
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_barbershop_1775145113014.png",
+      "size": 2590628
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_campfire_1775145479680.png",
+      "size": 1965047
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_chalet_1775145550978.png",
+      "size": 2580096
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_cigar2_1775145433896.png",
+      "size": 2003270
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_f1_1775145403575.png",
+      "size": 2649014
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_gondola_1775178997496.png",
+      "size": 2410467
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_halong_1775145156646.png",
+      "size": 2094654
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_journal_1775145933871.png",
+      "size": 2182136
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_library.png",
+      "size": 2347133
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_library_1775139048377.png",
+      "size": 2347133
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_maybach_1775178801110.png",
+      "size": 1986704
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_sourdough_1775145704119.png",
+      "size": 2496455
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_exact_suv_1775145991816.png",
+      "size": 2217173
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_finedining.png",
+      "size": 2259517
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_heritage.png",
+      "size": 2342965
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_omakase.png",
+      "size": 2590551
+    },
+    {
+      "path": "public/images/products/premium_ugc/benediktiner_steakhouse.png",
+      "size": 2374267
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_businessclass.png",
+      "size": 2462036
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_astrophotography_1775145620919.png",
+      "size": 2610450
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_audiophile.png",
+      "size": 2482001
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_billiards_1775145360848.png",
+      "size": 2070553
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_cabana.png",
+      "size": 2459604
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_chef_1775145887488.png",
+      "size": 1934783
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_cyberpunkrain_1775145685381.png",
+      "size": 2583062
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_djclub_1775146105283.png",
+      "size": 2542385
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_esports_1775145178733.png",
+      "size": 2559033
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_golf.png",
+      "size": 2269335
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_mancave_1775145092574.png",
+      "size": 2062596
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_marathon_1775145419405.png",
+      "size": 2437228
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_midnightrun_1775145751713.png",
+      "size": 2500297
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_mtbike_1775178891904.png",
+      "size": 2583495
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_pcbuild_1775178754628.png",
+      "size": 1882402
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_recordingstudio_1775145577722.png",
+      "size": 2393027
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_sneakers_1775178823294.png",
+      "size": 2447852
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_tennis2_1775145948892.png",
+      "size": 2053602
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_watch_1775145496770.png",
+      "size": 2310800
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_exact_yeti_1775178932655.png",
+      "size": 2515499
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_helicopter_pad_1775282328377.png",
+      "size": 2426745
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_marina_sunset_1775282113669.png",
+      "size": 2479686
+    },
+    {
+      "path": "public/images/products/premium_ugc/bitburger_workshop_tools_1775282153915.png",
+      "size": 2597822
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_bathtub_1775146087555.png",
+      "size": 2210524
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_bushcraft_1775145976323.png",
+      "size": 2595200
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_carpenter_1775145510989.png",
+      "size": 2357420
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_chess_1775145718807.png",
+      "size": 2039830
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_historiclibrary_1775145564935.png",
+      "size": 2087792
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_jazz.png",
+      "size": 2070024
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_lounge_1775145194287.png",
+      "size": 2179763
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_noodleshop_1775178869555.png",
+      "size": 2697554
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_oxfordshoes_1775145914728.png",
+      "size": 2392789
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_penthouse.png",
+      "size": 2081562
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_piano_1775178976240.png",
+      "size": 1783699
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_porschegarage_1775145606141.png",
+      "size": 1473703
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_rainycafe_1775145448022.png",
+      "size": 2766298
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_sausage_1775145390549.png",
+      "size": 2326675
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_exact_typewriter_1775178774531.png",
+      "size": 2030685
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_fireside_leather_1775281950376.png",
+      "size": 2326511
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_steakhouse_date_1775281979432.png",
+      "size": 2234196
+    },
+    {
+      "path": "public/images/products/premium_ugc/dunkel_whisky_lounge_1775282042082.png",
+      "size": 2248260
+    },
+    {
+      "path": "public/images/products/premium_ugc/hell_exact_villa.png",
+      "size": 2195796
+    },
+    {
+      "path": "public/images/products/premium_ugc/mix_giftset_tet_1775282397674.png",
+      "size": 2559048
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_artgallery_1775178843655.png",
+      "size": 1814297
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_artstudio_1775145637148.png",
+      "size": 2312378
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_botanical_1775145964880.png",
+      "size": 2876877
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_floatingtray_1775145462536.png",
+      "size": 2414599
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_flyfishing_1775145734929.png",
+      "size": 2732341
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_golfclubhouse_1775178957218.png",
+      "size": 2307620
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_koipond_1775178713095.png",
+      "size": 2508161
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_luxuryyacht.png",
+      "size": 2237876
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_newspaper_1775145522905.png",
+      "size": 2083043
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_pineforest_1775145901113.png",
+      "size": 2280476
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_pizzaoven_1775146028917.png",
+      "size": 2460910
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_surf_1775145591267.png",
+      "size": 2273250
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_sushiboat_1775145377000.png",
+      "size": 2163465
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_exact_tennis.png",
+      "size": 2565607
+    },
+    {
+      "path": "public/images/products/premium_ugc/weissbier_sushi_omakase_1775281933742.png",
+      "size": 2381116
+    },
+    {
+      "path": "public/images/products/seasonal_tet_v2.png",
+      "size": 2288691
+    },
+    {
+      "path": "public/images/products/story_ingredients_v2.png",
+      "size": 2296166
+    },
+    {
+      "path": "public/images/products/story_monastery.png",
+      "size": 2481776
+    },
+    {
+      "path": "public/images/products/story_monastery_v2.png",
+      "size": 2189294
+    },
+    {
+      "path": "public/images/products/ugc_unboxing.png",
+      "size": 2429005
+    },
+    {
+      "path": "public/images/sanh_bia_duc_cover.png",
+      "size": 2017701
+    },
+    {
+      "path": "public/logo.jpg",
+      "size": 917471
+    }
+  ],
+  "totalImagesSize": 413813118,
+  "unusedSize": 0
+}

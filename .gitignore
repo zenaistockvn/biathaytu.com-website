@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+
+# production
+build/
+
+# env
+.env
+.env.local
+.env.production
+
+# debug
+npm-debug.log*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+Thumbs.db
+flowkit-temp/
+
+# temp / research files
+tmp-*.html
+*.research.html
+scraped_images.json
+facebook-algorithm-research.html
+
+# agent configs
+.agents/
+skills-lock.json
+
+# test profiles
+.edge-test-profile/
