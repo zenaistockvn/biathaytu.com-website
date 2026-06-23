@@ -17,23 +17,26 @@ envContent.split('\n').forEach(line => {
 
 const supabaseUrl = envVars['NEXT_PUBLIC_SUPABASE_URL'];
 const supabaseAnonKey = envVars['NEXT_PUBLIC_SUPABASE_ANON_KEY'];
+const tenantId = envVars['NEXT_PUBLIC_TENANT_ID'] || 'biathaytu';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function dump() {
   try {
     // 1. Fetch products
-    console.log('Fetching products...');
+    console.log(`Fetching products for tenant: ${tenantId}...`);
     const { data: products, error: pError } = await supabase
       .from('products')
-      .select('*');
+      .select('*')
+      .eq('tenant_id', tenantId);
     if (pError) console.error('Products Error:', pError);
     else console.log(`Fetched ${products.length} products`);
 
     // 2. Fetch seo_articles
-    console.log('Fetching articles...');
+    console.log(`Fetching articles for tenant: ${tenantId}...`);
     const { data: articles, error: aError } = await supabase
       .from('seo_articles')
-      .select('*');
+      .select('*')
+      .eq('tenant_id', tenantId);
     if (aError) console.error('Articles Error:', aError);
     else console.log(`Fetched ${articles.length} articles`);
 
