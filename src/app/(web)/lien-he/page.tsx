@@ -4,13 +4,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-  description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, TP. Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+  description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
   alternates: {
     canonical: 'https://www.biathaytu.com/lien-he',
   },
   openGraph: {
     title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, TP. Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
     type: 'website',
     url: 'https://www.biathaytu.com/lien-he',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, TP. Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
 };
@@ -66,7 +66,7 @@ export default function ContactPage() {
               
               <div>
                 <strong>Tổng đài CSKH</strong>
-                <a href="tel:0899191313" className="phone">0899 191 313</a>
+                <a href="tel:0899191313" className="phone">0899.191.313</a>
                 <span className="small">(Hỗ trợ: 09:00 - 21:00 hàng ngày)</span>
               </div>
 

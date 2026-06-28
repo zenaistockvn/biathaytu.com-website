@@ -1,4 +1,4 @@
-const { createClient } = require('@supabase/supabase-js');
+const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
@@ -15,38 +15,39 @@ envContent.split('\n').forEach(line => {
   }
 });
 
-const supabaseUrl = envVars['NEXT_PUBLIC_SUPABASE_URL'];
-const supabaseAnonKey = envVars['NEXT_PUBLIC_SUPABASE_ANON_KEY'];
-const tenantId = envVars['NEXT_PUBLIC_TENANT_ID'] || 'biathaytu';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const databaseUrl = envVars['DATABASE_URL'];
+
+if (!databaseUrl) {
+  console.error('Error: DATABASE_URL not found in .env.local');
+  process.exit(1);
+}
 
 async function dump() {
+  const client = new Client({
+    connectionString: databaseUrl,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+
   try {
+    await client.connect();
+    console.log('Connected to Neon Database successfully.');
+
     // 1. Fetch products
-    console.log(`Fetching products for tenant: ${tenantId}...`);
-    const { data: products, error: pError } = await supabase
-      .from('products')
-      .select('*')
-      .eq('tenant_id', tenantId);
-    if (pError) console.error('Products Error:', pError);
-    else console.log(`Fetched ${products.length} products`);
+    console.log('Fetching products...');
+    const pResult = await client.query('SELECT * FROM products ORDER BY sort_order ASC, created_at DESC');
+    console.log(`Fetched ${pResult.rows.length} products`);
 
     // 2. Fetch seo_articles
-    console.log(`Fetching articles for tenant: ${tenantId}...`);
-    const { data: articles, error: aError } = await supabase
-      .from('seo_articles')
-      .select('*')
-      .eq('tenant_id', tenantId);
-    if (aError) console.error('Articles Error:', aError);
-    else console.log(`Fetched ${articles.length} articles`);
+    console.log('Fetching articles...');
+    const aResult = await client.query('SELECT * FROM seo_articles ORDER BY created_at DESC');
+    console.log(`Fetched ${aResult.rows.length} articles`);
 
     // 3. Fetch promo_codes
     console.log('Fetching promo_codes...');
-    const { data: promoCodes, error: prError } = await supabase
-      .from('promo_codes')
-      .select('*');
-    if (prError) console.error('Promo Codes Error:', prError);
-    else console.log(`Fetched ${promoCodes.length} promo codes`);
+    const prResult = await client.query('SELECT * FROM promo_codes');
+    console.log(`Fetched ${prResult.rows.length} promo codes`);
 
     // Save to files
     const dataDir = path.join(__dirname, '..', 'src', 'data');
@@ -54,13 +55,16 @@ async function dump() {
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    fs.writeFileSync(path.join(dataDir, 'products.json'), JSON.stringify(products, null, 2), 'utf8');
-    fs.writeFileSync(path.join(dataDir, 'articles.json'), JSON.stringify(articles, null, 2), 'utf8');
-    fs.writeFileSync(path.join(dataDir, 'promo_codes.json'), JSON.stringify(promoCodes || [], null, 2), 'utf8');
+    fs.writeFileSync(path.join(dataDir, 'products.json'), JSON.stringify(pResult.rows, null, 2), 'utf8');
+    fs.writeFileSync(path.join(dataDir, 'articles.json'), JSON.stringify(aResult.rows, null, 2), 'utf8');
+    fs.writeFileSync(path.join(dataDir, 'promo_codes.json'), JSON.stringify(prResult.rows || [], null, 2), 'utf8');
     console.log('Dump completed successfully!');
   } catch (err) {
     console.error('Failed to dump data:', err);
+  } finally {
+    await client.end();
   }
 }
 
 dump();
+

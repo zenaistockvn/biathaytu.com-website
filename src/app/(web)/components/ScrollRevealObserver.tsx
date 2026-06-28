@@ -9,42 +9,37 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ScrollRevealObserver() {
   useGSAP(() => {
     const elements = gsap.utils.toArray<HTMLElement>('.reveal-on-scroll');
-
     if (elements.length === 0) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {
-      gsap.set(elements, {
-        autoAlpha: 1,
-        y: 0,
-        clearProps: 'willChange',
+      elements.forEach((el) => {
+        el.classList.add('reveal-visible');
       });
       return;
     }
 
+    const triggers: ScrollTrigger[] = [];
+
     elements.forEach((element) => {
-      gsap.fromTo(
-        element,
-        {
-          autoAlpha: 0,
-          y: 28,
+      const st = ScrollTrigger.create({
+        trigger: element,
+        start: 'top 86%',
+        once: true,
+        onEnter: () => {
+          element.classList.add('reveal-visible');
         },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.75,
-          ease: 'power3.out',
-          clearProps: 'willChange',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 86%',
-            once: true,
-          },
-        }
-      );
+      });
+      triggers.push(st);
     });
+
+    return () => {
+      triggers.forEach((st) => st.kill());
+    };
   }, []);
 
   return null;
 }
+
+

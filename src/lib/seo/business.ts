@@ -1,7 +1,7 @@
 /** Nguồn sự thật duy nhất cho NAP (Name-Address-Phone) của Bia Thầy Tu. */
 export const BUSINESS = {
   name: 'Bia Thầy Tu',
-  legalName: 'Bia Thầy Tu (Benediktiner Vietnam)',
+  legalName: 'Công ty TNHH Euro Choice Việt Nam',
   streetAddress: '659A Lạc Long Quân',
   addressLocality: 'Phường Tây Hồ',
   addressRegion: 'Hà Nội',

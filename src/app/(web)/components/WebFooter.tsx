@@ -13,9 +13,22 @@ export default function WebFooter() {
           <p className="footer-desc">
             {t('footer.description')}
           </p>
-          <div className="footer-socials">
+          <div style={{ marginTop: '16px', fontSize: '13px', opacity: 0.85, lineHeight: '1.6' }}>
+            <p style={{ margin: '4px 0' }}>
+              <strong>Đơn vị phân phối:</strong><br/>
+              Công ty TNHH Euro Choice Việt Nam
+            </p>
+            <p style={{ margin: '4px 0' }}>
+              <strong>Địa chỉ:</strong><br/>
+              659A Lạc Long Quân, Phường Tây Hồ, Hà Nội
+            </p>
+            <p style={{ margin: '4px 0' }}>
+              <strong>GPKD số:</strong> 0110870013 do Sở KH&ĐT Hà Nội cấp
+            </p>
+          </div>
+          <div className="footer-socials" style={{ marginTop: '20px' }}>
             <a 
-              href="https://zalo.me/biathaytu"
+              href="https://zalo.me/0899191313"
               target="_blank" rel="noopener noreferrer"
               className="footer-social-icon"
               title="Zalo"
@@ -32,6 +45,7 @@ export default function WebFooter() {
             >✉️</a>
           </div>
         </div>
+
 
         {/* Sản phẩm */}
         <div>

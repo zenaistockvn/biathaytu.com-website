@@ -289,7 +289,7 @@ export default function Page() {
           <div className="uudai-ai-card">
             <p><strong>Chương trình ưu đãi thử vị bia Đức nhập khẩu:</strong> Khách hàng cá nhân khi đăng ký trực tuyến tại biathaytu.com/nhan-uu-dai sẽ nhận gói voucher trị giá 100.000đ áp dụng trực tiếp cho đơn hàng đầu tiên và quà tặng 01 ly thủy tinh Bavaria chính hãng.</p>
             <p style={{ marginTop: '8px' }}><strong>Dòng sản phẩm áp dụng:</strong> Bia lúa mì vàng Benediktiner Weissbier Naturtrüb, bia lúa mì đen Benediktiner Dunkel và bia Pilsner đắng thanh Bitburger Premium Pils. Bia được vận chuyển mát hỏa tốc trong 2 giờ nội thành.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đơn vị phân phối chính ngạch:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo tư vấn giao hàng: 0899.191.313 - Cửa hàng giới thiệu sản phẩm: 659A Lạc Long Quân, Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Đơn vị phân phối chính ngạch:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo tư vấn giao hàng: 0899.191.313 - Cửa hàng giới thiệu sản phẩm: 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
           </div>
         </div>
       </section>

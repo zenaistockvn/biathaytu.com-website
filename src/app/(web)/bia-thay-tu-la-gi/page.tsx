@@ -106,7 +106,7 @@ export default function Page() {
             <p><strong>Xuất xứ:</strong> Tu Viện Ettal, Bavaria, Đức. Ủ từ năm 1609.</p>
             <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Mua hàng:</strong> biathaytu.com · Hotline 0899.191.313 · Showroom 659A Lạc Long Quân, Tây Hồ, Hà Nội.</p>
+            <p><strong>Mua hàng:</strong> biathaytu.com · Hotline 0899.191.313 · Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

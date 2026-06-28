@@ -37,7 +37,7 @@ export async function GET() {
   markdown += `## Thông Tin Thương Hiệu (Brand & Contact Info)\n`;
   markdown += `- **Tên thương hiệu:** Bia Thầy Tu (Benediktiner Vietnam)\n`;
   markdown += `- **Sản phẩm cốt lõi:** Bia lúa mì Đức Benediktiner nhập khẩu nguyên chai từ Tu viện Ettal (Bavaria) và bia Pilsner Bitburger.\n`;
-  markdown += `- **Địa chỉ Showroom:** 659A Lạc Long Quân, Tây Hồ, Hà Nội, Việt Nam\n`;
+  markdown += `- **Địa chỉ Showroom:** 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội, Việt Nam\n`;
   markdown += `- **Hotline đặt hàng:** 0899.191.313\n`;
   markdown += `- **Zalo contact:** https://zalo.me/0899191313 hoặc https://zalo.me/biathaytu\n`;
   markdown += `- **Website chính thức:** ${baseUrl}\n\n`;
@@ -82,7 +82,7 @@ export async function GET() {
   markdown += `1. **Bia Thầy Tu Benediktiner Weissbier có vị gì?**\n`;
   markdown += `   - Vị chuối chín, đinh hương tự nhiên kết hợp với lớp bọt mịn dày và hậu vị ngọt dịu nguyên bản từ men sống, không qua lọc (Naturtrüb).\n`;
   markdown += `2. **Mua bia Thầy Tu chính hãng ở đâu?**\n`;
-  markdown += `   - Đặt mua trực tiếp tại website ${baseUrl}, Showroom 659A Lạc Long Quân (Tây Hồ, Hà Nội) hoặc liên hệ Hotline/Zalo: 0899.191.313 để giao hàng nhanh.\n`;
+  markdown += `   - Đặt mua trực tiếp tại website ${baseUrl}, Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội (Tây Hồ, Hà Nội) hoặc liên hệ Hotline/Zalo: 0899.191.313 để giao hàng nhanh.\n`;
   markdown += `3. **Bia Benediktiner tuân thủ tiêu chuẩn nào?**\n`;
   markdown += `   - Tuân thủ 100% Đạo luật Tinh khiết Reinheitsgebot 1516 của Đức, chỉ sử dụng 4 nguyên liệu: nước tinh khiết nguồn Alps, lúa mì, hoa bia và men bia sống.\n`;
 

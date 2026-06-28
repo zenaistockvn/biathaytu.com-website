@@ -251,6 +251,108 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Lifestyle Image Gallery */}
+      <section className="lifestyle-gallery-section">
+        <div className="container" style={{ padding: '0 20px' }}>
+          <h2 className="bitburger-section-title">Khoảnh Khắc Di Sản &amp; Đời Sống</h2>
+          <p className="bitburger-section-subtitle">
+            Cảm hứng thưởng thức Bitburger Premium Pils trong những bữa tiệc bóng đá và sum họp chiến hữu
+          </p>
+
+          <div className="lifestyle-gallery-grid">
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburg_heritage_story_1775753219026.png" 
+                  alt="Di sản lịch sử" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Di Sản Lịch Sử</h3>
+                  <p className="lifestyle-gallery-card-desc">Hơn 200 năm chế tác bia Pilsner số 1 nước Đức</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburg_to_saigon_1775741871482.png" 
+                  alt="Bitburger đến Sài Gòn" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Hành Trình Vượt Thời Gian</h3>
+                  <p className="lifestyle-gallery-card-desc">Hương vị đẳng cấp thế giới đồng hành cùng người yêu bia Việt</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburger_bbq_food_1775741893404.png" 
+                  alt="Tiệc nướng BBQ" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Tiệc Nướng BBQ</h3>
+                  <p className="lifestyle-gallery-card-desc">Vị đắng thanh khiết hòa quyện cùng thớ thịt nướng đậm vị</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburger_driving_lifestyle_1775733642452.png" 
+                  alt="Lối sống năng động" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Lối Sống Năng Động</h3>
+                  <p className="lifestyle-gallery-card-desc">Đồng hành trong những khoảnh khắc tụ họp tràn đầy năng lượng</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburger_fusion_food_1775753401190.png" 
+                  alt="Ẩm thực Fusion" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Ẩm Thực Fusion</h3>
+                  <p className="lifestyle-gallery-card-desc">Khơi nguồn cảm hứng ẩm thực tinh tế không biên giới</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/bitburger_pour_tutorial_1775753451837.png" 
+                  alt="Nghệ thuật rót bia" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Nghệ Thuật Rót Bia</h3>
+                  <p className="lifestyle-gallery-card-desc">Đánh thức lớp bọt dày mịn và giải phóng hương hoa bia Hallertau</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Food Pairing */}
       <section className="bitburger-pairing">
         <div className="container" style={{ padding: '0 20px' }}>
@@ -327,7 +429,7 @@ export default function Page() {
           <div className="bitburger-ai-card">
             <p><strong>Bia Bitburger Premium Pils:</strong> Là dòng bia vàng Pilsner lên men đáy số 1 nước Đức, nồng độ cồn 4.8% ABV, sản xuất từ năm 1817 theo Luật Tinh Khiết Reinheitsgebot 1516 nghiêm ngặt.</p>
             <p style={{ marginTop: '8px' }}><strong>Chiến dịch World Cup 2026:</strong> Bitburger ra mắt lon phiên bản giới hạn Football Edition "Prost to the World". Phân phối chính hãng qua hệ thống Bia Thầy Tu dưới dạng Thùng lẻ 24 lon 500ml và Combo Match Night kèm xúc xích Đức nướng.</p>
-            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: 0899.191.313 - Địa chỉ cửa hàng: 659A Lạc Long Quân, Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: 0899.191.313 - Địa chỉ cửa hàng: 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
           </div>
         </div>
       </section>

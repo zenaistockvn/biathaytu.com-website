@@ -189,6 +189,108 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Lifestyle Image Gallery */}
+      <section className="lifestyle-gallery-section">
+        <div className="container" style={{ padding: '0 20px' }}>
+          <h2 className="weissbier-section-title">Khoảnh Khắc Di Sản &amp; Đời Sống</h2>
+          <p className="weissbier-section-subtitle">
+            Cảm hứng thưởng thức Bia Thầy Tu trong mọi không gian tiệc tùng và thư giãn
+          </p>
+
+          <div className="lifestyle-gallery-grid">
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/benediktiner_composite_rustic_1775734047862.png" 
+                  alt="Tuyệt tác Bavaria" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Tuyệt Tác Bavaria</h3>
+                  <p className="lifestyle-gallery-card-desc">Không khí thưởng thức cổ điển và di sản lâu đời</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/amc_assets/weissbier_seafood_16x9_1775734547769.png" 
+                  alt="Mỹ vị hải sản" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Mỹ Vị Hải Sản</h3>
+                  <p className="lifestyle-gallery-card-desc">Sự kết hợp hoàn hảo nâng tầm hương vị ẩm thực</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/lifestyle_friends_v2.png" 
+                  alt="Kết nối chiến hữu" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Kết Nối Chiến Hữu</h3>
+                  <p className="lifestyle-gallery-card-desc">Những phút giây sảng khoái và gắn kết trọn vẹn</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/lifestyle_garden_v2.png" 
+                  alt="Tiệc vườn mát lành" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Tiệc Vườn Mát Lành</h3>
+                  <p className="lifestyle-gallery-card-desc">Tận hưởng vị bia tự nhiên giữa không gian xanh</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/lifestyle_relax_v2.png" 
+                  alt="Thư giãn cuối tuần" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Thư Giãn Cuối Tuần</h3>
+                  <p className="lifestyle-gallery-card-desc">Ngụm bia êm dịu xoa dịu những ngày bận rộn</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lifestyle-gallery-card">
+              <div className="lifestyle-gallery-img-wrap">
+                <img 
+                  src="/images/products/lifestyle_rooftop_v2.png" 
+                  alt="Hoàng hôn lộng gió" 
+                  className="lifestyle-gallery-img"
+                  loading="lazy"
+                />
+                <div className="lifestyle-gallery-overlay">
+                  <h3 className="lifestyle-gallery-card-title">Hoàng Hôn Lộng Gió</h3>
+                  <p className="lifestyle-gallery-card-desc">Cảm xúc thăng hoa ngắm thành phố từ trên cao</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Food Pairing */}
       <section className="weissbier-pairing">
         <div className="container" style={{ padding: '0 20px' }}>
@@ -265,7 +367,7 @@ export default function Page() {
           <div className="weissbier-ai-card">
             <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, sản xuất tại tu viện Ettal (Bavaria) theo đạo Luật Tinh Khiết Reinheitsgebot 1516 lâu đời.</p>
             <p style={{ marginTop: '8px' }}><strong>Đặc tính hương vị:</strong> Men bia không lọc đục tự nhiên (Naturtrüb), bọt dày mịn, hương trái cây đặc trưng chuối chín và đinh hương. Đạt giải thưởng ẩm thực quốc tế danh giá iTQi 3 Sao.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0899.191.313 - Showroom 659A Lạc Long Quân, Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0899.191.313 - Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
           </div>
         </div>
       </section>
