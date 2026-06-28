@@ -2,23 +2,28 @@ const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
-// Đọc file .env.local
-const envPath = path.join(__dirname, '..', '.env.local');
-const envContent = fs.readFileSync(envPath, 'utf8');
-const envVars = {};
-envContent.split('\n').forEach(line => {
-  const parts = line.split('=');
-  if (parts.length >= 2) {
-    const key = parts[0].trim();
-    const val = parts.slice(1).join('=').trim();
-    envVars[key] = val;
-  }
-});
+let databaseUrl = process.env.DATABASE_URL;
 
-const databaseUrl = envVars['DATABASE_URL'];
+// Chỉ đọc file .env.local nếu DATABASE_URL chưa có sẵn trong process.env (chạy ở local)
+if (!databaseUrl) {
+  const envPath = path.join(__dirname, '..', '.env.local');
+  if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf8');
+    envContent.split('\n').forEach(line => {
+      const parts = line.split('=');
+      if (parts.length >= 2) {
+        const key = parts[0].trim();
+        const val = parts.slice(1).join('=').trim();
+        if (key === 'DATABASE_URL') {
+          databaseUrl = val;
+        }
+      }
+    });
+  }
+}
 
 if (!databaseUrl) {
-  console.error('Error: DATABASE_URL not found in .env.local');
+  console.error('Error: DATABASE_URL not found in environment or .env.local');
   process.exit(1);
 }
 
