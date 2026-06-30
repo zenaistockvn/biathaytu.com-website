@@ -337,236 +337,362 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-weissbier-vs-pilsner</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://www.biathaytu.com/kien-thuc/huong-dan-chon-va-thuong-thuc-vang-trang-riesling-kho</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://www.biathaytu.com/kien-thuc/kostritzer-schwarzbier-bom-5l-lua-chon-hoan-hao-cho-bua-tiec-cuoi-tuan</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://www.biathaytu.com/kien-thuc/huong-dan-thuong-thuc-vang-duc-cho-nguoi-moi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/tho-nhuong-ruou-vang-duc-limestone-slate</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/rappenhof-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/thorle-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/bang-gia-vang-duc-va-cach-chon-theo-ngan-sach</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/vang-duc-cho-nha-hang-khach-san</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/nen-chon-riesling-hay-spatburgunder</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/ruou-vang-duc-nhap-khau-chinh-hang</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/phan-biet-riesling-trocken-kabinett-auslese</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/cach-bao-quan-ruou-vang-duc</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/nhiet-do-phuc-vu-vang-duc</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/vang-duc-hop-voi-mon-an-nao</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/cach-chon-vang-duc-lam-qua-bieu</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/vang-do-duc-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/vang-trang-duc-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/spatburgunder-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/riesling-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/vang-duc-la-gi</loc>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/giai-ma-thuat-toan-facebook-2025-2026</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bia-khong-con-bitburger-0-0-lua-chon-dang-cap</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/giai-thuong-itqi-3-sao-benediktiner-weissbier</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nghe-thuat-food-pairing-cung-bia-duc</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bia-lua-mi-duc-weissbier-la-gi</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/luat-tinh-khiet-1516-reinheitsgebot</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bia-thay-tu-la-gi-giai-dap-thac-mac</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bitburger-hanh-trinh-200-nam-bia-draft-so-1</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/top-7-mon-viet-ket-hop-bia-duc-food-pairing</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/cach-bao-quan-bia-nhap-khau-dung-cach</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/top-5-cach-ket-hop-bia-duc-voi-am-thuc-viet-nam-bom-5l-benediktiner</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nghe-thuat-chon-bia-nguoi-truong-thanh</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/ket-hop-bia-duc-va-am-thuc-duong-dai</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nghe-thuat-rot-bia-lua-mi-benediktiner</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/su-tran-trong-nguyen-ban-bia-giao-thoa</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/ly-uong-bia-lua-mi-weizen-glass</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/food-pairing-bia-thay-tu-va-am-thuc</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/phan-biet-weissbier-dunkel-festbier</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/su-that-ve-lop-men-van-duc-naturtrub</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/dao-luat-tinh-khiet-1516-reinheitsgebot</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/nguon-goc-bia-thay-tu-tu-vien-ettal</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/reinheitsgebot-luat-tinh-khiet-500-nam-bia-duc-benediktiner-dunkel</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi-bat-dau</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.biathaytu.com/kien-thuc/bitburger-premium-pils-bia-draft-so-1-nuoc-duc</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/benediktiner-weissbier-400-nam-bia-tu-vien</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/bitburger-premium-pils-bia-draft-so-1-nuoc-duc</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
