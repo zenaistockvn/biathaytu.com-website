@@ -8,6 +8,7 @@ import FootballCampaignPopup from './components/FootballCampaignPopup';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
+import FacebookMessengerChat from './components/FacebookMessengerChat';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
 import type { Metadata } from 'next';
@@ -90,6 +91,7 @@ export default function WebLayout({
         <ScrollRevealObserver />
         <Suspense fallback={null}>
           <FacebookPixel />
+          <FacebookMessengerChat />
         </Suspense>
       </LanguageProvider>
     </div>
