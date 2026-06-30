@@ -1,6 +1,16 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 export default function FloatingZaloCTA() {
+  const pathname = usePathname();
   const message = 'Chào Bia Thầy Tu, mình cần tư vấn đặt hàng bia Đức';
   const zaloUrl = `https://zalo.me/0899191313?text=${encodeURIComponent(message)}`;
+
+  const isBitburger = pathname.includes('bitburger');
+  const messengerUrl = isBitburger
+    ? 'https://m.me/1042222495647480'
+    : 'https://m.me/1106668052525470';
 
   return (
     <div className="floating-contact-stack" aria-label="Liên hệ nhanh">
@@ -16,7 +26,7 @@ export default function FloatingZaloCTA() {
       </a>
 
       <a
-        href="https://www.facebook.com/messages/t/tiepkhachsanhdieu"
+        href={messengerUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="floating-contact-button floating-messenger-cta"

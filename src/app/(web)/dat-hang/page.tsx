@@ -203,7 +203,7 @@ export default function CheckoutPage() {
           </a>
 
           <a 
-            href="https://www.facebook.com/messages/t/tiepkhachsanhdieu"
+            href={items.some(item => item.name?.toLowerCase().includes('bitburger')) ? "https://m.me/1042222495647480" : "https://m.me/1106668052525470"}
             target="_blank"
             rel="noopener noreferrer"
             className="football-popup-cta-btn"
@@ -445,7 +445,7 @@ export default function CheckoutPage() {
                     </a>
 
                     <a 
-                      href="https://www.facebook.com/messages/t/tiepkhachsanhdieu"
+                      href={items.some(item => item.name?.toLowerCase().includes('bitburger')) ? "https://m.me/1042222495647480" : "https://m.me/1106668052525470"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="football-popup-cta-btn"
