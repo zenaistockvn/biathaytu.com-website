@@ -2,54 +2,74 @@ const fs = require('fs');
 const path = require('path');
 const { Client } = require('pg');
 
-const databaseUrl = 'postgresql://neondb_owner:npg_sefD7SQgO1NH@ep-shy-lake-ao0aki61.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require';
-const migrationsDir = 'C:/Users/QuangTran/Downloads/Full dự án/AMC-biathaytu/supabase/migrations';
+const envPath = path.join(__dirname, '.env.local');
 
-const migrationFiles = [
-  '20260517115326_create_affiliate_tables.sql',
-  '20260520000000_add_platform_to_satellite_pages.sql',
-  '20260522_crm_tables.sql',
-  '20260524_meta_ads_tables.sql',
-  '20260525_multi_meta_ad_accounts.sql',
-  '20260602_create_ad_insights_daily.sql',
-  '20260610_add_bot_silence_to_contacts.sql',
-  '20260612_bot_chatbot.sql',
-  '20260621_bot_kb_contextual_replies.sql',
-  '20260622000000_bot_auth_rls.sql',
-  '20260622010000_bot_kb_expert_advisor.sql',
-  '20260622040000_bot_kb_advisor_guardrails.sql',
-  '20260623_create_campaign_pages.sql'
-];
+function readEnvValue(key) {
+  if (process.env[key]) return process.env[key];
+  if (!fs.existsSync(envPath)) return null;
 
-async function main() {
-  const client = new Client({ connectionString: databaseUrl });
-  await client.connect();
-  console.log('Connected to Neon database for migrations.');
-
-  for (const file of migrationFiles) {
-    const filePath = path.join(migrationsDir, file);
-    if (!fs.existsSync(filePath)) {
-      console.warn(`Migration file not found: ${filePath}`);
-      continue;
-    }
-    console.log(`Applying migration: ${file}`);
-    const sql = fs.readFileSync(filePath, 'utf8');
-
-    // Split by semicolons, but simple split might break on functions/triggers.
-    // Instead, since these are migrations, we can try running the whole script first.
-    // PostgreSQL can run multiple SQL statements in one client.query() call.
-    try {
-      await client.query(sql);
-      console.log(`✅ Successfully applied migration: ${file}`);
-    } catch (e) {
-      console.error(`❌ Failed to apply migration: ${file}`);
-      console.error(e.message);
-      // We still continue to apply others, or we can throw.
+  const lines = fs.readFileSync(envPath, 'utf8').split(/\r?\n/);
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const parts = trimmed.split('=');
+    if (parts[0]?.trim() === key) {
+      return parts.slice(1).join('=').trim().replace(/^['"]|['"]$/g, '');
     }
   }
-
-  await client.end();
-  console.log('All migrations applied!');
+  return null;
 }
 
-main().catch(console.error);
+if (process.env.APPLY_REMOTE_MIGRATIONS !== '1') {
+  console.error('Refusing to apply remote migrations without APPLY_REMOTE_MIGRATIONS=1.');
+  process.exit(1);
+}
+
+const databaseUrl = readEnvValue('DATABASE_URL');
+if (!databaseUrl) {
+  console.error('DATABASE_URL not found in environment or .env.local.');
+  process.exit(1);
+}
+
+const migrationsDir = process.env.MIGRATIONS_DIR || path.join(__dirname, 'supabase', 'migrations');
+const migrationFiles = fs
+  .readdirSync(migrationsDir)
+  .filter((file) => file.endsWith('.sql'))
+  .sort();
+
+async function main() {
+  const client = new Client({
+    connectionString: databaseUrl,
+    connectionTimeoutMillis: 30000,
+    query_timeout: 60000,
+    statement_timeout: 60000,
+    ssl: { rejectUnauthorized: false },
+  });
+
+  await client.connect();
+  console.log(`Connected to Neon database. Applying ${migrationFiles.length} migrations.`);
+
+  try {
+    for (const file of migrationFiles) {
+      const filePath = path.join(migrationsDir, file);
+      console.log(`Applying migration: ${file}`);
+      const sql = fs.readFileSync(filePath, 'utf8');
+      if (/\bdrop\s+table\b/i.test(sql) && process.env.ALLOW_DESTRUCTIVE_MIGRATION !== '1') {
+        throw new Error(
+          `Refusing to apply destructive migration ${file} without ALLOW_DESTRUCTIVE_MIGRATION=1.`,
+        );
+      }
+      await client.query(sql);
+      console.log(`Applied migration: ${file}`);
+    }
+  } finally {
+    await client.end();
+  }
+
+  console.log('All migrations applied.');
+}
+
+main().catch((error) => {
+  console.error('Migration failed:', error);
+  process.exit(1);
+});

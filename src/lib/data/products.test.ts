@@ -9,9 +9,18 @@ import {
 } from './products';
 
 describe('data/products', () => {
-  it('returns all products sorted by sort_order ascending', () => {
+  it('returns only storefront-ready products sorted by sort_order ascending', () => {
     const all = getAllProducts();
     expect(all.length).toBeGreaterThan(0);
+    expect(
+      all.every(
+        (product) =>
+          product.id &&
+          product.name &&
+          product.slug &&
+          ['bia', 'vang', 'phu-kien'].includes(product.category ?? ''),
+      ),
+    ).toBe(true);
     for (let i = 1; i < all.length; i++) {
       expect(all[i].sort_order ?? 0).toBeGreaterThanOrEqual(all[i - 1].sort_order ?? 0);
     }

@@ -25,6 +25,12 @@ if (!databaseUrl) {
   process.exit(1);
 }
 
+if (process.env.ALLOW_DESTRUCTIVE_MIGRATION !== '1') {
+  console.error('Refusing to run migrate-neon.js without ALLOW_DESTRUCTIVE_MIGRATION=1.');
+  console.error('This script runs 001_init.sql, which drops and recreates core tables.');
+  process.exit(1);
+}
+
 // Danh sách các file SQL migration theo thứ tự
 const migrations = [
   { file: '001_init.sql', path: path.join(__dirname, '..', 'supabase', 'migrations', '001_init.sql') },

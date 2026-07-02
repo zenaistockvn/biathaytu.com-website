@@ -23,8 +23,21 @@ export interface Product {
   updated_at: string | null;
 }
 
+const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien']);
+
+function isStorefrontProduct(product: Product): boolean {
+  return Boolean(
+    product.id &&
+      product.name &&
+      product.slug &&
+      product.category &&
+      STOREFRONT_CATEGORIES.has(product.category),
+  );
+}
+
 const ALL_PRODUCTS: Product[] = (productsData as unknown as Product[])
   .slice()
+  .filter(isStorefrontProduct)
   .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
 
 function isBitburger(name: string): boolean {
