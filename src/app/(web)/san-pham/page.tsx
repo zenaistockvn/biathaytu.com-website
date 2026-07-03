@@ -1,4 +1,4 @@
-import { getBeerProducts, getAccessories } from '@/lib/data/products';
+import { getBeerProducts, getAccessories, getSausageProducts } from '@/lib/data/products';
 import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
@@ -51,6 +51,7 @@ interface Product {
 export default async function ProductsPage() {
   const beerProducts = getBeerProducts({ excludeBitburger: true });
   const accessories = getAccessories();
+  const sausageProducts = getSausageProducts();
 
   return (
     <div className="products-page-container">
@@ -88,6 +89,30 @@ export default async function ProductsPage() {
         )}
       </section>
 
+      {/* SAUSAGE PRODUCTS */}
+      {sausageProducts && sausageProducts.length > 0 && (
+        <section className="container mt-100" aria-label="Xúc xích Đức">
+          <div className="section-header-center mb-48">
+            <span className="section-label">Món Ăn Kèm Bia</span>
+            <h2 className="section-title">Xúc Xích Đức</h2>
+            <p className="page-subtitle">
+              Xúc xích và thịt nguội thủ công kiểu Đức, hợp dùng cùng bia, vang,
+              bữa gia đình hoặc bàn tiệc gọn tại nhà.
+            </p>
+          </div>
+
+          <div className="grid-featured-products">
+            {(sausageProducts as Product[] | null)?.map((product) => (
+              <ProductCard
+                key={product.id}
+                {...product}
+                description={product.description?.substring(0, 110)}
+                showCTA={true}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ACCESSORIES */}
       {accessories && accessories.length > 0 && (

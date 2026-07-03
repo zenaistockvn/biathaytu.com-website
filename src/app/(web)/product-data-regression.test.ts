@@ -16,6 +16,15 @@ describe('public product data regressions', () => {
     expect(dumpScript).toContain("['bia', 'vang', 'phu-kien', 'xuc-xich']");
   });
 
+  it('renders a German sausage section on the product listing page', () => {
+    const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
+
+    expect(productsPage).toContain('getSausageProducts');
+    expect(productsPage).toContain('sausageProducts');
+    expect(productsPage).toContain('Món Ăn Kèm Bia');
+    expect(productsPage).toContain('Xúc Xích Đức');
+  });
+
   it('does not request product columns that are absent from the Supabase schema', () => {
     const publicProductPages = [
       'src/app/(web)/page.tsx',
