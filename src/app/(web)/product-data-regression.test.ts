@@ -10,6 +10,12 @@ function readProjectFile(path: string) {
 }
 
 describe('public product data regressions', () => {
+  it('keeps sausage products in the database dump allow-list', () => {
+    const dumpScript = readProjectFile('scripts/dump_data.js');
+
+    expect(dumpScript).toContain("['bia', 'vang', 'phu-kien', 'xuc-xich']");
+  });
+
   it('does not request product columns that are absent from the Supabase schema', () => {
     const publicProductPages = [
       'src/app/(web)/page.tsx',

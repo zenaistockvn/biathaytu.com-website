@@ -1,0 +1,58 @@
+import type { Product } from './products';
+
+export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
+  {
+    id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef001',
+    name: 'The Wurst Wiener - Xúc xích hun khói 500g',
+    slug: 'the-wurst-wiener-hun-khoi-500g',
+    description:
+      'Xúc xích hun khói kiểu Đức vị nhẹ, thơm khói, dễ ăn và làm nóng nhanh. Phù hợp bữa gia đình, bữa phụ hoặc dùng kèm bia Đức.',
+    abv: null,
+    ibu: null,
+    volume: '500g/gói',
+    images: ['/images/products/the-wurst/wiener-hun-khoi.png'],
+    price: 139000,
+    haravan_url: null,
+    category: 'xuc-xich',
+    sort_order: 150,
+    is_featured: false,
+    origin: 'Việt Nam - kiểu Đức',
+    updated_at: '2026-07-03T00:00:00.000Z',
+  },
+  {
+    id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef002',
+    name: 'The Wurst Thüringer Bratwurst 500g',
+    slug: 'the-wurst-thuringer-bratwurst-500g',
+    description:
+      'Xúc xích nướng kiểu Thüringen, hợp áp chảo hoặc nướng để dậy mùi thơm. Rất hợp bàn bia, BBQ, xem bóng đá và tiệc cuối tuần.',
+    abv: null,
+    ibu: null,
+    volume: '500g/gói',
+    images: ['/images/products/the-wurst/thuringer-bratwurst.png'],
+    price: 139000,
+    haravan_url: null,
+    category: 'xuc-xich',
+    sort_order: 151,
+    is_featured: false,
+    origin: 'Việt Nam - kiểu Đức',
+    updated_at: '2026-07-03T00:00:00.000Z',
+  },
+  {
+    id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef003',
+    name: 'The Wurst Combo Cold Cut 150g',
+    slug: 'the-wurst-combo-cold-cut-150g',
+    description:
+      'Combo thịt nguội thủ công kiểu Đức, ăn liền và bày lạnh rất tiện. Hợp bánh mì, phô mai, olive, dưa chuột muối, bia Đức hoặc vang.',
+    abv: null,
+    ibu: null,
+    volume: '150g/combo',
+    images: ['/images/products/the-wurst/combo-cold-cut.png'],
+    price: 139000,
+    haravan_url: null,
+    category: 'xuc-xich',
+    sort_order: 152,
+    is_featured: false,
+    origin: 'Việt Nam - kiểu Đức',
+    updated_at: '2026-07-03T00:00:00.000Z',
+  },
+];

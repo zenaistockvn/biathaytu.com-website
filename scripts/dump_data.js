@@ -4,7 +4,7 @@ const path = require('path');
 
 let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
-const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien'];
+const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
 
 // Chỉ đọc file .env.local nếu DATABASE_URL chưa có sẵn trong process.env (chạy ở local)
 if (!databaseUrl) {
