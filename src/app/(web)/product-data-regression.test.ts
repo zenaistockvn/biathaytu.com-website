@@ -68,4 +68,19 @@ describe('public product data regressions', () => {
     expect(image).toBe('/images/products/the-wurst/wiener-hun-khoi.png');
     expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
   });
+
+  it('uses food-specific product detail copy for sausage products', () => {
+    const productDetailPage = readProjectFile('src/app/(web)/san-pham/[slug]/page.tsx');
+    const productDetailsAccordion = readProjectFile(
+      'src/app/(web)/components/ProductDetailsAccordion.tsx',
+    );
+
+    expect(productDetailPage).toContain("product.category === 'xuc-xich'");
+    expect(productDetailPage).toContain('Cam Kết Thực Phẩm Lạnh');
+    expect(productDetailPage).toContain('Quy cách');
+    expect(productDetailPage).toContain('category={product.category}');
+    expect(productDetailsAccordion).toContain("category === 'xuc-xich'");
+    expect(productDetailsAccordion).toContain('bảo quản lạnh');
+    expect(productDetailsAccordion).toContain('áp chảo');
+  });
 });
