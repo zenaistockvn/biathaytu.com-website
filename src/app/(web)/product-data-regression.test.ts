@@ -49,4 +49,14 @@ describe('public product data regressions', () => {
     expect(image).not.toContain('kostritzer_keg.png');
     expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
   });
+
+  it('uses a The Wurst fallback image for sausage products with no image', () => {
+    const image = getDisplayProductImage({
+      images: null,
+      category: 'xuc-xich',
+    });
+
+    expect(image).toBe('/images/products/the-wurst/wiener-hun-khoi.png');
+    expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
+  });
 });
