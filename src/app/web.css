@@ -5057,14 +5057,40 @@ html {
    PREMIUM 2026 UI UPGRADE (Sausage & Catalog UI)
    ========================================================================== */
 
-/* 1. Fraunces Display Font configuration */
-.web-app .product-detail-name,
-.web-app .products-page-container .page-title,
-.web-app .products-page-container .section-title,
-.web-app .related-products-section .section-title {
+/* 1. Fraunces Display Font configuration (Sync Selectively to Headings) */
+.web-app h1,
+.web-app h2,
+.web-app h3,
+.web-app .page-title,
+.web-app .section-title,
+.web-app .section-title-light,
+.web-app .hero-title,
+.web-app .landing-hero-title,
+.web-app .weissbier-hero-title,
+.web-app .bitburger-hero-title,
+.web-app .biaduc-hero-title,
+.web-app .uudai-hero-title,
+.web-app .story-title,
+.web-app .review-title,
+.web-app .faq-title,
+.web-app .b2b-title,
+.web-app .contact-title,
+.web-app .contact-cta-panel h2,
+.web-app .checkout-title,
+.web-app .checkout-success-title,
+.web-app .blog-post-title,
+.web-app .article-title,
+.web-app .tasting-note-title,
+.web-app .pairing-title,
+.web-app .spec-title,
+.web-app .footer-brand,
+.web-app .markdown-content h2,
+.web-app .markdown-content h3,
+.web-app .product-detail-name {
   font-family: var(--font-display), serif !important;
   letter-spacing: -0.01em;
 }
+
 
 /* 2. Premium Pill Navigation (under catalog header) */
 .web-app .catalog-pills-nav-wrapper {
