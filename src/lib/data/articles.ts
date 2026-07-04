@@ -1,5 +1,6 @@
 import articlesData from '@/data/articles.json';
-import { DEFAULT_TENANT_ID } from '@/constants';
+
+export const DEFAULT_TENANT_ID = 'demo-tenant';
 
 export interface Article {
   id: string;

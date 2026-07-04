@@ -47,7 +47,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     ibu: null,
     volume: '150g/combo',
     images: ['/images/products/the-wurst/combo-cold-cut.png'],
-    price: 139000,
+    price: 99000,
     haravan_url: null,
     category: 'xuc-xich',
     sort_order: 152,

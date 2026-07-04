@@ -52,7 +52,7 @@ describe('data/products', () => {
       'the-wurst-combo-cold-cut-150g',
     ]);
     expect(sausages.every((product) => product.category === 'xuc-xich')).toBe(true);
-    expect(sausages.every((product) => product.price === 139000)).toBe(true);
+    expect(sausages.map((product) => product.price)).toEqual([139000, 139000, 99000]);
     expect(sausages.map((product) => product.volume)).toEqual([
       '500g/gói',
       '500g/gói',

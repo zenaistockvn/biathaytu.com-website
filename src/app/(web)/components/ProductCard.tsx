@@ -24,6 +24,9 @@ export interface ProductCardProps {
   haravan_url?: string | null;
   /** 'bia' | 'vang' | 'phu-kien' */
   category?: string | null;
+  highlightLabel?: string | null;
+  quickTags?: string[];
+  cardId?: string;
   /** Show full CTA buttons (for product listing page) */
   showCTA?: boolean;
 }
@@ -34,7 +37,7 @@ export interface ProductCardProps {
  */
 export default function ProductCard({
   id, name, slug, images, price, description,
-  abv, ibu, volume, haravan_url, category, showCTA = true,
+  abv, ibu, volume, haravan_url, category, highlightLabel, quickTags, cardId, showCTA = true,
 }: ProductCardProps) {
   const router = useRouter();
   const addItem = useCartStore((state) => state.addItem);
@@ -45,6 +48,7 @@ export default function ProductCard({
   const isWine = category === 'vang';
   const primaryImage = getDisplayProductImage({ images, category });
   const cartImage = !imageFailed ? primaryImage : '';
+  const cardClassName = `product-card-v2${isWine ? ' wine-card' : ''}${highlightLabel ? ' product-card-highlight' : ''}`;
 
   const handleAddCart = () => {
     if (!price) return;
@@ -73,8 +77,12 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`product-card-v2${isWine ? ' wine-card' : ''}`}>
+    <div id={cardId} className={cardClassName}>
       <Link href={href} className="card-image">
+        {highlightLabel && (
+          <span className="card-promo-badge">{highlightLabel}</span>
+        )}
+
         {primaryImage && !imageFailed ? (
           <Image
             src={primaryImage}
@@ -98,6 +106,15 @@ export default function ProductCard({
 
         {description && (
           <p className="card-description">{description}</p>
+        )}
+
+        {/* Quick tags */}
+        {quickTags && quickTags.length > 0 && (
+          <div className="card-quick-tags">
+            {quickTags.map((tag) => (
+              <span key={tag} className="card-quick-tag">{tag}</span>
+            ))}
+          </div>
         )}
 
         {/* Meta tags */}

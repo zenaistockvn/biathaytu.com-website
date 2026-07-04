@@ -140,6 +140,34 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div>
             <h1 className="product-detail-name">{product.name}</h1>
 
+            {isSausage && (
+              <div className="product-detail-tags">
+                {(() => {
+                  const s = product.slug || '';
+                  if (s === 'the-wurst-wiener-hun-khoi-500g') {
+                    return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
+                  }
+                  if (s === 'the-wurst-thuringer-bratwurst-500g') {
+                    return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
+                  }
+                  if (s === 'the-wurst-combo-cold-cut-150g') {
+                    return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
+                  }
+                  return [];
+                })().map((tag) => {
+                  const isHighlight = tag === 'Combo 99K';
+                  return (
+                    <span 
+                      key={tag} 
+                      className={`detail-pill-tag${isHighlight ? ' highlight-tag' : ''}`}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
+
             {/* Price */}
             {product.price && (
               <div className="product-detail-price">{formatPrice(product.price)}</div>

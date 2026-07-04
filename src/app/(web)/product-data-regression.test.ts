@@ -25,6 +25,18 @@ describe('public product data regressions', () => {
     expect(productsPage).toContain('Xúc Xích Đức');
   });
 
+  it('highlights the Combo Cold Cut deal on the product listing page', () => {
+    const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
+    const productCard = readProjectFile('src/app/(web)/components/ProductCard.tsx');
+    const styles = readProjectFile('src/app/web.css');
+
+    expect(productsPage).toContain("product.slug === 'the-wurst-combo-cold-cut-150g'");
+    expect(productsPage).toContain("highlightLabel={isColdCutDeal ? 'Ưu đãi còn 99K' : undefined}");
+    expect(productCard).toContain('highlightLabel');
+    expect(productCard).toContain('card-promo-badge');
+    expect(styles).toContain('product-card-highlight');
+  });
+
   it('does not request product columns that are absent from the Supabase schema', () => {
     const publicProductPages = [
       'src/app/(web)/page.tsx',
