@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Fraunces } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -11,6 +11,12 @@ const playfair = Playfair_Display({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
   variable: '--font-serif',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+  variable: '--font-display',
 });
 
 const BASE_URL = 'https://www.biathaytu.com';
@@ -28,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} ${fraunces.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

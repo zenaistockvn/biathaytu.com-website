@@ -38,6 +38,7 @@ facebook-algorithm-research.html
 
 # agent configs
 .agents/
+.superpowers/
 skills-lock.json
 
 # test profiles

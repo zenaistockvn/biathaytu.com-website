@@ -1964,23 +1964,37 @@ html {
 }
 
 /* 4. Reveal on Scroll Animations (Dynamic Design) */
+
+/* Safety-net: auto-reveal after 1.5s if GSAP/ScrollTrigger fails */
+@keyframes reveal-safety-net {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .web-app .reveal-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+  /* Fallback: reveal content even if JS fails to load */
+  animation: reveal-safety-net 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
 }
 
-.web-app .reveal-visible {
+/* Stagger delays (transition for GSAP, animation for fallback safety-net) */
+.web-app .delay-100 { transition-delay: 100ms; animation-delay: 1.6s; }
+.web-app .delay-200 { transition-delay: 200ms; animation-delay: 1.7s; }
+.web-app .delay-300 { transition-delay: 300ms; animation-delay: 1.8s; }
+.web-app .delay-400 { transition-delay: 400ms; animation-delay: 1.9s; }
+
+/* When GSAP activates, cancel fallback and let transition handle reveal */
+.web-app .reveal-on-scroll.reveal-visible {
+  animation: none;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger delays */
-.web-app .delay-100 { transition-delay: 100ms; }
-.web-app .delay-200 { transition-delay: 200ms; }
-.web-app .delay-300 { transition-delay: 300ms; }
-.web-app .delay-400 { transition-delay: 400ms; }
 
 /* ─── Standardized UI Kit Additions ─── */
 .web-app .btn-sm {
@@ -5039,5 +5053,188 @@ html {
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   PREMIUM 2026 UI UPGRADE (Sausage & Catalog UI)
+   ========================================================================== */
 
+/* 1. Fraunces Display Font configuration */
+.web-app .product-detail-name,
+.web-app .products-page-container .page-title,
+.web-app .products-page-container .section-title,
+.web-app .related-products-section .section-title {
+  font-family: var(--font-display), serif !important;
+  letter-spacing: -0.01em;
+}
 
+/* 2. Premium Pill Navigation (under catalog header) */
+.web-app .catalog-pills-nav-wrapper {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Mobile-first: scrollable starting from left */
+  padding: 8px 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.web-app .catalog-pills-nav-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+@media (min-width: 769px) {
+  .web-app .catalog-pills-nav-wrapper {
+    margin-top: 24px;
+    justify-content: center; /* Desktop: centered */
+    padding: 8px 0;
+  }
+}
+
+.web-app .catalog-pills-nav {
+  display: inline-flex;
+  gap: 8px;
+  padding: 5px;
+  background: var(--web-bg-warm);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: var(--web-radius-full);
+  white-space: nowrap;
+}
+
+.web-app .catalog-pill-link {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: var(--web-radius-full);
+  color: var(--web-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.web-app .catalog-pill-link:hover {
+  color: var(--web-navy);
+  background: var(--web-card-bg);
+  border-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.web-app .catalog-pill-link.highlight-pill {
+  color: var(--web-red);
+  border: 1px dashed rgba(186, 26, 26, 0.35);
+  background: rgba(186, 26, 26, 0.03);
+}
+
+.web-app .catalog-pill-link.highlight-pill:hover {
+  background: rgba(186, 26, 26, 0.08);
+  border-color: rgba(186, 26, 26, 0.6);
+  color: var(--web-red);
+  box-shadow: 0 4px 12px rgba(186, 26, 26, 0.04);
+}
+
+/* 3. Quick Tags on Product Cards */
+.web-app .card-quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.web-app .card-quick-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--web-text-secondary);
+  padding: 3px 8px;
+  border-radius: var(--web-radius-full);
+  background: var(--web-bg-warm);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.web-app .product-card-v2:hover .card-quick-tag {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: var(--web-card-bg);
+  color: var(--web-navy);
+}
+
+/* 4. Detail Page Tags */
+.web-app .product-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.web-app .detail-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--web-text-secondary);
+  padding: 5px 12px;
+  border-radius: var(--web-radius-full);
+  background: var(--web-bg-warm);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.web-app .detail-pill-tag.highlight-tag {
+  color: var(--web-red);
+  background: rgba(186, 26, 26, 0.04);
+  border-color: rgba(186, 26, 26, 0.32);
+  font-weight: 700;
+}
+
+/* 5. Mobile-First Spacing Adjustments (Products Page) */
+@media (max-width: 768px) {
+  .web-app .products-page-container .mt-100 {
+    margin-top: 48px !important;
+  }
+}
+
+/* 6. Anti-Overlap Scroll Margins (Account for fixed header) */
+.web-app .products-page-container [id],
+.web-app .products-page-container .product-card-v2[id] {
+  scroll-margin-top: 100px;
+}
+
+/* 7. Combo Cold Cut Highlight styling (Restored) */
+.web-app .product-card-v2.product-card-highlight {
+  border-color: rgba(212, 175, 55, 0.58);
+  box-shadow: 0 20px 45px -24px rgba(119, 78, 24, 0.46);
+}
+
+.web-app .product-card-v2.product-card-highlight .card-price {
+  color: #b91c1c;
+}
+
+.web-app .product-card-v2 .card-promo-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 7px 12px;
+  border-radius: var(--web-radius-full);
+  background: #b91c1c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 12px 24px rgba(185, 28, 28, 0.24);
+}
+
+/* Smooth scrolling for anchor targets */
+html {
+  scroll-behavior: smooth;
+}

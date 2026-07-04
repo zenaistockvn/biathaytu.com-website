@@ -1,4 +1,5 @@
 import productsData from '@/data/products.json';
+import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
 
 /**
  * Kiểu sản phẩm cho phần web bán lẻ.
@@ -23,7 +24,7 @@ export interface Product {
   updated_at: string | null;
 }
 
-const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien']);
+const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich']);
 
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -35,10 +36,26 @@ function isStorefrontProduct(product: Product): boolean {
   );
 }
 
-const ALL_PRODUCTS: Product[] = (productsData as unknown as Product[])
-  .slice()
-  .filter(isStorefrontProduct)
-  .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
+function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
+  const productsBySlug = new Map<string, Product>();
+
+  for (const product of [...primary, ...supplemental]) {
+    if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) {
+      continue;
+    }
+
+    productsBySlug.set(product.slug, product);
+  }
+
+  return Array.from(productsBySlug.values()).sort(
+    (a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0),
+  );
+}
+
+const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
+  (productsData as unknown as Product[]).slice(),
+  LOCAL_STOREFRONT_PRODUCTS,
+);
 
 function isBitburger(name: string): boolean {
   return name.toLowerCase().includes('bitburger');
@@ -60,6 +77,10 @@ export function getBeerProducts(opts?: { excludeBitburger?: boolean }): Product[
 
 export function getAccessories(): Product[] {
   return ALL_PRODUCTS.filter((p) => p.category === 'phu-kien');
+}
+
+export function getSausageProducts(): Product[] {
+  return ALL_PRODUCTS.filter((p) => p.category === 'xuc-xich');
 }
 
 export function getRelatedBeers(excludeId: string, limit = 4): Product[] {

@@ -6,9 +6,12 @@ import {
   getAccessories,
   getRelatedBeers,
   getProductsByCategory,
+  getSausageProducts,
 } from './products';
 
 describe('data/products', () => {
+  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
+
   it('returns only storefront-ready products sorted by sort_order ascending', () => {
     const all = getAllProducts();
     expect(all.length).toBeGreaterThan(0);
@@ -18,7 +21,7 @@ describe('data/products', () => {
           product.id &&
           product.name &&
           product.slug &&
-          ['bia', 'vang', 'phu-kien'].includes(product.category ?? ''),
+          storefrontCategories.includes(product.category ?? ''),
       ),
     ).toBe(true);
     for (let i = 1; i < all.length; i++) {
@@ -38,6 +41,28 @@ describe('data/products', () => {
     const beers = getBeerProducts({ excludeBitburger: true });
     expect(beers.every((p) => p.category === 'bia')).toBe(true);
     expect(beers.every((p) => !p.name.toLowerCase().includes('bitburger'))).toBe(true);
+  });
+
+  it('returns The Wurst sausage products from the xuc-xich category', () => {
+    const sausages = getSausageProducts();
+
+    expect(sausages.map((product) => product.slug)).toEqual([
+      'the-wurst-wiener-hun-khoi-500g',
+      'the-wurst-thuringer-bratwurst-500g',
+      'the-wurst-combo-cold-cut-150g',
+    ]);
+    expect(sausages.every((product) => product.category === 'xuc-xich')).toBe(true);
+    expect(sausages.map((product) => product.price)).toEqual([139000, 139000, 99000]);
+    expect(sausages.map((product) => product.volume)).toEqual([
+      '500g/gói',
+      '500g/gói',
+      '150g/combo',
+    ]);
+    expect(
+      sausages.every((product) =>
+        product.images?.[0]?.startsWith('/images/products/the-wurst/'),
+      ),
+    ).toBe(true);
   });
 
   it('getRelatedBeers excludes the current product and caps the limit', () => {

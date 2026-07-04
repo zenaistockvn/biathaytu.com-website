@@ -83,6 +83,22 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
+  const isSausage = product.category === 'xuc-xich';
+  const guaranteeTitle = isSausage ? 'Cam Kết Thực Phẩm Lạnh' : 'Cam Kết Chất Lượng';
+  const guaranteeItems = isSausage
+    ? [
+        'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh theo hướng dẫn trên bao bì.',
+        'Tư vấn cách làm nóng, áp chảo, nướng hoặc bày lạnh theo từng dòng sản phẩm.',
+        'Giao hàng linh hoạt và nhắc khách cho sản phẩm vào tủ lạnh ngay khi nhận.',
+        'Hỗ trợ kiểm tra thông tin lô hàng và hạn sử dụng trên bao bì khi cần.',
+      ]
+    : [
+        '100% Sản phẩm nhập khẩu nguyên chai từ nhà máy Đức.',
+        'Bảo quản đạt chuẩn nhiệt độ chuyên dụng.',
+        'Chính sách giao hàng linh hoạt, hỏa tốc khu vực nội thành.',
+        'Hỗ trợ xử lý sự cố đổ vỡ trong quá trình vận chuyển.',
+      ];
+
   // Related products (Cross-sell)
   const relatedProductsData = getRelatedBeers(product.id, 4);
 
@@ -124,6 +140,34 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div>
             <h1 className="product-detail-name">{product.name}</h1>
 
+            {isSausage && (
+              <div className="product-detail-tags">
+                {(() => {
+                  const s = product.slug || '';
+                  if (s === 'the-wurst-wiener-hun-khoi-500g') {
+                    return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
+                  }
+                  if (s === 'the-wurst-thuringer-bratwurst-500g') {
+                    return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
+                  }
+                  if (s === 'the-wurst-combo-cold-cut-150g') {
+                    return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
+                  }
+                  return [];
+                })().map((tag) => {
+                  const isHighlight = tag === 'Combo 99K';
+                  return (
+                    <span 
+                      key={tag} 
+                      className={`detail-pill-tag${isHighlight ? ' highlight-tag' : ''}`}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
+
             {/* Price */}
             {product.price && (
               <div className="product-detail-price">{formatPrice(product.price)}</div>
@@ -145,7 +189,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               )}
               {product.volume && (
                 <div className="product-spec-item">
-                  <div className="product-spec-label">Dung tích</div>
+                  <div className="product-spec-label">{isSausage ? 'Quy cách' : 'Dung tích'}</div>
                   <div className="product-spec-value">{product.volume}</div>
                 </div>
               )}
@@ -171,18 +215,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
             <div className="product-guarantee">
                <h4>
-                 <span>🛡️</span> Cam Kết Chất Lượng
+                 <span>🛡️</span> {guaranteeTitle}
                </h4>
                <ul>
-                 <li>100% Sản phẩm nhập khẩu nguyên chai từ nhà máy Đức.</li>
-                 <li>Bảo quản đạt chuẩn nhiệt độ chuyên dụng.</li>
-                 <li>Chính sách giao hàng linh hoạt, hỏa tốc khu vực nội thành.</li>
-                 <li>Hỗ trợ xử lý sự cố đỗ vỡ trong quá trình vận chuyển.</li>
+                 {guaranteeItems.map((item) => (
+                   <li key={item}>{item}</li>
+                 ))}
                </ul>
             </div>
 
             {/* Accordion Details */}
-            <ProductDetailsAccordion productName={product.name} />
+            <ProductDetailsAccordion productName={product.name} category={product.category} />
           </div>
         </div>
 

@@ -10,6 +10,33 @@ function readProjectFile(path: string) {
 }
 
 describe('public product data regressions', () => {
+  it('keeps sausage products in the database dump allow-list', () => {
+    const dumpScript = readProjectFile('scripts/dump_data.js');
+
+    expect(dumpScript).toContain("['bia', 'vang', 'phu-kien', 'xuc-xich']");
+  });
+
+  it('renders a German sausage section on the product listing page', () => {
+    const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
+
+    expect(productsPage).toContain('getSausageProducts');
+    expect(productsPage).toContain('sausageProducts');
+    expect(productsPage).toContain('Món Ăn Kèm Bia');
+    expect(productsPage).toContain('Xúc Xích Đức');
+  });
+
+  it('highlights the Combo Cold Cut deal on the product listing page', () => {
+    const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
+    const productCard = readProjectFile('src/app/(web)/components/ProductCard.tsx');
+    const styles = readProjectFile('src/app/web.css');
+
+    expect(productsPage).toContain("product.slug === 'the-wurst-combo-cold-cut-150g'");
+    expect(productsPage).toContain("highlightLabel={isColdCutDeal ? 'Ưu đãi còn 99K' : undefined}");
+    expect(productCard).toContain('highlightLabel');
+    expect(productCard).toContain('card-promo-badge');
+    expect(styles).toContain('product-card-highlight');
+  });
+
   it('does not request product columns that are absent from the Supabase schema', () => {
     const publicProductPages = [
       'src/app/(web)/page.tsx',
@@ -42,5 +69,30 @@ describe('public product data regressions', () => {
 
     expect(image).not.toContain('kostritzer_keg.png');
     expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
+  });
+
+  it('uses a The Wurst fallback image for sausage products with no image', () => {
+    const image = getDisplayProductImage({
+      images: null,
+      category: 'xuc-xich',
+    });
+
+    expect(image).toBe('/images/products/the-wurst/wiener-hun-khoi.png');
+    expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
+  });
+
+  it('uses food-specific product detail copy for sausage products', () => {
+    const productDetailPage = readProjectFile('src/app/(web)/san-pham/[slug]/page.tsx');
+    const productDetailsAccordion = readProjectFile(
+      'src/app/(web)/components/ProductDetailsAccordion.tsx',
+    );
+
+    expect(productDetailPage).toContain("product.category === 'xuc-xich'");
+    expect(productDetailPage).toContain('Cam Kết Thực Phẩm Lạnh');
+    expect(productDetailPage).toContain('Quy cách');
+    expect(productDetailPage).toContain('category={product.category}');
+    expect(productDetailsAccordion).toContain("category === 'xuc-xich'");
+    expect(productDetailsAccordion).toContain('bảo quản lạnh');
+    expect(productDetailsAccordion).toContain('áp chảo');
   });
 });

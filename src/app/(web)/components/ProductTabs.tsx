@@ -23,7 +23,7 @@ interface ProductTabsProps {
   products: Product[] | null;
 }
 
-type TabId = 'benediktiner' | 'bitburger' | 'vang' | 'phu-kien';
+type TabId = 'benediktiner' | 'bitburger' | 'vang' | 'xuc-xich' | 'phu-kien';
 
 export default function ProductTabs({ products }: ProductTabsProps) {
   const [activeTab, setActiveTab] = useState<TabId>('benediktiner');
@@ -42,6 +42,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
   );
 
   const wineProducts = products.filter((p) => p.category === 'vang');
+  const sausages = products.filter((p) => p.category === 'xuc-xich');
   const accessories = products.filter((p) => p.category === 'phu-kien');
 
   const getFilteredProducts = () => {
@@ -52,6 +53,8 @@ export default function ProductTabs({ products }: ProductTabsProps) {
         return bitburgerAndOthers;
       case 'vang':
         return wineProducts;
+      case 'xuc-xich':
+        return sausages;
       case 'phu-kien':
         return accessories;
       default:
@@ -63,6 +66,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
     { id: 'benediktiner', label: 'Bia Benediktiner', count: benediktinerBeers.length },
     { id: 'bitburger', label: 'Bia Bitburger & Khác', count: bitburgerAndOthers.length },
     { id: 'vang', label: 'Rượu Vang Đức', count: wineProducts.length },
+    { id: 'xuc-xich', label: 'Xúc Xích Đức', count: sausages.length },
     { id: 'phu-kien', label: 'Phụ Kiện', count: accessories.length },
   ];
 
@@ -96,23 +100,41 @@ export default function ProductTabs({ products }: ProductTabsProps) {
         className="grid-featured-products fade-in-active"
         key={activeTab} // Using key triggers CSS animation on tab change
       >
-        {currentProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            slug={product.slug}
-            images={product.images}
-            price={product.price}
-            description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
-            abv={product.abv}
-            ibu={product.ibu}
-            volume={product.volume}
-            haravan_url={product.haravan_url}
-            category={product.category}
-            showCTA={true}
-          />
-        ))}
+        {currentProducts.map((product) => {
+          const isColdCutDeal = product.slug === 'the-wurst-combo-cold-cut-150g';
+          let quickTags: string[] | undefined = undefined;
+          let cardId: string | undefined = undefined;
+
+          if (product.slug === 'the-wurst-wiener-hun-khoi-500g') {
+            quickTags = ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
+          } else if (product.slug === 'the-wurst-thuringer-bratwurst-500g') {
+            quickTags = ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
+          } else if (isColdCutDeal) {
+            quickTags = ['150g/combo', 'Cold cut', 'Combo 99K'];
+            cardId = 'combo-cold-cut-99k';
+          }
+
+          return (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              slug={product.slug}
+              images={product.images}
+              price={product.price}
+              description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
+              abv={product.abv}
+              ibu={product.ibu}
+              volume={product.volume}
+              haravan_url={product.haravan_url}
+              category={product.category}
+              highlightLabel={isColdCutDeal ? 'Ưu đãi còn 99K' : undefined}
+              quickTags={quickTags}
+              cardId={cardId}
+              showCTA={true}
+            />
+          );
+        })}
       </div>
       
       {currentProducts.length === 0 && (
