@@ -1,0 +1,1895 @@
+{
+  "summary": {
+    "total": 38,
+    "topics_counts": {
+      "Bia Thầy Tu / Benediktiner / Lúa mì": 38,
+      "Bia Đức / Pilsner / Khác": 0,
+      "Vang": 0,
+      "Khác": 0
+    },
+    "average_word_count": 865,
+    "average_geo_score": "0.6",
+    "perfect_seo_count": 2
+  },
+  "topics": {
+    "Bia Thầy Tu / Ettal / Benediktiner": [
+      {
+        "index": 1,
+        "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
+        "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
+        "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
+        "word_count": 838,
+        "link_count": 1,
+        "has_thumbnail": true,
+        "keywords": [
+          "bia thầy tu",
+          "bia trappist",
+          "bia tu vien",
+          "mua bia thầy tu hà nội",
+          "địa chỉ mua bia đức"
+        ],
+        "kw_optimization": "5/5 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 2,
+        "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+        "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
+        "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+        "word_count": 860,
+        "link_count": 4,
+        "has_thumbnail": true,
+        "keywords": [
+          "mua bia thầy tu",
+          "bia chimay chính hãng",
+          "bia la trappe hà nội",
+          "đại lý bia nhập khẩu tây hồ"
+        ],
+        "kw_optimization": "4/4 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 3,
+        "id": "so-sanh-weissbier-vs-pilsner",
+        "title": "So sánh Weissbier vs Pilsner: Đâu là dòng bia Đức cho bàn tiệc của bạn?",
+        "slug": "so-sanh-weissbier-vs-pilsner",
+        "word_count": 850,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "so sanh weissbier vs pilsner",
+          "bia duc cao cap",
+          "benediktiner weissbier",
+          "bitburger pilsner",
+          "bia thay tu"
+        ],
+        "kw_optimization": "2/5 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Title too long (71 chars, recommended: 50-60)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 4,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+        "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+        "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+        "word_count": 880,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "4/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 5,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
+        "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
+        "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
+        "word_count": 880,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 6,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
+        "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
+        "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 7,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
+        "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
+        "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia bitburger"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 1,
+        "geo_details": [
+          "Hà Nội"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 8,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
+        "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
+        "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 9,
+        "id": "dc20aa32-190d-4d84-ae45-1e93d759f741",
+        "title": "Nhiệt Độ Thưởng Thức Bia Đức Lý Tưởng Nhất Là Bao Nhiêu?",
+        "slug": "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat",
+        "word_count": 860,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (113 chars, recommended: 150-160)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 10,
+        "id": "24a4a95f-a40f-4a3f-93e3-ae78c3e369e8",
+        "title": "Gợi Ý Tặng Quà Đối Tác Bằng Bia Đức Nhập Khẩu: Tinh Tế, Sang Trọng, Đẳng Cấp",
+        "slug": "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap",
+        "word_count": 920,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Title too long (76 chars, recommended: 50-60)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 11,
+        "id": "ef4ea9fd-ebba-480d-b3db-cd6517b3f325",
+        "title": "Bí Quyết Rót Bia Lúa Mì Chuẩn Chuyên Gia Đức",
+        "slug": "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia",
+        "word_count": 800,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (118 chars, recommended: 150-160)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 12,
+        "id": "670c11e7-6af8-4112-94a9-a950449693ba",
+        "title": "Bia Không Cồn Bitburger 0.0%: Lựa Chọn Đẳng Cấp Cho Nhịp Sống Hiện Đại",
+        "slug": "bia-khong-con-bitburger-0-0-lua-chon-dang-cap",
+        "word_count": 840,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia bitburger"
+        ],
+        "kw_optimization": "0/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 13,
+        "id": "97420128-570d-436c-8611-85114d404964",
+        "title": "Khám Phá Tu Viện Ettal: Nơi Lưu Giữ Công Thức Bia Hơn 400 Năm",
+        "slug": "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam",
+        "word_count": 910,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 14,
+        "id": "3f9286c7-c78d-40b2-95e0-c1fa5bab47cc",
+        "title": "Sự Khác Biệt Giữa Bia Đen (Dunkel) Và Bia Vàng (Naturtrüb) Lúa Mì",
+        "slug": "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub",
+        "word_count": 820,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 15,
+        "id": "ce16bc41-52d8-421b-abc4-355368b2cfda",
+        "title": "Giải Thưởng iTQi 3 Sao Là Gì? Vì Sao Benediktiner Weissbier Được Xướng Tên?",
+        "slug": "giai-thuong-itqi-3-sao-benediktiner-weissbier",
+        "word_count": 880,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Title too long (75 chars, recommended: 50-60)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 16,
+        "id": "975eeac6-82f5-4f28-ad12-fdd8b1ea3aa8",
+        "title": "Nghệ Thuật Food Pairing: Kết Hợp Món Ăn Hoàn Hảo Cùng Bia Đức",
+        "slug": "nghe-thuat-food-pairing-cung-bia-duc",
+        "word_count": 950,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 17,
+        "id": "8b59cb5f-bcbc-4f72-9183-b230c19bb8c5",
+        "title": "Bia Lúa Mì Đức (Weissbier) Là Gì? Sự Thật Về Lớp Bọt Và Mùi Chuối Chín",
+        "slug": "bia-lua-mi-duc-weissbier-la-gi",
+        "word_count": 900,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 18,
+        "id": "85be0a1d-ef2c-4757-8742-4f60ce930320",
+        "title": "Luật Tinh Khiết 1516 (Reinheitsgebot): Di Sản Bia Đức Hơn 500 Năm",
+        "slug": "luat-tinh-khiet-1516-reinheitsgebot",
+        "word_count": 850,
+        "link_count": 3,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "1/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 19,
+        "id": "36043a82-bb23-48e6-9fb9-7a706e7bae50",
+        "title": "Bia Thầy Tu Là Gì? Giải Đáp Mọi Thắc Mắc Về Bia Tu Viện Đức",
+        "slug": "bia-thay-tu-la-gi-giai-dap-thac-mac",
+        "word_count": 1200,
+        "link_count": 5,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 3,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 20,
+        "id": "054be9c5-d5ee-4de1-a835-4227254e144e",
+        "title": "Bitburger Premium Pils — Hành Trình 200 Năm Của Bia Draft Số 1 Nước Đức",
+        "slug": "bitburger-hanh-trinh-200-nam-bia-draft-so-1",
+        "word_count": 1100,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia bitburger"
+        ],
+        "kw_optimization": "0/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Title too long (71 chars, recommended: 50-60)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 21,
+        "id": "1820a737-c47f-49f0-976f-b65f490ce3ff",
+        "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới — Weissbier, Pilsner hay Dunkel?",
+        "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi",
+        "word_count": 1100,
+        "link_count": 6,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "1/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 22,
+        "id": "b222de51-c256-4fd7-a50d-e2d9c6c96619",
+        "title": "Top 7 Món Việt Kết Hợp Hoàn Hảo Với Bia Đức — Hướng Dẫn Food Pairing",
+        "slug": "top-7-mon-viet-ket-hop-bia-duc-food-pairing",
+        "word_count": 1050,
+        "link_count": 5,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "1/7 keywords found in content/title",
+        "geo_score": 1,
+        "geo_details": [
+          "Hà Nội"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 23,
+        "id": "bfef5bb7-f606-4922-930b-adb2619cdc8a",
+        "title": "Cách Bảo Quản Bia Nhập Khẩu Đúng Cách — 5 Sai Lầm Phổ Biến Cần Tránh",
+        "slug": "cach-bao-quan-bia-nhap-khau-dung-cach",
+        "word_count": 950,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 24,
+        "id": "5774757e-23ec-4b6f-8aa2-c93813cc3f9c",
+        "title": "Nghệ Thuật Chọn Bia Đức Cho Người Sành Sỏi",
+        "slug": "nghe-thuat-chon-bia-nguoi-truong-thanh",
+        "word_count": 530,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia tiếp khách",
+          "quà biếu bia Đức",
+          "Bitburger Premium Pils",
+          "thư giãn cuối tuần",
+          "nghệ thuật chọn bia",
+          "Bia Thầy Tu"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Word count too low (530 words, recommended: > 800)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 25,
+        "id": "fcee0cb7-8139-48c7-bb9f-d0ab047387a2",
+        "title": "Cách Kết Hợp Bia Benediktiner Với Món Ăn Việt",
+        "slug": "ket-hop-bia-duc-va-am-thuc-duong-dai",
+        "word_count": 565,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia Đức kết hợp món ăn",
+          "Benediktiner Dunkel",
+          "Weissbier food pairing",
+          "Bia Thầy Tu",
+          "bia uống với đồ nướng"
+        ],
+        "kw_optimization": "1/5 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Word count too low (565 words, recommended: > 800)",
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 26,
+        "id": "a9b41137-b908-404d-95e8-452da27d278e",
+        "title": "Cách Rót Bia Benediktiner Nghiêng 45 Độ Đúng Chuẩn",
+        "slug": "nghe-thuat-rot-bia-lua-mi-benediktiner",
+        "word_count": 530,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "cách rót bia lúa mì",
+          "Benediktiner Weissbier",
+          "Bia Thầy Tu",
+          "nghiêng 45 độ",
+          "men sống tự nhiên"
+        ],
+        "kw_optimization": "3/5 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Word count too low (530 words, recommended: > 800)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 27,
+        "id": "79d7b5e0-3a2b-49e0-abff-9bd3a4e81550",
+        "title": "Vì Sao Càng Tìm Hiểu Về Bia, Người Ta Càng Trân Trọng Sự Nguyên Bản?",
+        "slug": "su-tran-trong-nguyen-ban-bia-giao-thoa",
+        "word_count": 840,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 1,
+        "geo_details": [
+          "Hà Nội"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 28,
+        "id": "70dffc8a-8462-4fb7-b71f-72ad391cf115",
+        "title": "Tại Sao Bia Lúa Mì Phải Uống Bằng Ly Cổ Cao Chân Loe?",
+        "slug": "ly-uong-bia-lua-mi-weizen-glass",
+        "word_count": 860,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 29,
+        "id": "cd9f2d08-c7c9-446c-9294-42e8ee0a5dcf",
+        "title": "Nhiệt Độ Vàng Thưởng Thức Bia Bao Nhiêu Là Ngon Nhất?",
+        "slug": "nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
+        "word_count": 830,
+        "link_count": 3,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "1/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (105 chars, recommended: 150-160)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 30,
+        "id": "e1c923b5-6558-442e-92aa-eab1d85f7e85",
+        "title": "Food Pairing: Tuyệt Chiêu Ghép Đôi Bia Thầy Tu & Ẩm Thực",
+        "slug": "food-pairing-bia-thay-tu-va-am-thuc",
+        "word_count": 850,
+        "link_count": 3,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "1/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 31,
+        "id": "694510d5-c6d9-4642-b019-bd65b3e100ea",
+        "title": "Nghệ Thuật Rót Bia Lúa Mì Thưởng Thức (Weizen) Đúng Chuẩn",
+        "slug": "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
+        "word_count": 820,
+        "link_count": 1,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (103 chars, recommended: 150-160)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 32,
+        "id": "6d1b2baf-30fe-49de-ab97-01a1e605424c",
+        "title": "Giải Mã Hương Chuối Chín & Đinh Hương Trong Bia Lúa Mì",
+        "slug": "huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi",
+        "word_count": 830,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 33,
+        "id": "e0cf6aaa-e672-4256-97ec-2f18bed0a075",
+        "title": "Phân Biệt Các Dòng Bia Đức: Weissbier, Dunkel và Festbier",
+        "slug": "phan-biet-weissbier-dunkel-festbier",
+        "word_count": 880,
+        "link_count": 3,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 34,
+        "id": "dcff36ca-7859-4489-b2d9-4f4d76967cb1",
+        "title": "Sự Thật Về Lớp Men Vẩn Đục (Naturtrüb) Của Weissbier",
+        "slug": "su-that-ve-lop-men-van-duc-naturtrub",
+        "word_count": 780,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (109 chars, recommended: 150-160)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 35,
+        "id": "89c234eb-3ff3-4b54-8483-a17141c3c065",
+        "title": "Đạo Luật Tinh Khiết 1516 (Reinheitsgebot): Tôn Giáo Của Sự Nguyên Bản",
+        "slug": "dao-luat-tinh-khiet-1516-reinheitsgebot",
+        "word_count": 820,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (101 chars, recommended: 150-160)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 36,
+        "id": "723f9518-6fa9-4df2-910d-8dcf1800e551",
+        "title": "Nguồn Gốc Bia Thầy Tu: Lịch Sử Bị Lãng Quên Của Tu Viện Ettal",
+        "slug": "nguon-goc-bia-thay-tu-tu-vien-ettal",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 3,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 37,
+        "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
+        "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
+        "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
+        "word_count": 850,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "Bitburger",
+          "bia Đức",
+          "pilsner",
+          "bia nhập khẩu",
+          "craft beer",
+          "Bia Thầy Tu",
+          "beer review"
+        ],
+        "kw_optimization": "3/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Meta Description too short (114 chars, recommended: 150-160)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 38,
+        "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+        "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+        "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+        "word_count": 920,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "Benediktiner",
+          "Weissbier",
+          "bia lúa mì",
+          "bia tu viện",
+          "craft beer",
+          "Bia Thầy Tu",
+          "Bavaria"
+        ],
+        "kw_optimization": "6/7 keywords found in content/title",
+        "geo_score": 0,
+        "geo_details": [],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      }
+    ],
+    "Bia Đức nói chung / Bitburger / Khác": [],
+    "Vang / Đồ uống khác": [],
+    "Không rõ / Khác": []
+  },
+  "all_articles": [
+    {
+      "index": 1,
+      "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
+      "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
+      "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
+      "word_count": 838,
+      "link_count": 1,
+      "has_thumbnail": true,
+      "keywords": [
+        "bia thầy tu",
+        "bia trappist",
+        "bia tu vien",
+        "mua bia thầy tu hà nội",
+        "địa chỉ mua bia đức"
+      ],
+      "kw_optimization": "5/5 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 2,
+      "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+      "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
+      "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+      "word_count": 860,
+      "link_count": 4,
+      "has_thumbnail": true,
+      "keywords": [
+        "mua bia thầy tu",
+        "bia chimay chính hãng",
+        "bia la trappe hà nội",
+        "đại lý bia nhập khẩu tây hồ"
+      ],
+      "kw_optimization": "4/4 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 3,
+      "id": "so-sanh-weissbier-vs-pilsner",
+      "title": "So sánh Weissbier vs Pilsner: Đâu là dòng bia Đức cho bàn tiệc của bạn?",
+      "slug": "so-sanh-weissbier-vs-pilsner",
+      "word_count": 850,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "so sanh weissbier vs pilsner",
+        "bia duc cao cap",
+        "benediktiner weissbier",
+        "bitburger pilsner",
+        "bia thay tu"
+      ],
+      "kw_optimization": "2/5 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Title too long (71 chars, recommended: 50-60)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 4,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+      "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+      "word_count": 880,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "4/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 5,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
+      "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
+      "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
+      "word_count": 880,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 6,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
+      "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
+      "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 7,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
+      "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
+      "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia bitburger"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 1,
+      "geo_details": [
+        "Hà Nội"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 8,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
+      "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
+      "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 9,
+      "id": "dc20aa32-190d-4d84-ae45-1e93d759f741",
+      "title": "Nhiệt Độ Thưởng Thức Bia Đức Lý Tưởng Nhất Là Bao Nhiêu?",
+      "slug": "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat",
+      "word_count": 860,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (113 chars, recommended: 150-160)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "24a4a95f-a40f-4a3f-93e3-ae78c3e369e8",
+      "title": "Gợi Ý Tặng Quà Đối Tác Bằng Bia Đức Nhập Khẩu: Tinh Tế, Sang Trọng, Đẳng Cấp",
+      "slug": "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap",
+      "word_count": 920,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Title too long (76 chars, recommended: 50-60)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 11,
+      "id": "ef4ea9fd-ebba-480d-b3db-cd6517b3f325",
+      "title": "Bí Quyết Rót Bia Lúa Mì Chuẩn Chuyên Gia Đức",
+      "slug": "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia",
+      "word_count": 800,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (118 chars, recommended: 150-160)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 12,
+      "id": "670c11e7-6af8-4112-94a9-a950449693ba",
+      "title": "Bia Không Cồn Bitburger 0.0%: Lựa Chọn Đẳng Cấp Cho Nhịp Sống Hiện Đại",
+      "slug": "bia-khong-con-bitburger-0-0-lua-chon-dang-cap",
+      "word_count": 840,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia bitburger"
+      ],
+      "kw_optimization": "0/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 13,
+      "id": "97420128-570d-436c-8611-85114d404964",
+      "title": "Khám Phá Tu Viện Ettal: Nơi Lưu Giữ Công Thức Bia Hơn 400 Năm",
+      "slug": "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam",
+      "word_count": 910,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 14,
+      "id": "3f9286c7-c78d-40b2-95e0-c1fa5bab47cc",
+      "title": "Sự Khác Biệt Giữa Bia Đen (Dunkel) Và Bia Vàng (Naturtrüb) Lúa Mì",
+      "slug": "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub",
+      "word_count": 820,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 15,
+      "id": "ce16bc41-52d8-421b-abc4-355368b2cfda",
+      "title": "Giải Thưởng iTQi 3 Sao Là Gì? Vì Sao Benediktiner Weissbier Được Xướng Tên?",
+      "slug": "giai-thuong-itqi-3-sao-benediktiner-weissbier",
+      "word_count": 880,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Title too long (75 chars, recommended: 50-60)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "975eeac6-82f5-4f28-ad12-fdd8b1ea3aa8",
+      "title": "Nghệ Thuật Food Pairing: Kết Hợp Món Ăn Hoàn Hảo Cùng Bia Đức",
+      "slug": "nghe-thuat-food-pairing-cung-bia-duc",
+      "word_count": 950,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 17,
+      "id": "8b59cb5f-bcbc-4f72-9183-b230c19bb8c5",
+      "title": "Bia Lúa Mì Đức (Weissbier) Là Gì? Sự Thật Về Lớp Bọt Và Mùi Chuối Chín",
+      "slug": "bia-lua-mi-duc-weissbier-la-gi",
+      "word_count": 900,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 18,
+      "id": "85be0a1d-ef2c-4757-8742-4f60ce930320",
+      "title": "Luật Tinh Khiết 1516 (Reinheitsgebot): Di Sản Bia Đức Hơn 500 Năm",
+      "slug": "luat-tinh-khiet-1516-reinheitsgebot",
+      "word_count": 850,
+      "link_count": 3,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "1/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 19,
+      "id": "36043a82-bb23-48e6-9fb9-7a706e7bae50",
+      "title": "Bia Thầy Tu Là Gì? Giải Đáp Mọi Thắc Mắc Về Bia Tu Viện Đức",
+      "slug": "bia-thay-tu-la-gi-giai-dap-thac-mac",
+      "word_count": 1200,
+      "link_count": 5,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 3,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "054be9c5-d5ee-4de1-a835-4227254e144e",
+      "title": "Bitburger Premium Pils — Hành Trình 200 Năm Của Bia Draft Số 1 Nước Đức",
+      "slug": "bitburger-hanh-trinh-200-nam-bia-draft-so-1",
+      "word_count": 1100,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia bitburger"
+      ],
+      "kw_optimization": "0/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Title too long (71 chars, recommended: 50-60)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 21,
+      "id": "1820a737-c47f-49f0-976f-b65f490ce3ff",
+      "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới — Weissbier, Pilsner hay Dunkel?",
+      "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi",
+      "word_count": 1100,
+      "link_count": 6,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "1/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 22,
+      "id": "b222de51-c256-4fd7-a50d-e2d9c6c96619",
+      "title": "Top 7 Món Việt Kết Hợp Hoàn Hảo Với Bia Đức — Hướng Dẫn Food Pairing",
+      "slug": "top-7-mon-viet-ket-hop-bia-duc-food-pairing",
+      "word_count": 1050,
+      "link_count": 5,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "1/7 keywords found in content/title",
+      "geo_score": 1,
+      "geo_details": [
+        "Hà Nội"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 23,
+      "id": "bfef5bb7-f606-4922-930b-adb2619cdc8a",
+      "title": "Cách Bảo Quản Bia Nhập Khẩu Đúng Cách — 5 Sai Lầm Phổ Biến Cần Tránh",
+      "slug": "cach-bao-quan-bia-nhap-khau-dung-cach",
+      "word_count": 950,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 24,
+      "id": "5774757e-23ec-4b6f-8aa2-c93813cc3f9c",
+      "title": "Nghệ Thuật Chọn Bia Đức Cho Người Sành Sỏi",
+      "slug": "nghe-thuat-chon-bia-nguoi-truong-thanh",
+      "word_count": 530,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia tiếp khách",
+        "quà biếu bia Đức",
+        "Bitburger Premium Pils",
+        "thư giãn cuối tuần",
+        "nghệ thuật chọn bia",
+        "Bia Thầy Tu"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Word count too low (530 words, recommended: > 800)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 25,
+      "id": "fcee0cb7-8139-48c7-bb9f-d0ab047387a2",
+      "title": "Cách Kết Hợp Bia Benediktiner Với Món Ăn Việt",
+      "slug": "ket-hop-bia-duc-va-am-thuc-duong-dai",
+      "word_count": 565,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia Đức kết hợp món ăn",
+        "Benediktiner Dunkel",
+        "Weissbier food pairing",
+        "Bia Thầy Tu",
+        "bia uống với đồ nướng"
+      ],
+      "kw_optimization": "1/5 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Word count too low (565 words, recommended: > 800)",
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 26,
+      "id": "a9b41137-b908-404d-95e8-452da27d278e",
+      "title": "Cách Rót Bia Benediktiner Nghiêng 45 Độ Đúng Chuẩn",
+      "slug": "nghe-thuat-rot-bia-lua-mi-benediktiner",
+      "word_count": 530,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "cách rót bia lúa mì",
+        "Benediktiner Weissbier",
+        "Bia Thầy Tu",
+        "nghiêng 45 độ",
+        "men sống tự nhiên"
+      ],
+      "kw_optimization": "3/5 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Word count too low (530 words, recommended: > 800)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 27,
+      "id": "79d7b5e0-3a2b-49e0-abff-9bd3a4e81550",
+      "title": "Vì Sao Càng Tìm Hiểu Về Bia, Người Ta Càng Trân Trọng Sự Nguyên Bản?",
+      "slug": "su-tran-trong-nguyen-ban-bia-giao-thoa",
+      "word_count": 840,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 1,
+      "geo_details": [
+        "Hà Nội"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 28,
+      "id": "70dffc8a-8462-4fb7-b71f-72ad391cf115",
+      "title": "Tại Sao Bia Lúa Mì Phải Uống Bằng Ly Cổ Cao Chân Loe?",
+      "slug": "ly-uong-bia-lua-mi-weizen-glass",
+      "word_count": 860,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 29,
+      "id": "cd9f2d08-c7c9-446c-9294-42e8ee0a5dcf",
+      "title": "Nhiệt Độ Vàng Thưởng Thức Bia Bao Nhiêu Là Ngon Nhất?",
+      "slug": "nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
+      "word_count": 830,
+      "link_count": 3,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "1/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (105 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 30,
+      "id": "e1c923b5-6558-442e-92aa-eab1d85f7e85",
+      "title": "Food Pairing: Tuyệt Chiêu Ghép Đôi Bia Thầy Tu & Ẩm Thực",
+      "slug": "food-pairing-bia-thay-tu-va-am-thuc",
+      "word_count": 850,
+      "link_count": 3,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "1/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 31,
+      "id": "694510d5-c6d9-4642-b019-bd65b3e100ea",
+      "title": "Nghệ Thuật Rót Bia Lúa Mì Thưởng Thức (Weizen) Đúng Chuẩn",
+      "slug": "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
+      "word_count": 820,
+      "link_count": 1,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (103 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 32,
+      "id": "6d1b2baf-30fe-49de-ab97-01a1e605424c",
+      "title": "Giải Mã Hương Chuối Chín & Đinh Hương Trong Bia Lúa Mì",
+      "slug": "huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi",
+      "word_count": 830,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 33,
+      "id": "e0cf6aaa-e672-4256-97ec-2f18bed0a075",
+      "title": "Phân Biệt Các Dòng Bia Đức: Weissbier, Dunkel và Festbier",
+      "slug": "phan-biet-weissbier-dunkel-festbier",
+      "word_count": 880,
+      "link_count": 3,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 34,
+      "id": "dcff36ca-7859-4489-b2d9-4f4d76967cb1",
+      "title": "Sự Thật Về Lớp Men Vẩn Đục (Naturtrüb) Của Weissbier",
+      "slug": "su-that-ve-lop-men-van-duc-naturtrub",
+      "word_count": 780,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (109 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 35,
+      "id": "89c234eb-3ff3-4b54-8483-a17141c3c065",
+      "title": "Đạo Luật Tinh Khiết 1516 (Reinheitsgebot): Tôn Giáo Của Sự Nguyên Bản",
+      "slug": "dao-luat-tinh-khiet-1516-reinheitsgebot",
+      "word_count": 820,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (101 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 36,
+      "id": "723f9518-6fa9-4df2-910d-8dcf1800e551",
+      "title": "Nguồn Gốc Bia Thầy Tu: Lịch Sử Bị Lãng Quên Của Tu Viện Ettal",
+      "slug": "nguon-goc-bia-thay-tu-tu-vien-ettal",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 3,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 37,
+      "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
+      "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
+      "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
+      "word_count": 850,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "Bitburger",
+        "bia Đức",
+        "pilsner",
+        "bia nhập khẩu",
+        "craft beer",
+        "Bia Thầy Tu",
+        "beer review"
+      ],
+      "kw_optimization": "3/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Meta Description too short (114 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 38,
+      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+      "word_count": 920,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "Benediktiner",
+        "Weissbier",
+        "bia lúa mì",
+        "bia tu viện",
+        "craft beer",
+        "Bia Thầy Tu",
+        "Bavaria"
+      ],
+      "kw_optimization": "6/7 keywords found in content/title",
+      "geo_score": 0,
+      "geo_details": [],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1274 @@
+{
+  "summary": {
+    "total": 60,
+    "tenants": {
+      "biathaytu": 2,
+      "vangducnhapkhau": 19,
+      "demo-tenant": 38,
+      "default": 1
+    },
+    "statusCounts": {
+      "published": 55,
+      "draft": 5
+    }
+  },
+  "articles": [
+    {
+      "index": 1,
+      "id": "so-sanh-weissbier-vs-pilsner",
+      "title": "So sánh Weissbier vs Pilsner: Đâu là dòng bia Đức cho bàn tiệc của bạn?",
+      "slug": "so-sanh-weissbier-vs-pilsner",
+      "tenant_id": "biathaytu",
+      "status": "published",
+      "word_count": 850,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "so sanh weissbier vs pilsner",
+        "bia duc cao cap",
+        "benediktiner weissbier",
+        "bitburger pilsner",
+        "bia thay tu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 2,
+      "id": "d86192c1-e48f-420a-8321-c6eba3d39de7",
+      "title": "Hướng dẫn chọn và thưởng thức vang trắng Riesling khô: Bí quyết kết hợp món Á và hải sản",
+      "slug": "huong-dan-chon-va-thuong-thuc-vang-trang-riesling-kho",
+      "tenant_id": "vangducnhapkhau",
+      "status": "draft",
+      "word_count": 1650,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Riesling Đức",
+        "Riesling khô",
+        "Vang trắng Đức",
+        "Riesling Thörle",
+        "Vang kết hợp hải sản",
+        "Riesling và sushi"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 3,
+      "id": "8993bd37-16ee-4d02-9792-ba9175046e8c",
+      "title": "Tại sao Köstritzer Schwarzbier Bom 5L là lựa chọn hoàn hảo cho bữa tiệc cuối tuần?",
+      "slug": "kostritzer-schwarzbier-bom-5l-lua-chon-hoan-hao-cho-bua-tiec-cuoi-tuan",
+      "tenant_id": "biathaytu",
+      "status": "draft",
+      "word_count": 1050,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Köstritzer Schwarzbier",
+        "bia đen Đức",
+        "bom bia 5L",
+        "bia cho bữa tiệc",
+        "bia nhập khẩu Đức"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 4,
+      "id": "huong-dan-thuong-thuc-vang-duc-cho-nguoi-moi",
+      "title": "Cách thưởng thức rượu vang Đức nhập khẩu đúng chuẩn Sommelier",
+      "slug": "huong-dan-thuong-thuc-vang-duc-cho-nguoi-moi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "cách thưởng thức vang Đức",
+        "nhiệt độ phục vụ vang",
+        "ly uống Riesling",
+        "ly uống Spätburgunder",
+        "vang Đức nhập khẩu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 5,
+      "id": "tho-nhuong-ruou-vang-duc-limestone-slate",
+      "title": "Thổ nhưỡng rượu vang Đức: Bí mật từ đá vôi và đá phiến sét",
+      "slug": "tho-nhuong-ruou-vang-duc-limestone-slate",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "thổ nhưỡng vang Đức",
+        "Riesling Thörle",
+        "Rheinhessen terroir",
+        "đá vôi Saulheim",
+        "Spätburgunder Đức"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 6,
+      "id": "rappenhof-la-gi",
+      "title": "Rappenhof là gì? Tìm hiểu vang Đức Rappenhof và Riesling Auslese",
+      "slug": "rappenhof-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Rappenhof là gì",
+        "Rappenhof Riesling",
+        "Rappenhof Auslese",
+        "Riesling Auslese 2014",
+        "vang Đức quà biếu cao cấp",
+        "thương hiệu vang Đức"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 7,
+      "id": "thorle-la-gi",
+      "title": "Thörle là gì? Nhà sản xuất vang Đức tại Rheinhessen",
+      "slug": "thorle-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Thörle là gì",
+        "Thörle Rheinhessen",
+        "Thörle Riesling",
+        "Thörle Kabinett",
+        "Thörle Spätburgunder",
+        "nhà sản xuất vang Đức"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 8,
+      "id": "bang-gia-vang-duc-va-cach-chon-theo-ngan-sach",
+      "title": "Bảng giá vang Đức và cách chọn rượu vang theo ngân sách",
+      "slug": "bang-gia-vang-duc-va-cach-chon-theo-ngan-sach",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "bảng giá vang Đức",
+        "giá rượu vang Đức",
+        "vang Đức theo ngân sách",
+        "giá Riesling Đức",
+        "giá Spätburgunder",
+        "vang Đức quà biếu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 9,
+      "id": "vang-duc-cho-nha-hang-khach-san",
+      "title": "Vang Đức cho nhà hàng, khách sạn và sự kiện: chọn danh mục thế nào?",
+      "slug": "vang-duc-cho-nha-hang-khach-san",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang Đức cho nhà hàng",
+        "vang Đức cho khách sạn",
+        "vang Đức B2B",
+        "rượu vang cho sự kiện",
+        "danh mục vang nhà hàng",
+        "combo vang Đức theo thùng"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 10,
+      "id": "nen-chon-riesling-hay-spatburgunder",
+      "title": "Nên chọn Riesling hay Spätburgunder? Gợi ý theo món ăn, khẩu vị và dịp dùng",
+      "slug": "nen-chon-riesling-hay-spatburgunder",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "nên chọn Riesling hay Spätburgunder",
+        "Riesling và Spätburgunder",
+        "so sánh vang Đức",
+        "Riesling hợp món gì",
+        "Spätburgunder hợp món gì",
+        "chọn vang Đức"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 11,
+      "id": "ruou-vang-duc-nhap-khau-chinh-hang",
+      "title": "Rượu vang Đức nhập khẩu chính hãng: cần kiểm tra những gì trước khi mua?",
+      "slug": "ruou-vang-duc-nhap-khau-chinh-hang",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "rượu vang Đức nhập khẩu chính hãng",
+        "vang Đức nhập khẩu",
+        "mua vang Đức",
+        "Riesling nhập khẩu",
+        "Spätburgunder nhập khẩu",
+        "vang Đức chính hãng"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 12,
+      "id": "phan-biet-riesling-trocken-kabinett-auslese",
+      "title": "Phân biệt Riesling Trocken, Kabinett và Auslese trong vang Đức",
+      "slug": "phan-biet-riesling-trocken-kabinett-auslese",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Riesling Trocken",
+        "Kabinett",
+        "Auslese",
+        "phân biệt Riesling",
+        "phong cách vang Đức",
+        "vang trắng Đức"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 13,
+      "id": "cach-bao-quan-ruou-vang-duc",
+      "title": "Cách bảo quản rượu vang Đức đúng cách để giữ hương vị tốt nhất",
+      "slug": "cach-bao-quan-ruou-vang-duc",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "bảo quản rượu vang Đức",
+        "cách bảo quản rượu vang",
+        "bảo quản Riesling",
+        "bảo quản vang đỏ",
+        "rượu vang sau khi mở nắp"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 14,
+      "id": "nhiet-do-phuc-vu-vang-duc",
+      "title": "Nhiệt độ phục vụ vang Đức: Vang trắng và vang đỏ nên uống ở bao nhiêu độ?",
+      "slug": "nhiet-do-phuc-vu-vang-duc",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "nhiệt độ phục vụ vang Đức",
+        "Riesling uống bao nhiêu độ",
+        "Spätburgunder uống bao nhiêu độ",
+        "phục vụ rượu vang",
+        "làm lạnh rượu vang"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 15,
+      "id": "vang-duc-hop-voi-mon-an-nao",
+      "title": "Vang Đức hợp với món ăn nào? Gợi ý pairing cho bàn tiệc Việt",
+      "slug": "vang-duc-hop-voi-mon-an-nao",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang Đức hợp món ăn",
+        "pairing vang Đức",
+        "Riesling hợp món gì",
+        "Spätburgunder hợp món gì",
+        "wine pairing Việt Nam"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 16,
+      "id": "cach-chon-vang-duc-lam-qua-bieu",
+      "title": "Cách chọn vang Đức làm quà biếu sang trọng và tinh tế",
+      "slug": "cach-chon-vang-duc-lam-qua-bieu",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang Đức làm quà biếu",
+        "quà biếu rượu vang",
+        "rượu vang Đức quà tặng",
+        "Riesling quà biếu",
+        "Spätburgunder quà biếu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 17,
+      "id": "vang-do-duc-la-gi",
+      "title": "Vang đỏ Đức là gì? Tìm hiểu Spätburgunder và cách thưởng thức",
+      "slug": "vang-do-duc-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang đỏ Đức",
+        "Spätburgunder",
+        "Pinot Noir Đức",
+        "rượu vang đỏ nhập khẩu",
+        "Thörle Spätburgunder"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 18,
+      "id": "vang-trang-duc-la-gi",
+      "title": "Vang trắng Đức là gì? Gợi ý chọn Riesling Đức phù hợp",
+      "slug": "vang-trang-duc-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang trắng Đức",
+        "Riesling Đức",
+        "German white wine",
+        "Riesling Trocken",
+        "Kabinett",
+        "vang trắng nhập khẩu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 19,
+      "id": "spatburgunder-la-gi",
+      "title": "Spätburgunder là gì? Tìm hiểu vang đỏ Đức từ giống nho Pinot Noir",
+      "slug": "spatburgunder-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Spätburgunder là gì",
+        "Pinot Noir Đức",
+        "vang đỏ Đức",
+        "Thörle Spätburgunder",
+        "rượu vang đỏ Đức"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 20,
+      "id": "riesling-la-gi",
+      "title": "Riesling là gì? Tìm hiểu giống nho làm nên danh tiếng vang Đức",
+      "slug": "riesling-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Riesling là gì",
+        "Riesling Đức",
+        "vang trắng Đức",
+        "Riesling Trocken",
+        "Kabinett",
+        "Auslese"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 21,
+      "id": "vang-duc-la-gi",
+      "title": "Vang Đức là gì? Vì sao rượu vang Đức được người sành vang yêu thích?",
+      "slug": "vang-duc-la-gi",
+      "tenant_id": "vangducnhapkhau",
+      "status": "published",
+      "word_count": 0,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "vang Đức là gì",
+        "rượu vang Đức",
+        "German wine",
+        "Riesling Đức",
+        "Spätburgunder",
+        "vang Đức nhập khẩu"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 22,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
+      "title": "Bia Thầy Tu Benediktiner Weissbier: Hương Vị Men Sống Nguyên Bản Từ Tu Viện Ettal",
+      "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": true
+      }
+    },
+    {
+      "index": 23,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
+      "title": "Đạo Luật Tinh Khiết 1516: Tuyên Ngôn Đẳng Cấp Thượng Hạng Của Bia Đức Benediktiner Và Bitburger",
+      "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 24,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+      "title": "So Sánh Bia Lúa Mì Benediktiner và Bia Pilsner Bitburger: Hai Thái Cực Thưởng Thức Khác Biệt",
+      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 25,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
+      "title": "Bitburger Premium Pils: Sức Hút Từ Vị Đắng Thanh Sảng Khoái Của Dòng Pilsner Số 1 Nước Đức",
+      "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": false
+      }
+    },
+    {
+      "index": 26,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
+      "title": "Bia Đen Tu Viện Benediktiner Dunkel: Sự Lôi Cuốn Từ Mạch Nha Rang Và Caramel Đậm Đà",
+      "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 27,
+      "id": "2ba456e7-faf2-4ce7-b9ed-23721d59e44f",
+      "title": "Giải Mã Thuật Toán Facebook 2025-2026: Chiến Lược Viral \"Zero-Link\"",
+      "slug": "giai-ma-thuat-toan-facebook-2025-2026",
+      "tenant_id": "default",
+      "status": "published",
+      "word_count": 210,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Facebook",
+        "Thuật Toán",
+        "Marketing",
+        "Viral"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 28,
+      "id": "dc20aa32-190d-4d84-ae45-1e93d759f741",
+      "title": "Nhiệt Độ Thưởng Thức Bia Đức Lý Tưởng Nhất Là Bao Nhiêu?",
+      "slug": "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 860,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 29,
+      "id": "24a4a95f-a40f-4a3f-93e3-ae78c3e369e8",
+      "title": "Gợi Ý Tặng Quà Đối Tác Bằng Bia Đức Nhập Khẩu: Tinh Tế, Sang Trọng, Đẳng Cấp",
+      "slug": "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 920,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 30,
+      "id": "ef4ea9fd-ebba-480d-b3db-cd6517b3f325",
+      "title": "Bí Quyết Rót Bia Lúa Mì Chuẩn Chuyên Gia: Tại Sao Lại Lắc Nhẹ Đáy Chai?",
+      "slug": "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 800,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 31,
+      "id": "670c11e7-6af8-4112-94a9-a950449693ba",
+      "title": "Bia Không Cồn Bitburger 0.0%: Lựa Chọn Đẳng Cấp Cho Nhịp Sống Hiện Đại",
+      "slug": "bia-khong-con-bitburger-0-0-lua-chon-dang-cap",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 840,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 32,
+      "id": "97420128-570d-436c-8611-85114d404964",
+      "title": "Khám Phá Tu Viện Ettal: Nơi Lưu Giữ Công Thức Bia Hơn 400 Năm",
+      "slug": "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 910,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 33,
+      "id": "3f9286c7-c78d-40b2-95e0-c1fa5bab47cc",
+      "title": "Sự Khác Biệt Giữa Bia Đen (Dunkel) Và Bia Vàng (Naturtrüb) Lúa Mì",
+      "slug": "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 820,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 34,
+      "id": "ce16bc41-52d8-421b-abc4-355368b2cfda",
+      "title": "Giải Thưởng iTQi 3 Sao Là Gì? Vì Sao Benediktiner Weissbier Được Xướng Tên?",
+      "slug": "giai-thuong-itqi-3-sao-benediktiner-weissbier",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 35,
+      "id": "975eeac6-82f5-4f28-ad12-fdd8b1ea3aa8",
+      "title": "Nghệ Thuật Food Pairing: Kết Hợp Món Ăn Hoàn Hảo Cùng Bia Đức",
+      "slug": "nghe-thuat-food-pairing-cung-bia-duc",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 950,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 36,
+      "id": "8b59cb5f-bcbc-4f72-9183-b230c19bb8c5",
+      "title": "Bia Lúa Mì Đức (Weissbier) Là Gì? Sự Thật Về Lớp Bọt Và Mùi Chuối Chín",
+      "slug": "bia-lua-mi-duc-weissbier-la-gi",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 900,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 37,
+      "id": "85be0a1d-ef2c-4757-8742-4f60ce930320",
+      "title": "Luật Tinh Khiết 1516 (Reinheitsgebot): Di Sản Bia Đức Hơn 500 Năm",
+      "slug": "luat-tinh-khiet-1516-reinheitsgebot",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 850,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 38,
+      "id": "36043a82-bb23-48e6-9fb9-7a706e7bae50",
+      "title": "Bia Thầy Tu Là Gì? Giải Đáp Mọi Thắc Mắc Về Bia Tu Viện Đức",
+      "slug": "bia-thay-tu-la-gi-giai-dap-thac-mac",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 1200,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": false
+      }
+    },
+    {
+      "index": 39,
+      "id": "054be9c5-d5ee-4de1-a835-4227254e144e",
+      "title": "Bitburger Premium Pils — Hành Trình 200 Năm Của Bia Draft Số 1 Nước Đức",
+      "slug": "bitburger-hanh-trinh-200-nam-bia-draft-so-1",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 1100,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 40,
+      "id": "1820a737-c47f-49f0-976f-b65f490ce3ff",
+      "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới — Weissbier, Pilsner hay Dunkel?",
+      "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 1100,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 41,
+      "id": "b222de51-c256-4fd7-a50d-e2d9c6c96619",
+      "title": "Top 7 Món Việt Kết Hợp Hoàn Hảo Với Bia Đức — Hướng Dẫn Food Pairing",
+      "slug": "top-7-mon-viet-ket-hop-bia-duc-food-pairing",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 1050,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": false
+      }
+    },
+    {
+      "index": 42,
+      "id": "bfef5bb7-f606-4922-930b-adb2619cdc8a",
+      "title": "Cách Bảo Quản Bia Nhập Khẩu Đúng Cách — 5 Sai Lầm Phổ Biến Cần Tránh",
+      "slug": "cach-bao-quan-bia-nhap-khau-dung-cach",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 950,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 43,
+      "id": "5352be43-5f26-4989-aedc-05ce150b6d7e",
+      "title": "Top 5 Cách Kết Hợp Bia Đức Với Ẩm Thực Việt Nam: Trải Nghiệm Bom 5L Benediktiner Tại Nhà",
+      "slug": "top-5-cach-ket-hop-bia-duc-voi-am-thuc-viet-nam-bom-5l-benediktiner",
+      "tenant_id": "demo-tenant",
+      "status": "draft",
+      "word_count": 1850,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 44,
+      "id": "5774757e-23ec-4b6f-8aa2-c93813cc3f9c",
+      "title": "Nghệ Thuật Chọn Bia Của Người Trưởng Thành: Đâu Là Lựa Chọn Xứng Tầm?",
+      "slug": "nghe-thuat-chon-bia-nguoi-truong-thanh",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 530,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "bia tiếp khách",
+        "quà biếu bia Đức",
+        "Bitburger Premium Pils",
+        "thư giãn cuối tuần",
+        "nghệ thuật chọn bia",
+        "Bia Thầy Tu"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 45,
+      "id": "fcee0cb7-8139-48c7-bb9f-d0ab047387a2",
+      "title": "Bản Giao Hưởng Hương Vị: Kết Hợp Bia Đức Benediktiner Cùng Ẩm Thực Việt Đương Đại",
+      "slug": "ket-hop-bia-duc-va-am-thuc-duong-dai",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 565,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "bia Đức kết hợp món ăn",
+        "Benediktiner Dunkel",
+        "Weissbier food pairing",
+        "Bia Thầy Tu",
+        "bia uống với đồ nướng"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 46,
+      "id": "a9b41137-b908-404d-95e8-452da27d278e",
+      "title": "Nghệ Thuật Rót Bia Lúa Mì: Tại Sao Benediktiner Lại Cần Góc Nghiêng 45 Độ?",
+      "slug": "nghe-thuat-rot-bia-lua-mi-benediktiner",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 530,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "cách rót bia lúa mì",
+        "Benediktiner Weissbier",
+        "Bia Thầy Tu",
+        "nghiêng 45 độ",
+        "men sống tự nhiên"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 47,
+      "id": "79d7b5e0-3a2b-49e0-abff-9bd3a4e81550",
+      "title": "Vì Sao Càng Tìm Hiểu Về Bia, Người Ta Càng Trân Trọng Sự Nguyên Bản?",
+      "slug": "su-tran-trong-nguyen-ban-bia-giao-thoa",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 840,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": false
+      }
+    },
+    {
+      "index": 48,
+      "id": "70dffc8a-8462-4fb7-b71f-72ad391cf115",
+      "title": "Tại Sao Bia Lúa Mì Phải Uống Bằng Ly Cổ Cao Chân Loe?",
+      "slug": "ly-uong-bia-lua-mi-weizen-glass",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 860,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 49,
+      "id": "cd9f2d08-c7c9-446c-9294-42e8ee0a5dcf",
+      "title": "Nhiệt Độ Vàng Thưởng Thức Bia Bao Nhiêu Là Ngon Nhất?",
+      "slug": "nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 830,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 50,
+      "id": "e1c923b5-6558-442e-92aa-eab1d85f7e85",
+      "title": "Food Pairing: Tuyệt Chiêu Ghép Đôi Bia Thầy Tu & Ẩm Thực",
+      "slug": "food-pairing-bia-thay-tu-va-am-thuc",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 850,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 51,
+      "id": "694510d5-c6d9-4642-b019-bd65b3e100ea",
+      "title": "Nghệ Thuật Rót Bia Lúa Mì Thưởng Thức (Weizen) Đúng Chuẩn",
+      "slug": "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 820,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 52,
+      "id": "6d1b2baf-30fe-49de-ab97-01a1e605424c",
+      "title": "Giải Mã Hương Chuối Chín & Đinh Hương Trong Bia Lúa Mì",
+      "slug": "huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 830,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 53,
+      "id": "e0cf6aaa-e672-4256-97ec-2f18bed0a075",
+      "title": "Phân Biệt Các Dòng Bia Đức: Weissbier, Dunkel và Festbier",
+      "slug": "phan-biet-weissbier-dunkel-festbier",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 54,
+      "id": "dcff36ca-7859-4489-b2d9-4f4d76967cb1",
+      "title": "Sự Thật Về Lớp Men Vẩn Đục (Naturtrüb) Của Weissbier",
+      "slug": "su-that-ve-lop-men-van-duc-naturtrub",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 780,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 55,
+      "id": "89c234eb-3ff3-4b54-8483-a17141c3c065",
+      "title": "Đạo Luật Tinh Khiết 1516 (Reinheitsgebot): Tôn Giáo Của Sự Nguyên Bản",
+      "slug": "dao-luat-tinh-khiet-1516-reinheitsgebot",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 820,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 56,
+      "id": "723f9518-6fa9-4df2-910d-8dcf1800e551",
+      "title": "Nguồn Gốc Bia Thầy Tu: Lịch Sử Bị Lãng Quên Của Tu Viện Ettal",
+      "slug": "nguon-goc-bia-thay-tu-tu-vien-ettal",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 880,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": true,
+        "hotline": false
+      }
+    },
+    {
+      "index": 57,
+      "id": "ce6226b0-a9dd-4dcf-a47a-8c23e9795e07",
+      "title": "Reinheitsgebot: Luật Tinh Khiết 500 Năm - Bí Mật Đằng Sau Hương Vị Benediktiner Dunkel",
+      "slug": "reinheitsgebot-luat-tinh-khiet-500-nam-bia-duc-benediktiner-dunkel",
+      "tenant_id": "demo-tenant",
+      "status": "draft",
+      "word_count": 1850,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 58,
+      "id": "4f47aef9-1bff-41c6-b660-55f11cc0cb74",
+      "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới: Khám Phá Thế Giới Hương Vị Đúng Điệu",
+      "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi-bat-dau",
+      "tenant_id": "demo-tenant",
+      "status": "draft",
+      "word_count": 1850,
+      "has_meta_desc": true,
+      "has_keywords": false,
+      "keywords": [],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 59,
+      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 920,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Benediktiner",
+        "Weissbier",
+        "bia lúa mì",
+        "bia tu viện",
+        "craft beer",
+        "Bia Thầy Tu",
+        "Bavaria"
+      ],
+      "has_h2": true,
+      "has_h3": false,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    },
+    {
+      "index": 60,
+      "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
+      "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
+      "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
+      "tenant_id": "demo-tenant",
+      "status": "published",
+      "word_count": 850,
+      "has_meta_desc": true,
+      "has_keywords": true,
+      "keywords": [
+        "Bitburger",
+        "bia Đức",
+        "pilsner",
+        "bia nhập khẩu",
+        "craft beer",
+        "Bia Thầy Tu",
+        "beer review"
+      ],
+      "has_h2": true,
+      "has_h3": true,
+      "geo_check": {
+        "hanoi": false,
+        "hotline": false
+      }
+    }
+  ]
+}
