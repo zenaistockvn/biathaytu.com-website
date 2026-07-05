@@ -127,7 +127,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/san-pham/benediktiner-festbier-bom-5l</loc>
+    <loc>https://www.biathaytu.com/san-pham/benediktiner-festbier-ket-24-lon-500ml</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -139,25 +139,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/san-pham/benediktiner-festbier-ket-24-lon-500ml</loc>
+    <loc>https://www.biathaytu.com/san-pham/benediktiner-festbier-bom-5l</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/san-pham/rappenhof-riesling-auslese-2014</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.biathaytu.com/san-pham/thorle-riesling</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.biathaytu.com/san-pham/austernkalk-riesling-trocken-magnum</loc>
+    <loc>https://www.biathaytu.com/san-pham/thorle-sauvignon-blanc-magnum</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -169,13 +157,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/san-pham/thorle-sauvignon-blanc-magnum</loc>
+    <loc>https://www.biathaytu.com/san-pham/rappenhof-riesling-auslese-2014</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/san-pham/thorle-kabinett</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/san-pham/austernkalk-riesling-trocken-magnum</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/san-pham/thorle-riesling</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
