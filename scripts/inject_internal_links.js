@@ -14,7 +14,14 @@ const LINK_MAP = [
   { keyword: "Benediktiner", url: "/san-pham/benediktiner-weissbier-naturtrub-500ml" },
   { keyword: "Köstritzer", url: "/san-pham/kostritzer-schwarzbier-bom-5l" },
   { keyword: "Bitburger", url: "/san-pham/bitburger-premium-pils-330ml" },
-  { keyword: "bom 5l", url: "/san-pham/bom-5l-benediktiner-weissbier" }
+  { keyword: "bom 5l", url: "/san-pham/bom-5l-benediktiner-weissbier" },
+  { keyword: "Thüringer Bratwurst", url: "/san-pham/the-wurst-thuringer-bratwurst-500g" },
+  { keyword: "xúc xích Bratwurst", url: "/san-pham/the-wurst-thuringer-bratwurst-500g" },
+  { keyword: "Bratwurst", url: "/san-pham/the-wurst-thuringer-bratwurst-500g" },
+  { keyword: "Wiener hun khói", url: "/san-pham/the-wurst-wiener-hun-khoi-500g" },
+  { keyword: "xúc xích Wiener", url: "/san-pham/the-wurst-wiener-hun-khoi-500g" },
+  { keyword: "Wiener", url: "/san-pham/the-wurst-wiener-hun-khoi-500g" },
+  { keyword: "Combo Cold Cut", url: "/san-pham/the-wurst-combo-cold-cut-150g" }
 ];
 
 // Sort LINK_MAP by keyword length in descending order to guarantee longest-match first
