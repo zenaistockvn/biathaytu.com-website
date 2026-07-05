@@ -1,4 +1,4 @@
-import { getBeerProducts, getAccessories, getSausageProducts } from '@/lib/data/products';
+import { getBeerProducts, getAccessories, getSausageProducts, getComboProducts } from '@/lib/data/products';
 import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
@@ -52,6 +52,7 @@ export default async function ProductsPage() {
   const beerProducts = getBeerProducts({ excludeBitburger: true });
   const accessories = getAccessories();
   const sausageProducts = getSausageProducts();
+  const comboProducts = getComboProducts();
 
   return (
     <div className="products-page-container" id="tat-ca">
@@ -73,9 +74,10 @@ export default async function ProductsPage() {
           <div className="catalog-pills-nav">
             <a href="#tat-ca" className="catalog-pill-link">Tất cả</a>
             <a href="#bia-duc" className="catalog-pill-link">Bia Đức</a>
+            <a href="#combo-uu-dai" className="catalog-pill-link highlight-pill">Combo Ưu Đãi</a>
             <a href="#xuc-xich-duc" className="catalog-pill-link">Xúc Xích Đức</a>
             <a href="#phu-kien" className="catalog-pill-link">Phụ Kiện</a>
-            <a href="#combo-cold-cut-99k" className="catalog-pill-link highlight-pill">Combo 99K</a>
+            <a href="#combo-cold-cut-99k" className="catalog-pill-link">Combo 99K</a>
           </div>
         </div>
       </section>

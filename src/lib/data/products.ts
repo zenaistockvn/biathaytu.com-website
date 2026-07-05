@@ -24,7 +24,7 @@ export interface Product {
   updated_at: string | null;
 }
 
-const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich']);
+const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -97,4 +97,23 @@ export function getFeaturedBeers(limit = 3): Product[] {
 
 export function getProductsByCategory(category: string): Product[] {
   return ALL_PRODUCTS.filter((p) => p.category === category);
+}
+
+export function getComboProducts(): Product[] {
+  return ALL_PRODUCTS.filter((p) => p.category === 'combo');
+}
+
+export function getRelatedCombo(beerNameOrSlug: string): Product | null {
+  const nameLower = beerNameOrSlug.toLowerCase();
+  const combos = getComboProducts();
+  if (nameLower.includes('bitburger')) {
+    return combos.find((c) => c.slug.includes('bitburger')) ?? combos[0] ?? null;
+  }
+  if (nameLower.includes('benediktiner')) {
+    return combos.find((c) => c.slug.includes('benediktiner')) ?? combos[0] ?? null;
+  }
+  if (nameLower.includes('kostritzer') || nameLower.includes('schwarzbier') || nameLower.includes('keg') || nameLower.includes('bom')) {
+    return combos.find((c) => c.slug.includes('kostritzer')) ?? combos[0] ?? null;
+  }
+  return combos[0] ?? null;
 }
