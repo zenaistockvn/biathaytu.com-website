@@ -1,6 +1,6 @@
 import articlesData from '@/data/articles.json';
 
-export const DEFAULT_TENANT_ID = 'demo-tenant';
+export const DEFAULT_TENANT_ID = 'biathaytu';
 
 export interface Article {
   id: string;
