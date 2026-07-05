@@ -9,7 +9,7 @@ import { BUSINESS, getBrandInfo } from '@/lib/seo/business';
 const BASE_URL = getPublicBaseUrl();
 
 interface JsonLdProps {
-  type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article';
+  type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article' | 'store';
   data: Record<string, unknown>;
 }
 

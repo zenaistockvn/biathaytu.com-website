@@ -5,7 +5,8 @@ import { getArticleBySlugOrId, getRelatedArticles, getPublishedArticles } from '
 import { getFeaturedBeers } from '@/lib/data/products';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import ArticleBody from './ArticleBody';
-import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../../components/JsonLd';
+import JsonLd, { getArticleSchema, getBreadcrumbSchema, getStoreSchema } from '../../components/JsonLd';
+import GeoLocalCTA from '../../components/GeoLocalCTA';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 
@@ -98,6 +99,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+      <JsonLd type="store" data={getStoreSchema()} />
       <JsonLd type="article" data={getArticleSchema({
         title: article.title,
         slug: article.slug || article.id,
@@ -163,6 +165,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       {/* Article Body */}
       <article className="container" style={{ maxWidth: '800px', padding: '60px 20px 100px' }}>
         <ArticleBody content={article.content} />
+        
+        <GeoLocalCTA />
 
         {/* CTA Footer */}
         <div style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid var(--web-border)', textAlign: 'center' }}>
