@@ -8,13 +8,38 @@
       "Khác": 0
     },
     "average_word_count": 865,
-    "average_geo_score": "0.6",
+    "average_geo_score": "4.0",
     "perfect_seo_count": 2
   },
   "topics": {
     "Bia Thầy Tu / Ettal / Benediktiner": [
       {
         "index": 1,
+        "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+        "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
+        "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+        "word_count": 860,
+        "link_count": 4,
+        "has_thumbnail": true,
+        "keywords": [
+          "mua bia thầy tu",
+          "bia chimay chính hãng",
+          "bia la trappe hà nội",
+          "đại lý bia nhập khẩu tây hồ"
+        ],
+        "kw_optimization": "4/4 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 2,
         "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
         "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
         "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
@@ -29,31 +54,6 @@
           "địa chỉ mua bia đức"
         ],
         "kw_optimization": "5/5 keywords found in content/title",
-        "geo_score": 5,
-        "geo_details": [
-          "Hà Nội",
-          "TP.HCM|Sài Gòn",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
-        ],
-        "issues": []
-      },
-      {
-        "index": 2,
-        "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
-        "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
-        "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
-        "word_count": 860,
-        "link_count": 4,
-        "has_thumbnail": true,
-        "keywords": [
-          "mua bia thầy tu",
-          "bia chimay chính hãng",
-          "bia la trappe hà nội",
-          "đại lý bia nhập khẩu tây hồ"
-        ],
-        "kw_optimization": "4/4 keywords found in content/title",
         "geo_score": 5,
         "geo_details": [
           "Hà Nội",
@@ -80,8 +80,13 @@
           "bia thay tu"
         ],
         "kw_optimization": "2/5 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Title too long (71 chars, recommended: 50-60)",
           "Missing H3 tags (recommended for readability)",
@@ -90,11 +95,11 @@
       },
       {
         "index": 4,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
-        "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
-        "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
+        "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
+        "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
         "word_count": 880,
-        "link_count": 4,
+        "link_count": 2,
         "has_thumbnail": false,
         "keywords": [
           "bia thầy tu",
@@ -102,18 +107,50 @@
           "mua bia đức",
           "bia đức cao cấp",
           "bia lúa mì",
-          "bia benediktiner",
           "bia bitburger"
         ],
-        "kw_optimization": "4/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
       },
       {
         "index": 5,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
+        "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
+        "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 6,
         "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
         "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
         "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
@@ -130,14 +167,48 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
       },
       {
-        "index": 6,
+        "index": 7,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+        "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+        "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+        "word_count": 880,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "5/7 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 8,
         "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
         "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
         "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
@@ -152,55 +223,7 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
-        "issues": [
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 7,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
-        "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
-        "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
-        "word_count": 880,
-        "link_count": 2,
-        "has_thumbnail": false,
-        "keywords": [
-          "bia thầy tu",
-          "bia đức nhập khẩu",
-          "mua bia đức",
-          "bia đức cao cấp",
-          "bia lúa mì",
-          "bia bitburger"
-        ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 1,
-        "geo_details": [
-          "Hà Nội"
-        ],
-        "issues": [
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 8,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
-        "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
-        "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
-        "word_count": 880,
-        "link_count": 2,
-        "has_thumbnail": false,
-        "keywords": [
-          "bia thầy tu",
-          "bia đức nhập khẩu",
-          "mua bia đức",
-          "bia đức cao cấp",
-          "bia lúa mì",
-          "bia benediktiner"
-        ],
-        "kw_optimization": "3/6 keywords found in content/title",
         "geo_score": 4,
         "geo_details": [
           "Hà Nội",
@@ -230,8 +253,13 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (113 chars, recommended: 150-160)",
           "Missing H3 tags (recommended for readability)",
@@ -255,8 +283,13 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Title too long (76 chars, recommended: 50-60)",
           "Missing H3 tags (recommended for readability)",
@@ -279,9 +312,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (118 chars, recommended: 150-160)",
           "Missing H3 tags (recommended for readability)",
@@ -304,9 +342,14 @@
           "bia lúa mì",
           "bia bitburger"
         ],
-        "kw_optimization": "0/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -329,8 +372,13 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -352,9 +400,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -377,8 +430,13 @@
           "bia benediktiner"
         ],
         "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Title too long (75 chars, recommended: 50-60)",
           "Missing H3 tags (recommended for readability)",
@@ -403,8 +461,13 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -427,8 +490,13 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -452,8 +520,13 @@
           "bia bitburger"
         ],
         "kw_optimization": "1/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
@@ -502,9 +575,14 @@
           "bia lúa mì",
           "bia bitburger"
         ],
-        "kw_optimization": "0/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "1/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Title too long (71 chars, recommended: 50-60)",
           "Missing H3 tags (recommended for readability)",
@@ -528,9 +606,14 @@
           "bia benediktiner",
           "bia bitburger"
         ],
-        "kw_optimization": "1/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -552,10 +635,13 @@
           "bia benediktiner",
           "bia bitburger"
         ],
-        "kw_optimization": "1/7 keywords found in content/title",
-        "geo_score": 1,
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 4,
         "geo_details": [
-          "Hà Nội"
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
         ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
@@ -579,8 +665,13 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -601,9 +692,14 @@
           "nghệ thuật chọn bia",
           "Bia Thầy Tu"
         ],
-        "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Word count too low (530 words, recommended: > 800)",
           "Missing H3 tags (recommended for readability)",
@@ -625,9 +721,14 @@
           "Bia Thầy Tu",
           "bia uống với đồ nướng"
         ],
-        "kw_optimization": "1/5 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/5 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Word count too low (565 words, recommended: > 800)",
           "Missing H3 tags (recommended for readability)",
@@ -649,9 +750,14 @@
           "nghiêng 45 độ",
           "men sống tự nhiên"
         ],
-        "kw_optimization": "3/5 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "4/5 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Word count too low (530 words, recommended: > 800)",
           "No images in the article (missing thumbnail and inline images)"
@@ -674,9 +780,12 @@
           "bia benediktiner"
         ],
         "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 1,
+        "geo_score": 4,
         "geo_details": [
-          "Hà Nội"
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
         ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
@@ -698,9 +807,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -722,9 +836,14 @@
           "bia benediktiner",
           "bia bitburger"
         ],
-        "kw_optimization": "1/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/7 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (105 chars, recommended: 150-160)",
           "No images in the article (missing thumbnail and inline images)"
@@ -748,8 +867,13 @@
           "bia bitburger"
         ],
         "kw_optimization": "1/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -770,9 +894,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (103 chars, recommended: 150-160)",
           "No images in the article (missing thumbnail and inline images)"
@@ -794,9 +923,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -817,9 +951,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
@@ -840,9 +979,14 @@
           "bia lúa mì",
           "bia benediktiner"
         ],
-        "kw_optimization": "1/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "kw_optimization": "2/6 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (109 chars, recommended: 150-160)",
           "No images in the article (missing thumbnail and inline images)"
@@ -865,8 +1009,13 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (101 chars, recommended: 150-160)",
           "No images in the article (missing thumbnail and inline images)"
@@ -901,6 +1050,36 @@
       },
       {
         "index": 37,
+        "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+        "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+        "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+        "word_count": 920,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "Benediktiner",
+          "Weissbier",
+          "bia lúa mì",
+          "bia tu viện",
+          "craft beer",
+          "Bia Thầy Tu",
+          "Bavaria"
+        ],
+        "kw_optimization": "7/7 keywords found in content/title",
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 38,
         "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
         "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
         "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
@@ -917,35 +1096,15 @@
           "beer review"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
+        "geo_score": 4,
+        "geo_details": [
+          "Hà Nội",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
         "issues": [
           "Meta Description too short (114 chars, recommended: 150-160)",
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 38,
-        "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
-        "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
-        "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
-        "word_count": 920,
-        "link_count": 2,
-        "has_thumbnail": false,
-        "keywords": [
-          "Benediktiner",
-          "Weissbier",
-          "bia lúa mì",
-          "bia tu viện",
-          "craft beer",
-          "Bia Thầy Tu",
-          "Bavaria"
-        ],
-        "kw_optimization": "6/7 keywords found in content/title",
-        "geo_score": 0,
-        "geo_details": [],
-        "issues": [
-          "Missing H3 tags (recommended for readability)",
           "No images in the article (missing thumbnail and inline images)"
         ]
       }
@@ -957,6 +1116,31 @@
   "all_articles": [
     {
       "index": 1,
+      "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+      "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
+      "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
+      "word_count": 860,
+      "link_count": 4,
+      "has_thumbnail": true,
+      "keywords": [
+        "mua bia thầy tu",
+        "bia chimay chính hãng",
+        "bia la trappe hà nội",
+        "đại lý bia nhập khẩu tây hồ"
+      ],
+      "kw_optimization": "4/4 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 2,
       "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
       "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
       "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
@@ -971,31 +1155,6 @@
         "địa chỉ mua bia đức"
       ],
       "kw_optimization": "5/5 keywords found in content/title",
-      "geo_score": 5,
-      "geo_details": [
-        "Hà Nội",
-        "TP.HCM|Sài Gòn",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
-      ],
-      "issues": []
-    },
-    {
-      "index": 2,
-      "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
-      "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
-      "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
-      "word_count": 860,
-      "link_count": 4,
-      "has_thumbnail": true,
-      "keywords": [
-        "mua bia thầy tu",
-        "bia chimay chính hãng",
-        "bia la trappe hà nội",
-        "đại lý bia nhập khẩu tây hồ"
-      ],
-      "kw_optimization": "4/4 keywords found in content/title",
       "geo_score": 5,
       "geo_details": [
         "Hà Nội",
@@ -1022,8 +1181,13 @@
         "bia thay tu"
       ],
       "kw_optimization": "2/5 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Title too long (71 chars, recommended: 50-60)",
         "Missing H3 tags (recommended for readability)",
@@ -1032,11 +1196,11 @@
     },
     {
       "index": 4,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
-      "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
-      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
+      "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
+      "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
       "word_count": 880,
-      "link_count": 4,
+      "link_count": 2,
       "has_thumbnail": false,
       "keywords": [
         "bia thầy tu",
@@ -1044,18 +1208,50 @@
         "mua bia đức",
         "bia đức cao cấp",
         "bia lúa mì",
-        "bia benediktiner",
         "bia bitburger"
       ],
-      "kw_optimization": "4/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
     },
     {
       "index": 5,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
+      "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
+      "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 6,
       "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
       "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
       "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
@@ -1072,14 +1268,48 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
     },
     {
-      "index": 6,
+      "index": 7,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+      "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+      "word_count": 880,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "5/7 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 8,
       "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
       "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
       "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
@@ -1094,55 +1324,7 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
-      "issues": [
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 7,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e554",
-      "title": "Bitburger Premium Pils: Hương Vị Pilsner Số 1 Nước Đức",
-      "slug": "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc",
-      "word_count": 880,
-      "link_count": 2,
-      "has_thumbnail": false,
-      "keywords": [
-        "bia thầy tu",
-        "bia đức nhập khẩu",
-        "mua bia đức",
-        "bia đức cao cấp",
-        "bia lúa mì",
-        "bia bitburger"
-      ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 1,
-      "geo_details": [
-        "Hà Nội"
-      ],
-      "issues": [
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 8,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
-      "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
-      "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
-      "word_count": 880,
-      "link_count": 2,
-      "has_thumbnail": false,
-      "keywords": [
-        "bia thầy tu",
-        "bia đức nhập khẩu",
-        "mua bia đức",
-        "bia đức cao cấp",
-        "bia lúa mì",
-        "bia benediktiner"
-      ],
-      "kw_optimization": "3/6 keywords found in content/title",
       "geo_score": 4,
       "geo_details": [
         "Hà Nội",
@@ -1172,8 +1354,13 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (113 chars, recommended: 150-160)",
         "Missing H3 tags (recommended for readability)",
@@ -1197,8 +1384,13 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Title too long (76 chars, recommended: 50-60)",
         "Missing H3 tags (recommended for readability)",
@@ -1221,9 +1413,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (118 chars, recommended: 150-160)",
         "Missing H3 tags (recommended for readability)",
@@ -1246,9 +1443,14 @@
         "bia lúa mì",
         "bia bitburger"
       ],
-      "kw_optimization": "0/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1271,8 +1473,13 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1294,9 +1501,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1319,8 +1531,13 @@
         "bia benediktiner"
       ],
       "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Title too long (75 chars, recommended: 50-60)",
         "Missing H3 tags (recommended for readability)",
@@ -1345,8 +1562,13 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1369,8 +1591,13 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1394,8 +1621,13 @@
         "bia bitburger"
       ],
       "kw_optimization": "1/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1444,9 +1676,14 @@
         "bia lúa mì",
         "bia bitburger"
       ],
-      "kw_optimization": "0/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "1/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Title too long (71 chars, recommended: 50-60)",
         "Missing H3 tags (recommended for readability)",
@@ -1470,9 +1707,14 @@
         "bia benediktiner",
         "bia bitburger"
       ],
-      "kw_optimization": "1/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1494,10 +1736,13 @@
         "bia benediktiner",
         "bia bitburger"
       ],
-      "kw_optimization": "1/7 keywords found in content/title",
-      "geo_score": 1,
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 4,
       "geo_details": [
-        "Hà Nội"
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
       ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
@@ -1521,8 +1766,13 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1543,9 +1793,14 @@
         "nghệ thuật chọn bia",
         "Bia Thầy Tu"
       ],
-      "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Word count too low (530 words, recommended: > 800)",
         "Missing H3 tags (recommended for readability)",
@@ -1567,9 +1822,14 @@
         "Bia Thầy Tu",
         "bia uống với đồ nướng"
       ],
-      "kw_optimization": "1/5 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/5 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Word count too low (565 words, recommended: > 800)",
         "Missing H3 tags (recommended for readability)",
@@ -1591,9 +1851,14 @@
         "nghiêng 45 độ",
         "men sống tự nhiên"
       ],
-      "kw_optimization": "3/5 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "4/5 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Word count too low (530 words, recommended: > 800)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1616,9 +1881,12 @@
         "bia benediktiner"
       ],
       "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 1,
+      "geo_score": 4,
       "geo_details": [
-        "Hà Nội"
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
       ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
@@ -1640,9 +1908,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1664,9 +1937,14 @@
         "bia benediktiner",
         "bia bitburger"
       ],
-      "kw_optimization": "1/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/7 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (105 chars, recommended: 150-160)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1690,8 +1968,13 @@
         "bia bitburger"
       ],
       "kw_optimization": "1/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1712,9 +1995,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (103 chars, recommended: 150-160)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1736,9 +2024,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1759,9 +2052,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
@@ -1782,9 +2080,14 @@
         "bia lúa mì",
         "bia benediktiner"
       ],
-      "kw_optimization": "1/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "kw_optimization": "2/6 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (109 chars, recommended: 150-160)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1807,8 +2110,13 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (101 chars, recommended: 150-160)",
         "No images in the article (missing thumbnail and inline images)"
@@ -1843,6 +2151,36 @@
     },
     {
       "index": 37,
+      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+      "word_count": 920,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "Benediktiner",
+        "Weissbier",
+        "bia lúa mì",
+        "bia tu viện",
+        "craft beer",
+        "Bia Thầy Tu",
+        "Bavaria"
+      ],
+      "kw_optimization": "7/7 keywords found in content/title",
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 38,
       "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
       "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
       "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
@@ -1859,35 +2197,15 @@
         "beer review"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
+      "geo_score": 4,
+      "geo_details": [
+        "Hà Nội",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
       "issues": [
         "Meta Description too short (114 chars, recommended: 150-160)",
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 38,
-      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
-      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
-      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
-      "word_count": 920,
-      "link_count": 2,
-      "has_thumbnail": false,
-      "keywords": [
-        "Benediktiner",
-        "Weissbier",
-        "bia lúa mì",
-        "bia tu viện",
-        "craft beer",
-        "Bia Thầy Tu",
-        "Bavaria"
-      ],
-      "kw_optimization": "6/7 keywords found in content/title",
-      "geo_score": 0,
-      "geo_details": [],
-      "issues": [
-        "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
       ]
     }
