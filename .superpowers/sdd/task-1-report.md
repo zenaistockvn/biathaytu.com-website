@@ -21,3 +21,15 @@
     - Lần build trước khi migrate (sử dụng `'biathaytu'` tenant nhưng data chưa được đổi) chỉ sinh ra **62 trang tĩnh** (trong đó chỉ có 1 bài viết `/kien-thuc/so-sanh-weissbier-vs-pilsner`).
     - Lần build sau khi chạy migrate (sử dụng `'biathaytu'` tenant và data đã được đổi) sinh ra **97 trang tĩnh** (trong đó có 36+ bài viết dưới `/kien-thuc/[slug]`).
     - Điều này chứng minh toàn bộ các bài viết thuộc tenant `biathaytu` đã được load và sinh trang tĩnh thành công.
+
+## 4. Cập nhật và đồng bộ hóa Cơ sở dữ liệu (Neon Database)
+- **Script sử dụng:** [db_update_tenant.js](file:///c:/Users/QuangTran/Downloads/Full dự án/biathaytu-web/scripts/db_update_tenant.js) (được tạo mới)
+- **Hoạt động:** Script kết nối trực tiếp đến Neon Database thông qua biến môi trường `DATABASE_URL` từ file `.env.local`. Chạy câu lệnh SQL `UPDATE seo_articles SET tenant_id = 'biathaytu' WHERE tenant_id = 'demo-tenant'` để cập nhật toàn bộ dữ liệu gốc trên Cloud.
+- **Kết quả chạy:** Đã cập nhật thành công **38 bài viết** trực tiếp trên database.
+
+## 5. Kết quả xác thực sau cùng (Final Verification)
+- **Lệnh thực thi:** `npm run build` (lệnh này chạy đồng thời `node scripts/dump_data.js` để kéo dữ liệu từ DB về rồi mới build).
+- **Kết quả:**
+  - `dump_data.js` kéo thành công 60 bài viết mới từ database về [articles.json](file:///c:/Users/QuangTran/Downloads/Full dự án/biathaytu-web/src/data/articles.json).
+  - Không còn bất kỳ dòng nào chứa `"tenant_id": "demo-tenant"` trong file [articles.json](file:///c:/Users/QuangTran/Downloads/Full dự án/biathaytu-web/src/data/articles.json) (được xác thực qua lệnh tìm kiếm grep).
+  - Dự án build thành công với **97 trang tĩnh** được sinh ra, chứng tỏ dữ liệu sau khi pull từ database đã hoàn toàn đồng bộ với cấu hình tenant `biathaytu` ở local.
