@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "optimize-seo": "node scripts/optimize_seo_titles.js",
+    "sync-db": "node scripts/sync_articles_to_db.js",
+    "audit-detailed": "node scripts/detailed_audit.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
