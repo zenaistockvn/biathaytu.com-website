@@ -289,6 +289,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.biathaytu.com/kien-thuc/top-5-dong-bia-bi-nhap-khau-duoc-ua-chuong-nhat</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/gia-bia-chimay-xanh-do-vang-chinh-hang</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-bia-duc-va-bia-bi-gu-thuong-thuc</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/hop-qua-tang-bia-bi-bia-duc-nhap-khau-sang-trong</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.biathaytu.com/kien-thuc/mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -427,19 +451,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc</loc>
+    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.biathaytu.com/kien-thuc/so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -452,6 +470,12 @@
   </url>
   <url>
     <loc>https://www.biathaytu.com/kien-thuc/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.biathaytu.com/kien-thuc/dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -649,13 +673,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/benediktiner-weissbier-400-nam-bia-tu-vien</loc>
+    <loc>https://www.biathaytu.com/kien-thuc/bitburger-premium-pils-bia-draft-so-1-nuoc-duc</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.biathaytu.com/kien-thuc/bitburger-premium-pils-bia-draft-so-1-nuoc-duc</loc>
+    <loc>https://www.biathaytu.com/kien-thuc/benediktiner-weissbier-400-nam-bia-tu-vien</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
