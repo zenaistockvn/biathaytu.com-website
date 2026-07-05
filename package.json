@@ -12,7 +12,11 @@
     "test:watch": "vitest",
     "optimize-seo": "node scripts/optimize_seo_titles.js",
     "sync-db": "node scripts/sync_articles_to_db.js",
-    "audit-detailed": "node scripts/detailed_audit.js"
+    "audit-detailed": "node scripts/detailed_audit.js",
+    "inject-articles": "node scripts/inject_four_articles.js",
+    "inject-links": "node scripts/inject_internal_links.js",
+    "inject-footer": "node scripts/inject_geo_footer.js",
+    "dump-data": "node scripts/dump_data.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
