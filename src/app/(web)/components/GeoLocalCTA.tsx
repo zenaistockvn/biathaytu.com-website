@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function GeoLocalCTA() {
-  const hotlineDisplay = '0899.191.313';
+  const hotlineDisplay = '0899 19 13 13';
   const hotlineTel = 'tel:0899191313';
   const zaloUrl = 'https://zalo.me/0899191313';
   
