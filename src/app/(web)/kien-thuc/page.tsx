@@ -104,18 +104,16 @@ export default async function KienThucPage() {
               transition: 'transform 0.4s ease, box-shadow 0.4s ease'
             }}>
               {/* Featured Thumbnail */}
-              {featuredArticle.thumbnail_url && (
-                <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
-                  <Image
-                    src={featuredArticle.thumbnail_url}
-                    alt={featuredArticle.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 1200px) 100vw, 1200px"
-                    priority
-                  />
-                </div>
-              )}
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <Image
+                  src={featuredArticle.thumbnail_url || '/images/sanh_bia_duc_cover.png'}
+                  alt={featuredArticle.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  priority
+                />
+              </div>
               <div style={{ padding: '48px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '12px', fontSize: '14px', color: 'var(--web-text-secondary)', marginBottom: '24px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1.5px' }}>
                   <span style={{ color: 'var(--web-gold-dark)' }}>Bài Trọng Tâm</span>
@@ -167,17 +165,15 @@ export default async function KienThucPage() {
                   }}
                 >
                   {/* Card Thumbnail */}
-                  {article.thumbnail_url && (
-                    <div style={{ position: 'relative', width: '100%', height: '200px', overflow: 'hidden' }}>
-                      <Image
-                        src={article.thumbnail_url}
-                        alt={article.title}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                    </div>
-                  )}
+                  <div style={{ position: 'relative', width: '100%', height: '200px', overflow: 'hidden' }}>
+                    <Image
+                      src={article.thumbnail_url || '/images/sanh_bia_duc_cover.png'}
+                      alt={article.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                  </div>
                   
                   <div style={{ padding: '28px 32px 32px' }}>
                     <div style={{ 
