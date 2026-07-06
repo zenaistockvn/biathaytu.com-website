@@ -59,8 +59,8 @@ async function sync() {
       const query = `
         INSERT INTO seo_articles (
           id, product_id, title, slug, content, meta_description, 
-          keywords, word_count, micro_content_count, status, tenant_id
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+          keywords, word_count, micro_content_count, status, tenant_id, thumbnail_url
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         ON CONFLICT (id) DO UPDATE SET
           product_id = EXCLUDED.product_id,
           title = EXCLUDED.title,
@@ -71,7 +71,8 @@ async function sync() {
           word_count = EXCLUDED.word_count,
           micro_content_count = EXCLUDED.micro_content_count,
           status = EXCLUDED.status,
-          tenant_id = EXCLUDED.tenant_id;
+          tenant_id = EXCLUDED.tenant_id,
+          thumbnail_url = EXCLUDED.thumbnail_url;
       `;
 
       const values = [
@@ -85,7 +86,8 @@ async function sync() {
         article.word_count || 0,
         article.micro_content_count || 0,
         article.status || 'draft',
-        article.tenant_id
+        article.tenant_id,
+        article.thumbnail_url || null
       ];
 
       await client.query(query, values);

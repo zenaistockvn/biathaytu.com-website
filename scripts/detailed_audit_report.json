@@ -1,20 +1,20 @@
 {
   "summary": {
-    "total": 44,
+    "total": 47,
     "topics_counts": {
       "Bia Thầy Tu / Benediktiner / Lúa mì": 38,
-      "Bia Đức / Pilsner / Khác": 5,
+      "Bia Đức / Pilsner / Khác": 6,
       "Vang": 0,
-      "Khác": 1
+      "Khác": 3
     },
-    "average_word_count": 899,
-    "average_geo_score": "4.1",
-    "perfect_seo_count": 6
+    "average_word_count": 905,
+    "average_geo_score": "5.0",
+    "perfect_seo_count": 9
   },
   "topics": {
     "Bia Thầy Tu / Ettal / Benediktiner": [
       {
-        "index": 7,
+        "index": 10,
         "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
         "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
         "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
@@ -39,7 +39,7 @@
         "issues": []
       },
       {
-        "index": 8,
+        "index": 11,
         "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
         "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
         "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
@@ -65,7 +65,7 @@
         "issues": []
       },
       {
-        "index": 9,
+        "index": 12,
         "id": "so-sanh-weissbier-vs-pilsner",
         "title": "So sánh Weissbier vs Pilsner: Đâu là dòng bia Đức cho bàn tiệc của bạn?",
         "slug": "so-sanh-weissbier-vs-pilsner",
@@ -80,9 +80,10 @@
           "bia thay tu"
         ],
         "kw_optimization": "2/5 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -94,64 +95,7 @@
         ]
       },
       {
-        "index": 10,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
-        "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
-        "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
-        "word_count": 880,
-        "link_count": 2,
-        "has_thumbnail": false,
-        "keywords": [
-          "bia thầy tu",
-          "bia đức nhập khẩu",
-          "mua bia đức",
-          "bia đức cao cấp",
-          "bia lúa mì",
-          "bia benediktiner"
-        ],
-        "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
-        "geo_details": [
-          "Hà Nội",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
-        ],
-        "issues": [
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 11,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
-        "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
-        "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
-        "word_count": 880,
-        "link_count": 4,
-        "has_thumbnail": false,
-        "keywords": [
-          "bia thầy tu",
-          "bia đức nhập khẩu",
-          "mua bia đức",
-          "bia đức cao cấp",
-          "bia lúa mì",
-          "bia benediktiner",
-          "bia bitburger"
-        ],
-        "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
-        "geo_details": [
-          "Hà Nội",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
-        ],
-        "issues": [
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 12,
+        "index": 13,
         "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
         "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
         "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
@@ -167,38 +111,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "4/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
-        ],
-        "issues": [
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 13,
-        "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
-        "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
-        "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
-        "word_count": 880,
-        "link_count": 4,
-        "has_thumbnail": false,
-        "keywords": [
-          "bia thầy tu",
-          "bia đức nhập khẩu",
-          "mua bia đức",
-          "bia đức cao cấp",
-          "bia lúa mì",
-          "bia benediktiner",
-          "bia bitburger"
-        ],
-        "kw_optimization": "6/7 keywords found in content/title",
-        "geo_score": 4,
-        "geo_details": [
-          "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -224,9 +140,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "4/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -237,6 +154,95 @@
       },
       {
         "index": 15,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+        "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+        "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+        "word_count": 880,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "6/7 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 16,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
+        "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
+        "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
+        "word_count": 880,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner"
+        ],
+        "kw_optimization": "3/6 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 17,
+        "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
+        "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
+        "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
+        "word_count": 880,
+        "link_count": 4,
+        "has_thumbnail": false,
+        "keywords": [
+          "bia thầy tu",
+          "bia đức nhập khẩu",
+          "mua bia đức",
+          "bia đức cao cấp",
+          "bia lúa mì",
+          "bia benediktiner",
+          "bia bitburger"
+        ],
+        "kw_optimization": "3/7 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
+      },
+      {
+        "index": 18,
         "id": "dc20aa32-190d-4d84-ae45-1e93d759f741",
         "title": "Nhiệt Độ Thưởng Thức Bia Đức Lý Tưởng Nhất Là Bao Nhiêu?",
         "slug": "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat",
@@ -253,9 +259,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -267,7 +274,7 @@
         ]
       },
       {
-        "index": 16,
+        "index": 19,
         "id": "24a4a95f-a40f-4a3f-93e3-ae78c3e369e8",
         "title": "Gợi Ý Tặng Quà Đối Tác Bằng Bia Đức Nhập Khẩu: Tinh Tế, Sang Trọng, Đẳng Cấp",
         "slug": "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap",
@@ -283,9 +290,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -297,7 +305,7 @@
         ]
       },
       {
-        "index": 17,
+        "index": 20,
         "id": "ef4ea9fd-ebba-480d-b3db-cd6517b3f325",
         "title": "Bí Quyết Rót Bia Lúa Mì Chuẩn Chuyên Gia Đức",
         "slug": "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia",
@@ -313,9 +321,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -327,7 +336,7 @@
         ]
       },
       {
-        "index": 18,
+        "index": 21,
         "id": "670c11e7-6af8-4112-94a9-a950449693ba",
         "title": "Bia Không Cồn Bitburger 0.0%: Lựa Chọn Đẳng Cấp Cho Nhịp Sống Hiện Đại",
         "slug": "bia-khong-con-bitburger-0-0-lua-chon-dang-cap",
@@ -343,9 +352,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -356,7 +366,7 @@
         ]
       },
       {
-        "index": 19,
+        "index": 22,
         "id": "97420128-570d-436c-8611-85114d404964",
         "title": "Khám Phá Tu Viện Ettal: Nơi Lưu Giữ Công Thức Bia Hơn 400 Năm",
         "slug": "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam",
@@ -372,9 +382,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -385,7 +396,7 @@
         ]
       },
       {
-        "index": 20,
+        "index": 23,
         "id": "3f9286c7-c78d-40b2-95e0-c1fa5bab47cc",
         "title": "Sự Khác Biệt Giữa Bia Đen (Dunkel) Và Bia Vàng (Naturtrüb) Lúa Mì",
         "slug": "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub",
@@ -401,9 +412,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -414,7 +426,7 @@
         ]
       },
       {
-        "index": 21,
+        "index": 24,
         "id": "ce16bc41-52d8-421b-abc4-355368b2cfda",
         "title": "Giải Thưởng iTQi 3 Sao Là Gì? Vì Sao Benediktiner Weissbier Được Xướng Tên?",
         "slug": "giai-thuong-itqi-3-sao-benediktiner-weissbier",
@@ -430,9 +442,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -444,7 +457,7 @@
         ]
       },
       {
-        "index": 22,
+        "index": 25,
         "id": "975eeac6-82f5-4f28-ad12-fdd8b1ea3aa8",
         "title": "Nghệ Thuật Food Pairing: Kết Hợp Món Ăn Hoàn Hảo Cùng Bia Đức",
         "slug": "nghe-thuat-food-pairing-cung-bia-duc",
@@ -461,9 +474,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -474,7 +488,7 @@
         ]
       },
       {
-        "index": 23,
+        "index": 26,
         "id": "8b59cb5f-bcbc-4f72-9183-b230c19bb8c5",
         "title": "Bia Lúa Mì Đức (Weissbier) Là Gì? Sự Thật Về Lớp Bọt Và Mùi Chuối Chín",
         "slug": "bia-lua-mi-duc-weissbier-la-gi",
@@ -490,9 +504,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -503,7 +518,7 @@
         ]
       },
       {
-        "index": 24,
+        "index": 27,
         "id": "85be0a1d-ef2c-4757-8742-4f60ce930320",
         "title": "Luật Tinh Khiết 1516 (Reinheitsgebot): Di Sản Bia Đức Hơn 500 Năm",
         "slug": "luat-tinh-khiet-1516-reinheitsgebot",
@@ -520,9 +535,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -533,7 +549,7 @@
         ]
       },
       {
-        "index": 25,
+        "index": 28,
         "id": "36043a82-bb23-48e6-9fb9-7a706e7bae50",
         "title": "Bia Thầy Tu Là Gì? Giải Đáp Mọi Thắc Mắc Về Bia Tu Viện Đức",
         "slug": "bia-thay-tu-la-gi-giai-dap-thac-mac",
@@ -549,9 +565,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "4/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -561,7 +578,7 @@
         ]
       },
       {
-        "index": 26,
+        "index": 29,
         "id": "054be9c5-d5ee-4de1-a835-4227254e144e",
         "title": "Bitburger Premium Pils — Hành Trình 200 Năm Của Bia Draft Số 1 Nước Đức",
         "slug": "bitburger-hanh-trinh-200-nam-bia-draft-so-1",
@@ -577,9 +594,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -591,7 +609,7 @@
         ]
       },
       {
-        "index": 27,
+        "index": 30,
         "id": "1820a737-c47f-49f0-976f-b65f490ce3ff",
         "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới — Weissbier, Pilsner hay Dunkel?",
         "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi",
@@ -608,9 +626,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -620,7 +639,7 @@
         ]
       },
       {
-        "index": 28,
+        "index": 31,
         "id": "b222de51-c256-4fd7-a50d-e2d9c6c96619",
         "title": "Top 7 Món Việt Kết Hợp Hoàn Hảo Với Bia Đức — Hướng Dẫn Food Pairing",
         "slug": "top-7-mon-viet-ket-hop-bia-duc-food-pairing",
@@ -637,9 +656,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -649,7 +669,7 @@
         ]
       },
       {
-        "index": 29,
+        "index": 32,
         "id": "bfef5bb7-f606-4922-930b-adb2619cdc8a",
         "title": "Cách Bảo Quản Bia Nhập Khẩu Đúng Cách — 5 Sai Lầm Phổ Biến Cần Tránh",
         "slug": "cach-bao-quan-bia-nhap-khau-dung-cach",
@@ -666,9 +686,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -678,7 +699,7 @@
         ]
       },
       {
-        "index": 30,
+        "index": 33,
         "id": "5774757e-23ec-4b6f-8aa2-c93813cc3f9c",
         "title": "Nghệ Thuật Chọn Bia Đức Cho Người Sành Sỏi",
         "slug": "nghe-thuat-chon-bia-nguoi-truong-thanh",
@@ -694,9 +715,10 @@
           "Bia Thầy Tu"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -708,7 +730,7 @@
         ]
       },
       {
-        "index": 31,
+        "index": 34,
         "id": "fcee0cb7-8139-48c7-bb9f-d0ab047387a2",
         "title": "Cách Kết Hợp Bia Benediktiner Với Món Ăn Việt",
         "slug": "ket-hop-bia-duc-va-am-thuc-duong-dai",
@@ -723,9 +745,10 @@
           "bia uống với đồ nướng"
         ],
         "kw_optimization": "2/5 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -737,7 +760,7 @@
         ]
       },
       {
-        "index": 32,
+        "index": 35,
         "id": "a9b41137-b908-404d-95e8-452da27d278e",
         "title": "Cách Rót Bia Benediktiner Nghiêng 45 Độ Đúng Chuẩn",
         "slug": "nghe-thuat-rot-bia-lua-mi-benediktiner",
@@ -752,9 +775,10 @@
           "men sống tự nhiên"
         ],
         "kw_optimization": "4/5 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -765,7 +789,7 @@
         ]
       },
       {
-        "index": 33,
+        "index": 36,
         "id": "79d7b5e0-3a2b-49e0-abff-9bd3a4e81550",
         "title": "Vì Sao Càng Tìm Hiểu Về Bia, Người Ta Càng Trân Trọng Sự Nguyên Bản?",
         "slug": "su-tran-trong-nguyen-ban-bia-giao-thoa",
@@ -781,9 +805,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "2/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -793,7 +818,7 @@
         ]
       },
       {
-        "index": 34,
+        "index": 37,
         "id": "70dffc8a-8462-4fb7-b71f-72ad391cf115",
         "title": "Tại Sao Bia Lúa Mì Phải Uống Bằng Ly Cổ Cao Chân Loe?",
         "slug": "ly-uong-bia-lua-mi-weizen-glass",
@@ -809,9 +834,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -821,7 +847,7 @@
         ]
       },
       {
-        "index": 35,
+        "index": 38,
         "id": "cd9f2d08-c7c9-446c-9294-42e8ee0a5dcf",
         "title": "Nhiệt Độ Vàng Thưởng Thức Bia Bao Nhiêu Là Ngon Nhất?",
         "slug": "nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
@@ -838,9 +864,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "3/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -851,7 +878,7 @@
         ]
       },
       {
-        "index": 36,
+        "index": 39,
         "id": "e1c923b5-6558-442e-92aa-eab1d85f7e85",
         "title": "Food Pairing: Tuyệt Chiêu Ghép Đôi Bia Thầy Tu & Ẩm Thực",
         "slug": "food-pairing-bia-thay-tu-va-am-thuc",
@@ -868,9 +895,10 @@
           "bia bitburger"
         ],
         "kw_optimization": "2/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -880,7 +908,7 @@
         ]
       },
       {
-        "index": 37,
+        "index": 40,
         "id": "694510d5-c6d9-4642-b019-bd65b3e100ea",
         "title": "Nghệ Thuật Rót Bia Lúa Mì Thưởng Thức (Weizen) Đúng Chuẩn",
         "slug": "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
@@ -896,9 +924,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -909,7 +938,7 @@
         ]
       },
       {
-        "index": 38,
+        "index": 41,
         "id": "6d1b2baf-30fe-49de-ab97-01a1e605424c",
         "title": "Giải Mã Hương Chuối Chín & Đinh Hương Trong Bia Lúa Mì",
         "slug": "huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi",
@@ -925,9 +954,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -937,7 +967,7 @@
         ]
       },
       {
-        "index": 39,
+        "index": 42,
         "id": "e0cf6aaa-e672-4256-97ec-2f18bed0a075",
         "title": "Phân Biệt Các Dòng Bia Đức: Weissbier, Dunkel và Festbier",
         "slug": "phan-biet-weissbier-dunkel-festbier",
@@ -953,9 +983,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -965,7 +996,7 @@
         ]
       },
       {
-        "index": 40,
+        "index": 43,
         "id": "dcff36ca-7859-4489-b2d9-4f4d76967cb1",
         "title": "Sự Thật Về Lớp Men Vẩn Đục (Naturtrüb) Của Weissbier",
         "slug": "su-that-ve-lop-men-van-duc-naturtrub",
@@ -981,9 +1012,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -994,7 +1026,7 @@
         ]
       },
       {
-        "index": 41,
+        "index": 44,
         "id": "89c234eb-3ff3-4b54-8483-a17141c3c065",
         "title": "Đạo Luật Tinh Khiết 1516 (Reinheitsgebot): Tôn Giáo Của Sự Nguyên Bản",
         "slug": "dao-luat-tinh-khiet-1516-reinheitsgebot",
@@ -1010,9 +1042,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -1023,7 +1056,7 @@
         ]
       },
       {
-        "index": 42,
+        "index": 45,
         "id": "723f9518-6fa9-4df2-910d-8dcf1800e551",
         "title": "Nguồn Gốc Bia Thầy Tu: Lịch Sử Bị Lãng Quên Của Tu Viện Ettal",
         "slug": "nguon-goc-bia-thay-tu-tu-vien-ettal",
@@ -1039,9 +1072,10 @@
           "bia benediktiner"
         ],
         "kw_optimization": "3/6 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -1051,37 +1085,7 @@
         ]
       },
       {
-        "index": 43,
-        "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
-        "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
-        "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
-        "word_count": 920,
-        "link_count": 2,
-        "has_thumbnail": false,
-        "keywords": [
-          "Benediktiner",
-          "Weissbier",
-          "bia lúa mì",
-          "bia tu viện",
-          "craft beer",
-          "Bia Thầy Tu",
-          "Bavaria"
-        ],
-        "kw_optimization": "7/7 keywords found in content/title",
-        "geo_score": 4,
-        "geo_details": [
-          "Hà Nội",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
-        ],
-        "issues": [
-          "Missing H3 tags (recommended for readability)",
-          "No images in the article (missing thumbnail and inline images)"
-        ]
-      },
-      {
-        "index": 44,
+        "index": 46,
         "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
         "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
         "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
@@ -1098,9 +1102,10 @@
           "beer review"
         ],
         "kw_optimization": "4/7 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -1109,11 +1114,67 @@
           "Meta Description too short (114 chars, recommended: 150-160)",
           "No images in the article (missing thumbnail and inline images)"
         ]
+      },
+      {
+        "index": 47,
+        "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+        "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+        "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+        "word_count": 920,
+        "link_count": 2,
+        "has_thumbnail": false,
+        "keywords": [
+          "Benediktiner",
+          "Weissbier",
+          "bia lúa mì",
+          "bia tu viện",
+          "craft beer",
+          "Bia Thầy Tu",
+          "Bavaria"
+        ],
+        "kw_optimization": "7/7 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": [
+          "Missing H3 tags (recommended for readability)",
+          "No images in the article (missing thumbnail and inline images)"
+        ]
       }
     ],
     "Bia Đức nói chung / Bitburger / Khác": [
       {
-        "index": 1,
+        "index": 2,
+        "id": "bi-quyet-chon-do-nham-bia-duc-xuc-xich-wiener",
+        "title": "Bí Quyết Chọn Đồ Nhắm Bia Đức: Tại Sao Xúc Xích Wiener Luôn Là Số 1?",
+        "slug": "bi-quyet-chon-do-nham-bia-duc-xuc-xich-wiener",
+        "word_count": 974,
+        "link_count": 5,
+        "has_thumbnail": true,
+        "keywords": [
+          "đồ nhắm bia đức",
+          "xúc xích wiener hun khói",
+          "mua xúc xích đức ở đâu",
+          "xúc xích đức hà nội"
+        ],
+        "kw_optimization": "3/4 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 4,
         "id": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
         "title": "Top 3 Loại Xúc Xích Đức Nhập Khẩu Ăn Kèm Bia Ngon Nhất",
         "slug": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
@@ -1127,17 +1188,20 @@
           "xúc xích bratwurst"
         ],
         "kw_optimization": "4/4 keywords found in content/title",
-        "geo_score": 2,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
-          "TP.HCM|Sài Gòn"
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
         ],
         "issues": [
           "No images in the article (missing thumbnail and inline images)"
         ]
       },
       {
-        "index": 3,
+        "index": 6,
         "id": "top-5-dong-bia-bi-nhap-khau-duoc-ua-chuong-nhat",
         "title": "Top 5 Dòng Bia Bỉ Nhập Khẩu Được Ưa Chuộng Nhất Tại Hà Nội & TP.HCM",
         "slug": "top-5-dong-bia-bi-nhap-khau-duoc-ua-chuong-nhat",
@@ -1162,7 +1226,7 @@
         "issues": []
       },
       {
-        "index": 4,
+        "index": 7,
         "id": "gia-bia-chimay-xanh-do-vang-chinh-hang",
         "title": "Giá Bia Chimay Xanh, Đỏ, Vàng Chính Hãng Và Nơi Mua Sỉ Tây Hồ",
         "slug": "gia-bia-chimay-xanh-do-vang-chinh-hang",
@@ -1187,7 +1251,7 @@
         "issues": []
       },
       {
-        "index": 5,
+        "index": 8,
         "id": "so-sanh-bia-duc-va-bia-bi-gu-thuong-thuc",
         "title": "So Sánh Bia Đức Và Bia Bỉ: Lựa Chọn Nào Cho Người Sành Thưởng Thức?",
         "slug": "so-sanh-bia-duc-va-bia-bi-gu-thuong-thuc",
@@ -1212,7 +1276,7 @@
         "issues": []
       },
       {
-        "index": 6,
+        "index": 9,
         "id": "hop-qua-tang-bia-bi-bia-duc-nhap-khau-sang-trong",
         "title": "Hộp Quà Tặng Bia Bỉ, Bia Đức Nhập Khẩu Sang Trọng Tại HN & HCM",
         "slug": "hop-qua-tang-bia-bi-bia-duc-nhap-khau-sang-trong",
@@ -1240,7 +1304,57 @@
     "Vang / Đồ uống khác": [],
     "Không rõ / Khác": [
       {
-        "index": 2,
+        "index": 1,
+        "id": "cach-nuong-xuc-xich-thuringer-bratwurst-chuan-vi-duc",
+        "title": "Cách Nướng Xúc Xích Thüringer Bratwurst Chuẩn Vị Đức Tại Nhà",
+        "slug": "cach-nuong-xuc-xich-thuringer-bratwurst-chuan-vi-duc",
+        "word_count": 1025,
+        "link_count": 4,
+        "has_thumbnail": true,
+        "keywords": [
+          "cách nướng xúc xích bratwurst",
+          "xúc xích thuringer bratwurst",
+          "chế biến xúc xích đức",
+          "xúc xích đức ngon"
+        ],
+        "kw_optimization": "2/4 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 3,
+        "id": "dai-ly-phan-phoi-si-le-xuc-xich-duc-the-wurst-tay-ho",
+        "title": "Đại Lý Phân Phối Sỉ Lẻ Xúc Xích Đức The Wurst Tây Hồ Giá Tốt",
+        "slug": "dai-ly-phan-phoi-si-le-xuc-xich-duc-the-wurst-tay-ho",
+        "word_count": 942,
+        "link_count": 5,
+        "has_thumbnail": true,
+        "keywords": [
+          "đại lý xúc xích đức tây hồ",
+          "mua xúc xích đức ở đâu",
+          "xúc xích đức hà nội",
+          "xúc xích đức giá sỉ"
+        ],
+        "kw_optimization": "2/4 keywords found in content/title",
+        "geo_score": 5,
+        "geo_details": [
+          "Hà Nội",
+          "TP.HCM|Sài Gòn",
+          "Tây Hồ|Lạc Long Quân",
+          "Địa chỉ|Cửa hàng|Showroom",
+          "Hotline|Số điện thoại|Liên hệ"
+        ],
+        "issues": []
+      },
+      {
+        "index": 5,
         "id": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
         "title": "Mua Xúc Xích Đức Chính Hãng Ở Đâu Hà Nội Ship Hỏa Tốc?",
         "slug": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
@@ -1254,9 +1368,10 @@
           "đại lý xúc xích đức tây hồ"
         ],
         "kw_optimization": "0/4 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 5,
         "geo_details": [
           "Hà Nội",
+          "TP.HCM|Sài Gòn",
           "Tây Hồ|Lạc Long Quân",
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
@@ -1270,6 +1385,81 @@
   "all_articles": [
     {
       "index": 1,
+      "id": "cach-nuong-xuc-xich-thuringer-bratwurst-chuan-vi-duc",
+      "title": "Cách Nướng Xúc Xích Thüringer Bratwurst Chuẩn Vị Đức Tại Nhà",
+      "slug": "cach-nuong-xuc-xich-thuringer-bratwurst-chuan-vi-duc",
+      "word_count": 1025,
+      "link_count": 4,
+      "has_thumbnail": true,
+      "keywords": [
+        "cách nướng xúc xích bratwurst",
+        "xúc xích thuringer bratwurst",
+        "chế biến xúc xích đức",
+        "xúc xích đức ngon"
+      ],
+      "kw_optimization": "2/4 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 2,
+      "id": "bi-quyet-chon-do-nham-bia-duc-xuc-xich-wiener",
+      "title": "Bí Quyết Chọn Đồ Nhắm Bia Đức: Tại Sao Xúc Xích Wiener Luôn Là Số 1?",
+      "slug": "bi-quyet-chon-do-nham-bia-duc-xuc-xich-wiener",
+      "word_count": 974,
+      "link_count": 5,
+      "has_thumbnail": true,
+      "keywords": [
+        "đồ nhắm bia đức",
+        "xúc xích wiener hun khói",
+        "mua xúc xích đức ở đâu",
+        "xúc xích đức hà nội"
+      ],
+      "kw_optimization": "3/4 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 3,
+      "id": "dai-ly-phan-phoi-si-le-xuc-xich-duc-the-wurst-tay-ho",
+      "title": "Đại Lý Phân Phối Sỉ Lẻ Xúc Xích Đức The Wurst Tây Hồ Giá Tốt",
+      "slug": "dai-ly-phan-phoi-si-le-xuc-xich-duc-the-wurst-tay-ho",
+      "word_count": 942,
+      "link_count": 5,
+      "has_thumbnail": true,
+      "keywords": [
+        "đại lý xúc xích đức tây hồ",
+        "mua xúc xích đức ở đâu",
+        "xúc xích đức hà nội",
+        "xúc xích đức giá sỉ"
+      ],
+      "kw_optimization": "2/4 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": []
+    },
+    {
+      "index": 4,
       "id": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
       "title": "Top 3 Loại Xúc Xích Đức Nhập Khẩu Ăn Kèm Bia Ngon Nhất",
       "slug": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
@@ -1283,17 +1473,20 @@
         "xúc xích bratwurst"
       ],
       "kw_optimization": "4/4 keywords found in content/title",
-      "geo_score": 2,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
-        "TP.HCM|Sài Gòn"
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
       ],
       "issues": [
         "No images in the article (missing thumbnail and inline images)"
       ]
     },
     {
-      "index": 2,
+      "index": 5,
       "id": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
       "title": "Mua Xúc Xích Đức Chính Hãng Ở Đâu Hà Nội Ship Hỏa Tốc?",
       "slug": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
@@ -1307,9 +1500,10 @@
         "đại lý xúc xích đức tây hồ"
       ],
       "kw_optimization": "0/4 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1319,7 +1513,7 @@
       ]
     },
     {
-      "index": 3,
+      "index": 6,
       "id": "top-5-dong-bia-bi-nhap-khau-duoc-ua-chuong-nhat",
       "title": "Top 5 Dòng Bia Bỉ Nhập Khẩu Được Ưa Chuộng Nhất Tại Hà Nội & TP.HCM",
       "slug": "top-5-dong-bia-bi-nhap-khau-duoc-ua-chuong-nhat",
@@ -1344,7 +1538,7 @@
       "issues": []
     },
     {
-      "index": 4,
+      "index": 7,
       "id": "gia-bia-chimay-xanh-do-vang-chinh-hang",
       "title": "Giá Bia Chimay Xanh, Đỏ, Vàng Chính Hãng Và Nơi Mua Sỉ Tây Hồ",
       "slug": "gia-bia-chimay-xanh-do-vang-chinh-hang",
@@ -1369,7 +1563,7 @@
       "issues": []
     },
     {
-      "index": 5,
+      "index": 8,
       "id": "so-sanh-bia-duc-va-bia-bi-gu-thuong-thuc",
       "title": "So Sánh Bia Đức Và Bia Bỉ: Lựa Chọn Nào Cho Người Sành Thưởng Thức?",
       "slug": "so-sanh-bia-duc-va-bia-bi-gu-thuong-thuc",
@@ -1394,7 +1588,7 @@
       "issues": []
     },
     {
-      "index": 6,
+      "index": 9,
       "id": "hop-qua-tang-bia-bi-bia-duc-nhap-khau-sang-trong",
       "title": "Hộp Quà Tặng Bia Bỉ, Bia Đức Nhập Khẩu Sang Trọng Tại HN & HCM",
       "slug": "hop-qua-tang-bia-bi-bia-duc-nhap-khau-sang-trong",
@@ -1419,7 +1613,7 @@
       "issues": []
     },
     {
-      "index": 7,
+      "index": 10,
       "id": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
       "title": "Mua Bia Thầy Tu Chimay, La Trappe Ở Đâu Chính Hãng Hà Nội?",
       "slug": "mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi",
@@ -1444,7 +1638,7 @@
       "issues": []
     },
     {
-      "index": 8,
+      "index": 11,
       "id": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
       "title": "Phân Biệt Bia Thầy Tu Trappist Và Bia Tu Viện Abbey Beer",
       "slug": "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien",
@@ -1470,7 +1664,7 @@
       "issues": []
     },
     {
-      "index": 9,
+      "index": 12,
       "id": "so-sanh-weissbier-vs-pilsner",
       "title": "So sánh Weissbier vs Pilsner: Đâu là dòng bia Đức cho bàn tiệc của bạn?",
       "slug": "so-sanh-weissbier-vs-pilsner",
@@ -1485,9 +1679,10 @@
         "bia thay tu"
       ],
       "kw_optimization": "2/5 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1499,64 +1694,7 @@
       ]
     },
     {
-      "index": 10,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
-      "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
-      "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
-      "word_count": 880,
-      "link_count": 2,
-      "has_thumbnail": false,
-      "keywords": [
-        "bia thầy tu",
-        "bia đức nhập khẩu",
-        "mua bia đức",
-        "bia đức cao cấp",
-        "bia lúa mì",
-        "bia benediktiner"
-      ],
-      "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
-      "geo_details": [
-        "Hà Nội",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
-      ],
-      "issues": [
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 11,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
-      "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
-      "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
-      "word_count": 880,
-      "link_count": 4,
-      "has_thumbnail": false,
-      "keywords": [
-        "bia thầy tu",
-        "bia đức nhập khẩu",
-        "mua bia đức",
-        "bia đức cao cấp",
-        "bia lúa mì",
-        "bia benediktiner",
-        "bia bitburger"
-      ],
-      "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
-      "geo_details": [
-        "Hà Nội",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
-      ],
-      "issues": [
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 12,
+      "index": 13,
       "id": "552f9518-6fa9-4df2-910d-8dcf1800e552",
       "title": "Bia Thầy Tu Benediktiner: Vị Men Sống Từ Tu Viện Ettal",
       "slug": "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal",
@@ -1572,38 +1710,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "4/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
-      ],
-      "issues": [
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 13,
-      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
-      "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
-      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
-      "word_count": 880,
-      "link_count": 4,
-      "has_thumbnail": false,
-      "keywords": [
-        "bia thầy tu",
-        "bia đức nhập khẩu",
-        "mua bia đức",
-        "bia đức cao cấp",
-        "bia lúa mì",
-        "bia benediktiner",
-        "bia bitburger"
-      ],
-      "kw_optimization": "6/7 keywords found in content/title",
-      "geo_score": 4,
-      "geo_details": [
-        "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1629,9 +1739,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "4/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1642,6 +1753,95 @@
     },
     {
       "index": 15,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e555",
+      "title": "So Sánh Bia Benediktiner Lúa Mì Và Pilsner Bitburger",
+      "slug": "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger",
+      "word_count": 880,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "6/7 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e553",
+      "title": "Bia Đen Benediktiner Dunkel: Hương Caramel Đậm Đà",
+      "slug": "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel",
+      "word_count": 880,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner"
+      ],
+      "kw_optimization": "3/6 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 17,
+      "id": "552f9518-6fa9-4df2-910d-8dcf1800e556",
+      "title": "Đạo Luật Tinh Khiết 1516 Của Bia Đức Benediktiner",
+      "slug": "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc",
+      "word_count": 880,
+      "link_count": 4,
+      "has_thumbnail": false,
+      "keywords": [
+        "bia thầy tu",
+        "bia đức nhập khẩu",
+        "mua bia đức",
+        "bia đức cao cấp",
+        "bia lúa mì",
+        "bia benediktiner",
+        "bia bitburger"
+      ],
+      "kw_optimization": "3/7 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 18,
       "id": "dc20aa32-190d-4d84-ae45-1e93d759f741",
       "title": "Nhiệt Độ Thưởng Thức Bia Đức Lý Tưởng Nhất Là Bao Nhiêu?",
       "slug": "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat",
@@ -1658,9 +1858,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1672,7 +1873,7 @@
       ]
     },
     {
-      "index": 16,
+      "index": 19,
       "id": "24a4a95f-a40f-4a3f-93e3-ae78c3e369e8",
       "title": "Gợi Ý Tặng Quà Đối Tác Bằng Bia Đức Nhập Khẩu: Tinh Tế, Sang Trọng, Đẳng Cấp",
       "slug": "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap",
@@ -1688,9 +1889,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1702,7 +1904,7 @@
       ]
     },
     {
-      "index": 17,
+      "index": 20,
       "id": "ef4ea9fd-ebba-480d-b3db-cd6517b3f325",
       "title": "Bí Quyết Rót Bia Lúa Mì Chuẩn Chuyên Gia Đức",
       "slug": "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia",
@@ -1718,9 +1920,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1732,7 +1935,7 @@
       ]
     },
     {
-      "index": 18,
+      "index": 21,
       "id": "670c11e7-6af8-4112-94a9-a950449693ba",
       "title": "Bia Không Cồn Bitburger 0.0%: Lựa Chọn Đẳng Cấp Cho Nhịp Sống Hiện Đại",
       "slug": "bia-khong-con-bitburger-0-0-lua-chon-dang-cap",
@@ -1748,9 +1951,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1761,7 +1965,7 @@
       ]
     },
     {
-      "index": 19,
+      "index": 22,
       "id": "97420128-570d-436c-8611-85114d404964",
       "title": "Khám Phá Tu Viện Ettal: Nơi Lưu Giữ Công Thức Bia Hơn 400 Năm",
       "slug": "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam",
@@ -1777,9 +1981,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1790,7 +1995,7 @@
       ]
     },
     {
-      "index": 20,
+      "index": 23,
       "id": "3f9286c7-c78d-40b2-95e0-c1fa5bab47cc",
       "title": "Sự Khác Biệt Giữa Bia Đen (Dunkel) Và Bia Vàng (Naturtrüb) Lúa Mì",
       "slug": "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub",
@@ -1806,9 +2011,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1819,7 +2025,7 @@
       ]
     },
     {
-      "index": 21,
+      "index": 24,
       "id": "ce16bc41-52d8-421b-abc4-355368b2cfda",
       "title": "Giải Thưởng iTQi 3 Sao Là Gì? Vì Sao Benediktiner Weissbier Được Xướng Tên?",
       "slug": "giai-thuong-itqi-3-sao-benediktiner-weissbier",
@@ -1835,9 +2041,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1849,7 +2056,7 @@
       ]
     },
     {
-      "index": 22,
+      "index": 25,
       "id": "975eeac6-82f5-4f28-ad12-fdd8b1ea3aa8",
       "title": "Nghệ Thuật Food Pairing: Kết Hợp Món Ăn Hoàn Hảo Cùng Bia Đức",
       "slug": "nghe-thuat-food-pairing-cung-bia-duc",
@@ -1866,9 +2073,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1879,7 +2087,7 @@
       ]
     },
     {
-      "index": 23,
+      "index": 26,
       "id": "8b59cb5f-bcbc-4f72-9183-b230c19bb8c5",
       "title": "Bia Lúa Mì Đức (Weissbier) Là Gì? Sự Thật Về Lớp Bọt Và Mùi Chuối Chín",
       "slug": "bia-lua-mi-duc-weissbier-la-gi",
@@ -1895,9 +2103,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1908,7 +2117,7 @@
       ]
     },
     {
-      "index": 24,
+      "index": 27,
       "id": "85be0a1d-ef2c-4757-8742-4f60ce930320",
       "title": "Luật Tinh Khiết 1516 (Reinheitsgebot): Di Sản Bia Đức Hơn 500 Năm",
       "slug": "luat-tinh-khiet-1516-reinheitsgebot",
@@ -1925,9 +2134,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1938,7 +2148,7 @@
       ]
     },
     {
-      "index": 25,
+      "index": 28,
       "id": "36043a82-bb23-48e6-9fb9-7a706e7bae50",
       "title": "Bia Thầy Tu Là Gì? Giải Đáp Mọi Thắc Mắc Về Bia Tu Viện Đức",
       "slug": "bia-thay-tu-la-gi-giai-dap-thac-mac",
@@ -1954,9 +2164,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "4/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1966,7 +2177,7 @@
       ]
     },
     {
-      "index": 26,
+      "index": 29,
       "id": "054be9c5-d5ee-4de1-a835-4227254e144e",
       "title": "Bitburger Premium Pils — Hành Trình 200 Năm Của Bia Draft Số 1 Nước Đức",
       "slug": "bitburger-hanh-trinh-200-nam-bia-draft-so-1",
@@ -1982,9 +2193,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -1996,7 +2208,7 @@
       ]
     },
     {
-      "index": 27,
+      "index": 30,
       "id": "1820a737-c47f-49f0-976f-b65f490ce3ff",
       "title": "Hướng Dẫn Chọn Bia Đức Cho Người Mới — Weissbier, Pilsner hay Dunkel?",
       "slug": "huong-dan-chon-bia-duc-cho-nguoi-moi",
@@ -2013,9 +2225,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2025,7 +2238,7 @@
       ]
     },
     {
-      "index": 28,
+      "index": 31,
       "id": "b222de51-c256-4fd7-a50d-e2d9c6c96619",
       "title": "Top 7 Món Việt Kết Hợp Hoàn Hảo Với Bia Đức — Hướng Dẫn Food Pairing",
       "slug": "top-7-mon-viet-ket-hop-bia-duc-food-pairing",
@@ -2042,9 +2255,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2054,7 +2268,7 @@
       ]
     },
     {
-      "index": 29,
+      "index": 32,
       "id": "bfef5bb7-f606-4922-930b-adb2619cdc8a",
       "title": "Cách Bảo Quản Bia Nhập Khẩu Đúng Cách — 5 Sai Lầm Phổ Biến Cần Tránh",
       "slug": "cach-bao-quan-bia-nhap-khau-dung-cach",
@@ -2071,9 +2285,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2083,7 +2298,7 @@
       ]
     },
     {
-      "index": 30,
+      "index": 33,
       "id": "5774757e-23ec-4b6f-8aa2-c93813cc3f9c",
       "title": "Nghệ Thuật Chọn Bia Đức Cho Người Sành Sỏi",
       "slug": "nghe-thuat-chon-bia-nguoi-truong-thanh",
@@ -2099,9 +2314,10 @@
         "Bia Thầy Tu"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2113,7 +2329,7 @@
       ]
     },
     {
-      "index": 31,
+      "index": 34,
       "id": "fcee0cb7-8139-48c7-bb9f-d0ab047387a2",
       "title": "Cách Kết Hợp Bia Benediktiner Với Món Ăn Việt",
       "slug": "ket-hop-bia-duc-va-am-thuc-duong-dai",
@@ -2128,9 +2344,10 @@
         "bia uống với đồ nướng"
       ],
       "kw_optimization": "2/5 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2142,7 +2359,7 @@
       ]
     },
     {
-      "index": 32,
+      "index": 35,
       "id": "a9b41137-b908-404d-95e8-452da27d278e",
       "title": "Cách Rót Bia Benediktiner Nghiêng 45 Độ Đúng Chuẩn",
       "slug": "nghe-thuat-rot-bia-lua-mi-benediktiner",
@@ -2157,9 +2374,10 @@
         "men sống tự nhiên"
       ],
       "kw_optimization": "4/5 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2170,7 +2388,7 @@
       ]
     },
     {
-      "index": 33,
+      "index": 36,
       "id": "79d7b5e0-3a2b-49e0-abff-9bd3a4e81550",
       "title": "Vì Sao Càng Tìm Hiểu Về Bia, Người Ta Càng Trân Trọng Sự Nguyên Bản?",
       "slug": "su-tran-trong-nguyen-ban-bia-giao-thoa",
@@ -2186,9 +2404,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "2/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2198,7 +2417,7 @@
       ]
     },
     {
-      "index": 34,
+      "index": 37,
       "id": "70dffc8a-8462-4fb7-b71f-72ad391cf115",
       "title": "Tại Sao Bia Lúa Mì Phải Uống Bằng Ly Cổ Cao Chân Loe?",
       "slug": "ly-uong-bia-lua-mi-weizen-glass",
@@ -2214,9 +2433,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2226,7 +2446,7 @@
       ]
     },
     {
-      "index": 35,
+      "index": 38,
       "id": "cd9f2d08-c7c9-446c-9294-42e8ee0a5dcf",
       "title": "Nhiệt Độ Vàng Thưởng Thức Bia Bao Nhiêu Là Ngon Nhất?",
       "slug": "nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
@@ -2243,9 +2463,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "3/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2256,7 +2477,7 @@
       ]
     },
     {
-      "index": 36,
+      "index": 39,
       "id": "e1c923b5-6558-442e-92aa-eab1d85f7e85",
       "title": "Food Pairing: Tuyệt Chiêu Ghép Đôi Bia Thầy Tu & Ẩm Thực",
       "slug": "food-pairing-bia-thay-tu-va-am-thuc",
@@ -2273,9 +2494,10 @@
         "bia bitburger"
       ],
       "kw_optimization": "2/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2285,7 +2507,7 @@
       ]
     },
     {
-      "index": 37,
+      "index": 40,
       "id": "694510d5-c6d9-4642-b019-bd65b3e100ea",
       "title": "Nghệ Thuật Rót Bia Lúa Mì Thưởng Thức (Weizen) Đúng Chuẩn",
       "slug": "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
@@ -2301,9 +2523,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2314,7 +2537,7 @@
       ]
     },
     {
-      "index": 38,
+      "index": 41,
       "id": "6d1b2baf-30fe-49de-ab97-01a1e605424c",
       "title": "Giải Mã Hương Chuối Chín & Đinh Hương Trong Bia Lúa Mì",
       "slug": "huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi",
@@ -2330,9 +2553,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2342,7 +2566,7 @@
       ]
     },
     {
-      "index": 39,
+      "index": 42,
       "id": "e0cf6aaa-e672-4256-97ec-2f18bed0a075",
       "title": "Phân Biệt Các Dòng Bia Đức: Weissbier, Dunkel và Festbier",
       "slug": "phan-biet-weissbier-dunkel-festbier",
@@ -2358,9 +2582,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2370,7 +2595,7 @@
       ]
     },
     {
-      "index": 40,
+      "index": 43,
       "id": "dcff36ca-7859-4489-b2d9-4f4d76967cb1",
       "title": "Sự Thật Về Lớp Men Vẩn Đục (Naturtrüb) Của Weissbier",
       "slug": "su-that-ve-lop-men-van-duc-naturtrub",
@@ -2386,9 +2611,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2399,7 +2625,7 @@
       ]
     },
     {
-      "index": 41,
+      "index": 44,
       "id": "89c234eb-3ff3-4b54-8483-a17141c3c065",
       "title": "Đạo Luật Tinh Khiết 1516 (Reinheitsgebot): Tôn Giáo Của Sự Nguyên Bản",
       "slug": "dao-luat-tinh-khiet-1516-reinheitsgebot",
@@ -2415,9 +2641,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2428,7 +2655,7 @@
       ]
     },
     {
-      "index": 42,
+      "index": 45,
       "id": "723f9518-6fa9-4df2-910d-8dcf1800e551",
       "title": "Nguồn Gốc Bia Thầy Tu: Lịch Sử Bị Lãng Quên Của Tu Viện Ettal",
       "slug": "nguon-goc-bia-thay-tu-tu-vien-ettal",
@@ -2444,9 +2671,10 @@
         "bia benediktiner"
       ],
       "kw_optimization": "3/6 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
@@ -2456,37 +2684,7 @@
       ]
     },
     {
-      "index": 43,
-      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
-      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
-      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
-      "word_count": 920,
-      "link_count": 2,
-      "has_thumbnail": false,
-      "keywords": [
-        "Benediktiner",
-        "Weissbier",
-        "bia lúa mì",
-        "bia tu viện",
-        "craft beer",
-        "Bia Thầy Tu",
-        "Bavaria"
-      ],
-      "kw_optimization": "7/7 keywords found in content/title",
-      "geo_score": 4,
-      "geo_details": [
-        "Hà Nội",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
-      ],
-      "issues": [
-        "Missing H3 tags (recommended for readability)",
-        "No images in the article (missing thumbnail and inline images)"
-      ]
-    },
-    {
-      "index": 44,
+      "index": 46,
       "id": "70c8f7f4-96ce-4a2e-8344-902231eb2d18",
       "title": "Bitburger Premium Pils — Bia Draft Số 1 Nước Đức Có Gì Đặc Biệt?",
       "slug": "bitburger-premium-pils-bia-draft-so-1-nuoc-duc",
@@ -2503,15 +2701,47 @@
         "beer review"
       ],
       "kw_optimization": "4/7 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 5,
       "geo_details": [
         "Hà Nội",
+        "TP.HCM|Sài Gòn",
         "Tây Hồ|Lạc Long Quân",
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
       ],
       "issues": [
         "Meta Description too short (114 chars, recommended: 150-160)",
+        "No images in the article (missing thumbnail and inline images)"
+      ]
+    },
+    {
+      "index": 47,
+      "id": "36082fe7-e20f-43a0-a8bc-1cbb9efe43c9",
+      "title": "Benediktiner Weissbier — 400 Năm Truyền Thống Bia Tu Viện Bavaria",
+      "slug": "benediktiner-weissbier-400-nam-bia-tu-vien",
+      "word_count": 920,
+      "link_count": 2,
+      "has_thumbnail": false,
+      "keywords": [
+        "Benediktiner",
+        "Weissbier",
+        "bia lúa mì",
+        "bia tu viện",
+        "craft beer",
+        "Bia Thầy Tu",
+        "Bavaria"
+      ],
+      "kw_optimization": "7/7 keywords found in content/title",
+      "geo_score": 5,
+      "geo_details": [
+        "Hà Nội",
+        "TP.HCM|Sài Gòn",
+        "Tây Hồ|Lạc Long Quân",
+        "Địa chỉ|Cửa hàng|Showroom",
+        "Hotline|Số điện thoại|Liên hệ"
+      ],
+      "issues": [
+        "Missing H3 tags (recommended for readability)",
         "No images in the article (missing thumbnail and inline images)"
       ]
     }

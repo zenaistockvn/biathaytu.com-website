@@ -27,7 +27,7 @@ if (!databaseUrl) {
 // Đoạn kết chuẩn GEO & BRAND MỚI (Có chứa Bia Đức & Hotline viết kiểu mới)
 const newGeoFooterHtml = `
 <p style="margin-top: 32px; padding: 20px; background-color: #faf7f2; border-left: 4px solid #c5a880; border-radius: 4px; font-size: 15px; color: #1e2d4a; line-height: 1.8;">
-  <strong>Địa chỉ mua Bia Đức, Bia Thầy Tu nhập khẩu chính hãng giá tốt:</strong> Quý khách hàng có thể ghé thăm trực tiếp Showroom tại địa chỉ <strong>659A Lạc Long Quân, Xuân La, Tây Hồ, Hà Nội</strong>. Chúng tôi cam kết phân phối các dòng Bia Đức, Bia Thầy Tu cao cấp chính hãng 100% cùng dịch vụ <strong>ship hoả tốc ngay lập tức trong vòng 2 giờ tại nội thành Hà Nội (HN) và TP. Hồ Chí Minh (HCM)</strong>. Liên hệ ngay Hotline/Zalo: <strong>0899 19 13 13</strong> để được phục vụ nhanh nhất!
+  <strong>Địa chỉ mua Bia Đức, Bia Thầy Tu nhập khẩu chính hãng giá tốt:</strong> Quý khách hàng có thể ghé thăm trực tiếp Showroom tại địa chỉ <strong>659A Lạc Long Quân, Xuân La, Tây Hồ, Hà Nội</strong>. Chúng tôi cam kết phân phối các dòng Bia Đức, Bia Thầy Tu cao cấp chính hãng 100% cùng dịch vụ <strong>ship hoả tốc ngay lập tức trong vòng 2 giờ tại nội thành Hà Nội (HN) và TP.HCM (Sài Gòn)</strong>. Liên hệ ngay Hotline/Zalo: <strong>0899 19 13 13</strong> để được phục vụ nhanh nhất!
 </p>
 `.trim();
 
