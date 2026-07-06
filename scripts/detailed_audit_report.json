@@ -9,7 +9,7 @@
     },
     "average_word_count": 899,
     "average_geo_score": "4.1",
-    "perfect_seo_count": 8
+    "perfect_seo_count": 6
   },
   "topics": {
     "Bia Thầy Tu / Ettal / Benediktiner": [
@@ -1118,7 +1118,7 @@
         "title": "Top 3 Loại Xúc Xích Đức Nhập Khẩu Ăn Kèm Bia Ngon Nhất",
         "slug": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
         "word_count": 1213,
-        "link_count": 9,
+        "link_count": 8,
         "has_thumbnail": false,
         "keywords": [
           "xúc xích đức",
@@ -1127,14 +1127,14 @@
           "xúc xích bratwurst"
         ],
         "kw_optimization": "4/4 keywords found in content/title",
-        "geo_score": 4,
+        "geo_score": 2,
         "geo_details": [
           "Hà Nội",
-          "Tây Hồ|Lạc Long Quân",
-          "Địa chỉ|Cửa hàng|Showroom",
-          "Hotline|Số điện thoại|Liên hệ"
+          "TP.HCM|Sài Gòn"
         ],
-        "issues": []
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
       },
       {
         "index": 3,
@@ -1245,7 +1245,7 @@
         "title": "Mua Xúc Xích Đức Chính Hãng Ở Đâu Hà Nội Ship Hỏa Tốc?",
         "slug": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
         "word_count": 1028,
-        "link_count": 4,
+        "link_count": 2,
         "has_thumbnail": false,
         "keywords": [
           "xúc xích đức hà nội",
@@ -1253,7 +1253,7 @@
           "xúc xích đức ngon",
           "đại lý xúc xích đức tây hồ"
         ],
-        "kw_optimization": "4/4 keywords found in content/title",
+        "kw_optimization": "0/4 keywords found in content/title",
         "geo_score": 4,
         "geo_details": [
           "Hà Nội",
@@ -1261,7 +1261,9 @@
           "Địa chỉ|Cửa hàng|Showroom",
           "Hotline|Số điện thoại|Liên hệ"
         ],
-        "issues": []
+        "issues": [
+          "No images in the article (missing thumbnail and inline images)"
+        ]
       }
     ]
   },
@@ -1272,7 +1274,7 @@
       "title": "Top 3 Loại Xúc Xích Đức Nhập Khẩu Ăn Kèm Bia Ngon Nhất",
       "slug": "top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia",
       "word_count": 1213,
-      "link_count": 9,
+      "link_count": 8,
       "has_thumbnail": false,
       "keywords": [
         "xúc xích đức",
@@ -1281,14 +1283,14 @@
         "xúc xích bratwurst"
       ],
       "kw_optimization": "4/4 keywords found in content/title",
-      "geo_score": 4,
+      "geo_score": 2,
       "geo_details": [
         "Hà Nội",
-        "Tây Hồ|Lạc Long Quân",
-        "Địa chỉ|Cửa hàng|Showroom",
-        "Hotline|Số điện thoại|Liên hệ"
+        "TP.HCM|Sài Gòn"
       ],
-      "issues": []
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
     },
     {
       "index": 2,
@@ -1296,7 +1298,7 @@
       "title": "Mua Xúc Xích Đức Chính Hãng Ở Đâu Hà Nội Ship Hỏa Tốc?",
       "slug": "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc",
       "word_count": 1028,
-      "link_count": 4,
+      "link_count": 2,
       "has_thumbnail": false,
       "keywords": [
         "xúc xích đức hà nội",
@@ -1304,7 +1306,7 @@
         "xúc xích đức ngon",
         "đại lý xúc xích đức tây hồ"
       ],
-      "kw_optimization": "4/4 keywords found in content/title",
+      "kw_optimization": "0/4 keywords found in content/title",
       "geo_score": 4,
       "geo_details": [
         "Hà Nội",
@@ -1312,7 +1314,9 @@
         "Địa chỉ|Cửa hàng|Showroom",
         "Hotline|Số điện thoại|Liên hệ"
       ],
-      "issues": []
+      "issues": [
+        "No images in the article (missing thumbnail and inline images)"
+      ]
     },
     {
       "index": 3,
