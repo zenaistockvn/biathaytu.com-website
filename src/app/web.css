@@ -346,7 +346,8 @@ body.overflow-hidden {
 }
 
 .web-app .product-card-v2 .card-image img {
-  mix-blend-mode: multiply;
+  mix-blend-mode: multiply !important;
+  filter: brightness(1.03) contrast(1.05) !important;
 }
 
 .web-app .product-card-v2 .card-body {
