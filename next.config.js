@@ -36,6 +36,33 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'all',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'all',
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'all',
+          },
+        ],
+      },
     ];
   },
 };

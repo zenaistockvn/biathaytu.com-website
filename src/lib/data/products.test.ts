@@ -10,7 +10,7 @@ import {
 } from './products';
 
 describe('data/products', () => {
-  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
+  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo'];
 
   it('returns only storefront-ready products sorted by sort_order ascending', () => {
     const all = getAllProducts();
@@ -75,5 +75,20 @@ describe('data/products', () => {
   it('getAccessories and getProductsByCategory filter by category', () => {
     expect(getAccessories().every((p) => p.category === 'phu-kien')).toBe(true);
     expect(getProductsByCategory('bia').every((p) => p.category === 'bia')).toBe(true);
+  });
+
+  it('guarantees Benediktiner Weissbier Naturtrub has 5.4% ABV and Festbier is not called wheat beer', () => {
+    const all = getAllProducts();
+    const naturtrubBeers = all.filter(p => p.slug.includes('naturtrub') || p.name.includes('Naturtrüb'));
+    expect(naturtrubBeers.length).toBeGreaterThan(0);
+    naturtrubBeers.forEach(p => {
+      expect(p.abv).toBe('5.4');
+    });
+
+    const festbierBeers = all.filter(p => p.slug.includes('festbier') || p.name.includes('Festbier'));
+    expect(festbierBeers.length).toBeGreaterThan(0);
+    festbierBeers.forEach(p => {
+      expect(p.description?.toLowerCase().includes('lúa mì')).toBe(false);
+    });
   });
 });

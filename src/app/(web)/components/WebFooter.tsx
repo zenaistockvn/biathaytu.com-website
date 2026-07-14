@@ -95,7 +95,7 @@ export default function WebFooter() {
           <span>&copy; {new Date().getFullYear()} Bia Thầy Tu. All rights reserved.</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span className="footer-18-badge">18</span>
-            Người dưới 18 tuổi không được uống rượu bia. Thưởng thức có trách nhiệm.
+            Sản phẩm dành cho người từ đủ 18 tuổi. Thưởng thức có trách nhiệm. Không lái xe sau khi sử dụng đồ uống có cồn.
           </span>
         </div>
       </div>

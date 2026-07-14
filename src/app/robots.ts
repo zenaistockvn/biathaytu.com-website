@@ -7,31 +7,59 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/api/', // Chặn bot crawl các API endpoints nội bộ để bảo mật và tối ưu Crawl Budget
-        ],
-      },
-      {
         userAgent: [
           'Googlebot',
           'Bingbot',
           'OAI-SearchBot',
           'ChatGPT-User',
+          'GPTBot',
           'PerplexityBot',
           'Perplexity-User',
-          'ClaudeBot',          // Anthropic Claude
-          'Google-Extended',   // Google Gemini & AI Overviews
-          'Applebot-Extended', // Apple Intelligence
-          'cohere-bot',        // Cohere AI
+          'ClaudeBot',
+          'Claude-User',
+          'anthropic-ai',
+          'Google-Extended',
+          'Applebot',
+          'Applebot-Extended',
+          'cohere-bot',
+          'Meta-ExternalAgent',
+          'Bytespider',
+          'CCBot',
         ],
         allow: '/',
         disallow: [
           '/api/',
+          '/cart',
+          '/checkout',
+          '/tai-khoan',
+          '/account',
+          '/search',
+          '/*?sort=',
+          '/*?filter=',
+          '/*?utm_',
         ],
-      }
+      },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/cart',
+          '/checkout',
+          '/tai-khoan',
+          '/account',
+          '/search',
+          '/*?sort=',
+          '/*?filter=',
+          '/*?utm_',
+        ],
+      },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/llms.txt`,
+      `${baseUrl}/llms-full.txt`,
+    ],
   };
 }
+

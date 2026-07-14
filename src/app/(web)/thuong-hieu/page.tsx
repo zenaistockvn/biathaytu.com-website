@@ -4,13 +4,13 @@ import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+  title: 'Câu Chuyện Thương Hiệu Benediktiner',
   description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
   alternates: {
     canonical: 'https://www.biathaytu.com/thuong-hieu',
   },
   openGraph: {
-    title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+    title: 'Câu Chuyện Thương Hiệu Benediktiner',
     description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
     type: 'website',
     url: 'https://www.biathaytu.com/thuong-hieu',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+    title: 'Câu Chuyện Thương Hiệu Benediktiner',
     description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
@@ -65,7 +65,7 @@ export default function BrandStoryPage() {
               Nằm sâu trong thung lũng thanh bình của dãy Bavarian Alps (Đức), tu viện Ettal được thành lập từ năm 1330 bởi Hoàng đế Louis IV.
             </p>
             <p className="story-body">
-              Từ năm 1609, các tu sĩ dòng Benedictine tại đây bắt đầu ủ những mẻ bia đầu tiên. Xuyên suốt hơn 4 thế kỷ, từng giọt bia đều chứa đựng sự tĩnh lặng kỷ luật, lòng kiên nhẫn và sự tôn trọng tuyệt đối dành cho nguyên bản của thiên nhiên.
+              Từ năm 1609, các tu sĩ dòng Benedictine tại đây bắt đầu ủ những mẻ bia đầu tiên. Ngày nay, kế thừa truyền thống nấu bia hơn 400 năm, bia Benediktiner được sản xuất tại nhà máy bia Lich, Đức, dưới sự giám sát công thức nghiêm ngặt và theo giấy phép của Benediktiner Weissbräu GmbH Ettal — bảo tồn trọn vẹn di sản và hương vị tu viện nguyên bản.
             </p>
           </div>
         </article>

@@ -5,7 +5,14 @@ import { getArticleBySlugOrId, getRelatedArticles, getPublishedArticles } from '
 import { getFeaturedBeers } from '@/lib/data/products';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import ArticleBody from './ArticleBody';
-import JsonLd, { getArticleSchema, getBreadcrumbSchema, getStoreSchema } from '../../components/JsonLd';
+import JsonLd, { 
+  getArticleSchema, 
+  getBreadcrumbSchema, 
+  getStoreSchema, 
+  getSpeakableSchema, 
+  getHowToSchema, 
+  getFaqSchema 
+} from '../../components/JsonLd';
 import GeoLocalCTA from '../../components/GeoLocalCTA';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
@@ -24,6 +31,66 @@ interface ArticleData {
   thumbnail_url: string | null;
   tenant_id: string;
   status: string;
+}
+
+function extractFaqsFromContent(title: string, content: string | null, metaDescription: string | null): Array<{ question: string; answer: string }> {
+  const faqs: Array<{ question: string; answer: string }> = [];
+  
+  if (metaDescription) {
+    faqs.push({
+      question: title.endsWith('?') ? title : `${title} là gì?`,
+      answer: metaDescription
+    });
+  }
+
+  if (content) {
+    const headingRegex = /<h[23][^>]*>(.*?\?)<\/h[23]>\s*<p[^>]*>(.*?)<\/p>/gi;
+    let match;
+    let count = 0;
+    while ((match = headingRegex.exec(content)) !== null && count < 3) {
+      const question = match[1].replace(/<[^>]*>/g, '').trim();
+      const answer = match[2].replace(/<[^>]*>/g, '').trim();
+      if (question && answer && answer.length > 20) {
+        faqs.push({ question, answer });
+        count++;
+      }
+    }
+  }
+
+  return faqs;
+}
+
+function extractHowToFromContent(title: string, slug: string, content: string | null): any {
+  const isGuide = slug.includes('huong-dan') || slug.includes('cach-') || slug.includes('bi-quyet-rot');
+  if (!isGuide) return null;
+
+  if (slug.includes('rot') || slug.includes('weizen') || slug.includes('weissbier')) {
+    return {
+      name: title,
+      description: 'Hướng dẫn các bước rót bia lúa mì Weissbier chuẩn Đức giữ trọn men sống và bọt mịn.',
+      steps: [
+        { name: 'Chuẩn bị ly và làm lạnh', text: 'Chọn ly cổ cao chân loe (Weizenglas). Rửa sạch bằng nước mát và làm lạnh ly trước khi rót.' },
+        { name: 'Rót nghiêng ly 45 độ', text: 'Nghiêng ly góc 45 độ, rót từ từ bia dọc theo thành ly cho đến khi còn khoảng 1/4 dung tích trong chai.' },
+        { name: 'Xoay nhẹ chai để kích hoạt men', text: 'Lắc nhẹ hoặc xoay tròn chai bia để phần men bia sống (Hefe) lắng ở đáy chai được hòa tan hoàn toàn.' },
+        { name: 'Rót thẳng đứng tạo bọt kem', text: 'Dựng thẳng đứng ly bia và rót nhanh phần bia men sống còn lại trực tiếp vào giữa ly để tạo lớp bọt kem dày mịn tỷ lệ vàng 7:3.' }
+      ]
+    };
+  }
+
+  if (slug.includes('xuc-xich') || slug.includes('wiener') || slug.includes('bratwurst')) {
+    return {
+      name: title,
+      description: 'Hướng dẫn chế biến và nướng xúc xích Đức chuẩn vị tại nhà.',
+      steps: [
+        { name: 'Luộc sơ xúc xích với bia', text: 'Luộc sơ xúc xích trong bia hoặc nước ấm khoảng 5-10 phút để xúc xích chín đều từ bên trong và ngấm hương vị.' },
+        { name: 'Chuẩn bị chảo hoặc bếp nướng', text: 'Làm nóng chảo hoặc bếp nướng than. Thoa một lớp bơ nhạt hoặc dầu ăn mỏng lên bề mặt.' },
+        { name: 'Nướng/Áp chảo lửa vừa', text: 'Đặt xúc xích lên nướng ở nhiệt độ vừa. Lật đều tay mỗi 2-3 phút cho đến khi vỏ ngoài vàng giòn.' },
+        { name: 'Thưởng thức nóng', text: 'Cắt lát xúc xích và thưởng thức ngay khi còn nóng cùng mù tạt ngọt kiểu Đức và một ly bia Benediktiner Weissbier.' }
+      ]
+    };
+  }
+
+  return null;
 }
 
 export async function generateStaticParams() {
@@ -47,7 +114,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogImage = toAbsoluteSiteUrl(article.thumbnail_url || '/logo.jpg');
 
   return {
-    title: `${article.title} — Kiến Thức Bia Thầy Tu`,
+    title: article.title,
     description: article.meta_description,
     alternates: {
       canonical: articleUrl,
@@ -87,15 +154,20 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   const readTime = article.word_count ? Math.round(article.word_count / 200) : 3;
   const articleUrl = `https://www.biathaytu.com/kien-thuc/${article.slug || article.id}`;
 
-  // Related articles (3 most recent, excluding current)
   const relatedArticles = getRelatedArticles(article.id, 3) as unknown as Array<{
     id: string; title: string; slug: string | null;
     meta_description: string | null; word_count: number | null; created_at: string;
     thumbnail_url: string | null;
   }>;
 
-  // Suggested products for CTA (featured Benediktiner)
   const suggestedProducts = getFeaturedBeers(3);
+
+  // Generate dynamic schemas for AI engines (AEO/GEO/Voice optimization)
+  const speakableSchema = getSpeakableSchema(['h1', 'article'], articleUrl);
+  const faqs = extractFaqsFromContent(article.title, article.content, article.meta_description);
+  const faqSchema = faqs.length > 0 ? getFaqSchema(faqs) : null;
+  const howToData = extractHowToFromContent(article.title, article.slug || '', article.content);
+  const howToSchema = howToData ? getHowToSchema(howToData) : null;
 
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
@@ -114,6 +186,23 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         { name: 'Kiến Thức', url: 'https://www.biathaytu.com/kien-thuc' },
         { name: article.title, url: articleUrl },
       ])} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        />
+      )}
+
       
       {/* Article Hero */}
       <section style={{ 

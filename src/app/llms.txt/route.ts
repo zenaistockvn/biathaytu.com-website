@@ -90,6 +90,7 @@ export async function GET() {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=18000',
+      'Link': '</llms-full.txt>; rel="llms-full"',
     },
   });
 }

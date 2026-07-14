@@ -6,6 +6,7 @@ import Container from '../components/ui/Container';
 import Heading from '../components/ui/Heading';
 import Text from '../components/ui/Text';
 import { Button } from '../components/ui/Button';
+import References from '../components/References';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Dunkel — Bia Đen Lúa Mì Đức 5.4%',
@@ -135,6 +136,13 @@ export default function Page() {
             </li>
           </ul>
         </div>
+
+        <div style={{ marginTop: '40px' }}>
+          <References sources={[
+            { title: "Benediktiner Dunkel Official Specification", publisher: "Benediktiner Weißbräu GmbH Ettal", url: "https://www.benediktiner-weissbier.de", accessedAt: "2026-07-11" },
+            { title: "Bản công bố hợp quy & Nhãn sản phẩm", publisher: "Euro Choice Việt Nam", note: "Số GPKD: 0110870013" }
+          ]} />
+        </div>
       </Container>
 
       <Section variant="alt" padding="sm">
@@ -144,7 +152,7 @@ export default function Page() {
           </Heading>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Tên sản phẩm:</strong> Benediktiner Dunkel.</p>
-            <p><strong>Đặc điểm:</strong> Bia đen lúa mì Đức (Dunkelweizen), 5.4% ABV. Màu nâu hạt dẻ, hương vị mạch nha rang, caramel, chocolate đen và chuối nướng.</p>
+            <p><strong>Đặc điểm:</strong> Bia đen lúa mì Đức (Dunkelweizen), 5.4% ABV. Sản xuất tại Lich, Đức theo công thức từ Tu viện Ettal và giấy phép của Benediktiner Weissbräu GmbH Ettal. Màu nâu hạt dẻ, hương vị mạch nha rang, caramel, chocolate đen và chuối nướng.</p>
             <p><strong>Food Pairing:</strong> Rất hợp với các món nướng BBQ, steak, và phô mai đậm vị.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
