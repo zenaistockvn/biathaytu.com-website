@@ -55,7 +55,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
 import { PRODUCT_MASTER_DATA } from '@/data/productMasterData';
 
 const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
-  (productsData as unknown as Product[]).slice(),
+  (productsData as unknown as Product[]).slice().filter((p) => p.price !== null),
   LOCAL_STOREFRONT_PRODUCTS,
 ).map((p) => {
   const master = Object.values(PRODUCT_MASTER_DATA).find(
