@@ -1,6 +1,6 @@
 import { getBeerProducts, getAccessories, getSausageProducts, getComboProducts } from '@/lib/data/products';
 import ProductCard from '../components/ProductCard';
-import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
+import JsonLd, { getBreadcrumbSchema, getItemListSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import type { Metadata } from 'next';
 
@@ -54,12 +54,28 @@ export default async function ProductsPage() {
   const sausageProducts = getSausageProducts();
   const comboProducts = getComboProducts();
 
+  const allProductsForSchema = [
+    ...beerProducts,
+    ...sausageProducts,
+    ...comboProducts,
+    ...accessories
+  ];
+
+  const itemListSchema = getItemListSchema(
+    allProductsForSchema.map((p, idx) => ({
+      name: p.name,
+      url: `https://www.biathaytu.com/san-pham/${p.slug}`,
+      position: idx + 1
+    }))
+  );
+
   return (
     <div className="products-page-container" id="tat-ca">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://biathaytu.com' },
-        { name: 'Sản Phẩm', url: 'https://biathaytu.com/san-pham' },
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
+        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' },
       ])} />
+      <JsonLd type="itemlist" data={itemListSchema} />
 
       {/* HEADER */}
       <section className="container catalog-header">

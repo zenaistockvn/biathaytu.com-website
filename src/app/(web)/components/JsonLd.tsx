@@ -9,7 +9,7 @@ import { BUSINESS, getBrandInfo } from '@/lib/seo/business';
 const BASE_URL = getPublicBaseUrl();
 
 interface JsonLdProps {
-  type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article' | 'store';
+  type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article' | 'store' | 'itemlist';
   data: Record<string, unknown>;
 }
 
@@ -34,7 +34,7 @@ export function getOrganizationSchema() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.jpg`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Nhà nhập khẩu và phân phối độc quyền Bia Thầy Tu Benediktiner Weissbier tại Việt Nam. Bia lúa mì Đức nguyên bản từ Tu Viện Ettal, Bavaria — 100% nhập khẩu chính hãng chuẩn Luật Tinh Khiết 1516.',
+    description: 'Nhà phân phối các dòng Bia Thầy Tu Benediktiner Weissbier và Bitburger chính hãng tại Việt Nam. Bia lúa mì Đức nguyên bản sản xuất tại Lich theo công thức từ Tu Viện Ettal, Bavaria — 100% nhập khẩu chính hãng chuẩn Luật Tinh Khiết 1516.',
     foundingDate: '2020',
     areaServed: {
       '@type': 'Country',
@@ -55,6 +55,7 @@ export function getOrganizationSchema() {
       areaServed: 'VN',
     },
     sameAs: [
+      'https://www.facebook.com/tiepkhachsanhdieu',
       'https://zalo.me/biathaytu',
       'https://zalo.me/0899191313',
     ],
@@ -68,7 +69,7 @@ export function getWebsiteSchema() {
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
     name: 'Bia Thầy Tu — Bia Đức Cao Cấp Benediktiner',
-    description: 'Website chính thức của Bia Thầy Tu Benediktiner — bia lúa mì Đức nhập khẩu chính hãng từ Tu Viện Ettal. Đạt giải iTQi 3 Sao 2022.',
+    description: 'Website chính thức của Bia Thầy Tu Benediktiner — bia lúa mì Đức nhập khẩu chính hãng nấu theo công thức của Tu Viện Ettal.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -77,6 +78,7 @@ export function getWebsiteSchema() {
 }
 
 export function getStoreSchema() {
+  const mapUrl = 'https://www.google.com/maps/search/?api=1&query=659A+Lac+Long+Quan+Tay+Ho+Ha+Noi';
   return {
     '@context': 'https://schema.org',
     '@type': 'Store',
@@ -86,7 +88,7 @@ export function getStoreSchema() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.jpg`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Bia Thầy Tu - Địa chỉ phân phối độc quyền các dòng bia nhập khẩu cao cấp, bia Đức Benediktiner, bia đen, bia Trappist chính hãng từ các tu viện nổi tiếng tại Việt Nam.',
+    description: 'Bia Thầy Tu - Địa chỉ phân phối chính hãng các dòng bia nhập khẩu cao cấp, bia Đức Benediktiner, bia đen, bia Trappist từ các tu viện nổi tiếng tại Việt Nam.',
     telephone: BUSINESS.phoneE164,
     priceRange: '$$ - $$$',
     address: {
@@ -101,7 +103,7 @@ export function getStoreSchema() {
       latitude: '21.062534',
       longitude: '105.811442',
     },
-    hasMap: 'https://maps.app.goo.gl/QcZ5nWhx4e164Placeholder',
+    hasMap: mapUrl,
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: [
@@ -113,8 +115,7 @@ export function getStoreSchema() {
     sameAs: [
       'https://www.facebook.com/tiepkhachsanhdieu',
       'https://zalo.me/0899191313',
-      'https://www.youtube.com/@biathaytu-placeholder',
-      'https://maps.google.com/?cid=biathaytu-placeholder'
+      mapUrl
     ]
   };
 }
@@ -162,18 +163,6 @@ export function getProductSchema(product: {
     };
   }
 
-  // Thuật toán hash đơn giản từ tên để sinh AggregateRating ổn định
-  const hashCode = (str: string) => {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    return Math.abs(hash);
-  };
-  const code = hashCode(product.name);
-  const ratingValue = (4.8 + (code % 3) * 0.1).toFixed(1); // 4.8, 4.9, hoặc 5.0
-  const reviewCount = 15 + (code % 16); // 15 đến 30
-
   const isBelgium = product.name.toLowerCase().includes('bỉ') || 
                     product.name.toLowerCase().includes('chimay') || 
                     product.name.toLowerCase().includes('rochefort');
@@ -200,13 +189,6 @@ export function getProductSchema(product: {
       : {}),
     countryOfOrigin: { '@type': 'Country', name: isBelgium ? 'Belgium' : 'Germany' },
     ...(offers ? { offers } : {}),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: parseFloat(ratingValue),
-      reviewCount: reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    },
     additionalProperty: [
       ...(product.abv ? [{ '@type': 'PropertyValue', name: 'Alcohol by Volume', value: `${product.abv}%` }] : []),
       ...(product.volume ? [{ '@type': 'PropertyValue', name: 'Volume', value: product.volume }] : []),
@@ -248,7 +230,7 @@ export function getLandingFAQSchema() {
   const faqs = [
     {
       question: 'Bia Thầy Tu là bia gì?',
-      answer: 'Bia Thầy Tu (Benediktiner Weissbier) là dòng bia lúa mì truyền thống của Đức, được ủ theo phương pháp tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria. Bia được sản xuất theo Luật Tinh Khiết 1516 (Reinheitsgebot), chỉ sử dụng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men bia.',
+      answer: 'Bia Thầy Tu (Benediktiner Weissbier) là dòng bia lúa mì truyền thống của Đức. Ngày nay, bia được sản xuất tại Lich, Đức theo công thức Benedictine gắn với Tu viện Ettal (Bavaria) và theo giấy phép của Benediktiner Weissbräu GmbH Ettal. Bia tuân thủ nghiêm ngặt Luật Tinh Khiết 1516 (Reinheitsgebot), chỉ sử dụng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men bia.',
     },
     {
       question: 'Bia Benediktiner Weissbier có vị gì?',
@@ -256,7 +238,7 @@ export function getLandingFAQSchema() {
     },
     {
       question: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?',
-      answer: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Bạn có thể đặt mua trực tiếp qua website biathaytu.com, Zalo (0899.191.313), hoặc tại Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Giao hàng toàn quốc.',
+      answer: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối chính hãng tại Việt Nam. Bạn có thể đặt mua trực tiếp qua website biathaytu.com, Zalo (0899.191.313), hoặc tại Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Giao hàng toàn quốc.',
     },
     {
       question: 'Bia Benediktiner có giải thưởng gì?',
@@ -308,3 +290,47 @@ export function getArticleSchema(article: {
     },
   };
 }
+
+export function getSpeakableSchema(cssSelectors: string[], url: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Speakable',
+    cssSelector: cssSelectors,
+    url: url,
+  };
+}
+
+export function getHowToSchema(howto: {
+  name: string;
+  description: string;
+  steps: Array<{ name: string; text: string; image?: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howto.name,
+    description: howto.description,
+    step: howto.steps.map((step, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      name: step.name,
+      text: step.text,
+      url: `${BASE_URL}/#step-${idx + 1}`,
+      ...(step.image ? { image: toAbsoluteSiteUrl(step.image, BASE_URL) } : {}),
+    })),
+  };
+}
+
+export function getItemListSchema(items: Array<{ name: string; url: string; position: number }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((item) => ({
+      '@type': 'ListItem',
+      position: item.position,
+      url: item.url,
+      name: item.name,
+    })),
+  };
+}
+

@@ -3,14 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
+import References from '../components/References';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
-  description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
+  description: 'Bia lúa mì Đức Benediktiner sản xuất tại Lich, Đức theo công thức của Tu viện Ettal và Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
   alternates: { canonical: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' },
   openGraph: {
     title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
-    description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
+    description: 'Bia lúa mì Đức Benediktiner sản xuất tại Lich, Đức theo công thức của Tu viện Ettal và Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
     type: 'website',
     url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
     images: [
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
-    description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
+    description: 'Bia lúa mì Đức Benediktiner sản xuất tại Lich, Đức theo công thức của Tu viện Ettal và Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
     images: ['/images/products/hero_weissbier_v2.png'],
   },
 };
@@ -358,6 +359,14 @@ export default function Page() {
         </div>
       </section>
 
+      <div className="container" style={{ maxWidth: '780px', padding: '0 20px', marginBottom: '40px' }}>
+        <References sources={[
+          { title: "Benediktiner Weissbier Naturtrüb Official Specification", publisher: "Benediktiner Weißbräu GmbH Ettal", url: "https://www.benediktiner-weissbier.de", accessedAt: "2026-07-11" },
+          { title: "International Taste Institute Superior Taste Award 2022 Certified", publisher: "International Taste Institute (Brussels)", url: "https://www.taste-institute.com/en/awarded-products/product-details/9022846", accessedAt: "2026-07-11" },
+          { title: "Hồ sơ công bố hợp quy sản phẩm nhập khẩu", publisher: "Cục An toàn thực phẩm Việt Nam (Euro Choice Việt Nam)", note: "GP kinh doanh số 0110870013" }
+        ]} />
+      </div>
+
       {/* AI Summary / GEO Section */}
       <section className="weissbier-ai-section">
         <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
@@ -365,9 +374,9 @@ export default function Page() {
             Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
           </h2>
           <div className="weissbier-ai-card">
-            <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, sản xuất tại tu viện Ettal (Bavaria) theo đạo Luật Tinh Khiết Reinheitsgebot 1516 lâu đời.</p>
+            <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, sản xuất tại Lich, Đức, theo công thức gắn với Tu viện Ettal (Bavaria) và theo giấy phép của Benediktiner Weissbräu GmbH Ettal, tuân thủ đạo Luật Tinh Khiết Reinheitsgebot 1516 lâu đời.</p>
             <p style={{ marginTop: '8px' }}><strong>Đặc tính hương vị:</strong> Men bia không lọc đục tự nhiên (Naturtrüb), bọt dày mịn, hương trái cây đặc trưng chuối chín và đinh hương. Đạt giải thưởng ẩm thực quốc tế danh giá iTQi 3 Sao.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0899.191.313 - Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính hãng bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0899.191.313 - Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
           </div>
         </div>
       </section>

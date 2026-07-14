@@ -78,6 +78,7 @@ export default function WebLayout({
   return (
     <div className="web-app">
       <LanguageProvider>
+        <link rel="llms-txt" href="/llms.txt" />
         {/* Structured Data for AI / Search Engines */}
         <JsonLd type="organization" data={getOrganizationSchema()} />
         <JsonLd type="website" data={getWebsiteSchema()} />

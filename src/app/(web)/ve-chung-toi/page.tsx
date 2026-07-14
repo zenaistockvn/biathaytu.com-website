@@ -4,11 +4,11 @@ import { Button } from '../components/ui/Button';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
+  title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức',
   description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com/ve-chung-toi' },
   openGraph: {
-    title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
+    title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức',
     description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
     type: 'article',
     url: 'https://www.biathaytu.com/ve-chung-toi',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Về Chúng Tôi — Bia Thầy Tu (Nhập Khẩu Bia Đức Độc Quyền)',
+        alt: 'Về Chúng Tôi — Bia Thầy Tu (Nhập Khẩu Bia Đức)',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
+    title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức',
     description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },

@@ -1,18 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPublishedArticles } from '@/lib/data/articles';
+import JsonLd, { getBreadcrumbSchema, getItemListSchema } from '../components/JsonLd';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Kiến Thức Bia Đức — Bia Thầy Tu',
+  title: 'Kiến Thức Bia Đức Nhập Khẩu',
   description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
   alternates: {
     canonical: 'https://www.biathaytu.com/kien-thuc',
   },
   openGraph: {
-    title: 'Kiến Thức Bia Đức — Bia Thầy Tu',
+    title: 'Kiến Thức Bia Đức Nhập Khẩu',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
     type: 'website',
     url: 'https://www.biathaytu.com/kien-thuc',
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Kiến Thức Bia Đức — Bia Thầy Tu',
+        alt: 'Kiến Thức Bia Đức Nhập Khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kiến Thức Bia Đức — Bia Thầy Tu',
+    title: 'Kiến Thức Bia Đức Nhập Khẩu',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
@@ -48,8 +49,21 @@ export default async function KienThucPage() {
   const featuredArticle = articleList.length > 0 ? articleList[0] : null;
   const standardArticles = articleList.length > 1 ? articleList.slice(1) : [];
 
+  const itemListSchema = getItemListSchema(
+    articleList.map((a, idx) => ({
+      name: a.title,
+      url: `https://www.biathaytu.com/kien-thuc/${a.slug || a.id}`,
+      position: idx + 1
+    }))
+  );
+
   return (
     <div style={{ backgroundColor: 'var(--web-bg)' }}>
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
+        { name: 'Kiến Thức', url: 'https://www.biathaytu.com/kien-thuc' },
+      ])} />
+      <JsonLd type="itemlist" data={itemListSchema} />
       {/* ═══════════════════════════════════════════ 
           HERO SECTION — Dark Premium Magazine
       ═══════════════════════════════════════════ */}

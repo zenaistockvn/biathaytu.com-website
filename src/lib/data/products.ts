@@ -52,10 +52,35 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
   );
 }
 
+import { PRODUCT_MASTER_DATA } from '@/data/productMasterData';
+
 const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
   (productsData as unknown as Product[]).slice(),
   LOCAL_STOREFRONT_PRODUCTS,
-);
+).map((p) => {
+  const master = Object.values(PRODUCT_MASTER_DATA).find(
+    (m) => m.id === p.id || m.slug === p.slug
+  );
+  if (master) {
+    return {
+      ...p,
+      name: master.name,
+      slug: master.slug,
+      description: master.metaDescription || p.description,
+      abv: master.abv ? String(master.abv) : p.abv,
+      ibu: master.ibu !== undefined ? master.ibu : p.ibu,
+      volume: master.volumeMl
+        ? master.volumeMl >= 1000
+          ? `${master.volumeMl / 1000}L`
+          : `${master.volumeMl}ml`
+        : p.volume,
+      images: master.images && master.images.length > 0 ? master.images : p.images,
+      price: master.price || p.price,
+      origin: master.originCountry || p.origin,
+    };
+  }
+  return p;
+});
 
 function isBitburger(name: string): boolean {
   return name.toLowerCase().includes('bitburger');
