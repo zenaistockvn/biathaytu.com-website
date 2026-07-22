@@ -9,6 +9,8 @@ import MobileBottomNav from './components/MobileBottomNav';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
 import FacebookMessengerChat from './components/FacebookMessengerChat';
+import AgeVerificationGate from './components/AgeVerificationGate';
+import CookieConsent from './components/CookieConsent';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
 import type { Metadata } from 'next';
@@ -78,6 +80,10 @@ export default function WebLayout({
   return (
     <div className="web-app">
       <LanguageProvider>
+        {/* Age Gate & Cookie Consent Components */}
+        <AgeVerificationGate />
+        <CookieConsent />
+
         {/* Structured Data for AI / Search Engines */}
         <JsonLd type="organization" data={getOrganizationSchema()} />
         <JsonLd type="website" data={getWebsiteSchema()} />

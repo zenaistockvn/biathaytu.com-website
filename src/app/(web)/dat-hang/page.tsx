@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useCartStore } from '@/stores/useCartStore';
 import { useToastStore } from '@/stores/useToastStore';
 import { formatPrice } from '@/utils/formatPrice';
+import AlcoholWarning from '../components/AlcoholWarning';
+import { BANK_CONFIG } from '@/constants/compliance';
 
 export default function CheckoutPage() {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
@@ -21,7 +23,13 @@ export default function CheckoutPage() {
     phone: '',
     email: '',
     address: '',
-    note: ''
+    note: '',
+    receiverName: '',
+    receiverPhone: '',
+    purchaser_age_confirmed: false,
+    receiver_age_confirmed: false,
+    terms_agreed: false,
+    paymentMethod: 'bank' // 'bank' | 'cod'
   });
 
   // [S3 FIX] Promo code state — validated server-side only
@@ -36,25 +44,24 @@ export default function CheckoutPage() {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const target = e.target;
+    const value = target.type === 'checkbox' ? (target as HTMLInputElement).checked : target.value;
+    setFormData({ ...formData, [target.name]: value });
   };
 
   // --- DISCOUNT LOGIC ---
   const subTotal = getTotalPrice();
   
-  // 1. Auto discount 5% for orders >= 2,000,000
   let autoDiscountAmount = 0;
   if (subTotal >= 2000000) {
     autoDiscountAmount = subTotal * 0.05;
   }
 
-  // 2. Promo discount (amount from server validation)
   const [promoDiscountAmount, setPromoDiscountAmount] = useState(0);
 
   const totalDiscount = autoDiscountAmount + promoDiscountAmount;
   const finalTotal = Math.max(0, subTotal - totalDiscount);
 
-  // [S3 FIX] Validate promo code via server API — no client-side exposure
   const handleApplyCode = async () => {
     if (!discountInput.trim()) {
       setAppliedCode('');
@@ -99,7 +106,7 @@ export default function CheckoutPage() {
     const discountText = totalDiscount > 0 ? `\n- Giảm giá: -${formatPrice(totalDiscount)}` : '';
     const promoText = appliedCode ? ` (Mã: ${appliedCode})` : '';
     
-    return `Chào Bia Thầy Tu, tôi muốn đặt hàng online${orderId ? ` (Mã đơn: ${orderId})` : ''}:\n---\nSản phẩm:\n${itemsText}\n---\n- Tạm tính: ${formatPrice(subTotal)}${discountText}${promoText}\n- Tổng cộng: ${formatPrice(finalTotal)}\n\nThông tin giao hàng:\n- Họ tên: ${formData.name}\n- SĐT: ${formData.phone}\n- Địa chỉ: ${formData.address}${formData.note ? `\n- Ghi chú: ${formData.note}` : ''}\n\nTư vấn và xác nhận đơn hàng giúp tôi nhé!`;
+    return `Chào Bia Thầy Tu, tôi muốn đặt hàng online${orderId ? ` (Mã đơn: ${orderId})` : ''}:\n---\nSản phẩm:\n${itemsText}\n---\n- Tạm tính: ${formatPrice(subTotal)}${discountText}${promoText}\n- Tổng cộng: ${formatPrice(finalTotal)}\n\nThông tin giao hàng:\n- Người đặt: ${formData.name} (${formData.phone})\n- Người nhận: ${formData.receiverName || formData.name} (${formData.receiverPhone || formData.phone})\n- Địa chỉ: ${formData.address}${formData.note ? `\n- Ghi chú: ${formData.note}` : ''}\n\nXác nhận đơn hàng và độ tuổi người nhận giúp tôi nhé!`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -109,33 +116,50 @@ export default function CheckoutPage() {
     // Client-side validation
     const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
     if (!phoneRegex.test(formData.phone)) {
-      setErrorMsg('Số điện thoại không hợp lệ. Vui lòng nhập 10 số, bắt đầu bằng 03, 05, 07, 08 hoặc 09.');
+      setErrorMsg('Số điện thoại người đặt không hợp lệ. Vui lòng nhập 10 số, bắt đầu bằng 03, 05, 07, 08 hoặc 09.');
       return;
     }
     if (formData.name.trim().length < 2) {
-      setErrorMsg('Vui lòng nhập họ tên đầy đủ (ít nhất 2 ký tự).');
+      setErrorMsg('Vui lòng nhập họ tên người đặt đầy đủ (ít nhất 2 ký tự).');
+      return;
+    }
+
+    if (!formData.purchaser_age_confirmed) {
+      setErrorMsg('Bạn phải xác nhận người đặt hàng từ đủ 18 tuổi trở lên.');
+      return;
+    }
+
+    if (!formData.receiver_age_confirmed) {
+      setErrorMsg('Bạn phải xác nhận người nhận hàng từ đủ 18 tuổi trở lên.');
+      return;
+    }
+
+    if (!formData.terms_agreed) {
+      setErrorMsg('Bạn phải đồng ý với điều khoản bán hàng và chính sách bảo mật.');
       return;
     }
     
     setLoading(true);
     setErrorMsg('');
 
-    // Sao chép trước thông tin đơn hàng vào clipboard
     try {
       const msg = getZaloMessage();
       await navigator.clipboard.writeText(msg);
-    } catch (err) {
-      // Bỏ qua nếu trình duyệt không hỗ trợ hoặc chặn clipboard
-    }
+    } catch {}
 
     try {
       const response = await fetch('/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          customer: formData,
+          customer: {
+            ...formData,
+            receiverName: formData.receiverName || formData.name,
+            receiverPhone: formData.receiverPhone || formData.phone,
+          },
           items: items,
           appliedCode,
+          ageVerifiedAt: new Date().toISOString(),
         })
       });
 
@@ -156,7 +180,7 @@ export default function CheckoutPage() {
     }
   };
 
-  if (!mounted) return null; // prevent hydration mismatch
+  if (!mounted) return null;
 
   if (success) {
     const zaloMsg = getZaloMessage(orderNumber);
@@ -174,7 +198,8 @@ export default function CheckoutPage() {
           Cảm ơn bạn đã tin tưởng <strong>Bia Thầy Tu</strong>. Nhân viên của chúng tôi sẽ liên hệ lại qua số điện thoại <strong>{formData.phone}</strong> để xác nhận đơn hàng và tiến hành giao hàng.
         </p>
 
-        {/* Thêm nút chuyển tiếp Zalo & Messenger */}
+        <AlcoholWarning variant="checkout" style={{ maxWidth: '600px', margin: '0 auto 24px auto' }} />
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', margin: '30px 0' }}>
           <a 
             href={zaloLink}
@@ -201,38 +226,6 @@ export default function CheckoutPage() {
           >
             💬 GỬI ĐƠN QUA ZALO XÁC NHẬN NGAY
           </a>
-
-          <a 
-            href={items.some(item => item.name?.toLowerCase().includes('bitburger')) ? "https://m.me/1042222495647480" : "https://m.me/1106668052525470"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="football-popup-cta-btn"
-            style={{ 
-              display: 'inline-block', 
-              padding: '14px 35px', 
-              textDecoration: 'none', 
-              color: '#ffffff', 
-              fontWeight: 'bold',
-              fontSize: '16px',
-              borderRadius: '9999px',
-              background: '#0084FF',
-              border: 'none',
-              minWidth: '320px',
-              textAlign: 'center'
-            }}
-            onClick={() => {
-              try {
-                navigator.clipboard.writeText(zaloMsg);
-                showToast('Đã copy thông tin đơn hàng!');
-              } catch (e) {}
-            }}
-          >
-            📘 GỬI ĐƠN QUA MESSENGER FACEBOOK
-          </a>
-          
-          <span style={{ display: 'block', fontSize: '13px', color: 'gray', marginTop: '4px' }}>
-            (Hệ thống tự động sao chép thông tin đơn hàng, bạn chỉ cần Dán (Ctrl+V) vào khung chat và gửi)
-          </span>
         </div>
 
         <p style={{ marginTop: '20px', fontSize: '16px' }}>
@@ -251,6 +244,8 @@ export default function CheckoutPage() {
         <span className="section-label">Thanh Toán</span>
         <h1 className="page-title">Thông Tin Đơn Hàng</h1>
       </div>
+
+      <AlcoholWarning variant="checkout" />
 
       {items.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px' }}>
@@ -355,10 +350,10 @@ export default function CheckoutPage() {
 
           {/* Form */}
           <div className="checkout-column-form">
-            <h2 className="checkout-section-title">Thông tin giao hàng</h2>
+            <h2 className="checkout-section-title">Thông tin người đặt & giao hàng</h2>
             <form onSubmit={handleSubmit} className="checkout-form">
               <div className="checkout-field">
-                <label className="checkout-label">Họ và Tên *</label>
+                <label className="checkout-label">Họ và Tên người đặt *</label>
                 <input 
                   required 
                   type="text" 
@@ -366,11 +361,11 @@ export default function CheckoutPage() {
                   value={formData.name} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
-                  placeholder="Nhập họ và tên..." 
+                  placeholder="Nhập họ và tên người đặt..." 
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Số điện thoại *</label>
+                <label className="checkout-label">Số điện thoại người đặt *</label>
                 <input 
                   required 
                   type="tel" 
@@ -382,7 +377,7 @@ export default function CheckoutPage() {
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Email (Tùy chọn)</label>
+                <label className="checkout-label">Email người đặt (Tùy chọn)</label>
                 <input 
                   type="email" 
                   name="email" 
@@ -392,6 +387,33 @@ export default function CheckoutPage() {
                   placeholder="Để nhận thông báo đơn hàng..." 
                 />
               </div>
+
+              <hr style={{ border: 'none', borderTop: '1px solid #e2e8f0', margin: '20px 0' }} />
+              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: '#1e293b' }}>Thông tin người nhận hàng</h3>
+
+              <div className="checkout-field">
+                <label className="checkout-label">Họ và Tên người nhận (Để trống nếu trùng người đặt)</label>
+                <input 
+                  type="text" 
+                  name="receiverName" 
+                  value={formData.receiverName} 
+                  onChange={handleChange} 
+                  className="checkout-input-text" 
+                  placeholder="Tên người sẽ trực tiếp nhận hàng..." 
+                />
+              </div>
+              <div className="checkout-field">
+                <label className="checkout-label">Số điện thoại người nhận (Để trống nếu trùng người đặt)</label>
+                <input 
+                  type="tel" 
+                  name="receiverPhone" 
+                  value={formData.receiverPhone} 
+                  onChange={handleChange} 
+                  className="checkout-input-text" 
+                  placeholder="Số điện thoại người sẽ nhận hàng..." 
+                />
+              </div>
+
               <div className="checkout-field">
                 <label className="checkout-label">Địa chỉ nhận hàng *</label>
                 <input 
@@ -411,69 +433,105 @@ export default function CheckoutPage() {
                   value={formData.note} 
                   onChange={handleChange} 
                   className="checkout-textarea" 
-                  placeholder="Ghi chú thêm về giao hàng..."
+                  placeholder="Ghi chú thêm về thời gian giao hàng..."
                 ></textarea>
+              </div>
+
+              {/* Phương thức thanh toán */}
+              <hr style={{ border: 'none', borderTop: '1px solid #e2e8f0', margin: '20px 0' }} />
+              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: '#1e293b' }}>Phương thức thanh toán</h3>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', cursor: 'pointer' }}>
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="bank"
+                    checked={formData.paymentMethod === 'bank'}
+                    onChange={handleChange}
+                  />
+                  <div>
+                    <strong>Chuyển khoản Ngân hàng / QR Code (Không dùng tiền mặt)</strong>
+                    <div style={{ fontSize: '12px', color: '#64748b' }}>Thanh toán an toàn, nhanh chóng qua ứng dụng ngân hàng</div>
+                  </div>
+                </label>
+
+                {formData.paymentMethod === 'bank' && (
+                  <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', padding: '14px', borderRadius: '8px', fontSize: '13px', marginLeft: '24px' }}>
+                    <p style={{ margin: '2px 0' }}><strong>Ngân hàng:</strong> {BANK_CONFIG.bankName}</p>
+                    <p style={{ margin: '2px 0' }}><strong>Số tài khoản:</strong> {BANK_CONFIG.accountNumber}</p>
+                    <p style={{ margin: '2px 0' }}><strong>Chủ tài khoản:</strong> {BANK_CONFIG.accountHolder}</p>
+                  </div>
+                )}
+
+                {/* TODO: Legal team review required for COD alcohol delivery workflow */}
+                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', cursor: 'pointer' }}>
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="cod"
+                    checked={formData.paymentMethod === 'cod'}
+                    onChange={handleChange}
+                  />
+                  <div>
+                    <strong>Thanh toán khi nhận hàng (COD)</strong>
+                    <div style={{ fontSize: '12px', color: '#64748b' }}>Nhân viên giao hàng sẽ kiểm tra tuổi của người nhận trước khi bàn giao và thu tiền.</div>
+                  </div>
+                </label>
+              </div>
+
+              {/* Mandatory Checkboxes */}
+              <hr style={{ border: 'none', borderTop: '1px solid #e2e8f0', margin: '20px 0' }} />
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: '#1e293b', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    name="purchaser_age_confirmed"
+                    checked={formData.purchaser_age_confirmed}
+                    onChange={handleChange}
+                    style={{ marginTop: '2px', width: '16px', height: '16px' }}
+                  />
+                  <span>
+                    Tôi xác nhận <strong>người đặt hàng từ đủ 18 tuổi trở lên</strong>. <span style={{ color: 'red' }}>*</span>
+                  </span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: '#1e293b', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    name="receiver_age_confirmed"
+                    checked={formData.receiver_age_confirmed}
+                    onChange={handleChange}
+                    style={{ marginTop: '2px', width: '16px', height: '16px' }}
+                  />
+                  <span>
+                    Tôi xác nhận <strong>người nhận hàng từ đủ 18 tuổi trở lên</strong>. <span style={{ color: 'red' }}>*</span>
+                  </span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: '#1e293b', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    name="terms_agreed"
+                    checked={formData.terms_agreed}
+                    onChange={handleChange}
+                    style={{ marginTop: '2px', width: '16px', height: '16px' }}
+                  />
+                  <span>
+                    Tôi đồng ý với <Link href="/dieu-khoan-su-dung" style={{ color: '#d97706', textDecoration: 'underline' }}>Điều khoản bán hàng</Link> và <Link href="/chinh-sach-bao-mat" style={{ color: '#d97706', textDecoration: 'underline' }}>Chính sách bảo mật</Link>. <span style={{ color: 'red' }}>*</span>
+                  </span>
+                </label>
+              </div>
+
+              {/* Operational note */}
+              <div style={{ backgroundColor: '#fff9e6', borderLeft: '4px solid #d97706', padding: '12px 14px', borderRadius: '4px', fontSize: '12px', color: '#92400e', marginBottom: '20px' }}>
+                📌 <strong>Ghi chú vận hành:</strong> Đơn hàng có đồ uống có cồn. Nhân viên giao hàng có quyền yêu cầu giấy tờ xác minh người nhận từ đủ 18 tuổi. Từ chối giao nếu không xác minh được.
               </div>
 
               {errorMsg && (
                 <div style={{ marginBottom: '20px' }}>
                   <div className="checkout-error-alert">{errorMsg}</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
-                    <a 
-                      href={`https://zalo.me/0899191313?text=${encodeURIComponent(getZaloMessage())}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="football-popup-cta-btn button-navy-glow"
-                      style={{ 
-                        display: 'block', 
-                        textDecoration: 'none', 
-                        textAlign: 'center', 
-                        padding: '14px', 
-                        fontSize: '15px', 
-                        color: '#ffffff', 
-                        fontWeight: 'bold',
-                        borderRadius: '8px'
-                      }}
-                      onClick={() => {
-                        try {
-                          navigator.clipboard.writeText(getZaloMessage());
-                          showToast('Đã copy thông tin đơn hàng!');
-                        } catch (e) {}
-                      }}
-                    >
-                      💬 GỬI ĐƠN QUA ZALO CHO HOTLINE
-                    </a>
-
-                    <a 
-                      href={items.some(item => item.name?.toLowerCase().includes('bitburger')) ? "https://m.me/1042222495647480" : "https://m.me/1106668052525470"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="football-popup-cta-btn"
-                      style={{ 
-                        display: 'block', 
-                        textDecoration: 'none', 
-                        textAlign: 'center', 
-                        padding: '14px', 
-                        fontSize: '15px', 
-                        color: '#ffffff', 
-                        fontWeight: 'bold',
-                        borderRadius: '8px',
-                        background: '#0084FF',
-                        border: 'none'
-                      }}
-                      onClick={() => {
-                        try {
-                          navigator.clipboard.writeText(getZaloMessage());
-                          showToast('Đã copy thông tin đơn hàng!');
-                        } catch (e) {}
-                      }}
-                    >
-                      📘 GỬI ĐƠN QUA MESSENGER FACEBOOK
-                    </a>
-                  </div>
-                  <span style={{ display: 'block', fontSize: '12px', color: 'gray', marginTop: '6px', textAlign: 'center' }}>
-                    (Hệ thống tự động sao chép chi tiết đơn hàng, bạn chỉ cần Dán (Ctrl+V) và gửi)
-                  </span>
                 </div>
               )}
 

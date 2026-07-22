@@ -10,7 +10,7 @@ import {
 } from './products';
 
 describe('data/products', () => {
-  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
+  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo'];
 
   it('returns only storefront-ready products sorted by sort_order ascending', () => {
     const all = getAllProducts();

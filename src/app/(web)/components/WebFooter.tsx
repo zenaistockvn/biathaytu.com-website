@@ -1,9 +1,21 @@
 'use client';
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
+import AlcoholWarning from './AlcoholWarning';
 
 export default function WebFooter() {
   const { t } = useLanguage();
+
+  const handleResetAge = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('resetAgeVerification'));
+  };
+
+  const handleResetCookie = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('resetCookieConsent'));
+  };
+
   return (
     <footer className="web-footer">
       <div className="container footer-grid">
@@ -46,7 +58,6 @@ export default function WebFooter() {
           </div>
         </div>
 
-
         {/* Sản phẩm */}
         <div>
           <h4 className="footer-heading">{t('nav.products')}</h4>
@@ -58,18 +69,21 @@ export default function WebFooter() {
           </div>
         </div>
 
-        {/* Liên kết */}
+        {/* Quy định & Điều khoản */}
         <div>
-          <h4 className="footer-heading">{t('footer.company.title')}</h4>
+          <h4 className="footer-heading">Chính Sách & Tuân Thủ</h4>
           <div className="footer-links">
-            <Link href="/thuong-hieu">{t('footer.company.about')}</Link>
-            <Link href="/kien-thuc">{t('nav.knowledge')}</Link>
-            <a href="https://biathaytu.com/pages/khach-hang-doanh-nghiep" target="_blank" rel="noopener noreferrer">{t('footer.company.b2b')}</a>
-            <a href="https://biathaytu.com/pages/chinh-sach-giao-hang" target="_blank" rel="noopener noreferrer">{t('footer.company.policy')}</a>
+            <Link href="/chinh-sach-kiem-soat-do-tuoi">Kiểm soát độ tuổi</Link>
+            <Link href="/chinh-sach-giao-hang">Chính sách giao hàng</Link>
+            <Link href="/chinh-sach-thanh-toan">Chính sách thanh toán</Link>
+            <Link href="/chinh-sach-doi-tra">Chính sách đổi trả</Link>
+            <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
+            <Link href="/chinh-sach-cookie">Chính sách cookie</Link>
+            <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
           </div>
         </div>
 
-        {/* Liên hệ */}
+        {/* Liên hệ & Tùy chọn */}
         <div>
           <h4 className="footer-heading">{t('footer.contact.title')}</h4>
           <div className="footer-contact">
@@ -81,21 +95,54 @@ export default function WebFooter() {
               <strong>Email:</strong><br/>
               <a href="mailto:info@biathaytu.com">{t('footer.contact.email')}</a>
             </p>
-            <p>
-              <strong>Website:</strong><br/>
-              <a href="https://biathaytu.com" target="_blank" rel="noopener noreferrer">biathaytu.com</a>
-            </p>
+            <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <button
+                onClick={handleResetAge}
+                style={{
+                  background: 'none',
+                  border: '1px dashed #f39c12',
+                  color: '#f39c12',
+                  padding: '6px 10px',
+                  borderRadius: '4px',
+                  fontSize: '12px',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+              >
+                🔄 Xóa xác nhận độ tuổi
+              </button>
+              <button
+                onClick={handleResetCookie}
+                style={{
+                  background: 'none',
+                  border: '1px dashed #94a3b8',
+                  color: '#94a3b8',
+                  padding: '6px 10px',
+                  borderRadius: '4px',
+                  fontSize: '12px',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+              >
+                ⚙️ Cài đặt Cookie
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Warning banner block */}
+      <div className="container" style={{ marginTop: '20px' }}>
+        <AlcoholWarning variant="footer" style={{ width: '100%', justifyContent: 'center' }} />
+      </div>
+
       {/* Bottom bar */}
-      <div className="footer-bottom">
+      <div className="footer-bottom" style={{ marginTop: '20px' }}>
         <div className="container footer-bottom-inner">
           <span>&copy; {new Date().getFullYear()} Bia Thầy Tu. All rights reserved.</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span className="footer-18-badge">18</span>
-            Người dưới 18 tuổi không được uống rượu bia. Thưởng thức có trách nhiệm.
+            Thưởng thức có trách nhiệm. Không lái xe sau khi sử dụng đồ uống có cồn.
           </span>
         </div>
       </div>

@@ -5,9 +5,10 @@ import { validateOrderInput } from '@/lib/orders/validation';
 import { calculateOrderTotals } from '@/lib/orders/pricing';
 import { appendOrderToSheet } from '@/lib/integrations/googleSheets';
 import { sendOrderToTelegram } from '@/lib/integrations/telegram';
+import { POLICY_VERSION } from '@/constants/compliance';
 import type { OrderCustomer, ClientCartItem, OrderRecord } from '@/lib/orders/types';
 
-// ─── Rate limiting (in-memory, đủ cho mức hiện tại) ───────────
+// ─── Rate limiting (in-memory) ───────────
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 10;
 const requestCounts = new Map<string, { count: number; resetAt: number }>();
@@ -54,13 +55,14 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { customer, items, appliedCode } = body as {
+    const { customer, items, appliedCode, ageVerifiedAt } = body as {
       customer: OrderCustomer;
       items: ClientCartItem[];
       appliedCode?: string;
+      ageVerifiedAt?: string;
     };
 
-    // 1. Validate input (gồm chặn quantity bất thường)
+    // 1. Validate input (gồm kiểm tra checkbox tuổi & điều khoản)
     const validation = validateOrderInput(customer, items);
     if (!validation.ok) {
       return NextResponse.json({ error: validation.error }, { status: 400 });
@@ -76,14 +78,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: msg }, { status: 400 });
     }
 
+    const nowISO = new Date().toISOString();
+
     const order: OrderRecord = {
       ...totals,
       orderNumber: generateOrderNumber(),
       customer,
-      createdAtISO: new Date().toISOString(),
+      createdAtISO: nowISO,
+      age_verified: true,
+      age_verified_at: ageVerifiedAt || nowISO,
+      receiver_age_confirmed: Boolean(customer.receiver_age_confirmed),
+      alcohol_delivery_required: true,
+      policy_version: POLICY_VERSION,
+      status: 'age_verified',
+      operational_note:
+        'Đơn hàng có đồ uống có cồn. Nhân viên giao hàng có quyền yêu cầu giấy tờ xác minh người nhận từ đủ 18 tuổi. Từ chối giao nếu không xác minh được.',
     };
 
-    // 3. BẮT BUỘC: ghi Google Sheets (nguồn sự thật). Lỗi → KHÔNG báo thành công.
+    // 3. BẮT BUỘC: ghi Google Sheets
     try {
       await appendOrderToSheet(order);
     } catch (e) {
@@ -97,14 +109,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 4. BEST-EFFORT: thông báo Telegram (lỗi không chặn đơn)
+    // 4. BEST-EFFORT: thông báo Telegram
     try {
       await sendOrderToTelegram(order);
     } catch (e) {
       console.error('Telegram notify failed:', e);
     }
 
-    // 5. Thành công thật sự
+    // 5. Thành công
     return NextResponse.json({ success: true, orderNumber: order.orderNumber });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Lỗi server';

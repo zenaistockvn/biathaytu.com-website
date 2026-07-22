@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
+import { getCookieConsentPreferences, CookiePreferences } from './CookieConsent';
 
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
@@ -22,13 +23,32 @@ const pageview = () => {
 export default function FacebookPixel() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [hasMarketingConsent, setHasMarketingConsent] = useState(false);
 
   useEffect(() => {
-    // This triggers a pageview on route change
-    pageview();
-  }, [pathname, searchParams]);
+    const checkConsent = () => {
+      const prefs = getCookieConsentPreferences();
+      setHasMarketingConsent(Boolean(prefs?.marketing));
+    };
 
-  if (!FB_PIXEL_ID) return null;
+    checkConsent();
+
+    const handleConsentUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent<CookiePreferences>;
+      setHasMarketingConsent(Boolean(customEvent.detail?.marketing));
+    };
+
+    window.addEventListener('cookieConsentUpdated', handleConsentUpdate);
+    return () => window.removeEventListener('cookieConsentUpdated', handleConsentUpdate);
+  }, []);
+
+  useEffect(() => {
+    if (hasMarketingConsent) {
+      pageview();
+    }
+  }, [pathname, searchParams, hasMarketingConsent]);
+
+  if (!FB_PIXEL_ID || !hasMarketingConsent) return null;
 
   return (
     <>
@@ -49,9 +69,6 @@ export default function FacebookPixel() {
           `,
         }}
       />
-      {/* We use a standard image tag for noscript as React <noscript> can be tricky, 
-          but next/script handles standard noscript if we use it correctly. 
-          However, putting it directly here is safe. */}
       <noscript>
         <img
           height="1"

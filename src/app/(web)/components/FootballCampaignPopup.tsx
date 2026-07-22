@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import AlcoholWarning from './AlcoholWarning';
 
 export default function FootballCampaignPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,6 +111,9 @@ export default function FootballCampaignPopup() {
               </div>
             </div>
           )}
+
+          {/* Compliance Warning occupying >= 10% banner area */}
+          <AlcoholWarning variant="banner" style={{ fontSize: '11px', padding: '8px 12px' }} />
         </div>
       </div>
     </div>
