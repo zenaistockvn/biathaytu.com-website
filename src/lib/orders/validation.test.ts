@@ -6,6 +6,9 @@ const okCustomer: OrderCustomer = {
   name: 'Nguyễn Văn A',
   phone: '0912345678',
   address: '1 Đội Cấn, Hà Nội',
+  purchaser_age_confirmed: true,
+  receiver_age_confirmed: true,
+  terms_agreed: true,
 };
 const okItems: ClientCartItem[] = [
   { id: 'p1', name: 'Bia A', image: '', price: 100000, quantity: 2 },

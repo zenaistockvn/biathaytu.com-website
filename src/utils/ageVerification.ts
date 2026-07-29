@@ -143,6 +143,8 @@ export function setAgeVerifiedStatus(): void {
   localStorage.setItem(STORAGE_KEYS.AGE_VERIFIED, 'true');
   localStorage.setItem(STORAGE_KEYS.VERIFIED_AT, nowISO);
   localStorage.setItem(STORAGE_KEYS.POLICY_VERSION, POLICY_VERSION);
+
+  window.dispatchEvent(new Event('ageVerificationPassed'));
 }
 
 /**

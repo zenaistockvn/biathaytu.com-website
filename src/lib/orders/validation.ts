@@ -22,14 +22,14 @@ export function validateOrderInput(
     return { ok: false, error: 'Số điện thoại người đặt không hợp lệ' };
   }
 
-  // Validate purchaser & receiver age confirmations
-  if (customer.purchaser_age_confirmed === false) {
+  // Validate purchaser & receiver age confirmations — BẮT BUỘC phải là true
+  if (customer.purchaser_age_confirmed !== true) {
     return { ok: false, error: 'Bạn phải xác nhận người đặt hàng từ đủ 18 tuổi trở lên' };
   }
-  if (customer.receiver_age_confirmed === false) {
+  if (customer.receiver_age_confirmed !== true) {
     return { ok: false, error: 'Bạn phải xác nhận người nhận hàng từ đủ 18 tuổi trở lên' };
   }
-  if (customer.terms_agreed === false) {
+  if (customer.terms_agreed !== true) {
     return { ok: false, error: 'Bạn phải đồng ý với điều khoản bán hàng và chính sách bảo mật' };
   }
 

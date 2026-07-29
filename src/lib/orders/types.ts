@@ -6,9 +6,9 @@ export interface OrderCustomer {
   note?: string;
   receiverName?: string;
   receiverPhone?: string;
-  purchaser_age_confirmed?: boolean;
-  receiver_age_confirmed?: boolean;
-  terms_agreed?: boolean;
+  purchaser_age_confirmed: boolean;
+  receiver_age_confirmed: boolean;
+  terms_agreed: boolean;
 }
 
 /** Item gửi từ client — KHÔNG tin `price`. */

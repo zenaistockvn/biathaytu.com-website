@@ -80,11 +80,6 @@ export default function WebLayout({
   return (
     <div className="web-app">
       <LanguageProvider>
-        {/* Age Gate & Cookie Consent Components */}
-        <AgeVerificationGate />
-        <CookieConsent />
-
-        {/* Structured Data for AI / Search Engines */}
         <JsonLd type="organization" data={getOrganizationSchema()} />
         <JsonLd type="website" data={getWebsiteSchema()} />
         <WebHeader />
@@ -99,6 +94,9 @@ export default function WebLayout({
           <FacebookPixel />
           <FacebookMessengerChat />
         </Suspense>
+        {/* Gate & consent render CUỐI CÙNG để luôn nằm trên */}
+        <CookieConsent />
+        <AgeVerificationGate />
       </LanguageProvider>
     </div>
   );

@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
       orderNumber: generateOrderNumber(),
       customer,
       createdAtISO: nowISO,
-      age_verified: true,
+      age_verified: customer.purchaser_age_confirmed === true && customer.receiver_age_confirmed === true,
       age_verified_at: ageVerifiedAt || nowISO,
       receiver_age_confirmed: Boolean(customer.receiver_age_confirmed),
       alcohol_delivery_required: true,

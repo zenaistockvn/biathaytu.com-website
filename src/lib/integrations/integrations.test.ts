@@ -6,7 +6,7 @@ import type { OrderRecord } from '@/lib/orders/types';
 const order: OrderRecord = {
   orderNumber: 'BTU-20260614-1234',
   createdAtISO: '2026-06-14T00:00:00.000Z',
-  customer: { name: 'Nguyễn Văn A', phone: '0912345678', address: 'Hà Nội' },
+  customer: { name: 'Nguyễn Văn A', phone: '0912345678', address: 'Hà Nội', purchaser_age_confirmed: true, receiver_age_confirmed: true, terms_agreed: true },
   items: [{ id: 'p1', name: 'Bia A', image: '', price: 100000, quantity: 2, subtotal: 200000 }],
   subTotal: 200000, autoDiscount: 0, promoDiscount: 0, promoCode: null, totalPrice: 200000,
 };

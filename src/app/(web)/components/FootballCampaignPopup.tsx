@@ -2,28 +2,58 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import AlcoholWarning from './AlcoholWarning';
+import { isAgeVerified } from '@/utils/ageVerification';
+
+/** Chiến dịch chỉ hiển thị trong khoảng thời gian này (ISO). Hết hạn → không render. */
+const CAMPAIGN_ENDS_AT = '2026-08-31T23:59:59+07:00';
 
 export default function FootballCampaignPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'keg' | 'combo'>('keg');
-
-  useEffect(() => {
-    // Check if the popup was already dismissed in the current session
-    const isDismissed = sessionStorage.getItem('football_campaign_popup_shown');
-    if (!isDismissed) {
-      // Delay showing the popup for 1.5s after load for better UX
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  const pathname = usePathname();
 
   const handleClose = () => {
     setIsOpen(false);
     sessionStorage.setItem('football_campaign_popup_shown', 'true');
   };
+
+  useEffect(() => {
+    if (pathname === '/chua-du-tuoi') return;
+    if (new Date() > new Date(CAMPAIGN_ENDS_AT)) return;
+    if (sessionStorage.getItem('football_campaign_popup_shown')) return;
+
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const arm = () => {
+      timer = setTimeout(() => setIsOpen(true), 1500);
+    };
+
+    if (isAgeVerified()) {
+      arm();
+      return () => clearTimeout(timer);
+    }
+
+    // Chưa xác minh tuổi → chờ tới khi cổng tuổi được vượt qua
+    window.addEventListener('ageVerificationPassed', arm, { once: true });
+    return () => {
+      window.removeEventListener('ageVerificationPassed', arm);
+      clearTimeout(timer);
+    };
+  }, [pathname]);
+
+  // Lock scroll + đóng bằng Escape
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -35,7 +65,13 @@ export default function FootballCampaignPopup() {
   const linkCombo = `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}`;
 
   return (
-    <div className="football-popup-overlay" aria-modal="true" role="dialog">
+    <div
+      className="football-popup-overlay"
+      aria-modal="true"
+      role="dialog"
+      aria-label="Ưu đãi Bitburger Football Edition 2026"
+      onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}
+    >
       <div className="football-popup-card">
         {/* Close Button */}
         <button 
