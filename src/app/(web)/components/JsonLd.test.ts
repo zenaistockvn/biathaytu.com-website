@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getProductSchema } from './JsonLd';
+import { getProductSchema, getStoreSchema } from './JsonLd';
 
 describe('getProductSchema brand + offers', () => {
   it('uses the real brand for Bitburger (not Benediktiner)', () => {
@@ -28,5 +28,20 @@ describe('getProductSchema brand + offers', () => {
     expect(s.offers?.['@type']).toBe('AggregateOffer');
     expect(s.offers?.lowPrice).toBe(790000);
     expect(s.offers?.highPrice).toBe(1550000);
+  });
+});
+
+describe('Product schema — không được bịa dữ liệu', () => {
+  it('KHÔNG chứa aggregateRating khi chưa có review thật', () => {
+    const s = getProductSchema({ name: 'Benediktiner Naturtrüb', slug: 'x', price: 1000, category: 'bia' }) as Record<string, unknown>;
+    expect(s.aggregateRating).toBeUndefined();
+    expect(s.review).toBeUndefined();
+  });
+});
+
+describe('Store schema — không placeholder', () => {
+  it('không phát chuỗi placeholder ra public', () => {
+    const json = JSON.stringify(getStoreSchema());
+    expect(json.toLowerCase()).not.toContain('placeholder');
   });
 });

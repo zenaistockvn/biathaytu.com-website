@@ -13,7 +13,7 @@ interface JsonLdProps {
   data: Record<string, unknown>;
 }
 
-export default function JsonLd({ type, data }: JsonLdProps) {
+export default function JsonLd({ type: _type, data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
@@ -101,7 +101,6 @@ export function getStoreSchema() {
       latitude: '21.062534',
       longitude: '105.811442',
     },
-    hasMap: 'https://maps.app.goo.gl/QcZ5nWhx4e164Placeholder',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: [
@@ -112,9 +111,7 @@ export function getStoreSchema() {
     },
     sameAs: [
       'https://www.facebook.com/tiepkhachsanhdieu',
-      'https://zalo.me/0899191313',
-      'https://www.youtube.com/@biathaytu-placeholder',
-      'https://maps.google.com/?cid=biathaytu-placeholder'
+      'https://zalo.me/0899191313'
     ]
   };
 }
@@ -133,6 +130,7 @@ export function getProductSchema(product: {
   abv?: string;
   volume?: string;
   category?: string | null;
+  inStock?: boolean;
 }) {
   const productUrl = product.url || `${BASE_URL}/san-pham/${product.slug}`;
   const info = getBrandInfo(product.name, product.category);
@@ -144,9 +142,8 @@ export function getProductSchema(product: {
       url: productUrl,
       priceCurrency: 'VND',
       price: product.price,
-      priceValidUntil: '2027-12-31',
       itemCondition: 'https://schema.org/NewCondition',
-      availability: 'https://schema.org/InStock',
+      availability: product.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
       seller: { '@id': `${BASE_URL}/#store` },
     };
   } else if (typeof product.priceFrom === 'number') {
@@ -157,22 +154,10 @@ export function getProductSchema(product: {
       lowPrice: product.priceFrom,
       ...(typeof product.priceTo === 'number' ? { highPrice: product.priceTo } : {}),
       ...(typeof product.offerCount === 'number' ? { offerCount: product.offerCount } : {}),
-      availability: 'https://schema.org/InStock',
+      availability: product.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
       seller: { '@id': `${BASE_URL}/#store` },
     };
   }
-
-  // Thuật toán hash đơn giản từ tên để sinh AggregateRating ổn định
-  const hashCode = (str: string) => {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    return Math.abs(hash);
-  };
-  const code = hashCode(product.name);
-  const ratingValue = (4.8 + (code % 3) * 0.1).toFixed(1); // 4.8, 4.9, hoặc 5.0
-  const reviewCount = 15 + (code % 16); // 15 đến 30
 
   const isBelgium = product.name.toLowerCase().includes('bỉ') || 
                     product.name.toLowerCase().includes('chimay') || 
@@ -200,13 +185,6 @@ export function getProductSchema(product: {
       : {}),
     countryOfOrigin: { '@type': 'Country', name: isBelgium ? 'Belgium' : 'Germany' },
     ...(offers ? { offers } : {}),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: parseFloat(ratingValue),
-      reviewCount: reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    },
     additionalProperty: [
       ...(product.abv ? [{ '@type': 'PropertyValue', name: 'Alcohol by Volume', value: `${product.abv}%` }] : []),
       ...(product.volume ? [{ '@type': 'PropertyValue', name: 'Volume', value: product.volume }] : []),

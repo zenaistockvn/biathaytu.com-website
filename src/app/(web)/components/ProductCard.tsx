@@ -11,6 +11,19 @@ import ZaloCTA from './ZaloCTA';
 import { Button } from './ui/Button';
 import { getDisplayProductImage } from '../utils/productImages';
 
+function getPerItemPrice(name: string, price: number): string | null {
+  const match = name.match(/(?:thùng|két|hộp|set)?\s*(\d+)\s*(chai|lon)/i);
+  if (match) {
+    const qty = parseInt(match[1], 10);
+    const unit = match[2].toLowerCase();
+    if (qty > 1) {
+      const perItem = Math.round(price / qty);
+      return `~${formatPrice(perItem)}/${unit}`;
+    }
+  }
+  return null;
+}
+
 export interface ProductCardProps {
   id: string;
   name: string;
@@ -126,11 +139,22 @@ export default function ProductCard({
           </div>
         )}
 
-        {/* Price */}
+
+        {/* Price & Trust signals */}
         {price && (
-          <div className={`card-price${isWine ? ' card-price-wine' : ''}`}>
-            {formatPrice(price)}
-          </div>
+          <>
+            <div className={`card-price${isWine ? ' card-price-wine' : ''}`}>
+              {formatPrice(price)}
+              {getPerItemPrice(name, price) && (
+                <span className="card-unit-price">
+                  ({getPerItemPrice(name, price)})
+                </span>
+              )}
+            </div>
+            <div className="card-trust-signals">
+              <span>⚡ Giao nội thành Hà Nội trong ngày</span>
+            </div>
+          </>
         )}
 
         {/* CTA */}

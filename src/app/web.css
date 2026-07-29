@@ -5742,3 +5742,19 @@ html {
 html {
   scroll-behavior: smooth;
 }
+
+.card-unit-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--web-text-muted);
+  margin-left: 6px;
+}
+
+.card-trust-signals {
+  font-size: 11px;
+  color: var(--web-text-muted);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 10px;
+}
