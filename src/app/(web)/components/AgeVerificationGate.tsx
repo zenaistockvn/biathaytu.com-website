@@ -158,7 +158,7 @@ export default function AgeVerificationGate() {
         {/* Logo */}
         <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
           <Image
-            src="/images/logo.png"
+            src="/logo.jpg"
             alt="Bia Thầy Tu Logo"
             width={120}
             height={60}

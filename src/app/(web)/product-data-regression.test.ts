@@ -61,13 +61,12 @@ describe('public product data regressions', () => {
     expect(productCard).toContain('Đang cập nhật hình');
   });
 
-  it('replaces known missing product image paths with existing public assets', () => {
+  it('uses category fallback image when product image is empty', () => {
     const image = getDisplayProductImage({
-      images: ['/images/products/official/bitburger/kostritzer_keg.png'],
+      images: [],
       category: 'phu-kien',
     });
 
-    expect(image).not.toContain('kostritzer_keg.png');
     expect(existsSync(join(root, 'public', image.slice(1)))).toBe(true);
   });
 

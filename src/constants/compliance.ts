@@ -14,8 +14,16 @@ export const STORAGE_KEYS = {
   COOKIE_CONSENT: 'cookie_consent_preferences',
 } as const;
 
+/**
+ * Thông tin chuyển khoản. Bắt buộc cấu hình qua ENV trước khi deploy.
+ * KHÔNG dùng placeholder — nếu thiếu ENV, UI phải ẩn phương thức chuyển khoản.
+ */
 export const BANK_CONFIG = {
-  bankName: process.env.NEXT_PUBLIC_BANK_NAME || '[CẦN PHÁP CHẾ XÁC NHẬN - Ngân hàng MB Bank / Techcombank]',
-  accountNumber: process.env.NEXT_PUBLIC_BANK_ACCOUNT || '[CẦN PHÁP CHẾ XÁC NHẬN - Số tài khoản]',
-  accountHolder: process.env.NEXT_PUBLIC_BANK_HOLDER || '[CẦN PHÁP CHẾ XÁC NHẬN - Chủ tài khoản]',
+  bankName: process.env.NEXT_PUBLIC_BANK_NAME ?? '',
+  accountNumber: process.env.NEXT_PUBLIC_BANK_ACCOUNT ?? '',
+  accountHolder: process.env.NEXT_PUBLIC_BANK_HOLDER ?? '',
 };
+
+/** true khi đủ 3 thông tin để hiển thị phương thức chuyển khoản. */
+export const IS_BANK_TRANSFER_ENABLED =
+  Boolean(BANK_CONFIG.bankName && BANK_CONFIG.accountNumber && BANK_CONFIG.accountHolder);

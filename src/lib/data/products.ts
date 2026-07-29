@@ -27,6 +27,7 @@ export interface Product {
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 
 function isStorefrontProduct(product: Product): boolean {
+  if (product.slug.includes('kostritzer')) return false;
   return Boolean(
     product.id &&
       product.name &&

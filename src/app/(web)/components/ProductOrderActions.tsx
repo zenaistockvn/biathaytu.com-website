@@ -6,6 +6,8 @@ import ZaloCTA from './ZaloCTA';
 
 import { useToastStore } from '@/stores/useToastStore';
 
+import { getDisplayProductImage } from '../utils/productImages';
+
 interface ProductOrderActionsProps {
   product: {
     id: string;
@@ -13,6 +15,7 @@ interface ProductOrderActionsProps {
     slug: string;
     price: number | null;
     images: string[] | null;
+    category?: string | null;
   };
 }
 
@@ -21,6 +24,8 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
   const addItem = useCartStore((state) => state.addItem);
   const showToast = useToastStore((state) => state.show);
 
+  const cartImage = getDisplayProductImage({ images: product.images, category: product.category ?? null });
+
   const handleAddCart = () => {
     if (!product.price) return;
     addItem({
@@ -28,7 +33,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       name: product.name,
       slug: product.slug || product.id,
       price: product.price,
-      image: product.images?.[0] || '',
+      image: cartImage,
       quantity: 1,
     });
     showToast(`✓ Đã thêm ${product.name} vào giỏ hàng`);
@@ -41,7 +46,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       name: product.name,
       slug: product.slug || product.id,
       price: product.price,
-      image: product.images?.[0] || '',
+      image: cartImage,
       quantity: 1,
     });
     router.push('/dat-hang');
@@ -67,7 +72,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
           </button>
         </div>
       )}
-      <ZaloCTA productId={product.id} productName={product.name} label="💬 Nhắn Zalo báo giá" />
+      <ZaloCTA productId={product.id} productName={product.name} label="Nhắn Zalo báo giá" />
     </div>
   );
 }

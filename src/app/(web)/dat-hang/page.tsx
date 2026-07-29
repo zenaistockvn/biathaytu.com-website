@@ -7,7 +7,7 @@ import { useCartStore } from '@/stores/useCartStore';
 import { useToastStore } from '@/stores/useToastStore';
 import { formatPrice } from '@/utils/formatPrice';
 import AlcoholWarning from '../components/AlcoholWarning';
-import { BANK_CONFIG } from '@/constants/compliance';
+import { BANK_CONFIG, IS_BANK_TRANSFER_ENABLED } from '@/constants/compliance';
 
 export default function CheckoutPage() {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
@@ -29,7 +29,7 @@ export default function CheckoutPage() {
     purchaser_age_confirmed: false,
     receiver_age_confirmed: false,
     terms_agreed: false,
-    paymentMethod: 'bank' // 'bank' | 'cod'
+    paymentMethod: IS_BANK_TRANSFER_ENABLED ? 'bank' : 'cod' // 'bank' | 'cod'
   });
 
   // [S3 FIX] Promo code state — validated server-side only
@@ -224,7 +224,7 @@ export default function CheckoutPage() {
               } catch (e) {}
             }}
           >
-            💬 GỬI ĐƠN QUA ZALO XÁC NHẬN NGAY
+            GỬI ĐƠN QUA ZALO XÁC NHẬN NGAY
           </a>
         </div>
 
@@ -263,7 +263,7 @@ export default function CheckoutPage() {
               {items.map(item => (
                 <div key={item.id} className="checkout-item-row">
                   <div className="checkout-item-image">
-                    <Image src={item.image} alt={item.name} fill sizes="80px" />
+                    {item.image ? <Image src={item.image} alt={item.name} fill sizes="80px" /> : <span className="checkout-item-image-empty" aria-hidden="true" />}
                   </div>
                   <div className="checkout-item-info">
                     <h3>{item.name}</h3>
@@ -442,26 +442,30 @@ export default function CheckoutPage() {
               <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: '#1e293b' }}>Phương thức thanh toán</h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', cursor: 'pointer' }}>
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="bank"
-                    checked={formData.paymentMethod === 'bank'}
-                    onChange={handleChange}
-                  />
-                  <div>
-                    <strong>Chuyển khoản Ngân hàng / QR Code (Không dùng tiền mặt)</strong>
-                    <div style={{ fontSize: '12px', color: '#64748b' }}>Thanh toán an toàn, nhanh chóng qua ứng dụng ngân hàng</div>
-                  </div>
-                </label>
+                {IS_BANK_TRANSFER_ENABLED && (
+                  <>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', cursor: 'pointer' }}>
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="bank"
+                        checked={formData.paymentMethod === 'bank'}
+                        onChange={handleChange}
+                      />
+                      <div>
+                        <strong>Chuyển khoản Ngân hàng (Không dùng tiền mặt)</strong>
+                        <div style={{ fontSize: '12px', color: '#64748b' }}>Thanh toán an toàn, nhanh chóng qua ứng dụng ngân hàng</div>
+                      </div>
+                    </label>
 
-                {formData.paymentMethod === 'bank' && (
-                  <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', padding: '14px', borderRadius: '8px', fontSize: '13px', marginLeft: '24px' }}>
-                    <p style={{ margin: '2px 0' }}><strong>Ngân hàng:</strong> {BANK_CONFIG.bankName}</p>
-                    <p style={{ margin: '2px 0' }}><strong>Số tài khoản:</strong> {BANK_CONFIG.accountNumber}</p>
-                    <p style={{ margin: '2px 0' }}><strong>Chủ tài khoản:</strong> {BANK_CONFIG.accountHolder}</p>
-                  </div>
+                    {formData.paymentMethod === 'bank' && (
+                      <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', padding: '14px', borderRadius: '8px', fontSize: '13px', marginLeft: '24px' }}>
+                        <p style={{ margin: '2px 0' }}><strong>Ngân hàng:</strong> {BANK_CONFIG.bankName}</p>
+                        <p style={{ margin: '2px 0' }}><strong>Số tài khoản:</strong> {BANK_CONFIG.accountNumber}</p>
+                        <p style={{ margin: '2px 0' }}><strong>Chủ tài khoản:</strong> {BANK_CONFIG.accountHolder}</p>
+                      </div>
+                    )}
+                  </>
                 )}
 
                 {/* TODO: Legal team review required for COD alcohol delivery workflow */}

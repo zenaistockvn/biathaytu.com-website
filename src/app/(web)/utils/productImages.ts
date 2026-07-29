@@ -7,11 +7,6 @@ const CATEGORY_FALLBACK_IMAGES: Record<string, string> = {
   'xuc-xich': '/images/products/the-wurst/wiener-hun-khoi.png',
 };
 
-const KNOWN_MISSING_IMAGE_REPLACEMENTS: Record<string, string> = {
-  '/images/products/official/bitburger/kostritzer_keg.png':
-    '/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.jpg',
-};
-
 interface ProductImageInput {
   images?: string[] | null;
   category?: string | null;
@@ -23,7 +18,7 @@ export function getDisplayProductImage({ images, category }: ProductImageInput) 
   })?.trim();
 
   if (primaryImage) {
-    return KNOWN_MISSING_IMAGE_REPLACEMENTS[primaryImage] ?? primaryImage;
+    return primaryImage;
   }
 
   return CATEGORY_FALLBACK_IMAGES[category ?? ''] ?? DEFAULT_PRODUCT_IMAGE;
