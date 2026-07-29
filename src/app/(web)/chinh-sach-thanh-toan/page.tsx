@@ -6,6 +6,7 @@ import { BANK_CONFIG } from '@/constants/compliance';
 export const metadata: Metadata = {
   title: 'Chính Sách Thanh Toán',
   description: 'Các hình thức và quy định thanh toán hợp lệ tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-thanh-toan' },
 };
 
 export default function PaymentPolicyPage() {

@@ -1,18 +1,18 @@
-import { getBeerProducts, getAccessories, getSausageProducts, getComboProducts } from '@/lib/data/products';
+import { getBeerProducts, getAccessories, getSausageProducts, getComboProducts, getProductsByCategory } from '@/lib/data/products';
 import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
-  description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
+  title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner & Bitburger',
+  description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bitburger Premium Pils, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
   alternates: {
     canonical: 'https://www.biathaytu.com/san-pham',
   },
   openGraph: {
-    title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
-    description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
+    title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner & Bitburger',
+    description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bitburger Premium Pils, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
     type: 'website',
     url: 'https://www.biathaytu.com/san-pham',
     images: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
+        alt: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner & Bitburger',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner',
-    description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
+    title: 'Bộ Sưu Tập Bia Đức Chính Hãng — Benediktiner & Bitburger',
+    description: 'Thưởng thức bia Benediktiner Weissbier, Dunkel, Bitburger Premium Pils, Bom 5L — 100% nhập khẩu nguyên chai từ Đức. Chuẩn Luật Tinh Khiết 1516. Giá từ đại lý. Giao toàn quốc.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
 };
@@ -49,16 +49,17 @@ interface Product {
 }
 
 export default async function ProductsPage() {
-  const beerProducts = getBeerProducts({ excludeBitburger: true });
+  const beerProducts = getBeerProducts();
   const accessories = getAccessories();
   const sausageProducts = getSausageProducts();
   const comboProducts = getComboProducts();
+  const wineProducts = getProductsByCategory('vang');
 
   return (
     <div className="products-page-container" id="tat-ca">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://biathaytu.com' },
-        { name: 'Sản Phẩm', url: 'https://biathaytu.com/san-pham' },
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
+        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' },
       ])} />
 
       {/* HEADER */}
@@ -74,10 +75,11 @@ export default async function ProductsPage() {
           <div className="catalog-pills-nav">
             <a href="#tat-ca" className="catalog-pill-link">Tất cả</a>
             <a href="#bia-duc" className="catalog-pill-link">Bia Đức</a>
-            <a href="#combo-uu-dai" className="catalog-pill-link highlight-pill">Combo Ưu Đãi</a>
+            <a href="#combo" className="catalog-pill-link">Combo Tiết Kiệm</a>
+            <a href="#ruou-vang" className="catalog-pill-link">Rượu Vang Đức</a>
             <a href="#xuc-xich-duc" className="catalog-pill-link">Xúc Xích Đức</a>
+            <a href="#combo-cold-cut-99k" className="catalog-pill-link highlight-pill">Combo 99K</a>
             <a href="#phu-kien" className="catalog-pill-link">Phụ Kiện</a>
-            <a href="#combo-cold-cut-99k" className="catalog-pill-link">Combo 99K</a>
           </div>
         </div>
       </section>
@@ -89,7 +91,7 @@ export default async function ProductsPage() {
             <ProductCard
               key={product.id}
               {...product}
-              description={product.description?.substring(0, 80) || getTastingNotes(product.name)}
+              description={product.description || getTastingNotes(product.name)}
               showCTA={true}
             />
           ))}
@@ -101,6 +103,38 @@ export default async function ProductsPage() {
           </div>
         )}
       </section>
+
+      {/* COMBO */}
+      {comboProducts.length > 0 && (
+        <section className="container mt-100" id="combo" aria-label="Combo tiết kiệm">
+          <div className="section-header-center mb-48">
+            <span className="section-label">Mua Theo Combo</span>
+            <h2 className="section-title">Combo Tiết Kiệm</h2>
+            <p className="page-subtitle">Bia Đức kèm xúc xích chuẩn vị — giá tốt hơn mua lẻ.</p>
+          </div>
+          <div className="grid-featured-products">
+            {comboProducts.map((product) => (
+              <ProductCard key={product.id} {...product} description={product.description} showCTA={true} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* RƯỢU VANG ĐỨC */}
+      {wineProducts.length > 0 && (
+        <section className="container mt-100" id="ruou-vang" aria-label="Rượu vang Đức">
+          <div className="section-header-center mb-48">
+            <span className="section-label">Tuyển Chọn Thêm</span>
+            <h2 className="section-title">Rượu Vang Đức</h2>
+            <p className="page-subtitle">Riesling, Spätburgunder từ Rappenhof, Thörle — nhập khẩu nguyên chai.</p>
+          </div>
+          <div className="grid-featured-products">
+            {wineProducts.map((product) => (
+              <ProductCard key={product.id} {...product} description={product.description} showCTA={true} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* SAUSAGE PRODUCTS */}
       {sausageProducts && sausageProducts.length > 0 && (
@@ -133,7 +167,7 @@ export default async function ProductsPage() {
                 <ProductCard
                   key={product.id}
                   {...product}
-                  description={product.description?.substring(0, 110)}
+                  description={product.description}
                   highlightLabel={isColdCutDeal ? 'Ưu đãi còn 99K' : undefined}
                   quickTags={quickTags}
                   cardId={cardId}

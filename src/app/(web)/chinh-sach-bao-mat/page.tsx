@@ -5,6 +5,7 @@ import AlcoholWarning from '../components/AlcoholWarning';
 export const metadata: Metadata = {
   title: 'Chính Sách Bảo Mật',
   description: 'Cam kết bảo vệ dữ liệu cá nhân và quyền riêng tư của người dùng tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-bao-mat' },
 };
 
 export default function PrivacyPolicyPage() {

@@ -1,10 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import AlcoholWarning from '../components/AlcoholWarning';
+import CookieResetButtons from './CookieResetButtons';
 
 export const metadata: Metadata = {
   title: 'Chính Sách Cookie',
   description: 'Thông tin quy định sử dụng cookie và quản lý quyền riêng tư tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-cookie' },
 };
 
 export default function CookiePolicyPage() {
@@ -43,8 +45,9 @@ export default function CookiePolicyPage() {
             3. Quản Lý và Thay Đổi Lựa Chọn
           </h2>
           <p>
-            Bạn có thể thay đổi thiết lập đồng ý Cookie bất cứ lúc nào thông qua liên kết &quot;Cài đặt Cookie&quot; tại chân trang (footer).
+            Bạn có thể chủ động điều chỉnh hoặc thay đổi tùy chọn đồng ý Cookie & xác nhận độ tuổi bất kỳ lúc nào bằng các nút bên dưới:
           </p>
+          <CookieResetButtons />
         </section>
       </div>
     </div>

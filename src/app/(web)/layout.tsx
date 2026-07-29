@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     'bia đức hà nội', 'mua bia đức', 'bia đức giá sỉ', 'đại lý bia đức',
   ],
   alternates: {
-    canonical: BASE_URL,
     languages: {
       'vi-VN': BASE_URL,
     },

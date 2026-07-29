@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogImage = toAbsoluteSiteUrl(article.thumbnail_url || '/logo.jpg');
 
   return {
-    title: `${article.title} — Kiến Thức Bia Thầy Tu`,
+    title: article.title,
     description: article.meta_description,
     alternates: {
       canonical: articleUrl,
@@ -116,29 +116,24 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       ])} />
       
       {/* Article Hero */}
-      <section style={{ 
-        padding: '120px 0 80px', 
-        background: 'var(--web-navy)',
-        color: '#fff',
-        position: 'relative'
-      }}>
+      <section className="article-detail-hero">
         <div style={{
           position: 'absolute', inset: 0,
           background: 'radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.05) 0%, transparent 70%)',
           zIndex: 1
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '900px', textAlign: 'center' }}>
-          <div style={{ fontSize: '14px', color: 'var(--web-gold)', marginBottom: '30px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' }}>
+          <div className="article-detail-breadcrumb">
             <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Trang chủ</Link> 
             <span style={{ margin: '0 8px', color: 'rgba(255,255,255,0.3)' }}>/</span>
             <Link href="/kien-thuc" style={{ color: 'inherit', textDecoration: 'none' }}> Kiến thức</Link>
           </div>
           
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', color: '#fff', marginBottom: '24px', lineHeight: 1.25, fontFamily: 'var(--font-serif)', fontWeight: 800 }}>
+          <h1 className="article-detail-title">
             {article.title}
           </h1>
           
-          <div style={{ display: 'flex', gap: '20px', fontSize: '15px', color: 'rgba(255,255,255,0.7)', justifyContent: 'center', fontWeight: 500 }}>
+          <div className="article-detail-meta">
             <span>{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>
             <span>•</span>
             <span>{readTime} phút đọc</span>
@@ -148,8 +143,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
       {/* Hero Image — between header and body */}
       {article.thumbnail_url && (
-        <div className="container" style={{ maxWidth: '900px', marginTop: '-40px', position: 'relative', zIndex: 10, padding: '0 20px' }}>
-          <div style={{ position: 'relative', width: '100%', height: '0', paddingBottom: '56.25%', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.3)' }}>
+        <div className="container article-detail-cover-wrapper">
+          <div className="article-detail-cover">
             <Image
               src={article.thumbnail_url}
               alt={article.title}
@@ -163,7 +158,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       )}
 
       {/* Article Body */}
-      <article className="container" style={{ maxWidth: '800px', padding: '60px 20px 100px' }}>
+      <article className="container article-detail-body-container">
         <ArticleBody content={article.content} />
         
         <GeoLocalCTA />
@@ -198,7 +193,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                   <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
                     <ProductCard
                       {...product}
-                      description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
+                      description={product.description || `"${getTastingNotes(product.name)}"`}
                       showCTA={true}
                     />
                   </div>

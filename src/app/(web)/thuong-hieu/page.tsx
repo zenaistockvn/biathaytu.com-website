@@ -4,13 +4,13 @@ import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+  title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
   description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
   alternates: {
     canonical: 'https://www.biathaytu.com/thuong-hieu',
   },
   openGraph: {
-    title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+    title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
     description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
     type: 'website',
     url: 'https://www.biathaytu.com/thuong-hieu',
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Câu Chuyện Thương Hiệu — 400 Năm Nghệ Thuật Ủ Bia Tu Viện',
+        alt: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Câu Chuyện Thương Hiệu Bia Thầy Tu — 400 Năm Ủ Bia',
+    title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
     description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },

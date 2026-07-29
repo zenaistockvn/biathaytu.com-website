@@ -5,6 +5,7 @@ import AlcoholWarning from '../components/AlcoholWarning';
 export const metadata: Metadata = {
   title: 'Chính Sách Kiểm Soát Độ Tuổi',
   description: 'Quy trình và quy định kiểm soát độ tuổi khách hàng truy cập và mua đồ uống có cồn tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-kiem-soat-do-tuoi' },
 };
 
 export default function AgeControlPolicyPage() {

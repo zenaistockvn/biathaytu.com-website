@@ -5,11 +5,11 @@ import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from 
 import { getPriceRange } from '@/lib/seo/productPricing';
 
 export const metadata: Metadata = {
-  title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
+  title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
   description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
   alternates: { canonical: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' },
   openGraph: {
-    title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
+    title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
     description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
     type: 'website',
     url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',

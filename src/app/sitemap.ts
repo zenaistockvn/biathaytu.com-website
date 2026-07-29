@@ -18,8 +18,8 @@ interface SitemapArticle {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getPublicBaseUrl();
 
-  // Ngày cập nhật nội dung tĩnh gần nhất (cập nhật thủ công khi sửa landing/nội dung)
-  const CONTENT_LAST_UPDATED = new Date('2026-06-14');
+  // Ngày cập nhật nội dung tĩnh
+  const CONTENT_LAST_UPDATED = new Date();
 
   // Base routes
   const routes: MetadataRoute.Sitemap = [
@@ -54,6 +54,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
   ];
+
+  // Policy routes
+  const policyPages = [
+    'chinh-sach-bao-mat',
+    'chinh-sach-doi-tra',
+    'chinh-sach-giao-hang',
+    'chinh-sach-kiem-soat-do-tuoi',
+    'chinh-sach-thanh-toan',
+    'chinh-sach-cookie',
+    'dieu-khoan-su-dung',
+    'nhan-uu-dai',
+  ];
+  for (const slug of policyPages) {
+    routes.push({
+      url: `${baseUrl}/${slug}`,
+      lastModified: CONTENT_LAST_UPDATED,
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    });
+  }
 
   // GEO landing pages
   const landingPages = [

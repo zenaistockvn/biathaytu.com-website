@@ -5,6 +5,7 @@ import AlcoholWarning from '../components/AlcoholWarning';
 export const metadata: Metadata = {
   title: 'Chính Sách Đổi Trả',
   description: 'Quy định về việc đổi trả sản phẩm bia nhập khẩu hỏng, lỗi hoặc vỡ trong quá trình vận chuyển.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-doi-tra' },
 };
 
 export default function ReturnPolicyPage() {

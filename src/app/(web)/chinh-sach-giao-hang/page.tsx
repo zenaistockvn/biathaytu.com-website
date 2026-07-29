@@ -5,6 +5,7 @@ import AlcoholWarning from '../components/AlcoholWarning';
 export const metadata: Metadata = {
   title: 'Chính Sách Giao Hàng',
   description: 'Chính sách và quy trình giao nhận sản phẩm bia nhập khẩu tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-giao-hang' },
 };
 
 export default function ShippingPolicyPage() {

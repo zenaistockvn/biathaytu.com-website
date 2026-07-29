@@ -23,7 +23,7 @@ interface ProductTabsProps {
   products: Product[] | null;
 }
 
-type TabId = 'benediktiner' | 'bitburger' | 'vang' | 'xuc-xich' | 'phu-kien';
+type TabId = 'benediktiner' | 'bitburger' | 'combo' | 'vang' | 'xuc-xich' | 'phu-kien';
 
 export default function ProductTabs({ products }: ProductTabsProps) {
   const [activeTab, setActiveTab] = useState<TabId>('benediktiner');
@@ -41,6 +41,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
       (p.name.toLowerCase().includes('bitburger') || p.name.toLowerCase().includes('kostritzer'))
   );
 
+  const comboProducts = products.filter((p) => p.category === 'combo');
   const wineProducts = products.filter((p) => p.category === 'vang');
   const sausages = products.filter((p) => p.category === 'xuc-xich');
   const accessories = products.filter((p) => p.category === 'phu-kien');
@@ -51,6 +52,8 @@ export default function ProductTabs({ products }: ProductTabsProps) {
         return benediktinerBeers;
       case 'bitburger':
         return bitburgerAndOthers;
+      case 'combo':
+        return comboProducts;
       case 'vang':
         return wineProducts;
       case 'xuc-xich':
@@ -65,6 +68,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
   const tabs: { id: TabId; label: string; count: number }[] = [
     { id: 'benediktiner', label: 'Bia Benediktiner', count: benediktinerBeers.length },
     { id: 'bitburger', label: 'Bia Bitburger & Khác', count: bitburgerAndOthers.length },
+    { id: 'combo', label: 'Combo Tiết Kiệm', count: comboProducts.length },
     { id: 'vang', label: 'Rượu Vang Đức', count: wineProducts.length },
     { id: 'xuc-xich', label: 'Xúc Xích Đức', count: sausages.length },
     { id: 'phu-kien', label: 'Phụ Kiện', count: accessories.length },
@@ -122,7 +126,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
               slug={product.slug}
               images={product.images}
               price={product.price}
-              description={product.description?.substring(0, 80) || `"${getTastingNotes(product.name)}"`}
+              description={product.description || `"${getTastingNotes(product.name)}"`}
               abv={product.abv}
               ibu={product.ibu}
               volume={product.volume}

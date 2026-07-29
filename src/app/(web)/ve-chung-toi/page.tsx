@@ -4,11 +4,11 @@ import { Button } from '../components/ui/Button';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
+  title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức Độc Quyền',
   description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com/ve-chung-toi' },
   openGraph: {
-    title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
+    title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức Độc Quyền',
     description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
     type: 'article',
     url: 'https://www.biathaytu.com/ve-chung-toi',

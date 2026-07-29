@@ -5,6 +5,7 @@ import AlcoholWarning from '../components/AlcoholWarning';
 export const metadata: Metadata = {
   title: 'Điều Khoản Sử Dụng',
   description: 'Điều khoản và điều kiện giao dịch trực tuyến khi mua đồ uống có cồn tại Bia Thầy Tu.',
+  alternates: { canonical: 'https://www.biathaytu.com/dieu-khoan-su-dung' },
 };
 
 export default function TermsOfUsePage() {

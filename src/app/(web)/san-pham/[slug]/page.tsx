@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const pageDescription = product.description || `Khám phá hương vị tuyệt hảo của ${product.name}, dòng bia nhập khẩu chính hãng từ Đức.`;
 
   return {
-    title: `${product.name} — Bia Thầy Tu`,
+    title: product.name,
     description: pageDescription,
     alternates: {
       canonical: productUrl,
     },
     openGraph: {
-      title: `${product.name} — Bia Thầy Tu`,
+      title: product.name,
       description: pageDescription,
       url: productUrl,
       type: 'website',
@@ -302,7 +302,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       </div>
                       <div style={{ flex: '1 1 180px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.description?.substring(0, 150)}...</p>
+                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.description}</p>
                       </div>
                     </div>
                   </div>
@@ -334,7 +334,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <ProductCard
                   key={relatedProduct.id}
                   {...relatedProduct}
-                  description={relatedProduct.description?.substring(0, 80) || getTastingNotes(relatedProduct.name)}
+                  description={relatedProduct.description || getTastingNotes(relatedProduct.name)}
                   showCTA={true}
                 />
               ))}

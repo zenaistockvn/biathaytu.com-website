@@ -6,16 +6,6 @@ import AlcoholWarning from './AlcoholWarning';
 export default function WebFooter() {
   const { t } = useLanguage();
 
-  const handleResetAge = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new CustomEvent('resetAgeVerification'));
-  };
-
-  const handleResetCookie = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new CustomEvent('resetCookieConsent'));
-  };
-
   return (
     <footer className="web-footer">
       <div className="container footer-grid">
@@ -38,23 +28,28 @@ export default function WebFooter() {
               <strong>GPKD số:</strong> 0110870013 do Sở KH&ĐT Hà Nội cấp
             </p>
           </div>
-          <div className="footer-socials" style={{ marginTop: '20px' }}>
+          <div className="footer-socials" style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
             <a 
               href="https://zalo.me/0899191313"
               target="_blank" rel="noopener noreferrer"
               className="footer-social-icon"
               title="Zalo"
-            >💬</a>
+              style={{ fontSize: '13px', fontWeight: 800 }}
+            >ZALO</a>
             <a 
               href="tel:0899191313"
               className="footer-social-icon"
               title="Hotline"
-            >📞</a>
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.31-.31.76-.42 1.17-.28 1.29.43 2.66.66 4.07.66.63 0 1.14.51 1.14 1.14v3.5c0 .63-.51 1.14-1.14 1.14C10.79 21.34 2.66 13.21 2.66 3.35c0-.63.51-1.14 1.14-1.14h3.5c.63 0 1.14.51 1.14 1.14 0 1.41.23 2.78.66 4.07.13.41.03.86-.28 1.17l-2.2 2.2Z"/></svg>
+            </a>
             <a 
               href="mailto:info@biathaytu.com"
               className="footer-social-icon"
               title="Email"
-            >✉️</a>
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
           </div>
         </div>
 
@@ -62,10 +57,11 @@ export default function WebFooter() {
         <div>
           <h4 className="footer-heading">{t('nav.products')}</h4>
           <div className="footer-links">
-            <Link href="/san-pham">Benediktiner Weissbier</Link>
-            <Link href="/san-pham">Benediktiner Dunkel</Link>
-            <Link href="/san-pham">Benediktiner Mix 2 Vị</Link>
-            <Link href="/san-pham">Bom 5L Benediktiner</Link>
+            <Link href="/san-pham/benediktiner-naturtrub-thung-12-chai-500ml">Benediktiner Weissbier</Link>
+            <Link href="/san-pham/benediktiner-dunkel-thung-12-chai-500ml">Benediktiner Dunkel</Link>
+            <Link href="/san-pham/benediktiner-mix-2-v-thng-12-chai-500ml">Benediktiner Mix 2 Vị</Link>
+            <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5L Benediktiner</Link>
+            <Link href="/qua-tang-bia-duc">Quà Tặng Bia Đức</Link>
           </div>
         </div>
 
@@ -83,7 +79,7 @@ export default function WebFooter() {
           </div>
         </div>
 
-        {/* Liên hệ & Tùy chọn */}
+        {/* Liên hệ */}
         <div>
           <h4 className="footer-heading">{t('footer.contact.title')}</h4>
           <div className="footer-contact">
@@ -95,38 +91,6 @@ export default function WebFooter() {
               <strong>Email:</strong><br/>
               <a href="mailto:info@biathaytu.com">{t('footer.contact.email')}</a>
             </p>
-            <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <button
-                onClick={handleResetAge}
-                style={{
-                  background: 'none',
-                  border: '1px dashed #f39c12',
-                  color: '#f39c12',
-                  padding: '6px 10px',
-                  borderRadius: '4px',
-                  fontSize: '12px',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                }}
-              >
-                🔄 Xóa xác nhận độ tuổi
-              </button>
-              <button
-                onClick={handleResetCookie}
-                style={{
-                  background: 'none',
-                  border: '1px dashed #94a3b8',
-                  color: '#94a3b8',
-                  padding: '6px 10px',
-                  borderRadius: '4px',
-                  fontSize: '12px',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                }}
-              >
-                ⚙️ Cài đặt Cookie
-              </button>
-            </div>
           </div>
         </div>
       </div>
