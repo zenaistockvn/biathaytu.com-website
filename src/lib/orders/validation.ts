@@ -1,7 +1,11 @@
 import type { OrderCustomer, ClientCartItem } from './types';
 
-const PHONE_REGEX = /^(0[3|5|7|8|9])+([0-9]{8})$/;
+export const PHONE_REGEX = /^(?:0|\+84)(?:3|5|7|8|9)\d{8}$/;
 export const MAX_QUANTITY_PER_ITEM = 99;
+
+export function isValidVietnamesePhone(phone: string): boolean {
+  return PHONE_REGEX.test(phone.trim());
+}
 
 export interface ValidationResult {
   ok: boolean;
@@ -18,7 +22,7 @@ export function validateOrderInput(
   if (customer.name.trim().length < 2) {
     return { ok: false, error: 'Tên người đặt không hợp lệ' };
   }
-  if (!PHONE_REGEX.test(customer.phone)) {
+  if (!isValidVietnamesePhone(customer.phone)) {
     return { ok: false, error: 'Số điện thoại người đặt không hợp lệ' };
   }
 
@@ -34,7 +38,7 @@ export function validateOrderInput(
   }
 
   // Validate receiver phone if provided
-  if (customer.receiverPhone && !PHONE_REGEX.test(customer.receiverPhone)) {
+  if (customer.receiverPhone && !isValidVietnamesePhone(customer.receiverPhone)) {
     return { ok: false, error: 'Số điện thoại người nhận không hợp lệ' };
   }
 

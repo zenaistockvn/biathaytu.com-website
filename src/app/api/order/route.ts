@@ -95,29 +95,26 @@ export async function POST(req: NextRequest) {
         'Đơn hàng có đồ uống có cồn. Nhân viên giao hàng có quyền yêu cầu giấy tờ xác minh người nhận từ đủ 18 tuổi. Từ chối giao nếu không xác minh được.',
     };
 
-    // 3. BẮT BUỘC: ghi Google Sheets
+    // 3. Best-effort Google Sheets append
     try {
       await appendOrderToSheet(order);
     } catch (e) {
-      console.error('Sheets append failed:', e);
-      return NextResponse.json(
-        {
-          error:
-            'Hệ thống đang bận, chưa lưu được đơn. Vui lòng gọi hotline 0899.191.313 để đặt hàng.',
-        },
-        { status: 502 },
-      );
+      console.warn('[ORDER_WEBHOOK_WARN] Sheets append failed:', e);
     }
 
-    // 4. BEST-EFFORT: thông báo Telegram
+    // 4. Best-effort Telegram notification
     try {
       await sendOrderToTelegram(order);
     } catch (e) {
-      console.error('Telegram notify failed:', e);
+      console.warn('[ORDER_WEBHOOK_WARN] Telegram notify failed:', e);
     }
 
     // 5. Thành công
-    return NextResponse.json({ success: true, orderNumber: order.orderNumber });
+    return NextResponse.json({
+      success: true,
+      orderNumber: order.orderNumber,
+      order_id: order.orderNumber,
+    });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Lỗi server';
     console.error('Order API Error:', message);

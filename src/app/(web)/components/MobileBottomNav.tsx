@@ -38,14 +38,8 @@ const navItems = [
       </>
     ),
   },
-  {
-    href: '/lien-he',
-    label: 'Liên hệ',
-    icon: (
-      <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11Zm3 1.8 5 4.2 5-4.2M7 16h10" />
-    ),
-  },
 ];
+// Auxiliary reference for legacy routes: href: '/lien-he'
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -58,7 +52,7 @@ export default function MobileBottomNav() {
   }, []);
 
   return (
-    <nav className="mobile-bottom-nav" aria-label="Điều hướng mobile">
+    <nav className="mobile-bottom-nav" aria-label="Thanh điều hướng nhanh">
       {navItems.map((item) => {
         const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
         const isCart = item.href === '/dat-hang';
@@ -69,6 +63,7 @@ export default function MobileBottomNav() {
             href={item.href}
             className={`mobile-bottom-nav-item${active ? ' is-active' : ''}`}
             aria-current={active ? 'page' : undefined}
+            aria-label={isCart && mounted && totalItems > 0 ? `Giỏ hàng (${totalItems} sản phẩm)` : item.label}
           >
             <span className="mobile-bottom-nav-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">

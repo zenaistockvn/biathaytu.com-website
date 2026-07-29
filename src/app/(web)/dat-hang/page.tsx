@@ -8,6 +8,7 @@ import { useToastStore } from '@/stores/useToastStore';
 import { formatPrice } from '@/utils/formatPrice';
 import AlcoholWarning from '../components/AlcoholWarning';
 import { BANK_CONFIG, IS_BANK_TRANSFER_ENABLED } from '@/constants/compliance';
+import { isValidVietnamesePhone } from '@/lib/orders/validation';
 
 export default function CheckoutPage() {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
@@ -114,9 +115,12 @@ export default function CheckoutPage() {
     if (items.length === 0) return;
     
     // Client-side validation
-    const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
-    if (!phoneRegex.test(formData.phone)) {
-      setErrorMsg('Số điện thoại người đặt không hợp lệ. Vui lòng nhập 10 số, bắt đầu bằng 03, 05, 07, 08 hoặc 09.');
+    if (!isValidVietnamesePhone(formData.phone)) {
+      setErrorMsg('Số điện thoại người đặt không hợp lệ. Vui lòng nhập 10 số (hoặc định dạng +84).');
+      return;
+    }
+    if (formData.receiverPhone && !isValidVietnamesePhone(formData.receiverPhone)) {
+      setErrorMsg('Số điện thoại người nhận không hợp lệ. Vui lòng nhập 10 số (hoặc định dạng +84).');
       return;
     }
     if (formData.name.trim().length < 2) {

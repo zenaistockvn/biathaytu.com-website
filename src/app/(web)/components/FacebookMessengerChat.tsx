@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { getCookieConsentPreferences, CookiePreferences } from './CookieConsent';
 
 // Declare custom properties on window object for Facebook SDK
 declare global {
   interface Window {
     fbAsyncInit?: () => void;
-    FB?: any;
+    FB?: { init: (o: Record<string, unknown>) => void; XFBML?: { parse: () => void } };
   }
 }
 
@@ -16,17 +17,45 @@ const PAGE_ID_BITBURGER = process.env.NEXT_PUBLIC_FB_PAGE_ID_BITBURGER || '10422
 
 export default function FacebookMessengerChat() {
   const pathname = usePathname();
-  const [currentPageId, setCurrentPageId] = useState('');
+  const [hasMarketingConsent, setHasMarketingConsent] = useState(false);
 
   useEffect(() => {
-    // 1. Determine target Page ID based on URL path
-    const isBitburger = pathname.includes('bitburger');
-    const targetPageId = isBitburger ? PAGE_ID_BITBURGER : PAGE_ID_TIEPKHACH;
-    setCurrentPageId(targetPageId);
-  }, [pathname]);
+    const checkConsent = () => {
+      const prefs = getCookieConsentPreferences();
+      setHasMarketingConsent(Boolean(prefs?.marketing));
+    };
+
+    checkConsent();
+
+    const handleConsentUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent<CookiePreferences>;
+      setHasMarketingConsent(Boolean(customEvent.detail?.marketing));
+    };
+
+    window.addEventListener('cookieConsentUpdated', handleConsentUpdate);
+    return () => window.removeEventListener('cookieConsentUpdated', handleConsentUpdate);
+  }, []);
+
+  const isBitburger = pathname.includes('bitburger');
+  const currentPageId = isBitburger ? PAGE_ID_BITBURGER : PAGE_ID_TIEPKHACH;
 
   useEffect(() => {
-    if (!currentPageId) return;
+    if (!hasMarketingConsent || !currentPageId) {
+      // Clean up SDK DOM elements if consent is revoked
+      const fbRoot = document.getElementById('fb-root');
+      if (fbRoot) fbRoot.remove();
+
+      const chatbox = document.getElementById('fb-customer-chat');
+      if (chatbox) chatbox.remove();
+
+      const script = document.getElementById('facebook-jssdk');
+      if (script) script.remove();
+
+      const iframes = document.querySelectorAll('iframe[name^="fbc_"]');
+      iframes.forEach((el) => el.remove());
+
+      return;
+    }
 
     // 2. Inject or update fb-root div
     let fbRoot = document.getElementById('fb-root');
@@ -51,7 +80,7 @@ export default function FacebookMessengerChat() {
 
     // 4. Initialize Facebook SDK
     window.fbAsyncInit = function () {
-      window.FB.init({
+      window.FB?.init({
         xfbml: true,
         version: 'v18.0',
       });
@@ -66,12 +95,10 @@ export default function FacebookMessengerChat() {
       script.id = scriptId;
       script.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
       const firstScript = document.getElementsByTagName('script')[0];
-      firstScript.parentNode?.insertBefore(script, firstScript);
+      firstScript?.parentNode?.insertBefore(script, firstScript);
     } else {
-      // Re-parse XFBML to apply the dynamically changed page_id
       try {
         if (window.FB && window.FB.XFBML) {
-          // Temporarily hide chat widget during reload to prevent flashing
           const iframe = document.querySelector('iframe[name^="fbc_"]') as HTMLIFrameElement;
           if (iframe) iframe.style.opacity = '0';
           
@@ -81,7 +108,7 @@ export default function FacebookMessengerChat() {
         console.error('Failed to parse XFBML for Messenger:', e);
       }
     }
-  }, [currentPageId]);
+  }, [currentPageId, hasMarketingConsent]);
 
   return null;
 }
