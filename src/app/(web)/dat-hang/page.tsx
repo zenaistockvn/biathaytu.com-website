@@ -278,6 +278,7 @@ export default function CheckoutPage() {
                       type="button" 
                       onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))} 
                       className="checkout-qty-btn"
+                      aria-label="Giảm số lượng"
                     >
                       -
                     </button>
@@ -286,6 +287,7 @@ export default function CheckoutPage() {
                       type="button" 
                       onClick={() => updateQuantity(item.id, item.quantity + 1)} 
                       className="checkout-qty-btn"
+                      aria-label="Tăng số lượng"
                     >
                       +
                     </button>
@@ -294,7 +296,7 @@ export default function CheckoutPage() {
                     type="button" 
                     className="checkout-remove-btn" 
                     onClick={() => removeItem(item.id)}
-                    aria-label="Xóa sản phẩm"
+                    aria-label="Xóa sản phẩm khỏi giỏ"
                   >
                     ✕
                   </button>
@@ -357,11 +359,13 @@ export default function CheckoutPage() {
             <h2 className="checkout-section-title">Thông tin người đặt & giao hàng</h2>
             <form onSubmit={handleSubmit} className="checkout-form">
               <div className="checkout-field">
-                <label className="checkout-label">Họ và Tên người đặt *</label>
+                <label className="checkout-label" htmlFor="co-name">Họ và Tên người đặt *</label>
                 <input 
+                  id="co-name"
                   required 
                   type="text" 
                   name="name" 
+                  autoComplete="name"
                   value={formData.name} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -369,11 +373,14 @@ export default function CheckoutPage() {
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Số điện thoại người đặt *</label>
+                <label className="checkout-label" htmlFor="co-phone">Số điện thoại người đặt *</label>
                 <input 
+                  id="co-phone"
                   required 
                   type="tel" 
                   name="phone" 
+                  autoComplete="tel"
+                  inputMode="numeric"
                   value={formData.phone} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -381,10 +388,12 @@ export default function CheckoutPage() {
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Email người đặt (Tùy chọn)</label>
+                <label className="checkout-label" htmlFor="co-email">Email người đặt (Tùy chọn)</label>
                 <input 
+                  id="co-email"
                   type="email" 
                   name="email" 
+                  autoComplete="email"
                   value={formData.email} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -396,10 +405,12 @@ export default function CheckoutPage() {
               <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: '#1e293b' }}>Thông tin người nhận hàng</h3>
 
               <div className="checkout-field">
-                <label className="checkout-label">Họ và Tên người nhận (Để trống nếu trùng người đặt)</label>
+                <label className="checkout-label" htmlFor="co-recv-name">Họ và Tên người nhận (Để trống nếu trùng người đặt)</label>
                 <input 
+                  id="co-recv-name"
                   type="text" 
                   name="receiverName" 
+                  autoComplete="name"
                   value={formData.receiverName} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -407,10 +418,13 @@ export default function CheckoutPage() {
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Số điện thoại người nhận (Để trống nếu trùng người đặt)</label>
+                <label className="checkout-label" htmlFor="co-recv-phone">Số điện thoại người nhận (Để trống nếu trùng người đặt)</label>
                 <input 
+                  id="co-recv-phone"
                   type="tel" 
                   name="receiverPhone" 
+                  autoComplete="tel"
+                  inputMode="numeric"
                   value={formData.receiverPhone} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -419,11 +433,13 @@ export default function CheckoutPage() {
               </div>
 
               <div className="checkout-field">
-                <label className="checkout-label">Địa chỉ nhận hàng *</label>
+                <label className="checkout-label" htmlFor="co-address">Địa chỉ nhận hàng *</label>
                 <input 
+                  id="co-address"
                   required 
                   type="text" 
                   name="address" 
+                  autoComplete="street-address"
                   value={formData.address} 
                   onChange={handleChange} 
                   className="checkout-input-text" 
@@ -431,9 +447,11 @@ export default function CheckoutPage() {
                 />
               </div>
               <div className="checkout-field">
-                <label className="checkout-label">Ghi chú đơn hàng (Tùy chọn)</label>
+                <label className="checkout-label" htmlFor="co-note">Ghi chú đơn hàng (Tùy chọn)</label>
                 <textarea 
+                  id="co-note"
                   name="note" 
+                  autoComplete="off"
                   value={formData.note} 
                   onChange={handleChange} 
                   className="checkout-textarea" 

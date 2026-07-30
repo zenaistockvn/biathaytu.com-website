@@ -79,10 +79,11 @@ export default function WebLayout({
   return (
     <div className="web-app">
       <LanguageProvider>
+        <a href="#main-content" className="skip-link">Bỏ qua tới nội dung chính</a>
         <JsonLd type="organization" data={getOrganizationSchema()} />
         <JsonLd type="website" data={getWebsiteSchema()} />
         <WebHeader />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <WebFooter />
         <FloatingZaloCTA />
         <FootballCampaignPopup />

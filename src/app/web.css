@@ -2184,6 +2184,9 @@ html {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   transition: transform 0.2s ease;
 }
 
@@ -3099,8 +3102,8 @@ html {
 }
 
 .web-app .checkout-qty-btn {
-  width: 32px;
-  height: 32px;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5757,4 +5760,43 @@ html {
   gap: 6px;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.web-app .footer-links a {
+  display: block;
+  padding: 10px 0;
+}
+
+.web-app .skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  padding: 12px 20px;
+  background: var(--web-navy);
+  color: #fff !important;
+  border-radius: 0 0 var(--web-radius-md) 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.web-app .skip-link:focus {
+  left: 0;
+}
+
+.web-app .toast-container {
+  position: fixed;
+  right: 16px;
+  left: 16px;
+  bottom: calc(var(--web-mobile-bottom-nav-height) + 12px + env(safe-area-inset-bottom));
+  z-index: 9998;
+  animation: slideInRight 0.3s ease;
+}
+
+@media (min-width: 769px) {
+  .web-app .toast-container {
+    left: auto;
+    top: 88px;
+    bottom: auto;
+  }
 }

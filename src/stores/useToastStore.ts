@@ -7,14 +7,18 @@ interface ToastState {
   hide: () => void;
 }
 
+let hideTimer: ReturnType<typeof setTimeout> | undefined;
+
 export const useToastStore = create<ToastState>((set) => ({
   message: '',
   visible: false,
   show: (msg) => {
+    if (hideTimer) clearTimeout(hideTimer);
     set({ message: msg, visible: true });
-    setTimeout(() => {
-      set({ visible: false });
-    }, 3000);
+    hideTimer = setTimeout(() => set({ visible: false }), 3000);
   },
-  hide: () => set({ visible: false }),
+  hide: () => {
+    if (hideTimer) clearTimeout(hideTimer);
+    set({ visible: false });
+  },
 }));
