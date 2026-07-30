@@ -22,12 +22,19 @@ export interface Product {
   is_featured: boolean;
   origin: string | null;
   updated_at: string | null;
+  hidden?: boolean;
 }
+
+export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
+  'kosteritzer-schwarzbier-24-chai-330ml',
+  'kosteritzer-schwarzbier-thung-12-chai-500ml',
+  'kostritzer-schwarzbier-bom-5l',
+  'combo-oktoberfest-keg-kostritzer-xuc-xich',
+]);
 
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 
 function isStorefrontProduct(product: Product): boolean {
-  if (product.slug.includes('kostritzer')) return false;
   return Boolean(
     product.id &&
       product.name &&
@@ -45,7 +52,12 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       continue;
     }
 
-    productsBySlug.set(product.slug, product);
+    const item = { ...product };
+    if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) {
+      item.hidden = true;
+    }
+
+    productsBySlug.set(item.slug, item);
   }
 
   return Array.from(productsBySlug.values()).sort(
@@ -58,6 +70,8 @@ const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
   LOCAL_STOREFRONT_PRODUCTS,
 );
 
+export const PRODUCTS: Product[] = ALL_PRODUCTS;
+
 function isBitburger(name: string): boolean {
   return name.toLowerCase().includes('bitburger');
 }
@@ -66,42 +80,46 @@ export function getAllProducts(): Product[] {
   return ALL_PRODUCTS;
 }
 
+export function getVisibleProducts(): Product[] {
+  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug));
+}
+
 export function getProductBySlugOrId(key: string): Product | null {
   return ALL_PRODUCTS.find((p) => p.slug === key || p.id === key) ?? null;
 }
 
 export function getBeerProducts(opts?: { excludeBitburger?: boolean }): Product[] {
-  return ALL_PRODUCTS.filter(
+  return getVisibleProducts().filter(
     (p) => p.category === 'bia' && (!opts?.excludeBitburger || !isBitburger(p.name)),
   );
 }
 
 export function getAccessories(): Product[] {
-  return ALL_PRODUCTS.filter((p) => p.category === 'phu-kien');
+  return getVisibleProducts().filter((p) => p.category === 'phu-kien');
 }
 
 export function getSausageProducts(): Product[] {
-  return ALL_PRODUCTS.filter((p) => p.category === 'xuc-xich');
+  return getVisibleProducts().filter((p) => p.category === 'xuc-xich');
 }
 
 export function getRelatedBeers(excludeId: string, limit = 4): Product[] {
-  return ALL_PRODUCTS.filter(
+  return getVisibleProducts().filter(
     (p) => p.category === 'bia' && p.id !== excludeId && !isBitburger(p.name),
   ).slice(0, limit);
 }
 
 export function getFeaturedBeers(limit = 3): Product[] {
-  return ALL_PRODUCTS.filter(
+  return getVisibleProducts().filter(
     (p) => p.is_featured && p.category !== 'vang' && !isBitburger(p.name),
   ).slice(0, limit);
 }
 
 export function getProductsByCategory(category: string): Product[] {
-  return ALL_PRODUCTS.filter((p) => p.category === category);
+  return getVisibleProducts().filter((p) => p.category === category);
 }
 
 export function getComboProducts(): Product[] {
-  return ALL_PRODUCTS.filter((p) => p.category === 'combo');
+  return getVisibleProducts().filter((p) => p.category === 'combo');
 }
 
 export function getRelatedCombo(beerNameOrSlug: string): Product | null {
