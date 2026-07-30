@@ -25,9 +25,12 @@ export interface Product {
   hidden?: boolean;
 }
 
+/**
+ * SKU tạm ẩn khỏi storefront kèm LÝ DO. Xoá slug khỏi danh sách này để bán lại.
+ * TODO(2026-07-30): cả 2 SKU trỏ tới /images/products/official/bitburger/kostritzer_keg.png
+ * — file KHÔNG tồn tại trong public/. Cần ảnh Köstritzer chính hãng, KHÔNG được dùng ảnh Bitburger thay thế.
+ */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
-  'kosteritzer-schwarzbier-24-chai-330ml',
-  'kosteritzer-schwarzbier-thung-12-chai-500ml',
   'kostritzer-schwarzbier-bom-5l',
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ]);
