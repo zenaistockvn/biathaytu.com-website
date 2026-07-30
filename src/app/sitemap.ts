@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllProducts } from '@/lib/data/products';
+import { getVisibleProducts } from '@/lib/data/products';
 import { getPublishedArticles } from '@/lib/data/articles';
 import { getPublicBaseUrl } from '@/lib/seo/site';
 
@@ -103,7 +103,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // [C1 FIX] Fetch dynamic products with proper typing
-  const products = getAllProducts();
+  const products = getVisibleProducts();
   if (products) {
     for (const product of products as unknown as SitemapProduct[]) {
       routes.push({

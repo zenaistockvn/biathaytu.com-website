@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAllProducts } from '@/lib/data/products';
+import { getVisibleProducts } from '@/lib/data/products';
 import { getPublishedArticles } from '@/lib/data/articles';
 import { getPublicBaseUrl } from '@/lib/seo/site';
 
@@ -28,7 +28,7 @@ interface ArticleItem {
 export async function GET() {
   const baseUrl = getPublicBaseUrl();
 
-  const products = getAllProducts() as unknown as ProductItem[];
+  const products = getVisibleProducts() as unknown as ProductItem[];
   const articles = getPublishedArticles() as unknown as ArticleItem[];
 
   let markdown = `# Bia Thầy Tu & Xúc Xích Đức\n\n`;

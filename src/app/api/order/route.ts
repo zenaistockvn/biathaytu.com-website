@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getProductBySlugOrId } from '@/lib/data/products';
+import { lookupOrderableProduct } from '@/lib/orders/productLookup';
 import { getActivePromoByCode } from '@/lib/data/promo';
 import { validateOrderInput } from '@/lib/orders/validation';
 import { calculateOrderTotals } from '@/lib/orders/pricing';
@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
     const promo = appliedCode ? getActivePromoByCode(appliedCode) : null;
     let totals;
     try {
-      totals = calculateOrderTotals(items, getProductBySlugOrId, promo);
+      totals = calculateOrderTotals(items, lookupOrderableProduct, promo);
     } catch (e) {
       const msg = e instanceof Error ? e.message : 'Lỗi xác thực sản phẩm';
       return NextResponse.json({ error: msg }, { status: 400 });

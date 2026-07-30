@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getProductBySlugOrId, getRelatedBeers, getAllProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
+import { getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
@@ -10,7 +10,7 @@ import { getTastingNotes } from '../../utils/getTastingNotes';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 
 export function generateStaticParams() {
-  return getAllProducts()
+  return getVisibleProducts()
     .filter((p) => p.slug)
     .map((p) => ({ slug: p.slug as string }));
 }
@@ -28,6 +28,7 @@ interface ProductData {
   haravan_url: string | null;
   origin: string | null;
   category: string | null;
+  hidden?: boolean;
 }
 
 function formatPrice(price: number | null): string {
@@ -38,7 +39,7 @@ function formatPrice(price: number | null): string {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = getProductBySlugOrId(slug) as ProductData | null;
-  if (!product) return {};
+  if (!product || product.hidden) return {};
   const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
 
   const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/sanh_bia_duc_cover.png');
@@ -79,7 +80,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   const product = getProductBySlugOrId(slug) as ProductData | null;
 
-  if (!product) {
+  if (!product || product.hidden) {
     notFound();
   }
 

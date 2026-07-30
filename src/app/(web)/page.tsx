@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllProducts } from '@/lib/data/products';
+import { getVisibleProducts } from '@/lib/data/products';
 import ZaloCTA from './components/ZaloCTA';
 import LandingHero from './components/LandingHero';
 import SectionHeader from './components/SectionHeader';
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export default async function LandingPage() {
-  const featuredProducts = getAllProducts();
+  const featuredProducts = getVisibleProducts();
 
   return (
     <>
@@ -57,17 +57,36 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           USP BAR — 4 Điểm Mạnh
       ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════ 
+          USP BAR — 4 Điểm Mạnh
+      ═══════════════════════════════════════════ */}
       <section className="usp-bar reveal-on-scroll" aria-label="Điểm nổi bật">
         <div className="container usp-grid">
           {[
-            { abbr: 'DE', title: '100% Nhập Khẩu', desc: 'Nguyên chai trực tiếp từ Đức' },
-            { abbr: '1516', title: 'Luật Tinh Khiết', desc: 'Chỉ 4 nguyên liệu: Malt, Hoa bia, Men, Nước' },
-            { abbr: 'VN', title: 'Giao Hàng Toàn Quốc', desc: 'Ship COD mọi tỉnh thành Việt Nam' },
-            { abbr: '★★★', title: 'Giải Thưởng Quốc Tế', desc: 'iTQi 3 Sao — Hương vị vượt trội' },
+            { 
+              title: '100% Nhập Khẩu', 
+              desc: 'Nguyên chai trực tiếp từ Đức',
+              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            },
+            { 
+              title: 'Luật Tinh Khiết', 
+              desc: 'Chỉ 4 nguyên liệu: Malt, Hoa bia, Men, Nước',
+              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            },
+            { 
+              title: 'Giao Hàng Toàn Quốc', 
+              desc: 'Ship COD mọi tỉnh thành Việt Nam',
+              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            },
+            { 
+              title: 'Giải Thưởng Quốc Tế', 
+              desc: 'iTQi 3 Sao — Hương vị vượt trội',
+              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            },
           ].map((item, i) => (
             <div key={i} className="usp-item-wrap">
-              <div className={`usp-icon ${item.abbr.length > 3 ? 'usp-icon--small' : 'usp-icon--stars'}`}>
-                {item.abbr}
+              <div className="usp-icon">
+                {item.icon}
               </div>
               <h3 className="usp-title">{item.title}</h3>
               <p className="usp-desc">{item.desc}</p>
@@ -123,13 +142,13 @@ export default async function LandingPage() {
 
             <div className="stat-card stat-card-bordered">
               <div>
-                <div className="stat-value">3 ⭐</div>
+                <div className="stat-value">iTQi 3 Sao</div>
                 <div className="stat-label">Superior Taste Award</div>
               </div>
               <div className="stat-separator" />
               <div>
                 <div className="stat-value stat-value-dark">1330</div>
-                <div className="stat-label">Năm lịch sử Tu Viện Ettal</div>
+                <div className="stat-label">Tu Viện Ettal thành lập</div>
               </div>
             </div>
 
@@ -169,7 +188,7 @@ export default async function LandingPage() {
                   color: 'var(--web-gold)',
                 },
                 { 
-                  icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>, 
+                  icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 21h8M12 17v4M7 4h10l-1 13H8L7 4z"/><path d="M5 8h14"/></svg>, 
                   title: 'Dòng Dunkel (Bia Đen)', 
                   desc: 'Vị mạch nha rang đậm đà cùng xirô caramel — Lựa chọn hoàn hảo khi sánh vai cùng Xúc xích nướng BBQ, Steak bò non, Thịt cừu.',
                   color: 'var(--web-navy)',
@@ -198,7 +217,7 @@ export default async function LandingPage() {
               <div className="food-img-wrap food-img-wide">
                 <Image src="/images/products/food_pho.png" alt="Phở Việt Nam và bia Đức Benediktiner — Food Pairing đặc biệt" fill style={{ objectFit: 'cover' }} />
                 <div className="food-img-badge">
-                  <span className="emoji-span">🇻🇳</span> Bia Đức × Ẩm Thực Việt = Tuyệt Phẩm
+                  Bia Đức × Ẩm Thực Việt = Tuyệt Phẩm
                 </div>
               </div>
             </div>
@@ -236,8 +255,8 @@ export default async function LandingPage() {
             {/* Floating stat card */}
             <div className="stat-card stat-card-absolute">
               <div>
-                <div className="stat-value">693+</div>
-                <div className="stat-label">Năm Lịch Sử</div>
+                <div className="stat-value">1330</div>
+                <div className="stat-label">Khởi Nguồn</div>
               </div>
               <div className="stat-separator" />
               <div>
@@ -255,79 +274,7 @@ export default async function LandingPage() {
       </section>
 
 
-      {/* ═══════════════════════════════════════════ 
-          TESTIMONIALS — Đánh Giá Khách Hàng
-      ═══════════════════════════════════════════ */}
-      <section className="section reveal-on-scroll delay-100" aria-label="Đánh giá khách hàng">
-        <div className="container">
-          <SectionHeader label="Khách Hàng Nói Gì" title="Đánh Giá Từ Người Yêu Bia" />
 
-          <div className="testimonial-carousel testimonial-scroll">
-            {[
-              {
-                name: 'Nguyễn Minh Tâm',
-                role: 'Giám đốc kinh doanh',
-                avatar: '/images/avatars/nguyen_minh_tam.png',
-                text: 'Bia Benediktiner luôn là lựa chọn hàng đầu của tôi trong mọi bữa tiệc. Sự kết hợp tuyệt vời giữa truyền thống và chất lượng cao cấp không chỉ làm hài lòng vị giác mà còn tạo nên dấu ấn đặc biệt.',
-                rating: 5,
-              },
-              {
-                name: 'Trần Văn Nam',
-                role: 'Nhân viên văn phòng',
-                avatar: '/images/avatars/tran_van_nam.png',
-                text: 'Vị bia Naturtrüb của Benediktiner hương vị đậm đà và tươi mát khiến tôi thấy sảng khoái. Mỗi ngụm bia là sự kết hợp hoàn hảo giữa độ ngọt nhẹ nhàng của lúa mạch và một chút đắng tinh tế.',
-                rating: 5,
-              },
-              {
-                name: 'Trần Thu Phương',
-                role: 'Sinh viên',
-                avatar: '/images/avatars/tran_thu_phuong.png',
-                text: 'Vị bia đen Dunkel khiến tôi thích thú ngay từ ngụm đầu tiên. Sự kết hợp hài hòa giữa hương thơm đậm đà của mạch nha rang và chút vị ngọt nhẹ nhàng mang đến trải nghiệm đầy ấn tượng.',
-                rating: 5,
-              },
-              {
-                name: 'Lê Hoàng Long',
-                role: 'Doanh nhân',
-                avatar: '/images/avatars/le_hoang_long.png',
-                text: 'Là người sành bia, tôi khá khó tính với chất lượng. Benediktiner Weissbier hoàn toàn chinh phục tôi — vị lúa mì tự nhiên, bọt bia mịn dày, và hậu vị sạch. Đúng chuẩn bia Đức chính hãng.',
-                rating: 5,
-              },
-              {
-                name: 'Phạm Thanh Hà',
-                role: 'Chủ nhà hàng',
-                avatar: '/images/avatars/pham_thanh_ha.png',
-                text: 'Từ khi đưa Bia Thầy Tu vào menu, khách hàng phản hồi rất tích cực. Đặc biệt các món hải sản nướng kết hợp với Weissbier tạo nên trải nghiệm ẩm thực hoàn hảo. Doanh thu bia tăng đáng kể.',
-                rating: 5,
-              },
-              {
-                name: 'Đỗ Quang Huy',
-                role: 'Food Blogger',
-                avatar: '/images/avatars/do_quang_huy.png',
-                text: 'Mình review nhiều loại bia nhập khẩu nhưng Benediktiner thực sự nổi bật. Bia có màu vàng hổ phách đẹp, mùi thơm trái cây nhẹ nhàng rất dễ uống. Follow mình đi sẽ có nhiều combo pairing hay!',
-                rating: 5,
-              },
-            ].map((t, i) => (
-              <div key={i} className="testimonial-card testimonial-item">
-                <div className="star-rating">
-                  {Array(t.rating).fill(0).map((_, j) => (
-                    <span key={j}>★</span>
-                  ))}
-                </div>
-                <p className="testimonial-quote">{t.text}</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">
-                    <Image src={t.avatar} alt={t.name} fill style={{ objectFit: 'cover' }} sizes="44px" />
-                  </div>
-                  <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* ═══════════════════════════════════════════ 
