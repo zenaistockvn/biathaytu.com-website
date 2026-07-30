@@ -73,8 +73,6 @@ const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
   LOCAL_STOREFRONT_PRODUCTS,
 );
 
-export const PRODUCTS: Product[] = ALL_PRODUCTS;
-
 function isBitburger(name: string): boolean {
   return name.toLowerCase().includes('bitburger');
 }
