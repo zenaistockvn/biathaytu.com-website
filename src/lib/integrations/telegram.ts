@@ -2,8 +2,10 @@ import type { OrderRecord } from '@/lib/orders/types';
 import { formatPrice } from '@/utils/formatPrice';
 
 /** Text THUẦN (không parse_mode) → an toàn trước injection. */
-export function buildTelegramMessage(order: OrderRecord): string {
-  const lines = [
+export function buildTelegramMessage(order: OrderRecord, warningBanner?: string): string {
+  const lines: string[] = [];
+  if (warningBanner) lines.push(warningBanner, '');
+  lines.push(
     `🍺 ĐƠN HÀNG MỚI: ${order.orderNumber}`,
     ``,
     `Khách: ${order.customer.name}`,
@@ -16,7 +18,7 @@ export function buildTelegramMessage(order: OrderRecord): string {
     ...order.items.map((i) => `• ${i.name} x${i.quantity} = ${formatPrice(i.subtotal)}`),
     ``,
     `Tạm tính: ${formatPrice(order.subTotal)}`,
-  ];
+  );
   if (order.autoDiscount > 0) lines.push(`Giảm 5%: -${formatPrice(order.autoDiscount)}`);
   if (order.promoDiscount > 0) lines.push(`Mã ${order.promoCode}: -${formatPrice(order.promoDiscount)}`);
   lines.push(`TỔNG: ${formatPrice(order.totalPrice)}`);
@@ -24,7 +26,7 @@ export function buildTelegramMessage(order: OrderRecord): string {
 }
 
 /** Best-effort: caller bắt lỗi và KHÔNG chặn đơn nếu thất bại. */
-export async function sendOrderToTelegram(order: OrderRecord): Promise<void> {
+export async function sendOrderToTelegram(order: OrderRecord, warningBanner?: string): Promise<void> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
@@ -36,7 +38,7 @@ export async function sendOrderToTelegram(order: OrderRecord): Promise<void> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       chat_id: chatId,
-      text: buildTelegramMessage(order),
+      text: buildTelegramMessage(order, warningBanner),
       disable_web_page_preview: true,
     }),
   });

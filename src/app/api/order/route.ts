@@ -15,6 +15,11 @@ const requestCounts = new Map<string, { count: number; resetAt: number }>();
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+  if (requestCounts.size > 500) {
+    for (const [key, value] of requestCounts) {
+      if (now > value.resetAt) requestCounts.delete(key);
+    }
+  }
   const entry = requestCounts.get(ip);
   if (!entry || now > entry.resetAt) {
     requestCounts.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
@@ -24,20 +29,14 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT_MAX;
 }
 
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, entry] of requestCounts.entries()) {
-    if (now > entry.resetAt) requestCounts.delete(ip);
-  }
-}, 5 * 60_000);
-
+/** BTU-YYYYMMDD-HHmmss-XXX (XXX = base36) → chống trùng trong cùng ngày. */
 function generateOrderNumber(): string {
-  const date = new Date();
-  const yyyy = date.getFullYear();
-  const mm = String(date.getMonth() + 1).padStart(2, '0');
-  const dd = String(date.getDate()).padStart(2, '0');
-  const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-  return `BTU-${yyyy}${mm}${dd}-${randomSuffix}`;
+  const d = new Date();
+  const p = (n: number) => String(n).padStart(2, '0');
+  const date = `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}`;
+  const time = `${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+  const rand = Math.floor(Math.random() * 46656).toString(36).padStart(3, '0').toUpperCase();
+  return `BTU-${date}-${time}-${rand}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -52,6 +51,17 @@ export async function POST(req: NextRequest) {
         { error: 'Quá nhiều yêu cầu. Vui lòng thử lại sau 1 phút.' },
         { status: 429 },
       );
+    }
+
+    // Chỉ nhận request cùng origin. Client hợp lệ không gửi Origin (vd. app native) vẫn cho qua.
+    const origin = req.headers.get('origin');
+    if (origin) {
+      const host = req.headers.get('host');
+      let originHost: string | null = null;
+      try { originHost = new URL(origin).host; } catch { originHost = null; }
+      if (!originHost || originHost !== host) {
+        return NextResponse.json({ error: 'Yêu cầu không hợp lệ.' }, { status: 403 });
+      }
     }
 
     const body = await req.json();
@@ -95,18 +105,49 @@ export async function POST(req: NextRequest) {
         'Đơn hàng có đồ uống có cồn. Nhân viên giao hàng có quyền yêu cầu giấy tờ xác minh người nhận từ đủ 18 tuổi. Từ chối giao nếu không xác minh được.',
     };
 
-    // 3. Best-effort Google Sheets append
+    // 3. Lưu đơn — BẮT BUỘC ít nhất MỘT kênh thành công, nếu không phải báo lỗi cho khách.
+    const failures: string[] = [];
+    let persistedTo: 'sheets' | 'telegram' | null = null;
+
     try {
       await appendOrderToSheet(order);
+      persistedTo = 'sheets';
     } catch (e) {
-      console.warn('[ORDER_WEBHOOK_WARN] Sheets append failed:', e);
+      failures.push(`sheets: ${e instanceof Error ? e.message : String(e)}`);
+      console.error('[ORDER_PERSIST_FAIL] sheets', e);
     }
 
-    // 4. Best-effort Telegram notification
-    try {
-      await sendOrderToTelegram(order);
-    } catch (e) {
-      console.warn('[ORDER_WEBHOOK_WARN] Telegram notify failed:', e);
+    if (persistedTo === 'sheets') {
+      // Telegram chỉ là thông báo → best-effort, không chặn đơn.
+      try {
+        await sendOrderToTelegram(order);
+      } catch (e) {
+        console.warn('[ORDER_NOTIFY_WARN] telegram', e);
+      }
+    } else {
+      // Sheets chết → Telegram trở thành kênh LƯU dự phòng, phải gắn cảnh báo nhập tay.
+      try {
+        await sendOrderToTelegram(
+          order,
+          '⚠️ ĐƠN CHƯA VÀO GOOGLE SHEET — VUI LÒNG NHẬP TAY NGAY',
+        );
+        persistedTo = 'telegram';
+      } catch (e) {
+        failures.push(`telegram: ${e instanceof Error ? e.message : String(e)}`);
+        console.error('[ORDER_PERSIST_FAIL] telegram', e);
+      }
+    }
+
+    // 4. Không kênh nào lưu được → KHÔNG được báo thành công cho khách.
+    if (!persistedTo) {
+      console.error('[ORDER_LOST] Không lưu được đơn vào bất kỳ kênh nào.', JSON.stringify({ order, failures }));
+      return NextResponse.json(
+        {
+          error:
+            'Hệ thống đang bận, chưa lưu được đơn. Vui lòng gọi hotline 0899.191.313 để đặt hàng.',
+        },
+        { status: 502 },
+      );
     }
 
     // 5. Thành công
@@ -114,6 +155,7 @@ export async function POST(req: NextRequest) {
       success: true,
       orderNumber: order.orderNumber,
       order_id: order.orderNumber,
+      persistedTo,
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Lỗi server';
