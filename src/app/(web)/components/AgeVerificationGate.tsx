@@ -12,13 +12,12 @@ export default function AgeVerificationGate() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [name, setName] = useState('');
   const [dob, setDob] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   const modalRef = useRef<HTMLDivElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
+  const dobInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Prevent SSR / hydration mismatch
@@ -41,14 +40,13 @@ export default function AgeVerificationGate() {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       // Focus initial input
-      setTimeout(() => nameInputRef.current?.focus(), 100);
+      setTimeout(() => dobInputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = '';
     }
 
     const handleReset = () => {
       clearAgeVerification();
-      setName('');
       setDob('');
       setConfirmed(false);
       setErrorMsg('');
@@ -62,19 +60,55 @@ export default function AgeVerificationGate() {
     };
   }, [isOpen, mounted]);
 
-  // Trap focus and prevent Escape key bypass
+  // Bẫy focus thật: vô hiệu hoá nội dung nền + vòng phím Tab trong modal
   useEffect(() => {
     if (!isOpen) return;
+
+    const overlay = modalRef.current;
+    const root = overlay?.parentElement; // .web-app
+    const siblings = root
+      ? (Array.from(root.children) as HTMLElement[]).filter((el) => el !== overlay)
+      : [];
+    siblings.forEach((el) => el.setAttribute('inert', ''));
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault();
         setErrorMsg('Vui lòng hoàn thành xác nhận độ tuổi để tiếp tục.');
+        return;
+      }
+      if (e.key === 'Tab' && overlay) {
+        const focusables = Array.from(
+          overlay.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])',
+          ),
+        ).filter((el) => el.offsetParent !== null || el.getClientRects().length > 0);
+        if (focusables.length === 0) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+
+        if (!active || !overlay.contains(active)) {
+          e.preventDefault();
+          first.focus();
+          return;
+        }
+        if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      siblings.forEach((el) => el.removeAttribute('inert'));
+    };
   }, [isOpen]);
 
   if (!mounted || !isOpen || pathname === '/chua-du-tuoi') return null;
@@ -82,11 +116,6 @@ export default function AgeVerificationGate() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
-
-    if (!name.trim() || name.trim().length < 2) {
-      setErrorMsg('Vui lòng nhập họ và tên hợp lệ (ít nhất 2 ký tự).');
-      return;
-    }
 
     if (!dob) {
       setErrorMsg('Vui lòng chọn ngày sinh.');
@@ -168,7 +197,7 @@ export default function AgeVerificationGate() {
         </div>
 
         {/* Title */}
-        <h1
+        <h2
           id="age-gate-title"
           style={{
             fontSize: '24px',
@@ -179,7 +208,7 @@ export default function AgeVerificationGate() {
           }}
         >
           Xác Nhận Độ Tuổi
-        </h1>
+        </h2>
 
         {/* Subtitle */}
         <p
@@ -214,41 +243,13 @@ export default function AgeVerificationGate() {
         <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
           <div style={{ marginBottom: '16px' }}>
             <label
-              htmlFor="gate-fullname"
-              style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px', color: '#cbd5e1' }}
-            >
-              Họ và tên <span style={{ color: '#ef4444' }}>*</span>
-            </label>
-            <input
-              ref={nameInputRef}
-              id="gate-fullname"
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Nhập họ và tên..."
-              style={{
-                width: '100%',
-                padding: '12px 14px',
-                borderRadius: '8px',
-                backgroundColor: '#1e293b',
-                border: '1px solid #334155',
-                color: '#fff',
-                fontSize: '14px',
-                outline: 'none',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: '16px' }}>
-            <label
               htmlFor="gate-dob"
               style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px', color: '#cbd5e1' }}
             >
               Ngày sinh <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <input
+              ref={dobInputRef}
               id="gate-dob"
               type="date"
               required
