@@ -2179,6 +2179,8 @@ html {
 .web-app .header-logo img {
   border-radius: 50%;
   object-fit: cover;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .web-app .nav-desktop-links {

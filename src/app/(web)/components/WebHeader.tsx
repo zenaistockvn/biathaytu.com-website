@@ -54,7 +54,7 @@ export default function WebHeader() {
         {/* LOGO */}
         <Link href="/" className="header-logo" style={{ color: logoColor }}>
           <Image 
-            src="/logo.jpg" 
+            src="/logo.png" 
             alt="Bia Thầy Tu Logo" 
             width={48} 
             height={48} 
