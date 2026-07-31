@@ -1659,7 +1659,7 @@ body.overflow-hidden {
 .web-app .disclaimer-text {
   margin: 0;
   font-size: 13px;
-  color: var(--web-text-muted);
+  color: var(--web-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1870,7 +1870,7 @@ body.overflow-hidden {
 /* ─── Footer ─── */
 .web-app .web-footer { background-color: var(--web-ink); padding: 60px 0 0; color: #fff; }
 .web-app .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
-.web-app .footer-brand { color: var(--web-accent-soft); margin-bottom: 16px; font-size: 18px; font-family: 'Playfair Display', serif; }
+.web-app .footer-brand { color: var(--web-accent-on-ink); margin-bottom: 16px; font-size: 18px; font-family: 'Playfair Display', serif; }
 .web-app .footer-desc { opacity: 0.75; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
 .web-app .footer-socials { display: flex; gap: 12px; }
 
@@ -1890,7 +1890,7 @@ body.overflow-hidden {
 .web-app .footer-links { display: flex; flex-direction: column; gap: 10px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact { display: flex; flex-direction: column; gap: 12px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact p { margin: 0; line-height: 1.6; }
-.web-app .footer-contact strong { color: var(--web-accent-soft); }
+.web-app .footer-contact strong { color: var(--web-accent-on-ink); }
 
 .web-app .footer-bottom { margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
 
@@ -1901,8 +1901,8 @@ body.overflow-hidden {
 
 .web-app .footer-18-badge {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; border-radius: 50%;
-  border: 1.5px solid #ef4444; color: #ef4444; font-size: 8px; font-weight: 800;
+  min-width: 22px; min-height: 22px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--web-bg); color: var(--web-ink); font-size: 12px; font-weight: 800;
 }
 
 /* ─── Product Detail (mobile-first) ─── */
@@ -2803,7 +2803,7 @@ html {
 .web-app .p-body {
   font-size: 15px !important;
   line-height: 1.8 !important;
-  color: var(--web-text-muted) !important;
+  color: var(--web-text-secondary) !important;
   margin-bottom: 28px !important;
 }
 .web-app .stat-card-bordered {
@@ -2992,7 +2992,7 @@ html {
   background: rgba(0, 0, 0, 0.06);
   padding: 2px 6px;
   border-radius: 99px;
-  color: var(--web-text-muted);
+  color: var(--web-text-secondary);
 }
 
 .web-app .product-tab-btn.active .tab-count {
@@ -3253,7 +3253,7 @@ html {
 }
 .web-app .web-footer .footer-links a,
 .web-app .web-footer .footer-contact a {
-  color: var(--web-accent-soft) !important;
+  color: var(--web-accent-on-ink) !important;
   text-decoration: underline !important;
   text-underline-offset: 2px;
 }
