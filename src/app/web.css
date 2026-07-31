@@ -366,6 +366,11 @@ body.overflow-hidden {
   padding: 16px;
 }
 
+.web-app .product-card-v2 .card-image img,
+.web-app .card-image img {
+  mix-blend-mode: multiply;
+}
+
 .web-app .product-card-v2 .card-body {
   padding: 24px;
   flex: 1;
