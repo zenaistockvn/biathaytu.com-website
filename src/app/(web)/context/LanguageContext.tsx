@@ -19,7 +19,7 @@ const translations: Translations = {
     'nav.order': 'Đặt Hàng Ngay',
     
     // Hero Section
-    'hero.badge': '🇩🇪 Nhập Khẩu Chính Hãng Từ Đức',
+    'hero.badge': 'Nhập Khẩu Chính Hãng Từ Đức',
     'hero.title.line1': 'Tuyệt Tác',
     'hero.title.line2': 'Bia Thầy Tu',
     'hero.title.highlight': 'Đẳng Cấp Nguyên Bản',
@@ -55,7 +55,7 @@ const translations: Translations = {
     'nav.order': 'Order Now',
     
     // Hero Section
-    'hero.badge': '🇩🇪 100% Imported from Germany',
+    'hero.badge': '100% Imported from Germany',
     'hero.title.line1': 'The Masterpiece',
     'hero.title.line2': 'Monastery Beer',
     'hero.title.highlight': 'Original Class',
@@ -77,7 +77,7 @@ const translations: Translations = {
     'footer.company.b2b': 'B2B Customers',
     'footer.company.policy': 'Shipping Policy',
     'footer.contact.title': 'Contact',
-    'footer.contact.hotline': 'Hotline: +84 91 531 2166',
+    'footer.contact.hotline': 'Hotline: +84 899 191 313',
     'footer.contact.time': 'Mon - Sun (9:00 - 21:00)',
     'footer.contact.email': 'info@biathaytu.com',
     'footer.reserved': 'All rights reserved.',
@@ -91,7 +91,7 @@ const translations: Translations = {
     'nav.order': 'Jetzt Bestellen',
     
     // Hero Section
-    'hero.badge': '🇩🇪 100% Importiert aus Deutschland',
+    'hero.badge': '100% Importiert aus Deutschland',
     'hero.title.line1': 'Das Meisterwerk',
     'hero.title.line2': 'Klosterbier',
     'hero.title.highlight': 'Originalklasse',

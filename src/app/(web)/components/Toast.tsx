@@ -17,7 +17,7 @@ export default function Toast() {
       <div
         className="toast-item"
         style={{
-          background: 'var(--web-navy)',
+          background: 'var(--web-ink)',
           color: 'white',
           padding: '16px 24px',
           borderRadius: '8px',

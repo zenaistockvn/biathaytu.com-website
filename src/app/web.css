@@ -15,14 +15,23 @@
   --web-text: #14241A;
   --web-text-secondary: #4B5A50;
   --web-text-muted: #5D6B61;
-  --web-gold: #2F5D3A;
-  --web-gold-light: #4A7D55;
-  --web-gold-dark: #2F5D3A;
-  --web-gold-hover: #264C30;
-  --web-gold-bg: #E4DFCF;
-  --web-primary: var(--web-gold);
-  --web-navy: #14241A;
-  --web-navy-light: #2A3E31;
+  --web-accent: #2F5D3A;
+  --web-accent-soft: #4A7D55;
+  --web-accent-strong: #2F5D3A;
+  --web-accent-hover: #264C30;
+  --web-accent-bg: #E4DFCF;
+  --web-primary: var(--web-accent);
+  --web-ink: #14241A;
+  --web-ink-soft: #2A3E31;
+
+  /* Dùng cho chữ/link đặt trên dải tối (--web-ink) */
+  --web-on-ink: #F4F1E9;          /* 14.2:1 trên --web-ink */
+  --web-on-ink-muted: #B9C4BC;    /*  9.0:1 trên --web-ink */
+  --web-accent-on-ink: #8FBF9C;   /*  7.8:1 trên --web-ink */
+
+  /* Vàng DI SẢN — chỉ dùng cho badge giải thưởng iTQi và mốc 1330.
+     TUYỆT ĐỐI không dùng cho CTA, link, hay nền lớn. */
+  --web-heritage: #8B6914;
   --web-cream: #F4F1E9;
   --web-border: #CFC9B6;
   --web-card-bg: #ffffff;
@@ -172,7 +181,7 @@ body.overflow-hidden {
 /* ─── Section Utilities ─── */
 .web-app .section-label {
   display: inline-block;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 12px;
@@ -191,7 +200,7 @@ body.overflow-hidden {
 .web-app .section-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--web-gold), var(--web-gold-light));
+  background: linear-gradient(90deg, var(--web-accent), var(--web-accent-soft));
   margin: 20px auto;
   border-radius: 2px;
 }
@@ -216,7 +225,7 @@ body.overflow-hidden {
   font-size: 32px;
   letter-spacing: -0.5px;
   font-weight: 800;
-  color: var(--web-navy);
+  color: var(--web-ink);
   font-family: var(--font-serif) !important;
   margin-bottom: 24px;
   line-height: 1.1;
@@ -243,14 +252,14 @@ body.overflow-hidden {
 .web-app .inline-divider {
   width: 60px;
   height: 3px;
-  background: var(--web-gold);
+  background: var(--web-accent);
   margin: 20px 0 28px;
   border-radius: 2px;
 }
 
 /* USP Bar */
 .web-app .usp-bar {
-  background-color: var(--web-navy);
+  background-color: var(--web-ink);
   padding: 40px 0;
 }
 
@@ -266,13 +275,13 @@ body.overflow-hidden {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--web-gold-light);
+  border: 2px solid var(--web-accent-soft);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 12px;
   font-weight: 800;
-  color: var(--web-gold-light);
+  color: var(--web-accent-soft);
   font-family: var(--font-sans);
 }
 
@@ -305,7 +314,7 @@ body.overflow-hidden {
 .web-app .stat-value {
   font-size: 24px;
   font-weight: 800;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
 }
 
 .web-app .stat-label {
@@ -344,7 +353,7 @@ body.overflow-hidden {
 .web-app .product-card-v2:hover {
   transform: translateY(-6px);
   box-shadow: var(--web-shadow-lg);
-  border-color: var(--web-gold-light);
+  border-color: var(--web-accent-soft);
 }
 
 .web-app .product-card-v2 .card-image {
@@ -369,7 +378,7 @@ body.overflow-hidden {
   margin-bottom: 10px;
   font-family: var(--font-serif) !important;
   font-weight: 700;
-  color: var(--web-navy);
+  color: var(--web-ink);
   letter-spacing: -0.3px;
 }
 
@@ -401,14 +410,14 @@ body.overflow-hidden {
   padding: 5px 10px;
   border-radius: var(--web-radius-full);
   font-weight: 600;
-  color: var(--web-navy);
+  color: var(--web-ink);
   font-size: 13px;
 }
 
 .web-app .product-card-v2 .card-price {
   font-size: 22px;
   font-weight: 800;
-  color: var(--web-navy) !important;
+  color: var(--web-ink) !important;
   margin-bottom: 4px;
   font-family: var(--font-sans);
 }
@@ -466,12 +475,12 @@ body.overflow-hidden {
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, border-color 0.3s ease;
-  color: var(--web-navy);
+  color: var(--web-ink);
 }
 
 .web-app .glass-card-light:hover {
   transform: translateY(-8px);
-  border-color: var(--web-gold);
+  border-color: var(--web-accent);
 }
 
 /* Icon Circle */
@@ -487,19 +496,19 @@ body.overflow-hidden {
 
 .web-app .icon-circle-gold {
   background: linear-gradient(135deg, rgba(218, 165, 32, 0.2) 0%, rgba(218, 165, 32, 0.05) 100%);
-  border: 1px solid var(--web-gold);
-  color: var(--web-gold);
+  border: 1px solid var(--web-accent);
+  color: var(--web-accent);
 }
 
 .web-app .icon-circle-navy {
-  background: var(--web-gold-bg);
-  border: 1px solid var(--web-gold);
-  color: var(--web-navy);
+  background: var(--web-accent-bg);
+  border: 1px solid var(--web-accent);
+  color: var(--web-ink);
 }
 
 /* ─── Buttons (override globals .btn-primary) ─── */
 .web-app .btn-primary {
-  background: var(--web-gold-dark) !important;
+  background: var(--web-accent-strong) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
   padding: 14px 32px;
@@ -526,11 +535,11 @@ body.overflow-hidden {
 
 .web-app .btn-outline {
   background: transparent !important;
-  color: var(--web-gold-dark) !important;
+  color: var(--web-accent-strong) !important;
   font-weight: 600;
   padding: 14px 32px;
   border-radius: var(--web-radius-full);
-  border: 2px solid var(--web-gold-dark) !important;
+  border: 2px solid var(--web-accent-strong) !important;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
@@ -540,8 +549,8 @@ body.overflow-hidden {
 }
 
 .web-app .btn-outline:hover {
-  background: var(--web-gold-dark) !important;
-  border-color: var(--web-gold-dark) !important;
+  background: var(--web-accent-strong) !important;
+  border-color: var(--web-accent-strong) !important;
   color: #fff !important;
   transform: translateY(-2px);
   opacity: 1 !important;
@@ -690,8 +699,8 @@ body.overflow-hidden {
 
 .web-app .mobile-bottom-nav-item:hover,
 .web-app .mobile-bottom-nav-item.is-active {
-  color: var(--web-gold-dark) !important;
-  background: var(--web-gold-bg);
+  color: var(--web-accent-strong) !important;
+  background: var(--web-accent-bg);
   opacity: 1 !important;
 }
 
@@ -761,7 +770,7 @@ body.overflow-hidden {
 .web-app .product-card:hover {
   transform: translateY(-6px) !important;
   box-shadow: var(--web-shadow-lg) !important;
-  border-color: var(--web-gold-light) !important;
+  border-color: var(--web-accent-soft) !important;
 }
 
 /* ─── Testimonial Card ─── */
@@ -783,7 +792,7 @@ body.overflow-hidden {
   content: '\201C';
   font-family: 'Playfair Display', serif;
   font-size: 72px;
-  color: var(--web-gold-light);
+  color: var(--web-accent-soft);
   opacity: 0.3;
   position: absolute;
   top: 10px;
@@ -815,13 +824,13 @@ body.overflow-hidden {
 
 .web-app .food-pairing-card:hover {
   transform: translateX(8px);
-  border-color: var(--web-gold-light) !important;
+  border-color: var(--web-accent-soft) !important;
   box-shadow: var(--web-shadow);
 }
 
 /* ─── Hero Section — Dark Premium (mobile-first) ─── */
 .web-app .hero-dark {
-  background: linear-gradient(160deg, #0A1628 0%, var(--web-navy) 40%, #162A44 100%);
+  background: linear-gradient(160deg, #0A1628 0%, var(--web-ink) 40%, #162A44 100%);
   position: relative;
   min-height: auto;
   padding-top: 76px;
@@ -963,13 +972,13 @@ body.overflow-hidden {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid var(--web-gold);
+  border: 1.5px solid var(--web-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   font-weight: 800;
-  color: var(--web-gold);
+  color: var(--web-accent);
   font-family: var(--font-sans), sans-serif;
   flex-shrink: 0;
 }
@@ -988,7 +997,7 @@ body.overflow-hidden {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, transparent 0%, var(--web-gold) 30%, var(--web-gold-light) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--web-accent) 30%, var(--web-accent-soft) 70%, transparent 100%);
 }
 
 /* Hero Outline Button — visible on dark bg */
@@ -1055,7 +1064,7 @@ body.overflow-hidden {
   border-radius: 4px;
 }
 .web-app .testimonial-carousel::-webkit-scrollbar-thumb {
-  background: var(--web-gold);
+  background: var(--web-accent);
   border-radius: 4px;
 }
 .web-app .testimonial-carousel::-webkit-scrollbar-thumb:hover {
@@ -1070,7 +1079,7 @@ body.overflow-hidden {
 
 .web-app .partnership-card-ctv:hover {
   transform: translateY(-8px) !important;
-  border-color: var(--web-gold) !important;
+  border-color: var(--web-accent) !important;
 }
 
 .web-app .food-pairing-card:hover {
@@ -1093,7 +1102,7 @@ body.overflow-hidden {
 
 /* ─── Markdown Content (Article Detail) ─── */
 .web-app .markdown-content h2 {
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-top: 60px;
   margin-bottom: 24px;
   font-size: 32px;
@@ -1103,7 +1112,7 @@ body.overflow-hidden {
 }
 
 .web-app .markdown-content h3 {
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-top: 40px;
   margin-bottom: 20px;
   font-size: 24px;
@@ -1126,15 +1135,15 @@ body.overflow-hidden {
 }
 
 .web-app .markdown-content strong {
-  color: var(--web-navy);
+  color: var(--web-ink);
   font-weight: 700;
 }
 
 .web-app .markdown-content blockquote {
-  border-left: 4px solid var(--web-gold);
+  border-left: 4px solid var(--web-accent);
   padding: 10px 0 10px 24px;
   font-style: italic;
-  color: var(--web-navy);
+  color: var(--web-ink);
   background: rgba(218, 165, 32, 0.05);
   margin: 40px 0;
   border-radius: 0 12px 12px 0;
@@ -1165,7 +1174,7 @@ body.overflow-hidden {
 }
 
 .web-app .markdown-content thead {
-  background: var(--web-navy);
+  background: var(--web-ink);
   color: #fff;
 }
 
@@ -1177,7 +1186,7 @@ body.overflow-hidden {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-family: var(--font-sans);
-  border-bottom: 3px solid var(--web-gold);
+  border-bottom: 3px solid var(--web-accent);
   white-space: nowrap;
 }
 
@@ -1191,7 +1200,7 @@ body.overflow-hidden {
 }
 
 .web-app .markdown-content tbody tr:hover {
-  background-color: var(--web-gold-bg);
+  background-color: var(--web-accent-bg);
 }
 
 .web-app .markdown-content tbody td {
@@ -1204,7 +1213,7 @@ body.overflow-hidden {
 
 .web-app .markdown-content tbody td:first-child {
   font-weight: 600;
-  color: var(--web-navy);
+  color: var(--web-ink);
   white-space: nowrap;
 }
 
@@ -1411,7 +1420,7 @@ body.overflow-hidden {
   padding: 20px 24px;
   font-size: 16px;
   font-weight: 600;
-  color: var(--web-navy);
+  color: var(--web-ink);
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -1423,7 +1432,7 @@ body.overflow-hidden {
 
 .web-app .faq-toggle {
   font-size: 20px;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
   flex-shrink: 0;
   margin-left: 16px;
   transition: transform 0.25s ease;
@@ -1485,7 +1494,7 @@ body.overflow-hidden {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid var(--web-gold);
+  border: 2px solid var(--web-accent);
   position: relative;
 }
 
@@ -1543,7 +1552,7 @@ body.overflow-hidden {
 }
 
 .web-app .food-card-title {
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-bottom: 10px;
   font-size: 22px;
   font-weight: 600;
@@ -1585,7 +1594,7 @@ body.overflow-hidden {
   border: 1px solid rgba(255,255,255,0.6);
   font-size: 14px;
   font-weight: 600;
-  color: var(--web-navy);
+  color: var(--web-ink);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1611,7 +1620,7 @@ body.overflow-hidden {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(ellipse at top, #142847 0%, var(--web-navy) 100%);
+  background: radial-gradient(ellipse at top, #142847 0%, var(--web-ink) 100%);
 }
 
 .web-app .b2b-grid {
@@ -1636,7 +1645,7 @@ body.overflow-hidden {
 /* B2B card text colors based on glass-card context */
 .web-app .glass-card-dark .b2b-card-title { color: #fff !important; }
 .web-app .glass-card-dark .b2b-card-desc { color: rgba(255,255,255,0.8); }
-.web-app .glass-card-light .b2b-card-title { color: var(--web-navy) !important; }
+.web-app .glass-card-light .b2b-card-title { color: var(--web-ink) !important; }
 .web-app .glass-card-light .b2b-card-desc { color: var(--web-text-secondary); }
 
 /* ─── 18+ Disclaimer ─── */
@@ -1696,7 +1705,7 @@ body.overflow-hidden {
 }
 
 .web-app .story-heading {
-  color: var(--web-navy);
+  color: var(--web-ink);
   font-size: 28px;
   margin-bottom: 24px;
   font-family: var(--font-serif);
@@ -1720,17 +1729,17 @@ body.overflow-hidden {
 
 .web-app .story-accent {
   font-size: 28px;
-  color: var(--web-gold);
+  color: var(--web-accent);
   font-weight: 600;
 }
 
 /* ─── CTA Banner ─── */
 .web-app .cta-banner {
-  background-color: var(--web-navy);
+  background-color: var(--web-ink);
   padding: 48px 24px;
   border-radius: 24px;
   text-align: center;
-  background-image: linear-gradient(135deg, var(--web-navy) 0%, rgba(13, 27, 42, 0.95) 100%);
+  background-image: linear-gradient(135deg, var(--web-ink) 0%, rgba(13, 27, 42, 0.95) 100%);
   box-shadow: 0 30px 60px rgba(13, 27, 42, 0.15);
   position: relative;
   overflow: hidden;
@@ -1752,7 +1761,7 @@ body.overflow-hidden {
   width: 64px;
   height: 64px;
   margin: 0 auto 24px;
-  background: var(--web-gold);
+  background: var(--web-accent);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1801,7 +1810,7 @@ body.overflow-hidden {
 }
 
 .web-app .contact-info-panel {
-  background-color: var(--web-navy);
+  background-color: var(--web-ink);
   padding: 36px;
   border-radius: var(--web-radius-lg);
   color: #fff;
@@ -1809,7 +1818,7 @@ body.overflow-hidden {
 
 .web-app .contact-info-panel h2 {
   font-size: 22px;
-  color: var(--web-gold-light);
+  color: var(--web-accent-soft);
   margin-bottom: 28px;
   font-family: var(--font-serif);
 }
@@ -1822,7 +1831,7 @@ body.overflow-hidden {
 
 .web-app .contact-info-list strong { display: block; margin-bottom: 4px; }
 .web-app .contact-info-list .muted { opacity: 0.75; font-size: 14px; }
-.web-app .contact-info-list .phone { font-size: 22px; color: var(--web-gold-light); font-weight: bold; display: block; }
+.web-app .contact-info-list .phone { font-size: 22px; color: var(--web-accent-soft); font-weight: bold; display: block; }
 .web-app .contact-info-list .small { opacity: 0.6; font-size: 13px; }
 
 .web-app .contact-divider {
@@ -1843,7 +1852,7 @@ body.overflow-hidden {
   flex-direction: column;
 }
 
-.web-app .contact-cta-panel h2 { font-size: 22px; color: var(--web-navy); margin-bottom: 16px; font-family: var(--font-serif); }
+.web-app .contact-cta-panel h2 { font-size: 22px; color: var(--web-ink); margin-bottom: 16px; font-family: var(--font-serif); }
 .web-app .contact-cta-panel .subtitle { color: var(--web-text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
 .web-app .contact-cta-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
 
@@ -1856,12 +1865,12 @@ body.overflow-hidden {
   text-align: center;
 }
 
-.web-app .contact-alt-phone a { color: var(--web-gold) !important; font-weight: 600; }
+.web-app .contact-alt-phone a { color: var(--web-accent) !important; font-weight: 600; }
 
 /* ─── Footer ─── */
-.web-app .web-footer { background-color: var(--web-navy); padding: 60px 0 0; color: #fff; }
+.web-app .web-footer { background-color: var(--web-ink); padding: 60px 0 0; color: #fff; }
 .web-app .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
-.web-app .footer-brand { color: var(--web-gold-light); margin-bottom: 16px; font-size: 18px; font-family: 'Playfair Display', serif; }
+.web-app .footer-brand { color: var(--web-accent-soft); margin-bottom: 16px; font-size: 18px; font-family: 'Playfair Display', serif; }
 .web-app .footer-desc { opacity: 0.75; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
 .web-app .footer-socials { display: flex; gap: 12px; }
 
@@ -1881,7 +1890,7 @@ body.overflow-hidden {
 .web-app .footer-links { display: flex; flex-direction: column; gap: 10px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact { display: flex; flex-direction: column; gap: 12px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact p { margin: 0; line-height: 1.6; }
-.web-app .footer-contact strong { color: var(--web-gold-light); }
+.web-app .footer-contact strong { color: var(--web-accent-soft); }
 
 .web-app .footer-bottom { margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
 
@@ -1900,21 +1909,21 @@ body.overflow-hidden {
 .web-app .product-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; align-items: start; }
 .web-app .product-img-sticky { position: static; }
 .web-app .product-img-box { background-color: #fff; border-radius: var(--web-radius-lg); padding: 32px; height: 360px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.04); }
-.web-app .product-detail-name { font-size: clamp(28px, 4vw, 42px); color: var(--web-navy); margin-bottom: 16px; font-family: 'Playfair Display', serif; font-weight: 800; letter-spacing: -0.5px; }
-.web-app .product-detail-price { font-size: 32px; font-weight: 800; color: var(--web-gold-dark); margin-bottom: 24px; font-family: var(--font-sans), sans-serif; }
+.web-app .product-detail-name { font-size: clamp(28px, 4vw, 42px); color: var(--web-ink); margin-bottom: 16px; font-family: 'Playfair Display', serif; font-weight: 800; letter-spacing: -0.5px; }
+.web-app .product-detail-price { font-size: 32px; font-weight: 800; color: var(--web-accent-strong); margin-bottom: 24px; font-family: var(--font-sans), sans-serif; }
 
 .web-app .product-specs { display: flex; gap: 16px; margin-bottom: 30px; padding: 20px; background-color: var(--web-bg-warm); border-radius: var(--web-radius); flex-wrap: wrap; }
 .web-app .product-spec-item { flex: 1; min-width: 80px; }
 .web-app .product-spec-label { font-size: 12px; color: var(--web-text-secondary); text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
-.web-app .product-spec-value { font-size: 22px; font-weight: 700; color: var(--web-navy); }
+.web-app .product-spec-value { font-size: 22px; font-weight: 700; color: var(--web-ink); }
 .web-app .product-description { font-size: 16px; line-height: 1.8; color: var(--web-text-secondary); margin-bottom: 32px; }
 .web-app .product-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
 
-.web-app .product-guarantee { background-color: var(--web-navy); padding: 24px; border-radius: var(--web-radius); color: #fff; }
-.web-app .product-guarantee h4 { color: var(--web-gold-light); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+.web-app .product-guarantee { background-color: var(--web-ink); padding: 24px; border-radius: var(--web-radius); color: #fff; }
+.web-app .product-guarantee h4 { color: var(--web-accent-soft); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
 .web-app .product-guarantee ul { margin: 0; padding-left: 20px; opacity: 0.85; font-size: 14px; display: flex; flex-direction: column; gap: 10px; }
 .web-app .product-breadcrumb { font-size: 14px; opacity: 0.7; margin-bottom: 40px; color: var(--web-text-secondary); }
-.web-app .product-breadcrumb a { color: var(--web-gold) !important; }
+.web-app .product-breadcrumb a { color: var(--web-accent) !important; }
 
 /* ─── iTQi Section (mobile-first) ─── */
 .web-app .itqi-img-wrap { position: relative; height: 320px; border-radius: var(--web-radius-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -2009,7 +2018,7 @@ html {
 }
 
 .web-app *:focus-visible {
-  outline: 2px solid var(--web-gold-dark);
+  outline: 2px solid var(--web-accent-strong);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -2018,19 +2027,19 @@ html {
 .web-app .usp-bar *:focus-visible,
 .web-app .glass-card-dark *:focus-visible,
 .web-app [class*="navy"] *:focus-visible {
-  outline: 2px solid var(--web-gold-light);
+  outline: 2px solid var(--web-accent-soft);
   outline-offset: 2px;
 }
 
 /* 2. Color Contrast Fixes */
 .web-app .section-label,
 .web-app .btn-outline {
-  color: var(--web-gold-dark) !important;
-  border-color: var(--web-gold-dark) !important;
+  color: var(--web-accent-strong) !important;
+  border-color: var(--web-accent-strong) !important;
 }
 
 .web-app .faq-summary {
-  color: var(--web-navy) !important;
+  color: var(--web-ink) !important;
 }
 
 /* 3. Touch Targets (Mobile) */
@@ -2095,7 +2104,7 @@ html {
   gap: 8px;
   padding: 8px 18px;
   background-color: rgba(184, 134, 11, 0.12);
-  color: var(--web-gold-light);
+  color: var(--web-accent-soft);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2.5px;
@@ -2117,7 +2126,7 @@ html {
 }
 
 .web-app .hero-title-highlight {
-  color: var(--web-gold-light);
+  color: var(--web-accent-soft);
   display: block;
   font-size: clamp(32px, 3.5vw, 48px);
   margin-top: 12px;
@@ -2212,7 +2221,7 @@ html {
 .web-app .knowledge-hero {
   position: relative;
   padding: 100px 0 60px;
-  background: var(--web-navy);
+  background: var(--web-ink);
   color: #fff;
   overflow: hidden;
 }
@@ -2240,7 +2249,7 @@ html {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
   text-transform: uppercase;
   margin-bottom: 16px;
 }
@@ -2342,13 +2351,13 @@ html {
 }
 
 .web-app .knowledge-featured-badge {
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
 }
 
 .web-app .knowledge-featured-title {
   font-size: clamp(22px, 4vw, 42px);
   font-weight: 700;
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-bottom: 16px;
   line-height: 1.3;
   font-family: var(--font-serif), serif;
@@ -2373,19 +2382,19 @@ html {
 
 .web-app .knowledge-featured-cta {
   font-weight: 600;
-  color: var(--web-navy);
+  color: var(--web-ink);
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 15px;
   padding: 12px 24px;
-  border: 2px solid var(--web-navy);
+  border: 2px solid var(--web-ink);
   border-radius: var(--web-radius-md);
   transition: all 0.2s ease;
 }
 
 .web-app .knowledge-featured-card:hover .knowledge-featured-cta {
-  background-color: var(--web-navy);
+  background-color: var(--web-ink);
   color: #fff;
 }
 
@@ -2462,13 +2471,13 @@ html {
 }
 
 .web-app .knowledge-card-date {
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
 }
 
 .web-app .knowledge-card-title {
   font-size: 20px;
   font-weight: 700;
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-bottom: 12px;
   line-height: 1.4;
   font-family: var(--font-serif), serif;
@@ -2493,7 +2502,7 @@ html {
 .web-app .knowledge-card-action {
   font-size: 15px;
   font-weight: 600;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -2701,26 +2710,26 @@ html {
 }
 
 .web-app .zalo-cta-gold-class {
-  background: linear-gradient(135deg, var(--web-gold) 0%, var(--web-gold-light) 100%) !important;
+  background: linear-gradient(135deg, var(--web-accent) 0%, var(--web-accent-soft) 100%) !important;
   color: #fff !important;
   box-shadow: 0 4px 15px rgba(184, 134, 11, 0.2) !important;
   border: none !important;
 }
 
 .web-app .zalo-cta-gold-class:hover {
-  background: linear-gradient(135deg, var(--web-gold-hover) 0%, var(--web-gold) 100%) !important;
+  background: linear-gradient(135deg, var(--web-accent-hover) 0%, var(--web-accent) 100%) !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3) !important;
 }
 
 .web-app .zalo-cta-outline-class {
   background: transparent !important;
-  color: var(--web-gold-dark) !important;
-  border: 2px solid var(--web-gold-dark) !important;
+  color: var(--web-accent-strong) !important;
+  border: 2px solid var(--web-accent-strong) !important;
 }
 
 .web-app .zalo-cta-outline-class:hover {
-  background: var(--web-gold-dark) !important;
+  background: var(--web-accent-strong) !important;
   color: #fff !important;
   transform: translateY(-2px) !important;
 }
@@ -2765,7 +2774,7 @@ html {
 
 /* Helper spacing classes */
 .web-app .text-center { text-align: center !important; }
-.web-app .text-gold { color: var(--web-gold-dark) !important; }
+.web-app .text-gold { color: var(--web-accent-strong) !important; }
 .web-app .text-muted { color: var(--web-text-muted) !important; }
 .web-app .mt-lg { margin-top: var(--web-spacing-lg) !important; }
 .web-app .mt-md { margin-top: var(--web-spacing-md) !important; }
@@ -2966,13 +2975,13 @@ html {
 }
 
 .web-app .product-tab-btn:hover {
-  background: var(--web-gold-bg);
-  color: var(--web-gold-dark);
-  border-color: var(--web-gold-light);
+  background: var(--web-accent-bg);
+  color: var(--web-accent-strong);
+  border-color: var(--web-accent-soft);
 }
 
 .web-app .product-tab-btn.active {
-  background: linear-gradient(135deg, var(--web-gold) 0%, var(--web-gold-light) 100%);
+  background: linear-gradient(135deg, var(--web-accent) 0%, var(--web-accent-soft) 100%);
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 4px 15px rgba(184, 134, 11, 0.2);
@@ -3043,7 +3052,7 @@ html {
   font-size: 22px;
   margin-bottom: 20px;
   font-family: var(--font-serif);
-  color: var(--web-navy);
+  color: var(--web-ink);
 }
 
 @media (max-width: 768px) {
@@ -3118,9 +3127,9 @@ html {
 }
 
 .web-app .checkout-qty-btn:hover {
-  border-color: var(--web-gold);
-  color: var(--web-gold-dark);
-  background-color: var(--web-gold-bg);
+  border-color: var(--web-accent);
+  color: var(--web-accent-strong);
+  background-color: var(--web-accent-bg);
 }
 
 .web-app .checkout-qty-val {
@@ -3198,7 +3207,7 @@ html {
 
 .web-app .checkout-promo-row input:focus {
   outline: none;
-  border-color: var(--web-gold-dark);
+  border-color: var(--web-accent-strong);
   box-shadow: 0 0 0 3px rgba(115, 92, 0, 0.25);
 }
 
@@ -3215,9 +3224,9 @@ html {
 }
 
 .web-app .checkout-promo-row button:hover:not(:disabled) {
-  border-color: var(--web-gold);
-  background-color: var(--web-gold-bg);
-  color: var(--web-gold-dark);
+  border-color: var(--web-accent);
+  background-color: var(--web-accent-bg);
+  color: var(--web-accent-strong);
 }
 
 .web-app .checkout-promo-active {
@@ -3238,13 +3247,13 @@ html {
 .web-app .markdown-content a,
 .web-app .article-body a,
 .web-app .faq-answer a {
-  color: var(--web-gold-dark) !important;
+  color: var(--web-accent-strong) !important;
   text-decoration: underline !important;
   text-underline-offset: 2px;
 }
 .web-app .web-footer .footer-links a,
 .web-app .web-footer .footer-contact a {
-  color: var(--web-gold-light) !important;
+  color: var(--web-accent-soft) !important;
   text-decoration: underline !important;
   text-underline-offset: 2px;
 }
@@ -3282,7 +3291,7 @@ html {
 
 .web-app .checkout-input-text:focus {
   outline: none;
-  border-color: var(--web-gold-dark);
+  border-color: var(--web-accent-strong);
   box-shadow: 0 0 0 3px rgba(115, 92, 0, 0.25);
 }
 
@@ -3301,7 +3310,7 @@ html {
 
 .web-app .checkout-textarea:focus {
   outline: none;
-  border-color: var(--web-gold-dark);
+  border-color: var(--web-accent-strong);
   box-shadow: 0 0 0 3px rgba(115, 92, 0, 0.25);
 }
 
@@ -3406,9 +3415,9 @@ html {
 }
 
 .football-popup-tab-btn.active {
-  color: var(--web-gold-light, #f3e5ab);
+  color: var(--web-accent-soft, #f3e5ab);
   background-color: rgba(212, 175, 55, 0.08);
-  box-shadow: inset 0 -2px 0 var(--web-gold, #d4af37);
+  box-shadow: inset 0 -2px 0 var(--web-accent, #d4af37);
 }
 
 .football-popup-body {
@@ -3724,13 +3733,13 @@ html {
 .web-app .beer-card-premium:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  border-color: var(--web-gold-light);
+  border-color: var(--web-accent-soft);
 }
 
 .web-app .beer-card-title {
   font-size: 22px;
   font-weight: 700;
-  color: var(--web-navy);
+  color: var(--web-ink);
   margin-bottom: 12px;
   font-family: var(--font-serif);
 }
@@ -3753,7 +3762,7 @@ html {
 .web-app .beer-card-link {
   display: inline-block;
   margin-top: 16px;
-  color: var(--web-gold-dark);
+  color: var(--web-accent-strong);
   font-weight: 700;
   text-decoration: none;
   font-size: 14px;
@@ -3761,7 +3770,7 @@ html {
 }
 
 .web-app .beer-card-link:hover {
-  color: var(--web-gold);
+  color: var(--web-accent);
 }
 
 @media (max-width: 768px) {
@@ -5469,7 +5478,7 @@ html {
 }
 
 .lifestyle-gallery-card-title {
-  color: var(--web-gold-light) !important;
+  color: var(--web-accent-soft) !important;
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 6px 0;
@@ -5570,34 +5579,34 @@ html {
 }
 
 .web-app .catalog-pill-link:hover {
-  color: var(--web-navy);
+  color: var(--web-ink);
   background: var(--web-card-bg);
   border-color: rgba(212, 175, 55, 0.25);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 .web-app .catalog-pill-link.highlight-pill {
-  color: var(--web-gold-dark) !important;
-  border: 1px solid var(--web-gold-light) !important;
+  color: var(--web-accent-strong) !important;
+  border: 1px solid var(--web-accent-soft) !important;
   background: var(--web-bg-warm) !important;
   font-weight: 700 !important;
 }
 
 .web-app .catalog-pill-link.highlight-pill:hover {
   background: var(--web-bg-section) !important;
-  color: var(--web-gold-dark) !important;
+  color: var(--web-accent-strong) !important;
 }
 
 /* Article Details Page (T16b) */
 .web-app .article-detail-hero {
   padding: 120px 0 80px;
-  background: var(--web-navy);
+  background: var(--web-ink);
   color: #fff;
   position: relative;
 }
 .web-app .article-detail-breadcrumb {
   font-size: 14px;
-  color: var(--web-gold);
+  color: var(--web-accent);
   margin-bottom: 30px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -5666,7 +5675,7 @@ html {
 .web-app .product-card-v2:hover .card-quick-tag {
   border-color: rgba(212, 175, 55, 0.35);
   background: var(--web-card-bg);
-  color: var(--web-navy);
+  color: var(--web-ink);
 }
 
 /* 4. Detail Page Tags */
@@ -5773,7 +5782,7 @@ html {
   top: 0;
   z-index: 100000;
   padding: 12px 20px;
-  background: var(--web-navy);
+  background: var(--web-ink);
   color: #fff !important;
   border-radius: 0 0 var(--web-radius-md) 0;
   font-weight: 700;

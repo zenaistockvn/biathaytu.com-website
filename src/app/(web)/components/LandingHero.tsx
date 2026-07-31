@@ -82,7 +82,7 @@ export default function LandingHero() {
 
             <p className="hero-fade-in hero-desc">
               {t('hero.description.1')} {t('hero.description.2')}{' '}
-              <span style={{ color: 'var(--web-gold-light)', fontWeight: 600 }}>{t('hero.description.3')}</span>
+              <span style={{ color: 'var(--web-accent-soft)', fontWeight: 600 }}>{t('hero.description.3')}</span>
             </p>
 
             <div className="hero-fade-in hero-actions">

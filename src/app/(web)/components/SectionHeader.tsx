@@ -19,7 +19,7 @@ export default function SectionHeader({ label, title, titleAccent, className = '
         {titleAccent && (
           <>
             <br />
-            <span style={{ color: 'var(--web-gold)' }}>{titleAccent}</span>
+            <span style={{ color: 'var(--web-accent)' }}>{titleAccent}</span>
           </>
         )}
       </h2>

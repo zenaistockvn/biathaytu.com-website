@@ -423,7 +423,7 @@ export default function Page() {
       {/* AI Summary / GEO Section */}
       <section className="bitburger-ai-section">
         <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-gold)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-accent)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
             Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
           </h2>
           <div className="bitburger-ai-card">

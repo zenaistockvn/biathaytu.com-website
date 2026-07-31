@@ -40,7 +40,7 @@ export default function LanguageSwitcher() {
           cursor: 'pointer',
           fontSize: '13px',
           fontWeight: 600,
-          color: 'var(--web-navy)',
+          color: 'var(--web-ink)',
           backgroundColor: 'rgba(255, 255, 255, 0.5)',
           transition: 'all 0.2s ease'
         }}
@@ -88,7 +88,7 @@ export default function LanguageSwitcher() {
                 textAlign: 'left',
                 cursor: 'pointer',
                 fontSize: '14px',
-                color: language === lang.code ? 'var(--web-navy)' : 'var(--web-text)',
+                color: language === lang.code ? 'var(--web-ink)' : 'var(--web-text)',
                 fontWeight: language === lang.code ? 600 : 400,
               }}
             >

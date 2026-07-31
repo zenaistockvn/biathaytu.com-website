@@ -45,9 +45,9 @@ export default function Page() {
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-navy)', color: '#fff', textAlign: 'center' }}>
+      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-gold)', textTransform: 'uppercase', marginBottom: '20px' }}>Linh Hồn Bữa Tiệc</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Linh Hồn Bữa Tiệc</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2, color: '#ffffff' }}>Bom Bia 5L Benediktiner</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả không khí lễ hội Oktoberfest của vùng Bavaria về ngay bàn tiệc nhà bạn.</p>
         </div>
@@ -59,25 +59,25 @@ export default function Page() {
              <img src="/images/products/hero_bitburger_keg.png" alt="Bom Bia 5L Benediktiner" style={{ width: '100%', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
           <div style={{ flex: '2 1 400px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sang Trọng — Đẳng Cấp — Tiện Lợi</h2>
+            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sang Trọng — Đẳng Cấp — Tiện Lợi</h2>
             <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '24px' }}>
               Không gì tạo điểm nhấn cho bàn tiệc tốt hơn một bom bia Đức 5 Lít. Với thiết kế vỏ hợp kim nhôm chuyên dụng, bom bia không chỉ giữ lạnh cực tốt mà còn bảo quản chất lượng men bia tươi nguyên bản. Vòi rót tích hợp sẵn (built-in tap) mang đến trải nghiệm tự tay rót bia tươi chuẩn như tại nhà máy Đức.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Giá Tham Khảo</span>
-                <strong style={{ fontSize: '18px', color: 'var(--web-navy)' }}>963.000đ / Bom</strong>
+                <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>963.000đ / Bom</strong>
               </div>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Dung Tích</span>
-                <strong style={{ fontSize: '18px', color: 'var(--web-navy)' }}>5 Lít (~15 ly)</strong>
+                <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>5 Lít (~15 ly)</strong>
               </div>
             </div>
-            <Link href="/mua-bia-benediktiner-chinh-hang" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-gold)', color: 'var(--web-navy)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Đặt Mua Ngay</Link>
+            <Link href="/mua-bia-benediktiner-chinh-hang" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Đặt Mua Ngay</Link>
           </div>
         </div>
 
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Hướng dẫn sử dụng & Bảo quản</h2>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Hướng dẫn sử dụng & Bảo quản</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {[
             { title: '1. Làm lạnh sâu', desc: 'Làm lạnh bom bia trong tủ lạnh ít nhất 10 tiếng trước khi sử dụng. Không để vào ngăn đá.' },
@@ -86,24 +86,24 @@ export default function Page() {
             { title: '4. Thời gian dùng', desc: 'Ngon nhất khi uống hết trong vòng 48h sau khi mở nắp để đảm bảo lớp bọt và độ tươi.' },
           ].map((item, i) => (
             <div key={i} style={{ padding: '24px', background: 'var(--web-bg-section)', borderRadius: '12px' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '8px' }}>{item.title}</h3>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
               <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>{item.desc}</p>
             </div>
           ))}
         </div>
 
-        <div style={{ background: 'var(--web-navy)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-gold)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Món Quà Tặng Độc Đáo</h2>
+        <div style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Món Quà Tặng Độc Đáo</h2>
           <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.8)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
             Không chỉ dùng trong các bữa tiệc gia đình, dã ngoại cuối tuần, Bom bia 5L còn là món quà tặng đối tác, sếp, hoặc bạn bè cực kỳ đẳng cấp trong các dịp Lễ, Tết.
           </p>
-          <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-gold)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp →</Link>
+          <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-accent)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp →</Link>
         </div>
       </article>
 
       <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-navy)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
+          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Tên sản phẩm:</strong> Bom 5L Benediktiner Weissbier.</p>
             <p><strong>Đặc điểm:</strong> Bom thiết kế hợp kim 5 Lít có kèm vòi rót. Bia lúa mì Đức nguyên bản, 5.4% ABV.</p>

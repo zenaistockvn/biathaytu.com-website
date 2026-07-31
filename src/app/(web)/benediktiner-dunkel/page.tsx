@@ -113,7 +113,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div style={{ background: 'var(--web-navy)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
+        <div style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
           <Heading level={2} size="md" color="gold" style={{ marginBottom: '16px' }}>
             Nghệ Thuật Thưởng Thức (Food Pairing)
           </Heading>

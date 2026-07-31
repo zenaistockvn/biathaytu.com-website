@@ -53,7 +53,7 @@ export default function Page() {
       </Section>
 
       <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-gold)', color: 'var(--web-navy)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Chào mừng các đối tác:</strong> Chúng tôi tìm kiếm đại lý phân phối, siêu thị mini, cửa hàng đồ uống nhập khẩu, và các CTV bán sỉ trên toàn quốc cho 2 nhãn hiệu bia Đức: Benediktiner Weissbier và Bitburger Premium Pils.
         </div>
 

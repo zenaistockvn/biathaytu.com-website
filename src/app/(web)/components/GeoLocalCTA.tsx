@@ -12,8 +12,8 @@ export default function GeoLocalCTA() {
     <>
       <style dangerouslySetInnerHTML={{ __html: `
         .geo-cta-card {
-          background-color: var(--web-navy);
-          border: 1px solid var(--web-gold);
+          background-color: var(--web-ink);
+          border: 1px solid var(--web-accent);
           border-radius: var(--web-radius-lg);
           padding: 32px;
           margin-top: 60px;
@@ -37,7 +37,7 @@ export default function GeoLocalCTA() {
         .geo-cta-badge {
           font-size: 11px;
           letter-spacing: 2px;
-          color: var(--web-gold);
+          color: var(--web-accent);
           text-transform: uppercase;
           font-weight: 700;
           margin-bottom: 8px;
@@ -69,7 +69,7 @@ export default function GeoLocalCTA() {
           align-items: flex-start;
         }
         .geo-cta-icon-wrapper {
-          color: var(--web-gold);
+          color: var(--web-accent);
           flex-shrink: 0;
           margin-top: 3px;
         }
@@ -79,7 +79,7 @@ export default function GeoLocalCTA() {
           color: rgba(255, 255, 255, 0.9);
         }
         .geo-cta-info-text strong {
-          color: var(--web-gold-light);
+          color: var(--web-accent-soft);
           font-weight: 600;
         }
         .geo-cta-actions {
@@ -101,13 +101,13 @@ export default function GeoLocalCTA() {
           cursor: pointer;
         }
         .geo-cta-btn-primary {
-          background: linear-gradient(90deg, var(--web-gold), var(--web-gold-light));
-          color: var(--web-navy) !important;
+          background: linear-gradient(90deg, var(--web-accent), var(--web-accent-soft));
+          color: var(--web-ink) !important;
           border: none;
           box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
         }
         .geo-cta-btn-primary:hover {
-          background: linear-gradient(90deg, var(--web-gold-hover), var(--web-gold));
+          background: linear-gradient(90deg, var(--web-accent-hover), var(--web-accent));
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
@@ -117,8 +117,8 @@ export default function GeoLocalCTA() {
           border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .geo-cta-btn-outline:hover {
-          border-color: var(--web-gold);
-          color: var(--web-gold-light) !important;
+          border-color: var(--web-accent);
+          color: var(--web-accent-soft) !important;
           transform: translateY(-2px);
           box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
         }

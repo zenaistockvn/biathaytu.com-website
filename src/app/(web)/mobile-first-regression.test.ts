@@ -22,7 +22,7 @@ describe('mobile-first responsive regressions', () => {
   it('defines the web primary color token used by commerce CTAs', () => {
     const css = readProjectFile('src/app/web.css');
 
-    expect(css).toMatch(/--web-primary:\s*var\(--web-gold\)/);
+    expect(css).toMatch(/--web-primary:\s*var\(--web-accent\)/);
   });
 
   it('lets product gallery height respond through CSS instead of inline fixed pixels', () => {

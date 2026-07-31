@@ -38,11 +38,11 @@ export default function Heading({
 
   // Set color mapping
   if (color === 'navy') {
-    inlineStyle.color = 'var(--web-navy)';
+    inlineStyle.color = 'var(--web-ink)';
   } else if (color === 'gold') {
-    inlineStyle.color = 'var(--web-gold)';
+    inlineStyle.color = 'var(--web-accent)';
   } else if (color === 'gold-dark') {
-    inlineStyle.color = 'var(--web-gold-dark)';
+    inlineStyle.color = 'var(--web-accent-strong)';
   } else if (color === 'white') {
     inlineStyle.color = '#ffffff';
   }

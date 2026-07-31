@@ -256,15 +256,15 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {isBeer && sausageProducts.length > 0 && (
           <section className="perfect-pairings-section" style={{ marginTop: '60px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
             <div className="section-header-center" style={{ marginBottom: '40px' }}>
-              <span className="section-label" style={{ color: 'var(--web-gold)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Combo & Đồ Nhắm Đề Xuất</span>
-              <h2 className="section-title" style={{ color: 'var(--web-navy)', fontSize: '28px', fontWeight: 800, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
+              <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Combo & Đồ Nhắm Đề Xuất</span>
+              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 800, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
               <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Xem bia ngon phải có mồi xịn. Hãy thưởng thức cùng xúc xích Đức truyền thống hoặc mua theo Combo để có giá ưu đãi hơn!</p>
             </div>
 
             <div className="pairings-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', alignItems: 'stretch' }}>
               {/* Left Column: Sausage suggestions */}
               <div style={{ background: 'var(--web-card-bg)', border: '1px solid var(--web-border)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--web-shadow)' }}>
-                <h3 style={{ color: 'var(--web-navy)', borderBottom: '2px solid var(--web-gold)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h3 style={{ color: 'var(--web-ink)', borderBottom: '2px solid var(--web-accent)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span>🍢</span> Xúc Xích Đức Ăn Kèm
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -274,10 +274,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                         <img src={sausage.images?.[0] || '/images/products/placeholder.png'} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div style={{ flexGrow: 1 }}>
-                        <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-navy)' }}>{sausage.name}</h4>
+                        <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--web-red)' }}>{formatPrice(sausage.price)}</span>
-                          <Link href={`/san-pham/${sausage.slug}`} style={{ fontSize: '12px', color: 'var(--web-gold-dark)', fontWeight: 600, textDecoration: 'underline' }}>
+                          <Link href={`/san-pham/${sausage.slug}`} style={{ fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
                             Xem chi tiết &rsaquo;
                           </Link>
                         </div>
@@ -289,12 +289,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
               {/* Right Column: Recommended Combo */}
               {relatedCombo && (
-                <div style={{ background: 'var(--web-navy)', color: '#fff', border: '1px solid var(--web-navy-light)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: '15px', right: '-35px', background: 'var(--web-gold)', color: 'var(--web-navy)', transform: 'rotate(45deg)', padding: '6px 40px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+                <div style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', top: '15px', right: '-35px', background: 'var(--web-accent)', color: 'var(--web-ink)', transform: 'rotate(45deg)', padding: '6px 40px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
                     Tiết Kiệm
                   </div>
                   <div>
-                    <h3 style={{ color: 'var(--web-gold)', borderBottom: '2px solid var(--web-gold-dark)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h3 style={{ color: 'var(--web-accent)', borderBottom: '2px solid var(--web-accent-strong)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span>🎁</span> Combo Đề Xuất
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
@@ -307,12 +307,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       </div>
                     </div>
                   </div>
-                  <div style={{ borderTop: '1px solid var(--web-navy-light)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
+                  <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
                     <div>
                       <span style={{ display: 'block', fontSize: '12px', color: '#a0aab8' }}>Giá combo ưu đãi:</span>
-                      <strong style={{ fontSize: '22px', color: 'var(--web-gold)', fontWeight: 800 }}>{formatPrice(relatedCombo.price)}</strong>
+                      <strong style={{ fontSize: '22px', color: 'var(--web-accent)', fontWeight: 800 }}>{formatPrice(relatedCombo.price)}</strong>
                     </div>
-                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-gold)', color: 'var(--web-navy)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
+                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
                       Xem Combo Ngay
                     </Link>
                   </div>

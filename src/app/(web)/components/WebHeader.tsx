@@ -43,8 +43,8 @@ export default function WebHeader() {
   ];
 
   const textColor = scrolled ? 'var(--web-text-secondary)' : 'rgba(255,255,255,0.85)';
-  const logoColor = scrolled ? 'var(--web-navy)' : '#fff';
-  const cartIconColor = scrolled ? 'var(--web-navy)' : '#fff';
+  const logoColor = scrolled ? 'var(--web-ink)' : '#fff';
+  const cartIconColor = scrolled ? 'var(--web-ink)' : '#fff';
   
   const totalItems = mounted ? getTotalItems() : 0;
 
@@ -72,7 +72,7 @@ export default function WebHeader() {
           ))}
           
           {/* Cart Icon */}
-          <Link href="/dat-hang" className="cart-icon-wrap">
+          <Link href="/dat-hang" className="cart-icon-wrap" aria-label="Giỏ hàng">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cartIconColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
@@ -97,7 +97,7 @@ export default function WebHeader() {
 
         {/* Mobile Nav Right Area */}
         <div className="web-nav-mobile-right">
-          <Link href="/dat-hang" className="cart-icon-wrap">
+          <Link href="/dat-hang" className="cart-icon-wrap" aria-label="Giỏ hàng">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cartIconColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
@@ -113,7 +113,7 @@ export default function WebHeader() {
             className="web-nav-hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
-            style={{ color: scrolled ? 'var(--web-navy)' : '#fff' }}
+            style={{ color: scrolled ? 'var(--web-ink)' : '#fff' }}
           >
             {menuOpen ? '✕' : '☰'}
           </button>

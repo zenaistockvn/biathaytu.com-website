@@ -22,7 +22,7 @@ export default function Section({
   if (variant === 'alt') {
     variantClass = 'section-alt';
   } else if (variant === 'dark') {
-    inlineStyle.background = 'var(--web-navy)';
+    inlineStyle.background = 'var(--web-ink)';
     inlineStyle.color = '#ffffff';
     inlineStyle.position = 'relative';
   } else {

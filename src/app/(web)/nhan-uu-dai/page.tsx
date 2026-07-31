@@ -253,7 +253,7 @@ export default function Page() {
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <span style={{ fontSize: '64px', display: 'block', marginBottom: '24px' }}>🎉</span>
-                <h3 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--web-gold)', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--web-accent)', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>
                   Đăng Ký Thành Công!
                 </h3>
                 <p style={{ color: '#ffffff', fontSize: '16px', lineHeight: 1.8, marginBottom: '24px' }}>
@@ -283,7 +283,7 @@ export default function Page() {
       {/* AI Summary / GEO Section */}
       <section className="uudai-ai-section">
         <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-gold)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-accent)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
             Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
           </h2>
           <div className="uudai-ai-card">

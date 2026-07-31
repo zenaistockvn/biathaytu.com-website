@@ -165,7 +165,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
         {/* CTA Footer */}
         <div style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid var(--web-border)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-navy)', fontFamily: 'var(--font-serif)' }}>
+          <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-serif)' }}>
             Sẵn sàng để thưởng thức?
           </h3>
           <p style={{ color: 'var(--web-text-muted)', marginBottom: '40px', fontSize: '16px' }}>
@@ -203,9 +203,9 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           )}
 
           <Link href="/san-pham" style={{ 
-            display: 'inline-flex', padding: '14px 32px', background: 'transparent', color: 'var(--web-gold-dark)', 
+            display: 'inline-flex', padding: '14px 32px', background: 'transparent', color: 'var(--web-accent-strong)', 
             fontWeight: 700, borderRadius: 'var(--web-radius)', textDecoration: 'none', transition: 'all 0.3s ease',
-            border: '2px solid var(--web-gold)'
+            border: '2px solid var(--web-accent)'
           }}>
             Xem Toàn Bộ Cửa Hàng
           </Link>
@@ -217,10 +217,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         <section style={{ background: 'var(--web-bg-section)', padding: '80px 0' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-gold)', textTransform: 'uppercase', marginBottom: '12px', fontFamily: "'Inter', sans-serif" }}>
+              <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '12px', fontFamily: "'Inter', sans-serif" }}>
                 Đọc Thêm
               </p>
-              <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--web-navy)', fontFamily: 'var(--font-serif)' }}>
+              <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-serif)' }}>
                 Bài Viết Liên Quan
               </h2>
             </div>
@@ -257,13 +257,13 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                     </div>
                   )}
                   <div style={{ padding: '24px 28px 28px' }}>
-                    <div style={{ fontSize: '13px', color: 'var(--web-gold-dark)', fontWeight: 600, marginBottom: '12px' }}>
+                    <div style={{ fontSize: '13px', color: 'var(--web-accent-strong)', fontWeight: 600, marginBottom: '12px' }}>
                       {new Date(related.created_at).toLocaleDateString('vi-VN')}
                       <span style={{ margin: '0 8px', color: 'var(--web-text-muted)' }}>•</span>
                       {related.word_count ? Math.round(related.word_count / 200) : 3} phút
                     </div>
                     <h3 style={{
-                      fontSize: '19px', fontWeight: 700, color: 'var(--web-navy)',
+                      fontSize: '19px', fontWeight: 700, color: 'var(--web-ink)',
                       marginBottom: '10px', lineHeight: 1.4,
                       fontFamily: 'var(--font-serif)',
                       display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as never, overflow: 'hidden'
@@ -277,7 +277,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                     }}>
                       {related.meta_description || ''}
                     </p>
-                    <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--web-gold-dark)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--web-accent-strong)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       Đọc tiếp <span>→</span>
                     </div>
                   </div>

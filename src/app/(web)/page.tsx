@@ -179,19 +179,19 @@ export default async function LandingPage() {
                   icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>,
                   title: 'Dòng Hell / Lager',
                   desc: 'Vị mạch nha thanh khiết, hoa bia cân bằng — Bạn đồng hành hoàn hảo cho Gà nướng, Phô mai, Salad, hay bất kỳ bữa tiệc ngoài trời nào.',
-                  color: 'var(--web-gold-dark)',
+                  color: 'var(--web-accent-strong)',
                 },
                 { 
                   icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M8 10c0-2-4-2-4-6"/><path d="M16 10c0-2 4-2 4-6"/><path d="M8 18c0-2-4-2-4-6"/><path d="M16 18c0-2 4-2 4-6"/></svg>, 
                   title: 'Dòng Weissbier (Lúa Mì)', 
                   desc: 'Hương trái cây, chuối, đinh hương — Tuyệt đỉnh khi dùng chung với Bánh Pretzel, Phô mai nướng, hoặc các loại Hải sản hấp.',
-                  color: 'var(--web-gold)',
+                  color: 'var(--web-accent)',
                 },
                 { 
                   icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 21h8M12 17v4M7 4h10l-1 13H8L7 4z"/><path d="M5 8h14"/></svg>, 
                   title: 'Dòng Dunkel (Bia Đen)', 
                   desc: 'Vị mạch nha rang đậm đà cùng xirô caramel — Lựa chọn hoàn hảo khi sánh vai cùng Xúc xích nướng BBQ, Steak bò non, Thịt cừu.',
-                  color: 'var(--web-navy)',
+                  color: 'var(--web-ink)',
                 }
               ].map((item, i) => (
                 <div key={i} className="food-pairing-card food-card-body">
