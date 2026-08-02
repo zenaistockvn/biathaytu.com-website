@@ -33,7 +33,7 @@ export default function ReturnPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Quy Trình Xử Lý Đổi Trả [CẦN PHÁP CHẾ XÁC NHẬN]
+            2. Quy Trình Xử Lý Đổi Trả
           </h2>
           <p>
             - Thời hạn phản hồi: Trong vòng 24 giờ kể từ thời điểm nhận hàng.<br />

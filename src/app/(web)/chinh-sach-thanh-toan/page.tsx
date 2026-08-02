@@ -37,7 +37,7 @@ export default function PaymentPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Thanh Toán Khi Nhận Hàng (COD) [CẦN PHÁP CHẾ XÁC NHẬN]
+            2. Thanh Toán Khi Nhận Hàng (COD)
           </h2>
           <p>
             - Áp dụng cho các đơn hàng bán lẻ đạt điều kiện.<br />

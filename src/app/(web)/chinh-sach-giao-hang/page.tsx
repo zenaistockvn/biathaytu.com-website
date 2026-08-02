@@ -32,7 +32,7 @@ export default function ShippingPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Quy định Kiểm Tra Độ Tuổi Khi Giao Nhận [CẦN PHÁP CHẾ XÁC NHẬN]
+            2. Quy định Kiểm Tra Độ Tuổi Khi Giao Nhận
           </h2>
           <p>
             - Đơn hàng có chứa sản phẩm đồ uống có cồn bắt buộc phải được nhận bởi người từ đủ 18 tuổi trở lên.<br />
@@ -43,7 +43,7 @@ export default function ShippingPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            3. Phí Giao Hàng [CẦN PHÁP CHẾ XÁC NHẬN]
+            3. Phí Giao Hàng
           </h2>
           <p>
             - Phí giao hàng được tính cụ thể theo khoảng cách và đối tác vận chuyển tại thời điểm xác nhận đơn hàng.<br />

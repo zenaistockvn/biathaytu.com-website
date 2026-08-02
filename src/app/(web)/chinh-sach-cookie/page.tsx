@@ -31,7 +31,7 @@ export default function CookiePolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Phân Loại Cookie Sử Dụng [CẦN PHÁP CHẾ XÁC NHẬN]
+            2. Phân Loại Cookie Sử Dụng
           </h2>
           <p>
             - <strong>Cookie Bắt Buộc (Essential):</strong> Lưu giữ trạng thái giỏ hàng, phiên đăng nhập và cờ xác minh độ tuổi (`age_verified`). Không thể tắt.<br />

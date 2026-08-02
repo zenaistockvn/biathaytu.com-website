@@ -30,7 +30,7 @@ export default function TermsOfUsePage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Trách Nhiệm Thông Tin Đặt Hàng [CẦN PHÁP CHẾ XÁC NHẬN]
+            2. Trách Nhiệm Thông Tin Đặt Hàng
           </h2>
           <p>
             - Khách hàng chịu trách nhiệm về tính chính xác của thông tin người đặt và người nhận hàng.<br />

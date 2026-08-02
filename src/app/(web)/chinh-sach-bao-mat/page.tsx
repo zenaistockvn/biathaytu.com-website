@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            3. Quyền Của Người Dùng [CẦN PHÁP CHẾ XÁC NHẬN]
+            3. Quyền Của Người Dùng
           </h2>
           <p>
             Người dùng có quyền kiểm tra, cập nhật, điều chỉnh hoặc yêu cầu hủy bỏ thông tin cá nhân đã đăng ký bất kỳ lúc nào bằng cách liên hệ với ban quản trị website.

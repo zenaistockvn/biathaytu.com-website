@@ -41,7 +41,7 @@ export default function AgeControlPolicyPage() {
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            3. Xác minh Độ tuổi khi Giao hàng [CẦN PHÁP CHẾ XÁC NHẬN]
+            3. Xác minh Độ tuổi khi Giao hàng
           </h2>
           <p>
             - Đơn hàng có sản phẩm đồ uống có cồn bắt buộc đối soát người nhận từ đủ 18 tuổi.<br />
