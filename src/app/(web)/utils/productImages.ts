@@ -1,4 +1,6 @@
-export const PRODUCT_IMAGE_PLACEHOLDER = '/images/products/placeholder-product.svg';
+import { PRODUCT_IMAGE_PLACEHOLDER } from '@/lib/data/productImage';
+
+export { PRODUCT_IMAGE_PLACEHOLDER } from '@/lib/data/productImage';
 
 interface ProductImageInput {
   images?: string[] | null;
