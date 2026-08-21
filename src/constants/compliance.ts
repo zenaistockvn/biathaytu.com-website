@@ -1,9 +1,7 @@
 export const DEFAULT_ALCOHOL_WARNING =
   'Người dưới 18 tuổi không được uống rượu, bia. Thưởng thức có trách nhiệm. Không lái xe sau khi sử dụng đồ uống có cồn.';
 
-export const AGE_VERIFICATION_EXPIRY_DAYS = Number(
-  process.env.NEXT_PUBLIC_AGE_VERIFICATION_EXPIRY_DAYS || 30,
-);
+export const AGE_VERIFICATION_EXPIRY_DAYS = 30;
 
 // Bump this value whenever the declaration requirements materially change.
 // v2 requires full name + date of birth before access.
