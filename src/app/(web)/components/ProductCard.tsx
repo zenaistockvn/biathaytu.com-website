@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { formatPrice } from '@/utils/formatPrice';
-import { Button } from './ui/Button';
 import { getDisplayProductImage } from '../utils/productImages';
 
 function getPerItemPrice(name: string, price: number): string | null {
@@ -44,7 +43,7 @@ export interface ProductCardProps {
 
 /**
  * Unified product card used across homepage featured grid and /san-pham listing.
- * Uses .product-card-v2 CSS classes for consistent styling.
+ * The entire card is a single accessible link to avoid nested interactive controls.
  */
 export default function ProductCard({
   id, name, slug, images, price, description,
@@ -59,8 +58,14 @@ export default function ProductCard({
   const cardClassName = `product-card-v2${isWine ? ' wine-card' : ''}${highlightLabel ? ' product-card-highlight' : ''}`;
 
   return (
-    <div id={cardId} className={cardClassName}>
-      <Link href={href} className="card-image">
+    <Link
+      id={cardId}
+      href={href}
+      className={cardClassName}
+      aria-label={`Xem chi tiết ${name}`}
+      style={{ color: 'inherit', textDecoration: 'none' }}
+    >
+      <div className="card-image">
         {highlightLabel && (
           <span className="card-promo-badge">{highlightLabel}</span>
         )}
@@ -79,12 +84,10 @@ export default function ProductCard({
             Đang cập nhật hình
           </div>
         )}
-      </Link>
+      </div>
 
       <div className="card-body">
-        <Link href={href}>
-          <h3 className="card-name">{name}</h3>
-        </Link>
+        <h3 className="card-name">{name}</h3>
 
         {description && (
           <p className="card-description">{description}</p>
@@ -133,17 +136,13 @@ export default function ProductCard({
         )}
 
         {showCTA && (
-          <div className="card-actions">
-            <Button
-              href={href}
-              variant="primary"
-              className="card-btn-buy shimmer-effect"
-            >
+          <div className="card-actions" aria-hidden="true">
+            <span className="btn-primary card-btn-buy shimmer-effect">
               Xem chi tiết
-            </Button>
+            </span>
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
