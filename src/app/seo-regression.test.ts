@@ -1,9 +1,10 @@
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BRAND } from '@/lib/brand';
-import { getAllProducts, MAX_SHORT_DESCRIPTION_LENGTH, PRODUCT_IMAGE_TODOS } from '@/lib/data/products';
+import { getAllProducts, getVisibleProducts, MAX_SHORT_DESCRIPTION_LENGTH, PRODUCT_IMAGE_TODOS } from '@/lib/data/products';
 import { PRODUCT_IMAGE_PLACEHOLDER } from '@/lib/data/productImage';
+import { formatPrice, formatUnitPrice, RETAIL_PRICE_NOTE } from '@/lib/pricing';
 import { normalizeBrandIdentity, toMetaDescription } from '@/lib/seo/metadataCopy';
 import { getPublicBaseUrl } from '@/lib/seo/site';
 import { getArticleSchema, getProductSchema } from './(web)/components/JsonLd';
@@ -28,7 +29,7 @@ afterEach(() => {
   else process.env.NEXT_PUBLIC_APP_URL = originalAppUrl;
 });
 
-describe('German Taste brand, SEO and GEO regressions', () => {
+describe('German Taste brand, SEO and storefront regressions', () => {
   it('uses biathaytu.com.vn as the public production host', () => {
     process.env.NEXT_PUBLIC_APP_URL = 'http://localhost:3000';
     expect(getPublicBaseUrl()).toBe(BRAND.siteUrl);
@@ -68,6 +69,82 @@ describe('German Taste brand, SEO and GEO regressions', () => {
       expect(product.shortDescription!.length, product.slug).toBeLessThanOrEqual(MAX_SHORT_DESCRIPTION_LENGTH);
       expect(product.shortDescription, product.slug).toMatch(/[.!?]$/);
     }
+  });
+
+  it('publishes only products with a positive retail price', () => {
+    for (const product of getVisibleProducts()) {
+      expect(product.price, product.slug).toEqual(expect.any(Number));
+      expect(product.price!, product.slug).toBeGreaterThan(0);
+      expect(formatPrice(product.price), product.slug).toMatch(/^\d{1,3}(?:\.\d{3})*₫$/);
+      expect(formatUnitPrice(product), product.slug).toMatch(/^≈ .+₫\/.+$/);
+    }
+  });
+
+  it('uses one shared pricing helper for listing and detail price UI', () => {
+    const card = readProjectFile('src/app/(web)/components/ProductCard.tsx');
+    const detailActions = readProjectFile('src/app/(web)/components/ProductOrderActions.tsx');
+
+    expect(card).toContain('formatPrice');
+    expect(card).toContain('formatUnitPrice');
+    expect(detailActions).toContain('formatPrice');
+    expect(detailActions).toContain('formatUnitPrice');
+    expect(RETAIL_PRICE_NOTE).toBe('Giá niêm yết toàn quốc');
+    expect(RETAIL_PRICE_NOTE).not.toMatch(/VAT/i);
+  });
+
+  it('matches the approved approximate unit-price example', () => {
+    expect(formatPrice(1090000)).toBe('1.090.000₫');
+    expect(formatUnitPrice({
+      price: 1090000,
+      name: 'Benediktiner Naturtrüb — Thùng 12 Chai 500ml',
+      volume: '500ml',
+      category: 'bia',
+    })).toBe('≈ 90.800₫/chai');
+  });
+
+  it('routes product conversion to Zalo, Messenger or phone without on-site checkout', () => {
+    const card = readProjectFile('src/app/(web)/components/ProductCard.tsx');
+    const actions = readProjectFile('src/app/(web)/components/ProductOrderActions.tsx');
+    const zalo = readProjectFile('src/app/(web)/components/ZaloCTA.tsx');
+
+    expect(card).toContain('Đặt qua Zalo');
+    expect(card).toContain('Nhắn Fanpage');
+    expect(actions).toContain('Đặt qua Zalo');
+    expect(actions).toContain('Nhắn Fanpage');
+    expect(actions).toContain('BRAND_TEL_HREF');
+    expect(zalo).toContain('productName');
+    expect(zalo).toContain('BRAND.socialLinks.zalo');
+  });
+
+  it('has no cart, checkout route, order API, or cart persistence in application code', () => {
+    const appFiles = listSourceFiles(join(root, 'src', 'app'));
+    const libFiles = listSourceFiles(join(root, 'src', 'lib'));
+    const source = [...appFiles, ...libFiles].map((file) => readFileSync(file, 'utf8')).join('\n');
+
+    expect(source).not.toContain('/dat-hang');
+    expect(source).not.toContain("label: 'Giỏ hàng'");
+    expect(source).not.toMatch(/\b(?:CartContext|addToCart|cartItems|removeFromCart|clearCart)\b/);
+    expect(source).not.toMatch(/localStorage\.(?:getItem|setItem)\([^\n]*(?:cart|gio-hang|giỏ hàng)/i);
+    expect(source).not.toMatch(/\/api\/(?:order|orders|checkout)\b/i);
+    expect(existsSync(join(root, 'src', 'app', 'api'))).toBe(false);
+  });
+
+  it('does not use purchase-price discount badges', () => {
+    const card = readProjectFile('src/app/(web)/components/ProductCard.tsx');
+    expect(card).not.toContain('Ưu đãi còn 99K');
+    expect(card).toContain("/^tặng\\s+kèm\\b/i");
+  });
+
+  it('keeps partner commercial terms private on public B2B pages', () => {
+    const publicB2B = [
+      readProjectFile('src/app/(web)/bang-gia-si-dai-ly/page.tsx'),
+      readProjectFile('src/app/(web)/bia-duc-cho-nha-hang-khach-san/page.tsx'),
+    ].join('\n');
+
+    expect(publicB2B).not.toMatch(/\bchiết\s*khấu\b/i);
+    expect(publicB2B).not.toMatch(/\bgiá\s*sỉ\b/i);
+    expect(publicB2B).not.toMatch(/\b(?:B2B|wholesale)\s*(?:price|giá)/i);
+    expect(publicB2B).not.toMatch(/\b\d{1,3}\s*%/);
   });
 
   it('quarantines known product-image mismatches behind placeholder + TODO', () => {
