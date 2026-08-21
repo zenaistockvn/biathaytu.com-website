@@ -24,6 +24,11 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/mua-bia-benediktiner-chinh-hang',
+        destination: '/bia-benediktiner-chinh-hang',
+        statusCode: 301,
+      },
+      {
         source: '/chinh-sach-giao-hang',
         destination: '/thong-tin-mua-hang',
         statusCode: 301,
