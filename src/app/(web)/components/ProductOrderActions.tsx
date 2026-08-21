@@ -2,15 +2,27 @@
 
 import ZaloCTA from './ZaloCTA';
 import { BRAND, BRAND_TEL_HREF } from '@/lib/brand';
+import { formatPrice, formatUnitPrice, RETAIL_PRICE_NOTE } from '@/lib/pricing';
 
 interface ProductOrderActionsProps {
   product: {
     id: string;
     name: string;
+    price?: number | null;
+    volume?: string | null;
+    category?: string | null;
   };
 }
 
 export default function ProductOrderActions({ product }: ProductOrderActionsProps) {
+  const retailPrice = formatPrice(product.price);
+  const unitPrice = formatUnitPrice({
+    price: product.price,
+    name: product.name,
+    volume: product.volume,
+    category: product.category,
+  });
+
   return (
     <section
       className="product-actions detail-product-actions"
@@ -23,6 +35,20 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
         background: 'var(--web-bg-warm)',
       }}
     >
+      {retailPrice && (
+        <div style={{ flex: '1 1 100%', paddingBottom: '8px' }}>
+          <div style={{ fontSize: '30px', lineHeight: 1.15, fontWeight: 800, color: 'var(--web-ink)' }}>
+            {retailPrice}
+          </div>
+          <div style={{ marginTop: '4px', fontSize: '14px', color: 'var(--web-text-muted)' }}>
+            {unitPrice}
+          </div>
+          <div style={{ marginTop: '5px', fontSize: '12px', color: 'var(--web-text-muted)' }}>
+            {RETAIL_PRICE_NOTE}
+          </div>
+        </div>
+      )}
+
       <div style={{ flex: '1 1 100%' }}>
         <h3 id="product-consultation-title" style={{ margin: '0 0 8px', fontSize: '20px', color: 'var(--web-ink)' }}>
           Chọn kênh đặt hàng
