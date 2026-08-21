@@ -1,35 +1,28 @@
-import { COMPANY_CONFIG, getCompanyZaloUrl, isPendingCompanyValue } from '@/config/company';
+import { BRAND } from '@/lib/brand';
 
-function normalizePhoneDigits(value: string): string {
-  return isPendingCompanyValue(value) ? '' : value.replace(/\D/g, '');
-}
+const phoneE164 = `+84${BRAND.hotlineDigits.slice(1)}`;
 
-const phoneDigits = normalizePhoneDigits(COMPANY_CONFIG.hotline);
-const phoneE164 = phoneDigits.startsWith('0')
-  ? `+84${phoneDigits.slice(1)}`
-  : phoneDigits
-    ? `+${phoneDigits}`
-    : '';
-
-/** Nguồn NAP dùng cho SEO, dẫn xuất từ cấu hình pháp nhân tập trung. */
+/** Nguồn NAP dùng cho SEO, dẫn xuất duy nhất từ BRAND. */
 export const BUSINESS = {
-  name: 'Bia Thầy Tu',
-  legalName: COMPANY_CONFIG.legalName,
-  streetAddress: COMPANY_CONFIG.showroomAddress,
-  addressLocality: '',
-  addressRegion: '',
+  name: BRAND.consumerBrand,
+  legalName: BRAND.legalName,
+  streetAddress: BRAND.showroomAddress,
+  addressLocality: 'Ba Đình',
+  addressRegion: 'Hà Nội',
   addressCountry: 'VN',
-  addressFull: COMPANY_CONFIG.showroomAddress,
-  registeredAddress: COMPANY_CONFIG.registeredAddress,
-  taxCode: COMPANY_CONFIG.taxCode,
-  businessRegistrationCertificateNumber: COMPANY_CONFIG.businessRegistrationCertificateNumber,
-  legalRepresentative: COMPANY_CONFIG.legalRepresentative,
-  phoneDisplay: COMPANY_CONFIG.hotline,
+  addressFull: BRAND.showroomAddress,
+  registeredAddress: BRAND.registeredAddress,
+  taxCode: BRAND.taxCode,
+  businessRegistrationCertificateNumber: BRAND.businessRegistrationCertificateNumber,
+  legalRepresentative: BRAND.legalRepresentative,
+  phoneDisplay: BRAND.hotline,
   phoneE164,
-  phoneTel: phoneDigits,
-  email: COMPANY_CONFIG.email,
-  zaloUrl: getCompanyZaloUrl() || '',
-  websiteUrl: 'https://www.biathaytu.com',
+  phoneTel: BRAND.hotlineDigits,
+  email: BRAND.email,
+  zaloUrl: BRAND.socialLinks.zalo,
+  websiteUrl: BRAND.siteUrl,
+  sameAs: [BRAND.socialLinks.fanpage, BRAND.socialLinks.messenger],
+  exclusivity: BRAND.exclusivity,
 } as const;
 
 export interface BrandInfo {
