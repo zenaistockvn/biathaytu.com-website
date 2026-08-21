@@ -1,10 +1,10 @@
 import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
+import { PRODUCT_IMAGE_PLACEHOLDER } from './productImage';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 
 export const MAX_SHORT_DESCRIPTION_LENGTH = 90;
 
-/** Kiểu sản phẩm dùng cho catalog giới thiệu. */
 export interface Product {
   id: string;
   name: string;
@@ -26,14 +26,19 @@ export interface Product {
   hidden?: boolean;
 }
 
-/**
- * SKU tạm ẩn khỏi catalog kèm lý do. Xóa slug khỏi danh sách này khi đủ dữ liệu/ảnh để hiển thị lại.
- * Không dùng ảnh của nhãn/SKU khác để lấp chỗ trống.
- */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'kostritzer-schwarzbier-bom-5l',
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ]);
+
+export const PRODUCT_IMAGE_TODOS: Readonly<Record<string, string>> = {
+  'kostritzer-schwarzbier-bom-5l':
+    'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L; ảnh Bitburger cũ không được dùng.',
+  'combo-bavaria-party-benediktiner-weissbier-xuc-xich':
+    'TODO: Bổ sung ảnh đúng của thùng 12 chai Benediktiner Naturtrüb + xúc xích 500g; không dùng ảnh thùng lon Festbier.',
+  'combo-oktoberfest-keg-kostritzer-xuc-xich':
+    'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L + xúc xích Wiener 500g.',
+} as const;
 
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 
@@ -86,10 +91,12 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
     if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) continue;
 
     const normalizedDescription = toBrochureMetadataCopy(product.description) || product.description;
+    const imageTodo = PRODUCT_IMAGE_TODOS[product.slug] || product.imageTodo;
     const item: Product = {
       ...product,
       description: normalizedDescription,
       shortDescription: buildShortDescription(product, normalizedDescription),
+      ...(imageTodo ? { images: [PRODUCT_IMAGE_PLACEHOLDER], imageTodo } : {}),
     };
 
     if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) item.hidden = true;
