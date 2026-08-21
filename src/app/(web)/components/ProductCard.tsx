@@ -12,27 +12,23 @@ export interface ProductCardProps {
   images: string[] | null;
   price: number | null;
   description?: string | null;
+  shortDescription?: string;
+  imageTodo?: string;
   abv?: string | null;
   ibu?: number | null;
   volume?: string | null;
   haravan_url?: string | null;
-  /** 'bia' | 'vang' | 'phu-kien' */
   category?: string | null;
   highlightLabel?: string | null;
   quickTags?: string[];
   cardId?: string;
-  /** Show detail CTA (for product listing page) */
   showCTA?: boolean;
-  /** Kept for compatibility; brochure cards never display prices. */
   showReferencePriceNote?: boolean;
 }
 
-/**
- * Unified product card used across homepage featured grid and /san-pham listing.
- * The entire card is a single accessible link to avoid nested interactive controls.
- */
+/** Unified brochure card. Long product descriptions are intentionally not rendered here. */
 export default function ProductCard({
-  id, name, slug, images, description,
+  id, name, slug, images, shortDescription,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -51,9 +47,7 @@ export default function ProductCard({
       style={{ color: 'inherit', textDecoration: 'none' }}
     >
       <div className="card-image">
-        {highlightLabel && (
-          <span className="card-promo-badge">{highlightLabel}</span>
-        )}
+        {highlightLabel && <span className="card-promo-badge">{highlightLabel}</span>}
 
         {primaryImage && !imageFailed ? (
           <Image
@@ -65,24 +59,18 @@ export default function ProductCard({
             onError={() => setImageFailed(true)}
           />
         ) : (
-          <div className="card-image-empty">
-            Đang cập nhật hình
-          </div>
+          <div className="card-image-empty">Đang cập nhật hình</div>
         )}
       </div>
 
       <div className="card-body">
         <h3 className="card-name">{name}</h3>
 
-        {description && (
-          <p className="card-description">{description}</p>
-        )}
+        {shortDescription && <p className="card-description">{shortDescription}</p>}
 
         {quickTags && quickTags.length > 0 && (
           <div className="card-quick-tags">
-            {quickTags.map((tag) => (
-              <span key={tag} className="card-quick-tag">{tag}</span>
-            ))}
+            {quickTags.map((tag) => <span key={tag} className="card-quick-tag">{tag}</span>)}
           </div>
         )}
 
@@ -96,9 +84,7 @@ export default function ProductCard({
 
         {showCTA && (
           <div className="card-actions" aria-hidden="true">
-            <span className="btn-primary card-btn-buy shimmer-effect">
-              Khám phá sản phẩm
-            </span>
+            <span className="btn-primary card-btn-buy shimmer-effect">Khám phá sản phẩm</span>
           </div>
         )}
       </div>
