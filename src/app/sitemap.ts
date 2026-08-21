@@ -47,7 +47,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const landingPages = [
     'bia-thay-tu-la-gi',
     'bia-benediktiner-chinh-hang',
-    'mua-bia-benediktiner-chinh-hang',
     'bia-duc-nhap-khau',
     'benediktiner-weissbier-naturtrub',
     'benediktiner-dunkel',
