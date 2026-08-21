@@ -18,9 +18,10 @@ import CookieConsent from './components/CookieConsent';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
 import { POLICY_VERSION, STORAGE_KEYS } from '@/constants/compliance';
+import { BRAND } from '@/lib/brand';
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://www.biathaytu.com';
+const BASE_URL = BRAND.siteUrl;
 
 const AGE_GATE_PREPAINT_SCRIPT = `
 (function () {
@@ -58,13 +59,7 @@ export const metadata: Metadata = {
     default: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
     template: '%s | Bia Thầy Tu',
   },
-  description: 'Khám phá Bia Thầy Tu Benediktiner: nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và thông tin tư vấn tại Việt Nam.',
-  keywords: [
-    'bia đức nhập khẩu', 'bia nhập khẩu', 'bia thầy tu', 'benediktiner', 'bia weissbier',
-    'bia lúa mì đức', 'bia đen đức', 'german beer vietnam', 'bia đức chính hãng',
-    'benediktiner weissbier', 'bia tu viện', 'monastery beer', 'bia cao cấp',
-    'bia đức hà nội', 'thông tin bia đức', 'bia đức cho horeca', 'đại lý bia đức',
-  ],
+  description: 'Khám phá Bia Thầy Tu Benediktiner: câu chuyện Ettal, hương vị bia Đức, cách thưởng thức và tư vấn chính hãng tại Việt Nam.',
   alternates: {
     languages: {
       'vi-VN': BASE_URL,
@@ -76,7 +71,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: 'Bia Thầy Tu',
     title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
-    description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, hương vị, cách thưởng thức và thông tin tư vấn tại Việt Nam.',
+    description: 'Khám phá Benediktiner Weissbier: câu chuyện Ettal, hương vị, cách thưởng thức và tư vấn chính hãng tại Việt Nam.',
     images: [
       {
         url: '/images/brand/benediktiner-official/home-hero.jpg',
@@ -89,7 +84,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
-    description: 'Thông tin về Bia Thầy Tu, Benediktiner và bia Đức nhập khẩu chính hãng tại Việt Nam.',
+    description: 'Thông tin Benediktiner, Bia Thầy Tu và bia Đức nhập khẩu chính hãng do German Taste phân phối tại Việt Nam.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
   robots: {
