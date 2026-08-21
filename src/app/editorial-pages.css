@@ -1,0 +1,134 @@
+/* P3 editorial pages — magazine rhythm and full-photo brand storytelling. */
+
+/* Knowledge: featured story becomes a magazine split on tablet/desktop. */
+@media (min-width: 769px) {
+  .web-app .knowledge-featured-card {
+    min-height: 430px;
+    flex-direction: row !important;
+    align-items: stretch;
+  }
+
+  .web-app .knowledge-featured-thumb {
+    width: 55%;
+    height: auto !important;
+    min-height: 430px;
+    max-height: none !important;
+    flex: 0 0 55%;
+  }
+
+  .web-app .knowledge-featured-body {
+    width: 45%;
+    align-items: flex-start !important;
+    justify-content: center;
+    padding: 48px !important;
+    text-align: left !important;
+  }
+
+  .web-app .knowledge-featured-meta {
+    justify-content: flex-start !important;
+  }
+
+  .web-app .knowledge-featured-title,
+  .web-app .knowledge-featured-desc {
+    max-width: 560px;
+  }
+}
+
+.web-app .knowledge-featured-cta {
+  padding: 0 0 5px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(47, 93, 58, 0.34) !important;
+  border-radius: 0 !important;
+  color: var(--web-accent-strong) !important;
+}
+
+.web-app .knowledge-featured-card:hover .knowledge-featured-cta {
+  background: transparent !important;
+  color: var(--web-accent-strong) !important;
+}
+
+/* Article grid feels more like editorial print: quieter cards and wider gutters. */
+@media (min-width: 1025px) {
+  .web-app .knowledge-grid {
+    gap: 48px 36px !important;
+  }
+}
+
+.web-app .knowledge-card {
+  border-color: rgba(207, 201, 182, 0.72) !important;
+}
+
+.web-app .knowledge-card-action {
+  font-weight: 700;
+}
+
+/* Brand story: replace the marketing-box CTA with a full-photo editorial statement. */
+.web-app .brand-story-cta {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: clamp(54px, 7vw, 88px) clamp(28px, 6vw, 72px) !important;
+  border: 1px solid rgba(244, 241, 233, 0.18);
+  border-radius: 16px !important;
+  background-color: #14241A !important;
+  background-image:
+    linear-gradient(90deg, rgba(13, 25, 17, 0.95) 0%, rgba(20, 36, 26, 0.82) 48%, rgba(20, 36, 26, 0.36) 100%),
+    url('/images/products/story_monastery_v2.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+.web-app .brand-story-cta .cta-banner-watermark,
+.web-app .brand-story-cta .cta-banner-icon {
+  display: none !important;
+}
+
+.web-app .brand-story-cta h2 {
+  max-width: 680px;
+  margin: 0 0 18px !important;
+  color: #F4F1E9 !important;
+  font-size: clamp(32px, 4.8vw, 52px) !important;
+  line-height: 1.08;
+  text-align: left;
+}
+
+.web-app .brand-story-cta p {
+  max-width: 660px !important;
+  margin: 0 0 30px !important;
+  color: rgba(244, 241, 233, 0.82) !important;
+  font-size: clamp(16px, 1.6vw, 18px) !important;
+  line-height: 1.75 !important;
+  text-align: left;
+}
+
+.web-app .brand-story-cta .btn-primary {
+  background: #F4F1E9 !important;
+  color: #14241A !important;
+  border: 1px solid rgba(244, 241, 233, 0.74) !important;
+  box-shadow: none !important;
+}
+
+.web-app .brand-story-cta .btn-primary:hover {
+  background: #E9E5D8 !important;
+  color: #14241A !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .web-app .brand-story-cta {
+    min-height: 390px;
+    padding: 46px 24px !important;
+    background-image:
+      linear-gradient(180deg, rgba(13, 25, 17, 0.42) 0%, rgba(13, 25, 17, 0.93) 72%),
+      url('/images/products/story_monastery_v2.png') !important;
+    background-position: 58% center !important;
+  }
+
+  .web-app .brand-story-cta h2 {
+    font-size: 31px !important;
+  }
+}
