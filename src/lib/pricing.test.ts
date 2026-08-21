@@ -6,13 +6,13 @@ describe('retail pricing helpers', () => {
     expect(formatPrice(1090000)).toBe('1.090.000₫');
   });
 
-  it('formats case prices to a per-bottle unit price', () => {
+  it('formats case prices to an approximate per-bottle unit price', () => {
     expect(formatUnitPrice({
       price: 1090000,
       name: 'Benediktiner Naturtrüb — Thùng 12 Chai 500ml',
       volume: '500ml',
       category: 'bia',
-    })).toBe('≈ 90.833₫/chai');
+    })).toBe('≈ 90.800₫/chai');
   });
 
   it('formats keg prices per liter', () => {
