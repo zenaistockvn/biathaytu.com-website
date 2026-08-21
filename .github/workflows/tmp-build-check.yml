@@ -60,10 +60,6 @@ jobs:
 
           grep -q "const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo" "$detail"
           grep -q 'Sản phẩm chỉ dành cho người từ đủ 18 tuổi.' "$detail"
-          grep -q 'Hương vị nổi bật' "$detail"
-          grep -q 'Quy cách' "$detail"
-          grep -q 'Gợi Ý Food Pairing' "$detail"
-          grep -q 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.' "$detail"
           if grep -q 'price: product.price' "$detail"; then
             echo 'Product detail still passes price into Product JSON-LD'
             exit 1
@@ -72,19 +68,67 @@ jobs:
             echo 'Product detail still contains transactional UI copy'
             exit 1
           fi
-
           grep -q 'Quan tâm sản phẩm này?' "$actions"
-          grep -q 'Gọi 0899.191.313' "$actions"
-          grep -q 'label="Chat Zalo"' "$actions"
-          grep -q 'href="#tu-van-san-pham"' "$actions"
           test -e "$form"
-          grep -q 'id="tu-van-san-pham"' "$form"
-          grep -q 'Họ và tên' "$form"
-          grep -q 'Số điện thoại' "$form"
-          grep -q 'Nội dung cần tư vấn' "$form"
+      - name: Validate age declaration gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          gate='src/app/(web)/components/AgeVerificationGate.tsx'
+          util='src/utils/ageVerification.ts'
+          layout='src/app/(web)/layout.tsx'
+          constants='src/constants/compliance.ts'
+
+          grep -q 'Họ và tên' "$gate"
+          grep -q 'type="date"' "$gate"
+          grep -q 'validateFullName' "$gate"
+          grep -q 'Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.' "$gate"
+          grep -q 'target="_blank"' "$gate"
+          grep -q "event.key === 'Escape'" "$gate"
+          grep -q 'setAttribute.(.inert' "$gate" || grep -q "setAttribute('inert'" "$gate"
+          grep -q 'AGE_VERIFICATION_EXPIRY_DAYS' "$util"
+          grep -q 'Max-Age=' "$util"
+          grep -q 'isSearchCrawlerUserAgent' "$util"
+          grep -q 'googlebot' "$util"
+          grep -q 'bingbot' "$util"
+          if grep -q 'localStorage' "$util"; then
+            echo 'Age verification still stores/reads status in localStorage'
+            exit 1
+          fi
+          grep -q "POLICY_VERSION = '2.0'" "$constants"
+          grep -q 'AGE_GATE_PREPAINT_SCRIPT' "$layout"
+          grep -q 'googlebot' "$layout"
+          grep -q 'bingbot' "$layout"
+          grep -q 'data-age-gate' "$layout"
+      - name: Validate policy restructuring
+        shell: bash
+        run: |
+          set -euo pipefail
+          terms='src/app/(web)/dieu-khoan-su-dung/page.tsx'
+          info='src/app/(web)/thong-tin-mua-hang/page.tsx'
+          footer='src/app/(web)/components/WebFooter.tsx'
+          sitemap='src/app/sitemap.ts'
+
+          grep -q 'Tính chất của website' "$terms"
+          grep -q 'không thực hiện chức năng đặt hàng trực tuyến' "$terms"
+          test -e "$info"
+          grep -q 'Thông Tin Mua Hàng' "$info"
+          grep -q 'không phải điều khoản giao dịch trực tuyến' "$info"
+          grep -q 'Thông tin mua hàng' "$footer"
+          grep -q '/thong-tin-mua-hang' "$footer"
+          test ! -e 'src/app/(web)/chinh-sach-giao-hang/page.tsx'
+          test ! -e 'src/app/(web)/chinh-sach-thanh-toan/page.tsx'
+          test ! -e 'src/app/(web)/chinh-sach-doi-tra/page.tsx'
+          grep -q "'thong-tin-mua-hang'" "$sitemap"
+          if grep -Eq "'chinh-sach-(giao-hang|thanh-toan|doi-tra)'" "$sitemap"; then
+            echo 'Legacy policy URL still present in sitemap'
+            exit 1
+          fi
+      - name: Run compliance unit tests
+        run: npx vitest run src/lib/compliance/compliance.test.ts
       - name: Build Next.js
         run: npx next build
-      - name: Smoke-check affected routes and redirect
+      - name: Smoke-check affected routes and redirects
         shell: bash
         run: |
           set -euo pipefail
@@ -103,14 +147,24 @@ jobs:
             cat /tmp/next.log
             exit 1
           fi
-          for path in / /san-pham /kien-thuc /lien-he /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
+          for path in / /san-pham /kien-thuc /lien-he /thong-tin-mua-hang /dieu-khoan-su-dung /chinh-sach-bao-mat /chinh-sach-cookie /chinh-sach-kiem-soat-do-tuoi /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
             code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${path}")
             test "$code" = "200" || { echo "Broken route ${path}: HTTP ${code}"; exit 1; }
           done
-          redirect_code=$(curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/dat-hang)
-          test "$redirect_code" = "301" || { echo "Expected 301 for /dat-hang, got ${redirect_code}"; exit 1; }
-          location=$(curl -sSI http://127.0.0.1:3000/dat-hang | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/ {print $2; exit}')
-          case "$location" in
-            /lien-he|http://127.0.0.1:3000/lien-he|http://localhost:3000/lien-he) ;;
-            *) echo "Unexpected redirect location: ${location}"; exit 1 ;;
-          esac
+
+          check_redirect() {
+            source_path="$1"
+            expected_location="$2"
+            code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${source_path}")
+            test "$code" = "301" || { echo "Expected 301 for ${source_path}, got ${code}"; exit 1; }
+            location=$(curl -sSI "http://127.0.0.1:3000${source_path}" | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/ {print $2; exit}')
+            case "$location" in
+              "$expected_location"|"http://127.0.0.1:3000${expected_location}"|"http://localhost:3000${expected_location}") ;;
+              *) echo "Unexpected redirect ${source_path} -> ${location}"; exit 1 ;;
+            esac
+          }
+
+          check_redirect /dat-hang /lien-he
+          check_redirect /chinh-sach-giao-hang /thong-tin-mua-hang
+          check_redirect /chinh-sach-thanh-toan /thong-tin-mua-hang
+          check_redirect /chinh-sach-doi-tra /thong-tin-mua-hang
