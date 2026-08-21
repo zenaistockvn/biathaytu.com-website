@@ -8,22 +8,22 @@ interface ZaloCTAProps {
   variant?: 'gold' | 'outline';
 }
 
-export default function ZaloCTA({ productName, className = '', label = 'Tư vấn & Đặt hàng qua Zalo', variant = 'gold' }: ZaloCTAProps) {
+export default function ZaloCTA({ productName, className = '', label = 'Tư vấn qua Zalo', variant = 'gold' }: ZaloCTAProps) {
   const zaloPhone = '0899191313';
-  const defaultMessage = productName 
-    ? `Chào Bia Thầy Tu, mình cần tư vấn đặt hàng sản phẩm ${productName}`
-    : `Chào Bia Thầy Tu, mình cần tư vấn đặt hàng bia Đức`;
-    
+  const defaultMessage = productName
+    ? `Chào Bia Thầy Tu, mình muốn được tư vấn về sản phẩm ${productName}`
+    : 'Chào Bia Thầy Tu, mình muốn được tư vấn về các sản phẩm bia Đức';
+
   const zaloUrl = `https://zalo.me/${zaloPhone}?text=${encodeURIComponent(defaultMessage)}`;
 
   const variantClass = variant === 'outline' ? 'zalo-cta-outline-class' : 'zalo-cta-gold-class';
   const combinedClassName = `zalo-cta-class ${variantClass} ${className}`.trim();
 
   return (
-    <a 
-      href={zaloUrl} 
-      target="_blank" 
-      rel="noopener noreferrer" 
+    <a
+      href={zaloUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className={combinedClassName}
     >
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

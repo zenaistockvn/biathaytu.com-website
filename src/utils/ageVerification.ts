@@ -6,6 +6,12 @@ export interface AgeValidationResult {
   error?: string;
 }
 
+export interface NameValidationResult {
+  valid: boolean;
+  normalizedName: string;
+  error?: string;
+}
+
 /**
  * Tính tuổi chính xác theo Ngày, Tháng, Năm sinh so với ngày hiện tại (hoặc ngày chỉ định).
  */
@@ -22,11 +28,30 @@ export function calculateAge(dob: Date, currentDate: Date = new Date()): number 
 }
 
 /**
+ * Họ và tên bắt buộc tối thiểu 2 từ. Chỉ chuẩn hóa trong bộ nhớ trình duyệt;
+ * không gửi về server và không lưu trong cookie/database.
+ */
+export function validateFullName(name: string): NameValidationResult {
+  const normalizedName = name.trim().replace(/\s+/g, ' ');
+  const words = normalizedName.split(' ').filter(Boolean);
+
+  if (words.length < 2) {
+    return {
+      valid: false,
+      normalizedName,
+      error: 'Vui lòng nhập đầy đủ họ và tên (tối thiểu 2 từ).',
+    };
+  }
+
+  return { valid: true, normalizedName };
+}
+
+/**
  * Kiểm tra tính hợp lệ của chuỗi ngày sinh (YYYY-MM-DD) và tính tuổi.
  */
 export function validateDateOfBirth(dobString: string, currentDate: Date = new Date()): AgeValidationResult {
   if (!dobString || !dobString.trim()) {
-    return { valid: false, age: 0, error: 'Vui lòng nhập ngày sinh' };
+    return { valid: false, age: 0, error: 'Vui lòng nhập ngày sinh.' };
   }
 
   const [yearStr, monthStr, dayStr] = dobString.split('-');
@@ -35,129 +60,90 @@ export function validateDateOfBirth(dobString: string, currentDate: Date = new D
   const day = parseInt(dayStr, 10);
 
   if (isNaN(year) || isNaN(month) || isNaN(day)) {
-    return { valid: false, age: 0, error: 'Ngày sinh không hợp lệ' };
+    return { valid: false, age: 0, error: 'Ngày sinh không hợp lệ.' };
   }
 
   const dob = new Date(year, month - 1, day);
-  
-  // Checking valid date creation
+
   if (
     dob.getFullYear() !== year ||
     dob.getMonth() !== month - 1 ||
     dob.getDate() !== day
   ) {
-    return { valid: false, age: 0, error: 'Ngày sinh không tồn tại trên lịch' };
+    return { valid: false, age: 0, error: 'Ngày sinh không tồn tại trên lịch.' };
   }
 
-  // Check future date
   if (dob.getTime() > currentDate.getTime()) {
-    return { valid: false, age: 0, error: 'Ngày sinh không được ở trong tương lai' };
+    return { valid: false, age: 0, error: 'Ngày sinh không được ở trong tương lai.' };
   }
 
   const age = calculateAge(dob, currentDate);
   if (age < 18) {
-    return { valid: false, age, error: 'Bạn phải từ đủ 18 tuổi trở lên để truy cập website' };
+    return {
+      valid: false,
+      age,
+      error: 'Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.',
+    };
   }
 
   return { valid: true, age };
 }
 
 /**
- * Đọc cookie theo tên
+ * Google/Bing crawler được bypass age gate để nội dung SSR vẫn crawl/index bình thường.
  */
+export function isSearchCrawlerUserAgent(userAgent: string): boolean {
+  return /(googlebot|google-inspectiontool|googleother|google-extended|storebot-google|adsbot-google|mediapartners-google|bingbot|bingpreview)/i.test(
+    userAgent || '',
+  );
+}
+
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null;
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  return match ? decodeURIComponent(match[2]) : null;
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${escapedName}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
 }
 
-/**
- * Ghi cookie
- */
-function setCookie(name: string, value: string, days: number) {
+function setCookie(name: string, value: string, days: number): void {
   if (typeof document === 'undefined') return;
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+
+  const maxAge = Math.max(1, Math.floor(days * 24 * 60 * 60));
+  const secure = typeof window !== 'undefined' && window.location.protocol === 'https:' ? ';Secure' : '';
+  document.cookie = `${name}=${encodeURIComponent(value)};Max-Age=${maxAge};Path=/;SameSite=Lax${secure}`;
 }
 
-/**
- * Xóa cookie
- */
-function deleteCookie(name: string) {
+function deleteCookie(name: string): void {
   if (typeof document === 'undefined') return;
-  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax`;
+  const secure = typeof window !== 'undefined' && window.location.protocol === 'https:' ? ';Secure' : '';
+  document.cookie = `${name}=;Max-Age=0;Path=/;SameSite=Lax${secure}`;
 }
 
 /**
- * Kiểm tra trạng thái đã xác minh độ tuổi và chưa hết hạn.
+ * Chỉ kiểm tra một cookie trạng thái. Không dùng localStorage và không lưu tên/ngày sinh.
  */
 export function isAgeVerified(): boolean {
-  if (typeof window === 'undefined') return false;
-
-  const verifiedCookie = getCookie(STORAGE_KEYS.AGE_VERIFIED);
-  const verifiedAtCookie = getCookie(STORAGE_KEYS.VERIFIED_AT);
-  const policyVersionCookie = getCookie(STORAGE_KEYS.POLICY_VERSION);
-
-  const verifiedLocal = localStorage.getItem(STORAGE_KEYS.AGE_VERIFIED);
-  const verifiedAtLocal = localStorage.getItem(STORAGE_KEYS.VERIFIED_AT);
-  const policyVersionLocal = localStorage.getItem(STORAGE_KEYS.POLICY_VERSION);
-
-  const verified = verifiedCookie === 'true' || verifiedLocal === 'true';
-  const verifiedAtStr = verifiedAtCookie || verifiedAtLocal;
-  const policyVersion = policyVersionCookie || policyVersionLocal;
-
-  if (!verified || !verifiedAtStr || policyVersion !== POLICY_VERSION) {
-    return false;
-  }
-
-  const verifiedAt = new Date(verifiedAtStr);
-  if (isNaN(verifiedAt.getTime())) {
-    return false;
-  }
-
-  const now = new Date();
-  const diffDays = (now.getTime() - verifiedAt.getTime()) / (1000 * 3600 * 24);
-
-  if (diffDays > AGE_VERIFICATION_EXPIRY_DAYS) {
-    clearAgeVerification();
-    return false;
-  }
-
-  return true;
+  return getCookie(STORAGE_KEYS.AGE_VERIFIED) === POLICY_VERSION;
 }
 
 /**
- * Đặt trạng thái xác minh độ tuổi thành công (Chỉ lưu age_verified, verified_at, policy_version).
- * TUYỆT ĐỐI KHÔNG LƯU HỌ TÊN HAY NGÀY SINH.
+ * Lưu duy nhất trạng thái đã xác minh trong cookie 30 ngày.
+ * Giá trị cookie là version của chính sách, không chứa họ tên, ngày sinh hay tuổi.
  */
 export function setAgeVerifiedStatus(): void {
-  if (typeof window === 'undefined') return;
+  setCookie(STORAGE_KEYS.AGE_VERIFIED, POLICY_VERSION, AGE_VERIFICATION_EXPIRY_DAYS);
 
-  const nowISO = new Date().toISOString();
-
-  setCookie(STORAGE_KEYS.AGE_VERIFIED, 'true', AGE_VERIFICATION_EXPIRY_DAYS);
-  setCookie(STORAGE_KEYS.VERIFIED_AT, nowISO, AGE_VERIFICATION_EXPIRY_DAYS);
-  setCookie(STORAGE_KEYS.POLICY_VERSION, POLICY_VERSION, AGE_VERIFICATION_EXPIRY_DAYS);
-
-  localStorage.setItem(STORAGE_KEYS.AGE_VERIFIED, 'true');
-  localStorage.setItem(STORAGE_KEYS.VERIFIED_AT, nowISO);
-  localStorage.setItem(STORAGE_KEYS.POLICY_VERSION, POLICY_VERSION);
-
-  window.dispatchEvent(new Event('ageVerificationPassed'));
-}
-
-/**
- * Xóa trạng thái xác minh độ tuổi
- */
-export function clearAgeVerification(): void {
-  if (typeof window === 'undefined') return;
-
-  deleteCookie(STORAGE_KEYS.AGE_VERIFIED);
+  // Dọn các cookie legacy của gate cũ; không tạo lại chúng.
   deleteCookie(STORAGE_KEYS.VERIFIED_AT);
   deleteCookie(STORAGE_KEYS.POLICY_VERSION);
 
-  localStorage.removeItem(STORAGE_KEYS.AGE_VERIFIED);
-  localStorage.removeItem(STORAGE_KEYS.VERIFIED_AT);
-  localStorage.removeItem(STORAGE_KEYS.POLICY_VERSION);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('ageVerificationPassed'));
+  }
+}
+
+export function clearAgeVerification(): void {
+  deleteCookie(STORAGE_KEYS.AGE_VERIFIED);
+  deleteCookie(STORAGE_KEYS.VERIFIED_AT);
+  deleteCookie(STORAGE_KEYS.POLICY_VERSION);
 }

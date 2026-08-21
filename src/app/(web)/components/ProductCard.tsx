@@ -3,12 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useCartStore } from '@/stores/useCartStore';
-import { useToastStore } from '@/stores/useToastStore';
 import { formatPrice } from '@/utils/formatPrice';
-import ZaloCTA from './ZaloCTA';
-import { Button } from './ui/Button';
 import { getDisplayProductImage } from '../utils/productImages';
 
 function getPerItemPrice(name: string, price: number): string | null {
@@ -40,58 +35,37 @@ export interface ProductCardProps {
   highlightLabel?: string | null;
   quickTags?: string[];
   cardId?: string;
-  /** Show full CTA buttons (for product listing page) */
+  /** Show detail CTA (for product listing page) */
   showCTA?: boolean;
+  /** Show brochure-site price disclaimer directly below the displayed price */
+  showReferencePriceNote?: boolean;
 }
 
 /**
  * Unified product card used across homepage featured grid and /san-pham listing.
- * Uses .product-card-v2 CSS classes for consistent styling.
+ * The entire card is a single accessible link to avoid nested interactive controls.
  */
 export default function ProductCard({
   id, name, slug, images, price, description,
-  abv, ibu, volume, haravan_url, category, highlightLabel, quickTags, cardId, showCTA = true,
+  abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
+  showReferencePriceNote = false,
 }: ProductCardProps) {
-  const router = useRouter();
-  const addItem = useCartStore((state) => state.addItem);
-  const showToast = useToastStore((state) => state.show);
   const [imageFailed, setImageFailed] = useState(false);
-  
+
   const href = `/san-pham/${slug || id}`;
   const isWine = category === 'vang';
   const primaryImage = getDisplayProductImage({ images, category });
-  const cartImage = !imageFailed ? primaryImage : '';
   const cardClassName = `product-card-v2${isWine ? ' wine-card' : ''}${highlightLabel ? ' product-card-highlight' : ''}`;
 
-  const handleAddCart = () => {
-    if (!price) return;
-    addItem({
-      id,
-      name,
-      slug: slug || id,
-      price,
-      image: cartImage,
-      quantity: 1,
-    });
-    showToast(`✓ Đã thêm ${name} vào giỏ hàng`);
-  };
-
-  const handleBuyNow = () => {
-    if (!price) return;
-    addItem({
-      id,
-      name,
-      slug: slug || id,
-      price,
-      image: cartImage,
-      quantity: 1,
-    });
-    router.push('/dat-hang');
-  };
-
   return (
-    <div id={cardId} className={cardClassName}>
-      <Link href={href} className="card-image">
+    <Link
+      id={cardId}
+      href={href}
+      className={cardClassName}
+      aria-label={`Xem chi tiết ${name}`}
+      style={{ color: 'inherit', textDecoration: 'none' }}
+    >
+      <div className="card-image">
         {highlightLabel && (
           <span className="card-promo-badge">{highlightLabel}</span>
         )}
@@ -110,18 +84,15 @@ export default function ProductCard({
             Đang cập nhật hình
           </div>
         )}
-      </Link>
+      </div>
 
       <div className="card-body">
-        <Link href={href}>
-          <h3 className="card-name">{name}</h3>
-        </Link>
+        <h3 className="card-name">{name}</h3>
 
         {description && (
           <p className="card-description">{description}</p>
         )}
 
-        {/* Quick tags */}
         {quickTags && quickTags.length > 0 && (
           <div className="card-quick-tags">
             {quickTags.map((tag) => (
@@ -130,7 +101,6 @@ export default function ProductCard({
           </div>
         )}
 
-        {/* Meta tags */}
         {(abv || ibu || volume) && (
           <div className="card-meta">
             {abv && <span className="card-meta-tag">ABV {abv}%</span>}
@@ -139,8 +109,6 @@ export default function ProductCard({
           </div>
         )}
 
-
-        {/* Price & Trust signals */}
         {price && (
           <>
             <div className={`card-price${isWine ? ' card-price-wine' : ''}`}>
@@ -151,40 +119,30 @@ export default function ProductCard({
                 </span>
               )}
             </div>
-            <div className="card-trust-signals">
-              <span>⚡ Giao nội thành Hà Nội trong ngày</span>
-            </div>
+            {showReferencePriceNote && (
+              <p
+                className="card-price-note"
+                style={{
+                  margin: '6px 0 0',
+                  fontSize: '12px',
+                  lineHeight: 1.45,
+                  color: 'var(--web-text-muted)',
+                }}
+              >
+                Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.
+              </p>
+            )}
           </>
         )}
 
-        {/* CTA */}
         {showCTA && (
-          <div className="card-actions card-actions-dual">
-            {price ? (
-              <>
-                <Button
-                  variant="outline"
-                  onClick={handleAddCart}
-                  className="card-btn-cart shimmer-effect"
-                  title="Thêm vào giỏ"
-                  aria-label="Thêm vào giỏ hàng"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={handleBuyNow}
-                  className="card-btn-buy shimmer-effect"
-                >
-                  Mua Ngay
-                </Button>
-              </>
-            ) : (
-              <ZaloCTA productName={name} label="Nhận ưu đãi sỉ/lẻ" variant="outline" />
-            )}
+          <div className="card-actions" aria-hidden="true">
+            <span className="btn-primary card-btn-buy shimmer-effect">
+              Xem chi tiết
+            </span>
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }

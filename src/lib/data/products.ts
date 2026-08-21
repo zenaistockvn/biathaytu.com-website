@@ -1,8 +1,9 @@
 import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
+import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 
 /**
- * Kiểu sản phẩm cho phần web bán lẻ.
+ * Kiểu sản phẩm cho phần catalog giới thiệu.
  * Khai báo `abv: string | null` để khớp ProductCard/ProductTabs (runtime có thể là số,
  * render `{abv}%` vẫn đúng). JSON được ép kiểu qua `unknown` một lần tại đây.
  */
@@ -26,7 +27,7 @@ export interface Product {
 }
 
 /**
- * SKU tạm ẩn khỏi storefront kèm LÝ DO. Xoá slug khỏi danh sách này để bán lại.
+ * SKU tạm ẩn khỏi catalog kèm lý do. Xóa slug khỏi danh sách này khi đủ dữ liệu/ảnh để hiển thị lại.
  * TODO(2026-07-30): cả 2 SKU trỏ tới /images/products/official/bitburger/kostritzer_keg.png
  * — file KHÔNG tồn tại trong public/. Cần ảnh Köstritzer chính hãng, KHÔNG được dùng ảnh Bitburger thay thế.
  */
@@ -55,7 +56,10 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       continue;
     }
 
-    const item = { ...product };
+    const item = {
+      ...product,
+      description: toBrochureMetadataCopy(product.description) || product.description,
+    };
     if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) {
       item.hidden = true;
     }

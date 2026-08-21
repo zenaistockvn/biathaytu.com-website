@@ -57,9 +57,6 @@ export default async function LandingPage() {
       {/* ═══════════════════════════════════════════ 
           USP BAR — 4 Điểm Mạnh
       ═══════════════════════════════════════════ */}
-      {/* ═══════════════════════════════════════════ 
-          USP BAR — 4 Điểm Mạnh
-      ═══════════════════════════════════════════ */}
       <section className="usp-bar reveal-on-scroll" aria-label="Điểm nổi bật">
         <div className="container usp-grid">
           {[
@@ -74,9 +71,9 @@ export default async function LandingPage() {
               icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             },
             { 
-              title: 'Giao Hàng Toàn Quốc', 
-              desc: 'Ship COD mọi tỉnh thành Việt Nam',
-              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              title: 'Tư Vấn Tận Tâm', 
+              desc: 'Hỗ trợ chọn sản phẩm theo nhu cầu',
+              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
             },
             { 
               title: 'Giải Thưởng Quốc Tế', 
@@ -288,7 +285,7 @@ export default async function LandingPage() {
             {[
               { q: 'Bia Thầy Tu là bia gì?', a: 'Bia Thầy Tu (Benediktiner Weissbier) là dòng bia lúa mì truyền thống của Đức, được ủ theo phương pháp tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria. Bia được sản xuất theo Luật Tinh Khiết 1516 (Reinheitsgebot), chỉ sử dụng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men bia.' },
               { q: 'Bia Benediktiner Weissbier có vị gì?', a: 'Benediktiner Weissbier Naturtrüb có hương vị đặc trưng gồm trái chuối chín, đinh hương, với lớp bọt trắng mịn dày và hậu vị ngọt dịu. Bia có màu vàng hổ phách tự nhiên, không lọc (Naturtrüb), giữ trọn men sống và hương vị tự nhiên.' },
-              { q: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?', a: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Đặt mua qua website biathaytu.com, Zalo (0899.191.313), hoặc tại Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Giao hàng toàn quốc.' },
+              { q: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?', a: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Vui lòng liên hệ qua Zalo 0899.191.313, hotline hoặc ghé Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội để được tư vấn sản phẩm và báo giá.' },
               { q: 'Bia Benediktiner có giải thưởng gì?', a: 'Năm 2022, Benediktiner Weissbier Naturtrüb đã được Viện Hương Vị Quốc Tế (iTQi) trao giải "Superior Taste Award" — 3 Sao, mức cao nhất dành cho sản phẩm có hương vị vượt trội trên toàn thế giới.' },
               { q: 'Luật Tinh Khiết 1516 (Reinheitsgebot) là gì?', a: 'Reinheitsgebot là luật tinh khiết bia của Đức ban hành năm 1516. Luật quy định bia chỉ được sản xuất từ 4 nguyên liệu: nước, malt đại mạch, hoa bia và men. Đây là luật an toàn thực phẩm lâu đời nhất thế giới.' },
               { q: 'Bia Thầy Tu có bao nhiêu dòng sản phẩm?', a: 'Bia Thầy Tu hiện phân phối: Benediktiner Weissbier Naturtrüb (bia lúa mì), Benediktiner Dunkel (bia đen), Bom 5L Benediktiner, và Combo Mix 2 vị. Tất cả đều được nhập khẩu 100% nguyên chai từ Đức.' },
@@ -326,7 +323,7 @@ export default async function LandingPage() {
               Chính sách chiết khấu sâu, hỗ trợ POSM và nâng tầm thương hiệu.
             </p>
             <ZaloCTA 
-              label="Nhận Báo Giá B2B" 
+              label="Nhận Tư Vấn B2B" 
               productName="Khách hàng Doanh nghiệp" 
               className="btn-primary"
             />

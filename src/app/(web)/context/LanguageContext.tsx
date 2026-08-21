@@ -16,8 +16,8 @@ const translations: Translations = {
     'nav.brand': 'Thương Hiệu',
     'nav.knowledge': 'Kiến Thức',
     'nav.contact': 'Liên Hệ',
-    'nav.order': 'Đặt Hàng Ngay',
-    
+    'nav.consult': 'Tư Vấn',
+
     // Hero Section
     'hero.badge': 'Nhập Khẩu Chính Hãng Từ Đức',
     'hero.title.line1': 'Tuyệt Tác',
@@ -27,13 +27,13 @@ const translations: Translations = {
     'hero.description.2': 'Tuyệt tác bia lúa mì Đức nguyên bản chuẩn',
     'hero.description.3': 'Luật Tinh Khiết 1516.',
     'hero.btn.explore': 'Khám Phá Sản Phẩm',
-    'hero.btn.quote': 'Báo Giá Sỉ / Đại Lý',
-    
+    'hero.btn.quote': 'Nhận Tư Vấn Sỉ / Đại Lý',
+
     // Trust bar
     'trust.award': 'iTQi 3 Sao 2022',
     'trust.shipping': 'Giao Toàn Quốc',
     'trust.authentic': 'Chính Hãng 100%',
-    
+
     // Footer
     'footer.description': 'Bia Thầy Tu Benediktiner — nhập khẩu chính hãng từ Đức. Giao hàng toàn quốc.',
     'footer.company.title': 'Công Ty',
@@ -52,8 +52,8 @@ const translations: Translations = {
     'nav.brand': 'Our Brand',
     'nav.knowledge': 'Beer Knowledge',
     'nav.contact': 'Contact Us',
-    'nav.order': 'Order Now',
-    
+    'nav.consult': 'Get Advice',
+
     // Hero Section
     'hero.badge': '100% Imported from Germany',
     'hero.title.line1': 'The Masterpiece',
@@ -63,13 +63,13 @@ const translations: Translations = {
     'hero.description.2': 'A masterpiece of German wheat beer brewed to the',
     'hero.description.3': '1516 Purity Law.',
     'hero.btn.explore': 'Explore Products',
-    'hero.btn.quote': 'B2B/Wholesale Quote',
-    
+    'hero.btn.quote': 'Wholesale / Distributor Advice',
+
     // Trust bar
     'trust.award': 'iTQi 3-Star 2022',
     'trust.shipping': 'Nationwide Shipping',
     'trust.authentic': '100% Authentic',
-    
+
     // Footer
     'footer.description': 'Benediktiner Weissbier — officially imported from Germany. Nationwide delivery.',
     'footer.company.title': 'Company',
@@ -88,8 +88,8 @@ const translations: Translations = {
     'nav.brand': 'Unsere Marke',
     'nav.knowledge': 'Bierwissen',
     'nav.contact': 'Kontakt',
-    'nav.order': 'Jetzt Bestellen',
-    
+    'nav.consult': 'Beratung',
+
     // Hero Section
     'hero.badge': '100% Importiert aus Deutschland',
     'hero.title.line1': 'Das Meisterwerk',
@@ -99,13 +99,13 @@ const translations: Translations = {
     'hero.description.2': 'Ein Meisterwerk des deutschen Weißbiers nach dem',
     'hero.description.3': 'Reinheitsgebot von 1516.',
     'hero.btn.explore': 'Produkte Entdecken',
-    'hero.btn.quote': 'B2B/Großhandel',
-    
+    'hero.btn.quote': 'Großhandel / Händlerberatung',
+
     // Trust bar
     'trust.award': 'iTQi 3-Sterne 2022',
     'trust.shipping': 'Bundesweiter Versand',
     'trust.authentic': '100% Authentisch',
-    
+
     // Footer
     'footer.description': 'Benediktiner Weissbier — offiziell aus Deutschland importiert. Landesweite Lieferung.',
     'footer.company.title': 'Unternehmen',

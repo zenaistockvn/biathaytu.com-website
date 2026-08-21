@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
+import ProductConsultationForm from '../../components/ProductConsultationForm';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
 import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/JsonLd';
@@ -36,6 +37,13 @@ function formatPrice(price: number | null): string {
   return new Intl.NumberFormat('vi-VN').format(price) + '₫';
 }
 
+function getPackagingFormat(name: string): string | null {
+  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^—,]*/i);
+  return match?.[0]?.trim() || null;
+}
+
+const referencePriceNote = 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.';
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = getProductBySlugOrId(slug) as ProductData | null;
@@ -43,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
 
   const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/sanh_bia_duc_cover.png');
-  const pageDescription = product.description || `Khám phá hương vị tuyệt hảo của ${product.name}, dòng bia nhập khẩu chính hãng từ Đức.`;
+  const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
 
   return {
     title: product.name,
@@ -77,7 +85,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-
   const product = getProductBySlugOrId(slug) as ProductData | null;
 
   if (!product || product.hidden) {
@@ -86,38 +93,36 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   const isSausage = product.category === 'xuc-xich';
   const isCombo = product.category === 'combo';
+  const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo;
+  const packagingFormat = getPackagingFormat(product.name);
+  const tastingNote = getTastingNotes(product.name);
   const guaranteeTitle = isSausage || isCombo ? 'Cam Kết Thực Phẩm Lạnh & Tươi' : 'Cam Kết Chất Lượng';
   const guaranteeItems = isSausage || isCombo
     ? [
         'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh từ 0 - 4°C chuyên dụng.',
         'Tư vấn cách làm nóng, áp chảo, nướng hoặc bày lạnh theo từng dòng sản phẩm.',
-        'Giao hàng hỏa tốc trong 2 giờ nội thành, nhắc khách cho vào tủ lạnh ngay khi nhận.',
+        'Hỗ trợ thông tin giao nhận và hướng dẫn bảo quản ngay sau khi nhận sản phẩm.',
         'Hỗ trợ kiểm tra thông tin lô hàng và hạn sử dụng rõ ràng trên bao bì.',
       ]
     : [
-        '100% Sản phẩm nhập khẩu nguyên chai từ nhà máy Đức.',
-        'Bảo quản đạt chuẩn nhiệt độ chuyên dụng.',
-        'Chính sách giao hàng linh hoạt, hỏa tốc khu vực nội thành.',
-        'Hỗ trợ xử lý sự cố đổ vỡ trong quá trình vận chuyển.',
+        'Sản phẩm nhập khẩu chính hãng với thông tin nguồn gốc rõ ràng.',
+        'Bảo quản theo điều kiện phù hợp với từng dòng sản phẩm.',
+        'Tư vấn lựa chọn quy cách theo nhu cầu sử dụng, biếu tặng hoặc sự kiện.',
+        'Hỗ trợ thông tin giao nhận khi khách hàng liên hệ qua hotline hoặc Zalo.',
       ];
 
-  // Related products (Cross-sell)
   const relatedProductsData = getRelatedBeers(product.id, 4);
-
-  // Gợi ý Xúc xích & Combo khi xem bia
   const isBeer = product.category === 'bia';
   const sausageProducts = isBeer ? getSausageProducts() : [];
   const relatedCombo = isBeer ? getRelatedCombo(product.slug || product.id) : null;
 
   return (
     <div className="subpage-wrap">
-      {/* Structured Data — Product + Breadcrumb */}
       <JsonLd type="product" data={getProductSchema({
         id: product.id,
         name: product.name,
         slug: product.slug || product.id,
         description: product.description || undefined,
-        price: product.price || undefined,
         images: product.images || undefined,
         abv: product.abv || undefined,
         volume: product.volume || undefined,
@@ -128,75 +133,62 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' },
         { name: product.name, url: `https://www.biathaytu.com/san-pham/${product.slug || product.id}` },
       ])} />
-      
+
       <div className="container">
-        {/* Breadcrumb */}
         <div className="product-breadcrumb">
-          <Link href="/">Trang chủ</Link> &rsaquo; 
-          <Link href="/san-pham"> Sản phẩm</Link> &rsaquo; 
+          <Link href="/">Trang chủ</Link> &rsaquo;
+          <Link href="/san-pham"> Sản phẩm</Link> &rsaquo;
           <span className="breadcrumb-active"> {product.name}</span>
         </div>
 
         <div className="product-detail-grid">
-          {/* IMAGE */}
           <div className="product-img-sticky">
             <ProductGallery images={product.images || []} productName={product.name} />
           </div>
 
-          {/* PRODUCT INFO */}
           <div>
             <h1 className="product-detail-name">{product.name}</h1>
+            {isAlcohol && (
+              <p style={{ margin: '8px 0 18px', color: 'var(--web-text-muted)', fontSize: '13px', fontWeight: 600 }}>
+                Sản phẩm chỉ dành cho người từ đủ 18 tuổi.
+              </p>
+            )}
 
             {isSausage && (
               <div className="product-detail-tags">
                 {(() => {
                   const s = product.slug || '';
-                  if (s === 'the-wurst-wiener-hun-khoi-500g') {
-                    return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
-                  }
-                  if (s === 'the-wurst-thuringer-bratwurst-500g') {
-                    return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
-                  }
-                  if (s === 'the-wurst-combo-cold-cut-150g') {
-                    return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
-                  }
+                  if (s === 'the-wurst-wiener-hun-khoi-500g') return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
+                  if (s === 'the-wurst-thuringer-bratwurst-500g') return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
+                  if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
                   return [];
-                })().map((tag) => {
-                  const isHighlight = tag === 'Combo 99K';
-                  return (
-                    <span 
-                      key={tag} 
-                      className={`detail-pill-tag${isHighlight ? ' highlight-tag' : ''}`}
-                    >
-                      {tag}
-                    </span>
-                  );
-                })}
+                })().map((tag) => (
+                  <span key={tag} className={`detail-pill-tag${tag === 'Combo 99K' ? ' highlight-tag' : ''}`}>
+                    {tag}
+                  </span>
+                ))}
               </div>
             )}
 
             {isCombo && (
               <div className="product-detail-tags">
-                {['Combo Tiết Kiệm', 'Bia & Xúc xích Đức', 'Quà tặng kèm'].map((tag) => {
-                  const isHighlight = tag === 'Combo Tiết Kiệm';
-                  return (
-                    <span 
-                      key={tag} 
-                      className={`detail-pill-tag${isHighlight ? ' highlight-tag' : ''}`}
-                    >
-                      {tag}
-                    </span>
-                  );
-                })}
+                {['Combo Tham Khảo', 'Bia & Xúc xích Đức', 'Quà tặng kèm'].map((tag) => (
+                  <span key={tag} className={`detail-pill-tag${tag === 'Combo Tham Khảo' ? ' highlight-tag' : ''}`}>
+                    {tag}
+                  </span>
+                ))}
               </div>
             )}
 
-            {/* Price */}
             {product.price && (
-              <div className="product-detail-price">{formatPrice(product.price)}</div>
+              <div style={{ marginBottom: '22px' }}>
+                <div className="product-detail-price">{formatPrice(product.price)}</div>
+                <p style={{ margin: '6px 0 0', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>
+                  {referencePriceNote}
+                </p>
+              </div>
             )}
 
-            {/* Specs */}
             <div className="product-specs">
               {product.abv && (
                 <div className="product-spec-item">
@@ -216,83 +208,99 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   <div className="product-spec-value">{product.volume}</div>
                 </div>
               )}
+              {packagingFormat && !isSausage && (
+                <div className="product-spec-item">
+                  <div className="product-spec-label">Quy cách</div>
+                  <div className="product-spec-value">{packagingFormat}</div>
+                </div>
+              )}
               <div className="product-spec-item">
                 <div className="product-spec-label">Xuất xứ</div>
                 <div className="product-spec-value">{product.origin || 'Đức'}</div>
               </div>
             </div>
 
-            {/* Description */}
+            <div
+              style={{
+                margin: '20px 0',
+                padding: '16px 18px',
+                borderLeft: '3px solid var(--web-accent)',
+                background: 'var(--web-bg-warm)',
+                borderRadius: '0 10px 10px 0',
+              }}
+            >
+              <strong style={{ display: 'block', marginBottom: '5px', color: 'var(--web-ink)' }}>Hương vị nổi bật</strong>
+              <span style={{ color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{tastingNote}</span>
+            </div>
+
             <div className="product-description">
               {product.description || (
                 <p>
-                  Sản phẩm {product.name} được nhập khẩu trực tiếp từ Đức, đáp ứng mọi tiêu chuẩn khắt khe nhất của 
-                  tu viện Ettal và Luật Tinh Khiết năm 1516 (Reinheitsgebot). Đảm bảo mang đến trải nghiệm 
-                  hương vị tuyệt vời nhất cho người thưởng thức.
+                  Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
                 </p>
               )}
             </div>
 
-            {/* Buy buttons */}
             <ProductOrderActions product={product} />
 
             <div className="product-guarantee">
-               <h4>
-                 <span>🛡️</span> {guaranteeTitle}
-               </h4>
-               <ul>
-                 {guaranteeItems.map((item) => (
-                   <li key={item}>{item}</li>
-                 ))}
-               </ul>
+              <h4>
+                <span>🛡️</span> {guaranteeTitle}
+              </h4>
+              <ul>
+                {guaranteeItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
 
-            {/* Accordion Details */}
             <ProductDetailsAccordion productName={product.name} category={product.category} />
           </div>
         </div>
 
-        {/* PERFECT PAIRINGS (SAUSAGE & COMBO RECOMMENDATIONS) */}
         {isBeer && sausageProducts.length > 0 && (
           <section className="perfect-pairings-section" style={{ marginTop: '60px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
             <div className="section-header-center" style={{ marginBottom: '40px' }}>
-              <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Combo & Đồ Nhắm Đề Xuất</span>
+              <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Gợi Ý Food Pairing</span>
               <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 800, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
-              <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Xem bia ngon phải có mồi xịn. Hãy thưởng thức cùng xúc xích Đức truyền thống hoặc mua theo Combo để có giá ưu đãi hơn!</p>
+              <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
             </div>
 
             <div className="pairings-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', alignItems: 'stretch' }}>
-              {/* Left Column: Sausage suggestions */}
               <div style={{ background: 'var(--web-card-bg)', border: '1px solid var(--web-border)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--web-shadow)' }}>
                 <h3 style={{ color: 'var(--web-ink)', borderBottom: '2px solid var(--web-accent)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span>🍢</span> Xúc Xích Đức Ăn Kèm
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {sausageProducts.map((sausage) => (
-                    <div key={sausage.id} className="pairing-sausage-item" style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)' }}>
+                    <Link
+                      key={sausage.id}
+                      href={`/san-pham/${sausage.slug}`}
+                      className="pairing-sausage-item"
+                      style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
+                    >
                       <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
                         <img src={sausage.images?.[0] || '/images/products/placeholder.png'} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--web-red)' }}>{formatPrice(sausage.price)}</span>
-                          <Link href={`/san-pham/${sausage.slug}`} style={{ fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
-                            Xem chi tiết &rsaquo;
-                          </Link>
-                        </div>
+                        {sausage.price && (
+                          <>
+                            <span style={{ display: 'block', fontSize: '14px', fontWeight: 700, color: 'var(--web-red)' }}>{formatPrice(sausage.price)}</span>
+                            <span style={{ display: 'block', marginTop: '3px', fontSize: '10px', lineHeight: 1.35, color: 'var(--web-text-muted)' }}>{referencePriceNote}</span>
+                          </>
+                        )}
+                        <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
+                          Xem chi tiết &rsaquo;
+                        </span>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
 
-              {/* Right Column: Recommended Combo */}
               {relatedCombo && (
                 <div style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: '15px', right: '-35px', background: 'var(--web-accent)', color: 'var(--web-ink)', transform: 'rotate(45deg)', padding: '6px 40px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-                    Tiết Kiệm
-                  </div>
                   <div>
                     <h3 style={{ color: 'var(--web-accent)', borderBottom: '2px solid var(--web-accent-strong)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span>🎁</span> Combo Đề Xuất
@@ -309,11 +317,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   </div>
                   <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
                     <div>
-                      <span style={{ display: 'block', fontSize: '12px', color: '#a0aab8' }}>Giá combo ưu đãi:</span>
-                      <strong style={{ fontSize: '22px', color: 'var(--web-accent)', fontWeight: 800 }}>{formatPrice(relatedCombo.price)}</strong>
+                      <span style={{ display: 'block', fontSize: '12px', color: '#a0aab8' }}>Giá tham khảo:</span>
+                      <strong style={{ display: 'block', fontSize: '22px', color: 'var(--web-accent)', fontWeight: 800 }}>{formatPrice(relatedCombo.price)}</strong>
+                      <span style={{ display: 'block', marginTop: '4px', maxWidth: '320px', fontSize: '10px', lineHeight: 1.35, color: '#a0aab8' }}>{referencePriceNote}</span>
                     </div>
                     <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
-                      Xem Combo Ngay
+                      Xem chi tiết
                     </Link>
                   </div>
                 </div>
@@ -322,14 +331,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
-        {/* RELATED PRODUCTS */}
         {relatedProductsData && relatedProductsData.length > 0 && (
           <section className="related-products related-products-section">
             <div className="section-header-center">
               <span className="section-label">Gợi Ý Thêm</span>
               <h2 className="section-title related-products-title">Có Thể Bạn Sẽ Thích</h2>
             </div>
-            
+
             <div className="grid-featured-products">
               {(relatedProductsData as unknown as ProductCardProps[])?.map((relatedProduct) => (
                 <ProductCard
@@ -337,11 +345,14 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   {...relatedProduct}
                   description={relatedProduct.description || getTastingNotes(relatedProduct.name)}
                   showCTA={true}
+                  showReferencePriceNote={true}
                 />
               ))}
             </div>
           </section>
         )}
+
+        <ProductConsultationForm productName={product.name} />
       </div>
     </div>
   );

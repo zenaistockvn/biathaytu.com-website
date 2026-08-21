@@ -57,7 +57,6 @@ export default function CookieConsent() {
 
   const savePreferences = (prefs: CookiePreferences) => {
     localStorage.setItem(STORAGE_KEYS.COOKIE_CONSENT, JSON.stringify(prefs));
-    // Dispatch event so scripts can react to consent changes dynamically
     window.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: prefs }));
     setIsVisible(false);
   };
@@ -112,7 +111,7 @@ export default function CookieConsent() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <div>
               <strong>Cookie Bắt Buộc (Essential)</strong>
-              <div style={{ fontSize: '11px', color: '#94a3b8' }}>Duy trì giỏ hàng, xác minh độ tuổi và vận hành cốt lõi</div>
+              <div style={{ fontSize: '11px', color: '#94a3b8' }}>Duy trì xác minh độ tuổi và các chức năng vận hành cốt lõi</div>
             </div>
             <input type="checkbox" checked disabled style={{ cursor: 'not-allowed' }} />
           </div>

@@ -19,7 +19,7 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*none/);
   });
 
-  it('defines the web primary color token used by commerce CTAs', () => {
+  it('defines the web primary color token used by primary CTAs', () => {
     const css = readProjectFile('src/app/web.css');
 
     expect(css).toMatch(/--web-primary:\s*var\(--web-accent\)/);
@@ -32,16 +32,6 @@ describe('mobile-first responsive regressions', () => {
     expect(gallery).toContain('product-gallery-main');
     expect(gallery).not.toContain("height: '500px'");
     expect(css).toMatch(/\.web-app\s+\.product-gallery-main\s*\{[^}]*height:\s*clamp\(/);
-  });
-
-  it('uses responsive classes for checkout item rows and promo controls', () => {
-    const checkout = readProjectFile('src/app/(web)/dat-hang/page.tsx');
-    const css = readProjectFile('src/app/web.css');
-
-    expect(checkout).toContain('className="checkout-item-row"');
-    expect(checkout).toContain('className="checkout-promo-row"');
-    expect(css).toMatch(/\.web-app\s+\.checkout-item-row\s*\{[^}]*display:\s*grid/);
-    expect(css).toMatch(/@media\s*\(min-width:\s*560px\)[\s\S]*\.web-app\s+\.checkout-item-row\s*\{[^}]*grid-template-columns/);
   });
 
   it('mounts fixed floating Zalo and phone CTAs at the bottom right of public pages', () => {
@@ -62,7 +52,7 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/\.web-app\s+\.floating-contact-button\s*\{[^}]*width:\s*58px[^}]*height:\s*58px/);
   });
 
-  it('mounts a mobile-only bottom navigation for primary choices', () => {
+  it('mounts a mobile-only bottom navigation with exactly three primary choices', () => {
     const layout = readProjectFile('src/app/(web)/layout.tsx');
     const bottomNav = readProjectFile('src/app/(web)/components/MobileBottomNav.tsx');
     const css = readProjectFile('src/app/web.css');
@@ -70,9 +60,11 @@ describe('mobile-first responsive regressions', () => {
     expect(layout).toContain("import MobileBottomNav from './components/MobileBottomNav'");
     expect(layout).toContain('<MobileBottomNav />');
     expect(bottomNav).toContain('className="mobile-bottom-nav"');
-    for (const href of ['/', '/san-pham', '/kien-thuc', '/dat-hang', '/lien-he']) {
+    for (const href of ['/', '/san-pham', '/kien-thuc']) {
       expect(bottomNav).toContain(`href: '${href}'`);
     }
+    expect(bottomNav).toContain("gridTemplateColumns: 'repeat(3, minmax(0, 1fr))'");
+    expect(bottomNav).not.toContain("label: 'Giỏ hàng'");
     expect(css).toMatch(/\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*position:\s*fixed[^}]*bottom:\s*0[^}]*display:\s*grid/);
     expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*display:\s*none/);
     expect(css).toContain('--web-mobile-bottom-nav-height');

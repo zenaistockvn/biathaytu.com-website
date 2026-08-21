@@ -1,14 +1,15 @@
 export const DEFAULT_ALCOHOL_WARNING =
   'Người dưới 18 tuổi không được uống rượu, bia. Thưởng thức có trách nhiệm. Không lái xe sau khi sử dụng đồ uống có cồn.';
 
-export const AGE_VERIFICATION_EXPIRY_DAYS = Number(
-  process.env.NEXT_PUBLIC_AGE_VERIFICATION_EXPIRY_DAYS || 30,
-);
+export const AGE_VERIFICATION_EXPIRY_DAYS = 30;
 
-export const POLICY_VERSION = '1.0';
+// Bump this value whenever the declaration requirements materially change.
+// v2 requires full name + date of birth before access.
+export const POLICY_VERSION = '2.0';
 
 export const STORAGE_KEYS = {
   AGE_VERIFIED: 'age_verified',
+  // Legacy cookie names retained only so clearAgeVerification() can clean them up.
   VERIFIED_AT: 'verified_at',
   POLICY_VERSION: 'policy_version',
   COOKIE_CONSENT: 'cookie_consent_preferences',

@@ -1,10 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import AlcoholWarning from '../components/AlcoholWarning';
+import CompanyLegalDetails from '../components/CompanyLegalDetails';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Điều Khoản Sử Dụng',
-  description: 'Điều khoản và điều kiện giao dịch trực tuyến khi mua đồ uống có cồn tại Bia Thầy Tu.',
+  description: 'Nguyên tắc sử dụng website giới thiệu sản phẩm, thông tin thương hiệu và kênh tư vấn của Bia Thầy Tu.',
   alternates: { canonical: 'https://www.biathaytu.com/dieu-khoan-su-dung' },
 };
 
@@ -19,32 +21,41 @@ export default function TermsOfUsePage() {
       <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
 
       <div style={{ lineHeight: '1.8', color: '#334155', fontSize: '15px' }}>
-        <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            1. Yêu Cầu Độ Tuổi Khách Hàng
-          </h2>
-          <p>
-            Bằng việc truy cập và sử dụng dịch vụ trên website biathaytu.com, người dùng cam kết đã từ đủ 18 tuổi trở lên. Người dưới 18 tuổi nghiêm cấm thực hiện hành vi mua sắm đồ uống có cồn dưới mọi hình thức.
+        <section style={{ marginBottom: '28px', padding: '20px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px' }}>
+          <h2 style={{ fontSize: '19px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>1. Tính chất của website</h2>
+          <p style={{ margin: 0 }}>
+            Website biathaytu.com là kênh giới thiệu sản phẩm và thông tin thương hiệu, không thực hiện chức năng đặt hàng trực tuyến; mọi giao dịch mua bán được thực hiện trực tiếp tại địa điểm kinh doanh hoặc qua các kênh liên hệ được công bố.
           </p>
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Trách Nhiệm Thông Tin Đặt Hàng
-          </h2>
-          <p>
-            - Khách hàng chịu trách nhiệm về tính chính xác của thông tin người đặt và người nhận hàng.<br />
-            - Đơn hàng sẽ bị hủy bỏ và không hoàn tiền dịch vụ nếu phát hiện thông tin giả mạo hoặc vi phạm độ tuổi quy định.
-          </p>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>2. Điều kiện độ tuổi</h2>
+          <p>Nội dung về rượu, bia chỉ dành cho người từ đủ 18 tuổi. Người truy cập có trách nhiệm khai báo trung thực thông tin phục vụ việc kiểm soát độ tuổi trước khi truy cập nội dung có liên quan.</p>
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            3. Quyền Hạn và Tuyên Bố Miễn Trách
-          </h2>
-          <p>
-            Website cung cấp thông tin sản phẩm và hỗ trợ đặt hàng trực tuyến theo quy định của pháp luật Việt Nam. Chúng tôi giữ quyền cập nhật, sửa đổi các điều khoản sử dụng mà không cần báo trước.
-          </p>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>3. Thông tin trên website</h2>
+          <p>Hình ảnh, mô tả, giá tham khảo, thông số sản phẩm và nội dung tư vấn trên website được cung cấp nhằm mục đích giới thiệu và tham khảo. Thông tin cụ thể về tình trạng hàng, giá áp dụng, phương thức nhận hàng và các điều kiện của một giao dịch sẽ được xác nhận riêng qua kênh liên hệ hoặc tại địa điểm kinh doanh.</p>
+        </section>
+
+        <section style={{ marginBottom: '24px' }}>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>4. Quyền sở hữu nội dung</h2>
+          <p>Trừ khi có ghi chú khác, nội dung, hình ảnh nhận diện, bố cục và tài liệu trên website thuộc quyền sử dụng hợp pháp của {COMPANY_CONFIG.legalName} hoặc các đối tác cấp quyền. Việc sao chép, sử dụng lại cho mục đích thương mại cần có sự đồng ý phù hợp.</p>
+        </section>
+
+        <section style={{ marginBottom: '24px' }}>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>5. Liên kết và kênh liên hệ bên ngoài</h2>
+          <p>Website có thể dẫn đến Zalo, email, điện thoại hoặc các nền tảng bên thứ ba để người dùng liên hệ. Khi chuyển sang nền tảng khác, người dùng đồng thời chịu sự điều chỉnh của chính sách và điều khoản của nền tảng đó.</p>
+        </section>
+
+        <section style={{ marginBottom: '24px' }}>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>6. Cập nhật điều khoản</h2>
+          <p>Nội dung điều khoản có thể được cập nhật khi mô hình vận hành, nội dung website hoặc quy định pháp luật thay đổi. Phiên bản hiển thị trên website là phiên bản đang được áp dụng cho việc sử dụng website.</p>
+        </section>
+
+        <section>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>7. Thông tin đơn vị vận hành</h2>
+          <CompanyLegalDetails compact />
         </section>
       </div>
     </div>

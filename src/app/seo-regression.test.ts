@@ -70,14 +70,6 @@ describe('SEO and GEO regressions', () => {
     expect(layout).not.toContain("`${BASE_URL}/en`");
   });
 
-  it('keeps checkout out of the index with its own canonical URL', () => {
-    const checkoutLayout = readProjectFile('src/app/(web)/dat-hang/layout.tsx');
-
-    expect(checkoutLayout).toContain("canonical: 'https://www.biathaytu.com/dat-hang'");
-    expect(checkoutLayout).toContain('index: false');
-    expect(checkoutLayout).toContain('follow: false');
-  });
-
   it('uses permanent redirects for legacy blog URLs', () => {
     const blogPage = readProjectFile('src/app/(web)/blog/page.tsx');
     const blogSlugPage = readProjectFile('src/app/(web)/blog/[slug]/page.tsx');

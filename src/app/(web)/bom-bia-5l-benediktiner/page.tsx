@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
-import { getPriceRange } from '@/lib/seo/productPricing';
+import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Bom Bia 5L Benediktiner — Tuyệt Phẩm Cho Tiệc Sự Kiện',
-  description: 'Bom bia Đức 5 lít Benediktiner Weissbier. Sang trọng, giữ lạnh siêu tốt, hương vị bia tươi nguyên bản tại nhà. Giao nhanh tại Hà Nội.',
+  title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu Cho Tiệc',
+  description: 'Bom bia 5L Benediktiner Weissbier — bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
   alternates: { canonical: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' },
   openGraph: {
-    title: 'Bom Bia 5L Benediktiner — Tuyệt Phẩm Cho Tiệc Sự Kiện',
-    description: 'Bom bia Đức 5 lít Benediktiner Weissbier. Sang trọng, giữ lạnh siêu tốt, hương vị bia tươi nguyên bản tại nhà. Giao nhanh tại Hà Nội.',
+    title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu Cho Tiệc',
+    description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
     type: 'website',
     url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
     images: [
@@ -17,32 +16,31 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Bom Bia 5L Benediktiner — Tuyệt Phẩm Cho Tiệc Sự Kiện',
+        alt: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bom Bia 5L Benediktiner — Tuyệt Phẩm Cho Tiệc Sự Kiện',
-    description: 'Bom bia Đức 5 lít Benediktiner Weissbier. Sang trọng, giữ lạnh siêu tốt, hương vị bia tươi nguyên bản tại nhà. Giao nhanh tại Hà Nội.',
+    title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu',
+    description: 'Thông tin bom bia 5L Benediktiner Weissbier, cách dùng, bảo quản và tư vấn sản phẩm.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.name.includes('Bom 5L') && p.name.includes('Benediktiner'));
   const product = {
     name: 'Bom Bia 5L Benediktiner',
     slug: 'bom-bia-5l-benediktiner',
     url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
-    description: 'Bom bia tươi Đức 5 lít, lý tưởng cho tiệc tùng và quà tặng doanh nghiệp.',
+    description: 'Bom bia Đức 5 lít, phù hợp tiệc tùng và quà tặng doanh nghiệp.',
     abv: '5.4',
     volume: '5000ml',
   };
 
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
-      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
+      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' }])} />
 
       <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
@@ -67,13 +65,14 @@ export default function Page() {
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Giá Tham Khảo</span>
                 <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>963.000đ / Bom</strong>
+                <span style={{ display: 'block', marginTop: '6px', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.</span>
               </div>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Dung Tích</span>
                 <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>5 Lít (~15 ly)</strong>
               </div>
             </div>
-            <Link href="/mua-bia-benediktiner-chinh-hang" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Đặt Mua Ngay</Link>
+            <Link href="/san-pham/benediktiner-naturtrub-bom-5l" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Xem Chi Tiết Sản Phẩm</Link>
           </div>
         </div>
 

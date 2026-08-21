@@ -1,17 +1,29 @@
-/** Nguồn sự thật duy nhất cho NAP (Name-Address-Phone) của Bia Thầy Tu. */
+import { COMPANY_CONFIG, getCompanyZaloUrl, isPendingCompanyValue } from '@/config/company';
+
+function normalizePhoneDigits(value: string): string {
+  return isPendingCompanyValue(value) ? '' : value.replace(/\D/g, '');
+}
+
+const phoneDigits = normalizePhoneDigits(COMPANY_CONFIG.hotline);
+
+/** Nguồn NAP dùng cho SEO, dẫn xuất từ cấu hình pháp nhân tập trung. */
 export const BUSINESS = {
   name: 'Bia Thầy Tu',
-  legalName: 'Công ty TNHH Euro Choice Việt Nam',
-  streetAddress: '659A Lạc Long Quân',
-  addressLocality: 'Phường Tây Hồ',
-  addressRegion: 'Hà Nội',
+  legalName: COMPANY_CONFIG.legalName,
+  streetAddress: COMPANY_CONFIG.showroomAddress,
+  addressLocality: '',
+  addressRegion: '',
   addressCountry: 'VN',
-  addressFull: '659A Lạc Long Quân, Phường Tây Hồ, Hà Nội',
-  phoneDisplay: '0899.191.313',
-  phoneE164: '+84899191313',
-  phoneTel: '0899191313',
-  email: 'info@biathaytu.com',
-  zaloUrl: 'https://zalo.me/0899191313',
+  addressFull: COMPANY_CONFIG.showroomAddress,
+  registeredAddress: COMPANY_CONFIG.registeredAddress,
+  taxCode: COMPANY_CONFIG.taxCode,
+  businessRegistrationCertificateNumber: COMPANY_CONFIG.businessRegistrationCertificateNumber,
+  legalRepresentative: COMPANY_CONFIG.legalRepresentative,
+  phoneDisplay: COMPANY_CONFIG.hotline,
+  phoneE164: phoneDigits,
+  phoneTel: phoneDigits,
+  email: COMPANY_CONFIG.email,
+  zaloUrl: getCompanyZaloUrl() || '',
   websiteUrl: 'https://www.biathaytu.com',
 } as const;
 
@@ -19,8 +31,8 @@ export interface BrandInfo {
   brand: string;
   manufacturer: string | null;
   manufacturerCountry: string;
-  isBeer: boolean;        // category bia → áp Reinheitsgebot 1516
-  isAwardWinner: boolean; // chỉ Benediktiner Weissbier/Naturtrüb đạt iTQi 3 sao
+  isBeer: boolean;
+  isAwardWinner: boolean;
 }
 
 /** Suy ra thương hiệu/nhà sản xuất từ tên sản phẩm — KHÔNG hardcode Benediktiner cho tất cả. */

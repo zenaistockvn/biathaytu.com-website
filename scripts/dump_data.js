@@ -89,11 +89,6 @@ async function dump() {
     const aResult = await client.query('SELECT * FROM seo_articles ORDER BY created_at DESC');
     console.log(`Fetched ${aResult.rows.length} articles`);
 
-    // 3. Fetch promo_codes
-    console.log('Fetching promo_codes...');
-    const prResult = await client.query('SELECT * FROM promo_codes');
-    console.log(`Fetched ${prResult.rows.length} promo codes`);
-
     // Save to files
     const dataDir = path.join(__dirname, '..', 'src', 'data');
     if (!fs.existsSync(dataDir)) {
@@ -102,7 +97,6 @@ async function dump() {
 
     writeJsonAtomic(path.join(dataDir, 'products.json'), pResult.rows);
     writeJsonAtomic(path.join(dataDir, 'articles.json'), aResult.rows);
-    writeJsonAtomic(path.join(dataDir, 'promo_codes.json'), prResult.rows || []);
     console.log('Dump completed successfully!');
   } catch (err) {
     console.error('Failed to dump data:', err);
@@ -119,4 +113,3 @@ function writeJsonAtomic(filePath, data) {
 }
 
 dump();
-

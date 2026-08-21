@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useCartStore } from '@/stores/useCartStore';
 
 const navItems = [
   {
@@ -27,35 +25,19 @@ const navItems = [
       <path d="M5 4.5h9.5A2.5 2.5 0 0 1 17 7v12.5H7A2 2 0 0 1 5 17.5v-13Zm12 3h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2M8 8h6M8 12h6M8 16h4" />
     ),
   },
-  {
-    href: '/dat-hang',
-    label: 'Giỏ hàng',
-    icon: (
-      <>
-        <path d="M6 6h15l-1.6 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5.6 3.8H3" />
-        <circle cx="9" cy="20" r="1.2" />
-        <circle cx="18" cy="20" r="1.2" />
-      </>
-    ),
-  },
 ];
-// Auxiliary reference for legacy routes: href: '/lien-he'
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
-  const totalItems = useCartStore((state) => state.getTotalItems());
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
 
   return (
-    <nav className="mobile-bottom-nav" aria-label="Thanh điều hướng nhanh">
+    <nav
+      className="mobile-bottom-nav"
+      aria-label="Thanh điều hướng nhanh"
+      style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}
+    >
       {navItems.map((item) => {
         const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
-        const isCart = item.href === '/dat-hang';
 
         return (
           <Link
@@ -63,15 +45,12 @@ export default function MobileBottomNav() {
             href={item.href}
             className={`mobile-bottom-nav-item${active ? ' is-active' : ''}`}
             aria-current={active ? 'page' : undefined}
-            aria-label={isCart && mounted && totalItems > 0 ? `Giỏ hàng (${totalItems} sản phẩm)` : item.label}
+            aria-label={item.label}
           >
             <span className="mobile-bottom-nav-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
                 {item.icon}
               </svg>
-              {isCart && mounted && totalItems > 0 && (
-                <span className="mobile-bottom-nav-badge">{totalItems}</span>
-              )}
             </span>
             <span className="mobile-bottom-nav-label">{item.label}</span>
           </Link>

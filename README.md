@@ -15,7 +15,7 @@
 | **State** | Zustand | Cart và Toast global state management |
 | **Database** | Supabase (PostgreSQL + RLS) | Quản lý Products, Orders, Blog content |
 | **Email** | Nodemailer | Gửi email xác nhận đơn hàng tự động (SMTP) |
-| **Hosting** | Vercel / Netlify | Serverless, Edge caching, On-demand Revalidation |
+| **Hosting** | Vercel | Serverless, Edge caching, On-demand Revalidation |
 
 ---
 
@@ -107,11 +107,11 @@ Mở trình duyệt truy cập: `http://localhost:3000`
 
 ## 🚢 Deployment
 
-Dự án có thể dễ dàng deploy lên **Vercel** hoặc **Netlify**:
+Dự án deploy trên **Vercel**:
 
-1. Kết nối kho lưu trữ GitHub của bạn với Vercel/Netlify.
-2. Cấu hình các Environment Variables trong Dashboard của nhà cung cấp dịch vụ tương tự như file `.env.local`.
-3. Hệ thống sẽ tự động build mỗi khi bạn push code lên nhánh `main`.
+1. Kết nối kho lưu trữ GitHub với Vercel.
+2. Cấu hình các Environment Variables trong Vercel Dashboard tương tự file `.env.local`.
+3. Hệ thống tự động build mỗi khi push code lên nhánh triển khai.
 
 ---
 
