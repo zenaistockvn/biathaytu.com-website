@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Report metadata and transactional phrase candidates
+      - name: Report transactional phrase candidates
         shell: bash
         run: |
           set -u
-          echo '=== METADATA LINES ==='
-          grep -RInE --include='*.ts' --include='*.tsx' 'title:|description:|openGraph:' src/app || true
           echo '=== TRANSACTIONAL / SALES PHRASE CANDIDATES ==='
           grep -RInEi --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' --include='*.json' 'mua bia|đặt hàng|giao hàng toàn quốc|giao toàn quốc|mua ngay|thêm vào giỏ|giỏ hàng|checkout|mã giảm giá|coupon|\bCOD\b|đăng nhập|đăng ký|thanh toán|đơn hàng|còn hàng|hết hàng' src || true
       - name: Setup Node
@@ -95,7 +93,7 @@ jobs:
           grep -q 'googlebot' "$layout"
           grep -q 'bingbot' "$layout"
           grep -q 'data-age-gate' "$layout"
-      - name: Validate policy restructuring
+      - name: Validate policy, company config, metadata and sitemap
         shell: bash
         run: |
           set -euo pipefail
@@ -103,18 +101,34 @@ jobs:
           info='src/app/(web)/thong-tin-mua-hang/page.tsx'
           footer='src/app/(web)/components/WebFooter.tsx'
           sitemap='src/app/sitemap.ts'
+          company='src/config/company.ts'
           grep -q 'Tính chất của website' "$terms"
           grep -q 'không thực hiện chức năng đặt hàng trực tuyến' "$terms"
           test -e "$info"
           grep -q 'Thông Tin Mua Hàng' "$info"
           grep -q 'không phải điều khoản giao dịch trực tuyến' "$info"
-          grep -q 'Thông tin mua hàng' "$footer"
-          grep -q '/thong-tin-mua-hang' "$footer"
+          grep -q 'Website giới thiệu sản phẩm — không bán hàng trực tuyến.' "$footer"
+          grep -q 'COMPANY_CONFIG.legalName' "$footer"
+          grep -q 'COMPANY_CONFIG.taxCode' "$footer"
+          grep -q 'COMPANY_CONFIG.registeredAddress' "$footer"
+          grep -q 'COMPANY_CONFIG.showroomAddress' "$footer"
+          grep -q 'COMPANY_CONFIG.hotline' "$footer"
+          grep -q 'COMPANY_CONFIG.email' "$footer"
+          grep -q '<<CAN_CAP_NHAT: ten_cong_ty>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: ma_so_thue>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: so_giay_chung_nhan_dkkd>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: dia_chi_tru_so_theo_dkkd>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: dia_chi_showroom>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: nguoi_dai_dien_theo_phap_luat>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: hotline>>' "$company"
+          grep -q '<<CAN_CAP_NHAT: email>>' "$company"
           test ! -e 'src/app/(web)/chinh-sach-giao-hang/page.tsx'
           test ! -e 'src/app/(web)/chinh-sach-thanh-toan/page.tsx'
           test ! -e 'src/app/(web)/chinh-sach-doi-tra/page.tsx'
+          test ! -e 'src/app/(web)/mua-bia-benediktiner-chinh-hang/page.tsx'
           grep -q "'thong-tin-mua-hang'" "$sitemap"
-          if grep -Eq "'chinh-sach-(giao-hang|thanh-toan|doi-tra)'" "$sitemap"; then echo 'Legacy policy URL still present in sitemap'; exit 1; fi
+          if grep -Eq "'chinh-sach-(giao-hang|thanh-toan|doi-tra)'|'mua-bia-benediktiner-chinh-hang'" "$sitemap"; then echo 'Redirected URL still present in sitemap'; exit 1; fi
+          node scripts/audit-brochure-metadata.mjs
       - name: Run compliance unit tests
         run: npx vitest run src/lib/compliance/compliance.test.ts
       - name: Build Next.js
@@ -132,7 +146,7 @@ jobs:
             sleep 1
           done
           if [ "$ready" -ne 1 ]; then cat /tmp/next.log; exit 1; fi
-          for path in / /san-pham /kien-thuc /lien-he /thong-tin-mua-hang /dieu-khoan-su-dung /chinh-sach-bao-mat /chinh-sach-cookie /chinh-sach-kiem-soat-do-tuoi /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
+          for path in / /san-pham /kien-thuc /lien-he /thong-tin-mua-hang /dieu-khoan-su-dung /chinh-sach-bao-mat /chinh-sach-cookie /chinh-sach-kiem-soat-do-tuoi /bia-benediktiner-chinh-hang /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
             code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${path}")
             test "$code" = "200" || { echo "Broken route ${path}: HTTP ${code}"; exit 1; }
           done
@@ -144,6 +158,7 @@ jobs:
             case "$location" in "$expected_location"|"http://127.0.0.1:3000${expected_location}"|"http://localhost:3000${expected_location}") ;; *) echo "Unexpected redirect ${source_path} -> ${location}"; exit 1 ;; esac
           }
           check_redirect /dat-hang /lien-he
+          check_redirect /mua-bia-benediktiner-chinh-hang /bia-benediktiner-chinh-hang
           check_redirect /chinh-sach-giao-hang /thong-tin-mua-hang
           check_redirect /chinh-sach-thanh-toan /thong-tin-mua-hang
           check_redirect /chinh-sach-doi-tra /thong-tin-mua-hang
