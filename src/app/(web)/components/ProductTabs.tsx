@@ -136,6 +136,7 @@ export default function ProductTabs({ products }: ProductTabsProps) {
               quickTags={quickTags}
               cardId={cardId}
               showCTA={true}
+              showReferencePriceNote={true}
             />
           );
         })}
