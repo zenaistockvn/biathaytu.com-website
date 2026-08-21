@@ -47,7 +47,6 @@ const AGE_GATE_PREPAINT_SCRIPT = `
       (document.head || document.documentElement).appendChild(style);
     }
   } catch (error) {
-    // Fail closed visually for normal JS-enabled browsers if bootstrap parsing fails.
     document.documentElement.setAttribute('data-age-gate', 'pending');
   }
 })();
@@ -59,12 +58,12 @@ export const metadata: Metadata = {
     default: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
     template: '%s | Bia Thầy Tu',
   },
-  description: 'Bia Thầy Tu Benediktiner Weissbier — bia lúa mì Đức nhập khẩu chính hãng từ Tu Viện Ettal, Bavaria. Đạt giải iTQi 3 Sao 2022. Chuẩn Luật Tinh Khiết 1516. Giao hàng toàn quốc.',
+  description: 'Bia Thầy Tu Benediktiner Weissbier — bia Đức nhập khẩu chính hãng từ Tu Viện Ettal, Bavaria. Thông tin sản phẩm, nguồn gốc, hương vị, văn hóa bia Đức và tư vấn.',
   keywords: [
-    'bia đức', 'bia nhập khẩu', 'bia thầy tu', 'benediktiner', 'bia weissbier',
+    'bia đức nhập khẩu', 'bia nhập khẩu', 'bia thầy tu', 'benediktiner', 'bia weissbier',
     'bia lúa mì đức', 'bia đen đức', 'german beer vietnam', 'bia đức chính hãng',
     'benediktiner weissbier', 'bia tu viện', 'monastery beer', 'bia cao cấp',
-    'bia đức hà nội', 'mua bia đức', 'bia đức giá sỉ', 'đại lý bia đức',
+    'bia đức hà nội', 'thông tin bia đức', 'bia đức cho horeca', 'đại lý bia đức',
   ],
   alternates: {
     languages: {
@@ -77,7 +76,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: 'Bia Thầy Tu',
     title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
-    description: 'Thưởng thức bia lúa mì Đức từ Tu Viện Ettal 400 năm. Đạt giải iTQi 3 Sao. 100% nhập khẩu nguyên chai. Giao toàn quốc.',
+    description: 'Khám phá Benediktiner Weissbier và các dòng bia Đức nhập khẩu chính hãng: nguồn gốc, hương vị, cách thưởng thức và thông tin tư vấn sản phẩm.',
     images: [
       {
         url: '/images/sanh_bia_duc_cover.png',
@@ -89,6 +88,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
+    description: 'Thông tin về Bia Thầy Tu, Benediktiner và bia Đức nhập khẩu chính hãng tại Việt Nam.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
   robots: {
