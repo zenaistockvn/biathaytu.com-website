@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import '../web.css';
 import '../mobile-overrides.css';
 import '../brand-consistency.css';
+import '../editorial-pages.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
 import Toast from './components/Toast';
@@ -21,10 +22,6 @@ import type { Metadata } from 'next';
 
 const BASE_URL = 'https://www.biathaytu.com';
 
-// Runs before .web-app is parsed/painted. Human visitors without the current
-// age-verification cookie see an opaque pre-paint screen, so site content never
-// flashes before the client gate mounts. Google/Bing crawlers are explicitly
-// bypassed and continue receiving the normal SSR/SSG content for SEO.
 const AGE_GATE_PREPAINT_SCRIPT = `
 (function () {
   try {
@@ -111,11 +108,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WebLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function WebLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script dangerouslySetInnerHTML={{ __html: AGE_GATE_PREPAINT_SCRIPT }} />
