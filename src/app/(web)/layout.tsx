@@ -13,9 +13,45 @@ import AgeVerificationGate from './components/AgeVerificationGate';
 import CookieConsent from './components/CookieConsent';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
+import { POLICY_VERSION, STORAGE_KEYS } from '@/constants/compliance';
 import type { Metadata } from 'next';
 
 const BASE_URL = 'https://www.biathaytu.com';
+
+// Runs before .web-app is parsed/painted. Human visitors without the current
+// age-verification cookie see an opaque pre-paint screen, so site content never
+// flashes before the client gate mounts. Google/Bing crawlers are explicitly
+// bypassed and continue receiving the normal SSR/SSG content for SEO.
+const AGE_GATE_PREPAINT_SCRIPT = `
+(function () {
+  try {
+    var path = window.location.pathname;
+    var exempt = [
+      '/chinh-sach-bao-mat',
+      '/chinh-sach-cookie',
+      '/chinh-sach-kiem-soat-do-tuoi',
+      '/chua-du-tuoi'
+    ].indexOf(path) !== -1;
+    var ua = window.navigator.userAgent || '';
+    var crawler = /(googlebot|google-inspectiontool|googleother|google-extended|storebot-google|adsbot-google|mediapartners-google|bingbot|bingpreview)/i.test(ua);
+    var cookiePair = '${STORAGE_KEYS.AGE_VERIFIED}=' + encodeURIComponent('${POLICY_VERSION}');
+    var verified = document.cookie.split(';').some(function (item) {
+      return item.trim() === cookiePair;
+    });
+
+    if (!exempt && !crawler && !verified) {
+      document.documentElement.setAttribute('data-age-gate', 'pending');
+      var style = document.createElement('style');
+      style.id = 'age-gate-prepaint-style';
+      style.textContent = 'html[data-age-gate="pending"] body{background:#070b12!important}html[data-age-gate="pending"] .web-app{visibility:hidden!important}';
+      (document.head || document.documentElement).appendChild(style);
+    }
+  } catch (error) {
+    // Fail closed visually for normal JS-enabled browsers if bootstrap parsing fails.
+    document.documentElement.setAttribute('data-age-gate', 'pending');
+  }
+})();
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -77,27 +113,29 @@ export default function WebLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="web-app">
-      <LanguageProvider>
-        <a href="#main-content" className="skip-link">Bỏ qua tới nội dung chính</a>
-        <JsonLd type="organization" data={getOrganizationSchema()} />
-        <JsonLd type="website" data={getWebsiteSchema()} />
-        <WebHeader />
-        <main id="main-content">{children}</main>
-        <WebFooter />
-        <FloatingZaloCTA />
-        <FootballCampaignPopup />
-        <MobileBottomNav />
-        <Toast />
-        <ScrollRevealObserver />
-        <Suspense fallback={null}>
-          <FacebookPixel />
-          <FacebookMessengerChat />
-        </Suspense>
-        {/* Gate & consent render CUỐI CÙNG để luôn nằm trên */}
-        <CookieConsent />
-        <AgeVerificationGate />
-      </LanguageProvider>
-    </div>
+    <>
+      <script dangerouslySetInnerHTML={{ __html: AGE_GATE_PREPAINT_SCRIPT }} />
+      <div className="web-app">
+        <LanguageProvider>
+          <a href="#main-content" className="skip-link">Bỏ qua tới nội dung chính</a>
+          <JsonLd type="organization" data={getOrganizationSchema()} />
+          <JsonLd type="website" data={getWebsiteSchema()} />
+          <WebHeader />
+          <main id="main-content">{children}</main>
+          <WebFooter />
+          <FloatingZaloCTA />
+          <FootballCampaignPopup />
+          <MobileBottomNav />
+          <Toast />
+          <ScrollRevealObserver />
+          <Suspense fallback={null}>
+            <FacebookPixel />
+            <FacebookMessengerChat />
+          </Suspense>
+          <CookieConsent />
+          <AgeVerificationGate />
+        </LanguageProvider>
+      </div>
+    </>
   );
 }
