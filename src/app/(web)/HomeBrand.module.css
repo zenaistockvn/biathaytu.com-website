@@ -1,0 +1,961 @@
+.hero {
+  position: relative;
+  min-height: min(860px, 100svh);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0d1911;
+  color: #f4f1e9;
+}
+
+.heroImage,
+.storyImage,
+.experienceImage {
+  object-fit: cover;
+}
+
+.heroImage {
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 16, 10, 0.7) 0%, rgba(7, 16, 10, 0.06) 26%, rgba(7, 16, 10, 0.2) 100%),
+    linear-gradient(90deg, rgba(9, 24, 14, 0.94) 0%, rgba(9, 24, 14, 0.82) 34%, rgba(9, 24, 14, 0.28) 62%, rgba(9, 24, 14, 0.08) 100%);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 120px !important;
+  padding-bottom: 80px !important;
+}
+
+.heroCopy {
+  width: min(610px, 55%);
+}
+
+.eyebrow,
+.eyebrowDark {
+  margin: 0 0 16px !important;
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: #b9d7c1;
+}
+
+.eyebrowDark {
+  color: #2f5d3a;
+}
+
+.heroTitle.heroTitle {
+  max-width: 610px;
+  color: #f8f3e8 !important;
+  font-size: clamp(48px, 6.2vw, 86px);
+  font-weight: 700 !important;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.heroTitle span {
+  display: block;
+  margin-top: 10px;
+  color: #f0dca2;
+}
+
+.heroDescription {
+  max-width: 590px;
+  margin-top: 26px !important;
+  color: rgba(244, 241, 233, 0.86);
+  font-size: clamp(17px, 1.55vw, 21px);
+  line-height: 1.65;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.heroSecondaryButton.heroSecondaryButton {
+  border-color: rgba(255, 255, 255, 0.58) !important;
+  background: rgba(13, 25, 17, 0.18) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px);
+}
+
+.heroFacts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.heroFacts span {
+  display: grid;
+  gap: 3px;
+  color: rgba(244, 241, 233, 0.72);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.heroFacts strong {
+  color: #fff;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 18px;
+}
+
+.imageCredit {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: rgba(13, 25, 17, 0.5);
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 10px;
+}
+
+.proofStrip {
+  background: #14241a;
+  color: #f4f1e9;
+}
+
+.catalogHero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #14241a;
+}
+
+.catalogHeroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.catalogHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 23, 14, 0.94) 0%, rgba(10, 23, 14, 0.72) 42%, rgba(10, 23, 14, 0.18) 78%);
+}
+
+.catalogHeroCopy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 150px !important;
+  padding-bottom: 76px !important;
+}
+
+.catalogHeroCopy h1 {
+  max-width: 720px;
+  color: #f4f1e9 !important;
+  font-size: clamp(44px, 5.6vw, 76px);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.catalogHeroCopy > p:last-child {
+  max-width: 650px;
+  margin-top: 24px !important;
+  color: rgba(244, 241, 233, 0.8);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.catalogNote {
+  padding: 16px 0;
+  border-bottom: 1px solid #d8d2c1;
+  background: #e9e5d8;
+  color: #5d6b61;
+  font-size: 13px;
+  text-align: center;
+}
+
+.proofGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.proofGrid > div {
+  display: grid;
+  gap: 4px;
+  min-height: 116px;
+  align-content: center;
+  padding: 20px 30px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.proofGrid > div:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.proofGrid strong {
+  color: #fff;
+  font-size: 15px;
+}
+
+.proofGrid span {
+  color: rgba(244, 241, 233, 0.62);
+  font-size: 13px;
+}
+
+.section {
+  padding: clamp(72px, 9vw, 120px) 0;
+}
+
+.sectionHeading {
+  max-width: 760px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.sectionHeading h2,
+.storyCopy h2,
+.tastingIntro h2,
+.experienceCard h2,
+.b2bInner h2,
+.faqGrid h2 {
+  color: #14241a !important;
+  font-size: clamp(34px, 4.2vw, 56px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.sectionHeading > p:last-child,
+.faqIntro {
+  max-width: 680px;
+  margin: 20px auto 0 !important;
+  color: #5d6b61;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.beerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.beerCard {
+  overflow: hidden;
+  border: 1px solid #d8d2c1;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 22px 50px -38px rgba(20, 36, 26, 0.38);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.beerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 58px -34px rgba(20, 36, 26, 0.32);
+}
+
+.beerImageWrap {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  border-bottom: 1px solid #e3ded0;
+  background: linear-gradient(180deg, #f2eee3 0%, #e5dfcf 100%);
+}
+
+.beerImage {
+  object-fit: contain;
+  padding: 30px;
+  transition: transform 0.3s ease;
+}
+
+.beerCard:hover .beerImage {
+  transform: scale(1.025);
+}
+
+.beerContent {
+  padding: 28px;
+}
+
+.beerType {
+  color: #2f5d3a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.beerContent h3 {
+  margin-top: 8px;
+  color: #14241a;
+  font-size: 27px;
+  line-height: 1.15;
+}
+
+.beerDescription {
+  min-height: 86px;
+  margin-top: 14px !important;
+  color: #5d6b61;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.beerFacts {
+  display: grid;
+  gap: 0;
+  margin: 22px 0;
+  border-top: 1px solid #e3ded0;
+}
+
+.beerFacts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid #e3ded0;
+  font-size: 12px;
+}
+
+.beerFacts dt {
+  color: #718078;
+}
+
+.beerFacts dd {
+  margin: 0;
+  color: #14241a;
+  font-weight: 700;
+  text-align: right;
+}
+
+.textLink,
+.lightLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.textLink.textLink {
+  color: #2f5d3a !important;
+  font-size: 14px;
+}
+
+.lightLink.lightLink {
+  margin-top: 26px;
+  color: #dcecdf !important;
+  font-size: 14px;
+}
+
+.storySection {
+  background: #e9e5d8;
+}
+
+.storyGrid,
+.experienceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 88px);
+}
+
+.storyImageWrap,
+.experienceImageWrap {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 28px 70px -44px rgba(20, 36, 26, 0.5);
+}
+
+.storyImage {
+  object-position: center;
+}
+
+.sourceNote {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: rgba(13, 25, 17, 0.66);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 10px;
+}
+
+.storyCopy .lead {
+  margin-top: 24px !important;
+  color: #2a3e31;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.storyCopy > p:not(.eyebrowDark):not(.lead) {
+  margin-top: 16px !important;
+  color: #5d6b61;
+  line-height: 1.75;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 30px 0 26px;
+}
+
+.timeline div {
+  display: grid;
+  gap: 5px;
+  padding-top: 14px;
+  border-top: 2px solid #8b6914;
+}
+
+.timeline strong {
+  color: #14241a;
+  font-size: 18px;
+}
+
+.timeline span {
+  color: #68756d;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #cfc9b6;
+  border-bottom: 1px solid #cfc9b6;
+}
+
+.principleGrid article {
+  min-height: 280px;
+  padding: 34px;
+  border-right: 1px solid #cfc9b6;
+}
+
+.principleGrid article:last-child {
+  border-right: 0;
+}
+
+.principleGrid article > span {
+  color: #8b6914;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.principleGrid h3 {
+  margin-top: 54px;
+  color: #14241a;
+  font-size: 28px;
+}
+
+.principleGrid p {
+  margin-top: 14px !important;
+  color: #5d6b61;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.lightHeading.lightHeading {
+  color: #f4f1e9 !important;
+}
+
+.lightBody {
+  margin-top: 24px !important;
+  color: #b9c4bc !important;
+  font-size: 16px;
+  line-height: 1.75 !important;
+}
+
+.tastingSection {
+  padding: clamp(72px, 9vw, 116px) 0;
+  background: #14241a;
+  color: #f4f1e9;
+}
+
+.tastingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(46px, 8vw, 100px);
+  align-items: start;
+}
+
+.tastingIntro h2,
+.b2bInner h2 {
+  color: #f4f1e9 !important;
+}
+
+.tastingIntro > p:last-of-type,
+.b2bInner > div:first-child > p:last-child {
+  margin-top: 22px !important;
+  color: #b9c4bc;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.tastingSteps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tastingSteps li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tastingSteps > li > span {
+  color: #e0c36e;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.tastingSteps h3 {
+  color: #fff !important;
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 18px;
+}
+
+.tastingSteps p {
+  margin-top: 7px !important;
+  color: #b9c4bc;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.experienceImageWrap {
+  min-height: 560px;
+}
+
+.experienceCard h2 {
+  margin-bottom: 22px;
+}
+
+.experienceCard > p:not(.eyebrowDark) {
+  color: #5d6b61;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.experienceCard address {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px 18px;
+  margin-top: 26px;
+  padding: 20px 0;
+  border-top: 1px solid #d8d2c1;
+  border-bottom: 1px solid #d8d2c1;
+  font-style: normal;
+}
+
+.experienceCard address span {
+  color: #718078;
+  font-size: 12px;
+}
+
+.experienceCard address strong {
+  color: #14241a;
+  font-size: 14px;
+}
+
+.experienceActions,
+.b2bActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryLink,
+.secondaryLink,
+.primaryLightLink,
+.outlineLightLink {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.primaryLink.primaryLink {
+  background: #2f5d3a;
+  color: #fff !important;
+}
+
+.secondaryLink.secondaryLink {
+  border: 1px solid #aeb8b0;
+  color: #14241a !important;
+}
+
+.b2bSection {
+  padding: clamp(60px, 7vw, 88px) 0;
+  background: #1d3325;
+  color: #f4f1e9;
+}
+
+.b2bInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: center;
+}
+
+.b2bInner h2 {
+  max-width: 760px;
+  font-size: clamp(32px, 3.9vw, 52px);
+}
+
+.b2bInner > div:first-child > p:last-child {
+  max-width: 720px;
+}
+
+.b2bActions {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+.primaryLightLink.primaryLightLink {
+  background: #f4f1e9;
+  color: #14241a !important;
+}
+
+.outlineLightLink.outlineLightLink {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff !important;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+  gap: clamp(40px, 7vw, 90px);
+  align-items: start;
+}
+
+.faqIntro {
+  margin-left: 0 !important;
+  font-size: 15px;
+}
+
+.faqList {
+  border-top: 1px solid #cfc9b6;
+}
+
+.faqList details {
+  border-bottom: 1px solid #cfc9b6;
+}
+
+.faqList summary {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  color: #14241a;
+  font-size: 16px;
+  font-weight: 800;
+  list-style: none;
+}
+
+.faqList summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqList summary span {
+  font-size: 22px;
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+
+.faqList details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.faqList details p {
+  padding: 0 40px 22px 0;
+  color: #5d6b61;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.contactBar {
+  padding: 30px 0;
+  background: #e9e5d8;
+  border-top: 1px solid #d8d2c1;
+}
+
+.contactBarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.contactBarInner p,
+.contactBarInner > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.contactBarInner strong {
+  color: #14241a;
+}
+
+.contactBarInner span {
+  color: #68756d;
+}
+
+.contactBarInner a {
+  color: #2f5d3a !important;
+  font-weight: 800;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .heroCopy {
+    width: min(610px, 68%);
+  }
+
+  .beerGrid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .beerCard {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .beerImageWrap {
+    height: auto;
+    min-height: 430px;
+    border-right: 1px solid #e3ded0;
+    border-bottom: 0;
+  }
+
+  .beerDescription {
+    min-height: 0;
+  }
+
+  .storyGrid,
+  .experienceGrid,
+  .tastingGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .storyImageWrap,
+  .experienceImageWrap {
+    min-height: 460px;
+  }
+
+  .b2bInner {
+    grid-template-columns: 1fr;
+  }
+
+  .b2bActions {
+    justify-content: flex-start;
+  }
+
+  .principleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .principleGrid article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #cfc9b6;
+  }
+
+  .principleGrid article:last-child {
+    border-bottom: 0;
+  }
+
+  .principleGrid h3 {
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    min-height: 760px;
+    align-items: flex-end;
+  }
+
+  .heroImage {
+    object-position: 65% center;
+  }
+
+  .heroOverlay {
+    background:
+      linear-gradient(180deg, rgba(7, 16, 10, 0.58) 0%, rgba(7, 16, 10, 0.08) 24%, rgba(7, 16, 10, 0.9) 64%, rgba(7, 16, 10, 0.98) 100%);
+  }
+
+  .heroInner {
+    padding-top: 100px !important;
+    padding-bottom: 54px !important;
+  }
+
+  .heroCopy {
+    width: 100%;
+  }
+
+  .heroTitle {
+    font-size: clamp(42px, 13vw, 62px);
+  }
+
+  .heroDescription {
+    font-size: 16px;
+  }
+
+  .heroActions > * {
+    width: 100%;
+  }
+
+  .heroFacts {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .heroFacts span {
+    grid-template-columns: 60px 1fr;
+    align-items: baseline;
+  }
+
+  .imageCredit {
+    display: none;
+  }
+
+  .proofGrid {
+    grid-template-columns: 1fr;
+    padding: 8px 16px;
+  }
+
+  .catalogHero {
+    min-height: 600px;
+  }
+
+  .catalogHeroImage {
+    object-position: 68% center;
+  }
+
+  .catalogHeroOverlay {
+    background: linear-gradient(180deg, rgba(10, 23, 14, 0.18) 0%, rgba(10, 23, 14, 0.86) 64%, rgba(10, 23, 14, 0.98) 100%);
+  }
+
+  .catalogHeroCopy {
+    padding-top: 120px !important;
+    padding-bottom: 54px !important;
+  }
+
+  .catalogHeroCopy > p:last-child {
+    font-size: 16px;
+  }
+
+  .proofGrid > div,
+  .proofGrid > div:first-child {
+    min-height: 88px;
+    padding: 16px 4px;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .proofGrid > div:last-child {
+    border-bottom: 0;
+  }
+
+  .sectionHeading {
+    text-align: left;
+  }
+
+  .sectionHeading > p:last-child {
+    margin-left: 0 !important;
+  }
+
+  .beerCard {
+    display: block;
+  }
+
+  .beerImageWrap {
+    height: 330px;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #e3ded0;
+  }
+
+  .beerContent {
+    padding: 24px;
+  }
+
+  .storyImageWrap,
+  .experienceImageWrap {
+    min-height: 320px;
+    border-radius: 12px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline div {
+    grid-template-columns: 70px 1fr;
+    align-items: baseline;
+  }
+
+  .experienceCard address {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .experienceCard address strong + span {
+    margin-top: 10px;
+  }
+
+  .experienceActions > *,
+  .b2bActions > * {
+    width: 100%;
+  }
+
+  .contactBarInner,
+  .contactBarInner p,
+  .contactBarInner > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beerCard,
+  .beerImage,
+  .faqList summary span {
+    transition: none;
+  }
+}

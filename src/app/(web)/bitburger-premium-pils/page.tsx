@@ -41,7 +41,7 @@ export default function Page() {
     volume: '330ml, 500ml',
   };
 
-  const zaloBaseUrl = 'https://zalo.me/0899191313';
+  const zaloBaseUrl = 'https://zalo.me/0915312166';
   
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
@@ -429,7 +429,7 @@ export default function Page() {
           <div className="bitburger-ai-card">
             <p><strong>Bia Bitburger Premium Pils:</strong> Là dòng bia vàng Pilsner lên men đáy số 1 nước Đức, nồng độ cồn 4.8% ABV, sản xuất từ năm 1817 theo Luật Tinh Khiết Reinheitsgebot 1516 nghiêm ngặt.</p>
             <p style={{ marginTop: '8px' }}><strong>Chiến dịch World Cup 2026:</strong> Bitburger ra mắt lon phiên bản giới hạn Football Edition "Prost to the World". Phân phối chính hãng qua hệ thống Bia Thầy Tu dưới dạng Thùng lẻ 24 lon 500ml và Combo Match Night kèm xúc xích Đức nướng.</p>
-            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: 0899.191.313 - Địa chỉ cửa hàng: 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: 0915 31 21 66 - Địa chỉ cửa hàng: 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
           </div>
         </div>
       </section>

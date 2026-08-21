@@ -14,12 +14,11 @@ const productLinks = [
   { href: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml', label: 'Benediktiner Weissbier' },
   { href: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml', label: 'Benediktiner Dunkel' },
   { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Bom 5L Benediktiner' },
-  { href: '/qua-tang-bia-duc', label: 'Quà tặng bia Đức' },
+  { href: '/huong-dan-rot-bia-lua-mi', label: 'Nghệ thuật thưởng thức' },
 ];
 
 const policyLinks = [
   { href: '/chinh-sach-kiem-soat-do-tuoi', label: 'Kiểm soát độ tuổi' },
-  { href: '/thong-tin-mua-hang', label: 'Thông tin mua hàng' },
   { href: '/chinh-sach-bao-mat', label: 'Chính sách bảo mật' },
   { href: '/chinh-sach-cookie', label: 'Chính sách cookie' },
   { href: '/dieu-khoan-su-dung', label: 'Điều khoản sử dụng' },
@@ -37,7 +36,7 @@ export default function WebFooter() {
     <>
       <h3 className={styles.brandTitle}>BIA THẦY TU</h3>
       <p className={styles.brandDesc}>
-        Bia Thầy Tu Benediktiner — bia Đức nhập khẩu chính hãng. Thông tin sản phẩm, thương hiệu và tư vấn.
+        Khám phá Benediktiner tại Việt Nam — câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
       </p>
       <p className={styles.brochureNote}>
         Website giới thiệu sản phẩm — không bán hàng trực tuyến.

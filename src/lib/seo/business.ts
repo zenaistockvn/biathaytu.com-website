@@ -5,6 +5,11 @@ function normalizePhoneDigits(value: string): string {
 }
 
 const phoneDigits = normalizePhoneDigits(COMPANY_CONFIG.hotline);
+const phoneE164 = phoneDigits.startsWith('0')
+  ? `+84${phoneDigits.slice(1)}`
+  : phoneDigits
+    ? `+${phoneDigits}`
+    : '';
 
 /** Nguồn NAP dùng cho SEO, dẫn xuất từ cấu hình pháp nhân tập trung. */
 export const BUSINESS = {
@@ -20,7 +25,7 @@ export const BUSINESS = {
   businessRegistrationCertificateNumber: COMPANY_CONFIG.businessRegistrationCertificateNumber,
   legalRepresentative: COMPANY_CONFIG.legalRepresentative,
   phoneDisplay: COMPANY_CONFIG.hotline,
-  phoneE164: phoneDigits,
+  phoneE164,
   phoneTel: phoneDigits,
   email: COMPANY_CONFIG.email,
   zaloUrl: getCompanyZaloUrl() || '',

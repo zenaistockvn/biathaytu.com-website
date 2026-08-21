@@ -17,7 +17,7 @@ interface JsonLdProps {
   data: Record<string, unknown>;
 }
 
-export default function JsonLd({ type: _type, data }: JsonLdProps) {
+export default function JsonLd({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
@@ -39,7 +39,7 @@ export function getOrganizationSchema() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Đơn vị giới thiệu và phân phối Bia Thầy Tu Benediktiner tại Việt Nam. Thông tin về bia Đức nhập khẩu chính hãng, nguồn gốc, hương vị và tư vấn sản phẩm.',
+    description: 'Đơn vị giới thiệu Bia Thầy Tu Benediktiner tại Việt Nam. Thông tin về nguồn gốc Ettal, hương vị bia Đức và tư vấn sản phẩm.',
     areaServed: {
       '@type': 'Country',
       name: 'Vietnam',
@@ -75,7 +75,7 @@ export function getWebsiteSchema() {
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
     name: 'Bia Thầy Tu — Bia Đức Nhập Khẩu Benediktiner',
-    description: 'Website giới thiệu Bia Thầy Tu Benediktiner — bia Đức nhập khẩu chính hãng từ Tu Viện Ettal, cùng thông tin sản phẩm, văn hóa bia và tư vấn.',
+    description: 'Website giới thiệu Bia Thầy Tu Benediktiner — nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và nghệ thuật thưởng thức.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -86,14 +86,14 @@ export function getWebsiteSchema() {
 export function getStoreSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Store',
+    '@type': 'LocalBusiness',
     '@id': `${BASE_URL}/#store`,
     name: BUSINESS.name,
     ...(hasConfirmedLegalName ? { legalName: BUSINESS.legalName } : {}),
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Điểm giới thiệu và tư vấn các dòng bia Đức nhập khẩu, nổi bật với Benediktiner và Bia Thầy Tu tại Việt Nam.',
+    description: 'Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner tại Việt Nam.',
     ...(hasConfirmedHotline ? { telephone: BUSINESS.phoneE164 } : {}),
     ...(hasConfirmedShowroomAddress
       ? {
@@ -127,30 +127,6 @@ export function getProductSchema(product: {
   const productUrl = product.url || `${BASE_URL}/san-pham/${product.slug}`;
   const info = getBrandInfo(product.name, product.category);
 
-  let offers: Record<string, unknown> | undefined;
-  if (typeof product.price === 'number') {
-    offers = {
-      '@type': 'Offer',
-      url: productUrl,
-      priceCurrency: 'VND',
-      price: product.price,
-      itemCondition: 'https://schema.org/NewCondition',
-      availability: product.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
-      seller: { '@id': `${BASE_URL}/#store` },
-    };
-  } else if (typeof product.priceFrom === 'number') {
-    offers = {
-      '@type': 'AggregateOffer',
-      url: productUrl,
-      priceCurrency: 'VND',
-      lowPrice: product.priceFrom,
-      ...(typeof product.priceTo === 'number' ? { highPrice: product.priceTo } : {}),
-      ...(typeof product.offerCount === 'number' ? { offerCount: product.offerCount } : {}),
-      availability: product.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
-      seller: { '@id': `${BASE_URL}/#store` },
-    };
-  }
-
   const isBelgium = product.name.toLowerCase().includes('bỉ') ||
                     product.name.toLowerCase().includes('chimay') ||
                     product.name.toLowerCase().includes('rochefort');
@@ -176,7 +152,6 @@ export function getProductSchema(product: {
         }
       : {}),
     countryOfOrigin: { '@type': 'Country', name: isBelgium ? 'Belgium' : 'Germany' },
-    ...(offers ? { offers } : {}),
     additionalProperty: [
       ...(product.abv ? [{ '@type': 'PropertyValue', name: 'Alcohol by Volume', value: `${product.abv}%` }] : []),
       ...(product.volume ? [{ '@type': 'PropertyValue', name: 'Volume', value: product.volume }] : []),
@@ -218,27 +193,23 @@ export function getLandingFAQSchema() {
   const faqs = [
     {
       question: 'Bia Thầy Tu là bia gì?',
-      answer: 'Bia Thầy Tu (Benediktiner Weissbier) là dòng bia lúa mì truyền thống của Đức, được ủ theo phương pháp tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria. Bia được sản xuất theo Luật Tinh Khiết 1516 (Reinheitsgebot), chỉ sử dụng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men bia.',
+      answer: 'Bia Thầy Tu là cách gọi thân thuộc tại Việt Nam dành cho Benediktiner, thương hiệu bia Đức có nguồn gốc truyền thống từ Tu viện Ettal và hơn 400 năm di sản bia lúa mì Benedictine.',
     },
     {
-      question: 'Bia Benediktiner Weissbier có vị gì?',
-      answer: 'Benediktiner Weissbier Naturtrüb có hương vị đặc trưng gồm trái chuối chín, đinh hương, với lớp bọt trắng mịn dày và hậu vị ngọt dịu. Bia có màu vàng hổ phách tự nhiên, không lọc (Naturtrüb), giữ trọn men sống và hương vị tự nhiên.',
+      question: 'Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?',
+      answer: 'Benediktiner được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Tu viện Ettal là cội nguồn của truyền thống và triết lý thương hiệu.',
     },
     {
-      question: 'Tìm thông tin và tư vấn về bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?',
-      answer: 'Bia Thầy Tu giới thiệu thông tin về Benediktiner nhập khẩu tại Việt Nam. Vui lòng xem trang Liên hệ hoặc sử dụng hotline, email và các kênh tư vấn được công bố trên website để được hỗ trợ về sản phẩm và báo giá tham khảo.',
+      question: 'Bia Benediktiner Weissbier Naturtrüb có vị gì?',
+      answer: 'Benediktiner Weissbier Naturtrüb nổi bật với hương chuối chín và đinh hương, màu vàng hổ phách tự nhiên, lớp bọt trắng mịn và cảm giác êm cân bằng.',
     },
     {
-      question: 'Bia Benediktiner có giải thưởng gì?',
-      answer: 'Năm 2022, Benediktiner Weissbier Naturtrüb đã được Viện Hương Vị Quốc Tế (iTQi) trao giải "Superior Taste Award" — 3 Sao, mức cao nhất dành cho sản phẩm có hương vị vượt trội trên toàn thế giới.',
+      question: 'Có thể tìm hiểu Bia Thầy Tu tại đâu ở Hà Nội?',
+      answer: `Vui lòng liên hệ trước hoặc ghé điểm giới thiệu tại ${COMPANY_CONFIG.showroomAddress}. Thông tin hotline và email được công bố thống nhất trên website.`,
     },
     {
-      question: 'Luật Tinh Khiết 1516 (Reinheitsgebot) là gì?',
-      answer: 'Reinheitsgebot là luật tinh khiết bia của Đức ban hành năm 1516 bởi Công tước Wilhelm IV của Bavaria. Luật quy định bia chỉ được sản xuất từ 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men. Đây là luật an toàn thực phẩm lâu đời nhất thế giới. Benediktiner tuân thủ 100% luật này.',
-    },
-    {
-      question: 'Bia Thầy Tu có bao nhiêu dòng sản phẩm?',
-      answer: 'Bia Thầy Tu hiện giới thiệu các dòng Benediktiner Weissbier Naturtrüb, Benediktiner Dunkel, Bom 5L Benediktiner và các combo sản phẩm. Thông tin quy cách và mô tả chi tiết được cập nhật tại danh mục sản phẩm.',
+      question: 'Bia Thầy Tu hiện giới thiệu những dòng Benediktiner nào?',
+      answer: 'Các dòng nổi bật gồm Weissbier Naturtrüb, Weissbier Dunkel và Festbier, với nhiều quy cách chai, lon hoặc bom tùy từng thời điểm.',
     },
   ];
 

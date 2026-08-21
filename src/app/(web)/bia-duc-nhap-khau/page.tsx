@@ -57,7 +57,7 @@ export default function Page() {
     },
   ];
 
-  const zaloBaseUrl = 'https://zalo.me/0899191313';
+  const zaloBaseUrl = 'https://zalo.me/0915312166';
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
 
@@ -215,7 +215,7 @@ export default function Page() {
             <p><strong>Bia Đức nhập khẩu chính ngạch tại Việt Nam:</strong> Gồm 3 phong cách chủ đạo: Bia lúa mì vàng Benediktiner Weissbier Naturtrüb (5.4% cồn, men sống không lọc), bia lúa mì đen Benediktiner Dunkel (5.4% cồn, ngọt caramel) và bia vàng pilsner đắng thanh Bitburger Premium Pils (4.8% cồn).</p>
             <p style={{ marginTop: '8px' }}><strong>Phiên bản giới hạn World Cup 2026:</strong> Bitburger Premium Pils thiết kế Football Edition 500ml dạng thùng 24 lon và Combo Match Night (tặng 500g xúc xích Đức) được nhập khẩu chính ngạch và phân phối qua biathaytu.com.</p>
             <p style={{ marginTop: '8px' }}><strong>Tiêu chuẩn sản xuất:</strong> Tuân thủ nghiêm ngặt Luật Tinh Khiết Reinheitsgebot 1516 lâu đời của Đức, sử dụng các nguyên liệu hoàn toàn tự nhiên.</p>
-            <p style={{ marginTop: '8px' }}><strong>Nhà phân phối chính thức:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo: 0899.191.313 - Showroom Hà Nội: 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội, Tây Hồ).</p>
+            <p style={{ marginTop: '8px' }}><strong>Kênh tư vấn:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo: 0915 31 21 66 - Showroom Hà Nội: 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
           </div>
         </div>
       </section>

@@ -38,7 +38,7 @@ export default function Page() {
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>B2B Doanh Nghiệp & Horeca</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Giải Pháp Bia Đức Toàn Diện Cho Nhà Hàng, Khách Sạn</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Nâng tầm menu đồ uống của bạn với các dòng bia Đức cao cấp từ nhà nhập khẩu độc quyền.</p>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Nâng tầm menu đồ uống của bạn với các dòng bia Đức cao cấp từ đơn vị phân phối.</p>
         </div>
       </section>
 
@@ -50,7 +50,7 @@ export default function Page() {
         <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Tại sao nên chọn chúng tôi?</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginBottom: '48px' }}>
           {[
-            { title: 'Nhà phân phối độc quyền', desc: 'Nguồn hàng 100% nhập khẩu chính ngạch, hóa đơn VAT đầy đủ. Đảm bảo giá gốc không qua trung gian.' },
+            { title: 'Đối tác phân phối', desc: 'Nguồn hàng 100% nhập khẩu chính ngạch, hóa đơn VAT đầy đủ. Đảm bảo giá gốc không qua trung gian.' },
             { title: 'Chính sách chiết khấu sâu', desc: 'Mức chiết khấu thương mại linh hoạt dựa trên sản lượng cam kết, giúp tối ưu hóa lợi nhuận cho Horeca.' },
             { title: 'Hỗ trợ POSM trọn gói', desc: 'Cung cấp ly bia chuyên dụng (ly Weizen, ly Pilsner), đế lót ly (coaster), tháp bia, ô dù và các ấn phẩm menu.' },
             { title: 'Giao hàng hỏa tốc', desc: 'Đội ngũ xe tải lạnh riêng biệt, cam kết giao hàng trong 2-4 tiếng khu vực nội thành để không làm gián đoạn vận hành.' },
@@ -76,8 +76,8 @@ export default function Page() {
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Nhận Báo Giá Sỉ & Chính Sách Horeca</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để lại thông tin, chuyên viên tư vấn B2B của chúng tôi sẽ liên hệ trong vòng 2 giờ làm việc. Xem chi tiết <Link href="/bang-gia-si-dai-ly" style={{ color: 'var(--web-ink)', fontWeight: 600, textDecoration: 'underline' }}>chính sách giá sỉ dành cho đại lý</Link>.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://zalo.me/0899191313" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo B2B</a>
-            <a href="tel:0899191313" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline Phụ Trách Horeca</a>
+            <a href="https://zalo.me/0915312166" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo B2B</a>
+            <a href="tel:0915312166" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline Phụ Trách Horeca</a>
           </div>
         </div>
       </article>
@@ -89,7 +89,7 @@ export default function Page() {
             <p><strong>Cung cấp bia Đức cho nhà hàng khách sạn:</strong> Kênh Horeca, đại lý sỉ bia Đức nhập khẩu nguyên chai (Benediktiner, Bitburger).</p>
             <p><strong>Dịch vụ hỗ trợ:</strong> Menu food pairing, cung cấp POSM (ly, lót ly), đào tạo nhân viên rót bia chuẩn Đức.</p>
             <p><strong>Chiết khấu:</strong> Có chính sách giá sỉ ưu đãi lớn, xuất hóa đơn VAT đầy đủ, giao hàng hỏa tốc nội thành.</p>
-            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline 0899.191.313.</p>
+            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline 0915 31 21 66.</p>
           </div>
         </div>
       </section>

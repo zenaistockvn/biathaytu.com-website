@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getVisibleProducts } from '@/lib/data/products';
 import { getPublishedArticles } from '@/lib/data/articles';
 import { getPublicBaseUrl } from '@/lib/seo/site';
+import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,29 +32,27 @@ export async function GET() {
   const products = getVisibleProducts() as unknown as ProductItem[];
   const articles = getPublishedArticles() as unknown as ArticleItem[];
 
-  let markdown = `# Bia Thầy Tu & Xúc Xích Đức\n\n`;
-  markdown += `> Website bán lẻ B2C chính thức và Bảng điều khiển AI Marketing cho thương hiệu Bia Thầy Tu (Bia Đức Benediktiner, Bitburger) và Xúc xích Đức The Wurst.\n\n`;
+  let markdown = `# Bia Thầy Tu Benediktiner\n\n`;
+  markdown += `> Website giới thiệu thương hiệu: nguồn gốc Ettal, các dòng Benediktiner, hương vị, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam. Website không bán hàng trực tuyến.\n\n`;
   
   markdown += `## Thông Tin Thương Hiệu (Brand & Contact Info)\n`;
-  markdown += `- **Tên thương hiệu:** Bia Thầy Tu (Benediktiner Vietnam) & Xúc Xích Đức The Wurst\n`;
-  markdown += `- **Sản phẩm cốt lõi:** Bia tu viện Đức Benediktiner, bia Pilsner Bitburger nhập khẩu chính hãng, và Xúc xích Đức The Wurst được sản xuất tươi tại Việt Nam bởi nghệ nhân người Đức bằng công nghệ Đức.\n`;
-  markdown += `- **Địa chỉ Showroom:** 659A Lạc Long Quân, Phường Xuân La, Quận Tây Hồ, Hà Nội, Việt Nam\n`;
-  markdown += `- **Hotline đặt hàng:** 0899 19 13 13\n`;
-  markdown += `- **Zalo contact:** https://zalo.me/0899191313 hoặc https://zalo.me/biathaytu\n`;
+  markdown += `- **Tên thương hiệu:** Bia Thầy Tu — Benediktiner tại Việt Nam\n`;
+  markdown += `- **Sản phẩm cốt lõi:** Benediktiner Weissbier Naturtrüb, Weissbier Dunkel và Festbier.\n`;
+  markdown += `- **Thông tin nguồn gốc:** Truyền thống hơn 400 năm từ Tu viện Ettal; bia được nấu tại Lich theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.\n`;
+  markdown += `- **Điểm giới thiệu:** ${COMPANY_CONFIG.showroomAddress}\n`;
+  markdown += `- **Hotline tư vấn:** ${COMPANY_CONFIG.hotline}\n`;
+  markdown += `- **Email:** ${COMPANY_CONFIG.email}\n`;
+  markdown += `- **Zalo:** ${getCompanyZaloUrl() || 'Xem tại trang Liên hệ'}\n`;
   markdown += `- **Website chính thức:** ${baseUrl}\n\n`;
 
-  markdown += `## Danh Mục Sản Phẩm Bia Đức Nhập Khẩu (Product Catalog)\n`;
+  markdown += `## Danh Mục Sản Phẩm Tham Khảo (Product Guide)\n`;
   if (products && products.length > 0) {
     (products as ProductItem[]).forEach((product) => {
       const productUrl = `${baseUrl}/san-pham/${product.slug || product.id}`;
-      const priceText = product.price 
-        ? `${new Intl.NumberFormat('vi-VN').format(product.price)}đ` 
-        : 'Liên hệ sỉ/đại lý';
       const abvText = product.abv ? `, nồng độ ${product.abv}%` : '';
       const volumeText = product.volume ? `, dung tích ${product.volume}` : '';
       
       markdown += `### [${product.name}](${productUrl})\n`;
-      markdown += `- **Giá bán:** ${priceText}\n`;
       markdown += `- **Quy cách:** ${volumeText}${abvText} (Xuất xứ: ${product.origin || 'Đức'})\n`;
       if (product.description) {
         markdown += `- **Mô tả:** ${product.description}\n`;
@@ -61,7 +60,7 @@ export async function GET() {
       markdown += `\n`;
     });
   } else {
-    markdown += `- [Benediktiner Weissbier Naturtrüb](${baseUrl}/benediktiner-weissbier-naturtrub): Bia lúa mì tươi nguyên bản từ Tu Viện Ettal, nồng độ cồn 5.4%, hậu vị ngọt dịu.\n`;
+    markdown += `- [Benediktiner Weissbier Naturtrüb](${baseUrl}/benediktiner-weissbier-naturtrub): Bia lúa mì không lọc, nồng độ cồn 5.4%, hương chuối chín và đinh hương.\n`;
     markdown += `- [Benediktiner Dunkel](${baseUrl}/benediktiner-dunkel): Bia lúa mì đen với hương vị mạch nha rang caramel đậm đà, nồng độ cồn 5.4%.\n`;
     markdown += `- [Bom Bia 5L Benediktiner](${baseUrl}/bom-bia-5l-benediktiner): Bom bia lúa mì 5 lít tiện dụng cho tiệc gia đình và làm quà tặng.\n`;
   }
@@ -81,10 +80,10 @@ export async function GET() {
   markdown += `\n## Các Câu Hỏi Thường Gặp (FAQs)\n`;
   markdown += `1. **Bia Thầy Tu Benediktiner Weissbier có vị gì?**\n`;
   markdown += `   - Vị chuối chín, đinh hương tự nhiên kết hợp với lớp bọt mịn dày và hậu vị ngọt dịu nguyên bản từ men sống, không qua lọc (Naturtrüb).\n`;
-  markdown += `2. **Mua Bia Đức, Bia Thầy Tu và Xúc Xích Đức chính hãng ở đâu?**\n`;
-  markdown += `   - Đặt mua trực tiếp tại website ${baseUrl}, Showroom 659A Lạc Long Quân, Phường Xuân La, Quận Tây Hồ, Hà Nội hoặc liên hệ Hotline/Zalo: 0899 19 13 13 để được giao hỏa tốc 2 giờ tại nội thành Hà Nội (HN) và TP. Hồ Chí Minh (HCM).\n`;
-  markdown += `3. **Bia Benediktiner tuân thủ tiêu chuẩn nào?**\n`;
-  markdown += `   - Tuân thủ 100% Đạo luật Tinh khiết Reinheitsgebot 1516 của Đức, chỉ sử dụng 4 nguyên liệu: nước tinh khiết nguồn Alps, lúa mì, hoa bia và men bia sống.\n`;
+  markdown += `2. **Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?**\n`;
+  markdown += `   - Không. Bia được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.\n`;
+  markdown += `3. **Tìm hiểu sản phẩm tại đâu ở Hà Nội?**\n`;
+  markdown += `   - Liên hệ trước hoặc ghé ${COMPANY_CONFIG.showroomAddress}. Hotline tư vấn: ${COMPANY_CONFIG.hotline}.\n`;
 
   return new NextResponse(markdown, {
     headers: {

@@ -3,9 +3,9 @@ import { BUSINESS, getBrandInfo } from './business';
 
 describe('seo/business', () => {
   it('exposes the canonical NAP', () => {
-    expect(BUSINESS.streetAddress).toBe('659A Lạc Long Quân');
-    expect(BUSINESS.phoneE164).toBe('+84899191313');
-    expect(BUSINESS.phoneDisplay).toBe('0899.191.313');
+    expect(BUSINESS.streetAddress).toBe('26 Vạn Phúc, Ba Đình, Hà Nội');
+    expect(BUSINESS.phoneE164).toBe('+84915312166');
+    expect(BUSINESS.phoneDisplay).toBe('0915 31 21 66');
   });
 
   it('identifies Bitburger and Köstritzer as their own beer brands', () => {

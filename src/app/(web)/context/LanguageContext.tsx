@@ -12,22 +12,22 @@ type Translations = {
 const translations: Translations = {
   vi: {
     // Header & Navigation
-    'nav.products': 'Sản Phẩm',
-    'nav.brand': 'Thương Hiệu',
+    'nav.products': 'Benediktiner',
+    'nav.brand': 'Câu Chuyện',
+    'nav.tasting': 'Thưởng Thức',
     'nav.knowledge': 'Kiến Thức',
+    'nav.horeca': 'HORECA',
     'nav.contact': 'Liên Hệ',
-    'nav.consult': 'Tư Vấn',
+    'nav.consult': 'Liên Hệ Tư Vấn',
 
     // Hero Section
-    'hero.badge': 'Nhập Khẩu Chính Hãng Từ Đức',
-    'hero.title.line1': 'Tuyệt Tác',
-    'hero.title.line2': 'Bia Thầy Tu',
-    'hero.title.highlight': 'Đẳng Cấp Nguyên Bản',
-    'hero.description.1': 'Thưởng thức nghệ thuật ủ bia trên 400 năm từ Tu Viện Ettal.',
-    'hero.description.2': 'Tuyệt tác bia lúa mì Đức nguyên bản chuẩn',
-    'hero.description.3': 'Luật Tinh Khiết 1516.',
-    'hero.btn.explore': 'Khám Phá Sản Phẩm',
-    'hero.btn.quote': 'Nhận Tư Vấn Sỉ / Đại Lý',
+    'hero.badge': 'Benediktiner · Công thức Benedictine từ Đức',
+    'hero.title.line1': 'Bia Thầy Tu',
+    'hero.title.line2': 'Một khoảng lặng nguyên bản',
+    'hero.description.1': 'Hơn 400 năm truyền thống bia lúa mì khởi nguồn từ Tu viện Ettal.',
+    'hero.description.2': 'Được nấu tại Lich theo công thức Benedictine nguyên bản.',
+    'hero.btn.explore': 'Khám phá hương vị',
+    'hero.btn.story': 'Câu chuyện từ Ettal',
 
     // Trust bar
     'trust.award': 'iTQi 3 Sao 2022',
@@ -48,22 +48,22 @@ const translations: Translations = {
   },
   en: {
     // Header & Navigation
-    'nav.products': 'Products',
-    'nav.brand': 'Our Brand',
+    'nav.products': 'Benediktiner',
+    'nav.brand': 'Our Story',
+    'nav.tasting': 'Enjoyment',
     'nav.knowledge': 'Beer Knowledge',
+    'nav.horeca': 'HORECA',
     'nav.contact': 'Contact Us',
     'nav.consult': 'Get Advice',
 
     // Hero Section
-    'hero.badge': '100% Imported from Germany',
-    'hero.title.line1': 'The Masterpiece',
-    'hero.title.line2': 'Monastery Beer',
-    'hero.title.highlight': 'Original Class',
-    'hero.description.1': 'Experience the 400-year brewing art from Ettal Monastery.',
-    'hero.description.2': 'A masterpiece of German wheat beer brewed to the',
-    'hero.description.3': '1516 Purity Law.',
-    'hero.btn.explore': 'Explore Products',
-    'hero.btn.quote': 'Wholesale / Distributor Advice',
+    'hero.badge': 'Benediktiner · Benedictine recipe from Germany',
+    'hero.title.line1': 'Bia Thầy Tu',
+    'hero.title.line2': 'An original moment of calm',
+    'hero.description.1': 'Over 400 years of wheat beer tradition rooted in Ettal Abbey.',
+    'hero.description.2': 'Brewed in Lich according to the original Benedictine recipe.',
+    'hero.btn.explore': 'Explore the beers',
+    'hero.btn.story': 'The story from Ettal',
 
     // Trust bar
     'trust.award': 'iTQi 3-Star 2022',
@@ -84,22 +84,22 @@ const translations: Translations = {
   },
   de: {
     // Header & Navigation
-    'nav.products': 'Produkte',
-    'nav.brand': 'Unsere Marke',
+    'nav.products': 'Benediktiner',
+    'nav.brand': 'Geschichte',
+    'nav.tasting': 'Genuss',
     'nav.knowledge': 'Bierwissen',
+    'nav.horeca': 'HORECA',
     'nav.contact': 'Kontakt',
     'nav.consult': 'Beratung',
 
     // Hero Section
-    'hero.badge': '100% Importiert aus Deutschland',
-    'hero.title.line1': 'Das Meisterwerk',
-    'hero.title.line2': 'Klosterbier',
-    'hero.title.highlight': 'Originalklasse',
-    'hero.description.1': 'Erleben Sie die 400-jährige Braukunst des Klosters Ettal.',
-    'hero.description.2': 'Ein Meisterwerk des deutschen Weißbiers nach dem',
-    'hero.description.3': 'Reinheitsgebot von 1516.',
-    'hero.btn.explore': 'Produkte Entdecken',
-    'hero.btn.quote': 'Großhandel / Händlerberatung',
+    'hero.badge': 'Benediktiner · Benediktinisches Rezept aus Deutschland',
+    'hero.title.line1': 'Bia Thầy Tu',
+    'hero.title.line2': 'Ein ursprünglicher Moment der Ruhe',
+    'hero.description.1': 'Über 400 Jahre Weißbiertradition mit Wurzeln im Kloster Ettal.',
+    'hero.description.2': 'In Lich nach dem originalen Benediktinerrezept gebraut.',
+    'hero.btn.explore': 'Biere entdecken',
+    'hero.btn.story': 'Die Geschichte aus Ettal',
 
     // Trust bar
     'trust.award': 'iTQi 3-Sterne 2022',

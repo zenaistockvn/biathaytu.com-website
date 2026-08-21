@@ -26,7 +26,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
       .filter(Boolean)
       .join('\n');
 
-    window.open(`https://zalo.me/0899191313?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://zalo.me/0915312166?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

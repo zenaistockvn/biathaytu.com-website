@@ -6,11 +6,11 @@ import { getPriceRange } from '@/lib/seo/productPricing';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
-  description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
+  description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
   alternates: { canonical: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' },
   openGraph: {
     title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
-    description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá. Đặt mua chính hãng giao nhanh.',
+    description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
     type: 'website',
     url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
     images: [
@@ -41,7 +41,7 @@ export default function Page() {
     volume: '500ml',
   };
 
-  const zaloBaseUrl = 'https://zalo.me/0899191313';
+  const zaloBaseUrl = 'https://zalo.me/0915312166';
   const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia lúa mì Benediktiner Weissbier Naturtrüb chính hãng. Tư vấn chương trình ưu đãi và giao hàng giúp mình nhé.';
   const linkOrder = `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}`;
 
@@ -365,9 +365,9 @@ export default function Page() {
             Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
           </h2>
           <div className="weissbier-ai-card">
-            <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, sản xuất tại tu viện Ettal (Bavaria) theo đạo Luật Tinh Khiết Reinheitsgebot 1516 lâu đời.</p>
+            <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, được nấu tại Lich theo công thức nguyên bản của Benediktiner Weissbräu GmbH, Ettal.</p>
             <p style={{ marginTop: '8px' }}><strong>Đặc tính hương vị:</strong> Men bia không lọc đục tự nhiên (Naturtrüb), bọt dày mịn, hương trái cây đặc trưng chuối chín và đinh hương. Đạt giải thưởng ẩm thực quốc tế danh giá iTQi 3 Sao.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0899.191.313 - Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0915 31 21 66 - Showroom 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
           </div>
         </div>
       </section>

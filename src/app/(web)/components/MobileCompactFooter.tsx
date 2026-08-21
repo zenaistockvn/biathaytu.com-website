@@ -53,7 +53,7 @@ export default function MobileCompactFooter() {
             <summary>Chính sách &amp; tuân thủ</summary>
             <div className="mobile-footer-accordion-content">
               <Link href="/chinh-sach-kiem-soat-do-tuoi">Kiểm soát độ tuổi</Link>
-              <Link href="/thong-tin-mua-hang">Thông tin mua hàng</Link>
+              <Link href="/huong-dan-rot-bia-lua-mi">Nghệ thuật thưởng thức</Link>
               <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
               <Link href="/chinh-sach-cookie">Chính sách cookie</Link>
               <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>

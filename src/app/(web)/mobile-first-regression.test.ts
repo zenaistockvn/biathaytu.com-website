@@ -34,22 +34,20 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/\.web-app\s+\.product-gallery-main\s*\{[^}]*height:\s*clamp\(/);
   });
 
-  it('mounts fixed floating Zalo and phone CTAs at the bottom right of public pages', () => {
+  it('mounts the consolidated contact launcher on public pages', () => {
     const layout = readProjectFile('src/app/(web)/layout.tsx');
     const floatingCta = readProjectFile('src/app/(web)/components/FloatingZaloCTA.tsx');
-    const css = readProjectFile('src/app/web.css');
+    const css = readProjectFile('src/app/brand-consistency.css');
 
     expect(layout).toContain("import FloatingZaloCTA from './components/FloatingZaloCTA'");
     expect(layout).toContain('<FloatingZaloCTA />');
-    expect(floatingCta).toContain('className="floating-contact-stack"');
-    expect(floatingCta).toContain('https://zalo.me/0899191313');
-    expect(floatingCta).toContain('href="tel:0899191313"');
-    expect(floatingCta).toContain('aria-label="Chat Zalo với Bia Thầy Tu"');
-    expect(floatingCta).toContain('aria-label="Gọi Bia Thầy Tu"');
-    expect(floatingCta).toContain('floating-zalo-cta');
-    expect(floatingCta).toContain('floating-phone-cta');
-    expect(css).toMatch(/\.web-app\s+\.floating-contact-stack\s*\{[^}]*position:\s*fixed[^}]*right:\s*calc\([^}]*bottom:\s*calc\(/);
-    expect(css).toMatch(/\.web-app\s+\.floating-contact-button\s*\{[^}]*width:\s*58px[^}]*height:\s*58px/);
+    expect(floatingCta).toContain('className="brand-contact-root"');
+    expect(floatingCta).toContain('getCompanyZaloUrl');
+    expect(floatingCta).toContain('getCompanyTelHref');
+    expect(floatingCta).toContain("aria-label={isExpanded ? 'Đóng menu liên hệ' : 'Mở menu liên hệ'}");
+    expect(floatingCta).toContain('brand-contact-trigger');
+    expect(floatingCta).toContain('brand-contact-panel');
+    expect(css).toMatch(/\.web-app\s+\.brand-contact-root\s*\{[^}]*position:\s*fixed[^}]*right:\s*calc\([^}]*bottom:\s*calc\(/);
   });
 
   it('mounts a mobile-only bottom navigation with exactly three primary choices', () => {
