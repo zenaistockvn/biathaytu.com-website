@@ -39,7 +39,6 @@ export default function BrandStoryPage() {
         { name: 'Thương Hiệu', url: 'https://www.biathaytu.com/thuong-hieu' },
       ])} />
 
-      {/* Header */}
       <section className="container subpage-header">
         <span className="section-label">Di Sản Gần Nửa Thiên Niên Kỷ</span>
         <h1 className="page-title">Câu Chuyện Thương Hiệu</h1>
@@ -49,14 +48,13 @@ export default function BrandStoryPage() {
       </section>
 
       <section className="container" style={{ maxWidth: '1100px' }}>
-        {/* Story Block 1 */}
         <article className="split-section" style={{ marginBottom: '100px' }}>
           <div className="story-img-wrap">
-            <Image 
-              src="/images/products/story_monastery_v2.png" 
-              alt="Tu Viện Ettal, Bavaria — nơi khởi nguồn bia Benediktiner từ năm 1330" 
-              fill 
-              style={{ objectFit: 'cover' }} 
+            <Image
+              src="/images/products/story_monastery_v2.png"
+              alt="Tu Viện Ettal, Bavaria — nơi khởi nguồn bia Benediktiner từ năm 1330"
+              fill
+              style={{ objectFit: 'cover' }}
             />
           </div>
           <div>
@@ -70,7 +68,6 @@ export default function BrandStoryPage() {
           </div>
         </article>
 
-        {/* Story Block 2 */}
         <article className="split-section" style={{ marginBottom: '100px' }}>
           <div style={{ order: 1 }}>
             <h2 className="story-heading">Luật Tinh Khiết Bavarian <br/><span className="story-accent">(Reinheitsgebot 1516)</span></h2>
@@ -82,23 +79,22 @@ export default function BrandStoryPage() {
             </p>
           </div>
           <div style={{ order: 2 }} className="story-img-wrap">
-            <Image 
-              src="/images/products/premium_ugc/benediktiner_heritage.png" 
-              alt="4 nguyên liệu bia Đức chuẩn Luật Tinh Khiết 1516 — nước, malt, hoa bia, men" 
-              fill 
-              style={{ objectFit: 'cover' }} 
+            <Image
+              src="/images/products/premium_ugc/benediktiner_heritage.png"
+              alt="4 nguyên liệu bia Đức chuẩn Luật Tinh Khiết 1516 — nước, malt, hoa bia, men"
+              fill
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </article>
 
-        {/* Story Block 3 */}
         <article className="split-section" style={{ marginBottom: '80px' }}>
           <div className="story-img-wrap">
-             <Image 
-              src="/images/products/hero_weissbier_v2.png" 
-              alt="Bia lúa mì Benediktiner Weissbier Naturtrüb — không lọc, lên men tự nhiên trong chai" 
-              fill 
-              style={{ objectFit: 'contain', objectPosition: 'center' }} 
+            <Image
+              src="/images/products/hero_weissbier_v2.png"
+              alt="Bia lúa mì Benediktiner Weissbier Naturtrüb — không lọc, lên men tự nhiên trong chai"
+              fill
+              style={{ objectFit: 'contain', objectPosition: 'center' }}
             />
           </div>
           <div>
@@ -113,14 +109,13 @@ export default function BrandStoryPage() {
         </article>
       </section>
 
-      {/* CTA Banner */}
       <section className="container" style={{ marginTop: '120px' }}>
-        <div className="cta-banner">
+        <div className="cta-banner brand-story-cta">
           <span className="cta-banner-watermark">B</span>
           <div className="cta-banner-icon"><span>B</span></div>
           <h2>Nhập khẩu &amp; Phân Phối Độc Quyền</h2>
           <p>
-            Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. 
+            Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam.
             Cam kết 100% nguyên bản nhập khẩu chính ngạch từ Đức, bảo quản lạnh tối ưu để giữ trọn vẹn hương vị tu viện trong từng hơi thở sủi bọt.
           </p>
           <Link href="/san-pham" className="btn-primary">
