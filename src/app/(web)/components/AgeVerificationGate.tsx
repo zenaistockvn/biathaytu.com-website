@@ -150,8 +150,8 @@ export default function AgeVerificationGate() {
         position: 'fixed',
         inset: 0,
         zIndex: 99999,
-        backgroundColor: '#070b12',
-        backgroundImage: 'radial-gradient(circle at center, #172036 0%, #070b12 72%)',
+        backgroundColor: '#0D1911',
+        backgroundImage: 'radial-gradient(circle at center, #1D3325 0%, #0D1911 72%)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -164,12 +164,12 @@ export default function AgeVerificationGate() {
         style={{
           width: '100%',
           maxWidth: '520px',
-          backgroundColor: '#0f172a',
-          border: '1px solid #334155',
+          backgroundColor: '#14241A',
+          border: '1px solid rgba(143, 191, 156, 0.28)',
           borderRadius: '18px',
           padding: 'clamp(24px, 5vw, 36px)',
-          boxShadow: '0 28px 70px rgba(0, 0, 0, 0.55)',
-          color: '#f8fafc',
+          boxShadow: '0 28px 70px rgba(0, 0, 0, 0.45)',
+          color: '#F4F1E9',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
@@ -194,8 +194,9 @@ export default function AgeVerificationGate() {
               height: '36px',
               padding: '0 12px',
               borderRadius: '999px',
-              border: '2px solid #f59e0b',
-              color: '#fbbf24',
+              border: '1.5px solid #D2B45B',
+              color: '#E7CE7A',
+              background: 'rgba(210, 180, 91, 0.08)',
               fontWeight: 800,
               fontSize: '16px',
             }}
@@ -209,7 +210,7 @@ export default function AgeVerificationGate() {
           style={{
             margin: '0 0 12px',
             textAlign: 'center',
-            color: '#fbbf24',
+            color: '#F4F1E9',
             fontSize: 'clamp(24px, 6vw, 30px)',
             fontWeight: 800,
             fontFamily: 'var(--font-serif, serif)',
@@ -224,7 +225,7 @@ export default function AgeVerificationGate() {
             margin: '0 auto 24px',
             maxWidth: '420px',
             textAlign: 'center',
-            color: '#cbd5e1',
+            color: '#B9C4BC',
             fontSize: '14px',
             lineHeight: 1.65,
           }}
@@ -242,13 +243,14 @@ export default function AgeVerificationGate() {
                 width: '100%',
                 minHeight: '54px',
                 padding: '14px 18px',
-                border: 0,
+                border: '1px solid #A7CDB1',
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
-                color: '#111827',
+                background: '#8FBF9C',
+                color: '#14241A',
                 fontWeight: 800,
                 fontSize: '15px',
                 cursor: 'pointer',
+                boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
               }}
             >
               Tôi từ đủ 18 tuổi
@@ -262,9 +264,9 @@ export default function AgeVerificationGate() {
                 minHeight: '50px',
                 padding: '12px 18px',
                 borderRadius: '10px',
-                border: '1px solid #475569',
-                background: 'transparent',
-                color: '#cbd5e1',
+                border: '1px solid rgba(244, 241, 233, 0.22)',
+                background: 'rgba(244, 241, 233, 0.03)',
+                color: '#DCE4DE',
                 fontWeight: 700,
                 fontSize: '14px',
                 cursor: 'pointer',
@@ -279,9 +281,9 @@ export default function AgeVerificationGate() {
             style={{
               padding: '20px',
               borderRadius: '12px',
-              background: 'rgba(239, 68, 68, 0.12)',
-              border: '1px solid rgba(248, 113, 113, 0.55)',
-              color: '#fecaca',
+              background: 'rgba(186, 26, 26, 0.14)',
+              border: '1px solid rgba(239, 116, 116, 0.52)',
+              color: '#FAD6D6',
               textAlign: 'center',
               fontSize: '15px',
               lineHeight: 1.65,
@@ -291,13 +293,13 @@ export default function AgeVerificationGate() {
           </div>
         )}
 
-        <div style={{ marginTop: '20px', textAlign: 'center', color: '#94a3b8', fontSize: '12px', lineHeight: 1.6 }}>
+        <div style={{ marginTop: '20px', textAlign: 'center', color: '#9DAAA1', fontSize: '12px', lineHeight: 1.6 }}>
           Khi tiếp tục, bạn xác nhận mình từ đủ 18 tuổi. Xem{' '}
           <Link
             href="/chinh-sach-kiem-soat-do-tuoi"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#fbbf24', textDecoration: 'underline' }}
+            style={{ color: '#8FBF9C', textDecoration: 'underline' }}
           >
             Chính sách kiểm soát độ tuổi
           </Link>.

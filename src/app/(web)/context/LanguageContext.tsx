@@ -31,19 +31,19 @@ const translations: Translations = {
 
     // Trust bar
     'trust.award': 'iTQi 3 Sao 2022',
-    'trust.shipping': 'Giao Toàn Quốc',
+    'trust.shipping': 'Tư Vấn Toàn Quốc',
     'trust.authentic': 'Chính Hãng 100%',
 
     // Footer
-    'footer.description': 'Bia Thầy Tu Benediktiner — nhập khẩu chính hãng từ Đức. Giao hàng toàn quốc.',
+    'footer.description': 'Bia Thầy Tu Benediktiner — bia Đức nhập khẩu chính hãng. Thông tin sản phẩm, thương hiệu và tư vấn.',
     'footer.company.title': 'Công Ty',
     'footer.company.about': 'Về Chúng Tôi',
     'footer.company.b2b': 'Khách Hàng Doanh Nghiệp',
-    'footer.company.policy': 'Chính Sách & Giao Hàng',
+    'footer.company.policy': 'Chính Sách & Tuân Thủ',
     'footer.contact.title': 'Liên Hệ',
-    'footer.contact.hotline': 'Hotline HN: 0899.191.313',
+    'footer.contact.hotline': 'Hotline: 0915 31 21 66',
     'footer.contact.time': 'Thứ 2 - Chủ Nhật (9:00 - 21:00)',
-    'footer.contact.email': 'info@biathaytu.com',
+    'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
   },
   en: {
@@ -67,19 +67,19 @@ const translations: Translations = {
 
     // Trust bar
     'trust.award': 'iTQi 3-Star 2022',
-    'trust.shipping': 'Nationwide Shipping',
+    'trust.shipping': 'Nationwide Consultation',
     'trust.authentic': '100% Authentic',
 
     // Footer
-    'footer.description': 'Benediktiner Weissbier — officially imported from Germany. Nationwide delivery.',
+    'footer.description': 'Benediktiner by Bia Thầy Tu — authentic German imported beer, product information and consultation.',
     'footer.company.title': 'Company',
     'footer.company.about': 'About Us',
     'footer.company.b2b': 'B2B Customers',
-    'footer.company.policy': 'Shipping Policy',
+    'footer.company.policy': 'Policies & Compliance',
     'footer.contact.title': 'Contact',
-    'footer.contact.hotline': 'Hotline: +84 899 191 313',
+    'footer.contact.hotline': 'Hotline: +84 915 31 21 66',
     'footer.contact.time': 'Mon - Sun (9:00 - 21:00)',
-    'footer.contact.email': 'info@biathaytu.com',
+    'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
   },
   de: {
@@ -103,19 +103,19 @@ const translations: Translations = {
 
     // Trust bar
     'trust.award': 'iTQi 3-Sterne 2022',
-    'trust.shipping': 'Bundesweiter Versand',
+    'trust.shipping': 'Beratung in ganz Vietnam',
     'trust.authentic': '100% Authentisch',
 
     // Footer
-    'footer.description': 'Benediktiner Weissbier — offiziell aus Deutschland importiert. Landesweite Lieferung.',
+    'footer.description': 'Benediktiner von Bia Thầy Tu — authentisches deutsches Importbier, Produktinformationen und Beratung.',
     'footer.company.title': 'Unternehmen',
     'footer.company.about': 'Über Uns',
     'footer.company.b2b': 'B2B Kunden',
-    'footer.company.policy': 'Versandbedingungen',
+    'footer.company.policy': 'Richtlinien & Compliance',
     'footer.contact.title': 'Kontakt',
-    'footer.contact.hotline': 'Hotline: +84 91 531 2166',
+    'footer.contact.hotline': 'Hotline: +84 915 31 21 66',
     'footer.contact.time': 'Mo - So (9:00 - 21:00)',
-    'footer.contact.email': 'info@biathaytu.com',
+    'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'Alle Rechte vorbehalten.',
   }
 };

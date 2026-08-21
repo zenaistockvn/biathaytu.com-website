@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import '../web.css';
 import '../mobile-overrides.css';
+import '../brand-consistency.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
-import MobileCompactFooter from './components/MobileCompactFooter';
 import Toast from './components/Toast';
 import FloatingZaloCTA from './components/FloatingZaloCTA';
 import MobileBottomNav from './components/MobileBottomNav';
@@ -45,7 +45,7 @@ const AGE_GATE_PREPAINT_SCRIPT = `
       document.documentElement.setAttribute('data-age-gate', 'pending');
       var style = document.createElement('style');
       style.id = 'age-gate-prepaint-style';
-      style.textContent = 'html[data-age-gate="pending"] body{background:#070b12!important}html[data-age-gate="pending"] .web-app{visibility:hidden!important}';
+      style.textContent = 'html[data-age-gate="pending"] body{background:#0D1911!important}html[data-age-gate="pending"] .web-app{visibility:hidden!important}';
       (document.head || document.documentElement).appendChild(style);
     }
   } catch (error) {
@@ -126,7 +126,6 @@ export default function WebLayout({
           <WebHeader />
           <main id="main-content">{children}</main>
           <WebFooter />
-          <MobileCompactFooter />
           <FloatingZaloCTA />
           <MobileBottomNav />
           <Toast />
