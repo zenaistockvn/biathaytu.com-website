@@ -1,6 +1,13 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
+import {
+  getProductBySlugOrId,
+  getRelatedBeers,
+  getVisibleProducts,
+  getSausageProducts,
+  getRelatedCombo,
+  type Product,
+} from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductConsultationForm from '../../components/ProductConsultationForm';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
@@ -9,6 +16,9 @@ import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
+import { BRAND } from '@/lib/brand';
+
+const PRODUCT_PLACEHOLDER = '/images/products/placeholder-product.svg';
 
 export function generateStaticParams() {
   return getVisibleProducts()
@@ -16,35 +26,29 @@ export function generateStaticParams() {
     .map((p) => ({ slug: p.slug as string }));
 }
 
-interface ProductData {
-  id: string;
-  name: string;
-  slug: string;
-  description: string | null;
-  abv: string | null;
-  ibu: number | null;
-  volume: string | null;
-  images: string[] | null;
-  price: number | null;
-  haravan_url: string | null;
-  origin: string | null;
-  category: string | null;
-  hidden?: boolean;
-}
-
 function getPackagingFormat(name: string): string | null {
   const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^—,]*/i);
   return match?.[0]?.trim() || null;
 }
 
+function productMetaDescription(product: Product): string {
+  const conciseName = product.name.length <= 72
+    ? product.name
+    : product.name.split(/\s+[—–]\s+|\s+-\s+/)[0].trim();
+  const specs = [product.volume, product.abv ? `ABV ${product.abv}%` : null].filter(Boolean).join(', ');
+  const candidate = `${conciseName}${specs ? ` (${specs})` : ''}. Xem hương vị, quy cách và gợi ý thưởng thức từ Bia Thầy Tu.`;
+  if (candidate.length <= 155) return candidate;
+  return `Tìm hiểu ${conciseName}: hương vị, quy cách và gợi ý thưởng thức từ Bia Thầy Tu.`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProductBySlugOrId(slug) as ProductData | null;
+  const product = getProductBySlugOrId(slug);
   if (!product || product.hidden) return {};
-  const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
 
-  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/sanh_bia_duc_cover.png');
-  const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
+  const productUrl = `${BRAND.siteUrl}/san-pham/${product.slug || product.id}`;
+  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || PRODUCT_PLACEHOLDER);
+  const pageDescription = productMetaDescription(product);
 
   return {
     title: product.name,
@@ -78,11 +82,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProductBySlugOrId(slug) as ProductData | null;
+  const product = getProductBySlugOrId(slug);
 
-  if (!product || product.hidden) {
-    notFound();
-  }
+  if (!product || product.hidden) notFound();
 
   const isSausage = product.category === 'xuc-xich';
   const isCombo = product.category === 'combo';
@@ -108,6 +110,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const isBeer = product.category === 'bia';
   const sausageProducts = isBeer ? getSausageProducts() : [];
   const relatedCombo = isBeer ? getRelatedCombo(product.slug || product.id) : null;
+  const productUrl = `${BRAND.siteUrl}/san-pham/${product.slug || product.id}`;
 
   return (
     <div className="subpage-wrap">
@@ -115,16 +118,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         id: product.id,
         name: product.name,
         slug: product.slug || product.id,
-        description: product.description || undefined,
+        url: productUrl,
+        description: product.shortDescription,
         images: product.images || undefined,
         abv: product.abv || undefined,
         volume: product.volume || undefined,
         category: product.category,
       })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' },
-        { name: product.name, url: `https://www.biathaytu.com/san-pham/${product.slug || product.id}` },
+        { name: 'Trang Chủ', url: BRAND.siteUrl },
+        { name: 'Sản Phẩm', url: `${BRAND.siteUrl}/san-pham` },
+        { name: product.name, url: productUrl },
       ])} />
 
       <div className="container">
@@ -143,7 +147,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <h1 className="product-detail-name">{product.name}</h1>
             {isAlcohol && (
               <p style={{ margin: '8px 0 18px', color: 'var(--web-text-muted)', fontSize: '13px', fontWeight: 600 }}>
-                Sản phẩm chỉ dành cho người từ đủ 18 tuổi.
+                {BRAND.legalDisclaimer}
               </p>
             )}
 
@@ -228,13 +232,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <ProductOrderActions product={product} />
 
             <div className="product-guarantee">
-              <h4>
-                <span>🛡️</span> {guaranteeTitle}
-              </h4>
+              <h4><span>🛡️</span> {guaranteeTitle}</h4>
               <ul>
-                {guaranteeItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
+                {guaranteeItems.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
 
@@ -264,7 +264,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
                     >
                       <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
-                        <img src={sausage.images?.[0] || '/images/products/placeholder.png'} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <img src={sausage.images?.[0] || PRODUCT_PLACEHOLDER} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
@@ -285,11 +285,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <img src={relatedCombo.images?.[0] || '/images/products/placeholder.png'} alt={relatedCombo.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <img src={relatedCombo.images?.[0] || PRODUCT_PLACEHOLDER} alt={relatedCombo.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div style={{ flex: '1 1 180px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.description}</p>
+                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.shortDescription}</p>
                       </div>
                     </div>
                   </div>
@@ -304,7 +304,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
-        {relatedProductsData && relatedProductsData.length > 0 && (
+        {relatedProductsData.length > 0 && (
           <section className="related-products related-products-section">
             <div className="section-header-center">
               <span className="section-label">Gợi Ý Thêm</span>
@@ -312,14 +312,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </div>
 
             <div className="grid-featured-products">
-              {(relatedProductsData as unknown as ProductCardProps[])?.map((relatedProduct) => (
-                <ProductCard
-                  key={relatedProduct.id}
-                  {...relatedProduct}
-                  description={relatedProduct.description || getTastingNotes(relatedProduct.name)}
-                  showCTA={true}
-                  showReferencePriceNote={true}
-                />
+              {(relatedProductsData as unknown as ProductCardProps[]).map((relatedProduct) => (
+                <ProductCard key={relatedProduct.id} {...relatedProduct} showCTA={true} showReferencePriceNote={true} />
               ))}
             </div>
           </section>
