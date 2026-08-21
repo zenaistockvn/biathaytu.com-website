@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             Website chủ yếu cung cấp nội dung giới thiệu sản phẩm và thương hiệu. Khi người dùng chủ động gửi yêu cầu tư vấn, biểu mẫu có thể xử lý họ tên, số điện thoại, email tùy chọn và nội dung cần tư vấn để hỗ trợ liên hệ lại. Website không yêu cầu thông tin thẻ hoặc dữ liệu thanh toán.
           </p>
           <p>
-            Tại cổng khai báo độ tuổi, họ tên và ngày sinh chỉ được dùng tạm thời trong trình duyệt để kiểm tra điều kiện từ đủ 18 tuổi. Các dữ liệu này không được gửi về server, không lưu vào cơ sở dữ liệu và không lưu vào cookie hoặc localStorage. Sau khi xác minh thành công, website chỉ lưu cookie trạng thái xác minh theo phiên bản chính sách trong thời hạn 30 ngày.
+            Cổng kiểm soát độ tuổi không yêu cầu họ tên, ngày sinh, số giấy tờ hoặc dữ liệu định danh. Khi người truy cập xác nhận mình từ đủ 18 tuổi, website chỉ lưu cookie trạng thái xác nhận trong thời hạn 30 ngày để tránh yêu cầu khai báo lặp lại.
           </p>
         </section>
 
@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
             2. Phân tích và tiếp thị
           </h2>
           <p>
-            Cookie hoặc công cụ phân tích/tiếp thị tùy chọn chỉ được kích hoạt theo lựa chọn của người dùng tại giao diện quản lý cookie. Thông tin họ tên và ngày sinh nhập tại cổng kiểm soát độ tuổi không được đưa vào dataLayer, Google Analytics, Meta Pixel hoặc nền tảng tiếp thị khác.
+            Cookie hoặc công cụ phân tích/tiếp thị tùy chọn chỉ được kích hoạt theo lựa chọn của người dùng tại giao diện quản lý cookie. Trạng thái xác nhận 18+ không chứa dữ liệu định danh cá nhân và không được sử dụng để tạo hồ sơ tuổi chi tiết của người truy cập.
           </p>
         </section>
 
