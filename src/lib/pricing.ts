@@ -13,6 +13,10 @@ function formatAmount(value: number): string {
     .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
+function formatApproximateUnitAmount(value: number): string {
+  return formatAmount(Math.round(value / 100) * 100);
+}
+
 export function formatPrice(price: number | null | undefined): string {
   if (price == null || !Number.isFinite(price) || price <= 0) return '';
   return `${formatAmount(price)}₫`;
@@ -54,18 +58,18 @@ export function formatUnitPrice(input: UnitPriceInput): string {
   const lowerName = name.toLocaleLowerCase('vi');
   const liters = parseLiters(name, volume);
   if (liters && /\b(bom|keg|fass)\b/i.test(name)) {
-    return `≈ ${formatAmount(price / liters)}₫/lít`;
+    return `≈ ${formatApproximateUnitAmount(price / liters)}₫/lít`;
   }
 
   const pack = parsePackCount(name);
-  if (pack) return `≈ ${formatAmount(price / pack.count)}₫/${pack.unit}`;
+  if (pack) return `≈ ${formatApproximateUnitAmount(price / pack.count)}₫/${pack.unit}`;
 
-  if (category === 'vang') return `≈ ${formatAmount(price)}₫/chai`;
-  if (category === 'xuc-xich') return `≈ ${formatAmount(price)}₫/gói`;
-  if (category === 'combo' || lowerName.includes('combo')) return `≈ ${formatAmount(price)}₫/combo`;
-  if (lowerName.includes('mở bia')) return `≈ ${formatAmount(price)}₫/cái`;
-  if (category === 'phu-kien') return `≈ ${formatAmount(price)}₫/sản phẩm`;
-  if (category === 'bia') return `≈ ${formatAmount(price)}₫/đơn vị`;
+  if (category === 'vang') return `≈ ${formatApproximateUnitAmount(price)}₫/chai`;
+  if (category === 'xuc-xich') return `≈ ${formatApproximateUnitAmount(price)}₫/gói`;
+  if (category === 'combo' || lowerName.includes('combo')) return `≈ ${formatApproximateUnitAmount(price)}₫/combo`;
+  if (lowerName.includes('mở bia')) return `≈ ${formatApproximateUnitAmount(price)}₫/cái`;
+  if (category === 'phu-kien') return `≈ ${formatApproximateUnitAmount(price)}₫/sản phẩm`;
+  if (category === 'bia') return `≈ ${formatApproximateUnitAmount(price)}₫/đơn vị`;
 
-  return `≈ ${formatAmount(price)}₫/sản phẩm`;
+  return `≈ ${formatApproximateUnitAmount(price)}₫/sản phẩm`;
 }
