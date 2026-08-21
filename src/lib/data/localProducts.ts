@@ -1,5 +1,5 @@
 import type { Product } from './products';
-import { PRODUCT_IMAGE_PLACEHOLDER } from '@/app/(web)/utils/productImages';
+import { PRODUCT_IMAGE_PLACEHOLDER } from './productImage';
 
 export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
   {
