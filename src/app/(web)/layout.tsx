@@ -4,7 +4,6 @@ import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
 import Toast from './components/Toast';
 import FloatingZaloCTA from './components/FloatingZaloCTA';
-import FootballCampaignPopup from './components/FootballCampaignPopup';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
@@ -125,7 +124,6 @@ export default function WebLayout({
           <main id="main-content">{children}</main>
           <WebFooter />
           <FloatingZaloCTA />
-          <FootballCampaignPopup />
           <MobileBottomNav />
           <Toast />
           <ScrollRevealObserver />
