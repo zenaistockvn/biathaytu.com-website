@@ -17,53 +17,22 @@ interface SitemapArticle {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getPublicBaseUrl();
-
-  // Ngày cập nhật nội dung tĩnh
   const CONTENT_LAST_UPDATED = new Date();
 
-  // Base routes
   const routes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/san-pham`,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/kien-thuc`,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/thuong-hieu`,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/lien-he`,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
+    { url: baseUrl, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'daily', priority: 1 },
+    { url: `${baseUrl}/san-pham`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/kien-thuc`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${baseUrl}/thuong-hieu`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/lien-he`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.5 },
   ];
 
-  // Policy routes
   const policyPages = [
     'chinh-sach-bao-mat',
-    'chinh-sach-doi-tra',
-    'chinh-sach-giao-hang',
     'chinh-sach-kiem-soat-do-tuoi',
-    'chinh-sach-thanh-toan',
     'chinh-sach-cookie',
     'dieu-khoan-su-dung',
+    'thong-tin-mua-hang',
     'nhan-uu-dai',
   ];
   for (const slug of policyPages) {
@@ -75,7 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // GEO landing pages
   const landingPages = [
     'bia-thay-tu-la-gi',
     'bia-benediktiner-chinh-hang',
@@ -102,7 +70,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // [C1 FIX] Fetch dynamic products with proper typing
   const products = getVisibleProducts();
   if (products) {
     for (const product of products as unknown as SitemapProduct[]) {
@@ -115,7 +82,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // [C1 FIX] Fetch dynamic articles with proper typing
   const articles = getPublishedArticles();
   if (articles) {
     for (const article of articles as unknown as SitemapArticle[]) {
