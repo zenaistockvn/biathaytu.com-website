@@ -1,7 +1,9 @@
 import { Suspense } from 'react';
 import '../web.css';
+import '../mobile-overrides.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
+import MobileCompactFooter from './components/MobileCompactFooter';
 import Toast from './components/Toast';
 import FloatingZaloCTA from './components/FloatingZaloCTA';
 import MobileBottomNav from './components/MobileBottomNav';
@@ -9,6 +11,7 @@ import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
 import FacebookMessengerChat from './components/FacebookMessengerChat';
 import AgeVerificationGate from './components/AgeVerificationGate';
+import MobileUxEnhancer from './components/MobileUxEnhancer';
 import CookieConsent from './components/CookieConsent';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
@@ -123,6 +126,7 @@ export default function WebLayout({
           <WebHeader />
           <main id="main-content">{children}</main>
           <WebFooter />
+          <MobileCompactFooter />
           <FloatingZaloCTA />
           <MobileBottomNav />
           <Toast />
@@ -133,6 +137,7 @@ export default function WebLayout({
           </Suspense>
           <CookieConsent />
           <AgeVerificationGate />
+          <MobileUxEnhancer />
         </LanguageProvider>
       </div>
     </>

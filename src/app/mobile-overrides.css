@@ -1,0 +1,212 @@
+/* Mobile-specific UX hardening — loaded after web.css. */
+
+.web-app {
+  --web-mobile-bottom-nav-height: 74px;
+}
+
+.mobile-compact-footer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Keep all interactive content clear of the fixed bottom navigation. */
+  .web-app main {
+    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px) !important;
+  }
+
+  .web-app .mobile-bottom-nav {
+    min-height: var(--web-mobile-bottom-nav-height) !important;
+  }
+
+  .web-app .floating-contact-stack {
+    bottom: calc(var(--web-mobile-bottom-nav-height) + 14px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .web-app .toast-container {
+    bottom: calc(var(--web-mobile-bottom-nav-height) + 14px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* Mobile menu remains usable on short screens / landscape / large text. */
+  .web-app .web-mobile-menu-overlay {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: calc(28px + var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
+  }
+
+  /* Hero typography: preserve premium hierarchy without consuming the whole first viewport. */
+  .web-app .hero-title {
+    font-size: clamp(38px, 10.5vw, 42px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -1px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .web-app .hero-title-highlight {
+    font-size: clamp(28px, 8.5vw, 34px) !important;
+    margin-top: 8px !important;
+  }
+
+  .web-app .hero-desc {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .web-app .hero-actions {
+    gap: 10px !important;
+  }
+
+  /* Make horizontal category navigation visually discoverable. */
+  .web-app .product-tabs-wrapper {
+    position: relative;
+  }
+
+  .web-app .product-tabs-wrapper::after {
+    content: '›';
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+    pointer-events: none;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--web-accent-strong);
+    background: linear-gradient(90deg, rgba(244, 241, 233, 0), var(--web-bg) 72%);
+  }
+
+  .web-app .product-tabs-nav {
+    padding-right: 52px !important;
+  }
+
+  /* Replace the long desktop footer with a compact legal-first mobile footer. */
+  .web-app > .web-footer {
+    display: none !important;
+  }
+
+  .mobile-compact-footer {
+    display: block;
+    background: var(--web-ink);
+    color: var(--web-on-ink);
+    padding: 38px 0 calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 18px);
+  }
+
+  .mobile-compact-footer .mobile-footer-brand {
+    color: var(--web-accent-on-ink);
+    font-family: var(--font-serif), serif;
+    font-size: 20px;
+    margin: 0 0 10px;
+  }
+
+  .mobile-compact-footer .mobile-footer-brochure-note {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 700;
+  }
+
+  .mobile-compact-footer .mobile-footer-legal {
+    display: grid;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--web-on-ink-muted);
+  }
+
+  .mobile-compact-footer .mobile-footer-legal p {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .mobile-compact-footer .mobile-footer-legal strong,
+  .mobile-compact-footer .mobile-footer-link {
+    color: var(--web-on-ink) !important;
+  }
+
+  .mobile-compact-footer .mobile-footer-accordions {
+    margin-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-compact-footer details {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-compact-footer summary {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--web-on-ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-compact-footer summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-compact-footer summary::after {
+    content: '+';
+    flex: 0 0 auto;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--web-accent-on-ink);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-compact-footer details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .mobile-compact-footer .mobile-footer-accordion-content {
+    display: grid;
+    gap: 10px;
+    padding: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--web-on-ink-muted);
+  }
+
+  .mobile-compact-footer .mobile-footer-accordion-content a {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    color: var(--web-on-ink-muted) !important;
+  }
+
+  .mobile-compact-footer .mobile-footer-warning {
+    margin-top: 20px;
+  }
+
+  .mobile-compact-footer .mobile-footer-bottom {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: grid;
+    gap: 8px;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--web-on-ink-muted);
+  }
+}
+
+@media (max-width: 420px) {
+  .web-app .hero-actions > * {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  .web-app .hero-product-zone {
+    height: 165px !important;
+  }
+}
