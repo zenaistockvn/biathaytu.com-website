@@ -23,6 +23,21 @@ const nextConfig = {
         destination: '/lien-he',
         statusCode: 301,
       },
+      {
+        source: '/chinh-sach-giao-hang',
+        destination: '/thong-tin-mua-hang',
+        statusCode: 301,
+      },
+      {
+        source: '/chinh-sach-thanh-toan',
+        destination: '/thong-tin-mua-hang',
+        statusCode: 301,
+      },
+      {
+        source: '/chinh-sach-doi-tra',
+        destination: '/thong-tin-mua-hang',
+        statusCode: 301,
+      },
     ];
   },
   async headers() {
