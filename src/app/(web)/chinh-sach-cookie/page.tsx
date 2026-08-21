@@ -2,10 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import AlcoholWarning from '../components/AlcoholWarning';
 import CookieResetButtons from './CookieResetButtons';
+import CompanyLegalDetails from '../components/CompanyLegalDetails';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Chính Sách Cookie',
-  description: 'Thông tin quy định sử dụng cookie và quản lý quyền riêng tư tại Bia Thầy Tu.',
+  description: 'Thông tin về cookie cần thiết, quyền lựa chọn cookie phân tích và quyền riêng tư khi sử dụng website Bia Thầy Tu.',
   alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-cookie' },
 };
 
@@ -21,33 +23,33 @@ export default function CookiePolicyPage() {
 
       <div style={{ lineHeight: '1.8', color: '#334155', fontSize: '15px' }}>
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            1. Cookie là gì?
-          </h2>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>1. Cookie là gì?</h2>
+          <p>Cookie là tệp dữ liệu nhỏ được lưu trên thiết bị khi truy cập website, giúp duy trì các trạng thái cần thiết và ghi nhớ một số lựa chọn của người dùng.</p>
+        </section>
+
+        <section style={{ marginBottom: '24px' }}>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>2. Các nhóm cookie và dữ liệu lưu cục bộ</h2>
           <p>
-            Cookie là các tệp văn bản nhỏ được lưu trữ trên thiết bị của bạn khi truy cập website nhằm ghi nhớ các lựa chọn của bạn và hỗ trợ trải nghiệm duyệt web.
+            - <strong>Cookie bắt buộc:</strong> cookie <code>age_verified</code> ghi nhận trạng thái đã hoàn thành khai báo độ tuổi, có thời hạn 30 ngày. Cookie này chỉ chứa phiên bản chính sách xác minh, không chứa họ tên, ngày sinh hoặc tuổi.<br />
+            - <strong>Tùy chọn cookie:</strong> người dùng có thể lựa chọn cho phép hoặc từ chối cookie phục vụ phân tích và tiếp thị tại giao diện quản lý cookie.<br />
+            - <strong>Lưu lựa chọn cookie:</strong> website có thể lưu cục bộ lựa chọn đồng ý cookie để không hỏi lại ở mỗi lần điều hướng. Dữ liệu này không phải dữ liệu khai báo độ tuổi.
           </p>
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            2. Phân Loại Cookie Sử Dụng
-          </h2>
-          <p>
-            - <strong>Cookie Bắt Buộc (Essential):</strong> Lưu giữ trạng thái giỏ hàng, phiên đăng nhập và cờ xác minh độ tuổi (`age_verified`). Không thể tắt.<br />
-            - <strong>Cookie Phân Tích (Analytics):</strong> Thu thập dữ liệu truy cập ẩn danh để cải thiện giao diện và hiệu năng.<br />
-            - <strong>Cookie Tiếp Thị (Marketing):</strong> Đo lường quảng cáo trực tuyến. Chỉ hoạt động khi có sự đồng ý của bạn.
-          </p>
-        </section>
-
-        <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
-            3. Quản Lý và Thay Đổi Lựa Chọn
-          </h2>
-          <p>
-            Bạn có thể chủ động điều chỉnh hoặc thay đổi tùy chọn đồng ý Cookie & xác nhận độ tuổi bất kỳ lúc nào bằng các nút bên dưới:
-          </p>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>3. Quản lý và thay đổi lựa chọn</h2>
+          <p>Bạn có thể mở lại giao diện tùy chọn cookie hoặc yêu cầu xác minh lại độ tuổi bằng các công cụ dưới đây:</p>
           <CookieResetButtons />
+        </section>
+
+        <section style={{ marginBottom: '24px' }}>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>4. Liên hệ về quyền riêng tư</h2>
+          <p>Nếu cần trao đổi về cookie hoặc dữ liệu trên website, vui lòng liên hệ hotline <strong>{COMPANY_CONFIG.hotline}</strong> hoặc email <strong>{COMPANY_CONFIG.email}</strong>.</p>
+        </section>
+
+        <section>
+          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>5. Thông tin đơn vị vận hành</h2>
+          <CompanyLegalDetails compact />
         </section>
       </div>
     </div>
