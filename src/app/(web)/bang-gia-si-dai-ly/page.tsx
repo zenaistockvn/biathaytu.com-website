@@ -7,12 +7,12 @@ import Text from '../components/ui/Text';
 import { Button } from '../components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Bảng Giá Sỉ & Đại Lý Phân Phối Bia Đức',
-  description: 'Mở đại lý phân phối bia Đức Benediktiner, Bitburger nhập khẩu. Chính sách chiết khấu sỉ cao, hỗ trợ marketing, giao hàng toàn quốc. Đăng ký ngay!',
+  title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+  description: 'Thông tin hợp tác phân phối Bia Thầy Tu Benediktiner và Bitburger dành cho đại lý, nhà hàng và khách sạn. Tư vấn sản phẩm, quy cách, chính sách hợp tác và hỗ trợ bán hàng.',
   alternates: { canonical: 'https://www.biathaytu.com/bang-gia-si-dai-ly' },
   openGraph: {
-    title: 'Bảng Giá Sỉ & Đại Lý Phân Phối Bia Đức',
-    description: 'Mở đại lý phân phối bia Đức Benediktiner, Bitburger nhập khẩu. Chính sách chiết khấu sỉ cao, hỗ trợ marketing, giao hàng toàn quốc. Đăng ký ngay!',
+    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+    description: 'Thông tin sản phẩm, quy cách và chương trình hợp tác dành cho đối tác phân phối Benediktiner và Bitburger. Liên hệ để được tư vấn.',
     type: 'article',
     url: 'https://www.biathaytu.com/bang-gia-si-dai-ly',
     images: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: '/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png',
         width: 1200,
         height: 630,
-        alt: 'Bảng Giá Sỉ & Chính Sách Đại Lý Phân Phối Bia Đức',
+        alt: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bảng Giá Sỉ & Đại Lý Phân Phối Bia Đức',
-    description: 'Mở đại lý phân phối bia Đức Benediktiner, Bitburger nhập khẩu. Chính sách chiết khấu sỉ cao, hỗ trợ marketing, giao hàng toàn quốc. Đăng ký ngay!',
+    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+    description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
     images: ['/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png'],
   },
 };
