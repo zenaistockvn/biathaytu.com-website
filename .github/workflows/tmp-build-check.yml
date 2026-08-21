@@ -40,6 +40,47 @@ jobs:
           test ! -e 'src/app/api/order/route.ts'
           test -e 'src/app/(web)/lien-he/page.tsx'
           test -e 'src/app/(web)/san-pham/[slug]/page.tsx'
+      - name: Validate brochure product catalog and detail
+        shell: bash
+        run: |
+          set -euo pipefail
+          catalog='src/app/(web)/san-pham/page.tsx'
+          detail='src/app/(web)/san-pham/[slug]/page.tsx'
+          card='src/app/(web)/components/ProductCard.tsx'
+          actions='src/app/(web)/components/ProductOrderActions.tsx'
+          form='src/app/(web)/components/ProductConsultationForm.tsx'
+
+          grep -q 'Website giới thiệu sản phẩm. Để đặt hàng, vui lòng liên hệ hotline 0899.191.313 hoặc Zalo.' "$catalog"
+          for label in 'Benediktiner' 'Bitburger' 'Combo' 'Rượu vang Đức' 'Xúc xích' 'Phụ kiện'; do
+            grep -q "$label" "$catalog"
+          done
+          grep -q 'showReferencePriceNote={true}' "$catalog"
+          grep -q 'aria-label={`Xem chi tiết ${name}`}' "$card"
+          grep -q 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.' "$card"
+
+          grep -q 'Sản phẩm chỉ dành cho người từ đủ 18 tuổi.' "$detail"
+          grep -q 'Hương vị nổi bật' "$detail"
+          grep -q 'Quy cách' "$detail"
+          grep -q 'Gợi Ý Food Pairing' "$detail"
+          grep -q 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.' "$detail"
+          if grep -q 'price: product.price' "$detail"; then
+            echo 'Product detail still passes price into Product JSON-LD'
+            exit 1
+          fi
+          if grep -En 'Mua ngay|Mua Ngay|Thêm vào giỏ|Còn hàng|Hết hàng|mã giảm giá|Mã giảm giá' "$detail" "$actions"; then
+            echo 'Product detail still contains transactional UI copy'
+            exit 1
+          fi
+
+          grep -q 'Quan tâm sản phẩm này?' "$actions"
+          grep -q 'Gọi 0899.191.313' "$actions"
+          grep -q 'label="Chat Zalo"' "$actions"
+          grep -q 'href="#tu-van-san-pham"' "$actions"
+          test -e "$form"
+          grep -q 'id="tu-van-san-pham"' "$form"
+          grep -q 'Họ và tên' "$form"
+          grep -q 'Số điện thoại' "$form"
+          grep -q 'Nội dung cần tư vấn' "$form"
       - name: Build Next.js
         run: npx next build
       - name: Smoke-check affected routes and redirect
