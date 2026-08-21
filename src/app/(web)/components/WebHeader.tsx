@@ -2,13 +2,18 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import { getCompanyZaloUrl } from '@/config/company';
+
+const DARK_HERO_PATHS = new Set(['/', '/kien-thuc']);
 
 export default function WebHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -17,6 +22,10 @@ export default function WebHeader() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -36,11 +45,14 @@ export default function WebHeader() {
     { href: '/lien-he', label: t('nav.contact') },
   ];
 
-  const textColor = scrolled ? 'var(--web-text-secondary)' : 'rgba(255,255,255,0.85)';
-  const logoColor = scrolled ? 'var(--web-ink)' : '#fff';
+  const hasDarkHero = DARK_HERO_PATHS.has(pathname);
+  const headerOnDark = hasDarkHero && !scrolled && !menuOpen;
+  const textColor = headerOnDark ? 'rgba(255,255,255,0.88)' : 'var(--web-text-secondary)';
+  const logoColor = headerOnDark ? '#fff' : 'var(--web-ink)';
+  const consultUrl = getCompanyZaloUrl();
 
   return (
-    <header className={`web-header ${scrolled ? 'web-header--solid' : 'web-header--transparent'}`}>
+    <header className={`web-header ${headerOnDark ? 'web-header--transparent' : 'web-header--solid'}`}>
       <div className="container header-inner">
         <Link href="/" className="header-logo" style={{ color: logoColor }}>
           <Image
@@ -61,11 +73,11 @@ export default function WebHeader() {
           ))}
 
           <Button
-            href="https://zalo.me/0899191313"
+            href={consultUrl || '/lien-he'}
             variant="primary"
             size="sm"
-            target="_blank"
-            rel="noopener noreferrer"
+            target={consultUrl ? '_blank' : undefined}
+            rel={consultUrl ? 'noopener noreferrer' : undefined}
           >
             {t('nav.consult')}
           </Button>
@@ -76,8 +88,9 @@ export default function WebHeader() {
           <button
             className="web-nav-hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-            style={{ color: scrolled ? 'var(--web-ink)' : '#fff' }}
+            aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
+            aria-expanded={menuOpen}
+            style={{ color: headerOnDark ? '#fff' : 'var(--web-ink)' }}
           >
             {menuOpen ? '✕' : '☰'}
           </button>
@@ -97,11 +110,11 @@ export default function WebHeader() {
             </Link>
           ))}
           <Button
-            href="https://zalo.me/0899191313"
+            href={consultUrl || '/lien-he'}
             variant="primary"
             className="web-mobile-menu-action"
-            target="_blank"
-            rel="noopener noreferrer"
+            target={consultUrl ? '_blank' : undefined}
+            rel={consultUrl ? 'noopener noreferrer' : undefined}
           >
             {t('nav.consult')}
           </Button>
