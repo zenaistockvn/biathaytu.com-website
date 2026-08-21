@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Report metadata and transactional phrase candidates
+        shell: bash
+        run: |
+          set -u
+          echo '=== METADATA LINES ==='
+          grep -RInE --include='*.ts' --include='*.tsx' 'title:|description:|openGraph:' src/app || true
+          echo '=== TRANSACTIONAL / SALES PHRASE CANDIDATES ==='
+          grep -RInEi --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' --include='*.json' 'mua bia|đặt hàng|giao hàng toàn quốc|giao toàn quốc|mua ngay|thêm vào giỏ|giỏ hàng|checkout|mã giảm giá|coupon|\bCOD\b|đăng nhập|đăng ký|thanh toán|đơn hàng|còn hàng|hết hàng' src || true
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
