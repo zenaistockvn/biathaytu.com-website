@@ -1,55 +1,77 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation';
-import { isAgeVerified, setAgeVerifiedStatus, validateDateOfBirth, clearAgeVerification } from '@/utils/ageVerification';
+import { usePathname } from 'next/navigation';
+import {
+  clearAgeVerification,
+  isAgeVerified,
+  isSearchCrawlerUserAgent,
+  setAgeVerifiedStatus,
+  validateDateOfBirth,
+  validateFullName,
+} from '@/utils/ageVerification';
+
+type GateStatus = 'form' | 'success' | 'denied';
+
+const EXEMPT_PATHS = new Set([
+  '/chinh-sach-bao-mat',
+  '/chinh-sach-cookie',
+  '/chinh-sach-kiem-soat-do-tuoi',
+  '/chua-du-tuoi',
+]);
 
 export default function AgeVerificationGate() {
-  const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [status, setStatus] = useState<GateStatus>('form');
+  const [fullName, setFullName] = useState('');
   const [dob, setDob] = useState('');
-  const [confirmed, setConfirmed] = useState(false);
+  const [greetingName, setGreetingName] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   const modalRef = useRef<HTMLDivElement>(null);
-  const dobInputRef = useRef<HTMLInputElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    // Prevent SSR / hydration mismatch
+  const isExemptPath = EXEMPT_PATHS.has(pathname);
+
+  // Quyết định gate trước paint đầu tiên sau hydration. Pre-paint script trong layout
+  // đã che nội dung cho human chưa xác minh, nên không có flash nội dung phía sau.
+  useLayoutEffect(() => {
     setMounted(true);
-    if (pathname === '/chua-du-tuoi') {
+
+    const crawler = isSearchCrawlerUserAgent(window.navigator.userAgent || '');
+    if (isExemptPath || crawler || isAgeVerified()) {
       setIsOpen(false);
+      document.documentElement.removeAttribute('data-age-gate');
       return;
     }
-    
-    const verified = isAgeVerified();
-    if (!verified) {
-      setIsOpen(true);
-    }
-  }, [pathname]);
 
-  // Handle body scroll locking & custom event for reset
-  useEffect(() => {
+    setStatus('form');
+    setIsOpen(true);
+  }, [isExemptPath, pathname]);
+
+  useLayoutEffect(() => {
     if (!mounted) return;
 
     if (isOpen) {
+      document.documentElement.setAttribute('data-age-gate', 'active');
       document.body.style.overflow = 'hidden';
-      // Focus initial input
-      setTimeout(() => dobInputRef.current?.focus(), 100);
+      window.requestAnimationFrame(() => nameInputRef.current?.focus());
     } else {
+      document.documentElement.removeAttribute('data-age-gate');
       document.body.style.overflow = '';
     }
 
     const handleReset = () => {
       clearAgeVerification();
+      setFullName('');
       setDob('');
-      setConfirmed(false);
+      setGreetingName('');
       setErrorMsg('');
+      setStatus('form');
       setIsOpen(true);
     };
 
@@ -60,284 +82,355 @@ export default function AgeVerificationGate() {
     };
   }, [isOpen, mounted]);
 
-  // Bẫy focus thật: vô hiệu hoá nội dung nền + vòng phím Tab trong modal
-  useEffect(() => {
+  // Focus trap + vô hiệu hóa Escape. Không có click-outside close.
+  useLayoutEffect(() => {
     if (!isOpen) return;
 
     const overlay = modalRef.current;
-    const root = overlay?.parentElement; // .web-app
+    const root = overlay?.parentElement;
     const siblings = root
-      ? (Array.from(root.children) as HTMLElement[]).filter((el) => el !== overlay)
+      ? (Array.from(root.children) as HTMLElement[]).filter((element) => element !== overlay)
       : [];
-    siblings.forEach((el) => el.setAttribute('inert', ''));
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        setErrorMsg('Vui lòng hoàn thành xác nhận độ tuổi để tiếp tục.');
+    siblings.forEach((element) => element.setAttribute('inert', ''));
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
         return;
       }
-      if (e.key === 'Tab' && overlay) {
-        const focusables = Array.from(
-          overlay.querySelectorAll<HTMLElement>(
-            'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])',
-          ),
-        ).filter((el) => el.offsetParent !== null || el.getClientRects().length > 0);
-        if (focusables.length === 0) return;
 
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        const active = document.activeElement as HTMLElement | null;
+      if (event.key !== 'Tab' || !overlay) return;
 
-        if (!active || !overlay.contains(active)) {
-          e.preventDefault();
-          first.focus();
-          return;
-        }
-        if (e.shiftKey && active === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && active === last) {
-          e.preventDefault();
-          first.focus();
-        }
+      const focusables = Array.from(
+        overlay.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.offsetParent !== null || element.getClientRects().length > 0);
+
+      if (focusables.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (!active || !overlay.contains(active)) {
+        event.preventDefault();
+        first.focus();
+        return;
+      }
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown, true);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      siblings.forEach((el) => el.removeAttribute('inert'));
+      window.removeEventListener('keydown', handleKeyDown, true);
+      siblings.forEach((element) => element.removeAttribute('inert'));
     };
   }, [isOpen]);
 
-  if (!mounted || !isOpen || pathname === '/chua-du-tuoi') return null;
+  if (!mounted || !isOpen || isExemptPath) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setErrorMsg('');
 
-    if (!dob) {
-      setErrorMsg('Vui lòng chọn ngày sinh.');
+    const nameValidation = validateFullName(fullName);
+    if (!nameValidation.valid) {
+      setErrorMsg(nameValidation.error || 'Vui lòng nhập đầy đủ họ và tên.');
+      nameInputRef.current?.focus();
       return;
     }
 
-    if (!confirmed) {
-      setErrorMsg('Vui lòng tích chọn xác nhận thông tin là chính xác.');
-      return;
-    }
-
-    const validation = validateDateOfBirth(dob);
-
-    if (!validation.valid) {
-      if (validation.age > 0 && validation.age < 18) {
-        // Under 18 -> redirect to neutral page immediately
-        setIsOpen(false);
-        router.replace('/chua-du-tuoi');
+    const ageValidation = validateDateOfBirth(dob);
+    if (!ageValidation.valid) {
+      if (ageValidation.age >= 0 && ageValidation.age < 18 && dob) {
+        setStatus('denied');
+        setErrorMsg('');
+        setFullName('');
+        setDob('');
         return;
       }
-      setErrorMsg(validation.error || 'Ngày sinh không hợp lệ.');
+
+      setErrorMsg(ageValidation.error || 'Ngày sinh không hợp lệ.');
       return;
     }
 
-    // Success -> set age verified status without storing name or DOB
+    // Chỉ lưu cờ xác minh; tuyệt đối không lưu/gửi tên hoặc ngày sinh.
     setAgeVerifiedStatus();
-    setIsOpen(false);
-  };
+    setGreetingName(nameValidation.normalizedName);
+    setStatus('success');
 
-  const handleUnderageClick = () => {
-    setIsOpen(false);
-    router.replace('/chua-du-tuoi');
+    window.setTimeout(() => {
+      setFullName('');
+      setDob('');
+      setGreetingName('');
+      setIsOpen(false);
+    }, 900);
   };
 
   return (
     <div
       className="age-gate-overlay"
+      ref={modalRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="age-gate-title"
+      aria-describedby="age-gate-description"
       style={{
         position: 'fixed',
         inset: 0,
         zIndex: 99999,
         backgroundColor: '#070b12',
-        backgroundImage: 'radial-gradient(circle at center, #131b2e 0%, #070b12 100%)',
+        backgroundImage: 'radial-gradient(circle at center, #172036 0%, #070b12 72%)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px',
+        padding: '16px',
         overflowY: 'auto',
       }}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="age-gate-title"
-      ref={modalRef}
     >
       <div
         className="age-gate-card"
         style={{
           width: '100%',
-          maxWidth: '520px',
+          maxWidth: '540px',
           backgroundColor: '#0f172a',
-          border: '1px solid #1e293b',
-          borderRadius: '16px',
-          padding: '32px 24px',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
-          textAlign: 'center',
+          border: '1px solid #334155',
+          borderRadius: '18px',
+          padding: 'clamp(22px, 5vw, 34px)',
+          boxShadow: '0 28px 70px rgba(0, 0, 0, 0.55)',
           color: '#f8fafc',
         }}
       >
-        {/* Logo */}
-        <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
           <Image
             src="/logo.png"
-            alt="Bia Thầy Tu Logo"
+            alt="Bia Thầy Tu"
             width={120}
             height={60}
-            style={{ objectFit: 'contain' }}
             priority
+            style={{ objectFit: 'contain' }}
           />
         </div>
 
-        {/* Title */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+          <span
+            aria-label="Chỉ dành cho người từ đủ 18 tuổi"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minWidth: '56px',
+              height: '34px',
+              padding: '0 12px',
+              borderRadius: '999px',
+              border: '2px solid #f59e0b',
+              color: '#fbbf24',
+              fontWeight: 800,
+              fontSize: '16px',
+            }}
+          >
+            18+
+          </span>
+        </div>
+
         <h2
           id="age-gate-title"
           style={{
-            fontSize: '24px',
-            fontWeight: '700',
+            margin: '0 0 10px',
+            textAlign: 'center',
             color: '#fbbf24',
-            marginBottom: '12px',
+            fontSize: 'clamp(22px, 5vw, 28px)',
+            fontWeight: 800,
             fontFamily: 'var(--font-serif, serif)',
           }}
         >
-          Xác Nhận Độ Tuổi
+          Khai Báo Độ Tuổi
         </h2>
 
-        {/* Subtitle */}
         <p
+          id="age-gate-description"
           style={{
+            margin: '0 auto 22px',
+            maxWidth: '440px',
+            textAlign: 'center',
+            color: '#cbd5e1',
             fontSize: '14px',
-            color: '#94a3b8',
-            lineHeight: '1.6',
-            marginBottom: '24px',
+            lineHeight: 1.65,
           }}
         >
-          Website chứa thông tin về sản phẩm đồ uống có cồn. Vui lòng xác nhận bạn từ đủ 18 tuổi trở lên để tiếp tục truy cập.
+          Website có nội dung về rượu, bia. Vui lòng khai báo họ tên và ngày sinh trước khi truy cập hoặc tìm kiếm thông tin sản phẩm.
         </p>
 
-        {errorMsg && (
+        {status === 'success' && (
           <div
+            role="status"
+            aria-live="polite"
             style={{
-              backgroundColor: 'rgba(239, 68, 68, 0.15)',
-              border: '1px solid #ef4444',
-              color: '#fca5a5',
-              padding: '10px 14px',
-              borderRadius: '8px',
-              fontSize: '13px',
-              marginBottom: '20px',
-              textAlign: 'left',
+              padding: '18px',
+              borderRadius: '12px',
+              textAlign: 'center',
+              background: 'rgba(16, 185, 129, 0.12)',
+              border: '1px solid rgba(52, 211, 153, 0.5)',
+              color: '#d1fae5',
+              lineHeight: 1.6,
             }}
-            role="alert"
           >
-            ⚠️ {errorMsg}
+            Xin chào <strong>{greetingName}</strong>. Cảm ơn bạn đã xác nhận thông tin.
           </div>
         )}
 
-        <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
-          <div style={{ marginBottom: '16px' }}>
-            <label
-              htmlFor="gate-dob"
-              style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px', color: '#cbd5e1' }}
-            >
-              Ngày sinh <span style={{ color: '#ef4444' }}>*</span>
-            </label>
-            <input
-              ref={dobInputRef}
-              id="gate-dob"
-              type="date"
-              required
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-              max={new Date().toISOString().split('T')[0]}
-              style={{
-                width: '100%',
-                padding: '12px 14px',
-                borderRadius: '8px',
-                backgroundColor: '#1e293b',
-                border: '1px solid #334155',
-                color: '#fff',
-                fontSize: '14px',
-                outline: 'none',
-                boxSizing: 'border-box',
-              }}
-            />
+        {status === 'denied' && (
+          <div
+            role="alert"
+            style={{
+              padding: '20px',
+              borderRadius: '12px',
+              background: 'rgba(239, 68, 68, 0.12)',
+              border: '1px solid rgba(248, 113, 113, 0.55)',
+              color: '#fecaca',
+              textAlign: 'center',
+              fontSize: '15px',
+              lineHeight: 1.65,
+            }}
+          >
+            Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.
           </div>
+        )}
 
-          <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-            <input
-              id="gate-confirm"
-              type="checkbox"
-              required
-              checked={confirmed}
-              onChange={(e) => setConfirmed(e.target.checked)}
-              style={{ marginTop: '3px', cursor: 'pointer', width: '16px', height: '16px' }}
-            />
-            <label htmlFor="gate-confirm" style={{ fontSize: '13px', color: '#cbd5e1', cursor: 'pointer', lineHeight: '1.5' }}>
-              Tôi xác nhận các thông tin trên là chính xác và hoàn toàn chịu trách nhiệm.
-            </label>
-          </div>
+        {status === 'form' && (
+          <form onSubmit={handleSubmit} noValidate>
+            {errorMsg && (
+              <div
+                role="alert"
+                style={{
+                  marginBottom: '16px',
+                  padding: '10px 12px',
+                  borderRadius: '8px',
+                  background: 'rgba(239, 68, 68, 0.12)',
+                  border: '1px solid rgba(248, 113, 113, 0.55)',
+                  color: '#fecaca',
+                  fontSize: '13px',
+                  lineHeight: 1.5,
+                }}
+              >
+                {errorMsg}
+              </div>
+            )}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ marginBottom: '16px' }}>
+              <label
+                htmlFor="age-gate-full-name"
+                style={{ display: 'block', marginBottom: '7px', color: '#e2e8f0', fontSize: '13px', fontWeight: 700 }}
+              >
+                Họ và tên <span aria-hidden="true" style={{ color: '#f87171' }}>*</span>
+              </label>
+              <input
+                ref={nameInputRef}
+                id="age-gate-full-name"
+                name="fullName"
+                type="text"
+                autoComplete="name"
+                required
+                minLength={3}
+                value={fullName}
+                onChange={(event) => setFullName(event.target.value)}
+                placeholder="Ví dụ: Nguyễn Văn An"
+                style={{
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  minHeight: '48px',
+                  padding: '12px 14px',
+                  borderRadius: '9px',
+                  border: '1px solid #475569',
+                  background: '#1e293b',
+                  color: '#fff',
+                  fontSize: '16px',
+                }}
+              />
+              <div style={{ marginTop: '5px', color: '#94a3b8', fontSize: '12px' }}>
+                Bắt buộc tối thiểu 2 từ. Họ tên chỉ được xử lý tạm thời trong trình duyệt để hiển thị lời chào, không được gửi về server hoặc lưu vào database.
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '20px' }}>
+              <label
+                htmlFor="age-gate-dob"
+                style={{ display: 'block', marginBottom: '7px', color: '#e2e8f0', fontSize: '13px', fontWeight: 700 }}
+              >
+                Ngày sinh <span aria-hidden="true" style={{ color: '#f87171' }}>*</span>
+              </label>
+              <input
+                id="age-gate-dob"
+                name="dateOfBirth"
+                type="date"
+                required
+                value={dob}
+                onChange={(event) => setDob(event.target.value)}
+                max={new Date().toISOString().slice(0, 10)}
+                style={{
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  minHeight: '48px',
+                  padding: '12px 14px',
+                  borderRadius: '9px',
+                  border: '1px solid #475569',
+                  background: '#1e293b',
+                  color: '#fff',
+                  fontSize: '16px',
+                  colorScheme: 'dark',
+                }}
+              />
+            </div>
+
             <button
               type="submit"
               style={{
                 width: '100%',
-                padding: '14px',
-                borderRadius: '8px',
-                backgroundColor: '#d97706',
-                backgroundImage: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-                color: '#000',
-                fontWeight: '700',
+                minHeight: '50px',
+                padding: '13px 16px',
+                border: 0,
+                borderRadius: '9px',
+                background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
+                color: '#111827',
+                fontWeight: 800,
                 fontSize: '15px',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              Tôi đã đủ 18 tuổi
-            </button>
-
-            <button
-              type="button"
-              onClick={handleUnderageClick}
-              style={{
-                width: '100%',
-                padding: '12px',
-                borderRadius: '8px',
-                backgroundColor: 'transparent',
-                color: '#94a3b8',
-                fontWeight: '500',
-                fontSize: '14px',
-                border: '1px solid #334155',
                 cursor: 'pointer',
               }}
             >
-              Tôi chưa đủ 18 tuổi
+              Xác nhận &amp; tiếp tục
             </button>
-          </div>
-        </form>
+          </form>
+        )}
 
-        <div style={{ marginTop: '20px', fontSize: '12px', color: '#64748b' }}>
-          Xem chi tiết{' '}
+        <div style={{ marginTop: '20px', textAlign: 'center', color: '#94a3b8', fontSize: '12px', lineHeight: 1.6 }}>
+          Xem{' '}
           <Link
             href="/chinh-sach-bao-mat"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ color: '#fbbf24', textDecoration: 'underline' }}
-            onClick={() => setIsOpen(false)}
           >
             Chính sách bảo mật
           </Link>{' '}
           và{' '}
           <Link
             href="/chinh-sach-kiem-soat-do-tuoi"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ color: '#fbbf24', textDecoration: 'underline' }}
-            onClick={() => setIsOpen(false)}
           >
             Chính sách kiểm soát độ tuổi
           </Link>.
