@@ -5,8 +5,12 @@
 
 import { getPublicBaseUrl, toAbsoluteSiteUrl } from '@/lib/seo/site';
 import { BUSINESS, getBrandInfo } from '@/lib/seo/business';
+import { COMPANY_CONFIG, isPendingCompanyValue } from '@/config/company';
 
 const BASE_URL = getPublicBaseUrl();
+const hasConfirmedLegalName = !isPendingCompanyValue(COMPANY_CONFIG.legalName);
+const hasConfirmedShowroomAddress = !isPendingCompanyValue(COMPANY_CONFIG.showroomAddress);
+const hasConfirmedHotline = !isPendingCompanyValue(COMPANY_CONFIG.hotline) && Boolean(BUSINESS.phoneE164);
 
 interface JsonLdProps {
   type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article' | 'store';
@@ -30,34 +34,37 @@ export function getOrganizationSchema() {
     '@type': 'Organization',
     '@id': `${BASE_URL}/#organization`,
     name: 'Bia Thầy Tu',
+    ...(hasConfirmedLegalName ? { legalName: COMPANY_CONFIG.legalName } : {}),
     alternateName: ['Bia Thầy Tu', 'Benediktiner Vietnam'],
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Nhà nhập khẩu và phân phối độc quyền Bia Thầy Tu Benediktiner Weissbier tại Việt Nam. Bia lúa mì Đức nguyên bản từ Tu Viện Ettal, Bavaria — 100% nhập khẩu chính hãng chuẩn Luật Tinh Khiết 1516.',
-    foundingDate: '2020',
+    description: 'Đơn vị giới thiệu và phân phối Bia Thầy Tu Benediktiner tại Việt Nam. Thông tin về bia Đức nhập khẩu chính hãng, nguồn gốc, hương vị và tư vấn sản phẩm.',
     areaServed: {
       '@type': 'Country',
       name: 'Vietnam',
     },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS.streetAddress,
-      addressLocality: BUSINESS.addressLocality,
-      addressRegion: BUSINESS.addressRegion,
-      addressCountry: BUSINESS.addressCountry,
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: BUSINESS.phoneE164,
-      contactType: 'customer service',
-      availableLanguage: ['Vietnamese', 'English'],
-      areaServed: 'VN',
-    },
-    sameAs: [
-      'https://zalo.me/biathaytu',
-      'https://zalo.me/0899191313',
-    ],
+    ...(hasConfirmedShowroomAddress
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: COMPANY_CONFIG.showroomAddress,
+            addressCountry: BUSINESS.addressCountry,
+          },
+        }
+      : {}),
+    ...(hasConfirmedHotline
+      ? {
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: BUSINESS.phoneE164,
+            contactType: 'customer service',
+            availableLanguage: ['Vietnamese', 'English'],
+            areaServed: 'VN',
+          },
+        }
+      : {}),
+    ...(BUSINESS.zaloUrl ? { sameAs: [BUSINESS.zaloUrl] } : {}),
   };
 }
 
@@ -67,8 +74,8 @@ export function getWebsiteSchema() {
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
-    name: 'Bia Thầy Tu — Bia Đức Cao Cấp Benediktiner',
-    description: 'Website chính thức của Bia Thầy Tu Benediktiner — bia lúa mì Đức nhập khẩu chính hãng từ Tu Viện Ettal. Đạt giải iTQi 3 Sao 2022.',
+    name: 'Bia Thầy Tu — Bia Đức Nhập Khẩu Benediktiner',
+    description: 'Website giới thiệu Bia Thầy Tu Benediktiner — bia Đức nhập khẩu chính hãng từ Tu Viện Ettal, cùng thông tin sản phẩm, văn hóa bia và tư vấn.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -82,37 +89,22 @@ export function getStoreSchema() {
     '@type': 'Store',
     '@id': `${BASE_URL}/#store`,
     name: BUSINESS.name,
-    legalName: BUSINESS.legalName,
+    ...(hasConfirmedLegalName ? { legalName: BUSINESS.legalName } : {}),
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Bia Thầy Tu - Địa chỉ phân phối độc quyền các dòng bia nhập khẩu cao cấp, bia Đức Benediktiner, bia đen, bia Trappist chính hãng từ các tu viện nổi tiếng tại Việt Nam.',
-    telephone: BUSINESS.phoneE164,
-    priceRange: '$$ - $$$',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: BUSINESS.streetAddress,
-      addressLocality: BUSINESS.addressLocality,
-      addressRegion: BUSINESS.addressRegion,
-      addressCountry: BUSINESS.addressCountry,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '21.062534',
-      longitude: '105.811442',
-    },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-      ],
-      opens: '08:00',
-      closes: '22:00'
-    },
-    sameAs: [
-      'https://www.facebook.com/tiepkhachsanhdieu',
-      'https://zalo.me/0899191313'
-    ]
+    description: 'Điểm giới thiệu và tư vấn các dòng bia Đức nhập khẩu, nổi bật với Benediktiner và Bia Thầy Tu tại Việt Nam.',
+    ...(hasConfirmedHotline ? { telephone: BUSINESS.phoneE164 } : {}),
+    ...(hasConfirmedShowroomAddress
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: COMPANY_CONFIG.showroomAddress,
+            addressCountry: BUSINESS.addressCountry,
+          },
+        }
+      : {}),
+    ...(BUSINESS.zaloUrl ? { sameAs: [BUSINESS.zaloUrl] } : {}),
   };
 }
 
@@ -159,8 +151,8 @@ export function getProductSchema(product: {
     };
   }
 
-  const isBelgium = product.name.toLowerCase().includes('bỉ') || 
-                    product.name.toLowerCase().includes('chimay') || 
+  const isBelgium = product.name.toLowerCase().includes('bỉ') ||
+                    product.name.toLowerCase().includes('chimay') ||
                     product.name.toLowerCase().includes('rochefort');
 
   return {
@@ -233,8 +225,8 @@ export function getLandingFAQSchema() {
       answer: 'Benediktiner Weissbier Naturtrüb có hương vị đặc trưng gồm trái chuối chín, đinh hương, với lớp bọt trắng mịn dày và hậu vị ngọt dịu. Bia có màu vàng hổ phách tự nhiên, không lọc (Naturtrüb), giữ trọn men sống và hương vị tự nhiên.',
     },
     {
-      question: 'Mua bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?',
-      answer: 'Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam. Vui lòng liên hệ qua Zalo 0899.191.313, hotline hoặc ghé Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội để được tư vấn sản phẩm và báo giá.',
+      question: 'Tìm thông tin và tư vấn về bia Đức Benediktiner chính hãng ở đâu tại Việt Nam?',
+      answer: 'Bia Thầy Tu giới thiệu thông tin về Benediktiner nhập khẩu tại Việt Nam. Vui lòng xem trang Liên hệ hoặc sử dụng hotline, email và các kênh tư vấn được công bố trên website để được hỗ trợ về sản phẩm và báo giá tham khảo.',
     },
     {
       question: 'Bia Benediktiner có giải thưởng gì?',
@@ -246,7 +238,7 @@ export function getLandingFAQSchema() {
     },
     {
       question: 'Bia Thầy Tu có bao nhiêu dòng sản phẩm?',
-      answer: 'Bia Thầy Tu hiện phân phối các dòng: Benediktiner Weissbier Naturtrüb (bia lúa mì tươi), Benediktiner Dunkel (bia đen), Bom 5L Benediktiner, và Combo Mix 2 vị. Tất cả đều được nhập khẩu 100% nguyên chai từ Đức.',
+      answer: 'Bia Thầy Tu hiện giới thiệu các dòng Benediktiner Weissbier Naturtrüb, Benediktiner Dunkel, Bom 5L Benediktiner và các combo sản phẩm. Thông tin quy cách và mô tả chi tiết được cập nhật tại danh mục sản phẩm.',
     },
   ];
 
