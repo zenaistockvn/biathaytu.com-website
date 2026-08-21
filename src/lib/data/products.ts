@@ -60,6 +60,10 @@ function isStorefrontProduct(product: Product): boolean {
   );
 }
 
+function hasPublicRetailPrice(product: Product): boolean {
+  return typeof product.price === 'number' && Number.isFinite(product.price) && product.price > 0;
+}
+
 function asCompleteSentence(value: string): string {
   const clean = value.trim().replace(/[,:;\-–—]+$/, '').replace(/[.!?]+$/, '');
   return clean ? `${clean}.` : '';
@@ -99,7 +103,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       ...(imageTodo ? { images: [PRODUCT_IMAGE_PLACEHOLDER], imageTodo } : {}),
     };
 
-    if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) item.hidden = true;
+    if (HIDDEN_PRODUCT_SLUGS.has(item.slug) || !hasPublicRetailPrice(item)) item.hidden = true;
     productsBySlug.set(item.slug, item);
   }
 
@@ -122,7 +126,7 @@ export function getAllProducts(): Product[] {
 }
 
 export function getVisibleProducts(): Product[] {
-  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug));
+  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug) && hasPublicRetailPrice(p));
 }
 
 export function getProductBySlugOrId(key: string): Product | null {
