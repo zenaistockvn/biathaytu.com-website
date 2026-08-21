@@ -38,6 +38,8 @@ export interface ProductCardProps {
   cardId?: string;
   /** Show detail CTA (for product listing page) */
   showCTA?: boolean;
+  /** Show brochure-site price disclaimer directly below the displayed price */
+  showReferencePriceNote?: boolean;
 }
 
 /**
@@ -47,6 +49,7 @@ export interface ProductCardProps {
 export default function ProductCard({
   id, name, slug, images, price, description,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
+  showReferencePriceNote = false,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -113,9 +116,19 @@ export default function ProductCard({
                 </span>
               )}
             </div>
-            <div className="card-trust-signals">
-              <span>⚡ Giao nội thành Hà Nội trong ngày</span>
-            </div>
+            {showReferencePriceNote && (
+              <p
+                className="card-price-note"
+                style={{
+                  margin: '6px 0 0',
+                  fontSize: '12px',
+                  lineHeight: 1.45,
+                  color: 'var(--web-text-muted)',
+                }}
+              >
+                Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.
+              </p>
+            )}
           </>
         )}
 
