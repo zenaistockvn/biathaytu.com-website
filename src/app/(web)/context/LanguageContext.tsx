@@ -27,7 +27,7 @@ const translations: Translations = {
     'hero.description.2': 'Tuyệt tác bia lúa mì Đức nguyên bản chuẩn',
     'hero.description.3': 'Luật Tinh Khiết 1516.',
     'hero.btn.explore': 'Khám Phá Sản Phẩm',
-    'hero.btn.quote': 'Báo Giá Sỉ / Đại Lý',
+    'hero.btn.quote': 'Nhận Tư Vấn Sỉ / Đại Lý',
 
     // Trust bar
     'trust.award': 'iTQi 3 Sao 2022',
@@ -63,7 +63,7 @@ const translations: Translations = {
     'hero.description.2': 'A masterpiece of German wheat beer brewed to the',
     'hero.description.3': '1516 Purity Law.',
     'hero.btn.explore': 'Explore Products',
-    'hero.btn.quote': 'B2B/Wholesale Quote',
+    'hero.btn.quote': 'Wholesale / Distributor Advice',
 
     // Trust bar
     'trust.award': 'iTQi 3-Star 2022',
@@ -99,7 +99,7 @@ const translations: Translations = {
     'hero.description.2': 'Ein Meisterwerk des deutschen Weißbiers nach dem',
     'hero.description.3': 'Reinheitsgebot von 1516.',
     'hero.btn.explore': 'Produkte Entdecken',
-    'hero.btn.quote': 'B2B/Großhandel',
+    'hero.btn.quote': 'Großhandel / Händlerberatung',
 
     // Trust bar
     'trust.award': 'iTQi 3-Sterne 2022',
