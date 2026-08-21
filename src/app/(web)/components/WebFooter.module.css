@@ -1,0 +1,253 @@
+.footer {
+  background: var(--web-ink);
+  color: #fff;
+  padding: 52px 0 0;
+}
+
+.desktopFooter {
+  display: none;
+}
+
+.mobileFooter {
+  display: block;
+}
+
+.brandTitle {
+  margin: 0 0 12px;
+  color: var(--web-accent-on-ink) !important;
+  font-family: var(--font-serif), serif !important;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.brandDesc {
+  margin: 0;
+  max-width: 330px;
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.brochureNote {
+  margin: 12px 0 0;
+  max-width: 330px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.socialRow,
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.iconButton,
+.actionButton {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 750;
+  padding: 0 14px;
+  text-decoration: none !important;
+}
+
+.iconButton:hover,
+.actionButton:hover {
+  background: rgba(255,255,255,.14);
+  opacity: 1 !important;
+}
+
+.primaryAction {
+  background: var(--web-accent);
+  border-color: var(--web-accent-soft);
+}
+
+.columnTitle {
+  margin: 0 0 18px;
+  color: #fff !important;
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.companyList,
+.contactList {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+}
+
+.companyItem,
+.contactItem {
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.itemLabel {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--web-accent-on-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .25px;
+  text-transform: uppercase;
+}
+
+.contactItem a {
+  color: rgba(255,255,255,.86) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+.quickGroups {
+  display: grid;
+  gap: 22px;
+}
+
+.quickGroupTitle {
+  margin: 0 0 10px;
+  color: var(--web-accent-on-ink);
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.linkList {
+  display: grid;
+  gap: 9px;
+}
+
+.linkList a {
+  color: rgba(255,255,255,.68) !important;
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none !important;
+}
+
+.linkList a:hover {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.mobileBrand {
+  padding-bottom: 22px;
+}
+
+.mobileDetails {
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.mobileDetails:last-of-type {
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.mobileSummary {
+  display: flex;
+  min-height: 52px;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.mobileSummary::-webkit-details-marker {
+  display: none;
+}
+
+.mobileSummary::after {
+  content: '+';
+  color: var(--web-accent-on-ink);
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.mobileDetails[open] .mobileSummary::after {
+  content: '−';
+}
+
+.mobileDetailsContent {
+  padding: 2px 0 20px;
+}
+
+.bottomArea {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 18px 0 calc(20px + env(safe-area-inset-bottom));
+}
+
+.warningWrap :global(.alcohol-warning-footer) {
+  width: 100% !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  text-align: center;
+}
+
+.copyright {
+  margin: 12px 0 0;
+  color: rgba(255,255,255,.48);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .footer {
+    padding-top: 56px;
+  }
+
+  .desktopFooter {
+    display: grid;
+    grid-template-columns: 1.05fr 1.35fr 1.05fr .95fr;
+    gap: clamp(28px, 4vw, 64px);
+    align-items: start;
+  }
+
+  .mobileFooter {
+    display: none;
+  }
+
+  .bottomArea {
+    margin-top: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 36px;
+  }
+
+  .brandTitle {
+    font-size: 19px;
+  }
+
+  .brandDesc,
+  .brochureNote {
+    max-width: none;
+  }
+
+  .warningWrap :global(.alcohol-warning-footer) {
+    align-items: flex-start !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+  }
+}
