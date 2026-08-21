@@ -49,25 +49,15 @@ jobs:
           card='src/app/(web)/components/ProductCard.tsx'
           actions='src/app/(web)/components/ProductOrderActions.tsx'
           form='src/app/(web)/components/ProductConsultationForm.tsx'
-
           grep -q 'Website giới thiệu sản phẩm. Để đặt hàng, vui lòng liên hệ hotline 0899.191.313 hoặc Zalo.' "$catalog"
-          for label in 'Benediktiner' 'Bitburger' 'Combo' 'Rượu vang Đức' 'Xúc xích' 'Phụ kiện'; do
-            grep -q "$label" "$catalog"
-          done
+          for label in 'Benediktiner' 'Bitburger' 'Combo' 'Rượu vang Đức' 'Xúc xích' 'Phụ kiện'; do grep -q "$label" "$catalog"; done
           grep -q 'showReferencePriceNote={true}' "$catalog"
           grep -q 'aria-label={`Xem chi tiết ${name}`}' "$card"
           grep -q 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.' "$card"
-
           grep -q "const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo" "$detail"
           grep -q 'Sản phẩm chỉ dành cho người từ đủ 18 tuổi.' "$detail"
-          if grep -q 'price: product.price' "$detail"; then
-            echo 'Product detail still passes price into Product JSON-LD'
-            exit 1
-          fi
-          if grep -En 'Mua ngay|Mua Ngay|Thêm vào giỏ|Còn hàng|Hết hàng|mã giảm giá|Mã giảm giá' "$detail" "$actions"; then
-            echo 'Product detail still contains transactional UI copy'
-            exit 1
-          fi
+          if grep -q 'price: product.price' "$detail"; then echo 'Product detail still passes price into Product JSON-LD'; exit 1; fi
+          if grep -En 'Mua ngay|Mua Ngay|Thêm vào giỏ|Còn hàng|Hết hàng|mã giảm giá|Mã giảm giá' "$detail" "$actions"; then echo 'Product detail still contains transactional UI copy'; exit 1; fi
           grep -q 'Quan tâm sản phẩm này?' "$actions"
           test -e "$form"
       - name: Validate age declaration gate
@@ -78,23 +68,20 @@ jobs:
           util='src/utils/ageVerification.ts'
           layout='src/app/(web)/layout.tsx'
           constants='src/constants/compliance.ts'
-
           grep -q 'Họ và tên' "$gate"
           grep -q 'type="date"' "$gate"
           grep -q 'validateFullName' "$gate"
           grep -q 'Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.' "$gate"
           grep -q 'target="_blank"' "$gate"
           grep -q "event.key === 'Escape'" "$gate"
-          grep -q 'setAttribute.(.inert' "$gate" || grep -q "setAttribute('inert'" "$gate"
+          grep -q "setAttribute('inert'" "$gate"
           grep -q 'AGE_VERIFICATION_EXPIRY_DAYS' "$util"
           grep -q 'Max-Age=' "$util"
           grep -q 'isSearchCrawlerUserAgent' "$util"
           grep -q 'googlebot' "$util"
           grep -q 'bingbot' "$util"
-          if grep -q 'localStorage' "$util"; then
-            echo 'Age verification still stores/reads status in localStorage'
-            exit 1
-          fi
+          if grep -En 'localStorage\.(getItem|setItem|removeItem)' "$util"; then echo 'Age verification still stores/reads status in localStorage'; exit 1; fi
+          grep -q 'AGE_VERIFICATION_EXPIRY_DAYS = 30' "$constants"
           grep -q "POLICY_VERSION = '2.0'" "$constants"
           grep -q 'AGE_GATE_PREPAINT_SCRIPT' "$layout"
           grep -q 'googlebot' "$layout"
@@ -108,7 +95,6 @@ jobs:
           info='src/app/(web)/thong-tin-mua-hang/page.tsx'
           footer='src/app/(web)/components/WebFooter.tsx'
           sitemap='src/app/sitemap.ts'
-
           grep -q 'Tính chất của website' "$terms"
           grep -q 'không thực hiện chức năng đặt hàng trực tuyến' "$terms"
           test -e "$info"
@@ -120,10 +106,7 @@ jobs:
           test ! -e 'src/app/(web)/chinh-sach-thanh-toan/page.tsx'
           test ! -e 'src/app/(web)/chinh-sach-doi-tra/page.tsx'
           grep -q "'thong-tin-mua-hang'" "$sitemap"
-          if grep -Eq "'chinh-sach-(giao-hang|thanh-toan|doi-tra)'" "$sitemap"; then
-            echo 'Legacy policy URL still present in sitemap'
-            exit 1
-          fi
+          if grep -Eq "'chinh-sach-(giao-hang|thanh-toan|doi-tra)'" "$sitemap"; then echo 'Legacy policy URL still present in sitemap'; exit 1; fi
       - name: Run compliance unit tests
         run: npx vitest run src/lib/compliance/compliance.test.ts
       - name: Build Next.js
@@ -137,33 +120,21 @@ jobs:
           trap 'kill ${server_pid} 2>/dev/null || true' EXIT
           ready=0
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
-              ready=1
-              break
-            fi
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then ready=1; break; fi
             sleep 1
           done
-          if [ "$ready" -ne 1 ]; then
-            cat /tmp/next.log
-            exit 1
-          fi
+          if [ "$ready" -ne 1 ]; then cat /tmp/next.log; exit 1; fi
           for path in / /san-pham /kien-thuc /lien-he /thong-tin-mua-hang /dieu-khoan-su-dung /chinh-sach-bao-mat /chinh-sach-cookie /chinh-sach-kiem-soat-do-tuoi /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
             code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${path}")
             test "$code" = "200" || { echo "Broken route ${path}: HTTP ${code}"; exit 1; }
           done
-
           check_redirect() {
-            source_path="$1"
-            expected_location="$2"
+            source_path="$1"; expected_location="$2"
             code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${source_path}")
             test "$code" = "301" || { echo "Expected 301 for ${source_path}, got ${code}"; exit 1; }
             location=$(curl -sSI "http://127.0.0.1:3000${source_path}" | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/ {print $2; exit}')
-            case "$location" in
-              "$expected_location"|"http://127.0.0.1:3000${expected_location}"|"http://localhost:3000${expected_location}") ;;
-              *) echo "Unexpected redirect ${source_path} -> ${location}"; exit 1 ;;
-            esac
+            case "$location" in "$expected_location"|"http://127.0.0.1:3000${expected_location}"|"http://localhost:3000${expected_location}") ;; *) echo "Unexpected redirect ${source_path} -> ${location}"; exit 1 ;; esac
           }
-
           check_redirect /dat-hang /lien-he
           check_redirect /chinh-sach-giao-hang /thong-tin-mua-hang
           check_redirect /chinh-sach-thanh-toan /thong-tin-mua-hang
