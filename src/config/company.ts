@@ -1,12 +1,12 @@
 export const COMPANY_CONFIG = {
-  legalName: '<<CAN_CAP_NHAT: ten_cong_ty>>',
-  taxCode: '<<CAN_CAP_NHAT: ma_so_thue>>',
-  businessRegistrationCertificateNumber: '<<CAN_CAP_NHAT: so_giay_chung_nhan_dkkd>>',
-  registeredAddress: '<<CAN_CAP_NHAT: dia_chi_tru_so_theo_dkkd>>',
-  showroomAddress: '<<CAN_CAP_NHAT: dia_chi_showroom>>',
-  legalRepresentative: '<<CAN_CAP_NHAT: nguoi_dai_dien_theo_phap_luat>>',
-  hotline: '<<CAN_CAP_NHAT: hotline>>',
-  email: '<<CAN_CAP_NHAT: email>>',
+  legalName: 'CÔNG TY TNHH GERMAN TASTE',
+  taxCode: '0110870013',
+  businessRegistrationCertificateNumber: '0110870013',
+  registeredAddress: 'Nhà số 22 Lô C khu tái định cư, Số 218 Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội, Việt Nam',
+  showroomAddress: '26 Vạn Phúc, Ba Đình, Hà Nội',
+  legalRepresentative: 'PHẠM THANH TUYỀN',
+  hotline: '0915 31 21 66',
+  email: 'info@biathaytu.com.vn',
 } as const;
 
 export function isPendingCompanyValue(value: string): boolean {
