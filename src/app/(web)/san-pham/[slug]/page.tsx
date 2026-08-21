@@ -93,6 +93,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   const isSausage = product.category === 'xuc-xich';
   const isCombo = product.category === 'combo';
+  const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo;
   const packagingFormat = getPackagingFormat(product.name);
   const tastingNote = getTastingNotes(product.name);
   const guaranteeTitle = isSausage || isCombo ? 'Cam Kết Thực Phẩm Lạnh & Tươi' : 'Cam Kết Chất Lượng';
@@ -147,9 +148,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
           <div>
             <h1 className="product-detail-name">{product.name}</h1>
-            <p style={{ margin: '8px 0 18px', color: 'var(--web-text-muted)', fontSize: '13px', fontWeight: 600 }}>
-              Sản phẩm chỉ dành cho người từ đủ 18 tuổi.
-            </p>
+            {isAlcohol && (
+              <p style={{ margin: '8px 0 18px', color: 'var(--web-text-muted)', fontSize: '13px', fontWeight: 600 }}>
+                Sản phẩm chỉ dành cho người từ đủ 18 tuổi.
+              </p>
+            )}
 
             {isSausage && (
               <div className="product-detail-tags">
