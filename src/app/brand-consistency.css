@@ -202,3 +202,194 @@
     bottom: calc(24px + env(safe-area-inset-bottom));
   }
 }
+
+/* P2 editorial hierarchy — fewer UI boxes, stronger photography. */
+.web-app {
+  --web-radius-lg: 16px;
+  --web-shadow: 0 8px 28px rgba(20, 36, 26, 0.055);
+  --web-shadow-md: 0 14px 34px -22px rgba(20, 36, 26, 0.14);
+  --web-shadow-lg: 0 18px 42px -20px rgba(20, 36, 26, 0.18);
+}
+
+/* Functional controls should feel tailored, not SaaS-pill heavy. */
+.web-app .btn-primary,
+.web-app .btn-outline,
+.web-app .zalo-cta-class {
+  border-radius: 12px !important;
+}
+
+/* Product titles use the functional sans face; editorial headings remain serif. */
+.web-app .product-card-v2 .card-name,
+.web-app .product-card .card-name {
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.15px;
+}
+
+/* Product photography first: preserve true product color instead of multiply tint. */
+.web-app .product-card-v2 .card-image,
+.web-app .product-card .card-image {
+  background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #F8F5EE 58%, #ECE6D8 100%) !important;
+}
+
+.web-app .product-card-v2 .card-image img,
+.web-app .card-image img {
+  mix-blend-mode: normal !important;
+}
+
+.web-app .product-card-v2,
+.web-app .product-card {
+  border-radius: 16px !important;
+  box-shadow: var(--web-shadow) !important;
+}
+
+.web-app .product-card-v2:hover,
+.web-app .product-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--web-shadow-lg) !important;
+}
+
+/* Food pairing becomes editorial rows rather than three floating white cards. */
+.web-app .food-card-body {
+  padding: 22px 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--web-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.web-app .food-list .food-card-body:last-child {
+  border-bottom: 0 !important;
+}
+
+.web-app .food-pairing-card:hover {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.web-app .food-icon {
+  width: 52px !important;
+  height: 52px !important;
+  background: rgba(47, 93, 58, 0.06) !important;
+}
+
+/* Keep knowledge cards, but reduce their visual chrome. */
+.web-app .knowledge-card,
+.web-app .knowledge-featured-card,
+.web-app .faq-item,
+.web-app .testimonial-card {
+  box-shadow: var(--web-shadow) !important;
+}
+
+.web-app .knowledge-card:hover,
+.web-app .knowledge-featured-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--web-shadow-lg) !important;
+}
+
+/* Catalog sticky category bar. The original in-header pill row is hidden. */
+.web-app .products-page-container .catalog-pills-nav-wrapper {
+  display: none !important;
+}
+
+.web-app .catalog-sticky-spacer {
+  height: 54px;
+}
+
+.web-app .catalog-sticky-nav {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 39;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  background: rgba(244, 241, 233, 0.94);
+  border-bottom: 1px solid rgba(207, 201, 182, 0.78);
+  box-shadow: 0 8px 22px rgba(20, 36, 26, 0.055);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.web-app .catalog-sticky-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.web-app .catalog-sticky-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.web-app .catalog-sticky-link {
+  flex: 0 0 auto;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 13px;
+  border-radius: 9px;
+  color: var(--web-text-muted) !important;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.web-app .catalog-sticky-link:hover,
+.web-app .catalog-sticky-link.is-active {
+  background: var(--web-accent-bg);
+  color: var(--web-accent-strong) !important;
+  opacity: 1 !important;
+}
+
+.web-app .products-page-container section[id] {
+  scroll-margin-top: 146px;
+}
+
+.web-app .products-page-container .mt-100 {
+  margin-top: 72px !important;
+}
+
+.web-app .products-page-container .mb-48 {
+  margin-bottom: 34px !important;
+}
+
+/* More restrained tag styling. */
+.web-app .product-card-v2 .card-meta-tag {
+  padding: 4px 9px;
+  background: rgba(47, 93, 58, 0.065);
+  border: 1px solid rgba(47, 93, 58, 0.1);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .web-app .catalog-sticky-spacer {
+    height: 50px;
+  }
+
+  .web-app .catalog-sticky-nav {
+    min-height: 50px;
+  }
+
+  .web-app .catalog-sticky-link {
+    min-height: 36px;
+    padding: 0 11px;
+    font-size: 12px;
+  }
+
+  .web-app .products-page-container .mt-100 {
+    margin-top: 56px !important;
+  }
+
+  .web-app .food-card-body {
+    gap: 16px !important;
+    padding: 18px 0 !important;
+  }
+}
