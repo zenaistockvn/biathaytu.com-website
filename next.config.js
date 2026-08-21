@@ -16,6 +16,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/dat-hang',
+        destination: '/lien-he',
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       {
