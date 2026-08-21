@@ -42,3 +42,33 @@ jobs:
           test -e 'src/app/(web)/san-pham/[slug]/page.tsx'
       - name: Build Next.js
         run: npx next build
+      - name: Smoke-check affected routes and redirect
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx next start -p 3000 > /tmp/next.log 2>&1 &
+          server_pid=$!
+          trap 'kill ${server_pid} 2>/dev/null || true' EXIT
+          ready=0
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/next.log
+            exit 1
+          fi
+          for path in / /san-pham /kien-thuc /lien-he /san-pham/bitburger-premium-pils-thung-12-chai-330ml; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${path}")
+            test "$code" = "200" || { echo "Broken route ${path}: HTTP ${code}"; exit 1; }
+          done
+          redirect_code=$(curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/dat-hang)
+          test "$redirect_code" = "301" || { echo "Expected 301 for /dat-hang, got ${redirect_code}"; exit 1; }
+          location=$(curl -sSI http://127.0.0.1:3000/dat-hang | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/ {print $2; exit}')
+          case "$location" in
+            /lien-he|http://127.0.0.1:3000/lien-he|http://localhost:3000/lien-he) ;;
+            *) echo "Unexpected redirect location: ${location}"; exit 1 ;;
+          esac
