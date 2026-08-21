@@ -14,7 +14,6 @@
     "audit-detailed": "node scripts/detailed_audit.js",
     "inject-articles": "node scripts/inject_four_articles.js",
     "inject-links": "node scripts/inject_internal_links.js",
-    "inject-footer": "node scripts/inject_geo_footer.js",
     "dump-data": "node scripts/dump_data.js"
   },
   "dependencies": {
