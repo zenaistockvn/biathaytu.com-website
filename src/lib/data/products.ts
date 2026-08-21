@@ -2,16 +2,16 @@ import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 
-/**
- * Kiểu sản phẩm cho phần catalog giới thiệu.
- * Khai báo `abv: string | null` để khớp ProductCard/ProductTabs (runtime có thể là số,
- * render `{abv}%` vẫn đúng). JSON được ép kiểu qua `unknown` một lần tại đây.
- */
+export const MAX_SHORT_DESCRIPTION_LENGTH = 90;
+
+/** Kiểu sản phẩm dùng cho catalog giới thiệu. */
 export interface Product {
   id: string;
   name: string;
   slug: string;
   description: string | null;
+  shortDescription?: string;
+  imageTodo?: string;
   abv: string | null;
   ibu: number | null;
   volume: string | null;
@@ -28,8 +28,7 @@ export interface Product {
 
 /**
  * SKU tạm ẩn khỏi catalog kèm lý do. Xóa slug khỏi danh sách này khi đủ dữ liệu/ảnh để hiển thị lại.
- * TODO(2026-07-30): cả 2 SKU trỏ tới /images/products/official/bitburger/kostritzer_keg.png
- * — file KHÔNG tồn tại trong public/. Cần ảnh Köstritzer chính hãng, KHÔNG được dùng ảnh Bitburger thay thế.
+ * Không dùng ảnh của nhãn/SKU khác để lấp chỗ trống.
  */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'kostritzer-schwarzbier-bom-5l',
@@ -37,6 +36,14 @@ export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
 ]);
 
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
+
+const CATEGORY_SHORT_DESCRIPTION: Record<string, string> = {
+  bia: 'Bia Đức tuyển chọn với hương vị cân bằng, phù hợp nhiều cách thưởng thức.',
+  vang: 'Vang Đức tuyển chọn với hương vị đặc trưng, phù hợp dùng cùng món ăn.',
+  'phu-kien': 'Phụ kiện thưởng thức bia Đức, phù hợp dùng tại nhà hoặc làm quà tặng.',
+  'xuc-xich': 'Xúc xích kiểu Đức đậm vị, phù hợp áp chảo, nướng và dùng cùng bia.',
+  combo: 'Combo phong cách Đức kết hợp bia và món ăn kèm cho bàn tiệc trọn vị.',
+};
 
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -48,22 +55,44 @@ function isStorefrontProduct(product: Product): boolean {
   );
 }
 
+function asCompleteSentence(value: string): string {
+  const clean = value.trim().replace(/[,:;\-–—]+$/, '').replace(/[.!?]+$/, '');
+  return clean ? `${clean}.` : '';
+}
+
+function buildShortDescription(product: Product, description: string | null): string {
+  const supplied = asCompleteSentence(product.shortDescription || '');
+  if (supplied && supplied.length <= MAX_SHORT_DESCRIPTION_LENGTH) return supplied;
+
+  if (description) {
+    const firstSentence = description.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim();
+    if (firstSentence && firstSentence.length <= MAX_SHORT_DESCRIPTION_LENGTH) {
+      return asCompleteSentence(firstSentence);
+    }
+  }
+
+  const conciseName = product.name.split(/\s+[—–]\s+|\s+-\s+/)[0].trim();
+  const namedCandidate = asCompleteSentence(`${conciseName} là sản phẩm Đức được tuyển chọn cho trải nghiệm thưởng thức`);
+  if (namedCandidate.length <= MAX_SHORT_DESCRIPTION_LENGTH) return namedCandidate;
+
+  return CATEGORY_SHORT_DESCRIPTION[product.category || ''] ||
+    'Sản phẩm Đức tuyển chọn với thông tin rõ ràng và trải nghiệm thưởng thức chỉn chu.';
+}
+
 function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
   const productsBySlug = new Map<string, Product>();
 
   for (const product of [...primary, ...supplemental]) {
-    if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) {
-      continue;
-    }
+    if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) continue;
 
-    const item = {
+    const normalizedDescription = toBrochureMetadataCopy(product.description) || product.description;
+    const item: Product = {
       ...product,
-      description: toBrochureMetadataCopy(product.description) || product.description,
+      description: normalizedDescription,
+      shortDescription: buildShortDescription(product, normalizedDescription),
     };
-    if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) {
-      item.hidden = true;
-    }
 
+    if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) item.hidden = true;
     productsBySlug.set(item.slug, item);
   }
 
