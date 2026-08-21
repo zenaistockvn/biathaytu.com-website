@@ -58,6 +58,7 @@ jobs:
           grep -q 'aria-label={`Xem chi tiết ${name}`}' "$card"
           grep -q 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.' "$card"
 
+          grep -q "const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo" "$detail"
           grep -q 'Sản phẩm chỉ dành cho người từ đủ 18 tuổi.' "$detail"
           grep -q 'Hương vị nổi bật' "$detail"
           grep -q 'Quy cách' "$detail"
