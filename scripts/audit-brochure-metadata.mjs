@@ -71,3 +71,5 @@ if (violations.length) {
 
 console.log('Brochure metadata audit PASS: no prohibited sales copy in static/dynamic metadata source.');
 console.log('Core keywords PASS: bia Đức nhập khẩu / Benediktiner / bia thầy tu.');
+
+// Keep this guard in sync with brochure-mode metadata rules.
