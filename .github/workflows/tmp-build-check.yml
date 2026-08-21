@@ -18,5 +18,27 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm install --no-package-lock --no-audit --no-fund
+      - name: Validate online-ordering removal
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RIn --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' '/dat-hang' src; then
+            echo 'Found stale /dat-hang reference in src'
+            exit 1
+          fi
+          if grep -REn --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' 'useCartStore|cart-storage' src; then
+            echo 'Found stale cart state reference in src'
+            exit 1
+          fi
+          if grep -n 'Mua Ngay' 'src/app/(web)/components/ProductCard.tsx'; then
+            echo 'ProductCard still contains Mua Ngay'
+            exit 1
+          fi
+          grep -q 'Xem chi tiết' 'src/app/(web)/components/ProductCard.tsx'
+          grep -q "repeat(3, minmax(0, 1fr))" 'src/app/(web)/components/MobileBottomNav.tsx'
+          test ! -e 'src/app/(web)/dat-hang/page.tsx'
+          test ! -e 'src/app/api/order/route.ts'
+          test -e 'src/app/(web)/lien-he/page.tsx'
+          test -e 'src/app/(web)/san-pham/[slug]/page.tsx'
       - name: Build Next.js
         run: npx next build
