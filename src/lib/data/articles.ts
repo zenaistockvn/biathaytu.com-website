@@ -1,4 +1,5 @@
 import articlesData from '@/data/articles.json';
+import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 
 export const DEFAULT_TENANT_ID = 'biathaytu';
 
@@ -18,6 +19,11 @@ export interface Article {
 
 const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
   .filter((a) => a.tenant_id === DEFAULT_TENANT_ID && a.status === 'published')
+  .map((article) => ({
+    ...article,
+    title: toBrochureMetadataCopy(article.title) || article.title,
+    meta_description: toBrochureMetadataCopy(article.meta_description) || article.meta_description,
+  }))
   .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
 export function getPublishedArticles(): Article[] {
