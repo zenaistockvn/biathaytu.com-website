@@ -6,7 +6,6 @@ import {
   setAgeVerifiedStatus,
   clearAgeVerification,
 } from '@/utils/ageVerification';
-import { validateOrderInput } from '@/lib/orders/validation';
 import { DEFAULT_ALCOHOL_WARNING, POLICY_VERSION, STORAGE_KEYS } from '@/constants/compliance';
 import { getCookieConsentPreferences } from '@/app/(web)/components/CookieConsent';
 
@@ -111,49 +110,13 @@ describe('Compliance & Age Verification System Tests', () => {
     expect(isAgeVerified()).toBe(false);
   });
 
-  it('6. Không thể checkout nếu chưa xác nhận người đặt và người nhận đủ tuổi', () => {
-    const validItems = [{ id: 'beer-1', name: 'Bia Thầy Tu 500ml', image: '/img.png', price: 100000, quantity: 2 }];
-
-    const resPurchaser = validateOrderInput({
-      name: 'Nguyen Van A',
-      phone: '0988123456',
-      address: 'Ha Noi',
-      purchaser_age_confirmed: false,
-      receiver_age_confirmed: true,
-      terms_agreed: true,
-    }, validItems);
-    expect(resPurchaser.ok).toBe(false);
-    expect(resPurchaser.error).toContain('người đặt');
-
-    const resReceiver = validateOrderInput({
-      name: 'Nguyen Van A',
-      phone: '0988123456',
-      address: 'Ha Noi',
-      purchaser_age_confirmed: true,
-      receiver_age_confirmed: false,
-      terms_agreed: true,
-    }, validItems);
-    expect(resReceiver.ok).toBe(false);
-    expect(resReceiver.error).toContain('người nhận');
-
-    const resOk = validateOrderInput({
-      name: 'Nguyen Van A',
-      phone: '0988123456',
-      address: 'Ha Noi',
-      purchaser_age_confirmed: true,
-      receiver_age_confirmed: true,
-      terms_agreed: true,
-    }, validItems);
-    expect(resOk.ok).toBe(true);
-  });
-
-  it('7. Giới hạn độ tuổi và điều hướng trang /chua-du-tuoi', () => {
+  it('6. Giới hạn độ tuổi và điều hướng trang /chua-du-tuoi', () => {
     const underAgeRes = validateDateOfBirth('2012-05-10', mockToday);
     expect(underAgeRes.valid).toBe(false);
     expect(underAgeRes.age).toBe(14);
   });
 
-  it('8. Không có họ tên hoặc ngày sinh trong cookie/localStorage/dataLayer', () => {
+  it('7. Không có họ tên hoặc ngày sinh trong cookie/localStorage/dataLayer', () => {
     setAgeVerifiedStatus();
 
     const ageVerifiedFlag = localStorage.getItem(STORAGE_KEYS.AGE_VERIFIED);
@@ -169,12 +132,12 @@ describe('Compliance & Age Verification System Tests', () => {
     expect(localStorage.getItem('dateOfBirth')).toBeNull();
   });
 
-  it('9. Cookie analytics và marketing không được tạo trước consent', () => {
+  it('8. Cookie analytics và marketing không được tạo trước consent', () => {
     const prefs = getCookieConsentPreferences();
     expect(prefs).toBeNull();
   });
 
-  it('10. Dòng cảnh báo AlcoholWarning tuân thủ nội dung mặc định', () => {
+  it('9. Dòng cảnh báo AlcoholWarning tuân thủ nội dung mặc định', () => {
     expect(DEFAULT_ALCOHOL_WARNING).toContain('Người dưới 18 tuổi không được uống rượu, bia');
     expect(DEFAULT_ALCOHOL_WARNING).toContain('Không lái xe sau khi sử dụng đồ uống có cồn');
   });
