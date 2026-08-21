@@ -4,18 +4,13 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const categories = [
-  { id: 'tat-ca', label: 'Tất cả' },
   { id: 'benediktiner', label: 'Benediktiner' },
-  { id: 'bitburger', label: 'Bitburger' },
-  { id: 'combo', label: 'Combo' },
-  { id: 'ruou-vang', label: 'Rượu vang Đức' },
-  { id: 'xuc-xich-duc', label: 'Xúc xích' },
-  { id: 'phu-kien', label: 'Phụ kiện' },
+  { id: 'bia-duc-khac', label: 'Bia Đức tuyển chọn' },
 ];
 
 export default function CatalogStickyNav() {
   const pathname = usePathname();
-  const [activeId, setActiveId] = useState('tat-ca');
+  const [activeId, setActiveId] = useState('benediktiner');
 
   useEffect(() => {
     if (pathname !== '/san-pham') return;

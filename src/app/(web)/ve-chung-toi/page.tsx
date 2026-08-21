@@ -2,30 +2,31 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '../components/ui/Button';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức Độc Quyền',
-  description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
+  title: 'Về Chúng Tôi — Bia Thầy Tu',
+  description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com/ve-chung-toi' },
   openGraph: {
-    title: 'Về Chúng Tôi — Nhà Nhập Khẩu Bia Đức Độc Quyền',
-    description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
+    title: 'Về Chúng Tôi — Bia Thầy Tu',
+    description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
     type: 'article',
     url: 'https://www.biathaytu.com/ve-chung-toi',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'Về Chúng Tôi — Bia Thầy Tu (Nhập Khẩu Bia Đức Độc Quyền)',
+        url: '/images/brand/benediktiner-official/ettal-monastery.jpg',
+        width: 600,
+        height: 400,
+        alt: 'Tu viện Ettal — nơi khởi nguồn câu chuyện Benediktiner',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Về Bia Thầy Tu — Nhà Nhập Khẩu Bia Đức Độc Quyền',
-    description: 'Tìm hiểu về nhà phân phối Bia Thầy Tu, đơn vị nhập khẩu và cung cấp độc quyền các dòng bia Đức cao cấp Benediktiner và Bitburger tại Việt Nam.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    title: 'Về Bia Thầy Tu',
+    description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
+    images: ['/images/brand/benediktiner-official/ettal-monastery.jpg'],
   },
 };
 
@@ -48,11 +49,11 @@ export default function Page() {
           <strong>Tầm nhìn của chúng tôi:</strong> Trở thành cầu nối văn hóa ẩm thực Đức – Việt. <strong>Bia Thầy Tu</strong> không chỉ bán bia, chúng tôi mang tới một phong cách sống, một trải nghiệm thưởng thức bia có trách nhiệm và tinh tế theo chuẩn Châu Âu.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Sứ mệnh phân phối độc quyền</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Sứ mệnh phân phối</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '32px' }}>
-          Chúng tôi tự hào là đối tác nhập khẩu và phân phối độc quyền tại Việt Nam cho các dòng bia lúa mì cao cấp từ tu viện Đức — <strong>Benediktiner Weissbier</strong> và thương hiệu Pilsner lừng danh <strong>Bitburger</strong>. 
-          Mọi sản phẩm đều được kiểm soát chất lượng từ nhà máy tại Bavaria đến kho lạnh tiêu chuẩn của chúng tôi tại Hà Nội.
-          Xem <Link href="/chung-nhan-nhap-khau-chinh-hang" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>giấy tờ nhập khẩu chính hãng</Link> để yên tâm về nguồn gốc sản phẩm.
+          Bia Thầy Tu giới thiệu <strong>Benediktiner Weissbier</strong> và các lựa chọn bia Đức tới người thưởng thức tại Việt Nam.
+          Website tập trung vào câu chuyện thương hiệu, đặc tính từng dòng bia, nghệ thuật rót bia và các giải pháp dành cho nhà hàng, khách sạn.
+          Xem <Link href="/chung-nhan-nhap-khau-chinh-hang" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>thông tin nguồn gốc sản phẩm</Link> để tìm hiểu thêm.
         </p>
 
         <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>3 Giá trị cốt lõi</h2>
@@ -74,14 +75,14 @@ export default function Page() {
         <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Thông tin liên hệ</h2>
         <div style={{ background: 'var(--web-bg-section)', padding: '32px', borderRadius: '16px', marginBottom: '48px', lineHeight: 1.8, fontSize: '16px', color: 'var(--web-text-secondary)' }}>
           <p><strong>Thương hiệu:</strong> Bia Thầy Tu</p>
-          <p><strong>Showroom bán lẻ:</strong> 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội</p>
-          <p><strong>Hotline tư vấn & đặt hàng:</strong> 0899.191.313</p>
-          <p><strong>Email đối tác B2B:</strong> contact@biathaytu.com</p>
+          <p><strong>Showroom:</strong> {COMPANY_CONFIG.showroomAddress}</p>
+          <p><strong>Hotline tư vấn:</strong> {COMPANY_CONFIG.hotline}</p>
+          <p><strong>Email:</strong> {COMPANY_CONFIG.email}</p>
         </div>
 
         <div style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Kết nối với chúng tôi</h3>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Trải nghiệm dịch vụ giao bia tận nơi nhanh chóng trong nội thành Hà Nội. Nếu bạn là đối tác kinh doanh, tham khảo <Link href="/bang-gia-si-dai-ly" style={{ color: 'var(--web-accent)', textDecoration: 'underline' }}>chính sách đại lý &amp; báo giá sỉ</Link> dành riêng cho doanh nghiệp.</p>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Ghé không gian tại Vạn Phúc để tìm hiểu các dòng bia đang được giới thiệu. Nếu bạn là đối tác kinh doanh, tham khảo <Link href="/bia-duc-cho-nha-hang-khach-san" style={{ color: 'var(--web-accent)', textDecoration: 'underline' }}>giải pháp dành cho nhà hàng &amp; khách sạn</Link>.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button href="/lien-he" variant="primary">Đến Trang Liên Hệ</Button>
           </div>
@@ -93,8 +94,8 @@ export default function Page() {
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Đơn vị:</strong> Thương hiệu Bia Thầy Tu.</p>
-            <p><strong>Lĩnh vực:</strong> Nhập khẩu và phân phối độc quyền bia lúa mì Đức (Benediktiner Weissbier) và bia Bitburger Pilsner tại Việt Nam.</p>
-            <p><strong>Cơ sở:</strong> 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 0899.191.313.</p>
+            <p><strong>Lĩnh vực:</strong> Nhập khẩu và phân phối bia lúa mì Đức (Benediktiner Weissbier) và bia Bitburger Pilsner tại Việt Nam.</p>
+            <p><strong>Cơ sở:</strong> 26 Vạn Phúc, Ba Đình, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 0915 31 21 66.</p>
             <p><strong>Website chính thức:</strong> biathaytu.com.</p>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default function GeoLocalCTA() {
-  const hotlineDisplay = '0899 19 13 13';
-  const hotlineTel = 'tel:0899191313';
-  const zaloUrl = 'https://zalo.me/0899191313';
+  const hotlineDisplay = '0915 31 21 66';
+  const hotlineTel = 'tel:0915312166';
+  const zaloUrl = 'https://zalo.me/0915312166';
   
-  // Official map embed URL for 659A Lạc Long Quân, Tây Hồ, Hà Nội
-  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.473977526786!2d105.8115797749219!3d21.05373808060017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aa32a55a6d59%3A0x6a2c262a4d339f4e!2zNjU5QSBM4bqhYyBMb25nIFF1w6JuLCBUw6J5IEjhu5MsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1720165440000!5m2!1svi!2s";
+  // Official map embed URL for 26 Vạn Phúc, Ba Đình, Hà Nội
+  const mapEmbedUrl = 'https://www.google.com/maps?q=26%20V%E1%BA%A1n%20Ph%C3%BAc%2C%20Ba%20%C4%90%C3%ACnh%2C%20H%C3%A0%20N%E1%BB%99i&output=embed';
 
   return (
     <>
@@ -177,7 +177,7 @@ export default function GeoLocalCTA() {
                 </svg>
               </div>
               <div className="geo-cta-info-text">
-                <strong>Showroom Hà Nội:</strong> 659A Lạc Long Quân, Phường Xuân La, Quận Tây Hồ, Hà Nội.
+                <strong>Showroom Hà Nội:</strong> 26 Vạn Phúc, Ba Đình, Hà Nội.
               </div>
             </div>
             

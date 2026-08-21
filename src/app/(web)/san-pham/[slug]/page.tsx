@@ -32,17 +32,10 @@ interface ProductData {
   hidden?: boolean;
 }
 
-function formatPrice(price: number | null): string {
-  if (!price) return '';
-  return new Intl.NumberFormat('vi-VN').format(price) + '₫';
-}
-
 function getPackagingFormat(name: string): string | null {
   const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^—,]*/i);
   return match?.[0]?.trim() || null;
 }
-
-const referencePriceNote = 'Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -180,15 +173,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
             )}
 
-            {product.price && (
-              <div style={{ marginBottom: '22px' }}>
-                <div className="product-detail-price">{formatPrice(product.price)}</div>
-                <p style={{ margin: '6px 0 0', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>
-                  {referencePriceNote}
-                </p>
-              </div>
-            )}
-
             <div className="product-specs">
               {product.abv && (
                 <div className="product-spec-item">
@@ -284,12 +268,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       </div>
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
-                        {sausage.price && (
-                          <>
-                            <span style={{ display: 'block', fontSize: '14px', fontWeight: 700, color: 'var(--web-red)' }}>{formatPrice(sausage.price)}</span>
-                            <span style={{ display: 'block', marginTop: '3px', fontSize: '10px', lineHeight: 1.35, color: 'var(--web-text-muted)' }}>{referencePriceNote}</span>
-                          </>
-                        )}
                         <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
                           Xem chi tiết &rsaquo;
                         </span>
@@ -315,12 +293,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       </div>
                     </div>
                   </div>
-                  <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
-                    <div>
-                      <span style={{ display: 'block', fontSize: '12px', color: '#a0aab8' }}>Giá tham khảo:</span>
-                      <strong style={{ display: 'block', fontSize: '22px', color: 'var(--web-accent)', fontWeight: 800 }}>{formatPrice(relatedCombo.price)}</strong>
-                      <span style={{ display: 'block', marginTop: '4px', maxWidth: '320px', fontSize: '10px', lineHeight: 1.35, color: '#a0aab8' }}>{referencePriceNote}</span>
-                    </div>
+                  <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                     <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
                       Xem chi tiết
                     </Link>

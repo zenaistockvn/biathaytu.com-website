@@ -3,21 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatPrice } from '@/utils/formatPrice';
 import { getDisplayProductImage } from '../utils/productImages';
-
-function getPerItemPrice(name: string, price: number): string | null {
-  const match = name.match(/(?:thùng|két|hộp|set)?\s*(\d+)\s*(chai|lon)/i);
-  if (match) {
-    const qty = parseInt(match[1], 10);
-    const unit = match[2].toLowerCase();
-    if (qty > 1) {
-      const perItem = Math.round(price / qty);
-      return `~${formatPrice(perItem)}/${unit}`;
-    }
-  }
-  return null;
-}
 
 export interface ProductCardProps {
   id: string;
@@ -37,7 +23,7 @@ export interface ProductCardProps {
   cardId?: string;
   /** Show detail CTA (for product listing page) */
   showCTA?: boolean;
-  /** Show brochure-site price disclaimer directly below the displayed price */
+  /** Kept for compatibility; brochure cards never display prices. */
   showReferencePriceNote?: boolean;
 }
 
@@ -46,9 +32,8 @@ export interface ProductCardProps {
  * The entire card is a single accessible link to avoid nested interactive controls.
  */
 export default function ProductCard({
-  id, name, slug, images, price, description,
+  id, name, slug, images, description,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
-  showReferencePriceNote = false,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -109,36 +94,10 @@ export default function ProductCard({
           </div>
         )}
 
-        {price && (
-          <>
-            <div className={`card-price${isWine ? ' card-price-wine' : ''}`}>
-              {formatPrice(price)}
-              {getPerItemPrice(name, price) && (
-                <span className="card-unit-price">
-                  ({getPerItemPrice(name, price)})
-                </span>
-              )}
-            </div>
-            {showReferencePriceNote && (
-              <p
-                className="card-price-note"
-                style={{
-                  margin: '6px 0 0',
-                  fontSize: '12px',
-                  lineHeight: 1.45,
-                  color: 'var(--web-text-muted)',
-                }}
-              >
-                Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.
-              </p>
-            )}
-          </>
-        )}
-
         {showCTA && (
           <div className="card-actions" aria-hidden="true">
             <span className="btn-primary card-btn-buy shimmer-effect">
-              Xem chi tiết
+              Khám phá sản phẩm
             </span>
           </div>
         )}

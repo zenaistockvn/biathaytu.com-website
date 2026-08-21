@@ -47,7 +47,7 @@ export default function Page() {
             Chính Sách Đại Lý <br />& Báo Giá Sỉ Bia Đức
           </Heading>
           <Text as="p" size="lg" color="white" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
-            Kinh doanh sản phẩm bia nhập khẩu cao cấp với lợi nhuận hấp dẫn cùng nhà phân phối độc quyền Bia Thầy Tu.
+            Kinh doanh sản phẩm bia nhập khẩu cao cấp với lợi nhuận hấp dẫn cùng nhà phân phối Bia Thầy Tu.
           </Text>
         </Container>
       </Section>
@@ -110,11 +110,11 @@ export default function Page() {
             Để nhận file PDF Báo giá sỉ chi tiết và Chính sách chiết khấu, vui lòng liên hệ trực tiếp Giám Đốc Kinh Doanh:
           </Text>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button href="https://zalo.me/0899191313" variant="primary" target="_blank" rel="noopener noreferrer">
+            <Button href="https://zalo.me/0915312166" variant="primary" target="_blank" rel="noopener noreferrer">
               Nhắn Zalo Nhận Bảng Giá
             </Button>
-            <Button href="tel:0899191313" variant="outline">
-              Hotline: 0899.191.313
+            <Button href="tel:0915312166" variant="outline">
+              Hotline: 0915 31 21 66
             </Button>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Cung cấp giá sỉ bia Đức:</strong> Phân phối sỉ, đại lý nhượng quyền thương hiệu bia Benediktiner và Bitburger toàn quốc.</p>
             <p><strong>Quyền lợi đại lý:</strong> Mức chiết khấu cao, hỗ trợ POSM, bảo vệ giá (MAP), có hóa đơn VAT hợp pháp, hỗ trợ vận chuyển.</p>
-            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo 0899.191.313.</p>
+            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo 0915 31 21 66.</p>
           </div>
         </Container>
       </Section>

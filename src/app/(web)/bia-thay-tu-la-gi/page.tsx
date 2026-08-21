@@ -33,7 +33,7 @@ export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
     { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal — nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
-    { question: 'Bia Thầy Tu mua ở đâu chính hãng?', answer: 'Đặt mua tại website biathaytu.com, Zalo/Hotline 0899.191.313, hoặc Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Giao hàng toàn quốc.' },
+    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: 'Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline 0915 31 21 66 hoặc ghé showroom 26 Vạn Phúc, Ba Đình, Hà Nội.' },
   ];
 
   return (
@@ -103,10 +103,10 @@ export default function Page() {
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Thương hiệu:</strong> Bia Thầy Tu / Benediktiner Weissbier</p>
-            <p><strong>Xuất xứ:</strong> Tu Viện Ettal, Bavaria, Đức. Ủ từ năm 1609.</p>
+            <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
             <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Mua hàng:</strong> biathaytu.com · Hotline 0899.191.313 · Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline 0915 31 21 66 · Showroom 26 Vạn Phúc, Ba Đình, Hà Nội.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

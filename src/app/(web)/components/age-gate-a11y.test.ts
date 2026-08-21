@@ -15,7 +15,7 @@ describe('AgeVerificationGate — a11y & tối thiểu hoá dữ liệu', () => 
   });
 
   it('vòng phím Tab trong modal (bẫy focus)', () => {
-    expect(SRC).toContain("e.key === 'Tab'");
+    expect(SRC).toMatch(/\w+\.key !?== ['"]Tab['"]/);
     expect(SRC).toContain('shiftKey');
   });
 

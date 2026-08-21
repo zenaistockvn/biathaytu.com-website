@@ -1,126 +1,140 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import type { Metadata } from 'next';
+import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
+import styles from '../HomeBrand.module.css';
 
 export const metadata: Metadata = {
-  title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
-  description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
-  alternates: {
-    canonical: 'https://www.biathaytu.com/thuong-hieu',
-  },
+  title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+  description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine và hành trình công thức nguyên bản được tiếp nối tại Lich, Đức.',
+  alternates: { canonical: 'https://www.biathaytu.com/thuong-hieu' },
   openGraph: {
-    title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
-    description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
+    title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+    description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     type: 'website',
     url: 'https://www.biathaytu.com/thuong-hieu',
-    images: [
-      {
-        url: '/images/sanh_bia_duc_cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
-      },
-    ],
+    images: [{
+      url: '/images/brand/benediktiner-official/home-hero.jpg',
+      width: 1920,
+      height: 969,
+      alt: 'Benediktiner Weissbier và Tu viện Ettal',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Câu Chuyện Thương Hiệu — 400 Năm Ủ Bia',
-    description: 'Khám phá lịch sử 400 năm truyền thống ủ bia Benediktiner từ Tu Viện Ettal, Bavaria. Chuẩn Luật Tinh Khiết 1516 — chỉ 4 nguyên liệu tự nhiên.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+    description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
+const principles = [
+  ['Tĩnh tại', 'Dành thời gian cho những điều tốt đẹp và một khoảnh khắc thưởng thức trọn vẹn.'],
+  ['Chăm chút', 'Cẩn trọng trong từng lựa chọn nguyên liệu, công thức và cách phục vụ.'],
+  ['Tôn trọng', 'Tôn trọng con người, thiên nhiên và những giá trị đã được truyền lại qua nhiều thế hệ.'],
+] as const;
+
 export default function BrandStoryPage() {
   return (
-    <div className="subpage-wrap">
+    <div>
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Thương Hiệu', url: 'https://www.biathaytu.com/thuong-hieu' },
+        { name: 'Trang chủ', url: 'https://www.biathaytu.com' },
+        { name: 'Câu chuyện', url: 'https://www.biathaytu.com/thuong-hieu' },
       ])} />
 
-      <section className="container subpage-header">
-        <span className="section-label">Di Sản Gần Nửa Thiên Niên Kỷ</span>
-        <h1 className="page-title">Câu Chuyện Thương Hiệu</h1>
-        <p className="page-subtitle">
-          Từ một tu viện cổ xưa ẩn mình giữa rặng núi Alps hùng vĩ, đến những ly bia màu hổ phách và hoàng kim chinh phục toàn thế giới. Khám phá nghệ thuật ủ bia thủ công chứa đựng sự tỉ mỉ vượt thời gian.
-        </p>
+      <section className={styles.catalogHero} aria-labelledby="story-title">
+        <Image
+          src="/images/brand/benediktiner-official/home-hero.jpg"
+          alt="Benediktiner Weissbier trước khung cảnh Tu viện Ettal"
+          fill
+          priority
+          sizes="100vw"
+          className={styles.catalogHeroImage}
+        />
+        <div className={styles.catalogHeroOverlay} />
+        <div className={`container ${styles.catalogHeroCopy}`}>
+          <p className={styles.eyebrow}>Từ Ettal đến thế giới</p>
+          <h1 id="story-title">Hơn 400 năm.<br />Một tinh thần nguyên bản.</h1>
+          <p>Câu chuyện Benediktiner không bắt đầu từ một chiến dịch quảng cáo, mà từ những nguyên tắc sống và làm việc của các tu sĩ Benedictine.</p>
+        </div>
       </section>
 
-      <section className="container" style={{ maxWidth: '1100px' }}>
-        <article className="split-section" style={{ marginBottom: '100px' }}>
-          <div className="story-img-wrap">
+      <section className={`${styles.section} ${styles.storySection}`} aria-labelledby="origin-title">
+        <div className={`container ${styles.storyGrid}`}>
+          <div className={styles.storyImageWrap}>
             <Image
-              src="/images/products/story_monastery_v2.png"
-              alt="Tu Viện Ettal, Bavaria — nơi khởi nguồn bia Benediktiner từ năm 1330"
+              src="/images/brand/benediktiner-official/ettal-monastery.jpg"
+              alt="Toàn cảnh Tu viện Ettal tại Bavaria, Đức"
               fill
-              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.storyImage}
             />
+            <span className={styles.sourceNote}>Ảnh chính thức từ Benediktiner Weissbräu</span>
           </div>
-          <div>
-            <h2 className="story-heading">Tu Viện Ettal — Nơi Khởi Nguồn</h2>
-            <p className="story-lead">
-              Nằm sâu trong thung lũng thanh bình của dãy Bavarian Alps (Đức), tu viện Ettal được thành lập từ năm 1330 bởi Hoàng đế Louis IV.
-            </p>
-            <p className="story-body">
-              Từ năm 1609, các tu sĩ dòng Benedictine tại đây bắt đầu ủ những mẻ bia đầu tiên. Xuyên suốt hơn 4 thế kỷ, từng giọt bia đều chứa đựng sự tĩnh lặng kỷ luật, lòng kiên nhẫn và sự tôn trọng tuyệt đối dành cho nguyên bản của thiên nhiên.
-            </p>
+          <div className={styles.storyCopy}>
+            <p className={styles.eyebrowDark}>Nơi khởi nguồn</p>
+            <h2 id="origin-title">Tu viện Ettal, giữa dãy Alps Bavaria</h2>
+            <p className={styles.lead}>Tu viện Ettal được thành lập năm 1330. Khoảng bốn thế kỷ trước, các tu sĩ Benedictine tại đây đã phát triển truyền thống bia lúa mì mà Benediktiner tiếp tục tôn vinh ngày nay.</p>
+            <p>Điều được truyền lại không chỉ là một công thức, mà còn là cách tiếp cận: bình tĩnh, cẩn trọng và tôn trọng nguyên liệu. Đây là phần cốt lõi tạo nên thế giới thương hiệu Benediktiner.</p>
+            <div className={styles.timeline}>
+              <div><strong>1330</strong><span>Tu viện Ettal thành lập</span></div>
+              <div><strong>400+</strong><span>Năm truyền thống bia lúa mì</span></div>
+              <div><strong>877 m</strong><span>Độ cao của tu viện theo hãng</span></div>
+            </div>
           </div>
-        </article>
-
-        <article className="split-section" style={{ marginBottom: '100px' }}>
-          <div style={{ order: 1 }}>
-            <h2 className="story-heading">Luật Tinh Khiết Bavarian <br/><span className="story-accent">(Reinheitsgebot 1516)</span></h2>
-            <p className="story-lead">
-              Benediktiner là minh chứng hoàn hảo về độ tinh khiết tuyệt đối.
-            </p>
-            <p className="story-body">
-              Hoàn toàn trung thành với Đạo luật Tinh Khiết năm 1516 do Công tước Wilhelm IV ban hành. Chỉ đúng 4 báu vật thiên nhiên được phép hiện diện: Nguồn nước khoáng vô trùng từ rặng Alps, Mạch nha thượng hạng, Hoa bia tươi vùng Hallertau và Dòng men tự nhiên thuần chủng của tu viện. Không phụ gia, không chất bảo quản.
-            </p>
-          </div>
-          <div style={{ order: 2 }} className="story-img-wrap">
-            <Image
-              src="/images/products/premium_ugc/benediktiner_heritage.png"
-              alt="4 nguyên liệu bia Đức chuẩn Luật Tinh Khiết 1516 — nước, malt, hoa bia, men"
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </div>
-        </article>
-
-        <article className="split-section" style={{ marginBottom: '80px' }}>
-          <div className="story-img-wrap">
-            <Image
-              src="/images/products/hero_weissbier_v2.png"
-              alt="Bia lúa mì Benediktiner Weissbier Naturtrüb — không lọc, lên men tự nhiên trong chai"
-              fill
-              style={{ objectFit: 'contain', objectPosition: 'center' }}
-            />
-          </div>
-          <div>
-            <h2 className="story-heading">Lên Men Tự Nhiên Bừng Sức Sống</h2>
-            <p className="story-lead">
-              Sự vẩn đục (Naturtrüb) của lớp bia chính là sự hiện diện của sức sống.
-            </p>
-            <p className="story-body">
-              Kế thừa phương pháp lên men đỉnh cổ truyền. Lớp men không bị lọc thô mà tiếp tục được ủ chín thủ công ngay trong chai/bom, giúp giải phóng chùm hương hoa quả đặc sắc của chuối, đinh hương, và xen lẫn vị caramel ngọt ngào — mang lại dư vị &quot;Umami&quot; tròn trịa lan tỏa mọi giác quan.
-            </p>
-          </div>
-        </article>
+        </div>
       </section>
 
-      <section className="container" style={{ marginTop: '120px' }}>
-        <div className="cta-banner brand-story-cta">
-          <span className="cta-banner-watermark">B</span>
-          <div className="cta-banner-icon"><span>B</span></div>
-          <h2>Nhập khẩu &amp; Phân Phối Độc Quyền</h2>
-          <p>
-            Bia Thầy Tu Benediktiner được nhập khẩu và phân phối độc quyền tại Việt Nam.
-            Cam kết 100% nguyên bản nhập khẩu chính ngạch từ Đức, bảo quản lạnh tối ưu để giữ trọn vẹn hương vị tu viện trong từng hơi thở sủi bọt.
-          </p>
-          <Link href="/san-pham" className="btn-primary">
-            Khám Phá Bộ Sưu Tập BIA THẦY TU
-          </Link>
+      <section className={styles.section} aria-labelledby="principles-title">
+        <div className="container">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrowDark}>Các nguyên tắc Benedictine</p>
+            <h2 id="principles-title">Triết lý đứng sau mỗi ly bia</h2>
+            <p>Ba nguyên tắc được hãng nhấn mạnh xuyên suốt câu chuyện thương hiệu và nghệ thuật nấu bia.</p>
+          </div>
+          <div className={styles.principleGrid}>
+            {principles.map(([title, description], index) => (
+              <article key={title}>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.tastingSection} aria-labelledby="today-title">
+        <div className={`container ${styles.storyGrid}`}>
+          <div className={styles.storyCopy}>
+            <p className={styles.eyebrow}>Truyền thống được tiếp nối</p>
+            <h2 id="today-title" className={styles.lightHeading}>Được nấu tại Lich theo công thức Benedictine nguyên bản</h2>
+            <p className={styles.lightBody}>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal — thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
+            <a href="https://www.benediktiner-weissbier.de/en/our-history" target="_blank" rel="noopener noreferrer" className={styles.lightLink}>Xem nguồn chính thức <span aria-hidden="true">→</span></a>
+          </div>
+          <div className={styles.storyImageWrap}>
+            <Image
+              src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
+              alt="Chai và ly Benediktiner Weissbier Naturtrüb"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.storyImage}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.b2bSection} aria-labelledby="story-cta-title">
+        <div className={`container ${styles.b2bInner}`}>
+          <div>
+            <p className={styles.eyebrow}>Tiếp tục hành trình</p>
+            <h2 id="story-cta-title">Khám phá hương vị Benediktiner</h2>
+            <p>Từ Naturtrüb cân bằng đến Dunkel đậm malt và Festbier dành cho những dịp sum họp.</p>
+          </div>
+          <div className={styles.b2bActions}>
+            <Link href="/san-pham" className={styles.primaryLightLink}>Xem các dòng bia</Link>
+            <Link href="/huong-dan-rot-bia-lua-mi" className={styles.outlineLightLink}>Nghệ thuật thưởng thức</Link>
+          </div>
         </div>
       </section>
     </div>

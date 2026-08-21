@@ -83,7 +83,7 @@ export default function FootballCampaignPopup() {
 
   if (!isOpen) return null;
 
-  const zaloBaseUrl = 'https://zalo.me/0899191313';
+  const zaloBaseUrl = 'https://zalo.me/0915312166';
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
 

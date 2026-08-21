@@ -11,10 +11,11 @@ import { getCompanyZaloUrl } from '@/config/company';
 const DARK_HERO_PATHS = new Set(['/', '/kien-thuc']);
 
 export default function WebHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { t } = useLanguage();
+  const menuOpen = menuOpenPath === pathname;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -22,10 +23,6 @@ export default function WebHeader() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -41,8 +38,9 @@ export default function WebHeader() {
   const navLinks = [
     { href: '/san-pham', label: t('nav.products') },
     { href: '/thuong-hieu', label: t('nav.brand') },
+    { href: '/huong-dan-rot-bia-lua-mi', label: t('nav.tasting') },
     { href: '/kien-thuc', label: t('nav.knowledge') },
-    { href: '/lien-he', label: t('nav.contact') },
+    { href: '/bia-duc-cho-nha-hang-khach-san', label: t('nav.horeca') },
   ];
 
   const hasDarkHero = DARK_HERO_PATHS.has(pathname);
@@ -87,7 +85,7 @@ export default function WebHeader() {
         <div className="web-nav-mobile-right">
           <button
             className="web-nav-hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpenPath(menuOpen ? null : pathname)}
             aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={menuOpen}
             style={{ color: headerOnDark ? '#fff' : 'var(--web-ink)' }}
@@ -103,7 +101,7 @@ export default function WebHeader() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => setMenuOpenPath(null)}
               className="web-mobile-menu-link"
             >
               {link.label}

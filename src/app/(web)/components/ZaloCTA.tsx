@@ -9,7 +9,7 @@ interface ZaloCTAProps {
 }
 
 export default function ZaloCTA({ productName, className = '', label = 'Tư vấn qua Zalo', variant = 'gold' }: ZaloCTAProps) {
-  const zaloPhone = '0899191313';
+  const zaloPhone = '0915312166';
   const defaultMessage = productName
     ? `Chào Bia Thầy Tu, mình muốn được tư vấn về sản phẩm ${productName}`
     : 'Chào Bia Thầy Tu, mình muốn được tư vấn về các sản phẩm bia Đức';

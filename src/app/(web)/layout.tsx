@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     default: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
     template: '%s | Bia Thầy Tu',
   },
-  description: 'Bia Thầy Tu Benediktiner Weissbier — bia Đức nhập khẩu chính hãng từ Tu Viện Ettal, Bavaria. Thông tin sản phẩm, nguồn gốc, hương vị, văn hóa bia Đức và tư vấn.',
+  description: 'Khám phá Bia Thầy Tu Benediktiner: nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và thông tin tư vấn tại Việt Nam.',
   keywords: [
     'bia đức nhập khẩu', 'bia nhập khẩu', 'bia thầy tu', 'benediktiner', 'bia weissbier',
     'bia lúa mì đức', 'bia đen đức', 'german beer vietnam', 'bia đức chính hãng',
@@ -76,13 +76,13 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: 'Bia Thầy Tu',
     title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
-    description: 'Khám phá Benediktiner Weissbier và các dòng bia Đức nhập khẩu chính hãng: nguồn gốc, hương vị, cách thưởng thức và thông tin tư vấn sản phẩm.',
+    description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, hương vị, cách thưởng thức và thông tin tư vấn tại Việt Nam.',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
+        url: '/images/brand/benediktiner-official/home-hero.jpg',
+        width: 1920,
+        height: 969,
+        alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal',
       },
     ],
   },
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner — Bia Đức Nhập Khẩu Chính Hãng',
     description: 'Thông tin về Bia Thầy Tu, Benediktiner và bia Đức nhập khẩu chính hãng tại Việt Nam.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
   robots: {
     index: true,

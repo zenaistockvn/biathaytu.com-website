@@ -27,8 +27,8 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       </h3>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-        <a href="tel:0899191313" className="btn-primary detail-btn-buy shimmer-effect">
-          Gọi 0899.191.313
+        <a href="tel:0915312166" className="btn-primary detail-btn-buy shimmer-effect">
+          Gọi 0915 31 21 66
         </a>
 
         <ZaloCTA

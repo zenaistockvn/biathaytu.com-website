@@ -1,36 +1,40 @@
 import ZaloCTA from '../components/ZaloCTA';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref } from '@/config/company';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-  description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+  title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
+  description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}. Tư vấn sản phẩm, HORECA và hợp tác phân phối.`,
   alternates: {
     canonical: 'https://www.biathaytu.com/lien-he',
   },
   openGraph: {
-    title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
+    title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
+    description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
     type: 'website',
     url: 'https://www.biathaytu.com/lien-he',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
+        url: '/images/brand/benediktiner-official/home-hero.jpg',
+        width: 1920,
+        height: 969,
+        alt: 'Liên hệ và tư vấn Bia Thầy Tu Benediktiner',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Liên Hệ — Đặt Hàng & Tư Vấn Bia Đức',
-    description: 'Liên hệ Bia Thầy Tu — Hotline 0899.191.313. Showroom 659A Lạc Long Quân, Phường Tây Hồ, Hà Nội. Tư vấn đại lý, báo giá sỉ, giao hàng toàn quốc.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
+    description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
 export default function ContactPage() {
+  const telHref = getCompanyTelHref();
+  const mailtoHref = getCompanyMailtoHref();
+
   return (
     <div className="subpage-wrap">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
@@ -56,23 +60,23 @@ export default function ContactPage() {
             <div className="contact-info-list">
               <div>
                 <strong>Bia Thầy Tu</strong>
-                <span className="muted">Nhà nhập khẩu và phân phối độc quyền Bia Thầy Tu Benediktiner tại Việt Nam.</span>
+                <span className="muted">Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner tại Việt Nam.</span>
               </div>
               
               <div>
-                <strong>Trụ sở chính &amp; Showroom</strong>
-                <span className="muted">659A Lạc Long Quân, Phường Tây Hồ, Hà Nội</span>
+                <strong>Điểm giới thiệu sản phẩm</strong>
+                <span className="muted">{COMPANY_CONFIG.showroomAddress}</span>
               </div>
               
               <div>
                 <strong>Tổng đài CSKH</strong>
-                <a href="tel:0899191313" className="phone">0899.191.313</a>
+                {telHref ? <a href={telHref} className="phone">{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
                 <span className="small">(Hỗ trợ: 09:00 - 21:00 hàng ngày)</span>
               </div>
 
               <div>
                 <strong>Email</strong>
-                <a href="mailto:info@biathaytu.com" style={{ opacity: 0.85 }}>info@biathaytu.com</a>
+                {mailtoHref ? <a href={mailtoHref} style={{ opacity: 0.85 }}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}
               </div>
             </div>
 
@@ -90,10 +94,7 @@ export default function ContactPage() {
             </p>
             
             <div className="contact-cta-list">
-              <ZaloCTA 
-                label="Đặt mua lẻ — Giao tận nơi" 
-                productName="Đặt mua lẻ"
-              />
+              <ZaloCTA label="Tư vấn dòng bia phù hợp" productName="Tư vấn sản phẩm" />
               <ZaloCTA 
                 label="Báo giá sỉ / Đại lý" 
                 productName="Báo giá sỉ / Đại lý"
@@ -111,7 +112,7 @@ export default function ContactPage() {
             </div>
 
             <p className="contact-alt-phone">
-              Hoặc gọi trực tiếp <a href="tel:0899191313">0899.191.313</a>
+              Hoặc gọi trực tiếp {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
             </p>
           </div>
         </div>

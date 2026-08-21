@@ -16,25 +16,25 @@ describe('public product data regressions', () => {
     expect(dumpScript).toContain("['bia', 'vang', 'phu-kien', 'xuc-xich']");
   });
 
-  it('renders a German sausage section on the product listing page', () => {
+  it('keeps the public catalog focused on Benediktiner and other German beers', () => {
     const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
 
-    expect(productsPage).toContain('getSausageProducts');
-    expect(productsPage).toContain('sausageProducts');
-    expect(productsPage).toContain('Món Ăn Kèm Bia');
-    expect(productsPage).toContain('Xúc Xích Đức');
+    expect(productsPage).toContain('getBeerProducts');
+    expect(productsPage).toContain('benediktinerProducts');
+    expect(productsPage).toContain('Bộ sưu tập Benediktiner');
+    expect(productsPage).not.toContain('getSausageProducts');
+    expect(productsPage).not.toContain('getComboProducts');
+    expect(productsPage).not.toContain("getProductsByCategory('vang')");
   });
 
-  it('highlights the Combo Cold Cut deal on the product listing page', () => {
+  it('removes price-led promotion from the brand catalog', () => {
     const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
     const productCard = readProjectFile('src/app/(web)/components/ProductCard.tsx');
-    const styles = readProjectFile('src/app/web.css');
 
-    expect(productsPage).toContain("product.slug === 'the-wurst-combo-cold-cut-150g'");
-    expect(productsPage).toContain("highlightLabel={isColdCutDeal ? 'Ưu đãi còn 99K' : undefined}");
-    expect(productCard).toContain('highlightLabel');
-    expect(productCard).toContain('card-promo-badge');
-    expect(styles).toContain('product-card-highlight');
+    expect(productsPage).not.toContain('highlightLabel');
+    expect(productCard).not.toContain('formatPrice');
+    expect(productCard).not.toContain('card-price-current');
+    expect(productCard).toContain('Khám phá sản phẩm');
   });
 
   it('does not request product columns that are absent from the Supabase schema', () => {

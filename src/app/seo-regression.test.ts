@@ -45,7 +45,7 @@ describe('SEO and GEO regressions', () => {
 
     expect(schema.url).toBe(canonicalUrl);
     expect(schema.image).toBe('https://www.biathaytu.com/images/products/official/benediktiner/bottle_removebg.png');
-    expect(schema.offers?.url).toBe(canonicalUrl);
+    expect((schema as Record<string, unknown>).offers).toBeUndefined();
   });
 
   it('lets article schema use root landing canonical URLs and absolute image URLs', () => {
@@ -96,7 +96,10 @@ describe('SEO and GEO regressions', () => {
       .map(readProjectFile)
       .join('\n');
 
-    expect(surfaces).toContain('0899.191.313');
+    const companyConfig = readProjectFile('src/config/company.ts');
+
+    expect(companyConfig).toContain("hotline: '0915 31 21 66'");
+    expect(surfaces).toContain('COMPANY_CONFIG');
     // Bắt mọi biến thể số cũ: 915 312 166 / 915-312-166 / 915.312.166 / 915312166
     expect(surfaces).not.toMatch(/915[\s.\-]?312[\s.\-]?166/);
   });
