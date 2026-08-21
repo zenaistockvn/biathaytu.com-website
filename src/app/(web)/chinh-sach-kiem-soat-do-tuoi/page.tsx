@@ -31,17 +31,17 @@ export default function AgeControlPolicyPage() {
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>2. Quy trình khai báo độ tuổi</h2>
           <p>
-            - Người truy cập chưa có trạng thái xác minh hợp lệ phải nhập họ và tên đầy đủ (tối thiểu 2 từ) và ngày sinh trước khi thấy nội dung website.<br />
-            - Tuổi được tính trực tiếp trên trình duyệt từ ngày sinh đã khai báo.<br />
-            - Người từ đủ 18 tuổi được tiếp tục truy cập; website lưu cookie trạng thái xác minh trong 30 ngày.<br />
-            - Người chưa đủ 18 tuổi nhận thông báo “Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.” và không có chức năng bỏ qua cổng kiểm soát.
+            - Người truy cập chưa có trạng thái xác nhận hợp lệ được yêu cầu tự khai báo mình đã từ đủ 18 tuổi trước khi tiếp tục truy cập nội dung website.<br />
+            - Người từ đủ 18 tuổi chọn “Tôi từ đủ 18 tuổi”; website lưu cookie trạng thái xác nhận trong 30 ngày để tránh yêu cầu lặp lại ở mỗi lần truy cập.<br />
+            - Người chưa đủ 18 tuổi chọn “Tôi chưa đủ 18 tuổi” và nhận thông báo “Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.”<br />
+            - Cổng kiểm soát không yêu cầu nhập họ tên, ngày sinh, số giấy tờ hoặc dữ liệu định danh.
           </p>
         </section>
 
         <section style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>3. Cách xử lý dữ liệu khai báo</h2>
           <p>
-            Họ tên và ngày sinh chỉ tồn tại tạm thời trong bộ nhớ của trình duyệt để thực hiện phép kiểm tra độ tuổi. Website không gửi hai trường này về server, không lưu vào cơ sở dữ liệu, cookie hoặc localStorage. Cookie xác minh chỉ ghi trạng thái theo phiên bản chính sách, không chứa họ tên, ngày sinh hoặc tuổi cụ thể.
+            Cơ chế khai báo độ tuổi chỉ lưu cookie trạng thái xác nhận theo phiên bản chính sách. Cookie này không chứa họ tên, ngày sinh, tuổi cụ thể hoặc dữ liệu định danh cá nhân. Website không tạo hồ sơ tuổi từ cổng kiểm soát này.
           </p>
         </section>
 
