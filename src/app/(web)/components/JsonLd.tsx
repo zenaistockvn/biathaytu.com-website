@@ -1,16 +1,10 @@
-/**
- * JSON-LD Structured Data for SEO, AEO, and AI Overview optimization.
- * Helps search engines and AI assistants understand the business and products.
- */
+/** JSON-LD Structured Data for SEO, AEO, and AI Overview optimization. */
 
 import { getPublicBaseUrl, toAbsoluteSiteUrl } from '@/lib/seo/site';
 import { BUSINESS, getBrandInfo } from '@/lib/seo/business';
-import { COMPANY_CONFIG, isPendingCompanyValue } from '@/config/company';
+import { BRAND } from '@/lib/brand';
 
 const BASE_URL = getPublicBaseUrl();
-const hasConfirmedLegalName = !isPendingCompanyValue(COMPANY_CONFIG.legalName);
-const hasConfirmedShowroomAddress = !isPendingCompanyValue(COMPANY_CONFIG.showroomAddress);
-const hasConfirmedHotline = !isPendingCompanyValue(COMPANY_CONFIG.hotline) && Boolean(BUSINESS.phoneE164);
 
 interface JsonLdProps {
   type: 'organization' | 'product' | 'faq' | 'breadcrumb' | 'website' | 'article' | 'store';
@@ -26,45 +20,43 @@ export default function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-/* ═══ Pre-built Schema Generators ═══ */
-
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${BASE_URL}/#organization`,
-    name: 'Bia Thầy Tu',
-    ...(hasConfirmedLegalName ? { legalName: COMPANY_CONFIG.legalName } : {}),
-    alternateName: ['Bia Thầy Tu', 'Benediktiner Vietnam'],
+    name: BRAND.consumerBrand,
+    legalName: BRAND.legalName,
+    alternateName: ['Bia Thầy Tu', 'Benediktiner Vietnam', BRAND.name],
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Đơn vị giới thiệu Bia Thầy Tu Benediktiner tại Việt Nam. Thông tin về nguồn gốc Ettal, hương vị bia Đức và tư vấn sản phẩm.',
+    description: 'German Taste giới thiệu và phân phối Benediktiner tại Việt Nam, với thông tin về Ettal, hương vị bia Đức và tư vấn sản phẩm.',
+    slogan: BRAND.exclusivity,
     areaServed: {
       '@type': 'Country',
       name: 'Vietnam',
     },
-    ...(hasConfirmedShowroomAddress
-      ? {
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: COMPANY_CONFIG.showroomAddress,
-            addressCountry: BUSINESS.addressCountry,
-          },
-        }
-      : {}),
-    ...(hasConfirmedHotline
-      ? {
-          contactPoint: {
-            '@type': 'ContactPoint',
-            telephone: BUSINESS.phoneE164,
-            contactType: 'customer service',
-            availableLanguage: ['Vietnamese', 'English'],
-            areaServed: 'VN',
-          },
-        }
-      : {}),
-    ...(BUSINESS.zaloUrl ? { sameAs: [BUSINESS.zaloUrl] } : {}),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: BRAND.showroomAddress,
+      addressLocality: 'Ba Đình',
+      addressRegion: 'Hà Nội',
+      addressCountry: BUSINESS.addressCountry,
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: BUSINESS.phoneE164,
+      email: BRAND.email,
+      contactType: 'customer service',
+      availableLanguage: ['Vietnamese', 'English'],
+      areaServed: 'VN',
+    },
+    sameAs: [
+      BRAND.socialLinks.zalo,
+      BRAND.socialLinks.fanpage,
+      BRAND.socialLinks.messenger,
+    ],
   };
 }
 
@@ -74,8 +66,8 @@ export function getWebsiteSchema() {
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
-    name: 'Bia Thầy Tu — Bia Đức Nhập Khẩu Benediktiner',
-    description: 'Website giới thiệu Bia Thầy Tu Benediktiner — nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và nghệ thuật thưởng thức.',
+    name: 'Bia Thầy Tu — Benediktiner tại Việt Nam',
+    description: 'Website thương hiệu Benediktiner tại Việt Nam: câu chuyện Ettal, danh mục bia Đức, cách thưởng thức và tư vấn HORECA.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -89,22 +81,25 @@ export function getStoreSchema() {
     '@type': 'LocalBusiness',
     '@id': `${BASE_URL}/#store`,
     name: BUSINESS.name,
-    ...(hasConfirmedLegalName ? { legalName: BUSINESS.legalName } : {}),
+    legalName: BRAND.legalName,
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/images/products/official/benediktiner/bottle_removebg.png`,
-    description: 'Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner tại Việt Nam.',
-    ...(hasConfirmedHotline ? { telephone: BUSINESS.phoneE164 } : {}),
-    ...(hasConfirmedShowroomAddress
-      ? {
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: COMPANY_CONFIG.showroomAddress,
-            addressCountry: BUSINESS.addressCountry,
-          },
-        }
-      : {}),
-    ...(BUSINESS.zaloUrl ? { sameAs: [BUSINESS.zaloUrl] } : {}),
+    description: 'Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner của German Taste tại Hà Nội.',
+    telephone: BUSINESS.phoneE164,
+    email: BRAND.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: BRAND.showroomAddress,
+      addressLocality: 'Ba Đình',
+      addressRegion: 'Hà Nội',
+      addressCountry: BUSINESS.addressCountry,
+    },
+    sameAs: [
+      BRAND.socialLinks.zalo,
+      BRAND.socialLinks.fanpage,
+      BRAND.socialLinks.messenger,
+    ],
   };
 }
 
@@ -126,10 +121,8 @@ export function getProductSchema(product: {
 }) {
   const productUrl = product.url || `${BASE_URL}/san-pham/${product.slug}`;
   const info = getBrandInfo(product.name, product.category);
-
-  const isBelgium = product.name.toLowerCase().includes('bỉ') ||
-                    product.name.toLowerCase().includes('chimay') ||
-                    product.name.toLowerCase().includes('rochefort');
+  const normalizedName = product.name.toLowerCase();
+  const isBelgium = normalizedName.includes('bỉ') || normalizedName.includes('chimay') || normalizedName.includes('rochefort');
 
   return {
     '@context': 'https://schema.org',
@@ -137,8 +130,8 @@ export function getProductSchema(product: {
     '@id': `${productUrl}#product`,
     name: product.name,
     url: productUrl,
-    image: toAbsoluteSiteUrl(product.images?.[0] || '/logo.jpg', BASE_URL),
-    description: product.description || `${product.name} — nhập khẩu chính hãng.`,
+    image: toAbsoluteSiteUrl(product.images?.[0] || '/images/products/placeholder-product.svg', BASE_URL),
+    description: product.description || `${product.name} — thông tin sản phẩm và gợi ý thưởng thức.`,
     sku: product.id || product.slug,
     mpn: product.id || product.slug,
     brand: { '@type': 'Brand', name: info.brand },
@@ -147,7 +140,7 @@ export function getProductSchema(product: {
           manufacturer: {
             '@type': 'Organization',
             name: info.manufacturer,
-            address: { '@type': 'PostalAddress', addressCountry: info.manufacturerCountry, addressRegion: 'Bavaria' },
+            address: { '@type': 'PostalAddress', addressCountry: info.manufacturerCountry },
           },
         }
       : {}),
@@ -190,30 +183,28 @@ export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) 
 }
 
 export function getLandingFAQSchema() {
-  const faqs = [
+  return getFaqSchema([
     {
       question: 'Bia Thầy Tu là bia gì?',
-      answer: 'Bia Thầy Tu là cách gọi thân thuộc tại Việt Nam dành cho Benediktiner, thương hiệu bia Đức có nguồn gốc truyền thống từ Tu viện Ettal và hơn 400 năm di sản bia lúa mì Benedictine.',
+      answer: 'Bia Thầy Tu là cách gọi thân thuộc tại Việt Nam dành cho Benediktiner, thương hiệu bia Đức gắn với truyền thống Tu viện Ettal.',
     },
     {
       question: 'Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?',
-      answer: 'Benediktiner được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Tu viện Ettal là cội nguồn của truyền thống và triết lý thương hiệu.',
+      answer: BRAND.historyFacts,
     },
     {
       question: 'Bia Benediktiner Weissbier Naturtrüb có vị gì?',
-      answer: 'Benediktiner Weissbier Naturtrüb nổi bật với hương chuối chín và đinh hương, màu vàng hổ phách tự nhiên, lớp bọt trắng mịn và cảm giác êm cân bằng.',
+      answer: 'Benediktiner Weissbier Naturtrüb nổi bật với hương chuối chín và đinh hương, màu vàng đục tự nhiên, lớp bọt trắng mịn và cảm giác êm cân bằng.',
     },
     {
       question: 'Có thể tìm hiểu Bia Thầy Tu tại đâu ở Hà Nội?',
-      answer: `Vui lòng liên hệ trước hoặc ghé điểm giới thiệu tại ${COMPANY_CONFIG.showroomAddress}. Thông tin hotline và email được công bố thống nhất trên website.`,
+      answer: `Vui lòng liên hệ trước hoặc ghé điểm giới thiệu tại ${BRAND.showroomAddress}. Hotline và email được công bố thống nhất trên website.`,
     },
     {
       question: 'Bia Thầy Tu hiện giới thiệu những dòng Benediktiner nào?',
       answer: 'Các dòng nổi bật gồm Weissbier Naturtrüb, Weissbier Dunkel và Festbier, với nhiều quy cách chai, lon hoặc bom tùy từng thời điểm.',
     },
-  ];
-
-  return getFaqSchema(faqs);
+  ]);
 }
 
 export function getArticleSchema(article: {
@@ -237,12 +228,12 @@ export function getArticleSchema(article: {
     },
     headline: article.title,
     description: article.description,
-    image: toAbsoluteSiteUrl(article.imageUrl || '/logo.jpg', BASE_URL),
+    image: toAbsoluteSiteUrl(article.imageUrl || '/logo.png', BASE_URL),
     datePublished: article.datePublished,
     dateModified: article.dateModified,
     author: {
-      '@type': 'Person',
-      name: article.authorName || 'Bia Thầy Tu',
+      '@type': 'Organization',
+      name: article.authorName || BRAND.name,
     },
     publisher: {
       '@id': `${BASE_URL}/#organization`,
