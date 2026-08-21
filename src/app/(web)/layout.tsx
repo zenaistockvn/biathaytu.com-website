@@ -7,6 +7,7 @@ import WebFooter from './components/WebFooter';
 import Toast from './components/Toast';
 import FloatingZaloCTA from './components/FloatingZaloCTA';
 import MobileBottomNav from './components/MobileBottomNav';
+import CatalogStickyNav from './components/CatalogStickyNav';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
 import FacebookMessengerChat from './components/FacebookMessengerChat';
@@ -124,6 +125,7 @@ export default function WebLayout({
           <JsonLd type="organization" data={getOrganizationSchema()} />
           <JsonLd type="website" data={getWebsiteSchema()} />
           <WebHeader />
+          <CatalogStickyNav />
           <main id="main-content">{children}</main>
           <WebFooter />
           <FloatingZaloCTA />
