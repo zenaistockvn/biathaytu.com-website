@@ -53,23 +53,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: product.name,
     description: pageDescription,
-    alternates: {
-      canonical: productUrl,
-    },
+    alternates: { canonical: productUrl },
     openGraph: {
       title: product.name,
       description: pageDescription,
       url: productUrl,
       type: 'website',
       siteName: 'Bia Thầy Tu',
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: product.name,
-        },
-      ],
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: product.name }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -157,22 +148,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   const s = product.slug || '';
                   if (s === 'the-wurst-wiener-hun-khoi-500g') return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
                   if (s === 'the-wurst-thuringer-bratwurst-500g') return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
-                  if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
+                  if (s === 'the-wurst-combo-cold-cut-150g') return ['Cold cut', '150g', 'Ăn kèm bia Đức'];
                   return [];
                 })().map((tag) => (
-                  <span key={tag} className={`detail-pill-tag${tag === 'Combo 99K' ? ' highlight-tag' : ''}`}>
-                    {tag}
-                  </span>
+                  <span key={tag} className="detail-pill-tag">{tag}</span>
                 ))}
               </div>
             )}
 
             {isCombo && (
               <div className="product-detail-tags">
-                {['Combo Tham Khảo', 'Bia & Xúc xích Đức', 'Quà tặng kèm'].map((tag) => (
-                  <span key={tag} className={`detail-pill-tag${tag === 'Combo Tham Khảo' ? ' highlight-tag' : ''}`}>
-                    {tag}
-                  </span>
+                {['Bia & Xúc xích Đức', 'Quà tặng kèm'].map((tag) => (
+                  <span key={tag} className="detail-pill-tag">{tag}</span>
                 ))}
               </div>
             )}
@@ -208,24 +195,14 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
             </div>
 
-            <div
-              style={{
-                margin: '20px 0',
-                padding: '16px 18px',
-                borderLeft: '3px solid var(--web-accent)',
-                background: 'var(--web-bg-warm)',
-                borderRadius: '0 10px 10px 0',
-              }}
-            >
+            <div style={{ margin: '20px 0', padding: '16px 18px', borderLeft: '3px solid var(--web-accent)', background: 'var(--web-bg-warm)', borderRadius: '0 10px 10px 0' }}>
               <strong style={{ display: 'block', marginBottom: '5px', color: 'var(--web-ink)' }}>Hương vị nổi bật</strong>
               <span style={{ color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{tastingNote}</span>
             </div>
 
             <div className="product-description">
               {product.description || (
-                <p>
-                  Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
-                </p>
+                <p>Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.</p>
               )}
             </div>
 
@@ -233,9 +210,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
             <div className="product-guarantee">
               <h4><span>🛡️</span> {guaranteeTitle}</h4>
-              <ul>
-                {guaranteeItems.map((item) => <li key={item}>{item}</li>)}
-              </ul>
+              <ul>{guaranteeItems.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
 
             <ProductDetailsAccordion productName={product.name} category={product.category} />
@@ -257,20 +232,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {sausageProducts.map((sausage) => (
-                    <Link
-                      key={sausage.id}
-                      href={`/san-pham/${sausage.slug}`}
-                      className="pairing-sausage-item"
-                      style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
-                    >
+                    <Link key={sausage.id} href={`/san-pham/${sausage.slug}`} className="pairing-sausage-item" style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}>
                       <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
                         <img src={sausage.images?.[0] || PRODUCT_PLACEHOLDER} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                       </div>
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
-                        <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
-                          Xem chi tiết &rsaquo;
-                        </span>
+                        <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>Xem chi tiết &rsaquo;</span>
                       </div>
                     </Link>
                   ))}
@@ -280,9 +248,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               {relatedCombo && (
                 <div style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
                   <div>
-                    <h3 style={{ color: 'var(--web-accent)', borderBottom: '2px solid var(--web-accent-strong)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>🎁</span> Combo Đề Xuất
-                    </h3>
+                    <h3 style={{ color: 'var(--web-accent)', borderBottom: '2px solid var(--web-accent-strong)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}><span>🎁</span> Combo Đề Xuất</h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <img src={relatedCombo.images?.[0] || PRODUCT_PLACEHOLDER} alt={relatedCombo.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
@@ -294,9 +260,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     </div>
                   </div>
                   <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
-                      Xem chi tiết
-                    </Link>
+                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>Xem chi tiết</Link>
                   </div>
                 </div>
               )}
@@ -310,7 +274,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <span className="section-label">Gợi Ý Thêm</span>
               <h2 className="section-title related-products-title">Có Thể Bạn Sẽ Thích</h2>
             </div>
-
             <div className="grid-featured-products">
               {(relatedProductsData as unknown as ProductCardProps[]).map((relatedProduct) => (
                 <ProductCard key={relatedProduct.id} {...relatedProduct} showCTA={true} showReferencePriceNote={true} />
