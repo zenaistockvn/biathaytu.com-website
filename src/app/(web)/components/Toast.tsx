@@ -1,6 +1,5 @@
 'use client';
 import { useToastStore } from '@/stores/useToastStore';
-import Link from 'next/link';
 
 export default function Toast() {
   const { message, visible, hide } = useToastStore();
@@ -30,18 +29,6 @@ export default function Toast() {
         }}
       >
         <span>{message}</span>
-        <Link
-          href="/dat-hang"
-          onClick={hide}
-          style={{
-            color: 'var(--web-primary)',
-            textDecoration: 'underline',
-            fontSize: '14px',
-            fontWeight: 600,
-          }}
-        >
-          Xem giỏ hàng →
-        </Link>
         <button
           onClick={hide}
           aria-label="Đóng thông báo"
@@ -51,7 +38,7 @@ export default function Toast() {
             color: 'rgba(255,255,255,0.7)',
             cursor: 'pointer',
             padding: '4px',
-            marginLeft: '8px',
+            marginLeft: 'auto',
           }}
         >
           ✕
