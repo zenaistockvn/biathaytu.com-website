@@ -51,11 +51,28 @@ function parsePackCount(name: string): { count: number; unit: string } | null {
   return null;
 }
 
+function getSingleUnit(name: string, category?: string | null): string | null {
+  const lowerName = name.toLocaleLowerCase('vi');
+
+  if (/\bchai\b/i.test(name)) return 'chai';
+  if (/\blon\b/i.test(name)) return 'lon';
+  if (/\bcốc\b/i.test(name)) return 'cốc';
+  if (/\bly\b/i.test(name)) return 'ly';
+  if (/\bgói\b/i.test(name)) return 'gói';
+  if (lowerName.includes('mở bia')) return 'cái';
+  if (category === 'vang') return 'chai';
+  if (category === 'xuc-xich') return 'gói';
+  if (category === 'combo' || lowerName.includes('combo')) return 'combo';
+  if (category === 'phu-kien') return 'sản phẩm';
+  if (category === 'bia') return 'sản phẩm';
+
+  return null;
+}
+
 export function formatUnitPrice(input: UnitPriceInput): string {
   const { price, name, volume, category } = input;
   if (price == null || !Number.isFinite(price) || price <= 0) return '';
 
-  const lowerName = name.toLocaleLowerCase('vi');
   const liters = parseLiters(name, volume);
   if (liters && /\b(bom|keg|fass)\b/i.test(name)) {
     return `≈ ${formatApproximateUnitAmount(price / liters)}₫/lít`;
@@ -64,12 +81,6 @@ export function formatUnitPrice(input: UnitPriceInput): string {
   const pack = parsePackCount(name);
   if (pack) return `≈ ${formatApproximateUnitAmount(price / pack.count)}₫/${pack.unit}`;
 
-  if (category === 'vang') return `≈ ${formatApproximateUnitAmount(price)}₫/chai`;
-  if (category === 'xuc-xich') return `≈ ${formatApproximateUnitAmount(price)}₫/gói`;
-  if (category === 'combo' || lowerName.includes('combo')) return `≈ ${formatApproximateUnitAmount(price)}₫/combo`;
-  if (lowerName.includes('mở bia')) return `≈ ${formatApproximateUnitAmount(price)}₫/cái`;
-  if (category === 'phu-kien') return `≈ ${formatApproximateUnitAmount(price)}₫/sản phẩm`;
-  if (category === 'bia') return `≈ ${formatApproximateUnitAmount(price)}₫/đơn vị`;
-
-  return `≈ ${formatApproximateUnitAmount(price)}₫/sản phẩm`;
+  const unit = getSingleUnit(name, category) || 'sản phẩm';
+  return `≈ ${formatApproximateUnitAmount(price)}₫/${unit}`;
 }
