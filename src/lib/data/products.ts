@@ -38,8 +38,56 @@ export const PRODUCT_IMAGE_TODOS: Readonly<Record<string, string>> = {
     'TODO: Bổ sung ảnh đúng của thùng 12 chai Benediktiner Naturtrüb + xúc xích 500g; không dùng ảnh thùng lon Festbier.',
   'combo-oktoberfest-keg-kostritzer-xuc-xich':
     'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L + xúc xích Wiener 500g.',
+  'thorle-sauvignon-blanc-magnum':
+    'TODO: Bổ sung ảnh local đúng của Thörle Sauvignon Blanc Magnum 1,5L.',
+  'thorle-riesling-magnum':
+    'TODO: Bổ sung ảnh local đúng của Thörle Riesling Magnum 1,5L.',
+  'benediktiner-mix-2-v-thng-12-chai-500ml':
+    'TODO: Bổ sung ảnh local đúng của thùng Benediktiner Mix 2 Vị 12 chai 500ml.',
+  'benediktiner-naturtrub-thung-12-lon-500ml':
+    'TODO: Bổ sung ảnh local đúng quy cách thùng 12 lon Benediktiner Naturtrüb 500ml.',
+  'benediktiner-dunkel-thung-12-lon-500ml':
+    'TODO: Bổ sung ảnh local đúng quy cách thùng 12 lon Benediktiner Dunkel 500ml.',
+  'benediktiner-naturtrub-bom-5l':
+    'TODO: Bổ sung ảnh local đúng của Benediktiner Naturtrüb Bom 5L.',
+  'b-6-cc-benediktiner-chnh-hng-500ml':
+    'TODO: Bổ sung ảnh local đúng của bộ 6 cốc Benediktiner 500ml.',
 } as const;
 
+const LOCAL_IMAGE_OVERRIDES: Readonly<Record<string, readonly string[]>> = {
+  'rappenhof-riesling-auslese-2014': [
+    '/images/products/official/rappenhof/riesling_auslese_bottle.png',
+  ],
+  'thorle-kabinett': ['/images/products/official/thorle/kabinett_bottle.png'],
+  'austernkalk-riesling-trocken-magnum': [
+    '/images/products/official/thorle/austernkalk_magnum_bottle.jpg',
+  ],
+  'thorle-riesling': ['/images/products/official/thorle/riesling_750_bottle.png'],
+  'rappenhof-riesling-kabinett': [
+    '/images/products/official/rappenhof/riesling_kabinett_bottle.png',
+  ],
+  'thorle-spatburgunder': ['/images/products/official/thorle/spatburgunder_bottle.png'],
+  'rappenhof-riesling-trocken': [
+    '/images/products/official/rappenhof/riesling_trocken_bottle.png',
+  ],
+  'benediktiner-naturtrub-thung-12-chai-500ml': [
+    '/images/products/official/benediktiner/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png',
+  ],
+  'benediktiner-dunkel-thung-12-chai-500ml': [
+    '/images/products/official/benediktiner/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png',
+  ],
+  'benediktiner-naturtrub-ket-24-lon-500ml': [
+    '/images/products/official/benediktiner/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png',
+  ],
+  'benediktiner-dunkel-ket-24-lon-500ml': [
+    '/images/products/official/benediktiner/113_cbaf0be4ae9d4e8486a5e81de930bc46.png',
+  ],
+  'm-bia-chnh-hng-benediktiner': [
+    '/images/products/official/benediktiner/124_43ed2d310d7b45a6a7c3cd065e139b25.png',
+  ],
+} as const;
+
+const LEGACY_HARAVAN_IMAGE_HOST = ['product', 'hstatic', 'net'].join('.');
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 
 const CATEGORY_SHORT_DESCRIPTION: Record<string, string> = {
@@ -62,6 +110,28 @@ function isStorefrontProduct(product: Product): boolean {
 
 function hasPublicRetailPrice(product: Product): boolean {
   return typeof product.price === 'number' && Number.isFinite(product.price) && product.price > 0;
+}
+
+function isLegacyHaravanImage(image: string): boolean {
+  try {
+    return new URL(image).hostname === LEGACY_HARAVAN_IMAGE_HOST;
+  } catch {
+    return false;
+  }
+}
+
+function normalizeProductImages(product: Product): string[] {
+  const override = LOCAL_IMAGE_OVERRIDES[product.slug];
+  if (override) return [...override];
+
+  const images = Array.isArray(product.images)
+    ? product.images.filter(
+        (image): image is string =>
+          typeof image === 'string' && image.length > 0 && !isLegacyHaravanImage(image),
+      )
+    : [];
+
+  return images.length > 0 ? images : [PRODUCT_IMAGE_PLACEHOLDER];
 }
 
 function asCompleteSentence(value: string): string {
@@ -100,6 +170,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       ...product,
       description: normalizedDescription,
       shortDescription: buildShortDescription(product, normalizedDescription),
+      images: normalizeProductImages(product),
       ...(imageTodo ? { images: [PRODUCT_IMAGE_PLACEHOLDER], imageTodo } : {}),
     };
 
