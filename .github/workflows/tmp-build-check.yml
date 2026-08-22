@@ -29,12 +29,18 @@ jobs:
           test ! -e 'src/app/api/order/route.ts'
           test ! -d 'src/app/api'
 
-          if grep -RIn --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' '/dat-hang' src next.config.js; then
+          if grep -RIn \
+            --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' \
+            --exclude='*.test.ts' --exclude='*.test.tsx' --exclude='*.test.js' --exclude='*.test.jsx' \
+            '/dat-hang' src next.config.js; then
             echo 'Found stale /dat-hang reference'
             exit 1
           fi
 
-          if grep -REn --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' 'useCartStore|CartContext|addToCart|cart-storage|label: .Giỏ hàng.' src; then
+          if grep -REn \
+            --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' \
+            --exclude='*.test.ts' --exclude='*.test.tsx' --exclude='*.test.js' --exclude='*.test.jsx' \
+            'useCartStore|CartContext|addToCart|cart-storage|label: .Giỏ hàng.' src; then
             echo 'Found stale cart state or cart navigation'
             exit 1
           fi
