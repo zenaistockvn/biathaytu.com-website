@@ -2,20 +2,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getBeerProducts } from '@/lib/data/products';
+import { BRAND } from '@/lib/brand';
 import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import styles from '../HomeBrand.module.css';
 
+const PAGE_URL = `${BRAND.siteUrl}/san-pham`;
+
 export const metadata: Metadata = {
   title: 'Các Dòng Bia Benediktiner — Naturtrüb, Dunkel & Festbier',
-  description: 'Khám phá các dòng Benediktiner tại Việt Nam: Weissbier Naturtrüb, Weissbier Dunkel, Festbier và các quy cách sản phẩm. Website giới thiệu, không bán hàng trực tuyến.',
-  alternates: { canonical: 'https://www.biathaytu.com/san-pham' },
+  description: 'Khám phá Naturtrüb, Dunkel, Festbier và các quy cách Benediktiner tại Việt Nam. Xem giá niêm yết và đặt qua Zalo, Fanpage hoặc hotline.',
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     title: 'Các Dòng Bia Benediktiner — Bia Thầy Tu',
-    description: 'So sánh hương vị, màu sắc và quy cách các dòng Benediktiner tại Việt Nam.',
+    description: 'So sánh hương vị, quy cách và giá niêm yết các dòng Benediktiner tại Việt Nam.',
     type: 'website',
-    url: 'https://www.biathaytu.com/san-pham',
+    url: PAGE_URL,
     images: [{
       url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
       width: 1100,
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Các Dòng Bia Benediktiner — Bia Thầy Tu',
-    description: 'So sánh hương vị và quy cách các dòng Benediktiner tại Việt Nam.',
+    description: 'So sánh hương vị, quy cách và giá niêm yết các dòng Benediktiner tại Việt Nam.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -57,8 +60,8 @@ export default function ProductsPage() {
   return (
     <div className="products-page-container">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Benediktiner', url: 'https://www.biathaytu.com/san-pham' },
+        { name: 'Trang chủ', url: BRAND.siteUrl },
+        { name: 'Benediktiner', url: PAGE_URL },
       ])} />
 
       <section className={styles.catalogHero} aria-labelledby="catalog-title">
@@ -80,7 +83,7 @@ export default function ProductsPage() {
 
       <section className={styles.catalogNote} aria-label="Thông tin website">
         <div className="container">
-          Website giới thiệu sản phẩm và cung cấp thông tin tư vấn; không thực hiện đặt hàng hoặc thanh toán trực tuyến.
+          Website hiển thị giá niêm yết. Đơn hàng được xác nhận qua Zalo, Fanpage hoặc hotline; không đặt hàng hay thanh toán trực tuyến trên website.
         </div>
       </section>
 
@@ -89,7 +92,7 @@ export default function ProductsPage() {
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrowDark}>Bia Thầy Tu</p>
             <h2 id="benediktiner-title">Bộ sưu tập Benediktiner</h2>
-            <p>Thông tin quy cách có thể thay đổi theo từng thời điểm. Trang chi tiết tập trung vào hương vị, nguồn gốc và cách thưởng thức.</p>
+            <p>Giá niêm yết được hiển thị theo từng quy cách. Chọn sản phẩm để xem chi tiết và liên hệ German Taste qua Zalo, Fanpage hoặc hotline.</p>
           </div>
           <div className="grid-featured-products">
             {benediktinerProducts.map((product) => (
