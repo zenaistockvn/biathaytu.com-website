@@ -6,7 +6,7 @@ import { submitLead, trackContactEvent } from '@/lib/leadClient';
 
 interface ProductConsultationFormProps {
   productName: string;
-  productSlug: string;
+  productSlug?: string;
 }
 
 type SubmitState = 'idle' | 'submitting' | 'error';
