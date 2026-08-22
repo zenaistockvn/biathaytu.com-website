@@ -27,7 +27,7 @@ jobs:
           set -euo pipefail
           test ! -e 'src/app/(web)/dat-hang/page.tsx'
           test ! -e 'src/app/api/order/route.ts'
-          test ! -d 'src/app/api'
+          test -e 'src/app/api/leads/route.ts'
 
           if grep -RIn \
             --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' \
@@ -52,6 +52,22 @@ jobs:
           grep -q 'formatUnitPrice' 'src/app/(web)/components/ProductCard.tsx'
           grep -q 'formatPrice' 'src/app/(web)/components/ProductOrderActions.tsx'
           grep -q 'formatUnitPrice' 'src/app/(web)/components/ProductOrderActions.tsx'
+
+      - name: Validate age gate and lead capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'Bạn đã đủ 18 tuổi chưa?' 'src/app/(web)/components/AgeVerificationGate.tsx'
+          grep -q 'Tôi đã đủ 18 tuổi' 'src/app/(web)/components/AgeVerificationGate.tsx'
+          grep -q 'Chưa đủ 18 tuổi' 'src/app/(web)/components/AgeVerificationGate.tsx'
+          grep -q "POLICY_VERSION = '3.0'" 'src/constants/compliance.ts'
+          ! grep -q 'AGE_GATE_PREPAINT_SCRIPT' 'src/app/(web)/layout.tsx'
+          ! grep -q 'visibility:hidden' 'src/app/(web)/layout.tsx'
+          grep -q 'SHEETS_WEBHOOK_URL' 'src/app/api/leads/route.ts'
+          grep -q 'lead_form_submit' 'src/lib/leadClient.ts'
+          grep -q 'contact_zalo_click' 'src/lib/leadClient.ts'
+          grep -q 'contact_phone_click' 'src/lib/leadClient.ts'
+          grep -q 'FooterLeadForm' 'src/app/(web)/components/WebFooter.tsx'
 
       - name: Validate public B2B copy
         shell: bash
