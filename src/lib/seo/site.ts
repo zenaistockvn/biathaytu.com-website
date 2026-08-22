@@ -1,4 +1,6 @@
-export const DEFAULT_PUBLIC_BASE_URL = 'https://www.biathaytu.com';
+import { BRAND } from '@/lib/brand';
+
+export const DEFAULT_PUBLIC_BASE_URL = BRAND.siteUrl;
 
 const LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1']);
 

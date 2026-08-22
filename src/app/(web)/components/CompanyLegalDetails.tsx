@@ -1,20 +1,17 @@
-import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref } from '@/config/company';
+import { BRAND, BRAND_MAILTO_HREF, BRAND_TEL_HREF } from '@/lib/brand';
 
 interface CompanyLegalDetailsProps {
   compact?: boolean;
 }
 
 export default function CompanyLegalDetails({ compact = false }: CompanyLegalDetailsProps) {
-  const telHref = getCompanyTelHref();
-  const mailtoHref = getCompanyMailtoHref();
-
   const rows = [
-    ['Tên pháp nhân', COMPANY_CONFIG.legalName],
-    ['Mã số thuế', COMPANY_CONFIG.taxCode],
-    ['Số Giấy chứng nhận ĐKKD', COMPANY_CONFIG.businessRegistrationCertificateNumber],
-    ['Địa chỉ trụ sở theo ĐKKD', COMPANY_CONFIG.registeredAddress],
-    ['Địa chỉ showroom', COMPANY_CONFIG.showroomAddress],
-    ['Người đại diện theo pháp luật', COMPANY_CONFIG.legalRepresentative],
+    ['Tên pháp nhân', BRAND.legalName],
+    ['Mã số thuế', BRAND.taxCode],
+    ['Số Giấy chứng nhận ĐKKD', BRAND.businessRegistrationCertificateNumber],
+    ['Địa chỉ trụ sở theo ĐKKD', BRAND.registeredAddress],
+    ['Địa chỉ showroom', BRAND.showroomAddress],
+    ['Người đại diện theo pháp luật', BRAND.legalRepresentative],
   ] as const;
 
   return (
@@ -36,12 +33,10 @@ export default function CompanyLegalDetails({ compact = false }: CompanyLegalDet
         </p>
       ))}
       <p style={{ margin: '4px 0' }}>
-        <strong>Hotline:</strong>{' '}
-        {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
+        <strong>Hotline:</strong> <a href={BRAND_TEL_HREF}>{BRAND.hotline}</a>
       </p>
       <p style={{ margin: '4px 0' }}>
-        <strong>Email:</strong>{' '}
-        {mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}
+        <strong>Email:</strong> <a href={BRAND_MAILTO_HREF}>{BRAND.email}</a>
       </p>
     </div>
   );

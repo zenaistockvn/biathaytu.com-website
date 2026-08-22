@@ -1,4 +1,5 @@
 import type { Product } from './products';
+import { PRODUCT_IMAGE_PLACEHOLDER } from './productImage';
 
 export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
   {
@@ -82,7 +83,8 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: '5.4',
     ibu: 13,
     volume: '1 Thùng (12 Chai 500ml) + 500g Xúc Xích',
-    images: ['/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.jpg'],
+    images: [PRODUCT_IMAGE_PLACEHOLDER],
+    imageTodo: 'TODO: Bổ sung ảnh đúng của thùng 12 chai Benediktiner Naturtrüb + xúc xích 500g.',
     price: 1150000,
     haravan_url: null,
     category: 'combo',
@@ -100,7 +102,8 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: '4.8',
     ibu: null,
     volume: '1 Bom 5L + 500g Xúc Xích',
-    images: ['/images/products/official/bitburger/kostritzer_keg.png'],
+    images: [PRODUCT_IMAGE_PLACEHOLDER],
+    imageTodo: 'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L + xúc xích Wiener 500g.',
     price: 920000,
     haravan_url: null,
     category: 'combo',

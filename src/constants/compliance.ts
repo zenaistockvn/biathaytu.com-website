@@ -3,9 +3,9 @@ export const DEFAULT_ALCOHOL_WARNING =
 
 export const AGE_VERIFICATION_EXPIRY_DAYS = 30;
 
-// Bump this value whenever the declaration requirements materially change.
-// v2 requires full name + date of birth before access.
-export const POLICY_VERSION = '2.0';
+// Bump this value whenever the age-gate declaration requirements materially change.
+// v3 uses a simple 18+ confirmation and stores only the policy version in a 30-day cookie.
+export const POLICY_VERSION = '3.0';
 
 export const STORAGE_KEYS = {
   AGE_VERIFIED: 'age_verified',

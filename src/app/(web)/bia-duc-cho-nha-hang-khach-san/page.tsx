@@ -1,98 +1,106 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { BRAND, BRAND_TEL_HREF } from '@/lib/brand';
+
+const PAGE_URL = `${BRAND.siteUrl}/bia-duc-cho-nha-hang-khach-san`;
 
 export const metadata: Metadata = {
-  title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
-  description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
-  alternates: { canonical: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san' },
+  title: 'Benediktiner Cho Nhà Hàng, Khách Sạn & HORECA',
+  description: 'Giải pháp Benediktiner cho nhà hàng, khách sạn và sự kiện: danh mục, POSM, food pairing, đào tạo phục vụ và hỗ trợ vận hành.',
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
-    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
+    title: 'Benediktiner Cho Nhà Hàng, Khách Sạn & HORECA',
+    description: 'German Taste hỗ trợ danh mục, POSM, food pairing và vận hành Benediktiner cho HORECA tại Việt Nam.',
     type: 'article',
-    url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san',
-    images: [
-      {
-        url: '/images/facebook/cover_tiep_khach_v2_1775560932251.png',
-        width: 1200,
-        height: 630,
-        alt: 'Giải Pháp Cung Cấp Bia Đức Cho Nhà Hàng Khách Sạn (Horeca)',
-      },
-    ],
+    url: PAGE_URL,
+    images: [{
+      url: '/images/facebook/cover_tiep_khach_v2_1775560932251.png',
+      width: 1200,
+      height: 630,
+      alt: 'Giải pháp Benediktiner cho nhà hàng khách sạn',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
-    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
+    title: 'Benediktiner Cho Nhà Hàng, Khách Sạn & HORECA',
+    description: 'Danh mục, POSM, food pairing và hỗ trợ vận hành Benediktiner cho HORECA tại Việt Nam.',
     images: ['/images/facebook/cover_tiep_khach_v2_1775560932251.png'],
   },
 };
 
+const services = [
+  ['Danh mục phù hợp mô hình', 'Tư vấn quy cách chai, lon hoặc bom theo menu, tệp khách và công suất phục vụ.'],
+  ['POSM & trải nghiệm thương hiệu', 'Hỗ trợ vật phẩm trưng bày, ly bia chuyên dụng và tài liệu giới thiệu sản phẩm.'],
+  ['Food pairing', 'Phối hợp xây gợi ý kết hợp Benediktiner với món ăn đặc trưng của nhà hàng.'],
+  ['Đào tạo phục vụ', 'Hướng dẫn cách bảo quản, làm lạnh, rót bia và giới thiệu câu chuyện thương hiệu cho nhân viên.'],
+] as const;
+
 export default function Page() {
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Đức Cho Nhà Hàng Khách Sạn', url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san' }])} />
+      <JsonLd type="article" data={getArticleSchema({
+        title: 'Giải pháp Benediktiner cho HORECA',
+        slug: 'bia-duc-cho-nha-hang-khach-san',
+        url: PAGE_URL,
+        description: 'Giải pháp Benediktiner cho nhà hàng, khách sạn và sự kiện.',
+        datePublished: '2026-04-24',
+        dateModified: '2026-08-22',
+      })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
+        { name: 'Trang Chủ', url: BRAND.siteUrl },
+        { name: 'HORECA', url: PAGE_URL },
+      ])} />
 
       <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>B2B Doanh Nghiệp & Horeca</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Giải Pháp Bia Đức Toàn Diện Cho Nhà Hàng, Khách Sạn</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Nâng tầm menu đồ uống của bạn với các dòng bia Đức cao cấp từ đơn vị phân phối.</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Nhà hàng · Khách sạn · Sự kiện</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>
+            Giải Pháp Benediktiner Cho HORECA
+          </h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
+            German Taste hỗ trợ từ lựa chọn danh mục đến trải nghiệm phục vụ, giúp Benediktiner phù hợp với từng mô hình vận hành.
+          </p>
         </div>
       </section>
 
-      <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Lợi thế cạnh tranh:</strong> Menu đồ uống (Beverage Menu) chiếm đến 30% lợi nhuận của một nhà hàng cao cấp. Việc đưa các thương hiệu bia Đức lâu đời như Benediktiner hay Bitburger vào menu không chỉ tăng trải nghiệm Food Pairing mà còn định vị sự đẳng cấp cho không gian của bạn.
+      <article className="container" style={{ maxWidth: '900px', padding: '60px 20px' }}>
+        <div style={{ background: 'var(--web-bg-section)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7 }}>
+          <strong>Chính sách thương mại:</strong> website không công khai điều kiện dành cho đối tác HORECA. Mỗi phương án được trao đổi riêng theo mô hình, khu vực, danh mục và kế hoạch vận hành thực tế.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Tại sao nên chọn chúng tôi?</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>
+          Phạm vi hỗ trợ
+        </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginBottom: '48px' }}>
-          {[
-            { title: 'Đối tác phân phối', desc: 'Nguồn hàng 100% nhập khẩu chính ngạch, hóa đơn VAT đầy đủ. Đảm bảo giá gốc không qua trung gian.' },
-            { title: 'Chính sách chiết khấu sâu', desc: 'Mức chiết khấu thương mại linh hoạt dựa trên sản lượng cam kết, giúp tối ưu hóa lợi nhuận cho Horeca.' },
-            { title: 'Hỗ trợ POSM trọn gói', desc: 'Cung cấp ly bia chuyên dụng (ly Weizen, ly Pilsner), đế lót ly (coaster), tháp bia, ô dù và các ấn phẩm menu.' },
-            { title: 'Giao hàng hỏa tốc', desc: 'Đội ngũ xe tải lạnh riêng biệt, cam kết giao hàng trong 2-4 tiếng khu vực nội thành để không làm gián đoạn vận hành.' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '28px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>{item.title}</h3>
-              <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>{item.desc}</p>
+          {services.map(([title, desc]) => (
+            <div key={title} style={{ padding: '28px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>{title}</h3>
+              <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>{desc}</p>
             </div>
           ))}
         </div>
 
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Dịch vụ tư vấn Food Pairing chuyên sâu</h2>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>
+          Tư vấn food pairing và trải nghiệm phục vụ
+        </h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '32px' }}>
-           Chúng tôi không chỉ bán bia, chúng tôi cung cấp giải pháp. Chuyên gia của Bia Thầy Tu sẽ làm việc trực tiếp với Bếp trưởng/Quản lý nhà hàng của bạn để thiết kế <Link href="/food-pairing-bia-duc" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>gợi ý food pairing cho thực đơn</Link> phù hợp nhất:
+          Đội ngũ German Taste có thể phối hợp với Bếp trưởng hoặc Quản lý để xây gợi ý <Link href="/food-pairing-bia-duc" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>food pairing</Link>, quy trình rót bia và cách giới thiệu Benediktiner nhất quán cho khách hàng.
         </p>
-        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Thiết kế Menu Pairing:</strong> Ghép đôi hoàn hảo giữa món ăn đặc trưng của quán và bia (Vd: BBQ + Dunkel, Hải sản + Weissbier).</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Đào tạo nhân viên:</strong> Hướng dẫn nhân viên phục vụ cách rót bia lúa mì (quy tắc 7:3), nhiệt độ phục vụ chuẩn xác, cách giới thiệu câu chuyện bia cho thực khách.</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Sự kiện trải nghiệm:</strong> Hỗ trợ tổ chức các buổi "Beer Tasting Night" để thu hút khách hàng mới cho quán.</div></li>
-        </ul>
 
         <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Nhận Báo Giá Sỉ & Chính Sách Horeca</h3>
-          <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để lại thông tin, chuyên viên tư vấn B2B của chúng tôi sẽ liên hệ trong vòng 2 giờ làm việc. Xem chi tiết <Link href="/bang-gia-si-dai-ly" style={{ color: 'var(--web-ink)', fontWeight: 600, textDecoration: 'underline' }}>chính sách giá sỉ dành cho đại lý</Link>.</p>
+          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>
+            Trao đổi phương án HORECA
+          </h3>
+          <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>
+            Liên hệ trực tiếp German Taste để trao đổi danh mục, khu vực, POSM và phương án triển khai phù hợp với mô hình của anh/chị.
+          </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://zalo.me/0915312166" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo B2B</a>
-            <a href="tel:0915312166" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline Phụ Trách Horeca</a>
+            <a href={BRAND.socialLinks.zalo} target="_blank" rel="noopener noreferrer" className="btn-primary">Nhắn Zalo HORECA</a>
+            <a href={BRAND_TEL_HREF} className="btn-outline">Gọi {BRAND.hotline}</a>
           </div>
         </div>
       </article>
-
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Cung cấp bia Đức cho nhà hàng khách sạn:</strong> Kênh Horeca, đại lý sỉ bia Đức nhập khẩu nguyên chai (Benediktiner, Bitburger).</p>
-            <p><strong>Dịch vụ hỗ trợ:</strong> Menu food pairing, cung cấp POSM (ly, lót ly), đào tạo nhân viên rót bia chuẩn Đức.</p>
-            <p><strong>Chiết khấu:</strong> Có chính sách giá sỉ ưu đãi lớn, xuất hóa đơn VAT đầy đủ, giao hàng hỏa tốc nội thành.</p>
-            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline 0915 31 21 66.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

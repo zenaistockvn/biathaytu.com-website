@@ -1,17 +1,17 @@
 import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
+import { PRODUCT_IMAGE_PLACEHOLDER } from './productImage';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 
-/**
- * Kiểu sản phẩm cho phần catalog giới thiệu.
- * Khai báo `abv: string | null` để khớp ProductCard/ProductTabs (runtime có thể là số,
- * render `{abv}%` vẫn đúng). JSON được ép kiểu qua `unknown` một lần tại đây.
- */
+export const MAX_SHORT_DESCRIPTION_LENGTH = 90;
+
 export interface Product {
   id: string;
   name: string;
   slug: string;
   description: string | null;
+  shortDescription?: string;
+  imageTodo?: string;
   abv: string | null;
   ibu: number | null;
   volume: string | null;
@@ -26,17 +26,77 @@ export interface Product {
   hidden?: boolean;
 }
 
-/**
- * SKU tạm ẩn khỏi catalog kèm lý do. Xóa slug khỏi danh sách này khi đủ dữ liệu/ảnh để hiển thị lại.
- * TODO(2026-07-30): cả 2 SKU trỏ tới /images/products/official/bitburger/kostritzer_keg.png
- * — file KHÔNG tồn tại trong public/. Cần ảnh Köstritzer chính hãng, KHÔNG được dùng ảnh Bitburger thay thế.
- */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'kostritzer-schwarzbier-bom-5l',
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ]);
 
+export const PRODUCT_IMAGE_TODOS: Readonly<Record<string, string>> = {
+  'kostritzer-schwarzbier-bom-5l':
+    'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L; ảnh Bitburger cũ không được dùng.',
+  'combo-bavaria-party-benediktiner-weissbier-xuc-xich':
+    'TODO: Bổ sung ảnh đúng của thùng 12 chai Benediktiner Naturtrüb + xúc xích 500g; không dùng ảnh thùng lon Festbier.',
+  'combo-oktoberfest-keg-kostritzer-xuc-xich':
+    'TODO: Bổ sung ảnh đúng của Köstritzer Schwarzbier Bom 5L + xúc xích Wiener 500g.',
+  'thorle-sauvignon-blanc-magnum':
+    'TODO: Bổ sung ảnh local đúng của Thörle Sauvignon Blanc Magnum 1,5L.',
+  'thorle-riesling-magnum':
+    'TODO: Bổ sung ảnh local đúng của Thörle Riesling Magnum 1,5L.',
+  'benediktiner-mix-2-v-thng-12-chai-500ml':
+    'TODO: Bổ sung ảnh local đúng của thùng Benediktiner Mix 2 Vị 12 chai 500ml.',
+  'benediktiner-naturtrub-thung-12-lon-500ml':
+    'TODO: Bổ sung ảnh local đúng quy cách thùng 12 lon Benediktiner Naturtrüb 500ml.',
+  'benediktiner-dunkel-thung-12-lon-500ml':
+    'TODO: Bổ sung ảnh local đúng quy cách thùng 12 lon Benediktiner Dunkel 500ml.',
+  'benediktiner-naturtrub-bom-5l':
+    'TODO: Bổ sung ảnh local đúng của Benediktiner Naturtrüb Bom 5L.',
+  'b-6-cc-benediktiner-chnh-hng-500ml':
+    'TODO: Bổ sung ảnh local đúng của bộ 6 cốc Benediktiner 500ml.',
+} as const;
+
+const LOCAL_IMAGE_OVERRIDES: Readonly<Record<string, readonly string[]>> = {
+  'rappenhof-riesling-auslese-2014': [
+    '/images/products/official/rappenhof/riesling_auslese_bottle.png',
+  ],
+  'thorle-kabinett': ['/images/products/official/thorle/kabinett_bottle.png'],
+  'austernkalk-riesling-trocken-magnum': [
+    '/images/products/official/thorle/austernkalk_magnum_bottle.jpg',
+  ],
+  'thorle-riesling': ['/images/products/official/thorle/riesling_750_bottle.png'],
+  'rappenhof-riesling-kabinett': [
+    '/images/products/official/rappenhof/riesling_kabinett_bottle.png',
+  ],
+  'thorle-spatburgunder': ['/images/products/official/thorle/spatburgunder_bottle.png'],
+  'rappenhof-riesling-trocken': [
+    '/images/products/official/rappenhof/riesling_trocken_bottle.png',
+  ],
+  'benediktiner-naturtrub-thung-12-chai-500ml': [
+    '/images/products/official/benediktiner/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png',
+  ],
+  'benediktiner-dunkel-thung-12-chai-500ml': [
+    '/images/products/official/benediktiner/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png',
+  ],
+  'benediktiner-naturtrub-ket-24-lon-500ml': [
+    '/images/products/official/benediktiner/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png',
+  ],
+  'benediktiner-dunkel-ket-24-lon-500ml': [
+    '/images/products/official/benediktiner/113_cbaf0be4ae9d4e8486a5e81de930bc46.png',
+  ],
+  'm-bia-chnh-hng-benediktiner': [
+    '/images/products/official/benediktiner/124_43ed2d310d7b45a6a7c3cd065e139b25.png',
+  ],
+} as const;
+
+const LEGACY_HARAVAN_IMAGE_HOST = ['product', 'hstatic', 'net'].join('.');
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
+
+const CATEGORY_SHORT_DESCRIPTION: Record<string, string> = {
+  bia: 'Bia Đức tuyển chọn với hương vị cân bằng, phù hợp nhiều cách thưởng thức.',
+  vang: 'Vang Đức tuyển chọn với hương vị đặc trưng, phù hợp dùng cùng món ăn.',
+  'phu-kien': 'Phụ kiện thưởng thức bia Đức, phù hợp dùng tại nhà hoặc làm quà tặng.',
+  'xuc-xich': 'Xúc xích kiểu Đức đậm vị, phù hợp áp chảo, nướng và dùng cùng bia.',
+  combo: 'Combo phong cách Đức kết hợp bia và món ăn kèm cho bàn tiệc trọn vị.',
+};
 
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -48,22 +108,73 @@ function isStorefrontProduct(product: Product): boolean {
   );
 }
 
+function hasPublicRetailPrice(product: Product): boolean {
+  return typeof product.price === 'number' && Number.isFinite(product.price) && product.price > 0;
+}
+
+function isLegacyHaravanImage(image: string): boolean {
+  try {
+    return new URL(image).hostname === LEGACY_HARAVAN_IMAGE_HOST;
+  } catch {
+    return false;
+  }
+}
+
+function normalizeProductImages(product: Product): string[] {
+  const override = LOCAL_IMAGE_OVERRIDES[product.slug];
+  if (override) return [...override];
+
+  const images = Array.isArray(product.images)
+    ? product.images.filter(
+        (image): image is string =>
+          typeof image === 'string' && image.length > 0 && !isLegacyHaravanImage(image),
+      )
+    : [];
+
+  return images.length > 0 ? images : [PRODUCT_IMAGE_PLACEHOLDER];
+}
+
+function asCompleteSentence(value: string): string {
+  const clean = value.trim().replace(/[,:;\-–—]+$/, '').replace(/[.!?]+$/, '');
+  return clean ? `${clean}.` : '';
+}
+
+function buildShortDescription(product: Product, description: string | null): string {
+  const supplied = asCompleteSentence(product.shortDescription || '');
+  if (supplied && supplied.length <= MAX_SHORT_DESCRIPTION_LENGTH) return supplied;
+
+  if (description) {
+    const firstSentence = description.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim();
+    if (firstSentence && firstSentence.length <= MAX_SHORT_DESCRIPTION_LENGTH) {
+      return asCompleteSentence(firstSentence);
+    }
+  }
+
+  const conciseName = product.name.split(/\s+[—–]\s+|\s+-\s+/)[0].trim();
+  const namedCandidate = asCompleteSentence(`${conciseName} là sản phẩm Đức được tuyển chọn cho trải nghiệm thưởng thức`);
+  if (namedCandidate.length <= MAX_SHORT_DESCRIPTION_LENGTH) return namedCandidate;
+
+  return CATEGORY_SHORT_DESCRIPTION[product.category || ''] ||
+    'Sản phẩm Đức tuyển chọn với thông tin rõ ràng và trải nghiệm thưởng thức chỉn chu.';
+}
+
 function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
   const productsBySlug = new Map<string, Product>();
 
   for (const product of [...primary, ...supplemental]) {
-    if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) {
-      continue;
-    }
+    if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) continue;
 
-    const item = {
+    const normalizedDescription = toBrochureMetadataCopy(product.description) || product.description;
+    const imageTodo = PRODUCT_IMAGE_TODOS[product.slug] || product.imageTodo;
+    const item: Product = {
       ...product,
-      description: toBrochureMetadataCopy(product.description) || product.description,
+      description: normalizedDescription,
+      shortDescription: buildShortDescription(product, normalizedDescription),
+      images: normalizeProductImages(product),
+      ...(imageTodo ? { images: [PRODUCT_IMAGE_PLACEHOLDER], imageTodo } : {}),
     };
-    if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) {
-      item.hidden = true;
-    }
 
+    if (HIDDEN_PRODUCT_SLUGS.has(item.slug) || !hasPublicRetailPrice(item)) item.hidden = true;
     productsBySlug.set(item.slug, item);
   }
 
@@ -86,7 +197,7 @@ export function getAllProducts(): Product[] {
 }
 
 export function getVisibleProducts(): Product[] {
-  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug));
+  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug) && hasPublicRetailPrice(p));
 }
 
 export function getProductBySlugOrId(key: string): Product | null {

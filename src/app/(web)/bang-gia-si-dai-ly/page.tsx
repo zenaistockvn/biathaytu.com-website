@@ -1,42 +1,60 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Heading from '../components/ui/Heading';
 import Text from '../components/ui/Text';
 import { Button } from '../components/ui/Button';
+import { BRAND, BRAND_TEL_HREF } from '@/lib/brand';
+
+const PAGE_URL = `${BRAND.siteUrl}/bang-gia-si-dai-ly`;
 
 export const metadata: Metadata = {
-  title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
-  description: 'Thông tin hợp tác phân phối Bia Thầy Tu Benediktiner và Bitburger dành cho đại lý, nhà hàng và khách sạn. Tư vấn sản phẩm, quy cách, chính sách hợp tác và hỗ trợ bán hàng.',
-  alternates: { canonical: 'https://www.biathaytu.com/bang-gia-si-dai-ly' },
+  title: 'Hợp Tác Đại Lý Benediktiner — German Taste',
+  description: 'Thông tin hợp tác phân phối Benediktiner dành cho đại lý, cửa hàng, nhà hàng và khách sạn. Chính sách thương mại được trao đổi riêng.',
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
-    description: 'Thông tin sản phẩm, quy cách và chương trình hợp tác dành cho đối tác phân phối Benediktiner và Bitburger. Liên hệ để được tư vấn.',
+    title: 'Hợp Tác Đại Lý Benediktiner — German Taste',
+    description: 'Tìm hiểu danh mục, hỗ trợ bán hàng và quy trình hợp tác phân phối Benediktiner tại Việt Nam.',
     type: 'article',
-    url: 'https://www.biathaytu.com/bang-gia-si-dai-ly',
-    images: [
-      {
-        url: '/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png',
-        width: 1200,
-        height: 630,
-        alt: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu',
-      },
-    ],
+    url: PAGE_URL,
+    images: [{
+      url: '/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png',
+      width: 1200,
+      height: 630,
+      alt: 'Hợp tác đại lý Benediktiner tại Việt Nam',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
-    description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
+    title: 'Hợp Tác Đại Lý Benediktiner — German Taste',
+    description: 'Danh mục, hỗ trợ bán hàng và quy trình hợp tác phân phối Benediktiner tại Việt Nam.',
     images: ['/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png'],
   },
 };
 
+const partnerBenefits = [
+  ['Danh mục rõ ràng', 'Danh mục sản phẩm, quy cách và thông tin bán hàng được chuẩn hóa để đối tác dễ triển khai.'],
+  ['Bảo vệ thương hiệu', 'Phối hợp quản lý hình ảnh, nội dung và trải nghiệm thương hiệu Benediktiner trên từng kênh bán.'],
+  ['Hỗ trợ Marketing/POSM', 'Cung cấp tài liệu truyền thông, hình ảnh, vật phẩm trưng bày và hướng dẫn giới thiệu sản phẩm.'],
+  ['Phối hợp vận hành', 'Trao đổi kế hoạch cung ứng và giao nhận theo khu vực, mô hình kinh doanh và nhu cầu thực tế.'],
+] as const;
+
 export default function Page() {
   return (
     <div className="web-app">
-      <JsonLd type="article" data={getArticleSchema({ title: 'Chính Sách Đại Lý & Giá Sỉ Bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Đại Lý Phân Phối', url: 'https://www.biathaytu.com/bang-gia-si-dai-ly' }])} />
+      <JsonLd type="article" data={getArticleSchema({
+        title: 'Hợp tác đại lý Benediktiner',
+        slug: 'bang-gia-si-dai-ly',
+        url: PAGE_URL,
+        description: 'Thông tin hợp tác phân phối Benediktiner tại Việt Nam.',
+        datePublished: '2026-04-24',
+        dateModified: '2026-08-22',
+      })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
+        { name: 'Trang Chủ', url: BRAND.siteUrl },
+        { name: 'Hợp tác đại lý', url: PAGE_URL },
+      ])} />
 
       <Section variant="dark" padding="xl" style={{ textAlign: 'center' }}>
         <Container maxWidth="800px">
@@ -44,94 +62,49 @@ export default function Page() {
             Hợp Tác Kinh Doanh
           </Text>
           <Heading level={1} size="fluid" style={{ marginBottom: '24px' }}>
-            Chính Sách Đại Lý <br />& Báo Giá Sỉ Bia Đức
+            Trở Thành Đối Tác Phân Phối Benediktiner
           </Heading>
           <Text as="p" size="lg" color="white" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
-            Kinh doanh sản phẩm bia nhập khẩu cao cấp với lợi nhuận hấp dẫn cùng nhà phân phối Bia Thầy Tu.
+            German Taste trao đổi chính sách thương mại riêng với từng đối tác theo mô hình, khu vực và kế hoạch kinh doanh.
           </Text>
         </Container>
       </Section>
 
-      <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Chào mừng các đối tác:</strong> Chúng tôi tìm kiếm đại lý phân phối, siêu thị mini, cửa hàng đồ uống nhập khẩu, và các CTV bán sỉ trên toàn quốc cho 2 nhãn hiệu bia Đức: Benediktiner Weissbier và Bitburger Premium Pils.
+      <Container maxWidth="900px" style={{ padding: '60px 20px' }}>
+        <div style={{ background: 'var(--web-bg-section)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', lineHeight: 1.7 }}>
+          <strong>Nguyên tắc công khai:</strong> website chỉ hiển thị giá niêm yết retail. Điều kiện thương mại dành cho đại lý, nhà hàng, khách sạn và đối tác được trao đổi trực tiếp, không công khai trên website.
         </div>
 
         <Heading level={2} size="lg" color="navy" style={{ marginBottom: '24px' }}>
-          Quyền lợi khi trở thành Đại Lý
+          German Taste hỗ trợ đối tác như thế nào?
         </Heading>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginBottom: '48px' }}>
-          {[
-            { icon: '💰', title: 'Mức chiết khấu hấp dẫn', desc: 'Lợi nhuận gộp lên đến 20-35% tùy theo mốc sản lượng cam kết hàng tháng (Tier 1, Tier 2, Tier 3).' },
-            { icon: '🛡️', title: 'Bảo vệ giá & Khu vực', desc: 'Chính sách quản lý giá bán lẻ nghiêm ngặt (MAP) giúp đại lý không bị phá giá, bảo vệ lợi ích kinh doanh lâu dài.' },
-            { icon: '📣', title: 'Hỗ trợ Marketing/POSM', desc: 'Được cấp phát ấn phẩm truyền thông (ảnh/video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
-            { icon: '🚚', title: 'Logistic chuyên nghiệp', desc: 'Kho bãi tiêu chuẩn tại Hà Nội. Hỗ trợ phí vận chuyển cho các đơn hàng sỉ ra các tỉnh thành, giao hàng nhanh chóng.' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>
-              <Heading level={3} size="sm" color="navy" style={{ marginBottom: '8px' }}>
-                {item.title}
-              </Heading>
-              <Text as="p" size="sm" color="secondary">
-                {item.desc}
-              </Text>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', marginBottom: '48px' }}>
+          {partnerBenefits.map(([title, desc]) => (
+            <div key={title} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+              <Heading level={3} size="sm" color="navy" style={{ marginBottom: '8px' }}>{title}</Heading>
+              <Text as="p" size="sm" color="secondary">{desc}</Text>
             </div>
           ))}
         </div>
 
-        <Heading level={2} size="md" color="navy" style={{ marginBottom: '16px' }}>
-          Danh mục sản phẩm áp dụng giá sỉ
-        </Heading>
-        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Benediktiner Weissbier Naturtrüb:</strong> Lon 500ml, Chai 500ml.</div>
-          </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Benediktiner Dunkel:</strong> Lon 500ml, Chai 500ml.</div>
-          </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Bom 5 Lít Benediktiner:</strong> Phân khúc quà tặng, lễ Tết.</div>
-          </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Bitburger Premium Pils:</strong> Lon 330ml, Lon 500ml.</div>
-          </li>
-        </ul>
-
-        <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
-          <Heading level={3} size="md" color="navy" style={{ marginBottom: '16px' }}>
-            Đăng ký nhận Bảng Giá Sỉ
+        <div style={{ padding: '36px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
+          <Heading level={3} size="md" color="navy" style={{ marginBottom: '12px' }}>
+            Trao đổi chính sách hợp tác
           </Heading>
           <Text as="p" color="secondary" style={{ marginBottom: '24px' }}>
-            Để nhận file PDF Báo giá sỉ chi tiết và Chính sách chiết khấu, vui lòng liên hệ trực tiếp Giám Đốc Kinh Doanh:
+            Vui lòng liên hệ trực tiếp German Taste để đội ngũ phụ trách trao đổi danh mục, khu vực và điều kiện hợp tác phù hợp.
           </Text>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button href="https://zalo.me/0915312166" variant="primary" target="_blank" rel="noopener noreferrer">
-              Nhắn Zalo Nhận Bảng Giá
+            <Button href={BRAND.socialLinks.zalo} variant="primary" target="_blank" rel="noopener noreferrer">
+              Nhắn Zalo
             </Button>
-            <Button href="tel:0915312166" variant="outline">
-              Hotline: 0915 31 21 66
+            <Button href={BRAND_TEL_HREF} variant="outline">
+              Hotline: {BRAND.hotline}
             </Button>
           </div>
         </div>
       </Container>
-
-      <Section variant="alt" padding="sm">
-        <Container maxWidth="780px">
-          <Heading level={2} size="md" color="navy" style={{ marginBottom: '24px', textAlign: 'center' }}>
-            Thông tin nhanh để AI trích dẫn
-          </Heading>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Cung cấp giá sỉ bia Đức:</strong> Phân phối sỉ, đại lý nhượng quyền thương hiệu bia Benediktiner và Bitburger toàn quốc.</p>
-            <p><strong>Quyền lợi đại lý:</strong> Mức chiết khấu cao, hỗ trợ POSM, bảo vệ giá (MAP), có hóa đơn VAT hợp pháp, hỗ trợ vận chuyển.</p>
-            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo 0915 31 21 66.</p>
-          </div>
-        </Container>
-      </Section>
     </div>
   );
 }
