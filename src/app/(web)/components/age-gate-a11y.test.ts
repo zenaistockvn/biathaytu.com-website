@@ -10,6 +10,8 @@ const SRC = fs.readFileSync(
 
 describe('AgeVerificationGate — a11y & tối thiểu hoá dữ liệu', () => {
   it('vô hiệu hoá nội dung nền bằng inert khi modal mở', () => {
+    expect(SRC).toContain('const overlay = modalRef.current');
+    expect(SRC).toContain('const root = overlay?.parentElement');
     expect(SRC).toMatch(/setAttribute\(\s*['"]inert['"]/);
     expect(SRC).toMatch(/removeAttribute\(\s*['"]inert['"]/);
   });
@@ -19,9 +21,10 @@ describe('AgeVerificationGate — a11y & tối thiểu hoá dữ liệu', () => 
     expect(SRC).toContain('shiftKey');
   });
 
-  it('KHÔNG còn thu thập họ tên — trường này không mang lại giá trị xác minh', () => {
+  it('KHÔNG thu thập họ tên hoặc ngày sinh trong cổng tuổi', () => {
     expect(SRC).not.toContain('gate-fullname');
     expect(SRC).not.toMatch(/Họ và tên/);
+    expect(SRC).not.toContain('date-of-birth');
   });
 
   it('không dùng <h1> để tránh trang có 2 h1', () => {
@@ -30,8 +33,8 @@ describe('AgeVerificationGate — a11y & tối thiểu hoá dữ liệu', () => 
   });
 });
 
-describe('validateDateOfBirth — tính chính xác độ tuổi', () => {
-  it('validateDateOfBirth: đúng 18 tuổi hôm nay thì hợp lệ, thiếu 1 ngày thì không', () => {
+describe('validateDateOfBirth — utility legacy vẫn tính đúng khi còn được nơi khác dùng', () => {
+  it('đúng 18 tuổi hôm nay thì hợp lệ, thiếu 1 ngày thì không', () => {
     const today = new Date('2026-07-30T12:00:00Z');
     const exactly18 = '2008-07-30';
     const oneDayShort = '2008-07-31';
