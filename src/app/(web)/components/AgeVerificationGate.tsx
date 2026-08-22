@@ -7,24 +7,21 @@ import { usePathname } from 'next/navigation';
 import {
   clearAgeVerification,
   isAgeVerified,
-  isSearchCrawlerUserAgent,
   setAgeVerifiedStatus,
 } from '@/utils/ageVerification';
-
-type GateStatus = 'prompt' | 'denied';
 
 const EXEMPT_PATHS = new Set([
   '/chinh-sach-bao-mat',
   '/chinh-sach-cookie',
   '/chinh-sach-kiem-soat-do-tuoi',
-  '/chua-du-tuoi',
 ]);
+
+const UNDERAGE_EXIT_URL = 'https://www.google.com/';
 
 export default function AgeVerificationGate() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState<GateStatus>('prompt');
   const modalRef = useRef<HTMLDivElement>(null);
   const adultButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -33,14 +30,11 @@ export default function AgeVerificationGate() {
   useLayoutEffect(() => {
     setMounted(true);
 
-    const crawler = isSearchCrawlerUserAgent(window.navigator.userAgent || '');
-    if (isExemptPath || crawler || isAgeVerified()) {
+    if (isExemptPath || isAgeVerified()) {
       setIsOpen(false);
-      document.documentElement.removeAttribute('data-age-gate');
       return;
     }
 
-    setStatus('prompt');
     setIsOpen(true);
   }, [isExemptPath, pathname]);
 
@@ -48,17 +42,14 @@ export default function AgeVerificationGate() {
     if (!mounted) return;
 
     if (isOpen) {
-      document.documentElement.setAttribute('data-age-gate', 'active');
       document.body.style.overflow = 'hidden';
       window.requestAnimationFrame(() => adultButtonRef.current?.focus());
     } else {
-      document.documentElement.removeAttribute('data-age-gate');
       document.body.style.overflow = '';
     }
 
     const handleReset = () => {
       clearAgeVerification();
-      setStatus('prompt');
       setIsOpen(true);
     };
 
@@ -135,7 +126,7 @@ export default function AgeVerificationGate() {
 
   const handleUnderage = () => {
     clearAgeVerification();
-    setStatus('denied');
+    window.location.replace(UNDERAGE_EXIT_URL);
   };
 
   return (
@@ -150,8 +141,8 @@ export default function AgeVerificationGate() {
         position: 'fixed',
         inset: 0,
         zIndex: 99999,
-        backgroundColor: '#0D1911',
-        backgroundImage: 'radial-gradient(circle at center, #1D3325 0%, #0D1911 72%)',
+        background: 'rgba(13, 25, 17, 0.94)',
+        backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -163,16 +154,16 @@ export default function AgeVerificationGate() {
         className="age-gate-card"
         style={{
           width: '100%',
-          maxWidth: '520px',
+          maxWidth: '500px',
           backgroundColor: '#14241A',
-          border: '1px solid rgba(143, 191, 156, 0.28)',
+          border: '1px solid rgba(210, 180, 91, 0.28)',
           borderRadius: '18px',
           padding: 'clamp(24px, 5vw, 36px)',
-          boxShadow: '0 28px 70px rgba(0, 0, 0, 0.45)',
+          boxShadow: '0 28px 70px rgba(0, 0, 0, 0.4)',
           color: '#F4F1E9',
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '18px' }}>
           <Image
             src="/logo.png"
             alt="Bia Thầy Tu"
@@ -183,7 +174,7 @@ export default function AgeVerificationGate() {
           />
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
           <span
             aria-label="Chỉ dành cho người từ đủ 18 tuổi"
             style={{
@@ -194,7 +185,7 @@ export default function AgeVerificationGate() {
               height: '36px',
               padding: '0 12px',
               borderRadius: '999px',
-              border: '1.5px solid #D2B45B',
+              border: '1px solid #D2B45B',
               color: '#E7CE7A',
               background: 'rgba(210, 180, 91, 0.08)',
               fontWeight: 800,
@@ -216,7 +207,7 @@ export default function AgeVerificationGate() {
             fontFamily: 'var(--font-serif, serif)',
           }}
         >
-          Bạn đã đủ 18 tuổi?
+          Bạn đã đủ 18 tuổi chưa?
         </h2>
 
         <p
@@ -233,73 +224,55 @@ export default function AgeVerificationGate() {
           Website có nội dung giới thiệu sản phẩm bia và đồ uống có cồn. Vui lòng xác nhận độ tuổi để tiếp tục.
         </p>
 
-        {status === 'prompt' ? (
-          <div style={{ display: 'grid', gap: '12px' }}>
-            <button
-              ref={adultButtonRef}
-              type="button"
-              onClick={handleAdultConfirm}
-              style={{
-                width: '100%',
-                minHeight: '54px',
-                padding: '14px 18px',
-                border: '1px solid #A7CDB1',
-                borderRadius: '10px',
-                background: '#8FBF9C',
-                color: '#14241A',
-                fontWeight: 800,
-                fontSize: '15px',
-                cursor: 'pointer',
-                boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
-              }}
-            >
-              Tôi từ đủ 18 tuổi
-            </button>
-
-            <button
-              type="button"
-              onClick={handleUnderage}
-              style={{
-                width: '100%',
-                minHeight: '50px',
-                padding: '12px 18px',
-                borderRadius: '10px',
-                border: '1px solid rgba(244, 241, 233, 0.22)',
-                background: 'rgba(244, 241, 233, 0.03)',
-                color: '#DCE4DE',
-                fontWeight: 700,
-                fontSize: '14px',
-                cursor: 'pointer',
-              }}
-            >
-              Tôi chưa đủ 18 tuổi
-            </button>
-          </div>
-        ) : (
-          <div
-            role="alert"
+        <div style={{ display: 'grid', gap: '12px' }}>
+          <button
+            ref={adultButtonRef}
+            type="button"
+            onClick={handleAdultConfirm}
             style={{
-              padding: '20px',
-              borderRadius: '12px',
-              background: 'rgba(186, 26, 26, 0.14)',
-              border: '1px solid rgba(239, 116, 116, 0.52)',
-              color: '#FAD6D6',
-              textAlign: 'center',
+              width: '100%',
+              minHeight: '54px',
+              padding: '14px 18px',
+              border: '1px solid #D2B45B',
+              borderRadius: '10px',
+              background: '#D2B45B',
+              color: '#14241A',
+              fontWeight: 800,
               fontSize: '15px',
-              lineHeight: 1.65,
+              cursor: 'pointer',
+              boxShadow: '0 10px 24px rgba(0, 0, 0, 0.16)',
             }}
           >
-            Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.
-          </div>
-        )}
+            Tôi đã đủ 18 tuổi
+          </button>
+
+          <button
+            type="button"
+            onClick={handleUnderage}
+            style={{
+              width: '100%',
+              minHeight: '50px',
+              padding: '12px 18px',
+              borderRadius: '10px',
+              border: '1px solid rgba(244, 241, 233, 0.22)',
+              background: 'rgba(244, 241, 233, 0.03)',
+              color: '#DCE4DE',
+              fontWeight: 700,
+              fontSize: '14px',
+              cursor: 'pointer',
+            }}
+          >
+            Chưa đủ 18 tuổi
+          </button>
+        </div>
 
         <div style={{ marginTop: '20px', textAlign: 'center', color: '#9DAAA1', fontSize: '12px', lineHeight: 1.6 }}>
-          Khi tiếp tục, bạn xác nhận mình từ đủ 18 tuổi. Xem{' '}
+          Xác nhận được lưu trong cookie thiết yếu trong 30 ngày. Xem{' '}
           <Link
             href="/chinh-sach-kiem-soat-do-tuoi"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#8FBF9C', textDecoration: 'underline' }}
+            style={{ color: '#D2B45B', textDecoration: 'underline' }}
           >
             Chính sách kiểm soát độ tuổi
           </Link>.
