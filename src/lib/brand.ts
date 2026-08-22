@@ -13,7 +13,7 @@ export const BRAND = {
   email: 'info@biathaytu.com.vn',
   siteUrl: 'https://biathaytu.com.vn',
   historyFacts:
-    'Benediktiner Weissbräu kế thừa truyền thống và công thức từ Tu viện Ettal ở Bavaria; bia hiện được nấu và đóng gói tại Lich, Hessen, Đức.',
+    'Tu viện Ettal thành lập năm 1330. Truyền thống bia lúa mì của các tu sĩ Benedictine hình thành hơn 400 năm trước. Bia hiện được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.',
   exclusivity:
     'Nhà nhập khẩu và phân phối độc quyền Benediktiner Weissbräu tại Việt Nam',
   legalDisclaimer:
