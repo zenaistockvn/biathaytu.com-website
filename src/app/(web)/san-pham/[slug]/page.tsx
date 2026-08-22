@@ -195,6 +195,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
             </div>
 
+            <ProductOrderActions product={product} />
+
             <div style={{ margin: '20px 0', padding: '16px 18px', borderLeft: '3px solid var(--web-accent)', background: 'var(--web-bg-warm)', borderRadius: '0 10px 10px 0' }}>
               <strong style={{ display: 'block', marginBottom: '5px', color: 'var(--web-ink)' }}>Hương vị nổi bật</strong>
               <span style={{ color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{tastingNote}</span>
@@ -205,8 +207,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <p>Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.</p>
               )}
             </div>
-
-            <ProductOrderActions product={product} />
 
             <div className="product-guarantee">
               <h4><span>🛡️</span> {guaranteeTitle}</h4>
