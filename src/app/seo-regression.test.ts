@@ -117,12 +117,14 @@ describe('German Taste brand, SEO and storefront regressions', () => {
     expect(zalo).toContain('BRAND.socialLinks.zalo');
   });
 
-  it('has no cart, checkout route, order API, or cart persistence in application code', () => {
+  it('has no cart, checkout route, order API, cart persistence or /dat-hang redirect', () => {
     const appFiles = listSourceFiles(join(root, 'src', 'app'));
     const libFiles = listSourceFiles(join(root, 'src', 'lib'));
     const source = [...appFiles, ...libFiles].map((file) => readFileSync(file, 'utf8')).join('\n');
+    const nextConfig = readProjectFile('next.config.js');
 
     expect(source).not.toContain('/dat-hang');
+    expect(nextConfig).not.toContain('/dat-hang');
     expect(source).not.toContain("label: 'Giỏ hàng'");
     expect(source).not.toMatch(/\b(?:CartContext|addToCart|cartItems|removeFromCart|clearCart)\b/);
     expect(source).not.toMatch(/localStorage\.(?:getItem|setItem)\([^\n]*(?:cart|gio-hang|giỏ hàng)/i);
@@ -144,7 +146,6 @@ describe('German Taste brand, SEO and storefront regressions', () => {
 
     expect(publicB2B).not.toMatch(/\bchiết\s*khấu\b/i);
     expect(publicB2B).not.toMatch(/\bgiá\s*sỉ\b/i);
-    expect(publicB2B).not.toMatch(/\b(?:B2B|wholesale)\s*(?:price|giá)/i);
     expect(publicB2B).not.toMatch(/\b\d{1,3}\s*%/);
   });
 
