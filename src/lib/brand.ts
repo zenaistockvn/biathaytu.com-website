@@ -17,7 +17,7 @@ export const BRAND = {
   exclusivity:
     'Nhà nhập khẩu và phân phối độc quyền Benediktiner Weissbräu tại Việt Nam',
   legalDisclaimer:
-    'Sản phẩm có cồn chỉ dành cho người từ đủ 18 tuổi. Không bán rượu, bia cho người chưa đủ 18 tuổi.',
+    'Sản phẩm dành cho người từ đủ 18 tuổi. Không dành cho phụ nữ mang thai.',
   socialLinks: {
     zalo: 'https://zalo.me/0915312166',
     fanpage: 'https://www.facebook.com/1106668052525470',
