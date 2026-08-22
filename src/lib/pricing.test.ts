@@ -32,4 +32,20 @@ describe('retail pricing helpers', () => {
       category: 'phu-kien',
     })).toBe('≈ 250.000₫/cốc');
   });
+
+  it('uses concrete units for single retail bottles and cans', () => {
+    expect(formatUnitPrice({
+      price: 95000,
+      name: 'Benediktiner Naturtrüb Chai 500ml',
+      volume: '500ml',
+      category: 'bia',
+    })).toBe('≈ 95.000₫/chai');
+
+    expect(formatUnitPrice({
+      price: 85000,
+      name: 'Benediktiner Festbier Lon 500ml',
+      volume: '500ml',
+      category: 'bia',
+    })).toBe('≈ 85.000₫/lon');
+  });
 });
