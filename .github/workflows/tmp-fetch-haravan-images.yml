@@ -1,0 +1,96 @@
+name: Temporary Haravan image fetch
+
+on:
+  push:
+    branches:
+      - codex/unify-german-taste-brand
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-images:
+    if: ${{ !contains(github.event.head_commit.message, '[skip image-fetch]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/unify-german-taste-brand
+          fetch-depth: 0
+
+      - name: Download exact legacy product assets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          fetch_asset() {
+            local base="$1"
+            local output="$2"
+            mkdir -p "$(dirname "$output")"
+            for suffix in "" "_grande" "_medium"; do
+              local candidate
+              if [[ "$base" == *.png ]]; then
+                candidate="${base%.png}${suffix}.png"
+              else
+                candidate="${base%.jpg}${suffix}.jpg"
+              fi
+              echo "Trying $candidate"
+              if curl --fail --location --retry 3 --connect-timeout 20 --max-time 120 \
+                --user-agent 'Mozilla/5.0' \
+                "$candidate" --output "$output"; then
+                test -s "$output"
+                file "$output"
+                return 0
+              fi
+            done
+            echo "Unable to download $base" >&2
+            return 1
+          }
+
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/37_96f13f655e1e4889a99e3a5ba481cef9.jpg' \
+            'public/images/products/official/thorle/sauvignon-blanc-magnum.jpg'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/39_a92d1e96ff494d00bacc4de70b3ba5ca.jpg' \
+            'public/images/products/official/thorle/riesling-magnum.jpg'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/benediktiner-12mix-0_61ad00ab3f694954a7e087f1e9a8d869.png' \
+            'public/images/products/official/benediktiner/mix-12-chai.png'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/130_22efcb56465d471581d518a0ce0f1b3e.png' \
+            'public/images/products/official/benediktiner/naturtrub-thung-12-lon.png'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/118_cdb208ef8c9e432586505d5cc0247e84.png' \
+            'public/images/products/official/benediktiner/dunkel-thung-12-lon.png'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/benediktiner-natutrub-bom-1_3cbfd80e556342fcbc59e5f701f3d3fe.png' \
+            'public/images/products/official/benediktiner/naturtrub-bom-5l.png'
+          fetch_asset \
+            'https://product.hstatic.net/200000919029/product/ly-benediktiner-chinh-hang-1_16a95d30eaa24ad0a6df3dc4c82ec1d1.png' \
+            'public/images/products/official/benediktiner/bo-6-coc-500ml.png'
+
+      - name: Validate image payloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          find public/images/products/official/thorle public/images/products/official/benediktiner \
+            -maxdepth 1 -type f \
+            \( -name 'sauvignon-blanc-magnum.jpg' -o -name 'riesling-magnum.jpg' -o \
+               -name 'mix-12-chai.png' -o -name 'naturtrub-thung-12-lon.png' -o \
+               -name 'dunkel-thung-12-lon.png' -o -name 'naturtrub-bom-5l.png' -o \
+               -name 'bo-6-coc-500ml.png' \) \
+            -print -exec test -s {} \;
+
+      - name: Commit downloaded assets to branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/images/products/official/thorle public/images/products/official/benediktiner
+          if git diff --cached --quiet; then
+            echo 'No new assets to commit.'
+            exit 0
+          fi
+          git commit -m '[skip image-fetch] chore(images): vendor legacy Haravan assets'
+          git push origin HEAD:codex/unify-german-taste-brand
