@@ -27,7 +27,7 @@ const COMMERCIAL_TERMS = /(?:báo\s+)?giá\s+sỉ|giá\s+B2B|chiết\s+khấu/i;
 export function sanitizePublicCommercialCopy(value: string | null): string | null {
   if (!value) return value;
 
-  let safe = normalizeBrandIdentity(value) || value;
+  let safe = normalizeBrandIdentity(value) ?? value;
 
   // Remove whole commercial price tables instead of attempting to reinterpret old prices.
   safe = safe.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (table) =>
@@ -46,13 +46,14 @@ export function sanitizePublicCommercialCopy(value: string | null): string | nul
 const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
   .filter((a) => a.tenant_id === DEFAULT_TENANT_ID && a.status === 'published')
   .map((article) => {
-    const safeTitle = sanitizePublicCommercialCopy(article.title) || article.title;
+    const safeTitle = sanitizePublicCommercialCopy(article.title) ?? article.title;
+    const safeContent = sanitizePublicCommercialCopy(article.content);
     const safeMeta = sanitizePublicCommercialCopy(article.meta_description);
 
     return {
       ...article,
       title: toBrochureMetadataCopy(safeTitle) || safeTitle,
-      content: sanitizePublicCommercialCopy(article.content) || article.content,
+      content: safeContent,
       meta_description: toMetaDescription(safeMeta) || safeMeta,
     };
   })
