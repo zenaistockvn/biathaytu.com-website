@@ -59,10 +59,22 @@ function doPost(e) {
       const noteLine = payload.note
         ? `<p><strong>Ghi chú:</strong> ${escapeHtml(payload.note)}</p>`
         : '';
+      const plainBody = [
+        'Lead mới từ website German Taste',
+        `Họ tên: ${payload.name || ''}`,
+        `Số điện thoại: ${payload.phone || ''}`,
+        payload.need ? `Nhu cầu: ${payload.need}` : '',
+        payload.product_name ? `Sản phẩm: ${payload.product_name}` : '',
+        payload.note ? `Ghi chú: ${payload.note}` : '',
+        `Trang: ${payload.page_path || ''}`,
+        `Thời gian: ${payload.submitted_at || ''}`,
+        `UTM: ${formatUtm(payload)}`,
+      ].filter(Boolean).join('\n');
 
       MailApp.sendEmail({
         to: notifyEmail,
         subject: `[German Taste] Lead mới - ${payload.name || payload.phone || 'Website'}`,
+        body: plainBody,
         htmlBody:
           `<p><strong>Lead mới từ website German Taste</strong></p>` +
           `<p><strong>Họ tên:</strong> ${escapeHtml(payload.name)}</p>` +
