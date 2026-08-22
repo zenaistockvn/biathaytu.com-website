@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BRAND } from '@/lib/brand';
+import { sanitizePublicCommercialCopy } from '@/lib/data/articles';
 import { getAllProducts, getVisibleProducts, MAX_SHORT_DESCRIPTION_LENGTH, PRODUCT_IMAGE_TODOS } from '@/lib/data/products';
 import { PRODUCT_IMAGE_PLACEHOLDER } from '@/lib/data/productImage';
 import { formatPrice, formatUnitPrice, RETAIL_PRICE_NOTE } from '@/lib/pricing';
@@ -145,6 +146,18 @@ describe('German Taste brand, SEO and storefront regressions', () => {
     expect(publicB2B).not.toMatch(/\bgiá\s*sỉ\b/i);
     expect(publicB2B).not.toMatch(/\b(?:B2B|wholesale)\s*(?:price|giá)/i);
     expect(publicB2B).not.toMatch(/\b\d{1,3}\s*%/);
+  });
+
+  it('sanitizes old article wholesale tables and discount wording before rendering', () => {
+    const legacy = '<p>Bia 5.4% ABV.</p><table><tr><td>90.000 / chai</td><td>Liên hệ đại lý nhận chiết khấu</td></tr></table><p>Nhận báo giá sỉ và mức chiết khấu tốt.</p>';
+    const sanitized = sanitizePublicCommercialCopy(legacy) || '';
+
+    expect(sanitized).toContain('5.4% ABV');
+    expect(sanitized).not.toContain('<table');
+    expect(sanitized).not.toMatch(/giá\s*sỉ/i);
+    expect(sanitized).not.toMatch(/chiết\s*khấu/i);
+    expect(sanitized).toContain('thông tin hợp tác');
+    expect(sanitized).toContain('quyền lợi thương mại');
   });
 
   it('quarantines known product-image mismatches behind placeholder + TODO', () => {
