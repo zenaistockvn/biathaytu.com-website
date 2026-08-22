@@ -107,7 +107,7 @@
     "category": "vang",
     "usp": "Sauvignon Blanc Magnum — Dòng SB kiểu Đức hiếm, chai 1.5L",
     "images": [
-      "https://product.hstatic.net/200000919029/product/37_96f13f655e1e4889a99e3a5ba481cef9_grande.jpg"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -132,7 +132,7 @@
     "category": "vang",
     "usp": "Thorle Riesling Magnum — Chai 1.5L cho tiệc và tiếp khách",
     "images": [
-      "https://product.hstatic.net/200000919029/product/39_a92d1e96ff494d00bacc4de70b3ba5ca_grande.jpg"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -157,7 +157,7 @@
     "category": "vang",
     "usp": "Riesling Auslese 2014 — Nho tuyển chọn chín muộn, cấp cao nhất Rappenhof",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_auslese_a286249fbffb40c5b2ed798abe388ca2_grande.png"
+      "/images/products/official/rappenhof/riesling_auslese_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -182,7 +182,7 @@
     "category": "vang",
     "usp": "Thorle Kabinett — Vang trắng bán khô tươi mát từ đất đá vôi Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/6_343530997b684b809e3e2d570d7197c1_grande.png"
+      "/images/products/official/thorle/kabinett_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -207,7 +207,7 @@
     "category": "vang",
     "usp": "Austernkalk Magnum — Riesling khô từ đất hóa thạch hàu, chai 1.5L",
     "images": [
-      "https://product.hstatic.net/200000919029/product/48_b9080ea57a1740e480c7d8fbcd61bbf4_grande.jpg"
+      "/images/products/official/thorle/austernkalk_magnum_bottle.jpg"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -232,7 +232,7 @@
     "category": "vang",
     "usp": "Thorle Riesling — Vang Riesling khô sắc nét từ Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/9_587336c129e1466391e80e0f5273bcb4_grande.png"
+      "/images/products/official/thorle/riesling_750_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -257,7 +257,7 @@
     "category": "vang",
     "usp": "Riesling Kabinett — Vang trắng bán khô hương đào từ gia đình 400 năm truyền thống",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_kabinett_2f5a9c2ff1874c91b3ee1765b6814e3e_grande.png"
+      "/images/products/official/rappenhof/riesling_kabinett_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -282,7 +282,7 @@
     "category": "vang",
     "usp": "Spätburgunder — Pinot Noir phiên bản Đức từ vùng Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/1_c3ac6d2d42134f4984a3145fc430d49b_grande.png"
+      "/images/products/official/thorle/spatburgunder_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -307,7 +307,7 @@
     "category": "vang",
     "usp": "Riesling Trocken — Vang trắng khô sắc nét kiểu Đức chính thống",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_trocken_d50b8e7cdd8540f9a290fd83ea36ca75_grande.png"
+      "/images/products/official/rappenhof/riesling_trocken_bottle.png"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -332,7 +332,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png"
+      "/images/products/official/benediktiner/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -363,7 +363,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png"
+      "/images/products/official/benediktiner/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -394,7 +394,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-12mix-0_61ad00ab3f694954a7e087f1e9a8d869.png"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -425,7 +425,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/130_22efcb56465d471581d518a0ce0f1b3e.png"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -456,7 +456,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/118_cdb208ef8c9e432586505d5cc0247e84.png"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -487,7 +487,7 @@
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-bom-1_3cbfd80e556342fcbc59e5f701f3d3fe.png"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -518,7 +518,7 @@
     "category": "bia",
     "usp": "Bia tu viện 400 năm — \"Dem Himmel so nah\" — Gần hơn với thiên đường",
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png"
+      "/images/products/official/benediktiner/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png"
     ],
     "ai_analysis": {
       "season": "Quanh năm, đặc biệt thu-đông",
@@ -555,7 +555,7 @@
     "category": "bia",
     "usp": "Dark Wheat Beer — Bia tối tu viện dành cho dân sành",
     "images": [
-      "https://product.hstatic.net/200000919029/product/113_cbaf0be4ae9d4e8486a5e81de930bc46.png"
+      "/images/products/official/benediktiner/113_cbaf0be4ae9d4e8486a5e81de930bc46.png"
     ],
     "ai_analysis": {
       "season": "Thu-đông, buổi tối",
@@ -717,7 +717,7 @@
     "category": "phu-kien",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/ly-benediktiner-chinh-hang-1_16a95d30eaa24ad0a6df3dc4c82ec1d1.png"
+      "/images/products/placeholder-product.svg"
     ],
     "ai_analysis": {
       "type": "Glassware",
@@ -746,7 +746,7 @@
     "category": "phu-kien",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/124_43ed2d310d7b45a6a7c3cd065e139b25.png"
+      "/images/products/official/benediktiner/124_43ed2d310d7b45a6a7c3cd065e139b25.png"
     ],
     "ai_analysis": {
       "type": "Opener",
