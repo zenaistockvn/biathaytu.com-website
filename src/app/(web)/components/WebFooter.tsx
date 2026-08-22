@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import AlcoholWarning from './AlcoholWarning';
+import FooterLeadForm from './FooterLeadForm';
 import styles from './WebFooter.module.css';
 import { BRAND, BRAND_MAILTO_HREF, BRAND_TEL_HREF } from '@/lib/brand';
 
@@ -27,6 +28,8 @@ export default function WebFooter() {
   return (
     <footer className={styles.footer}>
       <div className="container">
+        <FooterLeadForm />
+
         <div className={styles.footerGrid}>
           <section className={styles.brandColumn} aria-label="Giới thiệu Bia Thầy Tu">
             <h3 className={styles.brandTitle}>BIA THẦY TU</h3>
