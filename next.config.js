@@ -10,10 +10,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'product.hstatic.net',
-      },
     ],
   },
   async redirects() {
