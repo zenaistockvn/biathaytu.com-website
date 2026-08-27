@@ -148,6 +148,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </p>
             )}
 
+            <ProductOrderActions product={product} />
+
             {isSausage && (
               <div className="product-detail-tags">
                 {(() => {
@@ -225,8 +227,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 </p>
               )}
             </div>
-
-            <ProductOrderActions product={product} />
 
             <div className="product-guarantee">
               <h4>
