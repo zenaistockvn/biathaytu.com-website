@@ -164,9 +164,12 @@ export default function Page() {
         <div className="container" style={{ padding: '0 20px' }}>
           <div className="bitburger-intro-card">
             <div className="bitburger-intro-img-wrap">
-              <img 
+              <Image
                 src="/images/products/hero_bitburger_v2.png" 
                 alt="Bitburger Premium Pils Classic" 
+                width={1024}
+                height={1024}
+                sizes="(max-width: 768px) 90vw, 400px"
                 className="bitburger-intro-img"
               />
             </div>
@@ -263,11 +266,12 @@ export default function Page() {
           <div className="lifestyle-gallery-grid">
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburg_heritage_story_1775753219026.png" 
                   alt="Di sản lịch sử" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Di Sản Lịch Sử</h3>
@@ -278,11 +282,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburg_to_saigon_1775741871482.png" 
                   alt="Bitburger đến Sài Gòn" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Hành Trình Vượt Thời Gian</h3>
@@ -293,11 +298,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburger_bbq_food_1775741893404.png" 
                   alt="Tiệc nướng BBQ" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Tiệc Nướng BBQ</h3>
@@ -308,11 +314,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburger_driving_lifestyle_1775733642452.png" 
                   alt="Lối sống năng động" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Lối Sống Năng Động</h3>
@@ -323,11 +330,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburger_fusion_food_1775753401190.png" 
                   alt="Ẩm thực Fusion" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Ẩm Thực Fusion</h3>
@@ -338,11 +346,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/bitburger_pour_tutorial_1775753451837.png" 
                   alt="Nghệ thuật rót bia" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Nghệ Thuật Rót Bia</h3>
