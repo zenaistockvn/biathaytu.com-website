@@ -34,9 +34,9 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Hướng Dẫn Rót Bia Lúa Mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Hướng Dẫn Rót Bia', url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Nghệ Thuật Thưởng Thức</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Nghệ Thuật Thưởng Thức</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Cách Rót Bia Lúa Mì <br/>Chuẩn Đức</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Rót bia Weissbier không đơn giản là đổ ra ly. Đó là một nghi thức đánh thức hương vị men sống.</p>
         </div>

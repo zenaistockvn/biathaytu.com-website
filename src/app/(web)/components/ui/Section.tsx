@@ -23,7 +23,7 @@ export default function Section({
     variantClass = 'section-alt';
   } else if (variant === 'dark') {
     inlineStyle.background = 'var(--web-ink)';
-    inlineStyle.color = '#ffffff';
+    inlineStyle.color = 'var(--web-on-ink)';
     inlineStyle.position = 'relative';
   } else {
     variantClass = 'section';
@@ -57,6 +57,7 @@ export default function Section({
   return (
     <section
       className={`${variantClass} ${className}`.trim()}
+      data-surface={variant === 'dark' ? 'ink' : undefined}
       style={inlineStyle}
       {...props}
     >

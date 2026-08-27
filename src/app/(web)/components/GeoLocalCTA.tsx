@@ -37,7 +37,7 @@ export default function GeoLocalCTA() {
         .geo-cta-badge {
           font-size: 11px;
           letter-spacing: 2px;
-          color: var(--web-accent);
+          color: var(--web-accent-on-ink);
           text-transform: uppercase;
           font-weight: 700;
           margin-bottom: 8px;
@@ -47,7 +47,6 @@ export default function GeoLocalCTA() {
           font-family: var(--font-serif);
           font-size: 26px;
           font-weight: 700;
-          color: #ffffff;
           margin-bottom: 12px;
           line-height: 1.3;
         }
@@ -69,7 +68,7 @@ export default function GeoLocalCTA() {
           align-items: flex-start;
         }
         .geo-cta-icon-wrapper {
-          color: var(--web-accent);
+          color: var(--web-accent-on-ink);
           flex-shrink: 0;
           margin-top: 3px;
         }
@@ -79,7 +78,7 @@ export default function GeoLocalCTA() {
           color: rgba(255, 255, 255, 0.9);
         }
         .geo-cta-info-text strong {
-          color: var(--web-accent-soft);
+          color: var(--web-accent-on-ink);
           font-weight: 600;
         }
         .geo-cta-actions {

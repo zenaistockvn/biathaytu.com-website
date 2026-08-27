@@ -106,8 +106,21 @@ body.overflow-hidden {
   font-family: 'Playfair Display', serif !important;
   font-weight: 700;
   margin: 0;
-  color: var(--web-text);
+  color: var(--heading-color, var(--web-text));
   text-wrap: balance;
+}
+
+/* Vùng nền tối: heading và chữ tự động đảo màu */
+.web-app .hero-dark,
+.web-app .usp-bar,
+.web-app .b2b-section,
+.web-app .product-guarantee,
+.web-app .knowledge-hero,
+.web-app .web-footer,
+.web-app .glass-card-dark,
+.web-app .geo-cta-card,
+.web-app [data-surface="ink"] {
+  --heading-color: var(--web-on-ink);
 }
 
 .web-app p, .web-app li, .web-app .card-description {
