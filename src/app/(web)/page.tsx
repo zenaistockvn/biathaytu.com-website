@@ -12,11 +12,11 @@ import {
 import styles from './HomeBrand.module.css';
 
 export const metadata: Metadata = {
-  title: 'Bia Thầy Tu Benediktiner — Hơn 400 năm truyền thống bia Đức',
+  title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
   description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, các dòng Naturtrüb, Dunkel, Festbier, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com' },
   openGraph: {
-    title: 'Bia Thầy Tu Benediktiner — Hơn 400 năm truyền thống bia Đức',
+    title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
     description: 'Câu chuyện Ettal, hương vị Benediktiner và điểm giới thiệu tại Việt Nam.',
     type: 'website',
     url: 'https://www.biathaytu.com',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Thầy Tu Benediktiner — Hơn 400 năm truyền thống bia Đức',
+    title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
     description: 'Câu chuyện Ettal, hương vị Benediktiner và điểm giới thiệu tại Việt Nam.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
@@ -44,7 +44,7 @@ const beers = [
     color: 'Vàng hổ phách',
     aroma: 'Chuối chín, đinh hương',
     abv: '5,4% ABV',
-    description: 'Êm mượt, bọt dày mịn và cân bằng — dòng bia biểu tượng để bắt đầu hành trình Benediktiner.',
+    description: 'Êm mượt, bọt dày mịn và cân bằng, dòng bia biểu tượng để bắt đầu hành trình Benediktiner.',
   },
   {
     name: 'Weissbier Dunkel',
@@ -124,7 +124,7 @@ export default function LandingPage() {
             {beers.map((beer) => (
               <article key={beer.name} className={styles.beerCard}>
                 <div className={styles.beerImageWrap}>
-                  <Image src={beer.image} alt={`${beer.name} — hình ảnh sản phẩm chính hãng`} fill sizes="(max-width: 768px) 80vw, 30vw" className={styles.beerImage} />
+                  <Image src={beer.image} alt={`${beer.name}, hình ảnh sản phẩm chính hãng`} fill sizes="(max-width: 768px) 80vw, 30vw" className={styles.beerImage} />
                 </div>
                 <div className={styles.beerContent}>
                   <p className={styles.beerType}>{beer.type}</p>

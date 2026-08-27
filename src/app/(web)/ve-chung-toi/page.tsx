@@ -5,11 +5,11 @@ import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/Jso
 import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Về Chúng Tôi — Bia Thầy Tu',
+  title: 'Về Chúng Tôi | Bia Thầy Tu',
   description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com/ve-chung-toi' },
   openGraph: {
-    title: 'Về Chúng Tôi — Bia Thầy Tu',
+    title: 'Về Chúng Tôi | Bia Thầy Tu',
     description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
     type: 'article',
     url: 'https://www.biathaytu.com/ve-chung-toi',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/ettal-monastery.jpg',
         width: 600,
         height: 400,
-        alt: 'Tu viện Ettal — nơi khởi nguồn câu chuyện Benediktiner',
+        alt: 'Tu viện Ettal, nơi khởi nguồn câu chuyện Benediktiner',
       },
     ],
   },
@@ -39,7 +39,7 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Hành Trình Mang Hương Vị Nguyên Bản</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Về Chúng Tôi — Bia Thầy Tu</h1>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Về Chúng Tôi | Bia Thầy Tu</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả nền văn hóa bia Bavaria 400 năm tuổi đến với bàn tiệc của người Việt.</p>
         </div>
       </section>

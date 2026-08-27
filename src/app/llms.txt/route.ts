@@ -36,7 +36,7 @@ export async function GET() {
   markdown += `> Website giới thiệu thương hiệu: nguồn gốc Ettal, các dòng Benediktiner, hương vị, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam. Website không bán hàng trực tuyến.\n\n`;
   
   markdown += `## Thông Tin Thương Hiệu (Brand & Contact Info)\n`;
-  markdown += `- **Tên thương hiệu:** Bia Thầy Tu — Benediktiner tại Việt Nam\n`;
+  markdown += `- **Tên thương hiệu:** Bia Thầy Tu, Benediktiner tại Việt Nam\n`;
   markdown += `- **Sản phẩm cốt lõi:** Benediktiner Weissbier Naturtrüb, Weissbier Dunkel và Festbier.\n`;
   markdown += `- **Thông tin nguồn gốc:** Truyền thống hơn 400 năm từ Tu viện Ettal; bia được nấu tại Lich theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.\n`;
   markdown += `- **Điểm giới thiệu:** ${COMPANY_CONFIG.showroomAddress}\n`;

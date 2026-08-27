@@ -50,7 +50,7 @@ export default async function KienThucPage() {
 
   return (
     <div className="knowledge-page">
-      {/* HERO SECTION — Dark Premium Magazine */}
+      {/* HERO SECTION, Dark Premium Magazine */}
       <section className="knowledge-hero">
         <div className="knowledge-hero-overlay" />
         

@@ -5,11 +5,11 @@ import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import styles from '../HomeBrand.module.css';
 
 export const metadata: Metadata = {
-  title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+  title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
   description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine và hành trình công thức nguyên bản được tiếp nối tại Lich, Đức.',
   alternates: { canonical: 'https://www.biathaytu.com/thuong-hieu' },
   openGraph: {
-    title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+    title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
     description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     type: 'website',
     url: 'https://www.biathaytu.com/thuong-hieu',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Câu Chuyện Benediktiner — Từ Tu Viện Ettal Đến Ngày Nay',
+    title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
     description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
@@ -109,7 +109,7 @@ export default function BrandStoryPage() {
           <div className={styles.storyCopy}>
             <p className={styles.eyebrow}>Truyền thống được tiếp nối</p>
             <h2 id="today-title" className={styles.lightHeading}>Được nấu tại Lich theo công thức Benedictine nguyên bản</h2>
-            <p className={styles.lightBody}>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal — thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
+            <p className={styles.lightBody}>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal, thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
             <a href="https://www.benediktiner-weissbier.de/en/our-history" target="_blank" rel="noopener noreferrer" className={styles.lightLink}>Xem nguồn chính thức</a>
           </div>
           <div className={styles.storyImageWrap}>

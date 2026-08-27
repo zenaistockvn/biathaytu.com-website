@@ -17,7 +17,7 @@ export default function MobileCompactFooter() {
       <div className="container">
         <h3 className="mobile-footer-brand">BIA THẦY TU</h3>
         <p className="mobile-footer-brochure-note">
-          Website giới thiệu sản phẩm — không bán hàng trực tuyến.
+          Website giới thiệu sản phẩm, không bán hàng trực tuyến.
         </p>
 
         <div className="mobile-footer-legal">

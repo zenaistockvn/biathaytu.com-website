@@ -139,7 +139,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* Hero Image — between header and body */}
+      {/* Hero Image, between header and body */}
       {article.thumbnail_url && (
         <div className="container article-detail-cover-wrapper">
           <div className="article-detail-cover">

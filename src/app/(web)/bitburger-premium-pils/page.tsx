@@ -6,11 +6,11 @@ import { getPriceRange } from '@/lib/seo/productPricing';
 import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Bitburger Premium Pils — Bản Giới Hạn World Cup 2026',
+  title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
   description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
   alternates: { canonical: 'https://www.biathaytu.com/bitburger-premium-pils' },
   openGraph: {
-    title: 'Bitburger Premium Pils — Bản Giới Hạn World Cup 2026',
+    title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
     description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
     type: 'website',
     url: 'https://www.biathaytu.com/bitburger-premium-pils',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitburger Premium Pils — Bản Giới Hạn World Cup 2026',
+    title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
     description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026.',
     images: ['/images/products/bitburger_combo_match_night.jpg'],
   },
@@ -65,7 +65,7 @@ export default function Page() {
             Bitburger <span>Premium Pils</span>
           </h1>
           <p className="bitburger-hero-desc">
-            "Bitte ein Bit" — Thưởng thức dòng bia vàng đắng thanh, sảng khoái tột độ được yêu thích hàng đầu nước Đức. Nay có phiên bản giới hạn Football Edition 2026 đồng hành cùng những trận cầu rực lửa.
+            "Bitte ein Bit", Thưởng thức dòng bia vàng đắng thanh, sảng khoái tột độ được yêu thích hàng đầu nước Đức. Nay có phiên bản giới hạn Football Edition 2026 đồng hành cùng những trận cầu rực lửa.
           </p>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function Page() {
             </div>
             <div className="bitburger-intro-content">
               <span className="bitburger-tag">Di Sản Từ Năm 1817</span>
-              <h2 className="bitburger-intro-title">Bitte ein Bit — Vị đắng thanh khiết độc bản</h2>
+              <h2 className="bitburger-intro-title">Bitte ein Bit, Vị đắng thanh khiết độc bản</h2>
               <p className="bitburger-intro-desc">
                 Nấu theo Luật Tinh Khiết Reinheitsgebot 1516 lâu đời của Đức, Bitburger chỉ sử dụng 4 nguyên liệu tự nhiên tinh khiết nhất: Nước suối siêu mềm vùng Eifel, lúa mạch thượng hạng, hoa bia Certified Hallertau trứ danh và men bia độc quyền. Chất bia vàng trong vắt như pha lê, vị đắng sắc nét dễ chịu giúp làm sạch khoang miệng cực tốt, lý tưởng khi thưởng thức cùng các món nướng đậm vị.
               </p>

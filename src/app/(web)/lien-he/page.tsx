@@ -5,13 +5,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
-  description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}. Tư vấn sản phẩm, HORECA và hợp tác phân phối.`,
+  description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}. Tư vấn sản phẩm, HORECA và hợp tác phân phối.`,
   alternates: {
     canonical: 'https://www.biathaytu.com/lien-he',
   },
   openGraph: {
     title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
-    description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
+    description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
     type: 'website',
     url: 'https://www.biathaytu.com/lien-he',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
-    description: `Liên hệ Bia Thầy Tu — Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
+    description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };

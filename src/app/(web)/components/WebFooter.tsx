@@ -36,10 +36,10 @@ export default function WebFooter() {
     <>
       <h3 className={styles.brandTitle}>BIA THẦY TU</h3>
       <p className={styles.brandDesc}>
-        Khám phá Benediktiner tại Việt Nam — câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
+        Khám phá Benediktiner tại Việt Nam, câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
       </p>
       <p className={styles.brochureNote}>
-        Website giới thiệu sản phẩm — không bán hàng trực tuyến.
+        Website giới thiệu sản phẩm, không bán hàng trực tuyến.
       </p>
       <div className={styles.socialRow}>
         {zaloUrl ? (

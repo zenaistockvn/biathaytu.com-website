@@ -4,11 +4,11 @@ import Image from 'next/image';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu Cho Tiệc',
-  description: 'Bom bia 5L Benediktiner Weissbier — bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
+  title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
+  description: 'Bom bia 5L Benediktiner Weissbier, bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
   alternates: { canonical: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' },
   openGraph: {
-    title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu Cho Tiệc',
+    title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
     description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
     type: 'website',
     url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
         url: '/images/sanh_bia_duc_cover.png',
         width: 1200,
         height: 630,
-        alt: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu',
+        alt: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bom Bia 5L Benediktiner — Bia Đức Nhập Khẩu',
+    title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
     description: 'Thông tin bom bia 5L Benediktiner Weissbier, cách dùng, bảo quản và tư vấn sản phẩm.',
     images: ['/images/sanh_bia_duc_cover.png'],
   },
@@ -58,7 +58,7 @@ export default function Page() {
              <Image src="/images/products/hero_bitburger_keg.png" alt="Bom Bia 5L Benediktiner" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
           <div style={{ flex: '2 1 400px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sang Trọng — Đẳng Cấp — Tiện Lợi</h2>
+            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sang Trọng, Đẳng Cấp, Tiện Lợi</h2>
             <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '24px' }}>
               Không gì tạo điểm nhấn cho bàn tiệc tốt hơn một bom bia Đức 5 Lít. Với thiết kế vỏ hợp kim nhôm chuyên dụng, bom bia không chỉ giữ lạnh cực tốt mà còn bảo quản chất lượng men bia tươi nguyên bản. Vòi rót tích hợp sẵn (built-in tap) mang đến trải nghiệm tự tay rót bia tươi chuẩn như tại nhà máy Đức.
             </p>
@@ -66,7 +66,7 @@ export default function Page() {
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Giá Tham Khảo</span>
                 <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>963.000đ / Bom</strong>
-                <span style={{ display: 'block', marginTop: '6px', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>Giá tham khảo — vui lòng liên hệ để được báo giá và đặt hàng.</span>
+                <span style={{ display: 'block', marginTop: '6px', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>Giá tham khảo, vui lòng liên hệ để được báo giá và đặt hàng.</span>
               </div>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Dung Tích</span>

@@ -8,11 +8,11 @@ import { Button } from '../components/ui/Button';
 import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+  title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
   description: 'Thông tin hợp tác phân phối Bia Thầy Tu Benediktiner và Bitburger dành cho đại lý, nhà hàng và khách sạn. Tư vấn sản phẩm, quy cách, chính sách hợp tác và hỗ trợ bán hàng.',
   alternates: { canonical: 'https://www.biathaytu.com/bang-gia-si-dai-ly' },
   openGraph: {
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
     description: 'Thông tin sản phẩm, quy cách và chương trình hợp tác dành cho đối tác phân phối Benediktiner và Bitburger. Liên hệ để được tư vấn.',
     type: 'article',
     url: 'https://www.biathaytu.com/bang-gia-si-dai-ly',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
+    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
     description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
     images: ['/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png'],
   },

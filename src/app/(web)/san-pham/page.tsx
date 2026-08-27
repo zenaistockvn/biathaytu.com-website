@@ -8,11 +8,11 @@ import { getTastingNotes } from '../utils/getTastingNotes';
 import styles from '../HomeBrand.module.css';
 
 export const metadata: Metadata = {
-  title: 'Các Dòng Bia Benediktiner — Naturtrüb, Dunkel & Festbier',
+  title: 'Các Dòng Bia Benediktiner, Naturtrüb, Dunkel & Festbier',
   description: 'Khám phá các dòng Benediktiner tại Việt Nam: Weissbier Naturtrüb, Weissbier Dunkel, Festbier và các quy cách sản phẩm. Website giới thiệu, không bán hàng trực tuyến.',
   alternates: { canonical: 'https://www.biathaytu.com/san-pham' },
   openGraph: {
-    title: 'Các Dòng Bia Benediktiner — Bia Thầy Tu',
+    title: 'Các Dòng Bia Benediktiner | Bia Thầy Tu',
     description: 'So sánh hương vị, màu sắc và quy cách các dòng Benediktiner tại Việt Nam.',
     type: 'website',
     url: 'https://www.biathaytu.com/san-pham',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Các Dòng Bia Benediktiner — Bia Thầy Tu',
+    title: 'Các Dòng Bia Benediktiner | Bia Thầy Tu',
     description: 'So sánh hương vị và quy cách các dòng Benediktiner tại Việt Nam.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },

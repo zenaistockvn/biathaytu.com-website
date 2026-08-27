@@ -36,7 +36,7 @@ const translations: Translations = {
     'trust.authentic': 'Chính Hãng 100%',
 
     // Footer
-    'footer.description': 'Bia Thầy Tu Benediktiner — bia Đức nhập khẩu chính hãng. Thông tin sản phẩm, thương hiệu và tư vấn.',
+    'footer.description': 'Bia Thầy Tu Benediktiner, bia Đức nhập khẩu chính hãng. Thông tin sản phẩm, thương hiệu và tư vấn.',
     'footer.company.title': 'Công Ty',
     'footer.company.about': 'Về Chúng Tôi',
     'footer.company.b2b': 'Khách Hàng Doanh Nghiệp',
@@ -72,7 +72,7 @@ const translations: Translations = {
     'trust.authentic': '100% Authentic',
 
     // Footer
-    'footer.description': 'Benediktiner by Bia Thầy Tu — authentic German imported beer, product information and consultation.',
+    'footer.description': 'Benediktiner by Bia Thầy Tu, authentic German imported beer, product information and consultation.',
     'footer.company.title': 'Company',
     'footer.company.about': 'About Us',
     'footer.company.b2b': 'B2B Customers',
@@ -108,7 +108,7 @@ const translations: Translations = {
     'trust.authentic': '100% Authentisch',
 
     // Footer
-    'footer.description': 'Benediktiner von Bia Thầy Tu — authentisches deutsches Importbier, Produktinformationen und Beratung.',
+    'footer.description': 'Benediktiner von Bia Thầy Tu, authentisches deutsches Importbier, Produktinformationen und Beratung.',
     'footer.company.title': 'Unternehmen',
     'footer.company.about': 'Über Uns',
     'footer.company.b2b': 'B2B Kunden',

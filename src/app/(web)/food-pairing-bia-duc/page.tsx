@@ -126,7 +126,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Bia Weissbier (Lúa mì):</strong> Cực hợp với hải sản, gia cầm, món chua ngọt và phở Việt Nam nhờ hương chuối/đinh hương ngọt dịu.</p>
             <p><strong>Bia Dunkel (Bia đen):</strong> Ghép đôi hoàn hảo cùng đồ nướng BBQ, sườn nướng, thịt hầm đậm vị và chocolate nhờ hương caramel mạch nha rang.</p>
-            <p><strong>Bia Pilsner:</strong> Giải khát tốt, cắt độ ngấy dầu mỡ xuất sắc — hợp đồ chiên rán, đồ mặn, cay nóng.</p>
+            <p><strong>Bia Pilsner:</strong> Giải khát tốt, cắt độ ngấy dầu mỡ xuất sắc, hợp đồ chiên rán, đồ mặn, cay nóng.</p>
             <p><strong>Nguyên tắc:</strong> Bia có độ cồn, độ nồng càng cao thì nên ăn cùng món ăn có gia vị càng đậm đà.</p>
           </div>
         </div>

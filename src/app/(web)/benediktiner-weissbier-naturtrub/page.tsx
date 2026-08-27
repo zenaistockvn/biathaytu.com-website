@@ -6,11 +6,11 @@ import { getPriceRange } from '@/lib/seo/productPricing';
 import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
+  title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
   description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
   alternates: { canonical: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' },
   openGraph: {
-    title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
+    title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
     description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
     type: 'website',
     url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
+    title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
     description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
     images: ['/images/products/hero_weissbier_v2.png'],
   },
@@ -80,7 +80,7 @@ export default function Page() {
             </div>
             <div className="weissbier-intro-content">
               <span className="weissbier-tag">iTQi 3 Sao Danh Giá</span>
-              <h2 className="weissbier-intro-title">Naturtrüb — Tinh túy từ lớp men sống tự nhiên</h2>
+              <h2 className="weissbier-intro-title">Naturtrüb, Tinh túy từ lớp men sống tự nhiên</h2>
               <p className="weissbier-intro-desc">
                 Naturtrüb trong tiếng Đức có nghĩa là "vẩn đục tự nhiên". Thay vì lọc sạch men sống như các dòng bia công nghiệp phổ thông, Bia Thầy Tu Benediktiner Weissbier bảo tồn lớp men sống nguyên bản. Lớp men quý giá này tiếp tục lên men thứ cấp ngay trong chai, tạo nên màu sắc hổ phách đục mờ quyến rũ, lớp bọt kem dày mịn như tuyết và giải phóng hương vị trọn vẹn nhất.
               </p>

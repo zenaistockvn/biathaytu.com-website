@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} — Bia Thầy Tu`,
+      title: `${product.name} | Bia Thầy Tu`,
       description: pageDescription,
       images: [ogImageUrl],
     },

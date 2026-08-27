@@ -5,11 +5,11 @@ import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/Jso
 import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
-  title: 'Bia Đức Nhập Khẩu Chính Ngạch — Bitburger Football Edition 2026',
+  title: 'Bia Đức Nhập Khẩu Chính Ngạch, Bitburger Football Edition 2026',
   description: 'Khám phá các dòng bia Đức nhập khẩu thượng hạng: Benediktiner Weissbier, Dunkel và tâm điểm Bitburger Premium Pils phiên bản giới hạn World Cup 2026.',
   alternates: { canonical: 'https://www.biathaytu.com/bia-duc-nhap-khau' },
   openGraph: {
-    title: 'Bia Đức Nhập Khẩu Chính Ngạch — Bitburger Football Edition 2026',
+    title: 'Bia Đức Nhập Khẩu Chính Ngạch, Bitburger Football Edition 2026',
     description: 'Khám phá các dòng bia Đức nhập khẩu thượng hạng: Benediktiner Weissbier, Dunkel và tâm điểm Bitburger Premium Pils phiên bản giới hạn World Cup 2026.',
     type: 'article',
     url: 'https://www.biathaytu.com/bia-duc-nhap-khau',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Đức Nhập Khẩu — Bitburger Football Edition 2026',
+    title: 'Bia Đức Nhập Khẩu, Bitburger Football Edition 2026',
     description: 'Khám phá các dòng bia Đức nhập khẩu thượng hạng và tâm điểm Bitburger Premium Pils phiên bản giới hạn World Cup 2026.',
     images: ['/images/products/bitburger_football_edition.jpg'],
   },

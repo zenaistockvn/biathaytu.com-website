@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
-    { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal — nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
+    { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal, nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
     { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
   ];
 
@@ -53,20 +53,20 @@ export default function Page() {
 
       <article className="container" style={{ maxWidth: '780px', padding: '60px 20px 40px' }}>
         <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, được ủ theo truyền thống tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Bia tuân thủ Luật Tinh Khiết 1516 — chỉ dùng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men.
+          <strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, được ủ theo truyền thống tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Bia tuân thủ Luật Tinh Khiết 1516, chỉ dùng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men.
         </div>
 
         <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Vì sao gọi là "Bia Thầy Tu"?</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
-          Cái tên "Bia Thầy Tu" bắt nguồn từ việc dòng bia này được các tu sĩ (thầy tu) dòng Benedictine ủ trong tu viện. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ — các tu sĩ coi bia là "bánh mì lỏng" giúp duy trì sức lực trong những ngày ăn chay dài.
+          Cái tên "Bia Thầy Tu" bắt nguồn từ việc dòng bia này được các tu sĩ (thầy tu) dòng Benedictine ủ trong tu viện. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ, các tu sĩ coi bia là "bánh mì lỏng" giúp duy trì sức lực trong những ngày ăn chay dài.
         </p>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
           Tu Viện Ettal được thành lập năm 1330 bởi Hoàng đế Ludwig IV. Đến năm 1609, các tu sĩ tại đây bắt đầu ủ bia lúa mì theo phương pháp lên men đỉnh truyền thống. Hơn 400 năm qua, công thức gần như không thay đổi.
         </p>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Luật Tinh Khiết 1516 — Reinheitsgebot</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Luật Tinh Khiết 1516, Reinheitsgebot</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
-          Benediktiner tuân thủ tuyệt đối Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516 — luật an toàn thực phẩm lâu đời nhất thế giới. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.
+          Benediktiner tuân thủ tuyệt đối Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, luật an toàn thực phẩm lâu đời nhất thế giới. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.
         </p>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
           Không phụ gia. Không chất bảo quản. Không hương liệu nhân tạo. Mỗi chai bia Benediktiner là minh chứng cho sự thuần khiết tuyệt đối.
@@ -89,7 +89,7 @@ export default function Page() {
 
         <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-serif)' }}>Bia Thầy Tu khác gì bia thông thường?</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
-          Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ "Naturtrüb" — nghĩa là "tự nhiên không lọc" trong tiếng Đức.
+          Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ "Naturtrüb", nghĩa là "tự nhiên không lọc" trong tiếng Đức.
         </p>
 
         <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
@@ -105,7 +105,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Thương hiệu:</strong> Bia Thầy Tu / Benediktiner Weissbier</p>
             <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
-            <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
+            <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot), 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
             <p><strong>Kênh thông tin:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}, Showroom {COMPANY_CONFIG.showroomAddress}.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
