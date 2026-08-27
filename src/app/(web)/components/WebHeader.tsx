@@ -45,14 +45,13 @@ export default function WebHeader() {
 
   const hasDarkHero = DARK_HERO_PATHS.has(pathname);
   const headerOnDark = hasDarkHero && !scrolled && !menuOpen;
-  const textColor = headerOnDark ? 'rgba(255,255,255,0.88)' : 'var(--web-text-secondary)';
-  const logoColor = headerOnDark ? '#fff' : 'var(--web-ink)';
   const consultUrl = getCompanyZaloUrl();
+  const isCurrentPath = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className={`web-header ${headerOnDark ? 'web-header--transparent' : 'web-header--solid'}`}>
       <div className="container header-inner">
-        <Link href="/" className="header-logo" style={{ color: logoColor }}>
+        <Link href="/" className="header-logo">
           <Image
             src="/logo.png"
             alt="Bia Thầy Tu Logo"
@@ -65,7 +64,12 @@ export default function WebHeader() {
 
         <nav className="web-nav-desktop nav-desktop-links">
           {navLinks.map(link => (
-            <Link key={link.href} href={link.href} className="nav-desktop-link" style={{ color: textColor }}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className="nav-desktop-link"
+              aria-current={isCurrentPath(link.href) ? 'page' : undefined}
+            >
               {link.label}
             </Link>
           ))}
@@ -88,7 +92,6 @@ export default function WebHeader() {
             onClick={() => setMenuOpenPath(menuOpen ? null : pathname)}
             aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={menuOpen}
-            style={{ color: headerOnDark ? '#fff' : 'var(--web-ink)' }}
           >
             {menuOpen ? '✕' : '☰'}
           </button>
@@ -103,6 +106,7 @@ export default function WebHeader() {
               href={link.href}
               onClick={() => setMenuOpenPath(null)}
               className="web-mobile-menu-link"
+              aria-current={isCurrentPath(link.href) ? 'page' : undefined}
             >
               {link.label}
             </Link>
