@@ -5868,3 +5868,37 @@ html {
 .web-app .lifestyle-gallery-section .bitburger-section-subtitle {
   color: var(--web-text-secondary) !important;
 }
+
+/* Khối hành động trên trang sản phẩm nằm trong cột hẹp: xếp dọc để
+   nút không bị bóp vỡ chữ. Số hotline không bao giờ được xuống dòng. */
+.web-app .detail-actions-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.web-app .detail-actions-row > * {
+  width: 100%;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+  .web-app .detail-actions-row {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Breadcrumb trang sản phẩm: giữ 1 dòng để CTA không bị đẩy khỏi màn hình đầu. */
+.web-app .product-breadcrumb {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .web-app .product-breadcrumb {
+    margin-bottom: 20px;
+  }
+}

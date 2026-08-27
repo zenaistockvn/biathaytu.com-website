@@ -29,7 +29,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
         Quan tâm sản phẩm này?
       </h3>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+      <div className="detail-actions-row">
         <a href={telHref} className="btn-primary detail-btn-buy shimmer-effect">
           Gọi {COMPANY_CONFIG.hotline}
         </a>
