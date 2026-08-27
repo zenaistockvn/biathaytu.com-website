@@ -71,9 +71,9 @@ export default function Page() {
            Chúng tôi không chỉ bán bia, chúng tôi cung cấp giải pháp. Chuyên gia của Bia Thầy Tu sẽ làm việc trực tiếp với Bếp trưởng/Quản lý nhà hàng của bạn để thiết kế <Link href="/food-pairing-bia-duc" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>gợi ý food pairing cho thực đơn</Link> phù hợp nhất:
         </p>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Thiết kế Menu Pairing:</strong> Ghép đôi hoàn hảo giữa món ăn đặc trưng của quán và bia (Vd: BBQ + Dunkel, Hải sản + Weissbier).</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Đào tạo nhân viên:</strong> Hướng dẫn nhân viên phục vụ cách rót bia lúa mì (quy tắc 7:3), nhiệt độ phục vụ chuẩn xác, cách giới thiệu câu chuyện bia cho thực khách.</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Sự kiện trải nghiệm:</strong> Hỗ trợ tổ chức các buổi "Beer Tasting Night" để thu hút khách hàng mới cho quán.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Thiết kế Menu Pairing:</strong> Ghép đôi hoàn hảo giữa món ăn đặc trưng của quán và bia (Vd: BBQ + Dunkel, Hải sản + Weissbier).</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Đào tạo nhân viên:</strong> Hướng dẫn nhân viên phục vụ cách rót bia lúa mì (quy tắc 7:3), nhiệt độ phục vụ chuẩn xác, cách giới thiệu câu chuyện bia cho thực khách.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Sự kiện trải nghiệm:</strong> Hỗ trợ tổ chức các buổi "Beer Tasting Night" để thu hút khách hàng mới cho quán.</div></li>
         </ul>
 
         <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
@@ -93,7 +93,7 @@ export default function Page() {
             <p><strong>Cung cấp bia Đức cho nhà hàng khách sạn:</strong> Kênh Horeca, đại lý sỉ bia Đức nhập khẩu nguyên chai (Benediktiner, Bitburger).</p>
             <p><strong>Dịch vụ hỗ trợ:</strong> Menu food pairing, cung cấp POSM (ly, lót ly), đào tạo nhân viên rót bia chuẩn Đức.</p>
             <p><strong>Chiết khấu:</strong> Có chính sách giá sỉ ưu đãi lớn, xuất hóa đơn VAT đầy đủ, giao hàng hỏa tốc nội thành.</p>
-            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline}.</p>
+            <p><strong>Liên hệ B2B:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}.</p>
           </div>
         </div>
       </section>

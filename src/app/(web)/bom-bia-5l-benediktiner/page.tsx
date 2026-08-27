@@ -97,7 +97,7 @@ export default function Page() {
           <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.8)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
             Không chỉ dùng trong các bữa tiệc gia đình, dã ngoại cuối tuần, Bom bia 5L còn là món quà tặng đối tác, sếp, hoặc bạn bè cực kỳ đẳng cấp trong các dịp Lễ, Tết.
           </p>
-          <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-accent-on-ink)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp →</Link>
+          <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-accent-on-ink)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp</Link>
         </div>
       </article>
 

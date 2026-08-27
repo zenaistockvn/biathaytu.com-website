@@ -22,7 +22,7 @@ const translations: Translations = {
     'nav.consult': 'Liên Hệ Tư Vấn',
 
     // Hero Section
-    'hero.badge': 'Benediktiner · Công thức Benedictine từ Đức',
+    'hero.badge': 'Benediktiner, Công thức Benedictine từ Đức',
     'hero.title.line1': 'Bia Thầy Tu',
     'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Hơn 400 năm truyền thống bia lúa mì khởi nguồn từ Tu viện Ettal.',
@@ -58,7 +58,7 @@ const translations: Translations = {
     'nav.consult': 'Get Advice',
 
     // Hero Section
-    'hero.badge': 'Benediktiner · Benedictine recipe from Germany',
+    'hero.badge': 'Benediktiner, Benedictine recipe from Germany',
     'hero.title.line1': 'Bia Thầy Tu',
     'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Over 400 years of wheat beer tradition rooted in Ettal Abbey.',
@@ -94,7 +94,7 @@ const translations: Translations = {
     'nav.consult': 'Beratung',
 
     // Hero Section
-    'hero.badge': 'Benediktiner · Benediktinisches Rezept aus Deutschland',
+    'hero.badge': 'Benediktiner, Benediktinisches Rezept aus Deutschland',
     'hero.title.line1': 'Bia Thầy Tu',
     'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Über 400 Jahre Weißbiertradition mit Wurzeln im Kloster Ettal.',

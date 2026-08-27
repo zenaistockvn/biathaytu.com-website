@@ -158,7 +158,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
           ) : null}
 
           <div>
-            <button type="submit" className="btn-primary shimmer-effect" disabled={status === 'submitting'}>
+            <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
               {status === 'submitting' ? 'Đang gửi yêu cầu…' : 'Gửi yêu cầu tư vấn'}
             </button>
           </div>

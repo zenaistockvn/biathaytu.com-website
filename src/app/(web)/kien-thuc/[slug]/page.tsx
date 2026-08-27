@@ -134,9 +134,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           </h1>
           
           <div className="article-detail-meta">
-            <span>{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>
-            <span>•</span>
-            <span>{readTime} phút đọc</span>
+            <span>{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>            <span>{readTime} phút đọc</span>
           </div>
         </div>
       </section>
@@ -259,7 +257,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                   <div style={{ padding: '24px 28px 28px' }}>
                     <div style={{ fontSize: '13px', color: 'var(--web-accent-strong)', fontWeight: 600, marginBottom: '12px' }}>
                       {new Date(related.created_at).toLocaleDateString('vi-VN')}
-                      <span style={{ margin: '0 8px', color: 'var(--web-text-muted)' }}>•</span>
+                      <span style={{ margin: '0 8px', color: 'var(--web-text-muted)' }}>,</span>
                       {related.word_count ? Math.round(related.word_count / 200) : 3} phút
                     </div>
                     <h3 style={{
@@ -278,7 +276,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                       {related.meta_description || ''}
                     </p>
                     <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--web-accent-strong)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      Đọc tiếp <span>→</span>
+                      Đọc tiếp
                     </div>
                   </div>
                 </Link>

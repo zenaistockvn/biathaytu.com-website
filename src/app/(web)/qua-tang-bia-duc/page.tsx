@@ -62,7 +62,7 @@ export default function Page() {
             <div key={i} style={{ padding: '28px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
               <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.6, marginBottom: '16px' }}>{item.desc}</p>
-              {item.link && <Link href={item.link} style={{ fontSize: '14px', color: 'var(--web-accent-strong)', fontWeight: 600 }}>Xem chi tiết sản phẩm →</Link>}
+              {item.link && <Link href={item.link} style={{ fontSize: '14px', color: 'var(--web-accent-strong)', fontWeight: 600 }}>Xem chi tiết sản phẩm</Link>}
               <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--web-accent-strong)', marginTop: '8px' }}>{item.price}</div>
             </div>
           ))}
@@ -70,10 +70,10 @@ export default function Page() {
 
         <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Đặc quyền khách hàng Doanh nghiệp</h2>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Chiết khấu hấp dẫn:</strong> Chính sách giá ưu đãi cực tốt cho đơn hàng số lượng lớn dịp Lễ, Tết.</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Hóa đơn VAT:</strong> Cung cấp đầy đủ chứng từ hợp lệ, CO/CQ, hóa đơn VAT theo yêu cầu doanh nghiệp.</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Tùy biến quà tặng:</strong> Hỗ trợ in logo doanh nghiệp lên bao bì, thiệp chúc mừng thiết kế riêng theo nhận diện thương hiệu.</div></li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}>✓</span> <div><strong>Giao hàng đa điểm:</strong> Hỗ trợ vận chuyển tận tay đến các đối tác của bạn trên toàn quốc an toàn, đúng hẹn.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Chiết khấu hấp dẫn:</strong> Chính sách giá ưu đãi cực tốt cho đơn hàng số lượng lớn dịp Lễ, Tết.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Hóa đơn VAT:</strong> Cung cấp đầy đủ chứng từ hợp lệ, CO/CQ, hóa đơn VAT theo yêu cầu doanh nghiệp.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Tùy biến quà tặng:</strong> Hỗ trợ in logo doanh nghiệp lên bao bì, thiệp chúc mừng thiết kế riêng theo nhận diện thương hiệu.</div></li>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}><span style={{ color: 'var(--web-accent)' }}></span> <div><strong>Giao hàng đa điểm:</strong> Hỗ trợ vận chuyển tận tay đến các đối tác của bạn trên toàn quốc an toàn, đúng hẹn.</div></li>
         </ul>
 
         <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
@@ -93,7 +93,7 @@ export default function Page() {
             <p><strong>Quà tặng bia Đức cho doanh nghiệp:</strong> Gói quà sang trọng từ Bia Thầy Tu Benediktiner và Bitburger Pilsner.</p>
             <p><strong>Tùy chọn:</strong> Thùng mix 2 vị (bia đen + bia vàng), Bom bia 5 lít tiệc tùng, Set bia kèm ly pha lê Weizen.</p>
             <p><strong>Dịch vụ:</strong> Xuất hóa đơn VAT, giao hàng đa điểm, chiết khấu thương mại cao, hỗ trợ in logo doanh nghiệp.</p>
-            <p><strong>Liên hệ:</strong> biathaytu.com · Hotline B2B {COMPANY_CONFIG.hotline}.</p>
+            <p><strong>Liên hệ:</strong> biathaytu.com, Hotline B2B {COMPANY_CONFIG.hotline}.</p>
           </div>
         </div>
       </section>

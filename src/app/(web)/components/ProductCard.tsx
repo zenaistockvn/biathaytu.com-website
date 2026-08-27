@@ -98,10 +98,6 @@ export default function ProductCard({
           <div className="card-actions" aria-hidden="true">
             <span className="card-link-cue">
               Khám phá sản phẩm
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h13m-5-6 6 6-6 6" stroke="currentColor" strokeWidth="2"
-                  strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </span>
           </div>
         )}

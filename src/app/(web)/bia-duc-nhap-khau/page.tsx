@@ -197,7 +197,7 @@ export default function Page() {
                 <div>
                   <p className="beer-card-meta">{cat.meta}</p>
                   <Link href={cat.link} className="beer-card-link">
-                    Khám phá hương vị sản phẩm →
+                    Khám phá hương vị sản phẩm
                   </Link>
                 </div>
               </div>

@@ -88,21 +88,13 @@ export default function Page() {
           Danh mục sản phẩm áp dụng giá sỉ
         </Heading>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Benediktiner Weissbier Naturtrüb:</strong> Lon 500ml, Chai 500ml.</div>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>            <div><strong>Benediktiner Weissbier Naturtrüb:</strong> Lon 500ml, Chai 500ml.</div>
           </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Benediktiner Dunkel:</strong> Lon 500ml, Chai 500ml.</div>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>            <div><strong>Benediktiner Dunkel:</strong> Lon 500ml, Chai 500ml.</div>
           </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Bom 5 Lít Benediktiner:</strong> Phân khúc quà tặng, lễ Tết.</div>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>            <div><strong>Bom 5 Lít Benediktiner:</strong> Phân khúc quà tặng, lễ Tết.</div>
           </li>
-          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-            <Text as="span" color="gold">✓</Text>
-            <div><strong>Bitburger Premium Pils:</strong> Lon 330ml, Lon 500ml.</div>
+          <li style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>            <div><strong>Bitburger Premium Pils:</strong> Lon 330ml, Lon 500ml.</div>
           </li>
         </ul>
 
@@ -132,7 +124,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Cung cấp giá sỉ bia Đức:</strong> Phân phối sỉ, đại lý nhượng quyền thương hiệu bia Benediktiner và Bitburger toàn quốc.</p>
             <p><strong>Quyền lợi đại lý:</strong> Mức chiết khấu cao, hỗ trợ POSM, bảo vệ giá (MAP), có hóa đơn VAT hợp pháp, hỗ trợ vận chuyển.</p>
-            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo {COMPANY_CONFIG.hotline}.</p>
+            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com, Hotline/Zalo {COMPANY_CONFIG.hotline}.</p>
           </div>
         </Container>
       </Section>

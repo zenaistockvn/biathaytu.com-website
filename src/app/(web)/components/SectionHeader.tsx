@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 }
 
 /**
- * Standardized section header: label → title → divider.
+ * Standardized section header: label, then title.
  * Replaces 3+ inconsistent header patterns across the site.
  */
 export default function SectionHeader({ label, title, titleAccent, className = '' }: SectionHeaderProps) {
@@ -23,7 +23,6 @@ export default function SectionHeader({ label, title, titleAccent, className = '
           </>
         )}
       </h2>
-      <div className="section-divider" />
     </div>
   );
 }

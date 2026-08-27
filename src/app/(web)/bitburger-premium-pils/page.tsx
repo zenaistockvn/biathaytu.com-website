@@ -374,25 +374,19 @@ export default function Page() {
               </p>
 
               <div className="bitburger-pairing-list">
-                <div className="bitburger-pairing-item">
-                  <span className="bitburger-pairing-check">✓</span>
-                  <div className="bitburger-pairing-text">
+                <div className="bitburger-pairing-item">                  <div className="bitburger-pairing-text">
                     <strong>Món ăn Việt Nam đậm vị</strong>
                     <p>Phù hợp tuyệt vời với mực nướng muối ớt, tôm rang muối, heo quay giòn bì và lẩu thái chua cay.</p>
                   </div>
                 </div>
 
-                <div className="bitburger-pairing-item">
-                  <span className="bitburger-pairing-check">✓</span>
-                  <div className="bitburger-pairing-text">
+                <div className="bitburger-pairing-item">                  <div className="bitburger-pairing-text">
                     <strong>Đồ nướng BBQ & Xúc xích</strong>
                     <p>Hài hòa hoàn hảo với xúc xích Đức nướng xèo xèo, steak bò chín vừa và sườn cừu sốt BBQ đậm đà.</p>
                   </div>
                 </div>
 
-                <div className="bitburger-pairing-item">
-                  <span className="bitburger-pairing-check">✓</span>
-                  <div className="bitburger-pairing-text">
+                <div className="bitburger-pairing-item">                  <div className="bitburger-pairing-text">
                     <strong>Các món hải sản & Khai vị</strong>
                     <p>Hợp vị tuyệt đối khi ăn kèm cá hồi áp chảo, hàu nướng mỡ hành hoặc khoai tây chiên muối kiểu Âu.</p>
                   </div>

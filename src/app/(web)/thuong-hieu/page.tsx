@@ -110,7 +110,7 @@ export default function BrandStoryPage() {
             <p className={styles.eyebrow}>Truyền thống được tiếp nối</p>
             <h2 id="today-title" className={styles.lightHeading}>Được nấu tại Lich theo công thức Benedictine nguyên bản</h2>
             <p className={styles.lightBody}>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal — thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
-            <a href="https://www.benediktiner-weissbier.de/en/our-history" target="_blank" rel="noopener noreferrer" className={styles.lightLink}>Xem nguồn chính thức <span aria-hidden="true">→</span></a>
+            <a href="https://www.benediktiner-weissbier.de/en/our-history" target="_blank" rel="noopener noreferrer" className={styles.lightLink}>Xem nguồn chính thức</a>
           </div>
           <div className={styles.storyImageWrap}>
             <Image

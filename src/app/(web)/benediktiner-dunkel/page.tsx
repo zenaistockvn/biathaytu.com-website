@@ -122,17 +122,11 @@ export default function Page() {
             Nhiệt độ thưởng thức lý tưởng từ <strong>8 - 10°C</strong> (ấm hơn một chút so với Weissbier để hương vị mạch nha bung tỏa tối đa).
           </Text>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '12px' }}>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-              <Text as="span" color="gold">✓</Text>
-              <div><strong>Món nướng BBQ:</strong> Đặc biệt sinh ra để kết hợp với sườn nướng, xúc xích nướng, thịt bò bít tết.</div>
+            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Món nướng BBQ:</strong> Đặc biệt sinh ra để kết hợp với sườn nướng, xúc xích nướng, thịt bò bít tết.</div>
             </li>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-              <Text as="span" color="gold">✓</Text>
-              <div><strong>Phô mai:</strong> Tuyệt vời khi dùng chung với phô mai có mùi đậm như Gouda hay phô mai xanh.</div>
+            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Phô mai:</strong> Tuyệt vời khi dùng chung với phô mai có mùi đậm như Gouda hay phô mai xanh.</div>
             </li>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-              <Text as="span" color="gold">✓</Text>
-              <div><strong>Tráng miệng:</strong> Ghép đôi hoàn hảo với bánh chocolate đen hoặc tiramisu.</div>
+            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Tráng miệng:</strong> Ghép đôi hoàn hảo với bánh chocolate đen hoặc tiramisu.</div>
             </li>
           </ul>
         </div>

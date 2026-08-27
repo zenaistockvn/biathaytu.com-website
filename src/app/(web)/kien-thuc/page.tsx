@@ -84,11 +84,7 @@ export default async function KienThucPage() {
               </div>
               <div className="knowledge-featured-body">
                 <div className="knowledge-featured-meta">
-                  <span className="knowledge-featured-badge">Bài Trọng Tâm</span>
-                  <span>•</span>
-                  <span>{new Date(featuredArticle.created_at).toLocaleDateString('vi-VN')}</span>
-                  <span>•</span>
-                  <span>{featuredArticle.word_count ? Math.round(featuredArticle.word_count / 200) : 3} phút đọc</span>
+                  <span className="knowledge-featured-badge">Bài Trọng Tâm</span>                  <span>{new Date(featuredArticle.created_at).toLocaleDateString('vi-VN')}</span>                  <span>{featuredArticle.word_count ? Math.round(featuredArticle.word_count / 200) : 3} phút đọc</span>
                 </div>
                 <h2 className="knowledge-featured-title">
                   {featuredArticle.title}
@@ -97,7 +93,7 @@ export default async function KienThucPage() {
                   {featuredArticle.meta_description || 'Nhấn để đọc chi tiết bài viết này và khám phá những thông tin kiến thức mới nhất về văn hoá uống bia từ Bia Thầy Tu.'}
                 </p>
                 <div className="knowledge-featured-cta">
-                  Khám phá ngay <span>→</span>
+                  Khám phá ngay
                 </div>
               </div>
             </div>
@@ -129,9 +125,7 @@ export default async function KienThucPage() {
                   
                   <div className="knowledge-card-body">
                     <div className="knowledge-card-meta">
-                      <span className="knowledge-card-date">{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>
-                      <span>•</span>
-                      <span>{readTime} phút</span>
+                      <span className="knowledge-card-date">{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>                      <span>{readTime} phút</span>
                     </div>
 
                     <h3 className="knowledge-card-title">
@@ -143,7 +137,7 @@ export default async function KienThucPage() {
                     </p>
 
                     <div className="knowledge-card-action">
-                      Đọc tiếp <span>→</span>
+                      Đọc tiếp
                     </div>
                   </div>
                 </Link>

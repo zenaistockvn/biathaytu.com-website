@@ -107,7 +107,7 @@ export default function Page() {
             <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
             <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline} · Showroom {COMPANY_CONFIG.showroomAddress}.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}, Showroom {COMPANY_CONFIG.showroomAddress}.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

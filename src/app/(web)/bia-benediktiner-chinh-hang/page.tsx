@@ -79,7 +79,7 @@ export default function Page() {
           ))}
         </div>
 
-        <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner →</Link></p>
+        <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner</Link></p>
 
         <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Yên tâm thưởng thức</h3>
@@ -96,7 +96,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Bia Benediktiner chính hãng:</strong> 100% nhập khẩu từ Benediktiner Weißbräu GmbH (Bavaria, Đức).</p>
             <p><strong>Dấu hiệu nhận biết:</strong> Nhãn phụ tiếng Việt, mã vạch 400-440 (Đức), chất bia đục tự nhiên (Naturtrüb) do men sống.</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline}.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}.</p>
             <p><strong>Bảo quản:</strong> Cần giữ mát để bảo vệ men sống (Live yeast) bên trong chai.</p>
           </div>
         </div>

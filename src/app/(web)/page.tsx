@@ -42,7 +42,7 @@ const beers = [
     image: '/images/products/official/benediktiner/glass_removebg.png',
     href: '/benediktiner-weissbier-naturtrub',
     color: 'Vàng hổ phách',
-    aroma: 'Chuối chín · đinh hương',
+    aroma: 'Chuối chín, đinh hương',
     abv: '5,4% ABV',
     description: 'Êm mượt, bọt dày mịn và cân bằng — dòng bia biểu tượng để bắt đầu hành trình Benediktiner.',
   },
@@ -52,7 +52,7 @@ const beers = [
     image: '/images/brand/benediktiner-official/dunkel-glass.webp',
     href: '/benediktiner-dunkel',
     color: 'Nâu hổ phách',
-    aroma: 'Malt rang · caramel',
+    aroma: 'Malt rang, caramel',
     abv: '5,4% ABV',
     description: 'Đậm hơn nhưng vẫn mềm mại, nổi bật hương malt rang, caramel và trái cây chín.',
   },
@@ -62,7 +62,7 @@ const beers = [
     image: '/images/brand/benediktiner-official/festbier-keg.webp',
     href: '/san-pham/benediktiner-festbier-bom-5l',
     color: 'Vàng sáng',
-    aroma: 'Malt chín · hoa bia nhẹ',
+    aroma: 'Malt chín, hoa bia nhẹ',
     abv: '5,8% ABV',
     description: 'Thân bia đầy đặn, hậu vị cân bằng, phù hợp cho bàn tiệc và những dịp sum họp.',
   },
@@ -135,7 +135,7 @@ export default function LandingPage() {
                     <div><dt>Hương</dt><dd>{beer.aroma}</dd></div>
                     <div><dt>Nồng độ</dt><dd>{beer.abv}</dd></div>
                   </dl>
-                  <Link href={beer.href} className={styles.textLink}>Khám phá hương vị <span aria-hidden="true">→</span></Link>
+                  <Link href={beer.href} className={styles.textLink}>Khám phá hương vị</Link>
                 </div>
               </article>
             ))}
@@ -157,7 +157,7 @@ export default function LandingPage() {
           </div>
           <div className={styles.storyCopy}>
             <p className={styles.eyebrowDark}>Từ Ettal đến thế giới</p>
-            <h2 id="ettal-story-title">Tu viện Ettal, 1330 — công thức tiếp nối tại Lich</h2>
+            <h2 id="ettal-story-title">Tu viện Ettal, 1330. Công thức tiếp nối tại Lich</h2>
             <p className={styles.lead}>Tu viện Ettal được thành lập năm 1330. Truyền thống bia lúa mì của các tu sĩ Benedictine hình thành hơn 400 năm trước và vẫn là nền tảng triết lý của Benediktiner ngày nay.</p>
             <p>Bia hiện được nấu tại Lich theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Sự tĩnh tại, tôn trọng nguyên liệu và chăm chút từng chi tiết là ba giá trị xuyên suốt.</p>
             <div className={styles.timeline} aria-label="Các mốc lịch sử">
@@ -165,7 +165,7 @@ export default function LandingPage() {
               <div><strong>400+</strong><span>Năm truyền thống ủ bia</span></div>
               <div><strong>Hôm nay</strong><span>Công thức được tiếp nối tại Lich</span></div>
             </div>
-            <Link href="/thuong-hieu" className={styles.textLink}>Đọc câu chuyện đầy đủ <span aria-hidden="true">→</span></Link>
+            <Link href="/thuong-hieu" className={styles.textLink}>Đọc câu chuyện đầy đủ</Link>
           </div>
         </div>
       </section>
@@ -176,7 +176,7 @@ export default function LandingPage() {
             <p className={styles.eyebrow}>Nghệ thuật thưởng thức</p>
             <h2 id="tasting-title">Ly Weizen, rót nghiêng, chừa lớp men cuối chai</h2>
             <p>Nhiệt độ, loại ly và cách rót đều ảnh hưởng trực tiếp đến lớp bọt, hương thơm và cấu trúc của Weissbier.</p>
-            <Link href="/huong-dan-rot-bia-lua-mi" className={styles.lightLink}>Xem hướng dẫn chi tiết <span aria-hidden="true">→</span></Link>
+            <Link href="/huong-dan-rot-bia-lua-mi" className={styles.lightLink}>Xem hướng dẫn chi tiết</Link>
           </div>
           <ol className={styles.tastingSteps}>
             {tastingSteps.map(([number, title, description]) => (

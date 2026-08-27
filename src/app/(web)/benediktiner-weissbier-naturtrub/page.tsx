@@ -312,25 +312,19 @@ export default function Page() {
               </p>
 
               <div className="weissbier-pairing-list">
-                <div className="weissbier-pairing-item">
-                  <span className="weissbier-pairing-check">✓</span>
-                  <div className="weissbier-pairing-text">
+                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
                     <strong>Hải sản tươi sống</strong>
                     <p>Cực kỳ hợp với tôm hấp sả, cua huỳnh đế, mực nướng sa tế và lẩu hải sản chua ngọt.</p>
                   </div>
                 </div>
 
-                <div className="weissbier-pairing-item">
-                  <span className="weissbier-pairing-check">✓</span>
-                  <div className="weissbier-pairing-text">
+                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
                     <strong>Đồ nướng & Gia cầm</strong>
                     <p>Gà quay mật ong, heo xá xíu, salad bơ ức gà nướng và xúc xích bê trắng truyền thống Đức.</p>
                   </div>
                 </div>
 
-                <div className="weissbier-pairing-item">
-                  <span className="weissbier-pairing-check">✓</span>
-                  <div className="weissbier-pairing-text">
+                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
                     <strong>Phô mai mềm & Đồ ngọt</strong>
                     <p>Phô mai dê, Gouda mềm, bánh tart táo nướng và các món panna cotta hoa quả ngọt dịu.</p>
                   </div>

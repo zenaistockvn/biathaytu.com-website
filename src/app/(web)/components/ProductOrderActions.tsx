@@ -30,7 +30,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       </h3>
 
       <div className="detail-actions-row">
-        <a href={telHref} className="btn-primary detail-btn-buy shimmer-effect">
+        <a href={telHref} className="btn-primary detail-btn-buy">
           Gọi {COMPANY_CONFIG.hotline}
         </a>
 

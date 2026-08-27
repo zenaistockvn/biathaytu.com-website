@@ -204,11 +204,11 @@ body.overflow-hidden {
 /* ─── Section Utilities ─── */
 .web-app .section-label {
   display: inline-block;
-  color: var(--web-accent-strong);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
+  color: var(--web-text-muted);
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 13px;
+  font-weight: 500;
   font-family: var(--font-sans), sans-serif !important;
   margin-bottom: 12px;
 }
@@ -220,13 +220,7 @@ body.overflow-hidden {
   color: var(--web-text);
 }
 
-.web-app .section-divider {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--web-accent), var(--web-accent-soft));
-  margin: 20px auto;
-  border-radius: 2px;
-}
+.web-app .section-divider { display: none; }
 
 /* Section Wrappers */
 .web-app .section {
@@ -2808,7 +2802,7 @@ html {
 }
 
 .web-app .shimmer-effect:hover::after {
-  animation: shimmer 1.2s ease-in-out infinite;
+  animation: none;
 }
 
 @keyframes shimmer {
@@ -5969,10 +5963,8 @@ html {
   padding: 0 12px;
   border-radius: 0;
   border-left: 1px solid var(--web-border);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .09em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--web-text-muted);
 }
 
@@ -5986,24 +5978,19 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--web-accent);
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: gap .25s ease, border-color .25s ease;
+  padding-bottom: 1px;
+  border-bottom: 1px solid currentColor;
+  transition: opacity .2s ease;
 }
 
 .web-app .product-card-v2:hover .card-link-cue {
-  gap: 12px;
-  border-bottom-color: var(--web-accent);
+  opacity: .7;
 }
 
 .web-app .product-card-v2 .card-image-empty {
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-size: 13px;
   color: var(--web-text-muted);
 }
