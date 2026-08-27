@@ -152,7 +152,7 @@ export default function Page() {
           <div className="weissbier-tasting-grid">
             <div className="weissbier-tasting-card">
               <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon">👁️</span>
+                <span className="weissbier-tasting-icon"></span>
                 <h3 className="weissbier-tasting-title">Thị Giác (Visual)</h3>
               </div>
               <p className="weissbier-tasting-desc">
@@ -162,7 +162,7 @@ export default function Page() {
 
             <div className="weissbier-tasting-card">
               <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon">👃</span>
+                <span className="weissbier-tasting-icon"></span>
                 <h3 className="weissbier-tasting-title">Khứu Giác (Aroma)</h3>
               </div>
               <p className="weissbier-tasting-desc">
@@ -172,7 +172,7 @@ export default function Page() {
 
             <div className="weissbier-tasting-card">
               <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon">👅</span>
+                <span className="weissbier-tasting-icon"></span>
                 <h3 className="weissbier-tasting-title">Vị Giác (Taste)</h3>
               </div>
               <p className="weissbier-tasting-desc">
@@ -182,7 +182,7 @@ export default function Page() {
 
             <div className="weissbier-tasting-card">
               <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon">✨</span>
+                <span className="weissbier-tasting-icon"></span>
                 <h3 className="weissbier-tasting-title">Hậu Vị (Finish)</h3>
               </div>
               <p className="weissbier-tasting-desc">

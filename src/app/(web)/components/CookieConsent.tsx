@@ -82,36 +82,36 @@ export default function CookieConsent() {
         right: '20px',
         maxWidth: '560px',
         margin: '0 auto',
-        backgroundColor: '#0f172a',
-        border: '1px solid #334155',
+        backgroundColor: 'var(--web-ink)',
+        border: '1px solid rgba(244, 241, 233, 0.14)',
         borderRadius: '12px',
         padding: '20px',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
         zIndex: 9999,
-        color: '#f8fafc',
+        color: 'var(--web-on-ink)',
         fontSize: '13px',
       }}
       role="region"
       aria-label="Cài đặt Cookie và Quyền riêng tư"
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-        <span style={{ fontSize: '18px' }}>🍪</span>
-        <strong style={{ fontSize: '15px', color: '#fbbf24' }}>Cài Đặt Cookie & Quyền Riêng Tư</strong>
+        <span style={{ fontSize: '18px' }}></span>
+        <strong style={{ fontSize: '15px', color: 'var(--web-accent-on-ink)' }}>Cài Đặt Cookie & Quyền Riêng Tư</strong>
       </div>
 
-      <p style={{ color: '#94a3b8', lineHeight: '1.5', marginBottom: '16px' }}>
+      <p style={{ color: 'var(--web-on-ink-muted)', lineHeight: '1.5', marginBottom: '16px' }}>
         Website sử dụng Cookie cần thiết để vận hành và Cookie tùy chọn để phân tích lượt truy cập, hỗ trợ tiếp thị. Bạn có thể tự do lựa chọn và tùy chỉnh quyền riêng tư của mình.{' '}
-        <Link href="/chinh-sach-cookie" style={{ color: '#fbbf24', textDecoration: 'underline' }}>
+        <Link href="/chinh-sach-cookie" style={{ color: 'var(--web-accent-on-ink)', textDecoration: 'underline' }}>
           Chính sách Cookie
         </Link>
       </p>
 
       {showCustomize && (
-        <div style={{ backgroundColor: '#1e293b', padding: '14px', borderRadius: '8px', marginBottom: '16px' }}>
+        <div style={{ backgroundColor: 'var(--web-ink-soft)', padding: '14px', borderRadius: '8px', marginBottom: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <div>
               <strong>Cookie Bắt Buộc (Essential)</strong>
-              <div style={{ fontSize: '11px', color: '#94a3b8' }}>Duy trì xác minh độ tuổi và các chức năng vận hành cốt lõi</div>
+              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Duy trì xác minh độ tuổi và các chức năng vận hành cốt lõi</div>
             </div>
             <input type="checkbox" checked disabled style={{ cursor: 'not-allowed' }} />
           </div>
@@ -119,7 +119,7 @@ export default function CookieConsent() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <div>
               <strong>Cookie Phân Tích (Analytics)</strong>
-              <div style={{ fontSize: '11px', color: '#94a3b8' }}>Giúp cải thiện hiệu năng và trải nghiệm người dùng</div>
+              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Giúp cải thiện hiệu năng và trải nghiệm người dùng</div>
             </div>
             <input
               type="checkbox"
@@ -132,7 +132,7 @@ export default function CookieConsent() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <strong>Cookie Tiếp Thị (Marketing)</strong>
-              <div style={{ fontSize: '11px', color: '#94a3b8' }}>Hỗ trợ đo lường quảng cáo Facebook / TikTok</div>
+              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Hỗ trợ đo lường quảng cáo Facebook / TikTok</div>
             </div>
             <input
               type="checkbox"
@@ -152,9 +152,9 @@ export default function CookieConsent() {
               style={{
                 padding: '8px 14px',
                 borderRadius: '6px',
-                border: '1px solid #475569',
+                border: '1px solid rgba(244, 241, 233, 0.28)',
                 backgroundColor: 'transparent',
-                color: '#cbd5e1',
+                color: 'var(--web-on-ink)',
                 cursor: 'pointer',
                 fontWeight: '500',
               }}
@@ -166,8 +166,8 @@ export default function CookieConsent() {
               style={{
                 padding: '8px 14px',
                 borderRadius: '6px',
-                border: '1px solid #475569',
-                backgroundColor: '#334155',
+                border: '1px solid rgba(244, 241, 233, 0.28)',
+                backgroundColor: 'rgba(244, 241, 233, 0.14)',
                 color: '#fff',
                 cursor: 'pointer',
                 fontWeight: '500',
@@ -181,8 +181,8 @@ export default function CookieConsent() {
                 padding: '8px 16px',
                 borderRadius: '6px',
                 border: 'none',
-                backgroundColor: '#d97706',
-                color: '#000',
+                backgroundColor: 'var(--web-accent-on-ink)',
+                color: 'var(--web-ink)',
                 cursor: 'pointer',
                 fontWeight: '700',
               }}
@@ -197,8 +197,8 @@ export default function CookieConsent() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              backgroundColor: '#d97706',
-              color: '#000',
+              backgroundColor: 'var(--web-accent-on-ink)',
+              color: 'var(--web-ink)',
               cursor: 'pointer',
               fontWeight: '700',
             }}

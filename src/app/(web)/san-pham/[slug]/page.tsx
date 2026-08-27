@@ -230,7 +230,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
             <div className="product-guarantee">
               <h4>
-                <span>🛡️</span> {guaranteeTitle}
+                {guaranteeTitle}
               </h4>
               <ul>
                 {guaranteeItems.map((item) => (
@@ -254,7 +254,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div className="pairings-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', alignItems: 'stretch' }}>
               <div style={{ background: 'var(--web-card-bg)', border: '1px solid var(--web-border)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--web-shadow)' }}>
                 <h3 style={{ color: 'var(--web-ink)', borderBottom: '2px solid var(--web-accent)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span>🍢</span> Xúc Xích Đức Ăn Kèm
+                  Xúc Xích Đức Ăn Kèm
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {sausageProducts.map((sausage) => (
@@ -288,7 +288,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
                   <div>
                     <h3 style={{ color: 'var(--web-accent-on-ink)', borderBottom: '2px solid var(--web-accent-on-ink)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>🎁</span> Combo Đề Xuất
+                      Combo Đề Xuất
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

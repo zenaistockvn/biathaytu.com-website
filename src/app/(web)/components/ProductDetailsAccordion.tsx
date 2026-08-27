@@ -98,10 +98,10 @@ export default function ProductDetailsAccordion({
   })();
 
   const sections = [
-    { id: 'story', title: '📜 Câu chuyện sản phẩm', content: <p style={{ margin: 0 }}>{getStory()}</p> },
-    { id: 'pairing', title: '🍽️ Gợi ý Food Pairing', content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{pairingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
-    { id: 'storage', title: `🧊 ${storageTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{storageItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
-    { id: 'drink', title: `🍻 ${servingTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{servingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
+    { id: 'story', title: 'Câu chuyện sản phẩm', content: <p style={{ margin: 0 }}>{getStory()}</p> },
+    { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{pairingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
+    { id: 'storage', title: `${storageTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{storageItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
+    { id: 'drink', title: `${servingTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{servingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
   ];
 
   return (

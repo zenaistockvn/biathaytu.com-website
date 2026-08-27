@@ -37,7 +37,7 @@ export default function UnderagePage() {
           boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)',
         }}
       >
-        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🛡️</div>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}></div>
         <h1
           style={{
             fontSize: '26px',

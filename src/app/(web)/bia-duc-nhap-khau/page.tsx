@@ -191,7 +191,7 @@ export default function Page() {
                   <h3 className="beer-card-title">{cat.type}</h3>
                   <p className="beer-card-desc">{cat.desc}</p>
                   <p style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', marginBottom: '16px', lineHeight: 1.6 }}>
-                    🍴 <strong>Phù hợp nhất với:</strong> {cat.pairing}
+                     <strong>Phù hợp nhất với:</strong> {cat.pairing}
                   </p>
                 </div>
                 <div>

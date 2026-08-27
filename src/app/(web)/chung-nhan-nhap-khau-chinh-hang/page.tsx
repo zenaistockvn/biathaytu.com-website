@@ -71,7 +71,7 @@ export default function Page() {
         <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Giải Thưởng Quốc Tế iTQi</h2>
         <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap', alignItems: 'center', background: 'var(--web-bg-section)', padding: '32px', borderRadius: '16px', marginBottom: '48px' }}>
           <div style={{ flex: '1 1 200px', display: 'flex', justifyContent: 'center' }}>
-            <span style={{ fontSize: '64px' }}>🏆</span>
+            <span style={{ fontSize: '64px' }}></span>
           </div>
           <div style={{ flex: '2 1 400px' }}>
             <h3 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>Superior Taste Award (3 Sao)</h3>

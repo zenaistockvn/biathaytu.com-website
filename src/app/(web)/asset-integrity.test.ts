@@ -14,13 +14,13 @@ const SAFE_LOCAL_IMAGE_PATH = /^\/[a-z0-9\/_.-]+$/;
 // one intentionally missing hidden SKU image. Keep that existing debt visible
 // without allowing new non-ASCII or missing paths into any src/data JSON file.
 const LEGACY_DATA_IMAGE_EXCEPTIONS = new Set([
-  '/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.jpg',
-  '/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.jpg',
-  '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.jpg',
-  '/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.jpg',
-  '/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.jpg',
+  '/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.webp',
+  '/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.webp',
+  '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp',
+  '/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp',
+  '/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp',
   '/images/products/official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg',
-  '/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.jpg',
+  '/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.webp',
   '/images/products/official/bitburger/kostritzer_keg.png',
 ]);
 

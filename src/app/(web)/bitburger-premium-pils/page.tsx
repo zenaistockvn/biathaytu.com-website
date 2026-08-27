@@ -214,7 +214,7 @@ export default function Page() {
           <div className="bitburger-tasting-grid">
             <div className="bitburger-tasting-card">
               <div className="bitburger-tasting-header">
-                <span className="bitburger-tasting-icon">👁️</span>
+                <span className="bitburger-tasting-icon"></span>
                 <h3 className="bitburger-tasting-title">Thị Giác (Visual)</h3>
               </div>
               <p className="bitburger-tasting-desc">
@@ -224,7 +224,7 @@ export default function Page() {
 
             <div className="bitburger-tasting-card">
               <div className="bitburger-tasting-header">
-                <span className="bitburger-tasting-icon">👃</span>
+                <span className="bitburger-tasting-icon"></span>
                 <h3 className="bitburger-tasting-title">Khứu Giác (Aroma)</h3>
               </div>
               <p className="bitburger-tasting-desc">
@@ -234,7 +234,7 @@ export default function Page() {
 
             <div className="bitburger-tasting-card">
               <div className="bitburger-tasting-header">
-                <span className="bitburger-tasting-icon">👅</span>
+                <span className="bitburger-tasting-icon"></span>
                 <h3 className="bitburger-tasting-title">Vị Giác (Taste)</h3>
               </div>
               <p className="bitburger-tasting-desc">
@@ -244,7 +244,7 @@ export default function Page() {
 
             <div className="bitburger-tasting-card">
               <div className="bitburger-tasting-header">
-                <span className="bitburger-tasting-icon">✨</span>
+                <span className="bitburger-tasting-icon"></span>
                 <h3 className="bitburger-tasting-title">Hậu Vị (Finish)</h3>
               </div>
               <p className="bitburger-tasting-desc">

@@ -45,7 +45,7 @@ export default function AlcoholWarning({
         role="alert"
         aria-label="Cảnh báo đồ uống có cồn"
       >
-        <span style={{ fontSize: '16px' }}>⚠️</span>
+        <span style={{ fontSize: '16px' }}></span>
         <span>{text}</span>
       </div>
     );
@@ -71,7 +71,7 @@ export default function AlcoholWarning({
         role="alert"
       >
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-          <span style={{ fontSize: '16px', lineHeight: '1' }}>🛑</span>
+          <span style={{ fontSize: '16px', lineHeight: '1' }}></span>
           <div>
             <strong style={{ display: 'block', color: '#92400e', marginBottom: '2px' }}>
               Cảnh báo tuân thủ quy định bán bia lẻ:
@@ -141,7 +141,7 @@ export default function AlcoholWarning({
       }}
       role="note"
     >
-      <span style={{ color: '#e3b341', fontSize: '14px' }}>🔞</span>
+      <span style={{ color: '#e3b341', fontSize: '14px' }}></span>
       <span>{text}</span>
     </div>
   );

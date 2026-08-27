@@ -82,7 +82,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: '5.4',
     ibu: 13,
     volume: '1 Thùng (12 Chai 500ml) + 500g Xúc Xích',
-    images: ['/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.jpg'],
+    images: ['/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.webp'],
     price: 1150000,
     haravan_url: null,
     category: 'combo',

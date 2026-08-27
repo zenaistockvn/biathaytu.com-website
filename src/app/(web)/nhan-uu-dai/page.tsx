@@ -253,7 +253,7 @@ export default function Page() {
               </>
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <span style={{ fontSize: '64px', display: 'block', marginBottom: '24px' }}>🎉</span>
+                <span style={{ fontSize: '64px', display: 'block', marginBottom: '24px' }}></span>
                 <h3 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--web-accent)', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>
                   Đăng Ký Thành Công!
                 </h3>

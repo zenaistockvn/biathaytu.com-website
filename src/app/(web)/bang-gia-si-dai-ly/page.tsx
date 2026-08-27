@@ -67,10 +67,10 @@ export default function Page() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginBottom: '48px' }}>
           {[
-            { icon: '💰', title: 'Mức chiết khấu hấp dẫn', desc: 'Lợi nhuận gộp lên đến 20-35% tùy theo mốc sản lượng cam kết hàng tháng (Tier 1, Tier 2, Tier 3).' },
-            { icon: '🛡️', title: 'Bảo vệ giá & Khu vực', desc: 'Chính sách quản lý giá bán lẻ nghiêm ngặt (MAP) giúp đại lý không bị phá giá, bảo vệ lợi ích kinh doanh lâu dài.' },
-            { icon: '📣', title: 'Hỗ trợ Marketing/POSM', desc: 'Được cấp phát ấn phẩm truyền thông (ảnh/video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
-            { icon: '🚚', title: 'Logistic chuyên nghiệp', desc: 'Kho bãi tiêu chuẩn tại Hà Nội. Hỗ trợ phí vận chuyển cho các đơn hàng sỉ ra các tỉnh thành, giao hàng nhanh chóng.' },
+            { icon: '', title: 'Mức chiết khấu hấp dẫn', desc: 'Lợi nhuận gộp lên đến 20-35% tùy theo mốc sản lượng cam kết hàng tháng (Tier 1, Tier 2, Tier 3).' },
+            { icon: '', title: 'Bảo vệ giá & Khu vực', desc: 'Chính sách quản lý giá bán lẻ nghiêm ngặt (MAP) giúp đại lý không bị phá giá, bảo vệ lợi ích kinh doanh lâu dài.' },
+            { icon: '', title: 'Hỗ trợ Marketing/POSM', desc: 'Được cấp phát ấn phẩm truyền thông (ảnh/video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
+            { icon: '', title: 'Logistic chuyên nghiệp', desc: 'Kho bãi tiêu chuẩn tại Hà Nội. Hỗ trợ phí vận chuyển cho các đơn hàng sỉ ra các tỉnh thành, giao hàng nhanh chóng.' },
           ].map((item, i) => (
             <div key={i} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>

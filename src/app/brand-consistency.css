@@ -230,7 +230,7 @@
 /* Product photography first: preserve true product color instead of multiply tint. */
 .web-app .product-card-v2 .card-image,
 .web-app .product-card .card-image {
-  background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #F8F5EE 58%, #ECE6D8 100%) !important;
+  background: radial-gradient(120% 90% at 50% 8%, #F2EFE6 0%, #E7E2D2 62%, #DED8C6 100%) !important;
 }
 
 .web-app .product-card-v2 .card-image img,
@@ -240,14 +240,15 @@
 
 .web-app .product-card-v2,
 .web-app .product-card {
-  border-radius: 16px !important;
-  box-shadow: var(--web-shadow) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
 }
 
 .web-app .product-card-v2:hover,
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
-  box-shadow: var(--web-shadow-lg) !important;
+  border-color: var(--web-accent-soft) !important;
+  box-shadow: 0 14px 34px -22px rgba(20, 36, 26, .45) !important;
 }
 
 /* Food pairing becomes editorial rows rather than three floating white cards. */
@@ -361,12 +362,23 @@
   margin-bottom: 34px !important;
 }
 
-/* More restrained tag styling. */
+/* Thông số đọc như dòng chú thích của catalogue in, không phải viên pill UI-kit. */
 .web-app .product-card-v2 .card-meta-tag {
-  padding: 4px 9px;
-  background: rgba(47, 93, 58, 0.065);
-  border: 1px solid rgba(47, 93, 58, 0.1);
-  font-size: 12px;
+  padding: 0 12px;
+  background: none;
+  border: none;
+  border-left: 1px solid var(--web-border);
+  border-radius: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--web-text-muted);
+}
+
+.web-app .product-card-v2 .card-meta-tag:first-child {
+  padding-left: 0;
+  border-left: none;
 }
 
 @media (max-width: 768px) {
