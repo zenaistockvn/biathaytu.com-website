@@ -139,7 +139,7 @@ export default function WebFooter() {
   );
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-surface="ink">
       <div className="container">
         <div className={styles.desktopFooter}>
           <section aria-label="Giới thiệu Bia Thầy Tu">

@@ -14,7 +14,7 @@
   --web-bg-section: #E9E5D8;
   --web-text: #14241A;
   --web-text-secondary: #4B5A50;
-  --web-text-muted: #5D6B61;
+  --web-text-muted: #55645A;
   --web-accent: #2F5D3A;
   --web-accent-soft: #4A7D55;
   --web-accent-strong: #2F5D3A;
@@ -119,6 +119,7 @@ body.overflow-hidden {
 .web-app .web-footer,
 .web-app .glass-card-dark,
 .web-app .geo-cta-card,
+.web-app .product-beer-section,
 .web-app [data-surface="ink"] {
   --heading-color: var(--web-on-ink);
 }
@@ -1947,7 +1948,7 @@ body.overflow-hidden {
 .web-app .product-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
 
 .web-app .product-guarantee { background-color: var(--web-ink); padding: 24px; border-radius: var(--web-radius); color: #fff; }
-.web-app .product-guarantee h4 { color: var(--web-accent-soft); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+.web-app .product-guarantee h4 { color: var(--web-accent-on-ink); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
 .web-app .product-guarantee ul { margin: 0; padding-left: 20px; opacity: 0.85; font-size: 14px; display: flex; flex-direction: column; gap: 10px; }
 .web-app .product-breadcrumb { font-size: 14px; opacity: 0.7; margin-bottom: 40px; color: var(--web-text-secondary); }
 .web-app .product-breadcrumb a { color: var(--web-accent) !important; }
@@ -5653,7 +5654,7 @@ html {
 }
 .web-app .article-detail-breadcrumb {
   font-size: 14px;
-  color: var(--web-accent);
+  color: var(--web-accent-on-ink);
   margin-bottom: 30px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -5855,4 +5856,15 @@ html {
     top: 88px;
     bottom: auto;
   }
+}
+
+/* Tiêu đề landing được tái sử dụng trên nền sáng: đảo lại màu chữ.
+   Dùng !important để thắng rule .weissbier-landing/.bitburger-landing cùng cấp. */
+.web-app .lifestyle-gallery-section .weissbier-section-title,
+.web-app .lifestyle-gallery-section .bitburger-section-title {
+  color: var(--web-ink) !important;
+}
+.web-app .lifestyle-gallery-section .weissbier-section-subtitle,
+.web-app .lifestyle-gallery-section .bitburger-section-subtitle {
+  color: var(--web-text-secondary) !important;
 }
