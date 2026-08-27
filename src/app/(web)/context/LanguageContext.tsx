@@ -24,7 +24,7 @@ const translations: Translations = {
     // Hero Section
     'hero.badge': 'Benediktiner · Công thức Benedictine từ Đức',
     'hero.title.line1': 'Bia Thầy Tu',
-    'hero.title.line2': 'Một khoảng lặng nguyên bản',
+    'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Hơn 400 năm truyền thống bia lúa mì khởi nguồn từ Tu viện Ettal.',
     'hero.description.2': 'Được nấu tại Lich theo công thức Benedictine nguyên bản.',
     'hero.btn.explore': 'Khám phá hương vị',
@@ -60,7 +60,7 @@ const translations: Translations = {
     // Hero Section
     'hero.badge': 'Benediktiner · Benedictine recipe from Germany',
     'hero.title.line1': 'Bia Thầy Tu',
-    'hero.title.line2': 'An original moment of calm',
+    'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Over 400 years of wheat beer tradition rooted in Ettal Abbey.',
     'hero.description.2': 'Brewed in Lich according to the original Benedictine recipe.',
     'hero.btn.explore': 'Explore the beers',
@@ -96,7 +96,7 @@ const translations: Translations = {
     // Hero Section
     'hero.badge': 'Benediktiner · Benediktinisches Rezept aus Deutschland',
     'hero.title.line1': 'Bia Thầy Tu',
-    'hero.title.line2': 'Ein ursprünglicher Moment der Ruhe',
+    'hero.title.line2': 'Benediktiner Weissbier',
     'hero.description.1': 'Über 400 Jahre Weißbiertradition mit Wurzeln im Kloster Ettal.',
     'hero.description.2': 'In Lich nach dem originalen Benediktinerrezept gebraut.',
     'hero.btn.explore': 'Biere entdecken',

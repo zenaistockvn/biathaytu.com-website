@@ -116,8 +116,7 @@ export default function LandingPage() {
       <section className={styles.section} aria-labelledby="featured-beers-title">
         <div className="container">
           <div className={styles.sectionHeading}>
-            <p className={styles.eyebrowDark}>Ba sắc thái Benediktiner</p>
-            <h2 id="featured-beers-title">Chọn bia theo hương vị, không chỉ theo bao bì</h2>
+            <h2 id="featured-beers-title">Ba dòng Benediktiner: Naturtrüb, Dunkel, Festbier</h2>
             <p>Mỗi dòng có một cá tính riêng, nhưng cùng chia sẻ sự cân bằng và tinh thần thưởng thức chậm rãi.</p>
           </div>
 
@@ -158,7 +157,7 @@ export default function LandingPage() {
           </div>
           <div className={styles.storyCopy}>
             <p className={styles.eyebrowDark}>Từ Ettal đến thế giới</p>
-            <h2 id="ettal-story-title">Một câu chuyện cần được kể chính xác</h2>
+            <h2 id="ettal-story-title">Tu viện Ettal, 1330 — công thức tiếp nối tại Lich</h2>
             <p className={styles.lead}>Tu viện Ettal được thành lập năm 1330. Truyền thống bia lúa mì của các tu sĩ Benedictine hình thành hơn 400 năm trước và vẫn là nền tảng triết lý của Benediktiner ngày nay.</p>
             <p>Bia hiện được nấu tại Lich theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Sự tĩnh tại, tôn trọng nguyên liệu và chăm chút từng chi tiết là ba giá trị xuyên suốt.</p>
             <div className={styles.timeline} aria-label="Các mốc lịch sử">
@@ -175,7 +174,7 @@ export default function LandingPage() {
         <div className={`container ${styles.tastingGrid}`}>
           <div className={styles.tastingIntro}>
             <p className={styles.eyebrow}>Nghệ thuật thưởng thức</p>
-            <h2 id="tasting-title">Một ly bia ngon bắt đầu trước ngụm đầu tiên</h2>
+            <h2 id="tasting-title">Ly Weizen, rót nghiêng, chừa lớp men cuối chai</h2>
             <p>Nhiệt độ, loại ly và cách rót đều ảnh hưởng trực tiếp đến lớp bọt, hương thơm và cấu trúc của Weissbier.</p>
             <Link href="/huong-dan-rot-bia-lua-mi" className={styles.lightLink}>Xem hướng dẫn chi tiết <span aria-hidden="true">→</span></Link>
           </div>
@@ -222,8 +221,7 @@ export default function LandingPage() {
       <section className={styles.b2bSection} aria-labelledby="b2b-title">
         <div className={`container ${styles.b2bInner}`}>
           <div>
-            <p className={styles.eyebrow}>Dành cho nhà hàng · khách sạn · sự kiện</p>
-            <h2 id="b2b-title">Đưa trải nghiệm bia Đức vào không gian của anh</h2>
+            <h2 id="b2b-title">Cung cấp cho nhà hàng, khách sạn và sự kiện</h2>
             <p>Tư vấn danh mục, quy cách chai/lon/bom và giải pháp giới thiệu sản phẩm phù hợp với mô hình vận hành.</p>
           </div>
           <div className={styles.b2bActions}>
@@ -236,8 +234,7 @@ export default function LandingPage() {
       <section className={styles.section} aria-labelledby="faq-title">
         <div className={`container ${styles.faqGrid}`}>
           <div>
-            <p className={styles.eyebrowDark}>Thông tin cần biết</p>
-            <h2 id="faq-title">Hiểu đúng về Bia Thầy Tu</h2>
+            <h2 id="faq-title">Câu hỏi thường gặp</h2>
             <p className={styles.faqIntro}>Các câu trả lời ngắn, ưu tiên thông tin có thể kiểm chứng từ hãng và đơn vị tư vấn tại Việt Nam.</p>
           </div>
           <div className={styles.faqList}>
