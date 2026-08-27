@@ -5,6 +5,7 @@ import Container from '../components/ui/Container';
 import Heading from '../components/ui/Heading';
 import Text from '../components/ui/Text';
 import { Button } from '../components/ui/Button';
+import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu — Benediktiner',
@@ -33,6 +34,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const telHref = getCompanyTelHref() ?? '/lien-he';
+  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
+
   return (
     <div className="web-app">
       <JsonLd type="article" data={getArticleSchema({ title: 'Chính Sách Đại Lý & Giá Sỉ Bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
@@ -110,11 +114,11 @@ export default function Page() {
             Để nhận file PDF Báo giá sỉ chi tiết và Chính sách chiết khấu, vui lòng liên hệ trực tiếp Giám Đốc Kinh Doanh:
           </Text>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button href="https://zalo.me/0915312166" variant="primary" target="_blank" rel="noopener noreferrer">
+            <Button href={zaloUrl} variant="primary" target={zaloUrl.startsWith('https://') ? '_blank' : undefined} rel={zaloUrl.startsWith('https://') ? 'noopener noreferrer' : undefined}>
               Nhắn Zalo Nhận Bảng Giá
             </Button>
-            <Button href="tel:0915312166" variant="outline">
-              Hotline: 0915 31 21 66
+            <Button href={telHref} variant="outline">
+              Hotline: {COMPANY_CONFIG.hotline}
             </Button>
           </div>
         </div>
@@ -128,7 +132,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Cung cấp giá sỉ bia Đức:</strong> Phân phối sỉ, đại lý nhượng quyền thương hiệu bia Benediktiner và Bitburger toàn quốc.</p>
             <p><strong>Quyền lợi đại lý:</strong> Mức chiết khấu cao, hỗ trợ POSM, bảo vệ giá (MAP), có hóa đơn VAT hợp pháp, hỗ trợ vận chuyển.</p>
-            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo 0915 31 21 66.</p>
+            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com · Hotline/Zalo {COMPANY_CONFIG.hotline}.</p>
           </div>
         </Container>
       </Section>

@@ -95,7 +95,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Đơn vị:</strong> Thương hiệu Bia Thầy Tu.</p>
             <p><strong>Lĩnh vực:</strong> Nhập khẩu và phân phối bia lúa mì Đức (Benediktiner Weissbier) và bia Bitburger Pilsner tại Việt Nam.</p>
-            <p><strong>Cơ sở:</strong> 26 Vạn Phúc, Ba Đình, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 0915 31 21 66.</p>
+            <p><strong>Cơ sở:</strong> {COMPANY_CONFIG.showroomAddress}. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): {COMPANY_CONFIG.hotline}.</p>
             <p><strong>Website chính thức:</strong> biathaytu.com.</p>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
@@ -33,7 +34,7 @@ export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
     { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal — nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
-    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: 'Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline 0915 31 21 66 hoặc ghé showroom 26 Vạn Phúc, Ba Đình, Hà Nội.' },
+    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
   ];
 
   return (
@@ -106,7 +107,7 @@ export default function Page() {
             <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
             <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline 0915 31 21 66 · Showroom 26 Vạn Phúc, Ba Đình, Hà Nội.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline} · Showroom {COMPANY_CONFIG.showroomAddress}.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

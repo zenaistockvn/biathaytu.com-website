@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCompanyZaloUrl } from '@/config/company';
 
 interface ZaloCTAProps {
   productId?: string;
@@ -9,12 +10,14 @@ interface ZaloCTAProps {
 }
 
 export default function ZaloCTA({ productName, className = '', label = 'Tư vấn qua Zalo', variant = 'gold' }: ZaloCTAProps) {
-  const zaloPhone = '0915312166';
+  const zaloBaseUrl = getCompanyZaloUrl();
   const defaultMessage = productName
     ? `Chào Bia Thầy Tu, mình muốn được tư vấn về sản phẩm ${productName}`
     : 'Chào Bia Thầy Tu, mình muốn được tư vấn về các sản phẩm bia Đức';
 
-  const zaloUrl = `https://zalo.me/${zaloPhone}?text=${encodeURIComponent(defaultMessage)}`;
+  const zaloUrl = zaloBaseUrl
+    ? `${zaloBaseUrl}?text=${encodeURIComponent(defaultMessage)}`
+    : '/lien-he';
 
   const variantClass = variant === 'outline' ? 'zalo-cta-outline-class' : 'zalo-cta-gold-class';
   const combinedClassName = `zalo-cta-class ${variantClass} ${className}`.trim();

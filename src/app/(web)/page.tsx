@@ -93,6 +93,7 @@ export default function LandingPage() {
   const telHref = getCompanyTelHref();
   const mailtoHref = getCompanyMailtoHref();
   const zaloUrl = getCompanyZaloUrl();
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_CONFIG.showroomAddress)}`;
 
   return (
     <>
@@ -211,7 +212,7 @@ export default function LandingPage() {
               <strong>{COMPANY_CONFIG.hotline}</strong>
             </address>
             <div className={styles.experienceActions}>
-              <a href="https://www.google.com/maps/search/?api=1&query=26+Vạn+Phúc+Ba+Đình+Hà+Nội" target="_blank" rel="noopener noreferrer" className={styles.primaryLink}>Xem chỉ đường</a>
+              <a href={mapUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryLink}>Xem chỉ đường</a>
               {telHref ? <a href={telHref} className={styles.secondaryLink}>Gọi tư vấn</a> : null}
             </div>
           </div>

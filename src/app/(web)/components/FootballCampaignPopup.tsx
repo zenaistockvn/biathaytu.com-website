@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import AlcoholWarning from './AlcoholWarning';
 import { isAgeVerified } from '@/utils/ageVerification';
+import { getCompanyZaloUrl } from '@/config/company';
 
 /** Chiến dịch chỉ hiển thị trong khoảng thời gian này (ISO). Hết hạn → không render. */
 const CAMPAIGN_ENDS_AT = '2026-08-31T23:59:59+07:00';
@@ -83,12 +84,12 @@ export default function FootballCampaignPopup() {
 
   if (!isOpen) return null;
 
-  const zaloBaseUrl = 'https://zalo.me/0915312166';
+  const zaloBaseUrl = getCompanyZaloUrl();
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
 
-  const linkKeg = `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}`;
-  const linkCombo = `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}`;
+  const linkKeg = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}` : '/lien-he';
+  const linkCombo = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}` : '/lien-he';
 
   return (
     <div

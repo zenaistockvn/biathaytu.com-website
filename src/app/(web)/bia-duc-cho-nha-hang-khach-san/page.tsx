@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const telHref = getCompanyTelHref() ?? '/lien-he';
+  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
+
   return (
     <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
       <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
@@ -76,8 +80,8 @@ export default function Page() {
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Nhận Báo Giá Sỉ & Chính Sách Horeca</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để lại thông tin, chuyên viên tư vấn B2B của chúng tôi sẽ liên hệ trong vòng 2 giờ làm việc. Xem chi tiết <Link href="/bang-gia-si-dai-ly" style={{ color: 'var(--web-ink)', fontWeight: 600, textDecoration: 'underline' }}>chính sách giá sỉ dành cho đại lý</Link>.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://zalo.me/0915312166" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo B2B</a>
-            <a href="tel:0915312166" style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline Phụ Trách Horeca</a>
+            <a href={zaloUrl} target={zaloUrl.startsWith('https://') ? '_blank' : undefined} rel={zaloUrl.startsWith('https://') ? 'noopener noreferrer' : undefined} style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo B2B</a>
+            <a href={telHref} style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Gọi Hotline Phụ Trách Horeca</a>
           </div>
         </div>
       </article>
@@ -89,7 +93,7 @@ export default function Page() {
             <p><strong>Cung cấp bia Đức cho nhà hàng khách sạn:</strong> Kênh Horeca, đại lý sỉ bia Đức nhập khẩu nguyên chai (Benediktiner, Bitburger).</p>
             <p><strong>Dịch vụ hỗ trợ:</strong> Menu food pairing, cung cấp POSM (ly, lót ly), đào tạo nhân viên rót bia chuẩn Đức.</p>
             <p><strong>Chiết khấu:</strong> Có chính sách giá sỉ ưu đãi lớn, xuất hóa đơn VAT đầy đủ, giao hàng hỏa tốc nội thành.</p>
-            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline 0915 31 21 66.</p>
+            <p><strong>Liên hệ B2B:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline}.</p>
           </div>
         </div>
       </section>
