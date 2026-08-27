@@ -41,9 +41,9 @@ export default function Page() {
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Food Pairing Bia Đức', url: 'https://www.biathaytu.com/food-pairing-bia-duc' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Ẩm Thực</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Ẩm Thực</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Nghệ Thuật Food Pairing <br/>Cùng Bia Đức</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Đánh thức toàn bộ giác quan khi kết hợp đúng hương vị bia với món ăn phù hợp.</p>
         </div>
@@ -111,7 +111,7 @@ export default function Page() {
            </div>
         </div>
 
-        <div style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Chọn bia cho bữa tiệc của bạn</h3>
           <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Chuẩn bị thực đơn hoàn hảo với bộ sưu tập bia Đức nhập khẩu chính hãng.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>

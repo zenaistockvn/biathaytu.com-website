@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
+import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb — Nhập Khẩu Đức',
@@ -41,9 +42,9 @@ export default function Page() {
     volume: '500ml',
   };
 
-  const zaloBaseUrl = 'https://zalo.me/0915312166';
+  const zaloBaseUrl = getCompanyZaloUrl();
   const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia lúa mì Benediktiner Weissbier Naturtrüb chính hãng. Tư vấn chương trình ưu đãi và giao hàng giúp mình nhé.';
-  const linkOrder = `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}`;
+  const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
 
   return (
     <div className="weissbier-landing">
@@ -367,7 +368,7 @@ export default function Page() {
           <div className="weissbier-ai-card">
             <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, được nấu tại Lich theo công thức nguyên bản của Benediktiner Weissbräu GmbH, Ettal.</p>
             <p style={{ marginTop: '8px' }}><strong>Đặc tính hương vị:</strong> Men bia không lọc đục tự nhiên (Naturtrüb), bọt dày mịn, hương trái cây đặc trưng chuối chín và đinh hương. Đạt giải thưởng ẩm thực quốc tế danh giá iTQi 3 Sao.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: 0915 31 21 66 - Showroom 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: {COMPANY_CONFIG.hotline} - Showroom {COMPANY_CONFIG.showroomAddress}).</p>
           </div>
         </div>
       </section>

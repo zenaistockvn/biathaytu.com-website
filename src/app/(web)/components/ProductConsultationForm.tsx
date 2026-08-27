@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { getCompanyZaloUrl } from '@/config/company';
 
 interface ProductConsultationFormProps {
   productName: string;
@@ -26,7 +27,12 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
       .filter(Boolean)
       .join('\n');
 
-    window.open(`https://zalo.me/0915312166?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    const zaloUrl = getCompanyZaloUrl();
+    if (zaloUrl) {
+      window.open(`${zaloUrl}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.assign('/lien-he');
+    }
   };
 
   return (

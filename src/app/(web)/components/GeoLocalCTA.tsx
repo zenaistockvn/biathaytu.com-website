@@ -1,12 +1,10 @@
 import React from 'react';
+import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export default function GeoLocalCTA() {
-  const hotlineDisplay = '0915 31 21 66';
-  const hotlineTel = 'tel:0915312166';
-  const zaloUrl = 'https://zalo.me/0915312166';
-  
-  // Official map embed URL for 26 Vạn Phúc, Ba Đình, Hà Nội
-  const mapEmbedUrl = 'https://www.google.com/maps?q=26%20V%E1%BA%A1n%20Ph%C3%BAc%2C%20Ba%20%C4%90%C3%ACnh%2C%20H%C3%A0%20N%E1%BB%99i&output=embed';
+  const hotlineTel = getCompanyTelHref() || '/lien-he';
+  const zaloUrl = getCompanyZaloUrl() || '/lien-he';
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(COMPANY_CONFIG.showroomAddress)}&output=embed`;
 
   return (
     <>
@@ -37,7 +35,7 @@ export default function GeoLocalCTA() {
         .geo-cta-badge {
           font-size: 11px;
           letter-spacing: 2px;
-          color: var(--web-accent);
+          color: var(--web-accent-on-ink);
           text-transform: uppercase;
           font-weight: 700;
           margin-bottom: 8px;
@@ -47,7 +45,6 @@ export default function GeoLocalCTA() {
           font-family: var(--font-serif);
           font-size: 26px;
           font-weight: 700;
-          color: #ffffff;
           margin-bottom: 12px;
           line-height: 1.3;
         }
@@ -69,7 +66,7 @@ export default function GeoLocalCTA() {
           align-items: flex-start;
         }
         .geo-cta-icon-wrapper {
-          color: var(--web-accent);
+          color: var(--web-accent-on-ink);
           flex-shrink: 0;
           margin-top: 3px;
         }
@@ -79,7 +76,7 @@ export default function GeoLocalCTA() {
           color: rgba(255, 255, 255, 0.9);
         }
         .geo-cta-info-text strong {
-          color: var(--web-accent-soft);
+          color: var(--web-accent-on-ink);
           font-weight: 600;
         }
         .geo-cta-actions {
@@ -177,7 +174,7 @@ export default function GeoLocalCTA() {
                 </svg>
               </div>
               <div className="geo-cta-info-text">
-                <strong>Showroom Hà Nội:</strong> 26 Vạn Phúc, Ba Đình, Hà Nội.
+                <strong>Showroom Hà Nội:</strong> {COMPANY_CONFIG.showroomAddress}.
               </div>
             </div>
             
@@ -188,7 +185,7 @@ export default function GeoLocalCTA() {
                 </svg>
               </div>
               <div className="geo-cta-info-text">
-                <strong>Hotline / Zalo:</strong> {hotlineDisplay} (8:00 - 22:00)
+                <strong>Hotline / Zalo:</strong> {COMPANY_CONFIG.hotline} (8:00 - 22:00)
               </div>
             </div>
           </div>

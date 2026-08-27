@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
+import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bitburger Premium Pils — Bản Giới Hạn World Cup 2026',
@@ -41,15 +42,15 @@ export default function Page() {
     volume: '330ml, 500ml',
   };
 
-  const zaloBaseUrl = 'https://zalo.me/0915312166';
+  const zaloBaseUrl = getCompanyZaloUrl();
   
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
   const msgGeneral = 'Chào Bia Thầy Tu, mình muốn tư vấn đặt mua bia đắng thanh Bitburger Premium Pils chính hãng. Giao nhanh giúp mình nhé.';
 
-  const linkKeg = `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}`;
-  const linkCombo = `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}`;
-  const linkGeneral = `${zaloBaseUrl}?text=${encodeURIComponent(msgGeneral)}`;
+  const linkKeg = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}` : '/lien-he';
+  const linkCombo = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}` : '/lien-he';
+  const linkGeneral = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgGeneral)}` : '/lien-he';
 
   return (
     <div className="bitburger-landing">
@@ -429,7 +430,7 @@ export default function Page() {
           <div className="bitburger-ai-card">
             <p><strong>Bia Bitburger Premium Pils:</strong> Là dòng bia vàng Pilsner lên men đáy số 1 nước Đức, nồng độ cồn 4.8% ABV, sản xuất từ năm 1817 theo Luật Tinh Khiết Reinheitsgebot 1516 nghiêm ngặt.</p>
             <p style={{ marginTop: '8px' }}><strong>Chiến dịch World Cup 2026:</strong> Bitburger ra mắt lon phiên bản giới hạn Football Edition "Prost to the World". Phân phối chính hãng qua hệ thống Bia Thầy Tu dưới dạng Thùng lẻ 24 lon 500ml và Combo Match Night kèm xúc xích Đức nướng.</p>
-            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: 0915 31 21 66 - Địa chỉ cửa hàng: 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: {COMPANY_CONFIG.hotline} - Địa chỉ cửa hàng: {COMPANY_CONFIG.showroomAddress}).</p>
           </div>
         </div>
       </section>

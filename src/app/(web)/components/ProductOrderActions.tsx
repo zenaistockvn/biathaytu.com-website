@@ -1,6 +1,7 @@
 "use client";
 
 import ZaloCTA from './ZaloCTA';
+import { COMPANY_CONFIG, getCompanyTelHref } from '@/config/company';
 
 interface ProductOrderActionsProps {
   product: {
@@ -10,6 +11,8 @@ interface ProductOrderActionsProps {
 }
 
 export default function ProductOrderActions({ product }: ProductOrderActionsProps) {
+  const telHref = getCompanyTelHref() || '/lien-he';
+
   return (
     <section
       className="product-actions detail-product-actions"
@@ -27,8 +30,8 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       </h3>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-        <a href="tel:0915312166" className="btn-primary detail-btn-buy shimmer-effect">
-          Gọi 0915 31 21 66
+        <a href={telHref} className="btn-primary detail-btn-buy shimmer-effect">
+          Gọi {COMPANY_CONFIG.hotline}
         </a>
 
         <ZaloCTA

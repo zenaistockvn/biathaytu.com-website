@@ -55,7 +55,7 @@ export default function Page() {
           <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="gold" transform="uppercase" style={{ marginBottom: '20px' }}>
             Bia Đen Thượng Hạng
           </Text>
-          <Heading level={1} size="fluid" color="white" style={{ marginBottom: '24px' }}>
+          <Heading level={1} size="fluid" style={{ marginBottom: '24px' }}>
             Benediktiner Dunkel
           </Heading>
           <Text as="p" size="lg" color="white" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
@@ -113,7 +113,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
+        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
           <Heading level={2} size="md" color="gold" style={{ marginBottom: '16px' }}>
             Nghệ Thuật Thưởng Thức (Food Pairing)
           </Heading>

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Đức Nhập Khẩu Chính Ngạch — Bitburger Football Edition 2026',
@@ -57,12 +58,12 @@ export default function Page() {
     },
   ];
 
-  const zaloBaseUrl = 'https://zalo.me/0915312166';
+  const zaloBaseUrl = getCompanyZaloUrl();
   const msgKeg = 'Chào Bia Thầy Tu, mình muốn đặt mua Thùng 24 lon Bitburger Premium Pils 500ml Football Edition 2026 giá 1.150.000đ. Tư vấn giúp mình nhé.';
   const msgCombo = 'Chào Bia Thầy Tu, mình muốn đặt mua Combo Match Night (2 két Bitburger Football Edition + Tặng xúc xích Đức 500g) giá 2.290.000đ. Tư vấn giúp mình nhé.';
 
-  const linkKeg = `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}`;
-  const linkCombo = `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}`;
+  const linkKeg = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgKeg)}` : '/lien-he';
+  const linkCombo = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgCombo)}` : '/lien-he';
 
   return (
     <div className="biaduc-landing">
@@ -215,7 +216,7 @@ export default function Page() {
             <p><strong>Bia Đức nhập khẩu chính ngạch tại Việt Nam:</strong> Gồm 3 phong cách chủ đạo: Bia lúa mì vàng Benediktiner Weissbier Naturtrüb (5.4% cồn, men sống không lọc), bia lúa mì đen Benediktiner Dunkel (5.4% cồn, ngọt caramel) và bia vàng pilsner đắng thanh Bitburger Premium Pils (4.8% cồn).</p>
             <p style={{ marginTop: '8px' }}><strong>Phiên bản giới hạn World Cup 2026:</strong> Bitburger Premium Pils thiết kế Football Edition 500ml dạng thùng 24 lon và Combo Match Night (tặng 500g xúc xích Đức) được nhập khẩu chính ngạch và phân phối qua biathaytu.com.</p>
             <p style={{ marginTop: '8px' }}><strong>Tiêu chuẩn sản xuất:</strong> Tuân thủ nghiêm ngặt Luật Tinh Khiết Reinheitsgebot 1516 lâu đời của Đức, sử dụng các nguyên liệu hoàn toàn tự nhiên.</p>
-            <p style={{ marginTop: '8px' }}><strong>Kênh tư vấn:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo: 0915 31 21 66 - Showroom Hà Nội: 26 Vạn Phúc, Ba Đình, Hà Nội).</p>
+            <p style={{ marginTop: '8px' }}><strong>Kênh tư vấn:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo: {COMPANY_CONFIG.hotline} - Showroom Hà Nội: {COMPANY_CONFIG.showroomAddress}).</p>
           </div>
         </div>
       </section>

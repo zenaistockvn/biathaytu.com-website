@@ -19,6 +19,20 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*none/);
   });
 
+  it('keeps header links legible on dark heroes without inline color overrides', () => {
+    const header = readProjectFile('src/app/(web)/components/WebHeader.tsx');
+    const css = readProjectFile('src/app/web.css');
+
+    expect(header).not.toContain('const textColor');
+    expect(header).not.toContain('const logoColor');
+    expect(header).not.toMatch(/className="header-logo"\s+style=/);
+    expect(header).not.toMatch(/className="nav-desktop-link"\s+style=/);
+    expect(header).toContain("aria-current={isCurrentPath(link.href) ? 'page' : undefined}");
+    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.header-logo[^}]*color:\s*#fff/);
+    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.nav-desktop-link[^}]*color:\s*rgba\(255,\s*255,\s*255,\s*0\.88\)/);
+    expect(css).not.toMatch(/\.web-app\s+a\s*\{[^}]*color:\s*inherit\s*!important/);
+  });
+
   it('defines the web primary color token used by primary CTAs', () => {
     const css = readProjectFile('src/app/web.css');
 

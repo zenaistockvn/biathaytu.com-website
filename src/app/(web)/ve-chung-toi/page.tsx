@@ -36,9 +36,9 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Về Chúng Tôi', slug: 've-chung-toi', url: 'https://www.biathaytu.com/ve-chung-toi', description: 'Thông tin nhà nhập khẩu Bia Thầy Tu.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Về Chúng Tôi', url: 'https://www.biathaytu.com/ve-chung-toi' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Hành Trình Mang Hương Vị Nguyên Bản</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Hành Trình Mang Hương Vị Nguyên Bản</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Về Chúng Tôi — Bia Thầy Tu</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả nền văn hóa bia Bavaria 400 năm tuổi đến với bàn tiệc của người Việt.</p>
         </div>
@@ -80,9 +80,9 @@ export default function Page() {
           <p><strong>Email:</strong> {COMPANY_CONFIG.email}</p>
         </div>
 
-        <div style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Kết nối với chúng tôi</h3>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Ghé không gian tại Vạn Phúc để tìm hiểu các dòng bia đang được giới thiệu. Nếu bạn là đối tác kinh doanh, tham khảo <Link href="/bia-duc-cho-nha-hang-khach-san" style={{ color: 'var(--web-accent)', textDecoration: 'underline' }}>giải pháp dành cho nhà hàng &amp; khách sạn</Link>.</p>
+        <div data-surface="ink" style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
+          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Kết nối với chúng tôi</h3>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Ghé không gian tại Vạn Phúc để tìm hiểu các dòng bia đang được giới thiệu. Nếu bạn là đối tác kinh doanh, tham khảo <Link href="/bia-duc-cho-nha-hang-khach-san" style={{ color: 'var(--web-accent-on-ink)', textDecoration: 'underline' }}>giải pháp dành cho nhà hàng &amp; khách sạn</Link>.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button href="/lien-he" variant="primary">Đến Trang Liên Hệ</Button>
           </div>
@@ -95,7 +95,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Đơn vị:</strong> Thương hiệu Bia Thầy Tu.</p>
             <p><strong>Lĩnh vực:</strong> Nhập khẩu và phân phối bia lúa mì Đức (Benediktiner Weissbier) và bia Bitburger Pilsner tại Việt Nam.</p>
-            <p><strong>Cơ sở:</strong> 26 Vạn Phúc, Ba Đình, Hà Nội. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): 0915 31 21 66.</p>
+            <p><strong>Cơ sở:</strong> {COMPANY_CONFIG.showroomAddress}. Giao hàng toàn quốc. Số điện thoại (Hotline / Zalo): {COMPANY_CONFIG.hotline}.</p>
             <p><strong>Website chính thức:</strong> biathaytu.com.</p>
           </div>
         </div>

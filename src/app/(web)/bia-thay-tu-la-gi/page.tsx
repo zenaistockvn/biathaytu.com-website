@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
@@ -33,7 +34,7 @@ export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
     { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal — nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
-    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: 'Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline 0915 31 21 66 hoặc ghé showroom 26 Vạn Phúc, Ba Đình, Hà Nội.' },
+    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
   ];
 
   return (
@@ -42,9 +43,9 @@ export default function Page() {
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Bia Đức</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Bia Đức</p>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Bia Thầy Tu Là Gì?</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>Câu chuyện về dòng bia lúa mì được ủ bởi các tu sĩ dòng Benedictine từ năm 1609 tại chân dãy Alps.</p>
         </div>
@@ -91,7 +92,7 @@ export default function Page() {
           Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ "Naturtrüb" — nghĩa là "tự nhiên không lọc" trong tiếng Đức.
         </p>
 
-        <div style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Sẵn sàng trải nghiệm?</h3>
           <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Đặt mua bia Thầy Tu Benediktiner chính hãng, giao tận nơi toàn quốc.</p>
           <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Sản Phẩm</Link>
@@ -106,7 +107,7 @@ export default function Page() {
             <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
             <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot) — 4 nguyên liệu duy nhất.</p>
             <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline 0915 31 21 66 · Showroom 26 Vạn Phúc, Ba Đình, Hà Nội.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline} · Showroom {COMPANY_CONFIG.showroomAddress}.</p>
             <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
           </div>
         </div>

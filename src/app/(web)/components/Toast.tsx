@@ -15,9 +15,10 @@ export default function Toast() {
     >
       <div
         className="toast-item"
+        data-surface="ink"
         style={{
           background: 'var(--web-ink)',
-          color: 'white',
+          color: 'var(--web-on-ink)',
           padding: '16px 24px',
           borderRadius: '8px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.15)',

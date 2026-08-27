@@ -1,5 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export type LanguageCode = 'vi' | 'en' | 'de';
 
@@ -41,7 +42,7 @@ const translations: Translations = {
     'footer.company.b2b': 'Khách Hàng Doanh Nghiệp',
     'footer.company.policy': 'Chính Sách & Tuân Thủ',
     'footer.contact.title': 'Liên Hệ',
-    'footer.contact.hotline': 'Hotline: 0915 31 21 66',
+    'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
     'footer.contact.time': 'Thứ 2 - Chủ Nhật (9:00 - 21:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
@@ -77,7 +78,7 @@ const translations: Translations = {
     'footer.company.b2b': 'B2B Customers',
     'footer.company.policy': 'Policies & Compliance',
     'footer.contact.title': 'Contact',
-    'footer.contact.hotline': 'Hotline: +84 915 31 21 66',
+    'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
     'footer.contact.time': 'Mon - Sun (9:00 - 21:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
@@ -113,7 +114,7 @@ const translations: Translations = {
     'footer.company.b2b': 'B2B Kunden',
     'footer.company.policy': 'Richtlinien & Compliance',
     'footer.contact.title': 'Kontakt',
-    'footer.contact.hotline': 'Hotline: +84 915 31 21 66',
+    'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
     'footer.contact.time': 'Mo - So (9:00 - 21:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'Alle Rechte vorbehalten.',

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
@@ -34,9 +35,9 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Chứng Nhận Nhập Khẩu', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Minh Bạch & Uy Tín</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Minh Bạch & Uy Tín</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Chứng Nhận Chất Lượng <br/>& Nguồn Gốc Nhập Khẩu</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Khẳng định uy tín nhà phân phối qua sự minh bạch về pháp lý và nguồn gốc 100% nguyên bản từ Đức.</p>
         </div>
@@ -80,8 +81,8 @@ export default function Page() {
           </div>
         </div>
 
-        <div style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Yên tâm nhập sỉ & kinh doanh</h3>
+        <div data-surface="ink" style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
+          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Yên tâm nhập sỉ & kinh doanh</h3>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Chúng tôi luôn đồng hành cùng nhà phân phối với sự bảo đảm tuyệt đối về mặt pháp lý.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/bang-gia-si-dai-ly" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Chính Sách Đại Lý</Link>
@@ -96,7 +97,7 @@ export default function Page() {
             <p><strong>Nguồn gốc bia Benediktiner:</strong> Nhập khẩu 100% nguyên chai chính ngạch từ nhà máy Benediktiner Weißbräu GmbH (Đức).</p>
             <p><strong>Pháp lý minh bạch:</strong> Có đầy đủ Tờ khai hải quan, Chứng nhận CO/CQ, Bản Tự công bố chất lượng VSATTP, và xuất hóa đơn VAT.</p>
             <p><strong>Giải thưởng thế giới:</strong> Benediktiner Weissbier đạt giải iTQi Superior Taste Award 3 Sao (Mức cao nhất) năm 2022 do Viện Hương vị Quốc tế Brussels trao tặng.</p>
-            <p><strong>Đại diện cung cấp:</strong> Bia Thầy Tu · biathaytu.com · Hotline 0915 31 21 66.</p>
+            <p><strong>Đại diện cung cấp:</strong> Bia Thầy Tu · biathaytu.com · Hotline {COMPANY_CONFIG.hotline}.</p>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
@@ -34,9 +35,9 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang' }])} />
 
-      <section style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '20px' }}>Chất Lượng Đức</p>
+          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Chất Lượng Đức</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Bia Benediktiner Chính Hãng</h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Tìm hiểu nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.</p>
         </div>
@@ -80,7 +81,7 @@ export default function Page() {
 
         <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner →</Link></p>
 
-        <div style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Yên tâm thưởng thức</h3>
           <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -95,7 +96,7 @@ export default function Page() {
           <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
             <p><strong>Bia Benediktiner chính hãng:</strong> 100% nhập khẩu từ Benediktiner Weißbräu GmbH (Bavaria, Đức).</p>
             <p><strong>Dấu hiệu nhận biết:</strong> Nhãn phụ tiếng Việt, mã vạch 400-440 (Đức), chất bia đục tự nhiên (Naturtrüb) do men sống.</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline 0915 31 21 66.</p>
+            <p><strong>Kênh thông tin:</strong> biathaytu.com · Hotline {COMPANY_CONFIG.hotline}.</p>
             <p><strong>Bảo quản:</strong> Cần giữ mát để bảo vệ men sống (Live yeast) bên trong chai.</p>
           </div>
         </div>

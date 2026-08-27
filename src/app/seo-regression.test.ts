@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { getPublicBaseUrl } from '@/lib/seo/site';
@@ -9,6 +9,20 @@ const originalAppUrl = process.env.NEXT_PUBLIC_APP_URL;
 
 function readProjectFile(path: string) {
   return readFileSync(join(root, path), 'utf8');
+}
+
+function readContactConsumers(directory = join(root, 'src')): string {
+  return readdirSync(directory, { withFileTypes: true })
+    .flatMap((entry) => {
+      const absolutePath = join(directory, entry.name);
+
+      if (entry.isDirectory()) return [readContactConsumers(absolutePath)];
+      if (!entry.isFile() || !/\.(ts|tsx)$/.test(entry.name) || /\.(test|spec)\.(ts|tsx)$/.test(entry.name)) return [];
+      if (absolutePath === join(root, 'src/config/company.ts')) return [];
+
+      return [readFileSync(absolutePath, 'utf8')];
+    })
+    .join('\n');
 }
 
 afterEach(() => {
@@ -102,6 +116,14 @@ describe('SEO and GEO regressions', () => {
     expect(surfaces).toContain('COMPANY_CONFIG');
     // Bắt mọi biến thể số cũ: 915 312 166 / 915-312-166 / 915.312.166 / 915312166
     expect(surfaces).not.toMatch(/915[\s.\-]?312[\s.\-]?166/);
+  });
+
+  it('keeps canonical contact literals centralized in company config', () => {
+    const consumers = readContactConsumers();
+
+    expect(consumers).not.toContain('0915 31 21 66');
+    expect(consumers).not.toContain('0915312166');
+    expect(consumers).not.toContain('26 Vạn Phúc, Ba Đình, Hà Nội');
   });
 
   it('root layout uses brand metadata, not the internal AMC tool name', () => {
