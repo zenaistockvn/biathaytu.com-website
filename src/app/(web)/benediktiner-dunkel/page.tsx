@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
 import Section from '../components/ui/Section';
@@ -67,7 +68,7 @@ export default function Page() {
       <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
         <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             <img src="/images/products/hero_dunkel_v2.png" alt="Benediktiner Dunkel" style={{ width: '100%', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
+             <Image src="/images/products/hero_dunkel_v2.png" alt="Benediktiner Dunkel" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
           <div style={{ flex: '2 1 400px' }}>
             <Heading level={2} size="lg" color="navy" style={{ marginBottom: '16px' }}>

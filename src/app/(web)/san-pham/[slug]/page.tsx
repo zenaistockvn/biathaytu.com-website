@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductConsultationForm from '../../components/ProductConsultationForm';
@@ -264,7 +265,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
                     >
                       <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
-                        <img src={sausage.images?.[0] || '/images/products/placeholder.png'} alt={sausage.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <Image
+                          src={sausage.images?.[0] || '/images/products/placeholder.png'}
+                          alt={sausage.name}
+                          fill
+                          sizes="70px"
+                          style={{ objectFit: 'contain' }}
+                        />
                       </div>
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
@@ -285,7 +292,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <img src={relatedCombo.images?.[0] || '/images/products/placeholder.png'} alt={relatedCombo.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <Image
+                          src={relatedCombo.images?.[0] || '/images/products/placeholder.png'}
+                          alt={relatedCombo.name}
+                          fill
+                          sizes="100px"
+                          style={{ objectFit: 'contain' }}
+                        />
                       </div>
                       <div style={{ flex: '1 1 180px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>

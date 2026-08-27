@@ -69,9 +69,12 @@ export default function Page() {
         <div className="container" style={{ padding: '0 20px' }}>
           <div className="weissbier-intro-card">
             <div className="weissbier-intro-img-wrap">
-              <img 
+              <Image
                 src="/images/products/official/benediktiner/bottle_removebg.png" 
                 alt="Chai Bia Thầy Tu Benediktiner Weissbier" 
+                width={270}
+                height={925}
+                sizes="(max-width: 768px) 70vw, 300px"
                 className="weissbier-intro-img"
               />
             </div>
@@ -201,11 +204,12 @@ export default function Page() {
           <div className="lifestyle-gallery-grid">
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/benediktiner_composite_rustic_1775734047862.png" 
                   alt="Tuyệt tác Bavaria" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Tuyệt Tác Bavaria</h3>
@@ -216,11 +220,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/amc_assets/weissbier_seafood_16x9_1775734547769.png" 
                   alt="Mỹ vị hải sản" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Mỹ Vị Hải Sản</h3>
@@ -231,11 +236,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/lifestyle_friends_v2.png" 
                   alt="Kết nối chiến hữu" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Kết Nối Chiến Hữu</h3>
@@ -246,11 +252,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/lifestyle_garden_v2.png" 
                   alt="Tiệc vườn mát lành" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Tiệc Vườn Mát Lành</h3>
@@ -261,11 +268,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/lifestyle_relax_v2.png" 
                   alt="Thư giãn cuối tuần" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Thư Giãn Cuối Tuần</h3>
@@ -276,11 +284,12 @@ export default function Page() {
 
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
-                <img 
+                <Image
                   src="/images/products/lifestyle_rooftop_v2.png" 
                   alt="Hoàng hôn lộng gió" 
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
                   className="lifestyle-gallery-img"
-                  loading="lazy"
                 />
                 <div className="lifestyle-gallery-overlay">
                   <h3 className="lifestyle-gallery-card-title">Hoàng Hôn Lộng Gió</h3>
