@@ -5908,13 +5908,12 @@ html {
 .web-app .product-card-v2 {
   border-radius: 6px;
   box-shadow: none;
-  border: 1px solid var(--web-border);
-  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+  border: none;
+  transition: box-shadow .3s ease, transform .3s ease;
 }
 
 .web-app .product-card-v2:hover {
   transform: translateY(-3px);
-  border-color: var(--web-accent-soft);
   box-shadow: 0 14px 34px -22px rgba(20, 36, 26, .45);
 }
 
@@ -5926,7 +5925,13 @@ html {
   padding: 26px 26px 20px;
   background:
     radial-gradient(120% 90% at 50% 8%, #F2EFE6 0%, #E7E2D2 62%, #DED8C6 100%);
-  border-bottom: 1px solid var(--web-border);
+  border-bottom: none;
+}
+
+/* Hòa nền trắng có sẵn trong ảnh sản phẩm vào khoang ảnh,
+   tránh cảm giác ảnh nằm trong một khung trắng riêng. */
+.web-app .product-card-v2 .card-image img {
+  mix-blend-mode: multiply;
 }
 
 .web-app .product-card-v2 .card-body {
