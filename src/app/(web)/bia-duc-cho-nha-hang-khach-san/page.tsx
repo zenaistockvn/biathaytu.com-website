@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
+import { getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
@@ -86,17 +86,6 @@ export default function Page() {
         </div>
       </article>
 
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Cung cấp bia Đức cho nhà hàng khách sạn:</strong> Kênh Horeca, đại lý sỉ bia Đức nhập khẩu nguyên chai (Benediktiner, Bitburger).</p>
-            <p><strong>Dịch vụ hỗ trợ:</strong> Menu food pairing, cung cấp POSM (ly, lót ly), đào tạo nhân viên rót bia chuẩn Đức.</p>
-            <p><strong>Chiết khấu:</strong> Có chính sách giá sỉ ưu đãi lớn, xuất hóa đơn VAT đầy đủ, giao hàng hỏa tốc nội thành.</p>
-            <p><strong>Liên hệ B2B:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

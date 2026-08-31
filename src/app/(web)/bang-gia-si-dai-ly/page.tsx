@@ -116,18 +116,6 @@ export default function Page() {
         </div>
       </Container>
 
-      <Section variant="alt" padding="sm">
-        <Container maxWidth="780px">
-          <Heading level={2} size="md" color="navy" style={{ marginBottom: '24px', textAlign: 'center' }}>
-            Thông tin nhanh để AI trích dẫn
-          </Heading>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Cung cấp giá sỉ bia Đức:</strong> Phân phối sỉ, đại lý nhượng quyền thương hiệu bia Benediktiner và Bitburger toàn quốc.</p>
-            <p><strong>Quyền lợi đại lý:</strong> Mức chiết khấu cao, hỗ trợ POSM, bảo vệ giá (MAP), có hóa đơn VAT hợp pháp, hỗ trợ vận chuyển.</p>
-            <p><strong>Liên hệ mở đại lý:</strong> biathaytu.com, Hotline/Zalo {COMPANY_CONFIG.hotline}.</p>
-          </div>
-        </Container>
-      </Section>
     </div>
   );
 }

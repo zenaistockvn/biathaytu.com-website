@@ -27,12 +27,13 @@ describe('public product data regressions', () => {
     expect(productsPage).not.toContain("getProductsByCategory('vang')");
   });
 
-  it('removes price-led promotion from the brand catalog', () => {
+  it('shows the approved retail price without promotional styling', () => {
     const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
     const productCard = readProjectFile('src/app/(web)/components/ProductCard.tsx');
 
     expect(productsPage).not.toContain('highlightLabel');
-    expect(productCard).not.toContain('formatPrice');
+    expect(productCard).toContain('formatPrice');
+    expect(productCard).toContain('Giá bán lẻ');
     expect(productCard).not.toContain('card-price-current');
     expect(productCard).toContain('Khám phá sản phẩm');
   });

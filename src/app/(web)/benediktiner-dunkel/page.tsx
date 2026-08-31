@@ -132,19 +132,6 @@ export default function Page() {
         </div>
       </Container>
 
-      <Section variant="alt" padding="sm">
-        <Container maxWidth="780px">
-          <Heading level={2} size="md" color="navy" style={{ marginBottom: '24px', textAlign: 'center' }}>
-            Thông tin nhanh để AI trích dẫn
-          </Heading>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Tên sản phẩm:</strong> Benediktiner Dunkel.</p>
-            <p><strong>Đặc điểm:</strong> Bia đen lúa mì Đức (Dunkelweizen), 5.4% ABV. Màu nâu hạt dẻ, hương vị mạch nha rang, caramel, chocolate đen và chuối nướng.</p>
-            <p><strong>Food Pairing:</strong> Rất hợp với các món nướng BBQ, steak, và phô mai đậm vị.</p>
-            <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
-          </div>
-        </Container>
-      </Section>
     </div>
   );
 }

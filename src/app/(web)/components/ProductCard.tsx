@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { formatPrice } from '@/utils/formatPrice';
 import { getDisplayProductImage } from '../utils/productImages';
 
 export interface ProductCardProps {
@@ -23,7 +24,7 @@ export interface ProductCardProps {
   cardId?: string;
   /** Show detail CTA (for product listing page) */
   showCTA?: boolean;
-  /** Kept for compatibility; brochure cards never display prices. */
+  /** Kept for compatibility with legacy callers. */
   showReferencePriceNote?: boolean;
 }
 
@@ -32,7 +33,7 @@ export interface ProductCardProps {
  * The entire card is a single accessible link to avoid nested interactive controls.
  */
 export default function ProductCard({
-  id, name, slug, images, description,
+  id, name, slug, images, price, description,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -76,6 +77,15 @@ export default function ProductCard({
 
         {description && (
           <p className="card-description">{description}</p>
+        )}
+
+        {price !== null && (
+          <p className={`card-price${isWine ? ' card-price-wine' : ''}`}>
+            <span style={{ display: 'block', marginBottom: '3px', fontSize: '12px', fontWeight: 600, color: 'var(--web-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              Giá bán lẻ
+            </span>
+            {formatPrice(price)}
+          </p>
         )}
 
         {quickTags && quickTags.length > 0 && (

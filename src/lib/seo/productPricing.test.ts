@@ -6,7 +6,7 @@ describe('seo/productPricing', () => {
     const range = getPriceRange((p) => p.name.includes('Naturtrüb'));
     expect(range).not.toBeNull();
     expect(range!.lowPrice).toBe(790000);
-    expect(range!.highPrice).toBe(1550000);
+    expect(range!.highPrice).toBe(1590000);
     expect(range!.offerCount).toBeGreaterThanOrEqual(3);
   });
 

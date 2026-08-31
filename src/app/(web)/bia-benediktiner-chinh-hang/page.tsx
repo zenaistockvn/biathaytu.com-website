@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
@@ -90,17 +89,6 @@ export default function Page() {
         </div>
       </article>
 
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Bia Benediktiner chính hãng:</strong> 100% nhập khẩu từ Benediktiner Weißbräu GmbH (Bavaria, Đức).</p>
-            <p><strong>Dấu hiệu nhận biết:</strong> Nhãn phụ tiếng Việt, mã vạch 400-440 (Đức), chất bia đục tự nhiên (Naturtrüb) do men sống.</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}.</p>
-            <p><strong>Bảo quản:</strong> Cần giữ mát để bảo vệ men sống (Live yeast) bên trong chai.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

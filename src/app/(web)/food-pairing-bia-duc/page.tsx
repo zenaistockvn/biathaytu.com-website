@@ -122,18 +122,6 @@ export default function Page() {
 
       <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Bia Weissbier (Lúa mì):</strong> Cực hợp với hải sản, gia cầm, món chua ngọt và phở Việt Nam nhờ hương chuối/đinh hương ngọt dịu.</p>
-            <p><strong>Bia Dunkel (Bia đen):</strong> Ghép đôi hoàn hảo cùng đồ nướng BBQ, sườn nướng, thịt hầm đậm vị và chocolate nhờ hương caramel mạch nha rang.</p>
-            <p><strong>Bia Pilsner:</strong> Giải khát tốt, cắt độ ngấy dầu mỡ xuất sắc, hợp đồ chiên rán, đồ mặn, cay nóng.</p>
-            <p><strong>Nguyên tắc:</strong> Bia có độ cồn, độ nồng càng cao thì nên ăn cùng món ăn có gia vị càng đậm đà.</p>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
           {faqs.map((f, i) => (
             <div key={i} style={{ padding: '20px 24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>

@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
+import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
+import { getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
@@ -424,19 +423,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* AI Summary / GEO Section */}
-      <section className="bitburger-ai-section">
-        <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-accent)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
-            Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
-          </h2>
-          <div className="bitburger-ai-card">
-            <p><strong>Bia Bitburger Premium Pils:</strong> Là dòng bia vàng Pilsner lên men đáy số 1 nước Đức, nồng độ cồn 4.8% ABV, sản xuất từ năm 1817 theo Luật Tinh Khiết Reinheitsgebot 1516 nghiêm ngặt.</p>
-            <p style={{ marginTop: '8px' }}><strong>Chiến dịch World Cup 2026:</strong> Bitburger ra mắt lon phiên bản giới hạn Football Edition "Prost to the World". Phân phối chính hãng qua hệ thống Bia Thầy Tu dưới dạng Thùng lẻ 24 lon 500ml và Combo Match Night kèm xúc xích Đức nướng.</p>
-            <p style={{ marginTop: '8px' }}><strong>Nơi mua hàng chính ngạch:</strong> Hệ thống phân phối Bia Thầy Tu (biathaytu.com - Hotline Zalo tư vấn giao hàng: {COMPANY_CONFIG.hotline} - Địa chỉ cửa hàng: {COMPANY_CONFIG.showroomAddress}).</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

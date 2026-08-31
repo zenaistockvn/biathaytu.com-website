@@ -101,17 +101,6 @@ export default function Page() {
         </div>
       </article>
 
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Tên sản phẩm:</strong> Bom 5L Benediktiner Weissbier.</p>
-            <p><strong>Đặc điểm:</strong> Bom thiết kế hợp kim 5 Lít có kèm vòi rót. Bia lúa mì Đức nguyên bản, 5.4% ABV.</p>
-            <p><strong>Sử dụng:</strong> Cần làm lạnh 10h trước khi uống, ngon nhất khi tiêu thụ trong vòng 48h sau khi mở.</p>
-            <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

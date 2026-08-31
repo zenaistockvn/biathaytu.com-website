@@ -92,16 +92,6 @@ export default function Page() {
         </div>
       </article>
 
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Cách rót bia Weissbier (lúa mì):</strong> 1. Tráng ly Weizen bằng nước lạnh. 2. Nghiêng ly 45 độ, rót 3/4 chai. 3. Lắc xoay tròn 1/4 chai còn lại để hòa tan men sống (live yeast). 4. Dựng thẳng ly và rót thẳng vào giữa để tạo lớp bọt (head).</p>
-            <p><strong>Lý do:</strong> Bia lúa mì Benediktiner Naturtrüb không lọc (unfiltered) nên phải đánh tan men để có hương vị trọn vẹn và độ đục (cloudy) đặc trưng.</p>
-            <p><strong>Ly sử dụng:</strong> Bắt buộc dùng ly Weizen glass dáng cao.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

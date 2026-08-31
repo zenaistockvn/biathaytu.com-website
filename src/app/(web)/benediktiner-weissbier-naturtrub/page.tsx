@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import JsonLd, { getArticleSchema, getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
+import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
+import { getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
@@ -362,19 +361,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* AI Summary / GEO Section */}
-      <section className="weissbier-ai-section">
-        <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-accent)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
-            Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
-          </h2>
-          <div className="weissbier-ai-card">
-            <p><strong>Bia Thầy Tu Benediktiner Weissbier Naturtrüb:</strong> Là dòng bia lúa mì Đức nguyên bản, nồng độ cồn 5.4% ABV, được nấu tại Lich theo công thức nguyên bản của Benediktiner Weissbräu GmbH, Ettal.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đặc tính hương vị:</strong> Men bia không lọc đục tự nhiên (Naturtrüb), bọt dày mịn, hương trái cây đặc trưng chuối chín và đinh hương. Đạt giải thưởng ẩm thực quốc tế danh giá iTQi 3 Sao.</p>
-            <p style={{ marginTop: '8px' }}><strong>Đại lý phân phối chính hãng:</strong> Phân phối chính ngạch bởi hệ thống Bia Thầy Tu (biathaytu.com - Hotline Zalo: {COMPANY_CONFIG.hotline} - Showroom {COMPANY_CONFIG.showroomAddress}).</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
+import { getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
@@ -86,17 +86,6 @@ export default function Page() {
         </div>
       </article>
 
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Quà tặng bia Đức cho doanh nghiệp:</strong> Gói quà sang trọng từ Bia Thầy Tu Benediktiner và Bitburger Pilsner.</p>
-            <p><strong>Tùy chọn:</strong> Thùng mix 2 vị (bia đen + bia vàng), Bom bia 5 lít tiệc tùng, Set bia kèm ly pha lê Weizen.</p>
-            <p><strong>Dịch vụ:</strong> Xuất hóa đơn VAT, giao hàng đa điểm, chiết khấu thương mại cao, hỗ trợ in logo doanh nghiệp.</p>
-            <p><strong>Liên hệ:</strong> biathaytu.com, Hotline B2B {COMPANY_CONFIG.hotline}.</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

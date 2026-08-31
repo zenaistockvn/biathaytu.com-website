@@ -5,6 +5,22 @@ const path = require('path');
 let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
 const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
+const RETAIL_PRICE_BY_SLUG = {
+  'bitburger-premium-pils-thung-12-chai-330ml': 650000,
+  'benediktiner-festbier-ket-24-lon-500ml': 1500000,
+  'benediktiner-festbier-bom-5l': 920000,
+  'benediktiner-naturtrub-thung-12-chai-500ml': 1080000,
+  'benediktiner-dunkel-thung-12-chai-500ml': 1080000,
+  'benediktiner-mix-2-v-thng-12-chai-500ml': 1080000,
+  'benediktiner-naturtrub-thung-12-lon-500ml': 790000,
+  'benediktiner-dunkel-thung-12-lon-500ml': 790000,
+  'benediktiner-naturtrub-bom-5l': 960000,
+  'benediktiner-naturtrub-ket-24-lon-500ml': 1590000,
+  'benediktiner-dunkel-ket-24-lon-500ml': 1590000,
+  'bitburger-premium-pils-ket-24-lon-330ml': 870000,
+  'bitburger-football-edition-2026': 1190000,
+  'bitburger-premium-pils-bom-5l': 830000,
+};
 
 // Chỉ đọc file .env.local nếu DATABASE_URL chưa có sẵn trong process.env (chạy ở local)
 if (!databaseUrl) {
@@ -95,7 +111,12 @@ async function dump() {
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    writeJsonAtomic(path.join(dataDir, 'products.json'), pResult.rows);
+    const productsWithRetailPrices = pResult.rows.map((product) => ({
+      ...product,
+      price: RETAIL_PRICE_BY_SLUG[product.slug] ?? product.price,
+    }));
+
+    writeJsonAtomic(path.join(dataDir, 'products.json'), productsWithRetailPrices);
     writeJsonAtomic(path.join(dataDir, 'articles.json'), aResult.rows);
     console.log('Dump completed successfully!');
   } catch (err) {

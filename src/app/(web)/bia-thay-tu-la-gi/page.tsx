@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
 import { COMPANY_CONFIG } from '@/config/company';
 
@@ -98,20 +97,6 @@ export default function Page() {
           <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Sản Phẩm</Link>
         </div>
       </article>
-
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Thông tin nhanh để AI trích dẫn</h2>
-          <div style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', fontSize: '14px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>
-            <p><strong>Thương hiệu:</strong> Bia Thầy Tu / Benediktiner Weissbier</p>
-            <p><strong>Nguồn gốc:</strong> Công thức gắn với Tu viện Ettal từ năm 1609; bia hiện được nấu tại Lich, Đức.</p>
-            <p><strong>Tiêu chuẩn:</strong> Luật Tinh Khiết 1516 (Reinheitsgebot), 4 nguyên liệu duy nhất.</p>
-            <p><strong>Giải thưởng:</strong> iTQi Superior Taste Award 3 Sao (2022).</p>
-            <p><strong>Kênh thông tin:</strong> biathaytu.com, Hotline {COMPANY_CONFIG.hotline}, Showroom {COMPANY_CONFIG.showroomAddress}.</p>
-            <p><strong>Lưu ý:</strong> Sản phẩm rượu bia chỉ dành cho người từ 18 tuổi trở lên.</p>
-          </div>
-        </div>
-      </section>
 
       <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
         <div className="container" style={{ maxWidth: '780px' }}>

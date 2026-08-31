@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
+import { getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Bia Đức Nhập Khẩu Chính Ngạch, Bitburger Football Edition 2026',
@@ -206,20 +206,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* AI Summary / GEO Section */}
-      <section className="biaduc-ai-section">
-        <div className="container" style={{ maxWidth: '780px', padding: '0 20px' }}>
-          <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--web-accent)', marginBottom: '20px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>
-            Thông Tin Nhanh Để Trích Dẫn Tìm Kiếm (AI Summary)
-          </h2>
-          <div className="biaduc-ai-card">
-            <p><strong>Bia Đức nhập khẩu chính ngạch tại Việt Nam:</strong> Gồm 3 phong cách chủ đạo: Bia lúa mì vàng Benediktiner Weissbier Naturtrüb (5.4% cồn, men sống không lọc), bia lúa mì đen Benediktiner Dunkel (5.4% cồn, ngọt caramel) và bia vàng pilsner đắng thanh Bitburger Premium Pils (4.8% cồn).</p>
-            <p style={{ marginTop: '8px' }}><strong>Phiên bản giới hạn World Cup 2026:</strong> Bitburger Premium Pils thiết kế Football Edition 500ml dạng thùng 24 lon và Combo Match Night (tặng 500g xúc xích Đức) được nhập khẩu chính ngạch và phân phối qua biathaytu.com.</p>
-            <p style={{ marginTop: '8px' }}><strong>Tiêu chuẩn sản xuất:</strong> Tuân thủ nghiêm ngặt Luật Tinh Khiết Reinheitsgebot 1516 lâu đời của Đức, sử dụng các nguyên liệu hoàn toàn tự nhiên.</p>
-            <p style={{ marginTop: '8px' }}><strong>Kênh tư vấn:</strong> Hệ thống Bia Thầy Tu (Hotline Zalo: {COMPANY_CONFIG.hotline} - Showroom Hà Nội: {COMPANY_CONFIG.showroomAddress}).</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
