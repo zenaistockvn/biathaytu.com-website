@@ -52,6 +52,20 @@ function isBenediktinerBeer(product: Product): boolean {
   return product.category === 'bia' && product.name.toLowerCase().includes('benediktiner');
 }
 
+function sanitizeProductDescription(description: string | null): string | null {
+  if (!description) return description;
+
+  return description
+    .replace(
+      /Phân phối chính hãng tại Tây Hồ, Hà Nội/gi,
+      'Phân phối chính hãng tại 26 Vạn Phúc, Ba Đình, Hà Nội',
+    )
+    .replace(
+      /Đại lý bia nhập khẩu Tây Hồ/gi,
+      'Bia Thầy Tu tại Ba Đình, Hà Nội',
+    );
+}
+
 function isWithinBenediktinerScope(product: Product): boolean {
   if (product.category === 'bia') {
     return isBenediktinerBeer(product);
@@ -76,7 +90,9 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
 
     const item = {
       ...product,
-      description: toBrochureMetadataCopy(product.description) || product.description,
+      description: sanitizeProductDescription(
+        toBrochureMetadataCopy(product.description) || product.description,
+      ),
     };
     if (HIDDEN_PRODUCT_SLUGS.has(item.slug)) {
       item.hidden = true;
