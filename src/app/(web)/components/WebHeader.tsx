@@ -36,17 +36,19 @@ export default function WebHeader() {
   }, [menuOpen]);
 
   const navLinks = [
-    { href: '/san-pham', label: t('nav.products') },
-    { href: '/thuong-hieu', label: t('nav.brand') },
-    { href: '/huong-dan-rot-bia-lua-mi', label: t('nav.tasting') },
-    { href: '/kien-thuc', label: t('nav.knowledge') },
-    { href: '/bia-duc-cho-nha-hang-khach-san', label: t('nav.horeca') },
+    { href: '/san-pham#benediktiner', label: 'Benediktiner' },
+    { href: '/san-pham#bia-duc-khac', label: 'Bia Đức tuyển chọn' },
+    { href: '/bia-duc-cho-nha-hang-khach-san', label: 'HORECA / Đại lý' },
+    { href: '/kien-thuc', label: 'Kiến thức bia Đức' },
   ];
 
   const hasDarkHero = DARK_HERO_PATHS.has(pathname);
   const headerOnDark = hasDarkHero && !scrolled && !menuOpen;
   const consultUrl = getCompanyZaloUrl();
-  const isCurrentPath = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isCurrentPath = (href: string) => {
+    if (href.includes('#')) return false;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <header className={`web-header ${headerOnDark ? 'web-header--transparent' : 'web-header--solid'}`}>

@@ -1,5 +1,6 @@
 import articlesData from '@/data/articles.json';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export const DEFAULT_TENANT_ID = 'biathaytu';
 
@@ -18,9 +19,9 @@ export interface Article {
 }
 
 const OUT_OF_SCOPE_ARTICLE_PATTERN =
-  /(?:chimay|la[-\s]*trappe|rochefort|bitburger|köstritzer|kostritzer|bia[-\s]*b[iỉ])/i;
+  /(?:chimay|la[-\s]*trappe|rochefort|bia[-\s]*b[iỉ])/i;
 const OUT_OF_SCOPE_BEER_MENTION_PATTERN =
-  /(?:chimay|la\s*trappe|rochefort|bitburger|köstritzer|kostritzer)/i;
+  /(?:chimay|la\s*trappe|rochefort)/i;
 const ARTICLE_BLOCK_PATTERN = /<(p|li|h2|h3|h4|figure)\b[^>]*>[\s\S]*?<\/\1>/gi;
 
 function isBenediktinerArticle(article: Article): boolean {
@@ -36,14 +37,14 @@ function sanitizeArticleContent(content: string | null): string | null {
     )
     .replace(
       /659A\s+Lạc Long Quân(?:,\s*(?:Phường\s+)?Xuân La)?(?:,\s*(?:Quận\s+)?Tây Hồ)?(?:,\s*Hà Nội)?/gi,
-      '26 Vạn Phúc, Ba Đình, Hà Nội',
+      COMPANY_CONFIG.showroomAddress,
     )
     .replace(
       /Showroom Bia Thầy Tu Lạc Long Quân/gi,
-      'Showroom Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội',
+      `Showroom Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}`,
     )
-    .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, '0915 31 21 66')
-    .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, '0915 31 21 66');
+    .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, COMPANY_CONFIG.hotline)
+    .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, COMPANY_CONFIG.hotline);
 }
 
 const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])

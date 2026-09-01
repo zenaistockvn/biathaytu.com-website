@@ -6,8 +6,9 @@ let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
 const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
 const OUT_OF_SCOPE_BEER_PATTERN =
-  /(?:chimay|la[-\s]*trappe|rochefort|bitburger|köstritzer|kostritzer|bia[-\s]*b[iỉ])/i;
+  /(?:chimay|la[-\s]*trappe|rochefort|bia[-\s]*b[iỉ])/i;
 const RETAIL_PRICE_BY_SLUG = {
+  'bitburger-premium-pils-thung-12-chai-330ml': 650000,
   'benediktiner-festbier-ket-24-lon-500ml': 1500000,
   'benediktiner-festbier-bom-5l': 920000,
   'benediktiner-naturtrub-thung-12-chai-500ml': 1080000,
@@ -18,6 +19,9 @@ const RETAIL_PRICE_BY_SLUG = {
   'benediktiner-naturtrub-bom-5l': 960000,
   'benediktiner-naturtrub-ket-24-lon-500ml': 1590000,
   'benediktiner-dunkel-ket-24-lon-500ml': 1590000,
+  'bitburger-premium-pils-ket-24-lon-330ml': 870000,
+  'bitburger-football-edition-2026': 1190000,
+  'bitburger-premium-pils-bom-5l': 830000,
 };
 
 // Chỉ đọc file .env.local nếu DATABASE_URL chưa có sẵn trong process.env (chạy ở local)
@@ -96,13 +100,8 @@ async function dump() {
     if (pResult.rows.length === 0) {
       throw new Error('No storefront-ready products found in database.');
     }
-    const inScopeProducts = pResult.rows.filter(
-      (product) =>
-        product.category !== 'bia' ||
-        product.name.toLowerCase().includes('benediktiner'),
-    );
     console.log(
-      `Fetched ${pResult.rows.length} storefront-ready products; keeping ${inScopeProducts.length} products in the Benediktiner beer scope.`,
+      `Fetched ${pResult.rows.length} storefront-ready products.`,
     );
 
     // 2. Fetch seo_articles
@@ -122,7 +121,7 @@ async function dump() {
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    const productsWithRetailPrices = inScopeProducts.map((product) => ({
+    const productsWithRetailPrices = pResult.rows.map((product) => ({
       ...product,
       price: RETAIL_PRICE_BY_SLUG[product.slug] ?? product.price,
     }));

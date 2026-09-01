@@ -14,6 +14,7 @@ const productLinks = [
   { href: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml', label: 'Benediktiner Weissbier' },
   { href: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml', label: 'Benediktiner Dunkel' },
   { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Bom 5L Benediktiner' },
+  { href: '/bitburger-premium-pils', label: 'Bitburger Premium Pils' },
   { href: '/huong-dan-rot-bia-lua-mi', label: 'Nghệ thuật thưởng thức' },
 ];
 
@@ -141,6 +142,17 @@ export default function WebFooter() {
   return (
     <footer className={styles.footer} data-surface="ink">
       <div className="container">
+        <aside className={styles.wineBridge} aria-label="Khám phá rượu vang Đức">
+          <div>
+            <span className={styles.wineEyebrow}>Từ German Taste</span>
+            <strong>Khám phá rượu vang Đức</strong>
+            <p>Riesling, Spätburgunder, giải pháp quà tặng và tư vấn cho nhà hàng, doanh nghiệp.</p>
+          </div>
+          <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer">
+            Sang website rượu vang
+          </a>
+        </aside>
+
         <div className={styles.desktopFooter}>
           <section aria-label="Giới thiệu Bia Thầy Tu">
             {brandBlock}

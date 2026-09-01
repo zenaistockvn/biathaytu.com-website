@@ -4,6 +4,64 @@
   padding: 52px 0 0;
 }
 
+.wineBridge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 44px;
+  padding: 20px 22px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+}
+
+.wineBridge div {
+  min-width: 0;
+}
+
+.wineBridge strong {
+  display: block;
+  margin: 3px 0 4px;
+  color: #fff;
+  font-family: var(--font-serif), serif;
+  font-size: 19px;
+}
+
+.wineBridge p {
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.wineEyebrow {
+  color: var(--web-accent-on-ink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.wineBridge > a {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 1px solid var(--web-accent-soft);
+  border-radius: 10px;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.wineBridge > a:hover {
+  background: rgba(255,255,255,.1);
+}
+
 .desktopFooter {
   display: none;
 }
@@ -234,6 +292,17 @@
 @media (max-width: 768px) {
   .footer {
     padding-top: 36px;
+  }
+
+  .wineBridge {
+    display: block;
+    margin-bottom: 30px;
+    padding: 18px;
+  }
+
+  .wineBridge > a {
+    width: 100%;
+    margin-top: 14px;
   }
 
   .brandTitle {

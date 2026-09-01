@@ -1,6 +1,7 @@
 import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
+import { COMPANY_CONFIG } from '@/config/company';
 
 /**
  * Kiểu sản phẩm cho phần catalog giới thiệu.
@@ -35,9 +36,6 @@ export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
 ]);
 
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
-const OUT_OF_SCOPE_BEER_PATTERN =
-  /(?:chimay|la\s*trappe|rochefort|bitburger|köstritzer|kostritzer)/i;
-
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
     product.id &&
@@ -58,26 +56,12 @@ function sanitizeProductDescription(description: string | null): string | null {
   return description
     .replace(
       /Phân phối chính hãng tại Tây Hồ, Hà Nội/gi,
-      'Phân phối chính hãng tại 26 Vạn Phúc, Ba Đình, Hà Nội',
+      `Phân phối chính hãng tại ${COMPANY_CONFIG.showroomAddress}`,
     )
     .replace(
       /Đại lý bia nhập khẩu Tây Hồ/gi,
       'Bia Thầy Tu tại Ba Đình, Hà Nội',
     );
-}
-
-function isWithinBenediktinerScope(product: Product): boolean {
-  if (product.category === 'bia') {
-    return isBenediktinerBeer(product);
-  }
-
-  if (product.category === 'combo') {
-    return !OUT_OF_SCOPE_BEER_PATTERN.test(
-      `${product.name} ${product.slug} ${product.description ?? ''}`,
-    );
-  }
-
-  return true;
 }
 
 function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
@@ -119,17 +103,20 @@ export function getVisibleProducts(): Product[] {
   return ALL_PRODUCTS.filter(
     (product) =>
       !product.hidden &&
-      !HIDDEN_PRODUCT_SLUGS.has(product.slug) &&
-      isWithinBenediktinerScope(product),
+      !HIDDEN_PRODUCT_SLUGS.has(product.slug),
   );
 }
 
 export function getProductBySlugOrId(key: string): Product | null {
-  return getVisibleProducts().find((product) => product.slug === key || product.id === key) ?? null;
+  return ALL_PRODUCTS.find((product) => product.slug === key || product.id === key) ?? null;
 }
 
-export function getBeerProducts(_opts?: { excludeBitburger?: boolean }): Product[] {
-  return getVisibleProducts().filter(isBenediktinerBeer);
+export function getBeerProducts(opts?: { excludeBitburger?: boolean }): Product[] {
+  return getVisibleProducts().filter(
+    (product) =>
+      product.category === 'bia' &&
+      (!opts?.excludeBitburger || !product.name.toLowerCase().includes('bitburger')),
+  );
 }
 
 export function getAccessories(): Product[] {
@@ -145,7 +132,9 @@ export function getRelatedBeers(excludeId: string, limit = 4): Product[] {
 }
 
 export function getFeaturedBeers(limit = 3): Product[] {
-  return getBeerProducts().filter((product) => product.is_featured).slice(0, limit);
+  return getBeerProducts({ excludeBitburger: true })
+    .filter((product) => product.is_featured && isBenediktinerBeer(product))
+    .slice(0, limit);
 }
 
 export function getProductsByCategory(category: string): Product[] {
@@ -157,12 +146,16 @@ export function getComboProducts(): Product[] {
 }
 
 export function getRelatedCombo(beerNameOrSlug: string): Product | null {
-  if (!beerNameOrSlug.toLowerCase().includes('benediktiner')) {
-    return null;
+  const nameLower = beerNameOrSlug.toLowerCase();
+  const combos = getComboProducts();
+
+  if (nameLower.includes('bitburger')) {
+    return combos.find((combo) => combo.slug.includes('bitburger')) ?? null;
   }
 
-  return (
-    getComboProducts().find((combo) => combo.slug.includes('benediktiner')) ??
-    null
-  );
+  if (nameLower.includes('benediktiner')) {
+    return combos.find((combo) => combo.slug.includes('benediktiner')) ?? null;
+  }
+
+  return null;
 }

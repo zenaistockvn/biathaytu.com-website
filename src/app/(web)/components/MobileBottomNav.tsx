@@ -13,7 +13,7 @@ const navItems = [
   },
   {
     href: '/san-pham',
-    label: 'Benediktiner',
+    label: 'Bia Đức',
     icon: (
       <path d="M5.5 8.2 12 4.5l6.5 3.7v7.6L12 19.5l-6.5-3.7V8.2Zm.7.1 5.8 3.4 5.8-3.4M12 12v7" />
     ),

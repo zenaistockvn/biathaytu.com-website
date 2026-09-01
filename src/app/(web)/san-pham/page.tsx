@@ -8,12 +8,12 @@ import { getTastingNotes } from '../utils/getTastingNotes';
 import styles from '../HomeBrand.module.css';
 
 export const metadata: Metadata = {
-  title: 'Các Dòng Bia Benediktiner, Naturtrüb, Dunkel & Festbier',
-  description: 'Khám phá các dòng Benediktiner tại Việt Nam: Weissbier Naturtrüb, Weissbier Dunkel, Festbier và các quy cách sản phẩm. Website giới thiệu, không bán hàng trực tuyến.',
+  title: 'Benediktiner Và Bia Đức Tuyển Chọn',
+  description: 'Benediktiner là danh mục chính, bên cạnh Bitburger và các dòng bia Đức được German Taste tuyển chọn. Xem hương vị, quy cách và giá bán lẻ.',
   alternates: { canonical: 'https://www.biathaytu.com/san-pham' },
   openGraph: {
-    title: 'Các Dòng Bia Benediktiner | Bia Thầy Tu',
-    description: 'So sánh hương vị, màu sắc và quy cách các dòng Benediktiner tại Việt Nam.',
+    title: 'Benediktiner Và Bia Đức Tuyển Chọn | Bia Thầy Tu',
+    description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
     type: 'website',
     url: 'https://www.biathaytu.com/san-pham',
     images: [{
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Các Dòng Bia Benediktiner | Bia Thầy Tu',
-    description: 'So sánh hương vị và quy cách các dòng Benediktiner tại Việt Nam.',
+    title: 'Benediktiner Và Bia Đức Tuyển Chọn | Bia Thầy Tu',
+    description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -45,8 +45,14 @@ interface CatalogProduct {
   category: string | null;
 }
 
+function isBenediktiner(product: CatalogProduct) {
+  return product.name.toLowerCase().includes('benediktiner');
+}
+
 export default function ProductsPage() {
-  const benediktinerProducts = (getBeerProducts() as CatalogProduct[] | null) ?? [];
+  const beers = (getBeerProducts() as CatalogProduct[] | null) ?? [];
+  const benediktinerProducts = beers.filter(isBenediktiner);
+  const selectedGermanBeers = beers.filter((product) => !isBenediktiner(product));
 
   return (
     <div className="products-page-container">
@@ -66,9 +72,9 @@ export default function ProductsPage() {
         />
         <div className={styles.catalogHeroOverlay} />
         <div className={`container ${styles.catalogHeroCopy}`}>
-          <p className={styles.eyebrow}>Các dòng bia Benediktiner</p>
-          <h1 id="catalog-title">Một truyền thống.<br />Nhiều sắc thái hương vị.</h1>
-          <p>Tìm hiểu Naturtrüb, Dunkel, Festbier và chọn dòng bia phù hợp với khẩu vị, món ăn hoặc không gian thưởng thức.</p>
+          <p className={styles.eyebrow}>Benediktiner và bia Đức tuyển chọn</p>
+          <h1 id="catalog-title">Benediktiner là trung tâm.<br />Bia Đức được tuyển chọn.</h1>
+          <p>Khám phá Naturtrüb, Dunkel, Festbier cùng Bitburger và những dòng bia Đức bổ sung được German Taste lựa chọn.</p>
         </div>
       </section>
 
@@ -97,12 +103,33 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {selectedGermanBeers.length > 0 ? (
+        <section className={`${styles.section} ${styles.storySection}`} id="bia-duc-khac" aria-labelledby="selected-beers-title">
+          <div className="container">
+            <div className={styles.sectionHeading}>
+              <p className={styles.eyebrowDark}>Bia Đức tuyển chọn</p>
+              <h2 id="selected-beers-title">Bitburger và các dòng bia bổ sung</h2>
+              <p>Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.</p>
+            </div>
+            <div className="grid-featured-products">
+              {selectedGermanBeers.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  description={product.description || getTastingNotes(product.name)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className={styles.b2bSection} aria-labelledby="catalog-help-title">
         <div className={`container ${styles.b2bInner}`}>
           <div>
-            <p className={styles.eyebrow}>Cần chọn dòng bia phù hợp?</p>
-            <h2 id="catalog-help-title">Trao đổi với đội ngũ tư vấn</h2>
-            <p>Tư vấn theo khẩu vị, món ăn, quy mô sự kiện hoặc nhu cầu nhà hàng và khách sạn.</p>
+            <p className={styles.eyebrow}>HORECA / Đại lý</p>
+            <h2 id="catalog-help-title">Danh mục phù hợp cho từng mô hình kinh doanh</h2>
+            <p>Tư vấn sản phẩm, quy cách, chính sách và giải pháp phục vụ nhà hàng, khách sạn, pub, beer club hoặc đại lý tỉnh.</p>
           </div>
           <div className={styles.b2bActions}>
             <Link href="/lien-he" className={styles.primaryLightLink}>Liên hệ tư vấn</Link>
