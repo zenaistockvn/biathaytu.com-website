@@ -45,14 +45,8 @@ interface CatalogProduct {
   category: string | null;
 }
 
-function isBenediktiner(product: CatalogProduct) {
-  return product.name.toLowerCase().includes('benediktiner');
-}
-
 export default function ProductsPage() {
-  const beers = (getBeerProducts() as CatalogProduct[] | null) ?? [];
-  const benediktinerProducts = beers.filter(isBenediktiner);
-  const otherGermanBeers = beers.filter((product) => !isBenediktiner(product));
+  const benediktinerProducts = (getBeerProducts() as CatalogProduct[] | null) ?? [];
 
   return (
     <div className="products-page-container">
@@ -102,27 +96,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
-      {otherGermanBeers.length > 0 ? (
-        <section className={`${styles.section} ${styles.storySection}`} id="bia-duc-khac" aria-labelledby="other-beers-title">
-          <div className="container">
-            <div className={styles.sectionHeading}>
-              <p className={styles.eyebrowDark}>Tuyển chọn bổ sung</p>
-              <h2 id="other-beers-title">Các thương hiệu bia Đức khác</h2>
-              <p>Được đặt ở lớp nội dung thứ hai để Benediktiner luôn giữ vai trò trung tâm của Bia Thầy Tu.</p>
-            </div>
-            <div className="grid-featured-products">
-              {otherGermanBeers.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  {...product}
-                  description={product.description || getTastingNotes(product.name)}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className={styles.b2bSection} aria-labelledby="catalog-help-title">
         <div className={`container ${styles.b2bInner}`}>
