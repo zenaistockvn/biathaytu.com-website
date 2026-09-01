@@ -6,7 +6,7 @@ let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
 const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
 const OUT_OF_SCOPE_BEER_PATTERN =
-  /(?:chimay|la[-\\s]*trappe|rochefort|bitburger|köstritzer|kostritzer|bia[-\\s]*b[iỉ])/i;
+  /(?:chimay|la[-\s]*trappe|rochefort|bitburger|köstritzer|kostritzer|bia[-\s]*b[iỉ])/i;
 const RETAIL_PRICE_BY_SLUG = {
   'benediktiner-festbier-ket-24-lon-500ml': 1500000,
   'benediktiner-festbier-bom-5l': 920000,
