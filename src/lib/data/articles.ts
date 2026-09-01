@@ -38,6 +38,10 @@ function sanitizeArticleContent(content: string | null): string | null {
       /659A\s+Lạc Long Quân(?:,\s*(?:Phường\s+)?Xuân La)?(?:,\s*(?:Quận\s+)?Tây Hồ)?(?:,\s*Hà Nội)?/gi,
       '26 Vạn Phúc, Ba Đình, Hà Nội',
     )
+    .replace(
+      /Showroom Bia Thầy Tu Lạc Long Quân/gi,
+      'Showroom Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội',
+    )
     .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, '0915 31 21 66')
     .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, '0915 31 21 66');
 }
