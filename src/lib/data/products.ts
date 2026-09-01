@@ -28,8 +28,6 @@ export interface Product {
 
 /**
  * SKU tạm ẩn khỏi catalog kèm lý do. Xóa slug khỏi danh sách này khi đủ dữ liệu/ảnh để hiển thị lại.
- * TODO(2026-07-30): cả 2 SKU trỏ tới /images/products/official/bitburger/kostritzer_keg.png
- * — file KHÔNG tồn tại trong public/. Cần ảnh Köstritzer chính hãng, KHÔNG được dùng ảnh Bitburger thay thế.
  */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'kostritzer-schwarzbier-bom-5l',
@@ -37,6 +35,8 @@ export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
 ]);
 
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
+const OUT_OF_SCOPE_BEER_PATTERN =
+  /(?:chimay|la\s*trappe|rochefort|bitburger|köstritzer|kostritzer)/i;
 
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -46,6 +46,24 @@ function isStorefrontProduct(product: Product): boolean {
       product.category &&
       STOREFRONT_CATEGORIES.has(product.category),
   );
+}
+
+function isBenediktinerBeer(product: Product): boolean {
+  return product.category === 'bia' && product.name.toLowerCase().includes('benediktiner');
+}
+
+function isWithinBenediktinerScope(product: Product): boolean {
+  if (product.category === 'bia') {
+    return isBenediktinerBeer(product);
+  }
+
+  if (product.category === 'combo') {
+    return !OUT_OF_SCOPE_BEER_PATTERN.test(
+      `${product.name} ${product.slug} ${product.description ?? ''}`,
+    );
+  }
+
+  return true;
 }
 
 function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
@@ -77,26 +95,25 @@ const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
   LOCAL_STOREFRONT_PRODUCTS,
 );
 
-function isBitburger(name: string): boolean {
-  return name.toLowerCase().includes('bitburger');
-}
-
 export function getAllProducts(): Product[] {
   return ALL_PRODUCTS;
 }
 
 export function getVisibleProducts(): Product[] {
-  return ALL_PRODUCTS.filter((p) => !p.hidden && !HIDDEN_PRODUCT_SLUGS.has(p.slug));
+  return ALL_PRODUCTS.filter(
+    (product) =>
+      !product.hidden &&
+      !HIDDEN_PRODUCT_SLUGS.has(product.slug) &&
+      isWithinBenediktinerScope(product),
+  );
 }
 
 export function getProductBySlugOrId(key: string): Product | null {
-  return ALL_PRODUCTS.find((p) => p.slug === key || p.id === key) ?? null;
+  return getVisibleProducts().find((product) => product.slug === key || product.id === key) ?? null;
 }
 
-export function getBeerProducts(opts?: { excludeBitburger?: boolean }): Product[] {
-  return getVisibleProducts().filter(
-    (p) => p.category === 'bia' && (!opts?.excludeBitburger || !isBitburger(p.name)),
-  );
+export function getBeerProducts(_opts?: { excludeBitburger?: boolean }): Product[] {
+  return getVisibleProducts().filter(isBenediktinerBeer);
 }
 
 export function getAccessories(): Product[] {
@@ -108,15 +125,11 @@ export function getSausageProducts(): Product[] {
 }
 
 export function getRelatedBeers(excludeId: string, limit = 4): Product[] {
-  return getVisibleProducts().filter(
-    (p) => p.category === 'bia' && p.id !== excludeId && !isBitburger(p.name),
-  ).slice(0, limit);
+  return getBeerProducts().filter((product) => product.id !== excludeId).slice(0, limit);
 }
 
 export function getFeaturedBeers(limit = 3): Product[] {
-  return getVisibleProducts().filter(
-    (p) => p.is_featured && p.category !== 'vang' && !isBitburger(p.name),
-  ).slice(0, limit);
+  return getBeerProducts().filter((product) => product.is_featured).slice(0, limit);
 }
 
 export function getProductsByCategory(category: string): Product[] {
@@ -128,16 +141,12 @@ export function getComboProducts(): Product[] {
 }
 
 export function getRelatedCombo(beerNameOrSlug: string): Product | null {
-  const nameLower = beerNameOrSlug.toLowerCase();
-  const combos = getComboProducts();
-  if (nameLower.includes('bitburger')) {
-    return combos.find((c) => c.slug.includes('bitburger')) ?? combos[0] ?? null;
+  if (!beerNameOrSlug.toLowerCase().includes('benediktiner')) {
+    return null;
   }
-  if (nameLower.includes('benediktiner')) {
-    return combos.find((c) => c.slug.includes('benediktiner')) ?? combos[0] ?? null;
-  }
-  if (nameLower.includes('kostritzer') || nameLower.includes('schwarzbier') || nameLower.includes('keg') || nameLower.includes('bom')) {
-    return combos.find((c) => c.slug.includes('kostritzer')) ?? combos[0] ?? null;
-  }
-  return combos[0] ?? null;
+
+  return (
+    getComboProducts().find((combo) => combo.slug.includes('benediktiner')) ??
+    null
+  );
 }
