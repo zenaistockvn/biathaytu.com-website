@@ -51,7 +51,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'benediktiner-weissbier-naturtrub',
     'benediktiner-dunkel',
     'bom-bia-5l-benediktiner',
-    'bitburger-premium-pils',
     'bia-duc-cho-nha-hang-khach-san',
     'qua-tang-bia-duc',
     'food-pairing-bia-duc',
