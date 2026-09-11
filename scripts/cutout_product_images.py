@@ -108,9 +108,10 @@ def cut_out(path: Path) -> tuple[Image.Image, float]:
 
 DEFAULT_TARGETS = [
     PRODUCTS_DIR / "official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg",
-    # Ảnh thương hiệu ở trang chủ: nguồn đã là WebP nên được ghi đè tại chỗ.
-    ROOT / "public/images/brand/benediktiner-official/dunkel-glass.webp",
-    ROOT / "public/images/brand/benediktiner-official/festbier-keg.webp",
+    # Ảnh thương hiệu ở trang chủ. Đặt tên hậu tố -nobg vì /images/* được phục vụ
+    # kèm cache một năm immutable: bản tách nền phải đi kèm đường dẫn mới.
+    ROOT / "public/images/brand/benediktiner-official/dunkel-glass-nobg.webp",
+    ROOT / "public/images/brand/benediktiner-official/festbier-keg-nobg.webp",
 ]
 
 MANIFEST_PATH = ROOT / "src" / "lib" / "data" / "productImageCutouts.ts"

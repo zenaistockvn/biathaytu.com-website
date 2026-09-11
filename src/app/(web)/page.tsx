@@ -49,7 +49,7 @@ const beers = [
   {
     name: 'Weissbier Dunkel',
     type: 'Bia lúa mì đen',
-    image: '/images/brand/benediktiner-official/dunkel-glass.webp',
+    image: '/images/brand/benediktiner-official/dunkel-glass-nobg.webp',
     href: '/benediktiner-dunkel',
     color: 'Nâu hổ phách',
     aroma: 'Malt rang, caramel',
@@ -59,7 +59,7 @@ const beers = [
   {
     name: 'Festbier',
     type: 'Bia lễ hội',
-    image: '/images/brand/benediktiner-official/festbier-keg.webp',
+    image: '/images/brand/benediktiner-official/festbier-keg-nobg.webp',
     href: '/san-pham/benediktiner-festbier-bom-5l',
     color: 'Vàng sáng',
     aroma: 'Malt chín, hoa bia nhẹ',
