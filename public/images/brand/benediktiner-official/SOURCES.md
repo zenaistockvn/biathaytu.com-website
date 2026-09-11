@@ -10,7 +10,8 @@ Downloaded on 2026-08-21 from the official Benediktiner Weissbräu website for u
 
 Derived web assets:
 
-- `dunkel-glass.webp` is an optimized derivative of `public/images/products/official/benediktiner/49717_Bene_GL_vO_WB_dunkel.jpg`.
-- `festbier-keg.webp` is an optimized derivative of `public/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.jpg`.
+- `dunkel-glass-nobg.webp` is an optimized, background-removed derivative of `public/images/products/official/benediktiner/49717_Bene_GL_vO_WB_dunkel.jpg`.
+- `festbier-keg-nobg.webp` is an optimized, background-removed derivative of `public/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.jpg`.
+- Both replace earlier `dunkel-glass.webp` / `festbier-keg.webp`, which kept the white studio backdrop. `/images/*` is served with a one-year immutable cache, so a cut-out version has to ship under a new filename rather than overwrite the old one.
 
 Before using these files outside this website, confirm the current Benediktiner/Bitburger media-database usage terms and brand guidelines.
