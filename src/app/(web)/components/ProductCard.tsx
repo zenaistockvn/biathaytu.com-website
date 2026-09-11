@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { formatPrice } from '@/utils/formatPrice';
+import { hasWhiteCanvas } from '@/lib/data/productImages';
 import { getDisplayProductImage } from '../utils/productImages';
 
 export interface ProductCardProps {
@@ -61,6 +62,7 @@ export default function ProductCard({
             src={primaryImage}
             alt={name}
             fill
+            className={hasWhiteCanvas(primaryImage) ? 'product-image-blend' : undefined}
             style={{ objectFit: 'contain' }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             onError={() => setImageFailed(true)}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { hasWhiteCanvas } from '@/lib/data/productImages';
 
 interface ProductGalleryProps {
   images: string[];
@@ -27,6 +28,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
           src={mainImage}
           alt={productName}
           fill
+          className={hasWhiteCanvas(mainImage) ? 'product-image-blend' : undefined}
           style={{ objectFit: 'contain', padding: '20px' }}
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority

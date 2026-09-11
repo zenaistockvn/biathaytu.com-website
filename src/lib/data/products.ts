@@ -1,5 +1,6 @@
 import productsData from '@/data/products.json';
 import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
+import { resolveProductImages } from './productImages';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
 
@@ -74,6 +75,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
 
     const item = {
       ...product,
+      images: resolveProductImages(product.images),
       description: sanitizeProductDescription(
         toBrochureMetadataCopy(product.description) || product.description,
       ),

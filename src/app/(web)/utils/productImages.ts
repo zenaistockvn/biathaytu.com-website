@@ -1,3 +1,5 @@
+import { resolveProductImage } from '@/lib/data/productImages';
+
 const DEFAULT_PRODUCT_IMAGE = '/images/products/official/benediktiner/bottle_removebg.png';
 
 const CATEGORY_FALLBACK_IMAGES: Record<string, string> = {
@@ -18,7 +20,7 @@ export function getDisplayProductImage({ images, category }: ProductImageInput) 
   })?.trim();
 
   if (primaryImage) {
-    return primaryImage;
+    return resolveProductImage(primaryImage);
   }
 
   return CATEGORY_FALLBACK_IMAGES[category ?? ''] ?? DEFAULT_PRODUCT_IMAGE;
