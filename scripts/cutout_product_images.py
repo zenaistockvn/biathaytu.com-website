@@ -107,8 +107,10 @@ def cut_out(path: Path) -> tuple[Image.Image, float]:
 
 
 DEFAULT_TARGETS = [
-    # SKU đang bán nhưng vẫn trỏ vào ảnh JPEG nền trắng.
-    "official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg",
+    PRODUCTS_DIR / "official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg",
+    # Ảnh thương hiệu ở trang chủ: nguồn đã là WebP nên được ghi đè tại chỗ.
+    ROOT / "public/images/brand/benediktiner-official/dunkel-glass.webp",
+    ROOT / "public/images/brand/benediktiner-official/festbier-keg.webp",
 ]
 
 MANIFEST_PATH = ROOT / "src" / "lib" / "data" / "productImageCutouts.ts"
@@ -176,16 +178,21 @@ def main(argv: list[str]) -> int:
 
     check_only = "--check" in argv
     args = [a for a in argv if not a.startswith("--")]
-    targets = [Path(a) for a in args] if args else [PRODUCTS_DIR / t for t in DEFAULT_TARGETS]
+    targets = [Path(a) for a in args] if args else list(DEFAULT_TARGETS)
 
     for path in targets:
         if not path.exists():
             print(f"bỏ qua (không tồn tại): {path}")
             continue
 
+        if has_transparency(path):
+            # Chạy lại trên ảnh đã tách sẽ bào mòn thêm một lớp mép mỗi lần.
+            print(f"bỏ qua (đã tách nền): {path.resolve().relative_to(ROOT)}")
+            continue
+
         cut, removed = cut_out(path)
         destination = path.with_suffix(".webp")
-        label = destination.relative_to(ROOT)
+        label = destination.resolve().relative_to(ROOT)
 
         if check_only:
             print(f"{label}: sẽ xoá {removed * 100:.1f}% pixel nền")
