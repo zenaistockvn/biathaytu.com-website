@@ -238,6 +238,14 @@
   mix-blend-mode: normal !important;
 }
 
+/* Ngoại lệ: ảnh banner Haravan dựng sẵn trên khung nền trắng, không tách nền được.
+   Nhân nền để mảng trắng chìm vào khoang ảnh thay vì nổi thành một hộp trắng. */
+.web-app .card-image img.product-image-blend,
+.web-app .product-img-box img.product-image-blend,
+.web-app img.product-image-blend {
+  mix-blend-mode: multiply !important;
+}
+
 .web-app .product-card-v2,
 .web-app .product-card {
   border-radius: 6px !important;

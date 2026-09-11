@@ -1,0 +1,40 @@
+// TỆP SINH TỰ ĐỘNG — chạy `python3 scripts/cutout_product_images.py --manifest` để cập nhật.
+//
+// Ảnh chụp studio của nhà máy và Haravan đều nằm trên nền trắng. Dữ liệu sản phẩm
+// đổ từ database vẫn trỏ vào bản gốc đó, nên khoang ảnh màu đá ấm của card hiện ra
+// một khung trắng quanh chai. Bảng này trỏ mỗi bản gốc sang bản WebP đã tách nền.
+export const PRODUCT_IMAGE_CUTOUTS: Readonly<Record<string, string>> = {
+  '/images/products/official/benediktiner/49717_Bene_GL_vO_WB_dunkel.jpg': '/images/products/official/benediktiner/49717_Bene_GL_vO_WB_dunkel.webp',
+  '/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.jpg': '/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp',
+  '/images/products/official/benediktiner/83810_Bene_Weissbier_4x05l_Dose_schraeg.jpg': '/images/products/official/benediktiner/83810_Bene_Weissbier_4x05l_Dose_schraeg.webp',
+  '/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Sixpack_033l_Export.jpg': '/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Sixpack_033l_Export.webp',
+  '/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Tray_4x6x033l_Export.jpg': '/images/products/official/benediktiner/85981_Bene_Weissbier_NT_Tray_4x6x033l_Export.webp',
+  '/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Flasche_Abbildung.jpg': '/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Flasche_Abbildung.webp',
+  '/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Glas_Abbildung.jpg': '/images/products/official/benediktiner/86087_Bene_Weissbier_AF_Glas_Abbildung.webp',
+  '/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.jpg': '/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.webp',
+  '/images/products/official/benediktiner/86480_Benediktiner_Weiss_NT_Flasche_05l_betaut.jpg': '/images/products/official/benediktiner/86480_Benediktiner_Weiss_NT_Flasche_05l_betaut.webp',
+  '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.jpg': '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp',
+  '/images/products/official/benediktiner/87205_Bene_Weissbier_05l_Dose_frontal_Export.jpg': '/images/products/official/benediktiner/87205_Bene_Weissbier_05l_Dose_frontal_Export.webp',
+  '/images/products/official/benediktiner/89327_Bene_Weissbier_AF_Draufsicht_033l_betaut_001.jpg': '/images/products/official/benediktiner/89327_Bene_Weissbier_AF_Draufsicht_033l_betaut_001.webp',
+  '/images/products/official/benediktiner/89327_Bene_Weissbier_NT_Draufsicht_033l_betaut.jpg': '/images/products/official/benediktiner/89327_Bene_Weissbier_NT_Draufsicht_033l_betaut.webp',
+  '/images/products/official/bitburger/20201006_bitburger_flasche_033l_export_drive.jpg': '/images/products/official/bitburger/20201006_bitburger_flasche_033l_export_drive.webp',
+  '/images/products/official/bitburger/60922_Bitb_Pils_Pokal.jpg': '/images/products/official/bitburger/60922_Bitb_Pils_Pokal.webp',
+  '/images/products/official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg': '/images/products/official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.webp',
+  '/images/products/official/bitburger/76979_Bit_Pils_Drive_Alkoholfrei_Export_Sixpack_6er_6x033l.jpg': '/images/products/official/bitburger/76979_Bit_Pils_Drive_Alkoholfrei_Export_Sixpack_6er_6x033l.webp',
+  '/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.jpg': '/images/products/official/bitburger/88335_Bitb_PremiumPils_Fass_5L_Export_frontal_betaut_001.webp',
+  '/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.jpg': '/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp',
+  '/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.jpg': '/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.webp',
+  '/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.jpg': '/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp',
+  '/images/products/official/rappenhof/riesling_auslese_bottle.png': '/images/products/official/rappenhof/riesling_auslese_bottle.webp',
+  '/images/products/official/rappenhof/riesling_kabinett_bottle.png': '/images/products/official/rappenhof/riesling_kabinett_bottle.webp',
+  '/images/products/official/rappenhof/riesling_trocken_bottle.png': '/images/products/official/rappenhof/riesling_trocken_bottle.webp',
+  '/images/products/official/thorle/kabinett_bottle.png': '/images/products/official/thorle/kabinett_bottle.webp',
+  '/images/products/official/thorle/riesling_750_bottle.png': '/images/products/official/thorle/riesling_750_bottle.webp',
+  '/images/products/official/thorle/spatburgunder_bottle.png': '/images/products/official/thorle/spatburgunder_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/1_c3ac6d2d42134f4984a3145fc430d49b_grande.png': '/images/products/official/thorle/spatburgunder_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/6_343530997b684b809e3e2d570d7197c1_grande.png': '/images/products/official/thorle/kabinett_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/9_587336c129e1466391e80e0f5273bcb4_grande.png': '/images/products/official/thorle/riesling_750_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/riesling_auslese_a286249bffb40c5b2ed798abe388ca2_grande.png': '/images/products/official/rappenhof/riesling_auslese_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/riesling_kabinett_2f5a9c2ff1874c91b3ee1765b6814e3e_grande.png': '/images/products/official/rappenhof/riesling_kabinett_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/riesling_trocken_d50b8e7cdd8540f9a290fd83ea36ca75_grande.png': '/images/products/official/rappenhof/riesling_trocken_bottle.webp',
+};
