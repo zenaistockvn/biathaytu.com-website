@@ -9,7 +9,7 @@ import ZaloCTA from './ZaloCTA';
 import styles from './Festbier5LProductView.module.css';
 
 interface Festbier5LProductViewProps {
-  product: Product;
+  product: Pick<Product, 'id' | 'name' | 'slug' | 'abv' | 'volume' | 'origin' | 'price'>;
   relatedProducts: Product[];
 }
 
@@ -220,7 +220,7 @@ export default function Festbier5LProductView({ product, relatedProducts }: Fest
             <p className={styles.sectionKicker}>Nguồn gốc thương hiệu</p>
             <h2>Từ di sản Ettal đến bàn tiệc hiện đại</h2>
             <p>Benediktiner gắn câu chuyện thương hiệu với truyền thống Benedictine tại Ettal, Bavaria. Trên Bia Thầy Tu, phần di sản được dùng để giải thích nguồn gốc và phong cách thương hiệu, không thay thế cho thông tin kỹ thuật trên nhãn sản phẩm.</p>
-            <Link href="/cau-chuyen-bia-thay-tu" className={styles.heritageLink}>Tìm hiểu câu chuyện Bia Thầy Tu</Link>
+            <Link href="/bia-thay-tu-la-gi" className={styles.heritageLink}>Tìm hiểu câu chuyện Bia Thầy Tu</Link>
           </div>
         </div>
       </section>
