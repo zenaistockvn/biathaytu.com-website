@@ -48,12 +48,13 @@ describe('design tokens', () => {
   });
 
   it('DESIGN.md khai đúng font đang nạp trong layout.tsx', () => {
-    expect(LAYOUT).toContain('Inter');
-    expect(LAYOUT).toContain('Playfair_Display');
+    expect(LAYOUT).toContain('Montserrat');
+    expect(LAYOUT).toContain('Barlow_Condensed');
+    expect(LAYOUT).not.toMatch(/Playfair|Inter\b/);
     const fm = DESIGN.slice(0, DESIGN.indexOf('---', 4));
-    expect(fm).toMatch(/sans:\s*"Inter/);
-    expect(fm).toMatch(/serif:\s*"Playfair Display/);
-    expect(fm).not.toMatch(/Be Vietnam Pro/);
+    expect(fm).toMatch(/display:\s*"Montserrat/);
+    expect(fm).toMatch(/sans:\s*"Barlow/);
+    expect(fm).toMatch(/condensed:\s*"Barlow Condensed/);
   });
 
   it('DESIGN.md khai đúng màu chủ đạo của web.css', () => {

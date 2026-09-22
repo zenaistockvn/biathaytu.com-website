@@ -29,7 +29,7 @@ describe('mobile-first responsive regressions', () => {
     expect(header).not.toMatch(/className="nav-desktop-link"\s+style=/);
     expect(header).toContain("aria-current={isCurrentPath(link.href) ? 'page' : undefined}");
     expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.header-logo[^}]*color:\s*#fff/);
-    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.nav-desktop-link[^}]*color:\s*rgba\(255,\s*255,\s*255,\s*0\.88\)/);
+    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.nav-desktop-link[^}]*color:\s*var\(--web-on-ink\)/);
     expect(css).not.toMatch(/\.web-app\s+a\s*\{[^}]*color:\s*inherit\s*!important/);
   });
 

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
     images: [
       {
-        url: '/images/products/hero_weissbier_v2.png',
+        url: '/images/brand/benediktiner-official/home-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
     description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
-    images: ['/images/products/hero_weissbier_v2.png'],
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
@@ -192,27 +192,27 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Lifestyle Image Gallery */}
+      {/* Official Benediktiner/Bitburger imagery (no AI-generated scenes) */}
       <section className="lifestyle-gallery-section">
         <div className="container" style={{ padding: '0 20px' }}>
-          <h2 className="weissbier-section-title">Khoảnh Khắc Di Sản &amp; Đời Sống</h2>
+          <h2 className="weissbier-section-title">Từ Tu Viện Ettal</h2>
           <p className="weissbier-section-subtitle">
-            Cảm hứng thưởng thức Bia Thầy Tu trong mọi không gian tiệc tùng và thư giãn
+            Hình ảnh chính thức của Benediktiner Weissbräu, Ettal
           </p>
 
           <div className="lifestyle-gallery-grid">
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
                 <Image
-                  src="/images/products/amc_assets/benediktiner_composite_rustic_1775734047862.png" 
-                  alt="Tuyệt tác Bavaria" 
+                  src="/images/brand/benediktiner-official/home-hero.jpg"
+                  alt="Ly và chai Benediktiner Weissbier trước tu viện Ettal"
                   fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="lifestyle-gallery-img"
                 />
                 <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Tuyệt Tác Bavaria</h3>
-                  <p className="lifestyle-gallery-card-desc">Không khí thưởng thức cổ điển và di sản lâu đời</p>
+                  <h3 className="lifestyle-gallery-card-title">Ettal, dưới chân dãy Alps</h3>
+                  <p className="lifestyle-gallery-card-desc">Tu viện nằm ở độ cao 877 m, nơi khởi nguồn công thức Benediktiner</p>
                 </div>
               </div>
             </div>
@@ -220,15 +220,15 @@ export default function Page() {
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
                 <Image
-                  src="/images/products/amc_assets/weissbier_seafood_16x9_1775734547769.png" 
-                  alt="Mỹ vị hải sản" 
+                  src="/images/brand/benediktiner-official/ettal-monastery.jpg"
+                  alt="Tu viện Ettal"
                   fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="lifestyle-gallery-img"
                 />
                 <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Mỹ Vị Hải Sản</h3>
-                  <p className="lifestyle-gallery-card-desc">Sự kết hợp hoàn hảo nâng tầm hương vị ẩm thực</p>
+                  <h3 className="lifestyle-gallery-card-title">Tu viện Ettal</h3>
+                  <p className="lifestyle-gallery-card-desc">Tu viện dòng Benedictine thành lập năm 1330 tại Bavaria</p>
                 </div>
               </div>
             </div>
@@ -236,63 +236,15 @@ export default function Page() {
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
                 <Image
-                  src="/images/products/lifestyle_friends_v2.png" 
-                  alt="Kết nối chiến hữu" 
+                  src="/images/brand/benediktiner-official/so-close-to-heaven.jpg"
+                  alt="Ảnh chiến dịch So close to heaven của Benediktiner Weissbier"
                   fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="lifestyle-gallery-img"
                 />
                 <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Kết Nối Chiến Hữu</h3>
-                  <p className="lifestyle-gallery-card-desc">Những phút giây sảng khoái và gắn kết trọn vẹn</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/lifestyle_garden_v2.png" 
-                  alt="Tiệc vườn mát lành" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Tiệc Vườn Mát Lành</h3>
-                  <p className="lifestyle-gallery-card-desc">Tận hưởng vị bia tự nhiên giữa không gian xanh</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/lifestyle_relax_v2.png" 
-                  alt="Thư giãn cuối tuần" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Thư Giãn Cuối Tuần</h3>
-                  <p className="lifestyle-gallery-card-desc">Ngụm bia êm dịu xoa dịu những ngày bận rộn</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/lifestyle_rooftop_v2.png" 
-                  alt="Hoàng hôn lộng gió" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Hoàng Hôn Lộng Gió</h3>
-                  <p className="lifestyle-gallery-card-desc">Cảm xúc thăng hoa ngắm thành phố từ trên cao</p>
+                  <h3 className="lifestyle-gallery-card-title">So close to heaven</h3>
+                  <p className="lifestyle-gallery-card-desc">Chiến dịch chính thức của Benediktiner Weissbier</p>
                 </div>
               </div>
             </div>
@@ -306,7 +258,7 @@ export default function Page() {
           <div className="weissbier-pairing-wrap">
             <div className="weissbier-pairing-content">
               <h2 className="weissbier-section-title" style={{ textAlign: 'left', marginBottom: '16px' }}>Nghệ Thuật Kết Hợp Ẩm Thực</h2>
-              <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', margin: 0 }}>
+              <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', margin: 0 }}>
                 Nhờ hương vị lúa mì ngọt mát và độ sủi tăm mượt mà, Benediktiner Weissbier là thức uống đồng hành lý tưởng để tôn vinh hương vị của các món ăn chính:
               </p>
 
@@ -333,7 +285,7 @@ export default function Page() {
 
             <div className="weissbier-pairing-img-wrap">
               <Image 
-                src="/images/products/lifestyle_friends_v2.png"
+                src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
                 alt="Thưởng thức bia lúa mì Benediktiner cùng bạn bè"
                 fill
                 style={{ objectFit: 'cover' }}

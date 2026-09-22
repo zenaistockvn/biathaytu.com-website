@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Benediktiner Chính Hãng',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
     description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -37,17 +37,17 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Chất Lượng Đức</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Bia Benediktiner Chính Hãng</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Tìm hiểu nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Bia Benediktiner Chính Hãng</h1>
+          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Tìm hiểu nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Cam kết chính hãng:</strong> Mọi sản phẩm Bia Thầy Tu Benediktiner được phân phối qua hệ thống của chúng tôi đều có nguồn gốc rõ ràng, đầy đủ giấy tờ hải quan (CO/CQ), và được bảo quản trong hệ thống kho lạnh tiêu chuẩn để giữ trọn vẹn hương vị tu viện.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>3 Cách nhận biết Benediktiner chính hãng</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>3 Cách nhận biết Benediktiner chính hãng</h2>
         
         <div style={{ marginBottom: '32px' }}>
           <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>1. Nhãn mác và ngôn ngữ</h3>
@@ -64,7 +64,7 @@ export default function Page() {
           <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>Với dòng Weissbier Naturtrüb, bia thật sẽ có độ vẩn đục tự nhiên (do men sống chưa lọc) và màu vàng hổ phách đậm. Bọt bia rót ra phải trắng, mịn, và giữ được rất lâu trên miệng ly. Hương vị nồng nàn mùi chuối chín và đinh hương.</p>
         </div>
 
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Tại sao nên mua tại hệ thống đại lý chính thức?</h2>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Tại sao nên mua tại hệ thống đại lý chính thức?</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {[
             { title: 'Bảo quản chuẩn', desc: 'Bia lúa mì chứa men sống rất nhạy cảm với nhiệt độ. Chúng tôi bảo quản 100% trong kho lạnh chuyên dụng.' },
@@ -81,10 +81,10 @@ export default function Page() {
         <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner</Link></p>
 
         <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Yên tâm thưởng thức</h3>
-          <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác.</p>
+          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Yên tâm thưởng thức</h3>
+          <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/lien-he" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Liên hệ tư vấn</Link>
+            <Link href="/lien-he" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Liên hệ tư vấn</Link>
           </div>
         </div>
       </article>

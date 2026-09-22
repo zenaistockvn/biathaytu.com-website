@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/kien-thuc',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Kiến Thức Bia Đức',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kiến Thức Bia Đức',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -74,7 +74,7 @@ export default async function KienThucPage() {
             <div className="knowledge-featured-card">
               <div className="knowledge-featured-thumb">
                 <Image
-                  src={featuredArticle.thumbnail_url || '/images/sanh_bia_duc_cover.png'}
+                  src={featuredArticle.thumbnail_url || '/images/brand/benediktiner-official/beer-garden-closeup.jpg'}
                   alt={featuredArticle.title}
                   fill
                   className="object-cover"
@@ -115,7 +115,7 @@ export default async function KienThucPage() {
                 >
                   <div className="knowledge-card-thumb">
                     <Image
-                      src={article.thumbnail_url || '/images/sanh_bia_duc_cover.png'}
+                      src={article.thumbnail_url || '/images/brand/benediktiner-official/beer-garden-closeup.jpg'}
                       alt={article.title}
                       fill
                       className="object-cover"

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/bang-gia-si-dai-ly',
     images: [
       {
-        url: '/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png',
+        url: '/images/brand/benediktiner-official/home-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
     description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
-    images: ['/images/facebook/cover_sanh_bia_duc_v2_1775560866216.png'],
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
@@ -44,24 +44,24 @@ export default function Page() {
 
       <Section variant="dark" padding="xl" style={{ textAlign: 'center' }}>
         <Container maxWidth="800px">
-          <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="gold" transform="uppercase" style={{ marginBottom: '20px' }}>
+          <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="on-ink-accent" transform="uppercase" style={{ marginBottom: '20px' }}>
             Hợp Tác Kinh Doanh
           </Text>
           <Heading level={1} size="fluid" style={{ marginBottom: '24px' }}>
             Chính Sách Đại Lý <br />& Báo Giá Sỉ Bia Đức
           </Heading>
-          <Text as="p" size="lg" color="white" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
+          <Text as="p" size="lg" color="on-ink" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
             Kinh doanh sản phẩm bia nhập khẩu cao cấp với lợi nhuận hấp dẫn cùng nhà phân phối Bia Thầy Tu.
           </Text>
         </Container>
       </Section>
 
       <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Chào mừng các đối tác:</strong> Chúng tôi tìm kiếm đại lý phân phối, siêu thị mini, cửa hàng đồ uống nhập khẩu, và các CTV bán sỉ trên toàn quốc cho 2 nhãn hiệu bia Đức: Benediktiner Weissbier và Bitburger Premium Pils.
         </div>
 
-        <Heading level={2} size="lg" color="navy" style={{ marginBottom: '24px' }}>
+        <Heading level={2} size="lg" color="ink" style={{ marginBottom: '24px' }}>
           Quyền lợi khi trở thành Đại Lý
         </Heading>
 
@@ -74,7 +74,7 @@ export default function Page() {
           ].map((item, i) => (
             <div key={i} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>
-              <Heading level={3} size="sm" color="navy" style={{ marginBottom: '8px' }}>
+              <Heading level={3} size="sm" color="ink" style={{ marginBottom: '8px' }}>
                 {item.title}
               </Heading>
               <Text as="p" size="sm" color="secondary">
@@ -84,7 +84,7 @@ export default function Page() {
           ))}
         </div>
 
-        <Heading level={2} size="md" color="navy" style={{ marginBottom: '16px' }}>
+        <Heading level={2} size="md" color="ink" style={{ marginBottom: '16px' }}>
           Danh mục sản phẩm áp dụng giá sỉ
         </Heading>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 48px 0', display: 'grid', gap: '16px' }}>
@@ -99,7 +99,7 @@ export default function Page() {
         </ul>
 
         <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
-          <Heading level={3} size="md" color="navy" style={{ marginBottom: '16px' }}>
+          <Heading level={3} size="md" color="ink" style={{ marginBottom: '16px' }}>
             Đăng ký nhận Bảng Giá Sỉ
           </Heading>
           <Text as="p" color="secondary" style={{ marginBottom: '24px' }}>

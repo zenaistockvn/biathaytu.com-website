@@ -4,7 +4,8 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   as?: 'p' | 'span' | 'div' | 'li' | 'strong';
   children: React.ReactNode;
   className?: string;
-  color?: 'main' | 'secondary' | 'muted' | 'gold' | 'gold-dark' | 'white' | 'inherit' | 'navy';
+  /** Tên theo vai trò, không theo màu: palette đổi thì chỗ gọi vẫn đúng. */
+  color?: 'main' | 'secondary' | 'muted' | 'accent' | 'ink' | 'on-ink' | 'on-ink-accent' | 'inherit';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   weight?: 'normal' | 'medium' | 'semibold' | 'bold' | number;
   transform?: 'uppercase' | 'lowercase' | 'capitalize' | 'none';
@@ -27,21 +28,21 @@ export default function Text({
 
   const inlineStyle: React.CSSProperties = { ...style };
 
-  // Color Mapping
+  // Color Mapping. on-ink* chỉ dùng trên dải tối (--web-ink / --web-sky).
   if (color === 'main') {
     inlineStyle.color = 'var(--web-text)';
   } else if (color === 'secondary') {
     inlineStyle.color = 'var(--web-text-secondary)';
   } else if (color === 'muted') {
     inlineStyle.color = 'var(--web-text-muted)';
-  } else if (color === 'gold') {
+  } else if (color === 'accent') {
     inlineStyle.color = 'var(--web-accent)';
-  } else if (color === 'gold-dark') {
-    inlineStyle.color = 'var(--web-accent-strong)';
-  } else if (color === 'white') {
-    inlineStyle.color = '#ffffff';
-  } else if (color === 'navy') {
+  } else if (color === 'ink') {
     inlineStyle.color = 'var(--web-ink)';
+  } else if (color === 'on-ink') {
+    inlineStyle.color = 'var(--web-on-ink)';
+  } else if (color === 'on-ink-accent') {
+    inlineStyle.color = 'var(--web-accent-on-ink)';
   }
 
   // Size Mapping

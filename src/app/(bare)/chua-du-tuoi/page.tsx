@@ -22,29 +22,28 @@ export default function UnderagePage() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '60px 20px',
-        backgroundColor: '#0f172a',
-        color: '#f8fafc',
+        backgroundColor: '#1c3157',
+        color: '#FFFFFF',
         textAlign: 'center',
       }}
     >
       <div
         style={{
           maxWidth: '600px',
-          backgroundColor: '#1e293b',
+          backgroundColor: '#24406E',
           borderRadius: '16px',
           padding: '40px 28px',
-          border: '1px solid #334155',
+          border: '1px solid #464e66',
           boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)',
         }}
       >
-        <div style={{ fontSize: '48px', marginBottom: '16px' }}></div>
         <h1
           style={{
             fontSize: '26px',
             fontWeight: '700',
             color: '#fbbf24',
             marginBottom: '16px',
-            fontFamily: 'var(--font-serif, serif)',
+            fontFamily: 'var(--font-display), sans-serif',
           }}
         >
           Thông Báo Kiểm Soát Độ Tuổi
@@ -54,7 +53,7 @@ export default function UnderagePage() {
           style={{
             fontSize: '16px',
             lineHeight: '1.7',
-            color: '#cbd5e1',
+            color: '#C9D3E3',
             marginBottom: '24px',
           }}
         >
@@ -63,12 +62,12 @@ export default function UnderagePage() {
 
         <div
           style={{
-            backgroundColor: '#0f172a',
+            backgroundColor: '#1c3157',
             borderRadius: '10px',
             padding: '20px',
             textAlign: 'left',
             fontSize: '14px',
-            color: '#94a3b8',
+            color: '#C9D3E3',
             lineHeight: '1.6',
             marginBottom: '28px',
             borderLeft: '4px solid #f59e0b',
@@ -82,7 +81,7 @@ export default function UnderagePage() {
           - Hãy tuân thủ pháp luật và lựa chọn lối sống lành mạnh.
         </div>
 
-        <p style={{ fontSize: '14px', color: '#64748b' }}>
+        <p style={{ fontSize: '14px', color: '#C9D3E3' }}>
           Nếu có nhầm lẫn trong quá trình xác nhận, bạn có thể đóng trình duyệt và quay lại sau khi đã đáp ứng đủ yêu cầu về độ tuổi theo luật định.
         </p>
       </div>

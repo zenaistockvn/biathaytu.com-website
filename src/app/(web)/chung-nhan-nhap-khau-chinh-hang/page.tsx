@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
     description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -37,17 +37,17 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Minh Bạch & Uy Tín</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Chứng Nhận Chất Lượng <br/>& Nguồn Gốc Nhập Khẩu</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Khẳng định uy tín nhà phân phối qua sự minh bạch về pháp lý và nguồn gốc 100% nguyên bản từ Đức.</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Chứng Nhận Chất Lượng <br/>& Nguồn Gốc Nhập Khẩu</h1>
+          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Khẳng định uy tín nhà phân phối qua sự minh bạch về pháp lý và nguồn gốc 100% nguyên bản từ Đức.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Cam kết cao nhất:</strong> "Không bán hàng xách tay trôi nổi, không bán hàng cận date." Toàn bộ sản phẩm Bia Thầy Tu Benediktiner và Bitburger được nhập khẩu chính ngạch (Official Import), hoàn thành nghĩa vụ thuế hải quan.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Tính Pháp Lý & Hồ sơ nhập khẩu</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>Tính Pháp Lý & Hồ sơ nhập khẩu</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
           Đối với khách hàng doanh nghiệp (B2B) và Horeca, tính hợp pháp của hàng hóa là ưu tiên số một. Mọi lô hàng bia Đức do chúng tôi phân phối đều đi kèm bộ hồ sơ hoàn chỉnh bao gồm:
         </p>
@@ -67,7 +67,7 @@ export default function Page() {
            </div>
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Giải Thưởng Quốc Tế iTQi</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>Giải Thưởng Quốc Tế iTQi</h2>
         <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap', alignItems: 'center', background: 'var(--web-bg-section)', padding: '32px', borderRadius: '16px', marginBottom: '48px' }}>
           <div style={{ flex: '1 1 200px', display: 'flex', justifyContent: 'center' }}>
             <span style={{ fontSize: '64px' }}></span>
@@ -81,10 +81,10 @@ export default function Page() {
         </div>
 
         <div data-surface="ink" style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Yên tâm nhập sỉ & kinh doanh</h3>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '24px' }}>Chúng tôi luôn đồng hành cùng nhà phân phối với sự bảo đảm tuyệt đối về mặt pháp lý.</p>
+          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Yên tâm nhập sỉ & kinh doanh</h3>
+          <p style={{ fontSize: '16px', color: 'var(--web-on-ink-muted)', marginBottom: '24px' }}>Chúng tôi luôn đồng hành cùng nhà phân phối với sự bảo đảm tuyệt đối về mặt pháp lý.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/bang-gia-si-dai-ly" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Chính Sách Đại Lý</Link>
+            <Link href="/bang-gia-si-dai-ly" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Chính Sách Đại Lý</Link>
           </div>
         </div>
       </article>

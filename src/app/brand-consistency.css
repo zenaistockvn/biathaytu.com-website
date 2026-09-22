@@ -1,9 +1,9 @@
 /* P1 visual consistency — Bia Thầy Tu
-   Forest green + warm cream + restrained heritage accents. */
+   Benediktiner palette: sky-blue bands, cream pages, label gold on blue only. */
 
 /* Header: dark only when it genuinely overlays a dark hero. */
 .web-app .web-header--transparent {
-  background: linear-gradient(180deg, rgba(13, 25, 17, 0.72) 0%, rgba(13, 25, 17, 0.22) 64%, transparent 100%);
+  background: linear-gradient(180deg, rgba(21, 38, 69, 0.72) 0%, rgba(21, 38, 69, 0.22) 64%, transparent 100%);
 }
 
 .web-app .web-header--solid {
@@ -16,27 +16,27 @@
   padding-bottom: calc(28px + env(safe-area-inset-bottom));
 }
 
-/* Remove navy from premium dark sections. */
+/* Dark bands follow the sky of the official "So close to heaven" campaign. */
 .web-app .hero-dark {
-  background: linear-gradient(155deg, #0D1911 0%, #14241A 48%, #1D3325 100%) !important;
+  background: var(--web-sky) !important;
 }
 
 .web-app .hero-dark::before {
-  background: radial-gradient(ellipse at 72% 50%, rgba(143, 191, 156, 0.1) 0%, transparent 62%) !important;
+  background: none !important;
 }
 
 .web-app .hero-bg-overlay {
   background: linear-gradient(
     105deg,
-    rgba(13, 25, 17, 0.95) 0%,
-    rgba(20, 36, 26, 0.88) 42%,
-    rgba(29, 51, 37, 0.64) 72%,
-    rgba(13, 25, 17, 0.52) 100%
+    rgba(21, 38, 69, 0.95) 0%,
+    rgba(28, 49, 87, 0.88) 42%,
+    rgba(36, 64, 110, 0.64) 72%,
+    rgba(21, 38, 69, 0.52) 100%
   ) !important;
 }
 
 .web-app .b2b-overlay {
-  background: radial-gradient(ellipse at top, #1D3325 0%, #14241A 54%, #0D1911 100%) !important;
+  background: var(--web-sky) !important;
 }
 
 /* Accessible accents on dark surfaces. */
@@ -46,7 +46,7 @@
 }
 
 .web-app .hero-trust-icon {
-  border-color: rgba(143, 191, 156, 0.74) !important;
+  border-color: rgba(214, 189, 121, 0.74) !important;
 }
 
 .web-app .hero-desc span {
@@ -54,12 +54,12 @@
 }
 
 .web-app .knowledge-hero-overlay {
-  background: radial-gradient(ellipse at bottom, rgba(143, 191, 156, 0.12) 0%, transparent 70%) !important;
+  background: none !important;
 }
 
 .web-app .hero-bottom-divider {
   height: 2px !important;
-  background: linear-gradient(90deg, transparent 0%, rgba(143, 191, 156, 0.28) 22%, rgba(143, 191, 156, 0.7) 50%, rgba(143, 191, 156, 0.28) 78%, transparent 100%) !important;
+  background: rgba(214, 189, 121, 0.45) !important;
 }
 
 /* One restrained contact control instead of three bright floating circles. */
@@ -82,27 +82,27 @@
   justify-content: center;
   gap: 8px;
   padding: 0 15px;
-  border: 1px solid rgba(143, 191, 156, 0.78);
+  border: 1px solid rgba(214, 189, 121, 0.78);
   border-radius: 14px;
-  background: #14241A;
+  background: #1C3157;
   color: #F4F1E9;
-  box-shadow: 0 12px 30px rgba(20, 36, 26, 0.22);
+  box-shadow: 0 12px 30px rgba(28, 49, 87, 0.22);
   cursor: pointer;
   font: inherit;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .web-app .brand-contact-trigger:hover,
 .web-app .brand-contact-trigger.is-open {
-  background: #1D3325;
+  background: #24406E;
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(20, 36, 26, 0.28);
+  box-shadow: 0 16px 34px rgba(28, 49, 87, 0.28);
 }
 
 .web-app .brand-contact-trigger:focus-visible {
-  outline: 3px solid rgba(143, 191, 156, 0.5);
+  outline: 3px solid rgba(214, 189, 121, 0.5);
   outline-offset: 3px;
 }
 
@@ -115,8 +115,8 @@
   border: 1px solid var(--web-border);
   border-radius: 16px;
   background: #F4F1E9;
-  box-shadow: 0 24px 56px rgba(20, 36, 26, 0.22);
-  color: #14241A;
+  box-shadow: 0 24px 56px rgba(28, 49, 87, 0.22);
+  color: #1C3157;
 }
 
 .web-app .brand-contact-panel-head {
@@ -127,14 +127,14 @@
 
 .web-app .brand-contact-panel-head strong {
   display: block;
-  color: #14241A;
+  color: #1C3157;
   font-size: 14px;
 }
 
 .web-app .brand-contact-panel-head span {
   display: block;
   margin-top: 2px;
-  color: #5D6B61;
+  color: #596077;
   font-size: 11px;
 }
 
@@ -145,7 +145,7 @@
   gap: 11px;
   padding: 10px 14px;
   border-bottom: 1px solid rgba(207, 201, 182, 0.7);
-  color: #14241A !important;
+  color: #1C3157 !important;
   background: transparent;
   text-decoration: none !important;
   transition: background 0.18s ease;
@@ -167,12 +167,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(47, 93, 58, 0.26);
+  border: 1px solid rgba(0, 71, 135, 0.26);
   border-radius: 50%;
-  background: rgba(47, 93, 58, 0.08);
-  color: #2F5D3A;
+  background: rgba(0, 71, 135, 0.08);
+  color: #004787;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .web-app .brand-contact-item > span:last-child {
@@ -182,14 +182,14 @@
 }
 
 .web-app .brand-contact-item strong {
-  color: #14241A;
+  color: #1C3157;
   font-size: 13px;
   line-height: 1.25;
 }
 
 .web-app .brand-contact-item small {
   overflow: hidden;
-  color: #5D6B61;
+  color: #596077;
   font-size: 11px;
   line-height: 1.35;
   text-overflow: ellipsis;
@@ -206,9 +206,9 @@
 /* P2 editorial hierarchy — fewer UI boxes, stronger photography. */
 .web-app {
   --web-radius-lg: 16px;
-  --web-shadow: 0 8px 28px rgba(20, 36, 26, 0.055);
-  --web-shadow-md: 0 14px 34px -22px rgba(20, 36, 26, 0.14);
-  --web-shadow-lg: 0 18px 42px -20px rgba(20, 36, 26, 0.18);
+  --web-shadow: 0 8px 28px rgba(28, 49, 87, 0.055);
+  --web-shadow-md: 0 14px 34px -22px rgba(28, 49, 87, 0.14);
+  --web-shadow-lg: 0 18px 42px -20px rgba(28, 49, 87, 0.18);
 }
 
 /* Functional controls should feel tailored, not SaaS-pill heavy. */
@@ -256,7 +256,7 @@
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
   border-color: var(--web-accent-soft) !important;
-  box-shadow: 0 14px 34px -22px rgba(20, 36, 26, .45) !important;
+  box-shadow: 0 14px 34px -22px rgba(28, 49, 87, .45) !important;
 }
 
 /* Food pairing becomes editorial rows rather than three floating white cards. */
@@ -282,7 +282,7 @@
 .web-app .food-icon {
   width: 52px !important;
   height: 52px !important;
-  background: rgba(47, 93, 58, 0.06) !important;
+  background: rgba(0, 71, 135, 0.06) !important;
 }
 
 /* Keep knowledge cards, but reduce their visual chrome. */
@@ -319,7 +319,7 @@
   align-items: center;
   background: rgba(244, 241, 233, 0.94);
   border-bottom: 1px solid rgba(207, 201, 182, 0.78);
-  box-shadow: 0 8px 22px rgba(20, 36, 26, 0.055);
+  box-shadow: 0 8px 22px rgba(28, 49, 87, 0.055);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 }

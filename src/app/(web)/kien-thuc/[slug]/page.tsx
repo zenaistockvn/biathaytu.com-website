@@ -125,7 +125,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '900px', textAlign: 'center' }}>
           <div className="article-detail-breadcrumb">
             <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Trang chủ</Link> 
-            <span style={{ margin: '0 8px', color: 'rgba(255,255,255,0.3)' }}>/</span>
+            <span style={{ margin: '0 8px', color: 'var(--web-on-ink-muted)' }}>/</span>
             <Link href="/kien-thuc" style={{ color: 'inherit', textDecoration: 'none' }}> Kiến thức</Link>
           </div>
           
@@ -163,7 +163,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
         {/* CTA Footer */}
         <div style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid var(--web-border)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-serif)' }}>
+          <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-display)' }}>
             Sẵn sàng để thưởng thức?
           </h3>
           <p style={{ color: 'var(--web-text-muted)', marginBottom: '40px', fontSize: '16px' }}>
@@ -215,10 +215,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         <section style={{ background: 'var(--web-bg-section)', padding: '80px 0' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '12px', fontFamily: "'Inter', sans-serif" }}>
+              <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-condensed)' }}>
                 Đọc Thêm
               </p>
-              <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-serif)' }}>
+              <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-display)' }}>
                 Bài Viết Liên Quan
               </h2>
             </div>
@@ -263,7 +263,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                     <h3 style={{
                       fontSize: '19px', fontWeight: 700, color: 'var(--web-ink)',
                       marginBottom: '10px', lineHeight: 1.4,
-                      fontFamily: 'var(--font-serif)',
+                      fontFamily: 'var(--font-display)',
                       display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as never, overflow: 'hidden'
                     }}>
                       {related.title}

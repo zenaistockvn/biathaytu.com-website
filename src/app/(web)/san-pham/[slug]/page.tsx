@@ -34,7 +34,7 @@ interface ProductData {
 }
 
 function getPackagingFormat(name: string): string | null {
-  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^—,]*/i);
+  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^,:]*/i);
   return match?.[0]?.trim() || null;
 }
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product || product.hidden) return {};
   const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
 
-  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/sanh_bia_duc_cover.png');
+  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
   const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
 
   return {
@@ -247,7 +247,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <section className="perfect-pairings-section" style={{ marginTop: '60px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
             <div className="section-header-center" style={{ marginBottom: '40px' }}>
               <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Gợi Ý Food Pairing</span>
-              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 800, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
+              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 700, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
               <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
             </div>
 
@@ -302,12 +302,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       </div>
                       <div style={{ flex: '1 1 180px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.description}</p>
+                        <p style={{ margin: 0, fontSize: '13px', color: '#c9d3e3', lineHeight: 1.5 }}>{relatedCombo.description}</p>
                       </div>
                     </div>
                   </div>
                   <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
+                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-on-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
                       Xem chi tiết
                     </Link>
                   </div>

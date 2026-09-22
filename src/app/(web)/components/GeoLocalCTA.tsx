@@ -29,7 +29,7 @@ export default function GeoLocalCTA() {
           position: absolute;
           top: 0; right: 0;
           width: 250px; height: 250px;
-          background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0) 70%);
+          background: radial-gradient(circle, rgba(214, 189, 121, 0.08) 0%, rgba(214, 189, 121, 0) 70%);
           pointer-events: none;
         }
         .geo-cta-badge {
@@ -42,7 +42,7 @@ export default function GeoLocalCTA() {
           display: inline-block;
         }
         .geo-cta-title {
-          font-family: var(--font-serif);
+          font-family: var(--font-display);
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 12px;
@@ -50,7 +50,7 @@ export default function GeoLocalCTA() {
         }
         .geo-cta-desc {
           font-size: 14px;
-          color: rgba(255, 255, 255, 0.8);
+          color: var(--web-on-ink-muted);
           line-height: 1.6;
           margin-bottom: 20px;
         }
@@ -73,7 +73,7 @@ export default function GeoLocalCTA() {
         .geo-cta-info-text {
           font-size: 14px;
           line-height: 1.5;
-          color: rgba(255, 255, 255, 0.9);
+          color: var(--web-on-ink);
         }
         .geo-cta-info-text strong {
           color: var(--web-accent-on-ink);
@@ -101,12 +101,12 @@ export default function GeoLocalCTA() {
           background: linear-gradient(90deg, var(--web-accent), var(--web-accent-soft));
           color: var(--web-ink) !important;
           border: none;
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+          box-shadow: 0 4px 15px rgba(214, 189, 121, 0.15);
         }
         .geo-cta-btn-primary:hover {
           background: linear-gradient(90deg, var(--web-accent-hover), var(--web-accent));
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+          box-shadow: 0 6px 20px rgba(214, 189, 121, 0.3);
         }
         .geo-cta-btn-outline {
           background: transparent;
@@ -125,7 +125,7 @@ export default function GeoLocalCTA() {
           min-height: 250px;
           border-radius: 12px;
           overflow: hidden;
-          border: 1px solid rgba(212, 175, 55, 0.2);
+          border: 1px solid rgba(214, 189, 121, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           position: relative;
         }

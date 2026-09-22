@@ -29,8 +29,8 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
     >
       <div style={{ marginBottom: '16px' }}>
         {product.price !== null && (
-          <p style={{ margin: '0 0 6px', color: 'var(--web-accent-strong)', fontSize: '28px', fontWeight: 800 }}>
-            <span style={{ display: 'block', marginBottom: '2px', color: 'var(--web-text-muted)', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          <p style={{ margin: '0 0 6px', color: 'var(--web-accent-strong)', fontSize: '28px', fontWeight: 700 }}>
+            <span style={{ display: 'block', marginBottom: '2px', color: 'var(--web-text-secondary)', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Giá bán lẻ
             </span>
             {formatPrice(product.price)}

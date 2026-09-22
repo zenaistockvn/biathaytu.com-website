@@ -27,8 +27,8 @@ export default function AlcoholWarning({
           minHeight: '10%',
           backgroundColor: '#0d1117',
           color: '#f1c40f',
-          borderTop: '2px solid #f39c12',
-          borderBottom: '2px solid #f39c12',
+          borderTop: '2px solid #d6bd79',
+          borderBottom: '2px solid #d6bd79',
           padding: '10px 16px',
           fontSize: '13px',
           fontWeight: '600',
@@ -93,7 +93,7 @@ export default function AlcoholWarning({
           gap: '8px',
           backgroundColor: 'rgba(243, 156, 18, 0.15)',
           border: '1px solid rgba(243, 156, 18, 0.3)',
-          color: '#f39c12',
+          color: '#d6bd79',
           padding: '6px 12px',
           borderRadius: '20px',
           fontSize: '12px',
@@ -103,7 +103,7 @@ export default function AlcoholWarning({
         }}
       >
         <span style={{
-          backgroundColor: '#f39c12',
+          backgroundColor: '#d6bd79',
           color: '#000',
           borderRadius: '50%',
           width: '20px',

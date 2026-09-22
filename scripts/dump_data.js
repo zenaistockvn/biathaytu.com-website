@@ -1,6 +1,7 @@
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
+const { cleanArticle, cleanProduct } = require('./lib/editorial-clean.cjs');
 
 let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
@@ -121,13 +122,14 @@ async function dump() {
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    const productsWithRetailPrices = pResult.rows.map((product) => ({
+    // Làm sạch emoji, mũi tên, gạch ngang dài và ảnh AI ngay khi dump, vì database có thể còn nội dung cũ.
+    const productsWithRetailPrices = pResult.rows.map((product) => cleanProduct({
       ...product,
       price: RETAIL_PRICE_BY_SLUG[product.slug] ?? product.price,
     }));
 
     writeJsonAtomic(path.join(dataDir, 'products.json'), productsWithRetailPrices);
-    writeJsonAtomic(path.join(dataDir, 'articles.json'), inScopeArticles);
+    writeJsonAtomic(path.join(dataDir, 'articles.json'), inScopeArticles.map(cleanArticle));
     console.log('Dump completed successfully!');
   } catch (err) {
     console.error('Failed to dump data:', err);

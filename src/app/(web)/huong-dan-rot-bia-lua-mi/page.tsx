@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
     description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -37,17 +37,17 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Nghệ Thuật Thưởng Thức</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Cách Rót Bia Lúa Mì <br/>Chuẩn Đức</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Rót bia Weissbier không đơn giản là đổ ra ly. Đó là một nghi thức đánh thức hương vị men sống.</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Cách Rót Bia Lúa Mì <br/>Chuẩn Đức</h1>
+          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Rót bia Weissbier không đơn giản là đổ ra ly. Đó là một nghi thức đánh thức hương vị men sống.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Tại sao phải rót đúng cách?</strong> Bia lúa mì không lọc (Naturtrüb) như Benediktiner chứa lớp men sống lắng dưới đáy chai. Nếu rót như bia thường, bạn sẽ bỏ lỡ phần tinh túy nhất của hương vị và mất đi lớp bọt (head) đặc trưng của bia Đức.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Nghi thức 4 Bước rót bia Weissbier</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>Nghi thức 4 Bước rót bia Weissbier</h2>
         
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginBottom: '48px' }}>
           <div style={{ padding: '24px', background: '#fff', borderRadius: '16px', border: '1px solid var(--web-border)', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
@@ -84,7 +84,7 @@ export default function Page() {
         </div>
 
         <div style={{ padding: '40px', background: 'var(--web-bg-section)', borderRadius: '16px', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sẵn sàng thực hành?</h3>
+          <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Sẵn sàng thực hành?</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để rót được ly bia đẹp, bạn cần đúng loại bia lúa mì cao cấp.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Mua Bia Benediktiner Chính Hãng</Link>

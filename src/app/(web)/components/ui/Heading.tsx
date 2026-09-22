@@ -5,7 +5,8 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'fluid';
-  color?: 'navy' | 'gold' | 'white' | 'gold-dark' | 'inherit';
+  /** Tên theo vai trò, không theo màu: palette đổi thì chỗ gọi vẫn đúng. */
+  color?: 'ink' | 'accent' | 'on-ink' | 'on-ink-accent' | 'inherit';
 }
 
 export default function Heading({
@@ -36,15 +37,15 @@ export default function Heading({
     inlineStyle.fontSize = '18px';
   }
 
-  // Set color mapping
-  if (color === 'navy') {
+  // Set color mapping. on-ink* chỉ dùng trên dải tối (--web-ink / --web-sky).
+  if (color === 'ink') {
     inlineStyle.color = 'var(--web-ink)';
-  } else if (color === 'gold') {
+  } else if (color === 'accent') {
     inlineStyle.color = 'var(--web-accent)';
-  } else if (color === 'gold-dark') {
-    inlineStyle.color = 'var(--web-accent-strong)';
-  } else if (color === 'white') {
-    inlineStyle.color = '#ffffff';
+  } else if (color === 'on-ink') {
+    inlineStyle.color = 'var(--web-on-ink)';
+  } else if (color === 'on-ink-accent') {
+    inlineStyle.color = 'var(--web-accent-on-ink)';
   }
 
   return (

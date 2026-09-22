@@ -74,7 +74,7 @@
     padding-right: 5px;
     pointer-events: none;
     font-size: 24px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--web-accent-strong);
     background: linear-gradient(90deg, rgba(244, 241, 233, 0), var(--web-bg) 72%);
   }
@@ -97,7 +97,7 @@
 
   .mobile-compact-footer .mobile-footer-brand {
     color: var(--web-accent-on-ink);
-    font-family: var(--font-serif), serif;
+    font-family: var(--font-display);
     font-size: 20px;
     margin: 0 0 10px;
   }
@@ -145,7 +145,7 @@
     cursor: pointer;
     list-style: none;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--web-on-ink);
     -webkit-tap-highlight-color: transparent;
   }

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/food-pairing-bia-duc',
     images: [
       {
-        url: '/images/facebook/cover_bia_am_thuc_v2_1775560881516.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Nghệ Thuật Food Pairing: Bia Đức Kết Hợp Cùng Ẩm Thực',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nghệ Thuật Food Pairing: Bia Đức Kết Hợp Cùng Ẩm Thực',
     description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
-    images: ['/images/facebook/cover_bia_am_thuc_v2_1775560881516.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -44,17 +44,17 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Ẩm Thực</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Nghệ Thuật Food Pairing <br/>Cùng Bia Đức</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Đánh thức toàn bộ giác quan khi kết hợp đúng hương vị bia với món ăn phù hợp.</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Nghệ Thuật Food Pairing <br/>Cùng Bia Đức</h1>
+          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Đánh thức toàn bộ giác quan khi kết hợp đúng hương vị bia với món ăn phù hợp.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
+        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
           <strong>Food Pairing là gì?</strong> Đó là nghệ thuật "ghép đôi" đồ uống và món ăn sao cho chúng tôn vinh lẫn nhau. Một ly bia Đức hoàn hảo có thể làm giảm độ ngấy của món ăn, làm bật lên vị tươi ngọt của hải sản, hoặc hòa quyện cùng vị đậm đà của thịt nướng.
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>1. Kết hợp cùng Bia Lúa Mì (Weissbier)</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>1. Kết hợp cùng Bia Lúa Mì (Weissbier)</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
           <strong>Đặc điểm bia:</strong> Vị ngọt dịu, ít đắng, thoang thoảng hương trái cây (chuối chín, cam quýt) và đinh hương. Độ sủi bọt cao giúp làm sạch vòm miệng hiệu quả.
         </p>
@@ -73,7 +73,7 @@ export default function Page() {
            </div>
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>2. Kết hợp cùng Bia Đen (Dunkelweizen)</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>2. Kết hợp cùng Bia Đen (Dunkelweizen)</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
           <strong>Đặc điểm bia:</strong> Vị mạch nha rang đậm đà, hương caramel, chocolate đen và thoảng vị nướng bùi bùi. Hậu vị êm dịu, ấm áp.
         </p>
@@ -92,7 +92,7 @@ export default function Page() {
            </div>
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>3. Kết hợp cùng Pilsner (Bia Vàng)</h2>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>3. Kết hợp cùng Pilsner (Bia Vàng)</h2>
         <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
           <strong>Đặc điểm bia:</strong> Trong suốt, cực kỳ giải khát. Vị đắng thanh của hoa bia và hậu vị khô, sạch miệng (crisp). Khả năng "thanh tẩy vị giác" xuất sắc.
         </p>
@@ -112,17 +112,17 @@ export default function Page() {
         </div>
 
         <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-serif)' }}>Chọn bia cho bữa tiệc của bạn</h3>
-          <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', fontSize: '15px' }}>Chuẩn bị thực đơn hoàn hảo với bộ sưu tập bia Đức nhập khẩu chính hãng.</p>
+          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Chọn bia cho bữa tiệc của bạn</h3>
+          <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Chuẩn bị thực đơn hoàn hảo với bộ sưu tập bia Đức nhập khẩu chính hãng.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Khám Phá Các Dòng Bia</Link>
+            <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Khám Phá Các Dòng Bia</Link>
           </div>
         </div>
       </article>
 
       <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
+          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
           {faqs.map((f, i) => (
             <div key={i} style={{ padding: '20px 24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{f.question}</h3>

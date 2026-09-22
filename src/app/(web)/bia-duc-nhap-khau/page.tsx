@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/bia-duc-nhap-khau',
     images: [
       {
-        url: '/images/products/bitburger_football_edition.jpg',
+        url: '/images/brand/benediktiner-official/home-hero.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bia Đức Nhập Khẩu - Bitburger Football Edition 2026',
+        alt: 'Benediktiner Weissbier trước tu viện Ettal',
       },
     ],
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Đức Nhập Khẩu, Bitburger Football Edition 2026',
     description: 'Khám phá các dòng bia Đức nhập khẩu thượng hạng và tâm điểm Bitburger Premium Pils phiên bản giới hạn World Cup 2026.',
-    images: ['/images/products/bitburger_football_edition.jpg'],
+    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
@@ -101,7 +101,7 @@ export default function Page() {
             <div className="campaign-wc-card">
               <div className="campaign-wc-img-holder">
                 <Image 
-                  src="/images/products/bitburger_combo_match_night.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Thùng 24 lon Bitburger WC 2026"
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -137,7 +137,7 @@ export default function Page() {
             <div className="campaign-wc-card">
               <div className="campaign-wc-img-holder">
                 <Image 
-                  src="/images/products/bitburger_football_edition.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Combo Match Night 2026"
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -190,7 +190,7 @@ export default function Page() {
                 <div>
                   <h3 className="beer-card-title">{cat.type}</h3>
                   <p className="beer-card-desc">{cat.desc}</p>
-                  <p style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', marginBottom: '16px', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '14px', color: 'var(--web-on-ink-muted)', marginBottom: '16px', lineHeight: 1.6 }}>
                      <strong>Phù hợp nhất với:</strong> {cat.pairing}
                   </p>
                 </div>

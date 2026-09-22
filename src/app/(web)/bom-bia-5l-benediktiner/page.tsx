@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
     description: 'Thông tin bom bia 5L Benediktiner Weissbier, cách dùng, bảo quản và tư vấn sản phẩm.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -47,18 +47,18 @@ export default function Page() {
       <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Linh Hồn Bữa Tiệc</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-serif)', lineHeight: 1.2, color: '#ffffff' }}>Bom Bia 5L Benediktiner</h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả không khí lễ hội Oktoberfest của vùng Bavaria về ngay bàn tiệc nhà bạn.</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2, color: '#ffffff' }}>Bom Bia 5L Benediktiner</h1>
+          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả không khí lễ hội Oktoberfest của vùng Bavaria về ngay bàn tiệc nhà bạn.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
         <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             <Image src="/images/products/hero_bitburger_keg.png" alt="Bom Bia 5L Benediktiner" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
+             <Image src="/images/brand/benediktiner-official/festbier-keg-nobg.webp" alt="Bom Bia 5L Benediktiner" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
           <div style={{ flex: '2 1 400px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Sang Trọng, Đẳng Cấp, Tiện Lợi</h2>
+            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Sang Trọng, Đẳng Cấp, Tiện Lợi</h2>
             <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '24px' }}>
               Không gì tạo điểm nhấn cho bàn tiệc tốt hơn một bom bia Đức 5 Lít. Với thiết kế vỏ hợp kim nhôm chuyên dụng, bom bia không chỉ giữ lạnh cực tốt mà còn bảo quản chất lượng men bia tươi nguyên bản. Vòi rót tích hợp sẵn (built-in tap) mang đến trải nghiệm tự tay rót bia tươi chuẩn như tại nhà máy Đức.
             </p>
@@ -73,11 +73,11 @@ export default function Page() {
                 <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>5 Lít (~15 ly)</strong>
               </div>
             </div>
-            <Link href="/san-pham/benediktiner-naturtrub-bom-5l" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Xem Chi Tiết Sản Phẩm</Link>
+            <Link href="/san-pham/benediktiner-naturtrub-bom-5l" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Xem Chi Tiết Sản Phẩm</Link>
           </div>
         </div>
 
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-serif)' }}>Hướng dẫn sử dụng & Bảo quản</h2>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>Hướng dẫn sử dụng & Bảo quản</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {[
             { title: '1. Làm lạnh sâu', desc: 'Làm lạnh bom bia trong tủ lạnh ít nhất 10 tiếng trước khi sử dụng. Không để vào ngăn đá.' },
@@ -93,8 +93,8 @@ export default function Page() {
         </div>
 
         <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>Món Quà Tặng Độc Đáo</h2>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.8)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Món Quà Tặng Độc Đáo</h2>
+          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
             Không chỉ dùng trong các bữa tiệc gia đình, dã ngoại cuối tuần, Bom bia 5L còn là món quà tặng đối tác, sếp, hoặc bạn bè cực kỳ đẳng cấp trong các dịp Lễ, Tết.
           </p>
           <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-accent-on-ink)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp</Link>

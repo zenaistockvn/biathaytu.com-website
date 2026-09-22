@@ -68,10 +68,10 @@ export default function Page() {
       <section className="bento-section">
         <div className="container" style={{ padding: '0 20px' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-serif)' }}>
+            <h2 style={{ fontSize: '32px', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-display)' }}>
               Tại Sao Bạn Không Nên Bỏ Lỡ?
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '16px', marginTop: '8px' }}>
+            <p style={{ color: 'var(--web-on-ink-muted)', fontSize: '16px', marginTop: '8px' }}>
               Những đặc quyền trải nghiệm chỉ dành riêng cho khách hàng đăng ký trực tuyến tuần này
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function Page() {
             {/* Box 1: Hộp quà trải nghiệm (2 cột) */}
             <div className="bento-card col-2">
               <div>
-                <span className="bitburger-tag" style={{ background: 'rgba(212, 175, 55, 0.2)' }}>Đặc Quyền Khách Hàng</span>
+                <span className="bitburger-tag" style={{ background: 'rgba(214, 189, 121, 0.2)' }}>Đặc Quyền Khách Hàng</span>
                 <h3 className="bento-title">Hộp Quà Trải Nghiệm <span>Voucher 100K + Ly Bavarian</span></h3>
                 <p className="bento-desc">
                   Nhận ngay voucher giảm giá trực tiếp 100.000đ áp dụng cho các dòng bia lon hoặc chai. Đặc biệt, tặng thêm 01 ly thủy tinh Bavaria thon dài cao cấp - thiết kế chuyên dụng giúp giữ lớp bọt bia dày mịn và hương thơm lâu hơn gấp 2 lần.
@@ -90,7 +90,7 @@ export default function Page() {
             </div>
 
             {/* Box 2: Hình ảnh quà tặng ly (1 cột, 2 dòng) */}
-            <div className="bento-card col-1 row-2" style={{ background: 'linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, rgba(7, 11, 18, 0.8) 100%)' }}>
+            <div className="bento-card col-1 row-2" style={{ background: 'linear-gradient(180deg, rgba(214, 189, 121, 0.05) 0%, rgba(28, 49, 87, 0.8) 100%)' }}>
               <div>
                 <span className="bitburger-tag">Quà Tặng Kèm</span>
                 <h3 className="bento-title" style={{ fontSize: '20px' }}>Ly Thủy Tinh Cao Cấp</h3>
@@ -141,16 +141,16 @@ export default function Page() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '16px' }}>
                 <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <strong style={{ color: '#d4af37', display: 'block', marginBottom: '4px' }}>1. Weissbier Vàng Mượt</strong>
-                  <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Men sống không lọc, bọt tuyết dày mịn, nồng độ cồn 5.4% ABV.</span>
+                  <strong style={{ color: '#d6bd79', display: 'block', marginBottom: '4px' }}>1. Weissbier Vàng Mượt</strong>
+                  <span style={{ fontSize: '12px', color: 'var(--web-on-ink-muted)' }}>Men sống không lọc, bọt tuyết dày mịn, nồng độ cồn 5.4% ABV.</span>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <strong style={{ color: '#d4af37', display: 'block', marginBottom: '4px' }}>2. Dunkel Đen Caramel</strong>
-                  <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Mạch nha lúa mì rang sẫm, ngọt dịu ấm áp, nồng độ cồn 5.4% ABV.</span>
+                  <strong style={{ color: '#d6bd79', display: 'block', marginBottom: '4px' }}>2. Dunkel Đen Caramel</strong>
+                  <span style={{ fontSize: '12px', color: 'var(--web-on-ink-muted)' }}>Mạch nha lúa mì rang sẫm, ngọt dịu ấm áp, nồng độ cồn 5.4% ABV.</span>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <strong style={{ color: '#d4af37', display: 'block', marginBottom: '4px' }}>3. Bitburger Đắng Thanh</strong>
-                  <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Dòng pilsner số 1 Đức, giòn trong suốt, nồng độ cồn 4.8% ABV.</span>
+                  <strong style={{ color: '#d6bd79', display: 'block', marginBottom: '4px' }}>3. Bitburger Đắng Thanh</strong>
+                  <span style={{ fontSize: '12px', color: 'var(--web-on-ink-muted)' }}>Dòng pilsner số 1 Đức, giòn trong suốt, nồng độ cồn 4.8% ABV.</span>
                 </div>
               </div>
             </div>
@@ -164,10 +164,10 @@ export default function Page() {
           <div className="glass-form-card">
             {!isSubmitted ? (
               <>
-                <h3 style={{ fontSize: '28px', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-serif)', textAlign: 'center', marginBottom: '12px' }}>
+                <h3 style={{ fontSize: '28px', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-display)', textAlign: 'center', marginBottom: '12px' }}>
                   Đăng Ký Nhận Ưu Đãi
                 </h3>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', textAlign: 'center', marginBottom: '32px', lineHeight: 1.6 }}>
+                <p style={{ color: 'var(--web-on-ink-muted)', fontSize: '14px', textAlign: 'center', marginBottom: '32px', lineHeight: 1.6 }}>
                   Để lại thông tin dưới đây. Nhân viên chăm sóc khách hàng của Bia Thầy Tu sẽ liên hệ tư vấn gửi quà tặng và giao hàng thử vị nhanh chóng.
                 </p>
 
@@ -236,7 +236,7 @@ export default function Page() {
                 </form>
 
                 <div style={{ textAlign: 'center', marginTop: '24px' }}>
-                  <span style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.4)', display: 'block', marginBottom: '8px' }}>HOẶC LIÊN HỆ ĐẶT HÀNG TRỰC TIẾP QUA ZALO</span>
+                  <span style={{ fontSize: '13px', color: 'var(--web-on-ink-muted)', display: 'block', marginBottom: '8px' }}>HOẶC LIÊN HỆ ĐẶT HÀNG TRỰC TIẾP QUA ZALO</span>
                   <a 
                     href={linkZalo}
                     target="_blank"
@@ -251,16 +251,16 @@ export default function Page() {
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <span style={{ fontSize: '64px', display: 'block', marginBottom: '24px' }}></span>
-                <h3 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--web-accent)', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-accent)', fontFamily: 'var(--font-display)', marginBottom: '16px' }}>
                   Đăng Ký Thành Công!
                 </h3>
                 <p style={{ color: '#ffffff', fontSize: '16px', lineHeight: 1.8, marginBottom: '24px' }}>
                   Cảm ơn <strong>{formData.fullname}</strong> đã đăng ký trải nghiệm. Mã Voucher ưu đãi của bạn là:
                 </p>
-                <div style={{ background: 'rgba(212, 175, 55, 0.15)', border: '2px dashed #d4af37', padding: '16px 24px', borderRadius: '12px', display: 'inline-block', marginBottom: '32px' }}>
-                  <strong style={{ fontSize: '24px', color: '#d4af37', letterSpacing: '2px' }}>DUC2026</strong>
+                <div style={{ background: 'rgba(214, 189, 121, 0.15)', border: '2px dashed #d6bd79', padding: '16px 24px', borderRadius: '12px', display: 'inline-block', marginBottom: '32px' }}>
+                  <strong style={{ fontSize: '24px', color: '#d6bd79', letterSpacing: '2px' }}>DUC2026</strong>
                 </div>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: 1.6, marginBottom: '32px' }}>
+                <p style={{ color: 'var(--web-on-ink-muted)', fontSize: '14px', lineHeight: 1.6, marginBottom: '32px' }}>
                   Nhân viên chăm sóc khách hàng sẽ liên hệ với bạn qua số điện thoại <strong>{formData.phone}</strong> trong vòng 15 phút để xác nhận địa chỉ và gửi tặng ly thủy tinh cùng bia ướp lạnh.
                 </p>
                 <a 

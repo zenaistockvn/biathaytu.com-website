@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: #0d1911;
-  color: #f4f1e9;
+  background: var(--web-ink);
+  color: var(--web-on-ink);
 }
 
 .heroImage,
@@ -22,8 +22,9 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(7, 16, 10, 0.7) 0%, rgba(7, 16, 10, 0.06) 26%, rgba(7, 16, 10, 0.2) 100%),
-    linear-gradient(90deg, rgba(9, 24, 14, 0.94) 0%, rgba(9, 24, 14, 0.82) 34%, rgba(9, 24, 14, 0.28) 62%, rgba(9, 24, 14, 0.08) 100%);
+    linear-gradient(180deg, rgba(28, 49, 87, 0.55) 0%, rgba(28, 49, 87, 0) 22%),
+    linear-gradient(0deg, rgba(28, 49, 87, 0.72) 0%, rgba(28, 49, 87, 0) 32%),
+    linear-gradient(90deg, rgba(28, 49, 87, 0.88) 0%, rgba(28, 49, 87, 0.74) 36%, rgba(28, 49, 87, 0.16) 62%, rgba(28, 49, 87, 0) 100%);
 }
 
 .heroInner {
@@ -48,32 +49,30 @@
 }
 
 .eyebrow {
-  color: #b9d7c1;
+  color: var(--web-accent-on-ink);
 }
 
 .eyebrowDark {
-  color: #2f5d3a;
+  color: #004787;
 }
 
 .heroTitle.heroTitle {
   max-width: 610px;
   color: #f8f3e8 !important;
-  font-size: clamp(48px, 6.2vw, 86px);
+  font-size: clamp(34px, 5.6vw, 80px);
   font-weight: 700 !important;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
 }
 
 .heroTitle span {
   display: block;
   margin-top: 10px;
-  color: #f0dca2;
+  color: var(--web-accent-on-ink-soft);
 }
 
 .heroDescription {
   max-width: 590px;
   margin-top: 26px !important;
-  color: rgba(244, 241, 233, 0.86);
+  color: var(--web-on-ink);
   font-size: clamp(17px, 1.55vw, 21px);
   line-height: 1.65;
 }
@@ -87,7 +86,7 @@
 
 .heroSecondaryButton.heroSecondaryButton {
   border-color: rgba(255, 255, 255, 0.58) !important;
-  background: rgba(13, 25, 17, 0.18) !important;
+  background: rgba(21, 38, 69, 0.18) !important;
   color: #fff !important;
   backdrop-filter: blur(8px);
 }
@@ -104,7 +103,7 @@
 .heroFacts span {
   display: grid;
   gap: 3px;
-  color: rgba(244, 241, 233, 0.72);
+  color: var(--web-on-ink-muted);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -122,13 +121,13 @@
   z-index: 2;
   padding: 5px 8px;
   border-radius: 4px;
-  background: rgba(13, 25, 17, 0.5);
-  color: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(21, 38, 69, 0.5);
+  color: var(--web-on-ink-muted) !important;
   font-size: 10px;
 }
 
 .proofStrip {
-  background: #14241a;
+  background: #1c3157;
   color: #f4f1e9;
 }
 
@@ -138,7 +137,7 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: #14241a;
+  background: #1c3157;
 }
 
 .catalogHeroImage {
@@ -149,7 +148,7 @@
 .catalogHeroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10, 23, 14, 0.94) 0%, rgba(10, 23, 14, 0.72) 42%, rgba(10, 23, 14, 0.18) 78%);
+  background: linear-gradient(90deg, rgba(17, 32, 62, 0.94) 0%, rgba(17, 32, 62, 0.72) 42%, rgba(17, 32, 62, 0.18) 78%);
 }
 
 .catalogHeroCopy {
@@ -163,15 +162,13 @@
 .catalogHeroCopy h1 {
   max-width: 720px;
   color: #f4f1e9 !important;
-  font-size: clamp(44px, 5.6vw, 76px);
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-size: clamp(30px, 5.2vw, 68px);
 }
 
 .catalogHeroCopy > p:last-child {
   max-width: 650px;
   margin-top: 24px !important;
-  color: rgba(244, 241, 233, 0.8);
+  color: var(--web-on-ink-muted);
   font-size: 18px;
   line-height: 1.7;
 }
@@ -180,7 +177,7 @@
   padding: 16px 0;
   border-bottom: 1px solid #d8d2c1;
   background: #e9e5d8;
-  color: #5d6b61;
+  color: #596077;
   font-size: 13px;
   text-align: center;
 }
@@ -209,7 +206,7 @@
 }
 
 .proofGrid span {
-  color: rgba(244, 241, 233, 0.62);
+  color: var(--web-on-ink-muted);
   font-size: 13px;
 }
 
@@ -229,7 +226,7 @@
 .experienceCard h2,
 .b2bInner h2,
 .faqGrid h2 {
-  color: #14241a !important;
+  color: #1c3157 !important;
   font-size: clamp(34px, 4.2vw, 56px);
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -239,7 +236,7 @@
 .faqIntro {
   max-width: 680px;
   margin: 20px auto 0 !important;
-  color: #5d6b61;
+  color: #596077;
   font-size: 17px;
   line-height: 1.75;
 }
@@ -255,13 +252,13 @@
   border: 1px solid #d8d2c1;
   border-radius: 18px;
   background: #fff;
-  box-shadow: 0 22px 50px -38px rgba(20, 36, 26, 0.38);
+  box-shadow: 0 22px 50px -38px rgba(28, 49, 87, 0.38);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .beerCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 28px 58px -34px rgba(20, 36, 26, 0.32);
+  box-shadow: 0 28px 58px -34px rgba(28, 49, 87, 0.32);
 }
 
 .beerImageWrap {
@@ -287,16 +284,16 @@
 }
 
 .beerType {
-  color: #2f5d3a;
+  color: #004787;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .beerContent h3 {
   margin-top: 8px;
-  color: #14241a;
+  color: #1c3157;
   font-size: 27px;
   line-height: 1.15;
 }
@@ -304,7 +301,7 @@
 .beerDescription {
   min-height: 86px;
   margin-top: 14px !important;
-  color: #5d6b61;
+  color: #596077;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -326,12 +323,12 @@
 }
 
 .beerFacts dt {
-  color: #718078;
+  color: #596077;
 }
 
 .beerFacts dd {
   margin: 0;
-  color: #14241a;
+  color: #1c3157;
   font-weight: 700;
   text-align: right;
 }
@@ -341,17 +338,17 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .textLink.textLink {
-  color: #2f5d3a !important;
+  color: #004787 !important;
   font-size: 14px;
 }
 
 .lightLink.lightLink {
   margin-top: 26px;
-  color: #dcecdf !important;
+  color: #e3eaf3 !important;
   font-size: 14px;
 }
 
@@ -373,7 +370,7 @@
   min-height: 520px;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 28px 70px -44px rgba(20, 36, 26, 0.5);
+  box-shadow: 0 28px 70px -44px rgba(28, 49, 87, 0.5);
 }
 
 .storyImage {
@@ -386,21 +383,21 @@
   bottom: 12px;
   padding: 5px 8px;
   border-radius: 4px;
-  background: rgba(13, 25, 17, 0.66);
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 10px;
+  background: rgba(21, 38, 69, 0.88);
+  color: var(--web-on-ink-muted);
+  font-size: 11px;
 }
 
 .storyCopy .lead {
   margin-top: 24px !important;
-  color: #2a3e31;
+  color: #2a4470;
   font-size: 18px;
   line-height: 1.72;
 }
 
-.storyCopy > p:not(.eyebrowDark):not(.lead) {
+.storyCopy > p:not(.eyebrow):not(.eyebrowDark):not(.lead):not(.lightBody) {
   margin-top: 16px !important;
-  color: #5d6b61;
+  color: #596077;
   line-height: 1.75;
 }
 
@@ -415,16 +412,16 @@
   display: grid;
   gap: 5px;
   padding-top: 14px;
-  border-top: 2px solid #8b6914;
+  border-top: 2px solid #7a6230;
 }
 
 .timeline strong {
-  color: #14241a;
+  color: #1c3157;
   font-size: 18px;
 }
 
 .timeline span {
-  color: #68756d;
+  color: #596077;
   font-size: 11px;
   line-height: 1.45;
 }
@@ -447,21 +444,21 @@
 }
 
 .principleGrid article > span {
-  color: #8b6914;
+  color: #7a6230;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
 }
 
 .principleGrid h3 {
   margin-top: 54px;
-  color: #14241a;
+  color: #1c3157;
   font-size: 28px;
 }
 
 .principleGrid p {
   margin-top: 14px !important;
-  color: #5d6b61;
+  color: #596077;
   font-size: 14px;
   line-height: 1.7;
 }
@@ -472,14 +469,14 @@
 
 .lightBody {
   margin-top: 24px !important;
-  color: #b9c4bc !important;
+  color: #c9d3e3 !important;
   font-size: 16px;
   line-height: 1.75 !important;
 }
 
 .tastingSection {
   padding: clamp(72px, 9vw, 116px) 0;
-  background: #14241a;
+  background: #1c3157;
   color: #f4f1e9;
 }
 
@@ -498,7 +495,7 @@
 .tastingIntro > p:last-of-type,
 .b2bInner > div:first-child > p:last-child {
   margin-top: 22px !important;
-  color: #b9c4bc;
+  color: #c9d3e3;
   font-size: 16px;
   line-height: 1.75;
 }
@@ -519,10 +516,10 @@
 }
 
 .tastingSteps > li > span {
-  color: #e0c36e;
+  color: var(--web-accent-on-ink);
   font-family: var(--font-sans), sans-serif;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -534,7 +531,7 @@
 
 .tastingSteps p {
   margin-top: 7px !important;
-  color: #b9c4bc;
+  color: #c9d3e3;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -548,7 +545,7 @@
 }
 
 .experienceCard > p:not(.eyebrowDark) {
-  color: #5d6b61;
+  color: #596077;
   font-size: 16px;
   line-height: 1.75;
 }
@@ -565,12 +562,12 @@
 }
 
 .experienceCard address span {
-  color: #718078;
+  color: #596077;
   font-size: 12px;
 }
 
 .experienceCard address strong {
-  color: #14241a;
+  color: #1c3157;
   font-size: 14px;
 }
 
@@ -593,22 +590,22 @@
   padding: 0 20px;
   border-radius: 10px;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .primaryLink.primaryLink {
-  background: #2f5d3a;
+  background: #004787;
   color: #fff !important;
 }
 
 .secondaryLink.secondaryLink {
-  border: 1px solid #aeb8b0;
-  color: #14241a !important;
+  border: 1px solid #c9d3e3;
+  color: #1c3157 !important;
 }
 
 .b2bSection {
   padding: clamp(60px, 7vw, 88px) 0;
-  background: #1d3325;
+  background: #24406e;
   color: #f4f1e9;
 }
 
@@ -635,7 +632,7 @@
 
 .primaryLightLink.primaryLightLink {
   background: #f4f1e9;
-  color: #14241a !important;
+  color: #1c3157 !important;
 }
 
 .outlineLightLink.outlineLightLink {
@@ -670,9 +667,9 @@
   justify-content: space-between;
   gap: 20px;
   cursor: pointer;
-  color: #14241a;
+  color: #1c3157;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
   list-style: none;
 }
 
@@ -692,7 +689,7 @@
 
 .faqList details p {
   padding: 0 40px 22px 0;
-  color: #5d6b61;
+  color: #596077;
   font-size: 14px;
   line-height: 1.7;
 }
@@ -718,16 +715,16 @@
 }
 
 .contactBarInner strong {
-  color: #14241a;
+  color: #1c3157;
 }
 
 .contactBarInner span {
-  color: #68756d;
+  color: #596077;
 }
 
 .contactBarInner a {
-  color: #2f5d3a !important;
-  font-weight: 800;
+  color: #004787 !important;
+  font-weight: 700;
 }
 
 @media (max-width: 960px) {
@@ -812,7 +809,7 @@
 
   .heroOverlay {
     background:
-      linear-gradient(180deg, rgba(7, 16, 10, 0.58) 0%, rgba(7, 16, 10, 0.08) 24%, rgba(7, 16, 10, 0.9) 64%, rgba(7, 16, 10, 0.98) 100%);
+      linear-gradient(180deg, rgba(28, 49, 87, 0.76) 0%, rgba(28, 49, 87, 0.64) 40%, rgba(28, 49, 87, 0.9) 64%, rgba(28, 49, 87, 0.97) 100%);
   }
 
   .heroInner {
@@ -824,8 +821,8 @@
     width: 100%;
   }
 
-  .heroTitle {
-    font-size: clamp(42px, 13vw, 62px);
+  .heroTitle.heroTitle {
+    font-size: clamp(30px, 8.8vw, 44px);
   }
 
   .heroDescription {
@@ -865,7 +862,7 @@
   }
 
   .catalogHeroOverlay {
-    background: linear-gradient(180deg, rgba(10, 23, 14, 0.18) 0%, rgba(10, 23, 14, 0.86) 64%, rgba(10, 23, 14, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(17, 32, 62, 0.58) 0%, rgba(17, 32, 62, 0.8) 40%, rgba(17, 32, 62, 0.92) 64%, rgba(17, 32, 62, 0.98) 100%);
   }
 
   .catalogHeroCopy {

@@ -36,13 +36,13 @@ export default function Toast() {
           style={{
             background: 'none',
             border: 'none',
-            color: 'rgba(255,255,255,0.7)',
+            color: 'var(--web-on-ink-muted)',
             cursor: 'pointer',
             padding: '4px',
             marginLeft: 'auto',
           }}
         >
-          ✕
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
       </div>
     </div>
