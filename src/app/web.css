@@ -45,11 +45,21 @@
   --web-wine-bg: #E4DFCF;
   --web-star: #7A6230;
 
+  /* Kênh RGB cho màu trong suốt: rgb(var(--web-ink-rgb) / 0.6). Luôn khớp với token hex cùng tên. */
+  --web-ink-rgb: 28 49 87;               /* #1C3157 */
+  --web-ink-deep-rgb: 21 38 69;          /* #152645 */
+  --web-accent-rgb: 0 71 135;            /* #004787 */
+  --web-accent-on-ink-rgb: 214 189 121;  /* #D6BD79 */
+  --web-on-ink-rgb: 255 255 255;         /* #FFFFFF */
+  --web-bg-rgb: 244 241 233;             /* #F4F1E9 */
+  --web-border-rgb: 207 201 182;         /* #CFC9B6 */
+  --web-red-rgb: 200 32 42;              /* #C8202A */
+
   /* Shadows */
-  --web-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-  --web-shadow-md: 0 10px 40px -20px rgba(0, 0, 0, 0.05);
-  --web-shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
-  --web-shadow-xl: 0 25px 50px -12px rgba(28, 49, 87, 0.25);
+  --web-shadow: 0 2px 20px rgb(var(--web-ink-rgb) / 0.06);
+  --web-shadow-md: 0 10px 40px -20px rgb(var(--web-ink-rgb) / 0.08);
+  --web-shadow-lg: 0 8px 40px rgb(var(--web-ink-rgb) / 0.1);
+  --web-shadow-xl: 0 25px 50px -12px rgb(var(--web-ink-rgb) / 0.25);
 
   /* Border Radius */
   --web-radius: 12px;
