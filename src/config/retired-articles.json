@@ -1,5 +1,21 @@
 {
   "phan-biet-bia-thay-tu-trappist-va-bia-tu-vien": "/bia-thay-tu-la-gi",
   "dai-ly-phan-phoi-si-le-xuc-xich-duc-the-wurst-tay-ho": "/bang-gia-si-dai-ly",
-  "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc": "/san-pham"
+  "mua-xuc-xich-duc-chinh-hang-o-dau-ha-noi-ship-hoa-toc": "/san-pham",
+  "kham-pha-bia-thay-tu-benediktiner-weissbier-men-song-ettal": "/kien-thuc/benediktiner-weissbier-400-nam-bia-tu-vien",
+  "giai-ma-vi-dang-thanh-bitburger-premium-pilsner-duc": "/bitburger-premium-pils",
+  "bitburger-premium-pils-bia-draft-so-1-nuoc-duc": "/bitburger-premium-pils",
+  "so-sanh-bia-lua-mi-benediktiner-va-pilsner-bitburger": "/kien-thuc/so-sanh-weissbier-vs-pilsner",
+  "dao-luat-tinh-khiet-1516-tuyen-ngon-dang-cap-bia-duc": "/kien-thuc/dao-luat-tinh-khiet-1516-reinheitsgebot",
+  "luat-tinh-khiet-1516-reinheitsgebot": "/kien-thuc/dao-luat-tinh-khiet-1516-reinheitsgebot",
+  "nhiet-do-thuong-thuc-bia-duc-ly-tuong-nhat": "/kien-thuc/nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu",
+  "tang-qua-doi-tac-bia-duc-nhap-khau-cao-cap": "/qua-tang-bia-duc",
+  "bi-quyet-rot-bia-lua-mi-chuan-chuyen-gia": "/kien-thuc/nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
+  "nghe-thuat-rot-bia-lua-mi-benediktiner": "/kien-thuc/nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan",
+  "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam": "/kien-thuc/nguon-goc-bia-thay-tu-tu-vien-ettal",
+  "bia-thay-tu-la-gi-giai-dap-thac-mac": "/bia-thay-tu-la-gi",
+  "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub": "/kien-thuc/phan-biet-weissbier-dunkel-festbier",
+  "nghe-thuat-food-pairing-cung-bia-duc": "/kien-thuc/food-pairing-bia-thay-tu-va-am-thuc",
+  "ket-hop-bia-duc-va-am-thuc-duong-dai": "/kien-thuc/food-pairing-bia-thay-tu-va-am-thuc",
+  "nghe-thuat-chon-bia-nguoi-truong-thanh": "/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi"
 }

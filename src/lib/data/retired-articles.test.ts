@@ -22,8 +22,15 @@ function getRetiredArticlesConfig(): Record<string, string> {
 }
 
 describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
-  it('các bài đã gỡ/gộp không còn xuất hiện trên mọi bề mặt public và có redirect 301', async () => {
+  it('cấu hình có đủ 19 bài đã gỡ/gộp', () => {
     const retiredArticles = getRetiredArticlesConfig();
+    expect(Object.keys(retiredArticles).length).toBe(19);
+  });
+
+  it('các bài đã gỡ/gộp không còn xuất hiện trên mọi bề mặt public và có redirect 301 hợp lệ', async () => {
+    const retiredArticles = getRetiredArticlesConfig();
+    const publishedArticles = getPublishedArticles();
+    const publishedSlugs = new Set(publishedArticles.map((a) => a.slug));
 
     const sitemapEntries = await sitemap();
     const sitemapUrls = sitemapEntries.map((e) => e.url);
@@ -53,11 +60,20 @@ describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
           r.statusCode === 301,
       );
       expect(redirect, `Thiếu redirect 301 từ /kien-thuc/${slug} tới ${destination}`).toBeDefined();
+
+      // 5. Nếu đích là /kien-thuc/<slug>, đích phải là bài vẫn public (không trỏ vào bài đã gỡ, không tạo redirect chain)
+      const targetKienThucMatch = /^\/kien-thuc\/([^/]+)$/.exec(destination);
+      if (targetKienThucMatch) {
+        const targetSlug = targetKienThucMatch[1];
+        expect(
+          publishedSlugs.has(targetSlug),
+          `Đích redirect /kien-thuc/${targetSlug} của bài ${slug} không nằm trong danh sách bài viết public`,
+        ).toBe(true);
+      }
     }
   });
 
-  it('số lượng bài viết public giảm đúng bằng số bài đã gỡ/gộp', () => {
-    const retiredCount = Object.keys(getRetiredArticlesConfig()).length;
-    expect(getPublishedArticles().length).toBe(42 - retiredCount);
+  it('số lượng bài viết public sau khi gộp đúng bằng 23', () => {
+    expect(getPublishedArticles().length).toBe(23);
   });
 });
