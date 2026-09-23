@@ -2,9 +2,9 @@
 
 > Copy toàn bộ khối dưới đường kẻ, dán vào Antigravity ở thư mục gốc repo `biathaytu-web` (nhánh `main` mới nhất).
 >
-> **Trước khi dán, chủ dự án tick ô dưới đây nếu đồng ý gộp 16 bài (Phase E):**
+> **Chủ dự án đã duyệt Phase E (23/09/2026):**
 >
-> - [ ] Tôi duyệt Phase E — gộp 16 bài trùng chủ đề theo bảng E.1
+> - [x] Tôi duyệt Phase E — gộp 16 bài trùng chủ đề theo bảng E.1
 
 ---
 
@@ -12,7 +12,7 @@ Bạn đang làm việc trong repo `biathaytu-web`, website giới thiệu bia �
 
 ## Nhiệm vụ
 
-Sửa các lỗi của **42 bài viết đang public** tại `/kien-thuc/[slug]` mà đợt audit ngày 23/09/2026 tìm ra. Làm lần lượt **Phase A → G** bên dưới. Phase E chỉ làm khi ô duyệt ở đầu file này **đã được tick**; nếu chưa tick, bỏ qua Phase E và ghi vào báo cáo.
+Sửa các lỗi của **42 bài viết đang public** tại `/kien-thuc/[slug]` mà đợt audit ngày 23/09/2026 tìm ra. Làm lần lượt **Phase A → G** bên dưới, **gồm cả Phase E** (chủ dự án đã duyệt).
 
 ## Kiến trúc dữ liệu — đọc kỹ, đây là chỗ dễ sai nhất
 
@@ -146,7 +146,7 @@ Test: với 1 bài bất kỳ, `word_count` bằng số từ đếm lại từ `
 
 ---
 
-## Phase E — Gộp 16 bài trùng chủ đề *(CHỈ làm nếu ô duyệt ở đầu file đã tick)*
+## Phase E — Gộp 16 bài trùng chủ đề *(đã được chủ dự án duyệt — làm)*
 
 **Bằng chứng:** 25 bài nằm trong 11 cụm cùng ý định tìm kiếm, tự cạnh tranh từ khóa với nhau và với các landing page. Phần lớn bài bị gộp chỉ có 370–540 từ.
 
@@ -212,9 +212,9 @@ Tạo `scripts/fix_article_content_2026_09.js` (CommonJS, đọc `DATABASE_URL` 
 ## Định nghĩa “xong”
 
 - [ ] `npm test` xanh, gồm 4 file test mới: `article-links`, `retired-articles`, `article-content`, và test Phase D/F
-- [ ] `npx next build` xanh; số trang = baseline − 3 (hoặc − 19 nếu làm Phase E)
+- [ ] `npx next build` xanh; số trang = baseline − 19
 - [ ] `npx eslint .` 0 error; `npx tsc --noEmit` không in dòng nào
-- [ ] `getPublishedArticles().length` = 39 (hoặc 23 nếu làm Phase E)
+- [ ] `getPublishedArticles().length` = 23
 - [ ] 0 link nội bộ hỏng trong bài public
 - [ ] 0 bài chứa “ship hoả tốc”, `\n` literal, vitamin/khoáng chất/bổ dưỡng/giải nhiệt, giá “…đ”, “Inbox”, “COD”, “đặt mua”
 - [ ] Không bài nào mất quá 25% độ dài text (ngoài đoạn footer)
