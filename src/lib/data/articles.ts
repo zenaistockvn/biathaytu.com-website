@@ -352,6 +352,16 @@ function sanitizeArticleContent(content: string | null, slug?: string | null): s
   return sanitized;
 }
 
+function countWords(content: string | null): number {
+  if (!content) return 0;
+  const plainText = content
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#*_>|]/g, ' ')
+    .trim();
+  if (!plainText) return 0;
+  return plainText.split(/\s+/).filter(Boolean).length;
+}
+
 const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
   .filter(
     (article) =>
@@ -361,12 +371,16 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
       !RETIRED_ARTICLE_SLUGS.has(article.slug ?? '') &&
       isBenediktinerArticle(article),
   )
-  .map((article) => ({
-    ...article,
-    title: toBrochureMetadataCopy(article.title) || article.title,
-    content: sanitizeArticleContent(article.content, article.slug),
-    meta_description: toBrochureMetadataCopy(article.meta_description) || article.meta_description,
-  }))
+  .map((article) => {
+    const sanitizedContent = sanitizeArticleContent(article.content, article.slug);
+    return {
+      ...article,
+      title: toBrochureMetadataCopy(article.title) || article.title,
+      content: sanitizedContent,
+      word_count: countWords(sanitizedContent),
+      meta_description: toBrochureMetadataCopy(article.meta_description) || article.meta_description,
+    };
+  })
   .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
 export function getPublishedArticles(): Article[] {

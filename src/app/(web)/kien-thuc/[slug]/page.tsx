@@ -61,8 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          ...(article.thumbnail_url ? { width: 1200, height: 630 } : {}),
           alt: article.title,
         },
       ],
@@ -164,10 +163,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         {/* CTA Footer */}
         <div style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid var(--web-border)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-display)' }}>
-            Sẵn sàng để thưởng thức?
+            Tìm hiểu thêm về các dòng bia
           </h3>
           <p style={{ color: 'var(--web-text-muted)', marginBottom: '40px', fontSize: '16px' }}>
-            Trải nghiệm hương vị hoàng gia Đức ngay hôm nay với các dòng bia nhập khẩu chính hãng.
+            Thông tin chi tiết về các dòng bia Đức nhập khẩu chính hãng do Bia Thầy Tu phân phối.
           </p>
           
           {suggestedProducts && suggestedProducts.length > 0 && (
@@ -188,7 +187,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
               `}} />
               <div className="suggestions-row" style={{ display: 'flex', gap: '20px', width: '100%' }}>
                 {(suggestedProducts as unknown as ProductCardProps[]).map((product) => (
-                  <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
+                   <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
                     <ProductCard
                       {...product}
                       description={product.description || `"${getTastingNotes(product.name)}"`}
@@ -205,7 +204,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             fontWeight: 700, borderRadius: 'var(--web-radius)', textDecoration: 'none', transition: 'all 0.3s ease',
             border: '2px solid var(--web-accent)'
           }}>
-            Xem Toàn Bộ Cửa Hàng
+            Xem các dòng bia
           </Link>
         </div>
       </article>
