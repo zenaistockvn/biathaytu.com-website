@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getPublishedArticles, getArticleBySlugOrId } from '@/lib/data/articles';
 import { generateMetadata } from '@/app/(web)/kien-thuc/[slug]/page';
@@ -64,5 +64,18 @@ describe('Phase D — Template trang bài viết và word count', () => {
       expect(ogImages?.[0]?.width).toBe(1200);
       expect(ogImages?.[0]?.height).toBe(630);
     }
+  });
+
+  it('Phase F — không để lộ tài liệu marketing/nội bộ trong public/', () => {
+    const root = process.cwd();
+    const playbookInPublic = existsSync(join(root, 'public', 'fb_growth_playbook.md'));
+    const docxInPublic = existsSync(join(root, 'public', 'Ke_hoach_content_30_ngay_storyselling_bia_duc_premium (1).docx'));
+    const playbookInDocs = existsSync(join(root, 'docs', 'references', 'fb_growth_playbook.md'));
+    const docxInDocs = existsSync(join(root, 'docs', 'references', 'Ke_hoach_content_30_ngay_storyselling_bia_duc_premium (1).docx'));
+
+    expect(playbookInPublic, 'fb_growth_playbook.md vẫn còn trong public/').toBe(false);
+    expect(docxInPublic, 'file docx kế hoạch content vẫn còn trong public/').toBe(false);
+    expect(playbookInDocs, 'fb_growth_playbook.md phải được chuyển tới docs/references/').toBe(true);
+    expect(docxInDocs, 'file docx kế hoạch content phải được chuyển tới docs/references/').toBe(true);
   });
 });
