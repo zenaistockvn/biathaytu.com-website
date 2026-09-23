@@ -8,28 +8,6 @@ const MAX_IMAGE_BYTES = 1024 * 1024;
 // Nợ kỹ thuật hiện tại cần được rút dần, không phải danh sách miễn trừ vĩnh viễn.
 // Khi một file được tối ưu xuống dưới 1 MB, hãy xóa chính đường dẫn đó khỏi mảng.
 const KNOWN_OVERSIZED = [
-  "ai_generated/batch10_img1_0d0c.png",
-  "ai_generated/batch2_img3_48c7.png",
-  "ai_generated/batch2_img6_001d.png",
-  "ai_generated/batch2_img7_7139.png",
-  "ai_generated/batch2_img8_1b5f.png",
-  "ai_generated/batch3_img6_1dab.png",
-  "ai_generated/batch4_img1_1a33.png",
-  "ai_generated/batch4_img2_1f30.png",
-  "ai_generated/batch4_img9_3863.png",
-  "ai_generated/batch5_img3_c0aa.png",
-  "ai_generated/batch5_img5_efe0.png",
-  "ai_generated/batch5_img6_3f4a.png",
-  "ai_generated/batch6_img1_aeed.png",
-  "ai_generated/batch6_img4_0761.png",
-  "ai_generated/batch6_img6_fe05.png",
-  "ai_generated/batch6_img8_79ac.png",
-  "ai_generated/batch7_img4_53ed.png",
-  "ai_generated/batch8_img10_5cf7.png",
-  "ai_generated/batch9_img6_4750.png",
-  "ai_generated/batch9_img9_5d13.png",
-  "ai_generated/bitburger_dose_hanoi_bb6d.png",
-  "ai_generated/bitburger_uv_deb9.png",
   "avatars/do_quang_huy.png",
   "avatars/le_hoang_long.png",
   "avatars/nguyen_minh_tam.png",
@@ -155,14 +133,6 @@ const KNOWN_OVERSIZED = [
   "products/story_ingredients_v2.png",
   "products/story_monastery.png",
   "products/story_monastery_v2.png",
-  "products/the-wurst/cold_cut_150g/the-wurst-cold-cut-01.png",
-  "products/the-wurst/cold_cut_150g/the-wurst-cold-cut-02.png",
-  "products/the-wurst/cold_cut_150g/the-wurst-cold-cut-03.png",
-  "products/the-wurst/cold_cut_150g/the-wurst-cold-cut-04.png",
-  "products/the-wurst/cold_cut_150g/the-wurst-cold-cut-05.png",
-  "products/the-wurst/combo-cold-cut.png",
-  "products/the-wurst/thuringer-bratwurst.png",
-  "products/the-wurst/wiener-hun-khoi.png",
   "products/ugc_unboxing.png",
   "sanh_bia_duc_cover.png",
 ] as const;
@@ -189,7 +159,7 @@ describe('public image size budget', () => {
     const known = new Set<string>(KNOWN_OVERSIZED);
     const unexpected = oversizedPngs.filter((path) => !known.has(path));
 
-    expect(KNOWN_OVERSIZED).toHaveLength(157);
+    expect(KNOWN_OVERSIZED).toHaveLength(127);
     expect(unexpected).toEqual([]);
   });
 

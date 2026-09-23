@@ -264,15 +264,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       className="pairing-sausage-item"
                       style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
                     >
-                      <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
-                        <Image
-                          src={sausage.images?.[0] || '/images/products/placeholder.png'}
-                          alt={sausage.name}
-                          fill
-                          sizes="70px"
-                          style={{ objectFit: 'contain' }}
-                        />
-                      </div>
+                      {sausage.images?.[0] ? (
+                        <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
+                          <Image
+                            src={sausage.images[0]}
+                            alt={sausage.name}
+                            fill
+                            sizes="70px"
+                            style={{ objectFit: 'contain' }}
+                          />
+                        </div>
+                      ) : null}
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
                         <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
@@ -291,15 +293,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       Combo Đề Xuất
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                      <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Image
-                          src={relatedCombo.images?.[0] || '/images/products/placeholder.png'}
-                          alt={relatedCombo.name}
-                          fill
-                          sizes="100px"
-                          style={{ objectFit: 'contain' }}
-                        />
-                      </div>
+                      {relatedCombo.images?.[0] ? (
+                        <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <Image
+                            src={relatedCombo.images[0]}
+                            alt={relatedCombo.name}
+                            fill
+                            sizes="100px"
+                            style={{ objectFit: 'contain' }}
+                          />
+                        </div>
+                      ) : null}
                       <div style={{ flex: '1 1 180px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
                         <p style={{ margin: 0, fontSize: '13px', color: '#c9d3e3', lineHeight: 1.5 }}>{relatedCombo.description}</p>

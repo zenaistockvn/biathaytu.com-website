@@ -13,6 +13,19 @@ const IMAGE_REPLACEMENTS = {
   '/images/articles/mua-bia-thay-tu-chimay.png': '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
 };
 
+// Ảnh quảng cáo của nhà cung cấp (banner nhiều chữ), không hợp thương hiệu: gỡ khỏi nội dung.
+const REMOVED_IMAGE_PREFIXES = ['/images/products/the-wurst/'];
+const isRemovedImage = (url) => typeof url === 'string' && REMOVED_IMAGE_PREFIXES.some((p) => url.startsWith(p));
+
+function removeImages(s) {
+  const src = '(?:' + REMOVED_IMAGE_PREFIXES.map((p) => p.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')).join('|') + ')[^"\')\\s]*';
+  return s
+    // Khối bọc chỉ chứa ảnh bị gỡ
+    .replace(new RegExp('<(div|figure|p)\\b[^>]*>\\s*<img\\b[^>]*src=["\']' + src + '["\'][^>]*>\\s*(?:<figcaption>[\\s\\S]*?<\\/figcaption>\\s*)?<\\/\\1>\\s*', 'g'), '')
+    .replace(new RegExp('<img\\b[^>]*src=["\']' + src + '["\'][^>]*>', 'g'), '')
+    .replace(new RegExp('!\\[[^\\]]*\\]\\(' + src + '\\)', 'g'), '');
+}
+
 const EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2190}-\u{21FF}\u{FE0F}\u{200D}\u{20E3}]/u;
 const EMOJI_G = new RegExp(EMOJI.source + '[\\s\\u00A0]?', 'gu');
 const STAR = '⭐️?';
@@ -75,10 +88,11 @@ function cleanRichText(input) {
   s = cleanText(s, 'prose');
   s = s.replace(/\u0000H(\d+)\u0000/g, (m, i) => headings[Number(i)]);
   for (const [from, to] of Object.entries(IMAGE_REPLACEMENTS)) s = s.split(from).join(to);
-  return s;
+  return removeImages(s);
 }
 
 function cleanImage(url) {
+  if (isRemovedImage(url)) return null;
   return typeof url === 'string' && IMAGE_REPLACEMENTS[url] ? IMAGE_REPLACEMENTS[url] : url;
 }
 
@@ -104,4 +118,4 @@ function cleanProduct(product) {
   return out;
 }
 
-module.exports = { cleanText, cleanRichText, cleanArticle, cleanProduct, cleanImage, EMOJI, IMAGE_REPLACEMENTS };
+module.exports = { cleanText, cleanRichText, cleanArticle, cleanProduct, cleanImage, EMOJI, IMAGE_REPLACEMENTS, REMOVED_IMAGE_PREFIXES };

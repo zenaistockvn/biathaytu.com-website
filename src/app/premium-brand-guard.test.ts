@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { getPublishedArticles, INTERNAL_ONLY_ARTICLE_SLUGS } from '@/lib/data/articles';
 
 const require = createRequire(import.meta.url);
 const { cleanText, cleanRichText, EMOJI } = require('../../scripts/lib/editorial-clean.cjs');
@@ -39,7 +40,6 @@ describe('ảnh: chỉ dùng ảnh chính hãng, không dùng ảnh AI', () => {
   const ALLOWED = [
     /^\/images\/products\/official\//,
     /^\/images\/brand\/(benediktiner|bitburger)-official\//,
-    /^\/images\/products\/the-wurst\//, // ảnh sản phẩm xúc xích của nhà cung cấp, không phải bia
     /^\/images\/products\/placeholder\.png$/,
   ];
 
@@ -143,5 +143,12 @@ describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
   it('không còn font cũ và không dùng độ đậm 800/900', () => {
     expect(css).not.toMatch(/Playfair|--font-serif/);
     expect(css).not.toMatch(/font-weight:\s*(800|900)/);
+  });
+});
+
+describe('nội dung nội bộ không hiển thị công khai', () => {
+  it('bài marketing nội bộ không có trên website, sitemap hay llms.txt', () => {
+    const slugs = new Set(getPublishedArticles().map((a) => a.slug));
+    for (const slug of INTERNAL_ONLY_ARTICLE_SLUGS) expect(slugs.has(slug), slug).toBe(false);
   });
 });

@@ -24,6 +24,12 @@ const OUT_OF_SCOPE_BEER_MENTION_PATTERN =
   /(?:chimay|la\s*trappe|rochefort)/i;
 const ARTICLE_BLOCK_PATTERN = /<(p|li|h2|h3|h4|figure)\b[^>]*>[\s\S]*?<\/\1>/gi;
 
+/**
+ * Tài liệu nội bộ (marketing) nằm trong bảng seo_articles với status 'published'.
+ * Giữ trong database cho nội bộ đọc, không hiển thị trên website, sitemap hay llms.txt.
+ */
+export const INTERNAL_ONLY_ARTICLE_SLUGS = new Set(['giai-ma-thuat-toan-facebook-2025-2026']);
+
 function isBenediktinerArticle(article: Article): boolean {
   return !OUT_OF_SCOPE_ARTICLE_PATTERN.test(`${article.title} ${article.slug ?? ''}`);
 }
@@ -52,6 +58,7 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
     (article) =>
       article.tenant_id === DEFAULT_TENANT_ID &&
       article.status === 'published' &&
+      !INTERNAL_ONLY_ARTICLE_SLUGS.has(article.slug ?? '') &&
       isBenediktinerArticle(article),
   )
   .map((article) => ({

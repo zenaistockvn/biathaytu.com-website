@@ -58,11 +58,8 @@ describe('data/products', () => {
       '500g/gói',
       '150g/combo',
     ]);
-    expect(
-      sausages.every((product) =>
-        product.images?.[0]?.startsWith('/images/products/the-wurst/'),
-      ),
-    ).toBe(true);
+    // Ảnh banner quảng cáo của nhà cung cấp đã bị gỡ; chờ ảnh sản phẩm thật.
+    expect(sausages.every((product) => (product.images ?? []).length === 0)).toBe(true);
   });
 
   it('getRelatedBeers excludes the current product and caps the limit', () => {
