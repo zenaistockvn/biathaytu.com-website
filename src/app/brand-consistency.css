@@ -7,7 +7,7 @@
 }
 
 .web-app .web-header--solid {
-  border-bottom-color: rgb(var(--web-border-rgb) / 0.72);
+  border-bottom-color: var(--web-border);
 }
 
 .web-app .web-mobile-menu-overlay {

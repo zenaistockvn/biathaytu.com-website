@@ -8,7 +8,34 @@ import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { getCompanyZaloUrl } from '@/config/company';
 
-const DARK_HERO_PATHS = new Set(['/', '/kien-thuc']);
+const DARK_HERO_PATHS = new Set([
+  '/',
+  '/benediktiner-weissbier-naturtrub',
+  '/bitburger-premium-pils',
+  '/bia-duc-nhap-khau',
+  '/nhan-uu-dai',
+  '/benediktiner-dunkel',
+  '/bang-gia-si-dai-ly',
+  '/qua-tang-bia-duc',
+  '/thuong-hieu',
+  '/san-pham',
+  '/food-pairing-bia-duc',
+  '/ve-chung-toi',
+  '/chung-nhan-nhap-khau-chinh-hang',
+  '/bom-bia-5l-benediktiner',
+  '/bia-benediktiner-chinh-hang',
+  '/bia-thay-tu-la-gi',
+  '/huong-dan-rot-bia-lua-mi',
+  '/bia-duc-cho-nha-hang-khach-san',
+]);
+
+function isDarkHeroPath(pathname: string): boolean {
+  return (
+    DARK_HERO_PATHS.has(pathname) ||
+    pathname === '/kien-thuc' ||
+    pathname.startsWith('/kien-thuc/')
+  );
+}
 
 export default function WebHeader() {
   const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
@@ -42,7 +69,7 @@ export default function WebHeader() {
     { href: '/kien-thuc', label: 'Kiến thức bia Đức' },
   ];
 
-  const hasDarkHero = DARK_HERO_PATHS.has(pathname);
+  const hasDarkHero = isDarkHeroPath(pathname);
   const headerOnDark = hasDarkHero && !scrolled && !menuOpen;
   const consultUrl = getCompanyZaloUrl();
   const isCurrentPath = (href: string) => {

@@ -43,7 +43,7 @@ const AGE_GATE_PREPAINT_SCRIPT = `
       document.documentElement.setAttribute('data-age-gate', 'pending');
       var style = document.createElement('style');
       style.id = 'age-gate-prepaint-style';
-      style.textContent = 'html[data-age-gate="pending"] body{background:#152645!important}html[data-age-gate="pending"] .web-app{visibility:hidden!important}';
+      style.textContent = 'html[data-age-gate="pending"] body{background:var(--web-ink-deep)!important}html[data-age-gate="pending"] .web-app{visibility:hidden!important}';
       (document.head || document.documentElement).appendChild(style);
     }
   } catch (error) {

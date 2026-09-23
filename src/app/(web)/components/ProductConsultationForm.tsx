@@ -145,8 +145,8 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               style={{
                 padding: '12px 14px',
                 borderRadius: '8px',
-                background: status === 'success' ? '#e8f5eb' : '#fff1f0',
-                color: status === 'success' ? '#1d5c2e' : '#8b1e1e',
+                background: status === 'success' ? 'var(--web-accent-bg)' : 'rgb(var(--web-red-rgb) / 0.1)',
+                color: status === 'success' ? 'var(--web-accent)' : 'var(--web-red)',
                 lineHeight: 1.5,
               }}
             >
