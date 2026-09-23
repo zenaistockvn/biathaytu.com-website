@@ -43,3 +43,6 @@ skills-lock.json
 
 # test profiles
 .edge-test-profile/
+
+# Báo cáo và ảnh chụp của scripts/audit
+.audit/

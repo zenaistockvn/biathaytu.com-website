@@ -97,27 +97,25 @@ export default function GeoLocalCTA() {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
         }
+        /* Khối nằm trên dải tối: nút chính nền vàng nhãn, chữ navy (7.0:1). */
         .geo-cta-btn-primary {
-          background: linear-gradient(90deg, var(--web-accent), var(--web-accent-soft));
+          background: var(--web-accent-on-ink);
           color: var(--web-ink) !important;
           border: none;
-          box-shadow: 0 4px 15px rgba(214, 189, 121, 0.15);
         }
         .geo-cta-btn-primary:hover {
-          background: linear-gradient(90deg, var(--web-accent-hover), var(--web-accent));
+          background: var(--web-accent-on-ink-soft);
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(214, 189, 121, 0.3);
         }
         .geo-cta-btn-outline {
           background: transparent;
-          color: #ffffff !important;
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: var(--web-on-ink) !important;
+          border: 1px solid var(--web-on-ink-muted);
         }
         .geo-cta-btn-outline:hover {
-          border-color: var(--web-accent);
-          color: var(--web-accent-soft) !important;
+          border-color: var(--web-accent-on-ink);
+          color: var(--web-accent-on-ink) !important;
           transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
         }
         .geo-cta-map-container {
           width: 100%;
