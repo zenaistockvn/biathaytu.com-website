@@ -34,7 +34,7 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Chất Lượng Đức</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Bia Benediktiner Chính Hãng</h1>
@@ -71,7 +71,7 @@ export default function Page() {
             { title: 'Date mới nhất', desc: 'Nhập khẩu liên tục hàng tháng, đảm bảo hạn sử dụng dài và chất lượng bia luôn ở mức tươi ngon nhất.' },
             { title: 'Hỗ trợ B2B', desc: 'Cung cấp hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp, nhà hàng, khách sạn.' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+            <div key={i} style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
               <p style={{ fontSize: '14px', color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{item.desc}</p>
             </div>
@@ -80,7 +80,7 @@ export default function Page() {
 
         <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner</Link></p>
 
-        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: 'var(--web-on-ink)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Yên tâm thưởng thức</h3>
           <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>

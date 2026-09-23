@@ -89,7 +89,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('name')}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
               />
             </label>
 
@@ -105,7 +105,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('phone')}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
               />
             </label>
           </div>
@@ -120,7 +120,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('email')}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
             />
           </label>
 
@@ -134,7 +134,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('content')}
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff', resize: 'vertical' }}
+              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)', resize: 'vertical' }}
             />
           </label>
 

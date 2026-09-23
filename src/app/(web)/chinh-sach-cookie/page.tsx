@@ -21,14 +21,14 @@ export default function CookiePolicyPage() {
 
       <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
 
-      <div style={{ lineHeight: '1.8', color: '#464e66', fontSize: '15px' }}>
+      <div style={{ lineHeight: '1.8', color: 'var(--web-text-secondary)', fontSize: '15px' }}>
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#1c3157', fontWeight: '700', marginBottom: '12px' }}>1. Cookie là gì?</h2>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>1. Cookie là gì?</h2>
           <p>Cookie là tệp dữ liệu nhỏ được lưu trên thiết bị khi truy cập website, giúp duy trì các trạng thái cần thiết và ghi nhớ một số lựa chọn của người dùng.</p>
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#1c3157', fontWeight: '700', marginBottom: '12px' }}>2. Các nhóm cookie và dữ liệu lưu cục bộ</h2>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>2. Các nhóm cookie và dữ liệu lưu cục bộ</h2>
           <p>
             - <strong>Cookie bắt buộc:</strong> cookie <code>age_verified</code> ghi nhận trạng thái đã hoàn thành khai báo độ tuổi, có thời hạn 30 ngày. Cookie này chỉ chứa phiên bản chính sách xác minh, không chứa họ tên, ngày sinh hoặc tuổi.<br />
             - <strong>Tùy chọn cookie:</strong> người dùng có thể lựa chọn cho phép hoặc từ chối cookie phục vụ phân tích và tiếp thị tại giao diện quản lý cookie.<br />
@@ -37,18 +37,18 @@ export default function CookiePolicyPage() {
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#1c3157', fontWeight: '700', marginBottom: '12px' }}>3. Quản lý và thay đổi lựa chọn</h2>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>3. Quản lý và thay đổi lựa chọn</h2>
           <p>Bạn có thể mở lại giao diện tùy chọn cookie hoặc yêu cầu xác minh lại độ tuổi bằng các công cụ dưới đây:</p>
           <CookieResetButtons />
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#1c3157', fontWeight: '700', marginBottom: '12px' }}>4. Liên hệ về quyền riêng tư</h2>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>4. Liên hệ về quyền riêng tư</h2>
           <p>Nếu cần trao đổi về cookie hoặc dữ liệu trên website, vui lòng liên hệ hotline <strong>{COMPANY_CONFIG.hotline}</strong> hoặc email <strong>{COMPANY_CONFIG.email}</strong>.</p>
         </section>
 
         <section>
-          <h2 style={{ fontSize: '18px', color: '#1c3157', fontWeight: '700', marginBottom: '12px' }}>5. Thông tin đơn vị vận hành</h2>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>5. Thông tin đơn vị vận hành</h2>
           <CompanyLegalDetails compact />
         </section>
       </div>

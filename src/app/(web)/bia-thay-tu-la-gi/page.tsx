@@ -42,7 +42,7 @@ export default function Page() {
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Bia Đức</p>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Bia Thầy Tu Là Gì?</h1>
@@ -78,7 +78,7 @@ export default function Page() {
             { name: 'Benediktiner Dunkel', note: 'Bia đen lúa mì. Hương caramel, mật ong, mạch nha rang.', abv: '5.4%' },
             { name: 'Bitburger Premium Pils', note: 'Pilsner chuẩn Đức. Hoa bia Hallertau, đắng thanh, sạch miệng.', abv: '4.8%' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+            <div key={i} style={{ padding: '24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.name}</h3>
               <p style={{ fontSize: '14px', color: 'var(--web-text-muted)', lineHeight: 1.6, marginBottom: '8px' }}>{item.note}</p>
               <span style={{ fontSize: '13px', color: 'var(--web-accent-strong)', fontWeight: 600 }}>ABV: {item.abv}</span>
@@ -91,7 +91,7 @@ export default function Page() {
           Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ "Naturtrüb", nghĩa là "tự nhiên không lọc" trong tiếng Đức.
         </p>
 
-        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: 'var(--web-on-ink)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Sẵn sàng trải nghiệm?</h3>
           <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Đặt mua bia Thầy Tu Benediktiner chính hãng, giao tận nơi toàn quốc.</p>
           <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Sản Phẩm</Link>
@@ -102,7 +102,7 @@ export default function Page() {
         <div className="container" style={{ maxWidth: '780px' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
           {faqs.map((f, i) => (
-            <div key={i} style={{ padding: '20px 24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
+            <div key={i} style={{ padding: '20px 24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{f.question}</h3>
               <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.7 }}>{f.answer}</p>
             </div>

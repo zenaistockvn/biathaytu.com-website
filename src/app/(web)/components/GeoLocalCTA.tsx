@@ -16,7 +16,7 @@ export default function GeoLocalCTA() {
           padding: 32px;
           margin-top: 60px;
           box-shadow: var(--web-shadow-xl);
-          color: #ffffff;
+          color: var(--web-on-ink);
           display: grid;
           grid-template-columns: 1.2fr 1fr;
           gap: 32px;
@@ -29,7 +29,7 @@ export default function GeoLocalCTA() {
           position: absolute;
           top: 0; right: 0;
           width: 250px; height: 250px;
-          background: radial-gradient(circle, rgba(214, 189, 121, 0.08) 0%, rgba(214, 189, 121, 0) 70%);
+          background: radial-gradient(circle, rgb(var(--web-accent-on-ink-rgb) / 0.08) 0%, rgb(var(--web-accent-on-ink-rgb) / 0) 70%);
           pointer-events: none;
         }
         .geo-cta-badge {
@@ -123,8 +123,8 @@ export default function GeoLocalCTA() {
           min-height: 250px;
           border-radius: 12px;
           overflow: hidden;
-          border: 1px solid rgba(214, 189, 121, 0.2);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
+          box-shadow: 0 10px 30px rgb(var(--web-ink-rgb) / 0.3);
           position: relative;
         }
         .geo-cta-iframe {

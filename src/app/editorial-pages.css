@@ -132,3 +132,50 @@
     font-size: 31px !important;
   }
 }
+
+/* Editorial callout & CTA (reusable pattern across 12 editorial pages) */
+.web-app .editorial-callout {
+  padding: 40px;
+  background-color: var(--web-ink);
+  border-radius: var(--web-radius-lg);
+  text-align: center;
+  color: var(--web-on-ink);
+  margin-bottom: 40px;
+}
+
+.web-app .editorial-callout h2,
+.web-app .editorial-callout h3 {
+  color: var(--web-on-ink);
+  font-family: var(--font-display);
+  margin-bottom: 12px;
+}
+
+.web-app .editorial-callout p {
+  color: var(--web-on-ink-muted);
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.web-app .editorial-cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--web-accent-on-ink);
+  color: var(--web-ink) !important;
+  font-weight: 700;
+  border-radius: var(--web-radius-md);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.web-app .editorial-cta:hover {
+  background-color: var(--web-accent-on-ink-soft);
+  color: var(--web-ink) !important;
+}
+
+.web-app .editorial-card {
+  padding: 24px;
+  background-color: var(--web-card-bg);
+  border-radius: var(--web-radius-md);
+  border: 1px solid var(--web-border);
+}

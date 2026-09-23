@@ -265,7 +265,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
                     >
                       {sausage.images?.[0] ? (
-                        <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
+                        <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: 'var(--web-card-bg)', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
                           <Image
                             src={sausage.images[0]}
                             alt={sausage.name}
@@ -287,14 +287,14 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
 
               {relatedCombo && (
-                <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
+                <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
                   <div>
                     <h3 style={{ color: 'var(--web-accent-on-ink)', borderBottom: '2px solid var(--web-accent-on-ink)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       Combo Đề Xuất
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       {relatedCombo.images?.[0] ? (
-                        <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: '100px', height: '100px', position: 'relative', background: 'var(--web-card-bg)', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <Image
                             src={relatedCombo.images[0]}
                             alt={relatedCombo.name}
@@ -305,8 +305,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                         </div>
                       ) : null}
                       <div style={{ flex: '1 1 180px' }}>
-                        <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: '#c9d3e3', lineHeight: 1.5 }}>{relatedCombo.description}</p>
+                        <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: 'var(--web-on-ink)', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
+                        <p style={{ margin: 0, fontSize: '13px', color: 'var(--web-on-ink-muted)', lineHeight: 1.5 }}>{relatedCombo.description}</p>
                       </div>
                     </div>
                   </div>

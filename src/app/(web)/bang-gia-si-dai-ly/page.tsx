@@ -72,7 +72,7 @@ export default function Page() {
             { icon: '', title: 'Hỗ trợ Marketing/POSM', desc: 'Được cấp phát ấn phẩm truyền thông (ảnh/video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
             { icon: '', title: 'Logistic chuyên nghiệp', desc: 'Kho bãi tiêu chuẩn tại Hà Nội. Hỗ trợ phí vận chuyển cho các đơn hàng sỉ ra các tỉnh thành, giao hàng nhanh chóng.' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+            <div key={i} style={{ padding: '24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>
               <Heading level={3} size="sm" color="ink" style={{ marginBottom: '8px' }}>
                 {item.title}

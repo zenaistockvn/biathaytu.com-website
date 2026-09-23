@@ -41,7 +41,7 @@ export default function Page() {
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Food Pairing Bia Đức', url: 'https://www.biathaytu.com/food-pairing-bia-duc' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Ẩm Thực</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Nghệ Thuật Food Pairing <br/>Cùng Bia Đức</h1>
@@ -59,15 +59,15 @@ export default function Page() {
           <strong>Đặc điểm bia:</strong> Vị ngọt dịu, ít đắng, thoang thoảng hương trái cây (chuối chín, cam quýt) và đinh hương. Độ sủi bọt cao giúp làm sạch vòm miệng hiệu quả.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Hải sản</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Tôm hấp, mực nướng, sushi. Vị ngọt của bia làm bật lên độ tươi của hải sản mà không lấn át.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Gia cầm & Đồ chua</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Gà nướng mật ong, salad chua ngọt, nem chua. Độ sủi bọt cắt ngang vị béo ngậy cực tốt.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Món truyền thống Việt</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Thú vị nhất là kết hợp cùng Phở! Sự thanh tao của Weissbier hợp tuyệt vời với nước dùng xương.</p>
            </div>
@@ -78,15 +78,15 @@ export default function Page() {
           <strong>Đặc điểm bia:</strong> Vị mạch nha rang đậm đà, hương caramel, chocolate đen và thoảng vị nướng bùi bùi. Hậu vị êm dịu, ấm áp.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Đồ nướng BBQ</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Sườn heo nướng BBQ, xúc xích Đức nướng than, bít tết bò. Sự cộng hưởng hoàn hảo của hai "vị khói".</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Món hầm tẩm ướp đậm</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Bò kho tộ, thịt lợn hầm. Vị ngọt caramel của bia sẽ trung hòa vị mặn đậm đà của món ăn.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Tráng miệng</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Chocolate đen, bánh Tiramisu, bánh Brownie. Vị mạch nha nướng sẽ nâng tầm vị cacao.</p>
            </div>
@@ -97,21 +97,21 @@ export default function Page() {
           <strong>Đặc điểm bia:</strong> Trong suốt, cực kỳ giải khát. Vị đắng thanh của hoa bia và hậu vị khô, sạch miệng (crisp). Khả năng "thanh tẩy vị giác" xuất sắc.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Đồ chiên rán</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Gà rán, mực chiên xù, khoai tây chiên. Vị đắng và độ lạnh cắt ngay cảm giác ngấy mỡ.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Đồ nhậu mặn & cay</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Khô bò, lạc rang muối, pizza cay. Pilsner làm dịu sức nóng của gia vị cay nồng.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Ẩm thực đường phố</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Các món xiên nướng, ốc xào. Một ly Pilsner ướp lạnh là đủ cho mọi buổi tụ tập.</p>
            </div>
         </div>
 
-        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: '#fff', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: 'var(--web-on-ink)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Chọn bia cho bữa tiệc của bạn</h3>
           <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Chuẩn bị thực đơn hoàn hảo với bộ sưu tập bia Đức nhập khẩu chính hãng.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -124,7 +124,7 @@ export default function Page() {
         <div className="container" style={{ maxWidth: '780px' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
           {faqs.map((f, i) => (
-            <div key={i} style={{ padding: '20px 24px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
+            <div key={i} style={{ padding: '20px 24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{f.question}</h3>
               <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.7 }}>{f.answer}</p>
             </div>

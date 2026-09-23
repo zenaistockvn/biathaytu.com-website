@@ -21,7 +21,7 @@ export default function Toast() {
           color: 'var(--web-on-ink)',
           padding: '16px 24px',
           borderRadius: '8px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          boxShadow: '0 4px 12px rgb(var(--web-ink-rgb) / 0.15)',
           display: 'flex',
           alignItems: 'center',
           gap: '16px',

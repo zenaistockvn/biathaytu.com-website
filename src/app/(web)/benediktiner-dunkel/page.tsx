@@ -66,7 +66,7 @@ export default function Page() {
       </Section>
 
       <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ background: 'var(--web-card-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
              <Image src="/images/brand/benediktiner-official/dunkel-glass-nobg.webp" alt="Benediktiner Dunkel" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
@@ -114,7 +114,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
+        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
           <Heading level={2} size="md" color="on-ink-accent" style={{ marginBottom: '16px' }}>
             Nghệ Thuật Thưởng Thức (Food Pairing)
           </Heading>

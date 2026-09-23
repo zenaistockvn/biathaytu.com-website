@@ -34,7 +34,7 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Chứng Nhận Nhập Khẩu', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Minh Bạch & Uy Tín</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Chứng Nhận Chất Lượng <br/>& Nguồn Gốc Nhập Khẩu</h1>
@@ -53,15 +53,15 @@ export default function Page() {
         </p>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Tờ khai Hải quan</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Minh chứng lô hàng đã thông quan hợp pháp tại cảng Việt Nam.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Chứng nhận CO/CQ</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Giấy chứng nhận xuất xứ (Certificate of Origin) từ Đức và Chứng nhận chất lượng từ nhà máy sản xuất.</p>
            </div>
-           <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+           <div style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>Bản Tự Công Bố</h4>
              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>Hồ sơ tự công bố chất lượng an toàn vệ sinh thực phẩm theo quy định Bộ Y tế.</p>
            </div>
@@ -80,7 +80,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div data-surface="ink" style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: '#fff' }}>
+        <div data-surface="ink" style={{ padding: '40px', background: 'var(--web-ink)', borderRadius: '16px', textAlign: 'center', color: 'var(--web-on-ink)' }}>
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Yên tâm nhập sỉ & kinh doanh</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-on-ink-muted)', marginBottom: '24px' }}>Chúng tôi luôn đồng hành cùng nhà phân phối với sự bảo đảm tuyệt đối về mặt pháp lý.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

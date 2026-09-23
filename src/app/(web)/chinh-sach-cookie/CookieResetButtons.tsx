@@ -16,7 +16,7 @@ export default function CookieResetButtons() {
       <button
         onClick={handleResetAge}
         style={{
-          background: '#fff',
+          background: 'var(--web-card-bg)',
           border: '1px solid var(--web-accent)',
           color: 'var(--web-accent-strong)',
           padding: '8px 16px',
@@ -32,7 +32,7 @@ export default function CookieResetButtons() {
       <button
         onClick={handleResetCookie}
         style={{
-          background: '#fff',
+          background: 'var(--web-card-bg)',
           border: '1px solid var(--web-ink)',
           color: 'var(--web-ink)',
           padding: '8px 16px',

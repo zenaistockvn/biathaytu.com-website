@@ -41,7 +41,7 @@ export default function LanguageSwitcher() {
           fontSize: '13px',
           fontWeight: 600,
           color: 'var(--web-ink)',
-          backgroundColor: 'rgba(255, 255, 255, 0.92)',
+          backgroundColor: 'rgb(var(--web-on-ink-rgb) / 0.92)',
           transition: 'all 0.2s ease'
         }}
       >
@@ -60,10 +60,10 @@ export default function LanguageSwitcher() {
           position: 'absolute',
           top: 'calc(100% + 8px)',
           right: 0,
-          backgroundColor: '#fff',
+          backgroundColor: 'var(--web-card-bg)',
           border: '1px solid var(--web-border)',
           borderRadius: '8px',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+          boxShadow: '0 10px 25px rgb(var(--web-ink-rgb) / 0.1)',
           minWidth: '140px',
           zIndex: 100,
           overflow: 'hidden',

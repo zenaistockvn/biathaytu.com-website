@@ -119,7 +119,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       <section className="article-detail-hero">
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at bottom, rgb(var(--web-on-ink-rgb) / 0.05) 0%, transparent 70%)',
           zIndex: 1
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '900px', textAlign: 'center' }}>
@@ -234,11 +234,11 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                   className="article-index-card"
                   style={{
                     display: 'flex', flexDirection: 'column',
-                    textDecoration: 'none', backgroundColor: '#fff',
+                    textDecoration: 'none', backgroundColor: 'var(--web-card-bg)',
                     borderRadius: 'var(--web-radius-lg)',
                     overflow: 'hidden',
                     border: '1px solid var(--web-border)',
-                    boxShadow: '0 10px 40px -20px rgba(0,0,0,0.05)',
+                    boxShadow: '0 10px 40px -20px rgb(var(--web-ink-rgb) / 0.05)',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
                 >

@@ -44,16 +44,16 @@ export default function Page() {
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Linh Hồn Bữa Tiệc</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2, color: '#ffffff' }}>Bom Bia 5L Benediktiner</h1>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2, color: 'var(--web-on-ink)' }}>Bom Bia 5L Benediktiner</h1>
           <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả không khí lễ hội Oktoberfest của vùng Bavaria về ngay bàn tiệc nhà bạn.</p>
         </div>
       </section>
 
       <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ background: 'var(--web-card-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
              <Image src="/images/brand/benediktiner-official/festbier-keg-nobg.webp" alt="Bom Bia 5L Benediktiner" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
@@ -92,7 +92,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
+        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Món Quà Tặng Độc Đáo</h2>
           <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
             Không chỉ dùng trong các bữa tiệc gia đình, dã ngoại cuối tuần, Bom bia 5L còn là món quà tặng đối tác, sếp, hoặc bạn bè cực kỳ đẳng cấp trong các dịp Lễ, Tết.

@@ -38,7 +38,7 @@ export default function Page() {
       <JsonLd type="article" data={getArticleSchema({ title: 'Quà Tặng Bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Quà Tặng Bia Đức', url: 'https://www.biathaytu.com/qua-tang-bia-duc' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: '#fff', textAlign: 'center' }}>
+      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Gói Quà Sang Trọng</p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Quà Tặng Bia Đức Cao Cấp</h1>
@@ -59,7 +59,7 @@ export default function Page() {
             { title: 'Bom Bia 5L Lễ Hội', desc: 'Thiết kế bom nhôm 5 Lít nguyên khối có vòi rót trực tiếp. Món quà hoàn hảo để đối tác sử dụng ngay trong các bữa tiệc tụ họp.', price: '963.000đ', link: '/san-pham/benediktiner-naturtrub-bom-5l' },
             { title: 'Set Quà Kèm Ly Pha Lê', desc: 'Combo 6 chai bia nhập khẩu kèm 1 ly Weizen tiêu chuẩn Đức. Nâng tầm nghệ thuật thưởng thức.', price: 'Liên hệ B2B' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '28px', background: '#fff', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
+            <div key={i} style={{ padding: '28px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
               <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
               <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.6, marginBottom: '16px' }}>{item.desc}</p>
               {item.link && <Link href={item.link} style={{ fontSize: '14px', color: 'var(--web-accent-strong)', fontWeight: 600 }}>Xem chi tiết sản phẩm</Link>}
@@ -80,7 +80,7 @@ export default function Page() {
           <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Lên đơn hàng Quà Tặng ngay</h3>
           <p style={{ fontSize: '16px', color: 'var(--web-text-secondary)', marginBottom: '24px' }}>Để nhận catalog quà tặng mới nhất và báo giá chiết khấu, vui lòng liên hệ:</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href={zaloUrl} target={zaloUrl.startsWith('https://') ? '_blank' : undefined} rel={zaloUrl.startsWith('https://') ? 'noopener noreferrer' : undefined} style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: '#fff', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo Bộ Phận B2B</a>
+            <a href={zaloUrl} target={zaloUrl.startsWith('https://') ? '_blank' : undefined} rel={zaloUrl.startsWith('https://') ? 'noopener noreferrer' : undefined} style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Chat Zalo Bộ Phận B2B</a>
             <a href={telHref} style={{ display: 'inline-block', padding: '14px 32px', border: '2px solid var(--web-ink)', color: 'var(--web-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Hotline Tư Vấn Quà Tặng</a>
           </div>
         </div>
