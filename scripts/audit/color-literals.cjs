@@ -15,7 +15,7 @@ const ROOT = path.join(__dirname, '..', '..');
 /** Màu thương hiệu bên thứ ba (nút Zalo, gọi điện, Messenger): giữ nguyên, không phải màu Bia Thầy Tu. */
 const THIRD_PARTY = /^(#(2ea3ff|0068ff|004bc1|35d86a|16a34a|087c34|00c6ff|0072ff|9026ff)|rgba?\(\s*(0,\s*104,\s*255|22,\s*163,\s*74|0,\s*114,\s*255|0,\s*38,\s*115|0,\s*43,\s*119)\b)/i;
 
-const COLOR = /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)/g;
+const COLOR = /#[0-9a-fA-F]{3,8}\b|rgba?\(\s*(?!var\()[^)]*\)/g;
 const TSX_COLOR_PROP = /\b(color|background|backgroundColor|borderColor|border|borderTop|borderBottom|borderLeft|borderRight|boxShadow|outline|fill|stroke|textShadow)\s*:\s*(['"`])([^'"`]*)\2/g;
 
 function walk(dir, ext, out = []) {

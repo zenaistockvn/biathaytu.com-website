@@ -1,6 +1,6 @@
 .footer {
   background: var(--web-ink);
-  color: #fff;
+  color: var(--web-on-ink);
   padding: 52px 0 0;
 }
 
@@ -11,9 +11,9 @@
   gap: 24px;
   margin: 0 0 44px;
   padding: 20px 22px;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgb(var(--web-on-ink-rgb) / .14);
   border-radius: 14px;
-  background: rgba(255,255,255,.06);
+  background: rgb(var(--web-on-ink-rgb) / .06);
 }
 
 .wineBridge div {
@@ -23,7 +23,7 @@
 .wineBridge strong {
   display: block;
   margin: 3px 0 4px;
-  color: #fff;
+  color: var(--web-on-ink);
   font-family: var(--font-display);
   font-size: 19px;
 }
@@ -52,14 +52,14 @@
   padding: 0 16px;
   border: 1px solid var(--web-accent-soft);
   border-radius: 10px;
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none !important;
 }
 
 .wineBridge > a:hover {
-  background: rgba(255,255,255,.1);
+  background: rgb(var(--web-on-ink-rgb) / .1);
 }
 
 .desktopFooter {
@@ -89,7 +89,7 @@
 .brochureNote {
   margin: 12px 0 0;
   max-width: 330px;
-  color: #fff;
+  color: var(--web-on-ink);
   font-size: 13px;
   font-weight: 750;
   line-height: 1.55;
@@ -110,10 +110,10 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgb(var(--web-on-ink-rgb) / .14);
   border-radius: 10px;
-  background: rgba(255,255,255,.08);
-  color: #fff !important;
+  background: rgb(var(--web-on-ink-rgb) / .08);
+  color: var(--web-on-ink) !important;
   font-size: 13px;
   font-weight: 750;
   padding: 0 14px;
@@ -122,7 +122,7 @@
 
 .iconButton:hover,
 .actionButton:hover {
-  background: rgba(255,255,255,.14);
+  background: rgb(var(--web-on-ink-rgb) / .14);
   opacity: 1 !important;
 }
 
@@ -133,7 +133,7 @@
 
 .columnTitle {
   margin: 0 0 18px;
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   font-family: var(--font-sans), sans-serif !important;
   font-size: 13px;
   font-weight: 700;
@@ -198,7 +198,7 @@
 }
 
 .linkList a:hover {
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   opacity: 1 !important;
 }
 
@@ -207,11 +207,11 @@
 }
 
 .mobileDetails {
-  border-top: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / .12);
 }
 
 .mobileDetails:last-of-type {
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / .12);
 }
 
 .mobileSummary {
@@ -221,7 +221,7 @@
   list-style: none;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: var(--web-on-ink);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .6px;
@@ -249,7 +249,7 @@
 
 .bottomArea {
   margin-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / .1);
   padding: 18px 0 calc(20px + env(safe-area-inset-bottom));
 }
 

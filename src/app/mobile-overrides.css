@@ -76,7 +76,7 @@
     font-size: 24px;
     font-weight: 700;
     color: var(--web-accent-strong);
-    background: linear-gradient(90deg, rgba(244, 241, 233, 0), var(--web-bg) 72%);
+    background: linear-gradient(90deg, rgb(var(--web-bg-rgb) / 0), var(--web-bg) 72%);
   }
 
   .web-app .product-tabs-nav {
@@ -129,11 +129,11 @@
 
   .mobile-compact-footer .mobile-footer-accordions {
     margin-top: 22px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
   }
 
   .mobile-compact-footer details {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
   }
 
   .mobile-compact-footer summary {
@@ -190,7 +190,7 @@
   .mobile-compact-footer .mobile-footer-bottom {
     margin-top: 18px;
     padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
     display: grid;
     gap: 8px;
     font-size: 11.5px;

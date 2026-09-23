@@ -3,11 +3,11 @@
 
 /* Header: dark only when it genuinely overlays a dark hero. */
 .web-app .web-header--transparent {
-  background: linear-gradient(180deg, rgba(21, 38, 69, 0.72) 0%, rgba(21, 38, 69, 0.22) 64%, transparent 100%);
+  background: linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.72) 0%, rgb(var(--web-ink-deep-rgb) / 0.22) 64%, transparent 100%);
 }
 
 .web-app .web-header--solid {
-  border-bottom-color: rgba(207, 201, 182, 0.72);
+  border-bottom-color: rgb(var(--web-border-rgb) / 0.72);
 }
 
 .web-app .web-mobile-menu-overlay {
@@ -28,10 +28,10 @@
 .web-app .hero-bg-overlay {
   background: linear-gradient(
     105deg,
-    rgba(21, 38, 69, 0.95) 0%,
-    rgba(28, 49, 87, 0.88) 42%,
-    rgba(36, 64, 110, 0.64) 72%,
-    rgba(21, 38, 69, 0.52) 100%
+    rgb(var(--web-ink-deep-rgb) / 0.95) 0%,
+    rgb(var(--web-ink-rgb) / 0.88) 42%,
+    rgb(var(--web-ink-deep-rgb) / 0.64) 72%,
+    rgb(var(--web-ink-deep-rgb) / 0.52) 100%
   ) !important;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .web-app .hero-trust-icon {
-  border-color: rgba(214, 189, 121, 0.74) !important;
+  border-color: rgb(var(--web-accent-on-ink-rgb) / 0.74) !important;
 }
 
 .web-app .hero-desc span {
@@ -59,7 +59,7 @@
 
 .web-app .hero-bottom-divider {
   height: 2px !important;
-  background: rgba(214, 189, 121, 0.45) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.45) !important;
 }
 
 /* One restrained contact control instead of three bright floating circles. */
@@ -82,11 +82,11 @@
   justify-content: center;
   gap: 8px;
   padding: 0 15px;
-  border: 1px solid rgba(214, 189, 121, 0.78);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.78);
   border-radius: 14px;
-  background: #1C3157;
-  color: #F4F1E9;
-  box-shadow: 0 12px 30px rgba(28, 49, 87, 0.22);
+  background: var(--web-ink);
+  color: var(--web-bg);
+  box-shadow: 0 12px 30px rgb(var(--web-ink-rgb) / 0.22);
   cursor: pointer;
   font: inherit;
   font-size: 13px;
@@ -96,13 +96,13 @@
 
 .web-app .brand-contact-trigger:hover,
 .web-app .brand-contact-trigger.is-open {
-  background: #24406E;
+  background: var(--web-ink-soft);
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(28, 49, 87, 0.28);
+  box-shadow: 0 16px 34px rgb(var(--web-ink-rgb) / 0.28);
 }
 
 .web-app .brand-contact-trigger:focus-visible {
-  outline: 3px solid rgba(214, 189, 121, 0.5);
+  outline: 3px solid rgb(var(--web-accent-on-ink-rgb) / 0.5);
   outline-offset: 3px;
 }
 
@@ -114,27 +114,27 @@
   overflow: hidden;
   border: 1px solid var(--web-border);
   border-radius: 16px;
-  background: #F4F1E9;
-  box-shadow: 0 24px 56px rgba(28, 49, 87, 0.22);
-  color: #1C3157;
+  background: var(--web-bg);
+  box-shadow: 0 24px 56px rgb(var(--web-ink-rgb) / 0.22);
+  color: var(--web-ink);
 }
 
 .web-app .brand-contact-panel-head {
   padding: 14px 16px 12px;
   border-bottom: 1px solid var(--web-border);
-  background: #E9E5D8;
+  background: var(--web-bg-section);
 }
 
 .web-app .brand-contact-panel-head strong {
   display: block;
-  color: #1C3157;
+  color: var(--web-ink);
   font-size: 14px;
 }
 
 .web-app .brand-contact-panel-head span {
   display: block;
   margin-top: 2px;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 11px;
 }
 
@@ -144,8 +144,8 @@
   align-items: center;
   gap: 11px;
   padding: 10px 14px;
-  border-bottom: 1px solid rgba(207, 201, 182, 0.7);
-  color: #1C3157 !important;
+  border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.7);
+  color: var(--web-ink) !important;
   background: transparent;
   text-decoration: none !important;
   transition: background 0.18s ease;
@@ -156,7 +156,7 @@
 }
 
 .web-app .brand-contact-item:hover {
-  background: #E9E5D8;
+  background: var(--web-bg-section);
   opacity: 1 !important;
 }
 
@@ -167,10 +167,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(0, 71, 135, 0.26);
+  border: 1px solid rgb(var(--web-accent-rgb) / 0.26);
   border-radius: 50%;
-  background: rgba(0, 71, 135, 0.08);
-  color: #004787;
+  background: rgb(var(--web-accent-rgb) / 0.08);
+  color: var(--web-accent);
   font-size: 12px;
   font-weight: 700;
 }
@@ -182,14 +182,14 @@
 }
 
 .web-app .brand-contact-item strong {
-  color: #1C3157;
+  color: var(--web-ink);
   font-size: 13px;
   line-height: 1.25;
 }
 
 .web-app .brand-contact-item small {
   overflow: hidden;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 11px;
   line-height: 1.35;
   text-overflow: ellipsis;
@@ -206,9 +206,9 @@
 /* P2 editorial hierarchy — fewer UI boxes, stronger photography. */
 .web-app {
   --web-radius-lg: 16px;
-  --web-shadow: 0 8px 28px rgba(28, 49, 87, 0.055);
-  --web-shadow-md: 0 14px 34px -22px rgba(28, 49, 87, 0.14);
-  --web-shadow-lg: 0 18px 42px -20px rgba(28, 49, 87, 0.18);
+  --web-shadow: 0 8px 28px rgb(var(--web-ink-rgb) / 0.055);
+  --web-shadow-md: 0 14px 34px -22px rgb(var(--web-ink-rgb) / 0.14);
+  --web-shadow-lg: 0 18px 42px -20px rgb(var(--web-ink-rgb) / 0.18);
 }
 
 /* Functional controls should feel tailored, not SaaS-pill heavy. */
@@ -230,7 +230,7 @@
 /* Product photography first: preserve true product color instead of multiply tint. */
 .web-app .product-card-v2 .card-image,
 .web-app .product-card .card-image {
-  background: radial-gradient(120% 90% at 50% 8%, #F2EFE6 0%, #E7E2D2 62%, #DED8C6 100%) !important;
+  background: radial-gradient(120% 90% at 50% 8%, var(--web-bg) 0%, var(--web-bg-warm) 62%, var(--web-bg-warm) 100%) !important;
 }
 
 .web-app .product-card-v2 .card-image img,
@@ -256,7 +256,7 @@
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
   border-color: var(--web-accent-soft) !important;
-  box-shadow: 0 14px 34px -22px rgba(28, 49, 87, .45) !important;
+  box-shadow: 0 14px 34px -22px rgb(var(--web-ink-rgb) / .45) !important;
 }
 
 /* Food pairing becomes editorial rows rather than three floating white cards. */
@@ -282,7 +282,7 @@
 .web-app .food-icon {
   width: 52px !important;
   height: 52px !important;
-  background: rgba(0, 71, 135, 0.06) !important;
+  background: rgb(var(--web-accent-rgb) / 0.06) !important;
 }
 
 /* Keep knowledge cards, but reduce their visual chrome. */
@@ -317,9 +317,9 @@
   min-height: 54px;
   display: flex;
   align-items: center;
-  background: rgba(244, 241, 233, 0.94);
-  border-bottom: 1px solid rgba(207, 201, 182, 0.78);
-  box-shadow: 0 8px 22px rgba(28, 49, 87, 0.055);
+  background: rgb(var(--web-bg-rgb) / 0.94);
+  border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.78);
+  box-shadow: 0 8px 22px rgb(var(--web-ink-rgb) / 0.055);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 }

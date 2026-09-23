@@ -22,9 +22,9 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(28, 49, 87, 0.55) 0%, rgba(28, 49, 87, 0) 22%),
-    linear-gradient(0deg, rgba(28, 49, 87, 0.72) 0%, rgba(28, 49, 87, 0) 32%),
-    linear-gradient(90deg, rgba(28, 49, 87, 0.88) 0%, rgba(28, 49, 87, 0.74) 36%, rgba(28, 49, 87, 0.16) 62%, rgba(28, 49, 87, 0) 100%);
+    linear-gradient(180deg, rgb(var(--web-ink-rgb) / 0.55) 0%, rgb(var(--web-ink-rgb) / 0) 22%),
+    linear-gradient(0deg, rgb(var(--web-ink-rgb) / 0.72) 0%, rgb(var(--web-ink-rgb) / 0) 32%),
+    linear-gradient(90deg, rgb(var(--web-ink-rgb) / 0.88) 0%, rgb(var(--web-ink-rgb) / 0.74) 36%, rgb(var(--web-ink-rgb) / 0.16) 62%, rgb(var(--web-ink-rgb) / 0) 100%);
 }
 
 .heroInner {
@@ -53,12 +53,12 @@
 }
 
 .eyebrowDark {
-  color: #004787;
+  color: var(--web-accent);
 }
 
 .heroTitle.heroTitle {
   max-width: 610px;
-  color: #f8f3e8 !important;
+  color: var(--web-on-ink) !important;
   font-size: clamp(34px, 5.6vw, 80px);
   font-weight: 700 !important;
 }
@@ -85,9 +85,9 @@
 }
 
 .heroSecondaryButton.heroSecondaryButton {
-  border-color: rgba(255, 255, 255, 0.58) !important;
-  background: rgba(21, 38, 69, 0.18) !important;
-  color: #fff !important;
+  border-color: rgb(var(--web-on-ink-rgb) / 0.58) !important;
+  background: rgb(var(--web-ink-deep-rgb) / 0.18) !important;
+  color: var(--web-on-ink) !important;
   backdrop-filter: blur(8px);
 }
 
@@ -97,7 +97,7 @@
   gap: 18px;
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.22);
 }
 
 .heroFacts span {
@@ -109,7 +109,7 @@
 }
 
 .heroFacts strong {
-  color: #fff;
+  color: var(--web-on-ink);
   font-family: var(--font-sans), sans-serif;
   font-size: 18px;
 }
@@ -121,14 +121,14 @@
   z-index: 2;
   padding: 5px 8px;
   border-radius: 4px;
-  background: rgba(21, 38, 69, 0.5);
+  background: rgb(var(--web-ink-deep-rgb) / 0.5);
   color: var(--web-on-ink-muted) !important;
   font-size: 10px;
 }
 
 .proofStrip {
-  background: #1c3157;
-  color: #f4f1e9;
+  background: var(--web-ink);
+  color: var(--web-bg);
 }
 
 .catalogHero {
@@ -137,7 +137,7 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: #1c3157;
+  background: var(--web-ink);
 }
 
 .catalogHeroImage {
@@ -148,7 +148,7 @@
 .catalogHeroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(17, 32, 62, 0.94) 0%, rgba(17, 32, 62, 0.72) 42%, rgba(17, 32, 62, 0.18) 78%);
+  background: linear-gradient(90deg, rgb(var(--web-ink-deep-rgb) / 0.94) 0%, rgb(var(--web-ink-deep-rgb) / 0.72) 42%, rgb(var(--web-ink-deep-rgb) / 0.18) 78%);
 }
 
 .catalogHeroCopy {
@@ -161,7 +161,7 @@
 
 .catalogHeroCopy h1 {
   max-width: 720px;
-  color: #f4f1e9 !important;
+  color: var(--web-on-ink) !important;
   font-size: clamp(30px, 5.2vw, 68px);
 }
 
@@ -175,9 +175,9 @@
 
 .catalogNote {
   padding: 16px 0;
-  border-bottom: 1px solid #d8d2c1;
-  background: #e9e5d8;
-  color: #596077;
+  border-bottom: 1px solid var(--web-border);
+  background: var(--web-bg-section);
+  color: var(--web-text-muted);
   font-size: 13px;
   text-align: center;
 }
@@ -193,15 +193,15 @@
   min-height: 116px;
   align-content: center;
   padding: 20px 30px;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
 }
 
 .proofGrid > div:first-child {
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
 }
 
 .proofGrid strong {
-  color: #fff;
+  color: var(--web-on-ink);
   font-size: 15px;
 }
 
@@ -226,7 +226,7 @@
 .experienceCard h2,
 .b2bInner h2,
 .faqGrid h2 {
-  color: #1c3157 !important;
+  color: var(--web-ink) !important;
   font-size: clamp(34px, 4.2vw, 56px);
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -236,7 +236,7 @@
 .faqIntro {
   max-width: 680px;
   margin: 20px auto 0 !important;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 17px;
   line-height: 1.75;
 }
@@ -249,24 +249,24 @@
 
 .beerCard {
   overflow: hidden;
-  border: 1px solid #d8d2c1;
+  border: 1px solid var(--web-border);
   border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 22px 50px -38px rgba(28, 49, 87, 0.38);
+  background: var(--web-card-bg);
+  box-shadow: 0 22px 50px -38px rgb(var(--web-ink-rgb) / 0.38);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .beerCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 28px 58px -34px rgba(28, 49, 87, 0.32);
+  box-shadow: 0 28px 58px -34px rgb(var(--web-ink-rgb) / 0.32);
 }
 
 .beerImageWrap {
   position: relative;
   height: 360px;
   overflow: hidden;
-  border-bottom: 1px solid #e3ded0;
-  background: linear-gradient(180deg, #f2eee3 0%, #e5dfcf 100%);
+  border-bottom: 1px solid var(--web-border);
+  background: linear-gradient(180deg, var(--web-bg) 0%, var(--web-bg-warm) 100%);
 }
 
 .beerImage {
@@ -284,7 +284,7 @@
 }
 
 .beerType {
-  color: #004787;
+  color: var(--web-accent);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -293,7 +293,7 @@
 
 .beerContent h3 {
   margin-top: 8px;
-  color: #1c3157;
+  color: var(--web-ink);
   font-size: 27px;
   line-height: 1.15;
 }
@@ -301,7 +301,7 @@
 .beerDescription {
   min-height: 86px;
   margin-top: 14px !important;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 14px;
   line-height: 1.65;
 }
@@ -310,7 +310,7 @@
   display: grid;
   gap: 0;
   margin: 22px 0;
-  border-top: 1px solid #e3ded0;
+  border-top: 1px solid var(--web-border);
 }
 
 .beerFacts div {
@@ -318,17 +318,17 @@
   justify-content: space-between;
   gap: 16px;
   padding: 9px 0;
-  border-bottom: 1px solid #e3ded0;
+  border-bottom: 1px solid var(--web-border);
   font-size: 12px;
 }
 
 .beerFacts dt {
-  color: #596077;
+  color: var(--web-text-muted);
 }
 
 .beerFacts dd {
   margin: 0;
-  color: #1c3157;
+  color: var(--web-ink);
   font-weight: 700;
   text-align: right;
 }
@@ -342,18 +342,18 @@
 }
 
 .textLink.textLink {
-  color: #004787 !important;
+  color: var(--web-accent) !important;
   font-size: 14px;
 }
 
 .lightLink.lightLink {
   margin-top: 26px;
-  color: #e3eaf3 !important;
+  color: var(--web-accent-bg) !important;
   font-size: 14px;
 }
 
 .storySection {
-  background: #e9e5d8;
+  background: var(--web-bg-section);
 }
 
 .storyGrid,
@@ -370,7 +370,7 @@
   min-height: 520px;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 28px 70px -44px rgba(28, 49, 87, 0.5);
+  box-shadow: 0 28px 70px -44px rgb(var(--web-ink-rgb) / 0.5);
 }
 
 .storyImage {
@@ -383,21 +383,21 @@
   bottom: 12px;
   padding: 5px 8px;
   border-radius: 4px;
-  background: rgba(21, 38, 69, 0.88);
+  background: rgb(var(--web-ink-deep-rgb) / 0.88);
   color: var(--web-on-ink-muted);
   font-size: 11px;
 }
 
 .storyCopy .lead {
   margin-top: 24px !important;
-  color: #2a4470;
+  color: var(--web-ink-soft);
   font-size: 18px;
   line-height: 1.72;
 }
 
 .storyCopy > p:not(.eyebrow):not(.eyebrowDark):not(.lead):not(.lightBody) {
   margin-top: 16px !important;
-  color: #596077;
+  color: var(--web-text-muted);
   line-height: 1.75;
 }
 
@@ -412,16 +412,16 @@
   display: grid;
   gap: 5px;
   padding-top: 14px;
-  border-top: 2px solid #7a6230;
+  border-top: 2px solid var(--web-heritage);
 }
 
 .timeline strong {
-  color: #1c3157;
+  color: var(--web-ink);
   font-size: 18px;
 }
 
 .timeline span {
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 11px;
   line-height: 1.45;
 }
@@ -429,14 +429,14 @@
 .principleGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid #cfc9b6;
-  border-bottom: 1px solid #cfc9b6;
+  border-top: 1px solid var(--web-border);
+  border-bottom: 1px solid var(--web-border);
 }
 
 .principleGrid article {
   min-height: 280px;
   padding: 34px;
-  border-right: 1px solid #cfc9b6;
+  border-right: 1px solid var(--web-border);
 }
 
 .principleGrid article:last-child {
@@ -444,7 +444,7 @@
 }
 
 .principleGrid article > span {
-  color: #7a6230;
+  color: var(--web-heritage);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -452,32 +452,32 @@
 
 .principleGrid h3 {
   margin-top: 54px;
-  color: #1c3157;
+  color: var(--web-ink);
   font-size: 28px;
 }
 
 .principleGrid p {
   margin-top: 14px !important;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 14px;
   line-height: 1.7;
 }
 
 .lightHeading.lightHeading {
-  color: #f4f1e9 !important;
+  color: var(--web-bg) !important;
 }
 
 .lightBody {
   margin-top: 24px !important;
-  color: #c9d3e3 !important;
+  color: var(--web-on-ink-muted) !important;
   font-size: 16px;
   line-height: 1.75 !important;
 }
 
 .tastingSection {
   padding: clamp(72px, 9vw, 116px) 0;
-  background: #1c3157;
-  color: #f4f1e9;
+  background: var(--web-ink);
+  color: var(--web-bg);
 }
 
 .tastingGrid {
@@ -489,13 +489,13 @@
 
 .tastingIntro h2,
 .b2bInner h2 {
-  color: #f4f1e9 !important;
+  color: var(--web-on-ink) !important;
 }
 
 .tastingIntro > p:last-of-type,
 .b2bInner > div:first-child > p:last-child {
   margin-top: 22px !important;
-  color: #c9d3e3;
+  color: var(--web-on-ink-muted);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -504,7 +504,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.18);
 }
 
 .tastingSteps li {
@@ -512,7 +512,7 @@
   grid-template-columns: 54px 1fr;
   gap: 20px;
   padding: 26px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.18);
 }
 
 .tastingSteps > li > span {
@@ -524,14 +524,14 @@
 }
 
 .tastingSteps h3 {
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   font-family: var(--font-sans), sans-serif !important;
   font-size: 18px;
 }
 
 .tastingSteps p {
   margin-top: 7px !important;
-  color: #c9d3e3;
+  color: var(--web-on-ink-muted);
   font-size: 14px;
   line-height: 1.65;
 }
@@ -545,7 +545,7 @@
 }
 
 .experienceCard > p:not(.eyebrowDark) {
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -556,18 +556,18 @@
   gap: 10px 18px;
   margin-top: 26px;
   padding: 20px 0;
-  border-top: 1px solid #d8d2c1;
-  border-bottom: 1px solid #d8d2c1;
+  border-top: 1px solid var(--web-border);
+  border-bottom: 1px solid var(--web-border);
   font-style: normal;
 }
 
 .experienceCard address span {
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 12px;
 }
 
 .experienceCard address strong {
-  color: #1c3157;
+  color: var(--web-ink);
   font-size: 14px;
 }
 
@@ -594,19 +594,19 @@
 }
 
 .primaryLink.primaryLink {
-  background: #004787;
-  color: #fff !important;
+  background: var(--web-accent);
+  color: var(--web-on-ink) !important;
 }
 
 .secondaryLink.secondaryLink {
-  border: 1px solid #c9d3e3;
-  color: #1c3157 !important;
+  border: 1px solid var(--web-on-ink-muted);
+  color: var(--web-ink) !important;
 }
 
 .b2bSection {
   padding: clamp(60px, 7vw, 88px) 0;
-  background: #24406e;
-  color: #f4f1e9;
+  background: var(--web-ink-soft);
+  color: var(--web-bg);
 }
 
 .b2bInner {
@@ -631,13 +631,13 @@
 }
 
 .primaryLightLink.primaryLightLink {
-  background: #f4f1e9;
-  color: #1c3157 !important;
+  background: var(--web-bg);
+  color: var(--web-ink) !important;
 }
 
 .outlineLightLink.outlineLightLink {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: #fff !important;
+  border: 1px solid rgb(var(--web-on-ink-rgb) / 0.5);
+  color: var(--web-on-ink) !important;
 }
 
 .faqGrid {
@@ -653,11 +653,11 @@
 }
 
 .faqList {
-  border-top: 1px solid #cfc9b6;
+  border-top: 1px solid var(--web-border);
 }
 
 .faqList details {
-  border-bottom: 1px solid #cfc9b6;
+  border-bottom: 1px solid var(--web-border);
 }
 
 .faqList summary {
@@ -667,7 +667,7 @@
   justify-content: space-between;
   gap: 20px;
   cursor: pointer;
-  color: #1c3157;
+  color: var(--web-ink);
   font-size: 16px;
   font-weight: 700;
   list-style: none;
@@ -689,15 +689,15 @@
 
 .faqList details p {
   padding: 0 40px 22px 0;
-  color: #596077;
+  color: var(--web-text-muted);
   font-size: 14px;
   line-height: 1.7;
 }
 
 .contactBar {
   padding: 30px 0;
-  background: #e9e5d8;
-  border-top: 1px solid #d8d2c1;
+  background: var(--web-bg-section);
+  border-top: 1px solid var(--web-border);
 }
 
 .contactBarInner {
@@ -715,15 +715,15 @@
 }
 
 .contactBarInner strong {
-  color: #1c3157;
+  color: var(--web-ink);
 }
 
 .contactBarInner span {
-  color: #596077;
+  color: var(--web-text-muted);
 }
 
 .contactBarInner a {
-  color: #004787 !important;
+  color: var(--web-accent) !important;
   font-weight: 700;
 }
 
@@ -750,7 +750,7 @@
   .beerImageWrap {
     height: auto;
     min-height: 430px;
-    border-right: 1px solid #e3ded0;
+    border-right: 1px solid var(--web-border);
     border-bottom: 0;
   }
 
@@ -785,7 +785,7 @@
   .principleGrid article {
     min-height: 0;
     border-right: 0;
-    border-bottom: 1px solid #cfc9b6;
+    border-bottom: 1px solid var(--web-border);
   }
 
   .principleGrid article:last-child {
@@ -809,7 +809,7 @@
 
   .heroOverlay {
     background:
-      linear-gradient(180deg, rgba(28, 49, 87, 0.76) 0%, rgba(28, 49, 87, 0.64) 40%, rgba(28, 49, 87, 0.9) 64%, rgba(28, 49, 87, 0.97) 100%);
+      linear-gradient(180deg, rgb(var(--web-ink-rgb) / 0.76) 0%, rgb(var(--web-ink-rgb) / 0.64) 40%, rgb(var(--web-ink-rgb) / 0.9) 64%, rgb(var(--web-ink-rgb) / 0.97) 100%);
   }
 
   .heroInner {
@@ -862,7 +862,7 @@
   }
 
   .catalogHeroOverlay {
-    background: linear-gradient(180deg, rgba(17, 32, 62, 0.58) 0%, rgba(17, 32, 62, 0.8) 40%, rgba(17, 32, 62, 0.92) 64%, rgba(17, 32, 62, 0.98) 100%);
+    background: linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.58) 0%, rgb(var(--web-ink-deep-rgb) / 0.8) 40%, rgb(var(--web-ink-deep-rgb) / 0.92) 64%, rgb(var(--web-ink-deep-rgb) / 0.98) 100%);
   }
 
   .catalogHeroCopy {
@@ -880,7 +880,7 @@
     padding: 16px 4px;
     border-right: 0;
     border-left: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
   }
 
   .proofGrid > div:last-child {
@@ -903,7 +903,7 @@
     height: 330px;
     min-height: 0;
     border-right: 0;
-    border-bottom: 1px solid #e3ded0;
+    border-bottom: 1px solid var(--web-border);
   }
 
   .beerContent {

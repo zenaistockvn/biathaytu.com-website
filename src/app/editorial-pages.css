@@ -37,7 +37,7 @@
 .web-app .knowledge-featured-cta {
   padding: 0 0 5px !important;
   border: 0 !important;
-  border-bottom: 1px solid rgba(0, 71, 135, 0.34) !important;
+  border-bottom: 1px solid rgb(var(--web-accent-rgb) / 0.34) !important;
   border-radius: 0 !important;
   color: var(--web-accent-strong) !important;
 }
@@ -55,7 +55,7 @@
 }
 
 .web-app .knowledge-card {
-  border-color: rgba(207, 201, 182, 0.72) !important;
+  border-color: rgb(var(--web-border-rgb) / 0.72) !important;
 }
 
 .web-app .knowledge-card-action {
@@ -70,11 +70,11 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: clamp(54px, 7vw, 88px) clamp(28px, 6vw, 72px) !important;
-  border: 1px solid rgba(244, 241, 233, 0.18);
+  border: 1px solid rgb(var(--web-bg-rgb) / 0.18);
   border-radius: 16px !important;
-  background-color: #1C3157 !important;
+  background-color: var(--web-ink) !important;
   background-image:
-    linear-gradient(90deg, rgba(21, 38, 69, 0.95) 0%, rgba(28, 49, 87, 0.82) 48%, rgba(28, 49, 87, 0.36) 100%),
+    linear-gradient(90deg, rgb(var(--web-ink-deep-rgb) / 0.95) 0%, rgb(var(--web-ink-rgb) / 0.82) 48%, rgb(var(--web-ink-rgb) / 0.36) 100%),
     url('/images/brand/benediktiner-official/home-hero.jpg') !important;
   background-size: cover !important;
   background-position: center !important;
@@ -90,7 +90,7 @@
 .web-app .brand-story-cta h2 {
   max-width: 680px;
   margin: 0 0 18px !important;
-  color: #F4F1E9 !important;
+  color: var(--web-bg) !important;
   font-size: clamp(32px, 4.8vw, 52px) !important;
   line-height: 1.08;
   text-align: left;
@@ -106,15 +106,15 @@
 }
 
 .web-app .brand-story-cta .btn-primary {
-  background: #F4F1E9 !important;
-  color: #1C3157 !important;
-  border: 1px solid rgba(244, 241, 233, 0.74) !important;
+  background: var(--web-bg) !important;
+  color: var(--web-ink) !important;
+  border: 1px solid rgb(var(--web-bg-rgb) / 0.74) !important;
   box-shadow: none !important;
 }
 
 .web-app .brand-story-cta .btn-primary:hover {
-  background: #E9E5D8 !important;
-  color: #1C3157 !important;
+  background: var(--web-bg-section) !important;
+  color: var(--web-ink) !important;
   box-shadow: none !important;
 }
 
@@ -123,7 +123,7 @@
     min-height: 390px;
     padding: 46px 24px !important;
     background-image:
-      linear-gradient(180deg, rgba(21, 38, 69, 0.42) 0%, rgba(21, 38, 69, 0.93) 72%),
+      linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.42) 0%, rgb(var(--web-ink-deep-rgb) / 0.93) 72%),
       url('/images/brand/benediktiner-official/home-hero.jpg') !important;
     background-position: 58% center !important;
   }
