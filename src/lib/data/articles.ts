@@ -1,9 +1,13 @@
 import articlesData from '@/data/articles.json';
+import retiredArticlesData from '@/config/retired-articles.json';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
 import { getVisibleProducts } from './products';
 
 export const DEFAULT_TENANT_ID = 'biathaytu';
+
+const RETIRED_ARTICLE_MAP: Record<string, string> = retiredArticlesData;
+const RETIRED_ARTICLE_SLUGS = new Set(Object.keys(RETIRED_ARTICLE_MAP));
 
 export interface Article {
   id: string;
@@ -91,6 +95,14 @@ function sanitizeArticleContent(content: string | null): string | null {
     },
   );
 
+  // Viết lại link tới các bài viết đã gỡ/gộp sang đích tương ứng
+  for (const [retiredSlug, dest] of Object.entries(RETIRED_ARTICLE_MAP)) {
+    sanitized = sanitized.replace(
+      new RegExp(`(?:https?://(?:www\\.)?biathaytu\\.com)?/(?:kien-thuc|blog)/${retiredSlug}(?:/)?(?=[#?\\s"')>]|$)`, 'g'),
+      dest,
+    );
+  }
+
   return sanitized;
 }
 
@@ -100,6 +112,7 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
       article.tenant_id === DEFAULT_TENANT_ID &&
       article.status === 'published' &&
       !INTERNAL_ONLY_ARTICLE_SLUGS.has(article.slug ?? '') &&
+      !RETIRED_ARTICLE_SLUGS.has(article.slug ?? '') &&
       isBenediktinerArticle(article),
   )
   .map((article) => ({

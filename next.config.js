@@ -12,6 +12,8 @@ const RETIRED_BEER_PRODUCT_SLUGS = [
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ];
 
+const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -31,6 +33,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      ...Object.entries(RETIRED_ARTICLES).map(([slug, destination]) => ({
+        source: `/kien-thuc/${slug}`,
+        destination,
+        statusCode: 301,
+      })),
       ...RETIRED_BEER_ARTICLE_SLUGS.map((slug) => ({
         source: `/kien-thuc/${slug}`,
         destination: '/bia-benediktiner-chinh-hang',
