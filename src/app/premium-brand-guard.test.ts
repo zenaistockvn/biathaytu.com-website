@@ -6,6 +6,7 @@ import { getPublishedArticles, INTERNAL_ONLY_ARTICLE_SLUGS } from '@/lib/data/ar
 
 const require = createRequire(import.meta.url);
 const { cleanText, cleanRichText, EMOJI } = require('../../scripts/lib/editorial-clean.cjs');
+const { scan: scanHardcodedColors } = require('../../scripts/audit/color-literals.cjs');
 
 const ROOT = process.cwd();
 
@@ -100,12 +101,84 @@ describe('ký hiệu: không emoji, mũi tên hay gạch ngang dài trong phần
 });
 
 describe('màu: không lặp lại lỗi của lần đổi palette trước', () => {
+  it('không còn màu viết cứng nào ngoài khối token', () => {
+    expect(scanHardcodedColors()).toEqual([]);
+  });
+
+  it('mọi token kênh màu rgb đều khớp giá trị của token hex tương ứng', () => {
+    const css = read('src/app/web.css');
+    const rootBlock = css.slice(css.indexOf(':root {'), css.indexOf('}', css.indexOf(':root {')));
+    const hexMap: Record<string, string> = {};
+    for (const m of rootBlock.matchAll(/--web-([a-z0-9-]+):\s*(#[0-9a-fA-F]{6});/g)) {
+      hexMap[m[1]] = m[2].toUpperCase();
+    }
+    for (const m of rootBlock.matchAll(/--web-([a-z0-9-]+)-rgb:\s*([0-9]+),\s*([0-9]+),\s*([0-9]+);/g)) {
+      const name = m[1];
+      const [r, g, b] = [Number(m[2]), Number(m[3]), Number(m[4])];
+      const hexFromRgb = `#${[r, g, b].map((c) => c.toString(16).padStart(2, '0')).join('')}`.toUpperCase();
+      expect(hexMap[name], `Token hex --web-${name} phải tồn tại trong :root`).toBeDefined();
+      expect(hexFromRgb, `Kênh --web-${name}-rgb (${r}, ${g}, ${b}) phải khớp hex ${hexMap[name]}`).toBe(hexMap[name]);
+    }
+  });
+
   it('không khối nào đặt chữ ink trên nền accent (thành chữ tối trên nền tối)', () => {
     const offenders: string[] = [];
-    for (const f of sourceFiles('src/app', /\.tsx$/)) {
-      read(f).split('\n').forEach((line, i) => {
-        if (/background:\s*'var\(--web-accent\)'/.test(line) && /color:\s*'var\(--web-ink\)'/.test(line)) offenders.push(`${f}:${i + 1}`);
+    const cssFiles = sourceFiles('src', /\.css$/);
+    const tsxFiles = sourceFiles('src', /\.tsx$/);
+
+    for (const f of cssFiles) {
+      const content = stripComments(read(f));
+      for (const block of content.match(/\{[^}]+\}/g) || []) {
+        const hasAccentBg = /background(?:-color)?:\s*[^;]*\bvar\(--web-accent(?:-strong|-hover)?\)/.test(block);
+        const hasInkText = /\bcolor:\s*[^;]*\bvar\(--web-(?:ink|text)\b[a-z0-9-]*\)/.test(block);
+        if (hasAccentBg && hasInkText) offenders.push(`${f}: ${block.replace(/\s+/g, ' ')}`);
+      }
+    }
+
+    for (const f of tsxFiles) {
+      const content = stripComments(read(f));
+      for (const styleBlock of content.match(/<style[^>]*>[\s\S]*?<\/style>/g) || []) {
+        for (const block of styleBlock.match(/\{[^}]+\}/g) || []) {
+          const hasAccentBg = /background(?:-color)?:\s*[^;]*\bvar\(--web-accent(?:-strong|-hover)?\)/.test(block);
+          const hasInkText = /\bcolor:\s*[^;]*\bvar\(--web-(?:ink|text)\b[a-z0-9-]*\)/.test(block);
+          if (hasAccentBg && hasInkText) offenders.push(`${f} (<style>): ${block.replace(/\s+/g, ' ')}`);
+        }
+      }
+      for (const inlineBlock of content.match(/style=\{\{[\s\S]*?\}\}/g) || []) {
+        const hasAccentBg = /\b(?:background|backgroundColor)\s*:\s*['"`]?var\(--web-accent(?:-strong|-hover)?\)/.test(inlineBlock);
+        const hasInkText = /\bcolor\s*:\s*['"`]?var\(--web-(?:ink|text)\b[a-z0-9-]*\)/.test(inlineBlock);
+        if (hasAccentBg && hasInkText) offenders.push(`${f} (inline): ${inlineBlock.replace(/\s+/g, ' ')}`);
+      }
+    }
+
+    expect(offenders).toEqual([]);
+  });
+
+  it('--web-accent-soft không dùng làm color: ở bất kỳ đâu', () => {
+    const offenders: string[] = [];
+    for (const f of [...sourceFiles('src', /\.css$/), ...sourceFiles('src', /\.tsx$/)]) {
+      const content = stripComments(read(f));
+      content.split('\n').forEach((line, i) => {
+        if (/(?<![-a-zA-Z])color\s*:\s*[^;]*\bvar\(--web-accent-soft\)/.test(line)) {
+          offenders.push(`${f}:${i + 1}: ${line.trim()}`);
+        }
       });
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('không giảm opacity trong quy tắc a:hover', () => {
+    const offenders: string[] = [];
+    for (const f of sourceFiles('src', /\.css$/)) {
+      const content = stripComments(read(f));
+      for (const m of content.matchAll(/([^{}]+a:hover[^{}]*)\{([^}]+)\}/g)) {
+        const selector = m[1].trim();
+        const body = m[2];
+        const opacityMatch = body.match(/\bopacity:\s*([0-9.]+)/);
+        if (opacityMatch && Number(opacityMatch[1]) < 1) {
+          offenders.push(`${f}: ${selector} { ${body.trim()} }`);
+        }
+      }
     }
     expect(offenders).toEqual([]);
   });
