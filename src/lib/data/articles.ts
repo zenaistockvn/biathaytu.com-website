@@ -1,6 +1,7 @@
 import articlesData from '@/data/articles.json';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
+import { getVisibleProducts } from './products';
 
 export const DEFAULT_TENANT_ID = 'biathaytu';
 
@@ -24,6 +25,13 @@ const OUT_OF_SCOPE_BEER_MENTION_PATTERN =
   /(?:chimay|la\s*trappe|rochefort)/i;
 const ARTICLE_BLOCK_PATTERN = /<(p|li|h2|h3|h4|figure)\b[^>]*>[\s\S]*?<\/\1>/gi;
 
+const LEGACY_PRODUCT_SLUG_MAP: Record<string, string> = {
+  'benediktiner-weissbier-naturtrub-500ml': 'benediktiner-naturtrub-thung-12-chai-500ml',
+  'bitburger-premium-pils-330ml': 'bitburger-premium-pils-thung-12-chai-330ml',
+  'benediktiner-dunkel-500ml': 'benediktiner-dunkel-thung-12-chai-500ml',
+  'bom-5l-benediktiner-weissbier': 'benediktiner-naturtrub-bom-5l',
+};
+
 /**
  * Tài liệu nội bộ (marketing) nằm trong bảng seo_articles với status 'published'.
  * Giữ trong database cho nội bộ đọc, không hiển thị trên website, sitemap hay llms.txt.
@@ -37,7 +45,7 @@ function isBenediktinerArticle(article: Article): boolean {
 function sanitizeArticleContent(content: string | null): string | null {
   if (!content) return content;
 
-  return content
+  let sanitized = content
     .replace(ARTICLE_BLOCK_PATTERN, (block) =>
       OUT_OF_SCOPE_BEER_MENTION_PATTERN.test(block) ? '' : block,
     )
@@ -51,6 +59,39 @@ function sanitizeArticleContent(content: string | null): string | null {
     )
     .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, COMPANY_CONFIG.hotline)
     .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, COMPANY_CONFIG.hotline);
+
+  // Phase A: Viết lại slug sản phẩm cũ sang slug mới
+  for (const [legacySlug, newSlug] of Object.entries(LEGACY_PRODUCT_SLUG_MAP)) {
+    sanitized = sanitized.replace(
+      new RegExp(`((?:https?://(?:www\\.)?biathaytu\\.com)?/san-pham/)${legacySlug}(\\b|(?=[/"'?#]))`, 'g'),
+      `$1${newSlug}`,
+    );
+  }
+
+  // Bỏ thẻ <a> và Markdown link trỏ tới sản phẩm không visible (ví dụ SKU tạm ẩn)
+  const visibleProductSlugs = new Set(getVisibleProducts().map((p) => p.slug));
+
+  sanitized = sanitized.replace(
+    /<a\b([^>]*\bhref=["'](?:https?:\/\/(?:www\.)?biathaytu\.com)?\/san-pham\/([^"'/ ?#]+)[^"']*["'][^>]*)>([\s\S]*?)<\/a>/gi,
+    (fullTag, _attrs, slug, text) => {
+      if (!visibleProductSlugs.has(slug)) {
+        return text;
+      }
+      return fullTag;
+    },
+  );
+
+  sanitized = sanitized.replace(
+    /\[([^\]]+)\]\((?:https?:\/\/(?:www\.)?biathaytu\.com)?\/san-pham\/([^)\s/?#]+)(?:\s+["'][^"']*["'])?\)/g,
+    (fullMatch, text, slug) => {
+      if (!visibleProductSlugs.has(slug)) {
+        return text;
+      }
+      return fullMatch;
+    },
+  );
+
+  return sanitized;
 }
 
 const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])

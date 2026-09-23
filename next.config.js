@@ -42,6 +42,26 @@ const nextConfig = {
         statusCode: 301,
       })),
       {
+        source: '/san-pham/benediktiner-weissbier-naturtrub-500ml',
+        destination: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/bitburger-premium-pils-330ml',
+        destination: '/san-pham/bitburger-premium-pils-thung-12-chai-330ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/benediktiner-dunkel-500ml',
+        destination: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/bom-5l-benediktiner-weissbier',
+        destination: '/san-pham/benediktiner-naturtrub-bom-5l',
+        statusCode: 301,
+      },
+      {
         source: '/dat-hang',
         destination: '/lien-he',
         statusCode: 301,
