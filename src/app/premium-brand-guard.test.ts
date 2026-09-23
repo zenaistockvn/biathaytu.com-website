@@ -105,20 +105,13 @@ describe('màu: không lặp lại lỗi của lần đổi palette trước', (
     expect(scanHardcodedColors()).toEqual([]);
   });
 
-  it('mọi token kênh màu rgb đều khớp giá trị của token hex tương ứng', () => {
+  // Token kênh -rgb khớp token hex: đã kiểm tra trong contrast.test.ts.
+
+  it('token khai báo ở :root để html/body (nền trước khi cổng tuổi hiện) dùng được', () => {
     const css = read('src/app/web.css');
-    const rootBlock = css.slice(css.indexOf(':root {'), css.indexOf('}', css.indexOf(':root {')));
-    const hexMap: Record<string, string> = {};
-    for (const m of rootBlock.matchAll(/--web-([a-z0-9-]+):\s*(#[0-9a-fA-F]{6});/g)) {
-      hexMap[m[1]] = m[2].toUpperCase();
-    }
-    for (const m of rootBlock.matchAll(/--web-([a-z0-9-]+)-rgb:\s*([0-9]+),\s*([0-9]+),\s*([0-9]+);/g)) {
-      const name = m[1];
-      const [r, g, b] = [Number(m[2]), Number(m[3]), Number(m[4])];
-      const hexFromRgb = `#${[r, g, b].map((c) => c.toString(16).padStart(2, '0')).join('')}`.toUpperCase();
-      expect(hexMap[name], `Token hex --web-${name} phải tồn tại trong :root`).toBeDefined();
-      expect(hexFromRgb, `Kênh --web-${name}-rgb (${r}, ${g}, ${b}) phải khớp hex ${hexMap[name]}`).toBe(hexMap[name]);
-    }
+    expect(css).toMatch(/:root,\s*\.web-app\s*\{/);
+    // layout.tsx tô nền body bằng token trước khi trang hiện; body nằm ngoài .web-app.
+    expect(read('src/app/(web)/layout.tsx')).toMatch(/body\{background:var\(--web-ink-deep\)/);
   });
 
   it('không khối nào đặt chữ ink trên nền accent (thành chữ tối trên nền tối)', () => {

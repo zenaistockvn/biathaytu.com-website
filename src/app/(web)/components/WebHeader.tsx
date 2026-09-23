@@ -8,6 +8,8 @@ import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { getCompanyZaloUrl } from '@/config/company';
 
+// Trang có section đầu là dải xanh ngay dưới header. Không thêm /san-pham: thanh menu phụ
+// màu kem nằm giữa header và hero, header trong suốt sẽ thành dải xanh lơ lửng trên nền kem.
 const DARK_HERO_PATHS = new Set([
   '/',
   '/benediktiner-weissbier-naturtrub',
@@ -18,7 +20,6 @@ const DARK_HERO_PATHS = new Set([
   '/bang-gia-si-dai-ly',
   '/qua-tang-bia-duc',
   '/thuong-hieu',
-  '/san-pham',
   '/food-pairing-bia-duc',
   '/ve-chung-toi',
   '/chung-nhan-nhap-khau-chinh-hang',

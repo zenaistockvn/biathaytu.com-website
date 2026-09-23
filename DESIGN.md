@@ -78,18 +78,18 @@ Copperplate và Trade Gothic là font thương mại, không có dấu tiếng V
 
 ### Token kênh màu và độ trong suốt
 
-Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú pháp CSS hiện đại `rgb(var(--token-rgb) / alpha)`, không viết cứng `rgba(r, g, b, a)`.
+Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú pháp CSS hiện đại `rgb(var(--token-rgb) / alpha)`, không viết cứng `rgba(r, g, b, a)`. Các kênh trong token ngăn bằng **dấu cách** (`28 49 87`); viết dấu phẩy hoặc dùng `rgba(var(--token-rgb), a)` là CSS không hợp lệ, trình duyệt sẽ âm thầm bỏ qua.
 
 | Token kênh màu | Giá trị RGB | Token hex tương ứng | Ứng dụng chính |
 | --- | --- | --- | --- |
-| `--web-ink-rgb` | `28, 49, 87` | `--web-ink` (`#1C3157`) | Bóng đổ (`box-shadow`, `text-shadow`) ngả navy tự nhiên, lớp phủ nhẹ |
-| `--web-ink-deep-rgb` | `21, 38, 69` | `--web-ink-deep` (`#152645`) | Nền phủ modal/overlay, gradient che chắn phía trên header trong suốt |
-| `--web-accent-rgb` | `0, 71, 135` | `--web-accent` (`#004787`) | Quầng sáng nút, viền focus ring, nền phụ bán trong suốt |
-| `--web-accent-on-ink-rgb` | `214, 189, 121` | `--web-accent-on-ink` (`#D6BD79`) | Điểm nhấn viền hoặc nền nhẹ trên bề mặt tối |
-| `--web-on-ink-rgb` | `255, 255, 255` | `--web-on-ink` (`#FFFFFF`) | Viền thẻ trên dải tối, nền thẻ bán trong suốt |
-| `--web-bg-rgb` | `244, 241, 233` | `--web-bg` (`#F4F1E9`) | Nền kem bán trong suốt khi cần pha trộn |
-| `--web-border-rgb` | `207, 201, 182` | `--web-border` (`#CFC9B6`) | Đường phân cách, viền bán trong suốt |
-| `--web-red-rgb` | `200, 32, 42` | `--web-red` (`#C8202A`) | Nền thông báo lỗi/cảnh báo pháp lý bán trong suốt |
+| `--web-ink-rgb` | `28 49 87` | `--web-ink` (`#1C3157`) | Bóng đổ (`box-shadow`, `text-shadow`) ngả navy tự nhiên, lớp phủ nhẹ |
+| `--web-ink-deep-rgb` | `21 38 69` | `--web-ink-deep` (`#152645`) | Nền phủ modal/overlay, gradient che chắn phía trên header trong suốt |
+| `--web-accent-rgb` | `0 71 135` | `--web-accent` (`#004787`) | Quầng sáng nút, viền focus ring, nền phụ bán trong suốt |
+| `--web-accent-on-ink-rgb` | `214 189 121` | `--web-accent-on-ink` (`#D6BD79`) | Điểm nhấn viền hoặc nền nhẹ trên bề mặt tối |
+| `--web-on-ink-rgb` | `255 255 255` | `--web-on-ink` (`#FFFFFF`) | Viền thẻ trên dải tối, nền thẻ bán trong suốt |
+| `--web-bg-rgb` | `244 241 233` | `--web-bg` (`#F4F1E9`) | Nền kem bán trong suốt khi cần pha trộn |
+| `--web-border-rgb` | `207 201 182` | `--web-border` (`#CFC9B6`) | Đường phân cách, viền bán trong suốt |
+| `--web-red-rgb` | `200 32 42` | `--web-red` (`#C8202A`) | Nền thông báo lỗi/cảnh báo pháp lý bán trong suốt |
 
 **Quy tắc bóng đổ:** Bóng đổ không dùng màu đen trung tính `rgba(0,0,0, a)`, mà sử dụng kênh navy `--web-ink-rgb` (`rgb(var(--web-ink-rgb) / a)`). Điều này tạo bóng đổ có chiều sâu và ấm áp, hòa hợp hoàn hảo với phong cách cao cấp của tu viện Benedictine.
 
@@ -120,7 +120,7 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
    - Link trong đoạn văn xuôi (`p a`, `li a`, `.prose a`) sử dụng gạch chân `text-decoration: underline; text-underline-offset: 3px`.
    - Link dạng nút hoặc card giữ nguyên màu chữ, chỉ chuyển đổi trạng thái nền.
 2. **Nút chính (Primary Buttons):**
-   - Trên nền sáng: nền `--web-accent` (`#004787`), chữ `--web-on-ink` (`#FFFFFF`) → hover sang `--web-accent-hover` (`#00386C`).
+   - Trên nền sáng: nền `--web-accent` (`#004787`), chữ `--web-on-ink` (`#FFFFFF`) → hover sang `--web-accent-hover` (`#003A6E`).
    - Trên dải tối: nền `--web-accent-on-ink` (`#D6BD79`), chữ `--web-ink` (`#1C3157`) → hover sang `--web-accent-on-ink-soft` (`#E5D3A1`). Tương phản luôn > 6.0:1.
 3. **Trạng thái Focus (`*:focus-visible`):**
    - Trên nền sáng: outline 2px solid `var(--web-accent)`, offset 2px.
