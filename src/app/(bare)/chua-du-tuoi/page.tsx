@@ -22,29 +22,28 @@ export default function UnderagePage() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '60px 20px',
-        backgroundColor: '#0f172a',
-        color: '#f8fafc',
+        backgroundColor: 'var(--web-ink)',
+        color: 'var(--web-on-ink)',
         textAlign: 'center',
       }}
     >
       <div
         style={{
           maxWidth: '600px',
-          backgroundColor: '#1e293b',
+          backgroundColor: 'var(--web-ink-soft)',
           borderRadius: '16px',
           padding: '40px 28px',
-          border: '1px solid #334155',
-          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3)',
+          border: '1px solid var(--web-border)',
+          boxShadow: '0 20px 25px -5px rgb(var(--web-ink-rgb) / 0.3)',
         }}
       >
-        <div style={{ fontSize: '48px', marginBottom: '16px' }}></div>
         <h1
           style={{
             fontSize: '26px',
             fontWeight: '700',
-            color: '#fbbf24',
+            color: 'var(--web-accent-on-ink)',
             marginBottom: '16px',
-            fontFamily: 'var(--font-serif, serif)',
+            fontFamily: 'var(--font-display), sans-serif',
           }}
         >
           Thông Báo Kiểm Soát Độ Tuổi
@@ -54,7 +53,7 @@ export default function UnderagePage() {
           style={{
             fontSize: '16px',
             lineHeight: '1.7',
-            color: '#cbd5e1',
+            color: 'var(--web-on-ink-muted)',
             marginBottom: '24px',
           }}
         >
@@ -63,18 +62,18 @@ export default function UnderagePage() {
 
         <div
           style={{
-            backgroundColor: '#0f172a',
+            backgroundColor: 'var(--web-ink)',
             borderRadius: '10px',
             padding: '20px',
             textAlign: 'left',
             fontSize: '14px',
-            color: '#94a3b8',
+            color: 'var(--web-on-ink-muted)',
             lineHeight: '1.6',
             marginBottom: '28px',
-            borderLeft: '4px solid #f59e0b',
+            borderLeft: '4px solid var(--web-accent-on-ink)',
           }}
         >
-          <strong style={{ color: '#f59e0b', display: 'block', marginBottom: '6px' }}>
+          <strong style={{ color: 'var(--web-accent-on-ink)', display: 'block', marginBottom: '6px' }}>
             Thông tin nâng cao nhận thức sức khỏe:
           </strong>
           - Sử dụng rượu, bia ảnh hưởng đến sự phát triển thể chất và trí tuệ ở lứa tuổi thanh thiếu niên.<br />
@@ -82,7 +81,7 @@ export default function UnderagePage() {
           - Hãy tuân thủ pháp luật và lựa chọn lối sống lành mạnh.
         </div>
 
-        <p style={{ fontSize: '14px', color: '#64748b' }}>
+        <p style={{ fontSize: '14px', color: 'var(--web-on-ink-muted)' }}>
           Nếu có nhầm lẫn trong quá trình xác nhận, bạn có thể đóng trình duyệt và quay lại sau khi đã đáp ứng đủ yêu cầu về độ tuổi theo luật định.
         </p>
       </div>

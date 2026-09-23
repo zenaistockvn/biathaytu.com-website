@@ -20,9 +20,9 @@ export default function PrivacyPolicyPage() {
 
       <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
 
-      <div style={{ lineHeight: '1.8', color: '#334155', fontSize: '15px' }}>
+      <div style={{ lineHeight: '1.8', color: 'var(--web-text-secondary)', fontSize: '15px' }}>
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
             1. Thông tin được xử lý trên website
           </h2>
           <p>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
             2. Phân tích và tiếp thị
           </h2>
           <p>
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
             3. Quyền và kênh liên hệ của người dùng
           </h2>
           <p>
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2 style={{ fontSize: '18px', color: '#0f172a', fontWeight: '700', marginBottom: '12px' }}>
+          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
             4. Thông tin đơn vị vận hành
           </h2>
           <CompanyLegalDetails compact />

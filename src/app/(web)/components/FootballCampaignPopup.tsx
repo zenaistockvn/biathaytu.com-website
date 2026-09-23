@@ -106,7 +106,7 @@ export default function FootballCampaignPopup() {
           onClick={handleClose}
           aria-label="Đóng popup"
         >
-          ✕
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
 
         {/* Campaign Tabs */}
@@ -133,7 +133,7 @@ export default function FootballCampaignPopup() {
             <div className="football-popup-content-wrap">
               <div className="football-popup-image-container">
                 <Image 
-                  src="/images/products/bitburger_football_edition.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Bitburger Premium Pils 500ml Football Edition 2026 - 1.150.000đ/thùng 24 lon"
                   fill
                   className="football-popup-img"
@@ -155,7 +155,7 @@ export default function FootballCampaignPopup() {
             <div className="football-popup-content-wrap">
               <div className="football-popup-image-container">
                 <Image 
-                  src="/images/products/bitburger_combo_match_night.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Combo Match Night - 2 két Bitburger Football Edition + Tặng xúc xích Đức 500g - 2.290.000đ"
                   fill
                   className="football-popup-img"

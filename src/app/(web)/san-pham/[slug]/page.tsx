@@ -34,7 +34,7 @@ interface ProductData {
 }
 
 function getPackagingFormat(name: string): string | null {
-  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^—,]*/i);
+  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^,:]*/i);
   return match?.[0]?.trim() || null;
 }
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product || product.hidden) return {};
   const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
 
-  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/sanh_bia_duc_cover.png');
+  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
   const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
 
   return {
@@ -247,7 +247,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <section className="perfect-pairings-section" style={{ marginTop: '60px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
             <div className="section-header-center" style={{ marginBottom: '40px' }}>
               <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Gợi Ý Food Pairing</span>
-              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 800, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
+              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 700, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
               <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
             </div>
 
@@ -264,15 +264,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                       className="pairing-sausage-item"
                       style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
                     >
-                      <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
-                        <Image
-                          src={sausage.images?.[0] || '/images/products/placeholder.png'}
-                          alt={sausage.name}
-                          fill
-                          sizes="70px"
-                          style={{ objectFit: 'contain' }}
-                        />
-                      </div>
+                      {sausage.images?.[0] ? (
+                        <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: 'var(--web-card-bg)', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
+                          <Image
+                            src={sausage.images[0]}
+                            alt={sausage.name}
+                            fill
+                            sizes="70px"
+                            style={{ objectFit: 'contain' }}
+                          />
+                        </div>
+                      ) : null}
                       <div style={{ flexGrow: 1 }}>
                         <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
                         <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
@@ -285,29 +287,31 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
 
               {relatedCombo && (
-                <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
+                <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
                   <div>
                     <h3 style={{ color: 'var(--web-accent-on-ink)', borderBottom: '2px solid var(--web-accent-on-ink)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       Combo Đề Xuất
                     </h3>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                      <div style={{ width: '100px', height: '100px', position: 'relative', background: '#fff', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Image
-                          src={relatedCombo.images?.[0] || '/images/products/placeholder.png'}
-                          alt={relatedCombo.name}
-                          fill
-                          sizes="100px"
-                          style={{ objectFit: 'contain' }}
-                        />
-                      </div>
+                      {relatedCombo.images?.[0] ? (
+                        <div style={{ width: '100px', height: '100px', position: 'relative', background: 'var(--web-card-bg)', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <Image
+                            src={relatedCombo.images[0]}
+                            alt={relatedCombo.name}
+                            fill
+                            sizes="100px"
+                            style={{ objectFit: 'contain' }}
+                          />
+                        </div>
+                      ) : null}
                       <div style={{ flex: '1 1 180px' }}>
-                        <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: '#a0aab8', lineHeight: 1.5 }}>{relatedCombo.description}</p>
+                        <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: 'var(--web-on-ink)', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
+                        <p style={{ margin: 0, fontSize: '13px', color: 'var(--web-on-ink-muted)', lineHeight: 1.5 }}>{relatedCombo.description}</p>
                       </div>
                     </div>
                   </div>
                   <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
+                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-on-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
                       Xem chi tiết
                     </Link>
                   </div>

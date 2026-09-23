@@ -89,7 +89,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('name')}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
               />
             </label>
 
@@ -105,7 +105,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('phone')}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
               />
             </label>
           </div>
@@ -120,7 +120,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('email')}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff' }}
+              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
             />
           </label>
 
@@ -134,7 +134,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('content')}
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: '#fff', resize: 'vertical' }}
+              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)', resize: 'vertical' }}
             />
           </label>
 
@@ -145,8 +145,8 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               style={{
                 padding: '12px 14px',
                 borderRadius: '8px',
-                background: status === 'success' ? '#e8f5eb' : '#fff1f0',
-                color: status === 'success' ? '#1d5c2e' : '#8b1e1e',
+                background: status === 'success' ? 'var(--web-accent-bg)' : 'rgb(var(--web-red-rgb) / 0.1)',
+                color: status === 'success' ? 'var(--web-accent)' : 'var(--web-red)',
                 lineHeight: 1.5,
               }}
             >

@@ -1,6 +1,6 @@
 .footer {
   background: var(--web-ink);
-  color: #fff;
+  color: var(--web-on-ink);
   padding: 52px 0 0;
 }
 
@@ -11,9 +11,9 @@
   gap: 24px;
   margin: 0 0 44px;
   padding: 20px 22px;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgb(var(--web-on-ink-rgb) / .14);
   border-radius: 14px;
-  background: rgba(255,255,255,.06);
+  background: rgb(var(--web-on-ink-rgb) / .06);
 }
 
 .wineBridge div {
@@ -23,14 +23,14 @@
 .wineBridge strong {
   display: block;
   margin: 3px 0 4px;
-  color: #fff;
-  font-family: var(--font-serif), serif;
+  color: var(--web-on-ink);
+  font-family: var(--font-display);
   font-size: 19px;
 }
 
 .wineBridge p {
   margin: 0;
-  color: rgba(255,255,255,.68);
+  color: var(--web-on-ink-muted);
   font-size: 13px;
   line-height: 1.55;
 }
@@ -38,7 +38,7 @@
 .wineEyebrow {
   color: var(--web-accent-on-ink);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
 }
@@ -52,14 +52,14 @@
   padding: 0 16px;
   border: 1px solid var(--web-accent-soft);
   border-radius: 10px;
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: none !important;
 }
 
 .wineBridge > a:hover {
-  background: rgba(255,255,255,.1);
+  background: rgb(var(--web-on-ink-rgb) / .1);
 }
 
 .desktopFooter {
@@ -73,15 +73,15 @@
 .brandTitle {
   margin: 0 0 12px;
   color: var(--web-accent-on-ink) !important;
-  font-family: var(--font-serif), serif !important;
+  font-family: var(--font-display) !important;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .brandDesc {
   margin: 0;
   max-width: 330px;
-  color: rgba(255,255,255,.72);
+  color: var(--web-on-ink-muted);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -89,7 +89,7 @@
 .brochureNote {
   margin: 12px 0 0;
   max-width: 330px;
-  color: #fff;
+  color: var(--web-on-ink);
   font-size: 13px;
   font-weight: 750;
   line-height: 1.55;
@@ -110,10 +110,10 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgb(var(--web-on-ink-rgb) / .14);
   border-radius: 10px;
-  background: rgba(255,255,255,.08);
-  color: #fff !important;
+  background: rgb(var(--web-on-ink-rgb) / .08);
+  color: var(--web-on-ink) !important;
   font-size: 13px;
   font-weight: 750;
   padding: 0 14px;
@@ -122,7 +122,7 @@
 
 .iconButton:hover,
 .actionButton:hover {
-  background: rgba(255,255,255,.14);
+  background: rgb(var(--web-on-ink-rgb) / .14);
   opacity: 1 !important;
 }
 
@@ -133,10 +133,10 @@
 
 .columnTitle {
   margin: 0 0 18px;
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   font-family: var(--font-sans), sans-serif !important;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -151,7 +151,7 @@
 .companyItem,
 .contactItem {
   margin: 0;
-  color: rgba(255,255,255,.76);
+  color: var(--web-on-ink-muted);
   font-size: 13px;
   line-height: 1.55;
 }
@@ -161,13 +161,13 @@
   margin-bottom: 2px;
   color: var(--web-accent-on-ink);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: .25px;
   text-transform: uppercase;
 }
 
 .contactItem a {
-  color: rgba(255,255,255,.86) !important;
+  color: var(--web-on-ink) !important;
   text-decoration: underline !important;
   text-underline-offset: 3px;
 }
@@ -182,7 +182,7 @@
   color: var(--web-accent-on-ink);
   font-family: var(--font-sans), sans-serif !important;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .linkList {
@@ -191,14 +191,14 @@
 }
 
 .linkList a {
-  color: rgba(255,255,255,.68) !important;
+  color: var(--web-on-ink-muted) !important;
   font-size: 13px;
   line-height: 1.5;
   text-decoration: none !important;
 }
 
 .linkList a:hover {
-  color: #fff !important;
+  color: var(--web-on-ink) !important;
   opacity: 1 !important;
 }
 
@@ -207,11 +207,11 @@
 }
 
 .mobileDetails {
-  border-top: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / .12);
 }
 
 .mobileDetails:last-of-type {
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / .12);
 }
 
 .mobileSummary {
@@ -221,9 +221,9 @@
   list-style: none;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: var(--web-on-ink);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: .6px;
   text-transform: uppercase;
 }
@@ -249,7 +249,7 @@
 
 .bottomArea {
   margin-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / .1);
   padding: 18px 0 calc(20px + env(safe-area-inset-bottom));
 }
 
@@ -263,7 +263,7 @@
 
 .copyright {
   margin: 12px 0 0;
-  color: rgba(255,255,255,.48);
+  color: var(--web-on-ink-muted);
   font-size: 12px;
   text-align: center;
 }

@@ -8,7 +8,35 @@ import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { getCompanyZaloUrl } from '@/config/company';
 
-const DARK_HERO_PATHS = new Set(['/', '/kien-thuc']);
+// Trang có section đầu là dải xanh ngay dưới header. Không thêm /san-pham: thanh menu phụ
+// màu kem nằm giữa header và hero, header trong suốt sẽ thành dải xanh lơ lửng trên nền kem.
+const DARK_HERO_PATHS = new Set([
+  '/',
+  '/benediktiner-weissbier-naturtrub',
+  '/bitburger-premium-pils',
+  '/bia-duc-nhap-khau',
+  '/nhan-uu-dai',
+  '/benediktiner-dunkel',
+  '/bang-gia-si-dai-ly',
+  '/qua-tang-bia-duc',
+  '/thuong-hieu',
+  '/food-pairing-bia-duc',
+  '/ve-chung-toi',
+  '/chung-nhan-nhap-khau-chinh-hang',
+  '/bom-bia-5l-benediktiner',
+  '/bia-benediktiner-chinh-hang',
+  '/bia-thay-tu-la-gi',
+  '/huong-dan-rot-bia-lua-mi',
+  '/bia-duc-cho-nha-hang-khach-san',
+]);
+
+function isDarkHeroPath(pathname: string): boolean {
+  return (
+    DARK_HERO_PATHS.has(pathname) ||
+    pathname === '/kien-thuc' ||
+    pathname.startsWith('/kien-thuc/')
+  );
+}
 
 export default function WebHeader() {
   const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
@@ -42,7 +70,7 @@ export default function WebHeader() {
     { href: '/kien-thuc', label: 'Kiến thức bia Đức' },
   ];
 
-  const hasDarkHero = DARK_HERO_PATHS.has(pathname);
+  const hasDarkHero = isDarkHeroPath(pathname);
   const headerOnDark = hasDarkHero && !scrolled && !menuOpen;
   const consultUrl = getCompanyZaloUrl();
   const isCurrentPath = (href: string) => {
@@ -95,7 +123,11 @@ export default function WebHeader() {
             aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={menuOpen}
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            )}
           </button>
         </div>
       </div>

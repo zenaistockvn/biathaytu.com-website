@@ -25,10 +25,10 @@ export default function AlcoholWarning({
         style={{
           width: '100%',
           minHeight: '10%',
-          backgroundColor: '#0d1117',
-          color: '#f1c40f',
-          borderTop: '2px solid #f39c12',
-          borderBottom: '2px solid #f39c12',
+          backgroundColor: 'var(--web-ink-deep)',
+          color: 'var(--web-accent-on-ink)',
+          borderTop: '2px solid var(--web-accent-on-ink)',
+          borderBottom: '2px solid var(--web-accent-on-ink)',
           padding: '10px 16px',
           fontSize: '13px',
           fontWeight: '600',
@@ -56,16 +56,16 @@ export default function AlcoholWarning({
       <div
         className={`alcohol-warning-checkout ${className}`}
         style={{
-          backgroundColor: '#fff9e6',
-          borderLeft: '4px solid #d97706',
-          color: '#78350f',
+          backgroundColor: 'var(--web-bg-warm)',
+          borderLeft: '4px solid var(--web-heritage)',
+          color: 'var(--web-ink)',
           padding: '12px 16px',
           borderRadius: '6px',
           fontSize: '13px',
           fontWeight: '500',
           lineHeight: '1.5',
           margin: '16px 0',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+          boxShadow: '0 1px 3px rgb(var(--web-ink-rgb) / 0.05)',
           ...style,
         }}
         role="alert"
@@ -73,7 +73,7 @@ export default function AlcoholWarning({
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
           <span style={{ fontSize: '16px', lineHeight: '1' }}></span>
           <div>
-            <strong style={{ display: 'block', color: '#92400e', marginBottom: '2px' }}>
+            <strong style={{ display: 'block', color: 'var(--web-ink)', marginBottom: '2px' }}>
               Cảnh báo tuân thủ quy định bán bia lẻ:
             </strong>
             <span>{text}</span>
@@ -91,9 +91,9 @@ export default function AlcoholWarning({
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          backgroundColor: 'rgba(243, 156, 18, 0.15)',
-          border: '1px solid rgba(243, 156, 18, 0.3)',
-          color: '#f39c12',
+          backgroundColor: 'rgb(var(--web-accent-on-ink-rgb) / 0.15)',
+          border: '1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3)',
+          color: 'var(--web-accent-on-ink)',
           padding: '6px 12px',
           borderRadius: '20px',
           fontSize: '12px',
@@ -103,8 +103,8 @@ export default function AlcoholWarning({
         }}
       >
         <span style={{
-          backgroundColor: '#f39c12',
-          color: '#000',
+          backgroundColor: 'var(--web-accent-on-ink)',
+          color: 'var(--web-ink)',
           borderRadius: '50%',
           width: '20px',
           height: '20px',
@@ -126,9 +126,9 @@ export default function AlcoholWarning({
     <div
       className={`alcohol-warning-inline ${className}`}
       style={{
-        backgroundColor: '#161b22',
-        border: '1px solid #30363d',
-        color: '#e6edf3',
+        backgroundColor: 'var(--web-ink-deep)',
+        border: '1px solid rgb(var(--web-on-ink-rgb) / 0.15)',
+        color: 'var(--web-on-ink-muted)',
         padding: '8px 12px',
         borderRadius: '6px',
         fontSize: '12px',
@@ -141,7 +141,7 @@ export default function AlcoholWarning({
       }}
       role="note"
     >
-      <span style={{ color: '#e3b341', fontSize: '14px' }}></span>
+      <span style={{ color: 'var(--web-accent-on-ink)', fontSize: '14px' }}></span>
       <span>{text}</span>
     </div>
   );

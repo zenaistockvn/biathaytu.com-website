@@ -7,10 +7,10 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const languages: { code: LanguageCode; label: string; flag: string }[] = [
-    { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+  const languages: { code: LanguageCode; label: string }[] = [
+    { code: 'vi', label: 'Tiếng Việt' },
+    { code: 'en', label: 'English' },
+    { code: 'de', label: 'Deutsch' },
   ];
 
   const currentLang = languages.find(l => l.code === language) || languages[0];
@@ -41,11 +41,10 @@ export default function LanguageSwitcher() {
           fontSize: '13px',
           fontWeight: 600,
           color: 'var(--web-ink)',
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+          backgroundColor: 'rgb(var(--web-on-ink-rgb) / 0.92)',
           transition: 'all 0.2s ease'
         }}
       >
-        <span style={{ fontSize: '16px' }}>{currentLang.flag}</span>
         <span>{currentLang.code.toUpperCase()}</span>
         <svg 
           width="12" height="12" viewBox="0 0 24 24" fill="none" 
@@ -61,10 +60,10 @@ export default function LanguageSwitcher() {
           position: 'absolute',
           top: 'calc(100% + 8px)',
           right: 0,
-          backgroundColor: '#fff',
+          backgroundColor: 'var(--web-card-bg)',
           border: '1px solid var(--web-border)',
           borderRadius: '8px',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+          boxShadow: '0 10px 25px rgb(var(--web-ink-rgb) / 0.1)',
           minWidth: '140px',
           zIndex: 100,
           overflow: 'hidden',
@@ -92,7 +91,7 @@ export default function LanguageSwitcher() {
                 fontWeight: language === lang.code ? 600 : 400,
               }}
             >
-              <span style={{ fontSize: '18px' }}>{lang.flag}</span>
+              <span style={{ fontWeight: 600, minWidth: '22px' }}>{lang.code.toUpperCase()}</span>
               {lang.label}
             </button>
           ))}

@@ -1,16 +1,27 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Barlow, Barlow_Condensed, Montserrat } from 'next/font/google';
 
-const inter = Inter({
+// Theo tài liệu chiến dịch chính hãng Benediktiner (Copperplate Bold + Trade Gothic Condensed).
+// Hai font gốc là font thương mại, không có dấu tiếng Việt; đây là bản gần nhất trên Google Fonts.
+const barlow = Barlow({
   subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const playfair = Playfair_Display({
+const barlowCondensed = Barlow_Condensed({
   subsets: ['latin', 'vietnamese'],
+  weight: ['500', '600', '700'],
   display: 'swap',
-  variable: '--font-serif',
+  variable: '--font-condensed',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['600', '700'],
+  display: 'swap',
+  variable: '--font-display',
 });
 
 const BASE_URL = 'https://www.biathaytu.com';
@@ -28,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`${barlow.variable} ${barlowCondensed.variable} ${montserrat.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

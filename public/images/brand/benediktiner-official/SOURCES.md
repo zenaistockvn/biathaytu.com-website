@@ -15,3 +15,7 @@ Derived web assets:
 - Both replace earlier `dunkel-glass.webp` / `festbier-keg.webp`, which kept the white studio backdrop. `/images/*` is served with a one-year immutable cache, so a cut-out version has to ship under a new filename rather than overwrite the old one.
 
 Before using these files outside this website, confirm the current Benediktiner/Bitburger media-database usage terms and brand guidelines.
+
+Campaign poster:
+
+- `so-close-to-heaven.jpg` is the official Benediktiner Weissbier campaign motif rendered from `public/images/products/official/benediktiner/Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf`, cropped to the PDF trim box (no bleed or crop marks).

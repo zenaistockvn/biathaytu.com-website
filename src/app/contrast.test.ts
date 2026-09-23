@@ -62,4 +62,21 @@ describe('tương phản WCAG AA của các cặp màu token', () => {
     const size = Number((block.match(/font-size:\s*(\d+)px/) ?? [])[1]);
     expect(size).toBeGreaterThanOrEqual(12);
   });
+
+  it('mọi token kênh màu -rgb khớp chính xác với token hex cùng tên', () => {
+    const start = CSS.indexOf('.web-app {');
+    const block = CSS.slice(start, CSS.indexOf('}', start));
+    const rgbTokens: Record<string, string> = {};
+    for (const m of block.matchAll(/(--web-[a-z0-9-]+-rgb)\s*:\s*([^;]+);/g)) {
+      rgbTokens[m[1]] = m[2].trim();
+    }
+    expect(Object.keys(rgbTokens).length).toBeGreaterThan(0);
+    for (const [rgbName, rgbVal] of Object.entries(rgbTokens)) {
+      const baseName = rgbName.replace(/-rgb$/, '');
+      const hexVal = T[baseName];
+      expect(hexVal, `Không tìm thấy token hex tương ứng cho ${rgbName}`).toBeTruthy();
+      const [r, g, b] = hexToRgb(hexVal);
+      expect(rgbVal).toBe(`${r} ${g} ${b}`);
+    }
+  });
 });

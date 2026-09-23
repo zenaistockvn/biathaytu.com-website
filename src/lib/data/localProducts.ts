@@ -10,7 +10,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: null,
     ibu: null,
     volume: '500g/gói',
-    images: ['/images/products/the-wurst/wiener-hun-khoi.png'],
+    images: [],
     price: 139000,
     haravan_url: null,
     category: 'xuc-xich',
@@ -28,7 +28,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: null,
     ibu: null,
     volume: '500g/gói',
-    images: ['/images/products/the-wurst/thuringer-bratwurst.png'],
+    images: [],
     price: 139000,
     haravan_url: null,
     category: 'xuc-xich',
@@ -46,7 +46,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: null,
     ibu: null,
     volume: '150g/combo',
-    images: ['/images/products/the-wurst/combo-cold-cut.png'],
+    images: [],
     price: 99000,
     haravan_url: null,
     category: 'xuc-xich',
@@ -57,14 +57,14 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
   },
   {
     id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef101',
-    name: 'Combo Match Night — 2 Két Bitburger Football + Tặng Xúc Xích 500g',
+    name: 'Combo Match Night: 2 Két Bitburger Football + Tặng Xúc Xích 500g',
     slug: 'combo-match-night-bitburger-football-edition-xuc-xich',
     description:
       'Trải nghiệm cổ vũ bóng đá Đức trọn vẹn tại gia. Combo bao gồm 2 két Bitburger Football Edition (lon 500ml) mát lạnh, tặng kèm 1 gói 500g xúc xích bê trắng (Thüringer Bratwurst) chuẩn vị Đức nướng xèo xèo cực đã.',
     abv: '4.8',
     ibu: 25,
     volume: '2 Két (48 Lon 500ml) + 500g Xúc Xích',
-    images: ['/images/products/bitburger_combo_match_night.jpg'],
+    images: ['/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp'],
     price: 2290000,
     haravan_url: null,
     category: 'combo',
@@ -75,7 +75,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
   },
   {
     id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef102',
-    name: 'Combo Bavaria Party — Thùng 12 Chai Benediktiner + Tặng Xúc Xích 500g',
+    name: 'Combo Bavaria Party: Thùng 12 Chai Benediktiner + Tặng Xúc Xích 500g',
     slug: 'combo-bavaria-party-benediktiner-weissbier-xuc-xich',
     description:
       'Sự kết hợp hoàng kim của ẩm thực Đức. Thùng 12 chai bia lúa mì tu viện Ettal hảo hạng Benediktiner Naturtrüb 500ml, tặng kèm 1 gói 500g xúc xích Đức nướng thảo mộc Thüringer Bratwurst thơm ngon hảo hạng.',
@@ -93,7 +93,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
   },
   {
     id: '7a71bc9a-9b7e-4c5e-9f2f-6848aa4ef103',
-    name: 'Combo Oktoberfest Keg — Bom Bia Đen Köstritzer 5L + Tặng Xúc Xích Wiener 500g',
+    name: 'Combo Oktoberfest Keg: Bom Bia Đen Köstritzer 5L + Tặng Xúc Xích Wiener 500g',
     slug: 'combo-oktoberfest-keg-kostritzer-xuc-xich',
     description:
       'Trải nghiệm văn hóa lễ hội bia Đức ngay tại phòng khách nhà bạn. Bom bia đen huyền thoại Köstritzer Schwarzbier 5L mát lạnh có vòi rót tự động, tặng kèm 1 gói 500g xúc xích hun khói Wiener dễ ăn và thơm ngon.',

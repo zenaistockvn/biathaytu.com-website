@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/benediktiner-dunkel',
     images: [
       {
-        url: '/images/sanh_bia_duc_cover.png',
+        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
         alt: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
     description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
-    images: ['/images/sanh_bia_duc_cover.png'],
+    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -53,25 +53,25 @@ export default function Page() {
 
       <Section variant="dark" padding="xl" style={{ textAlign: 'center' }}>
         <Container maxWidth="800px">
-          <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="gold" transform="uppercase" style={{ marginBottom: '20px' }}>
+          <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="on-ink-accent" transform="uppercase" style={{ marginBottom: '20px' }}>
             Bia Đen Thượng Hạng
           </Text>
           <Heading level={1} size="fluid" style={{ marginBottom: '24px' }}>
             Benediktiner Dunkel
           </Heading>
-          <Text as="p" size="lg" color="white" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
+          <Text as="p" size="lg" color="on-ink" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
             Bia đen lúa mì quyến rũ với nốt hương caramel và mạch nha rang đậm đà.
           </Text>
         </Container>
       </Section>
 
       <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ background: 'var(--web-card-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             <Image src="/images/products/hero_dunkel_v2.png" alt="Benediktiner Dunkel" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
+             <Image src="/images/brand/benediktiner-official/dunkel-glass-nobg.webp" alt="Benediktiner Dunkel" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
           </div>
           <div style={{ flex: '2 1 400px' }}>
-            <Heading level={2} size="lg" color="navy" style={{ marginBottom: '16px' }}>
+            <Heading level={2} size="lg" color="ink" style={{ marginBottom: '16px' }}>
               Tuyệt tác từ lúa mì và mạch nha rang
             </Heading>
             <Text as="p" color="secondary" style={{ marginBottom: '24px', lineHeight: 1.8 }}>
@@ -80,11 +80,11 @@ export default function Page() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <Text as="span" size="xs" color="muted" style={{ display: 'block', marginBottom: '4px' }}>Độ Cồn (ABV)</Text>
-                <Text as="strong" size="lg" color="navy">5.4%</Text>
+                <Text as="strong" size="lg" color="ink">5.4%</Text>
               </div>
               <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
                 <Text as="span" size="xs" color="muted" style={{ display: 'block', marginBottom: '4px' }}>Quy Cách</Text>
-                <Text as="strong" size="lg" color="navy">Lon/Chai 500ml</Text>
+                <Text as="strong" size="lg" color="ink">Lon/Chai 500ml</Text>
               </div>
             </div>
             <Button href="/mua-bia-benediktiner-chinh-hang" variant="primary" style={{ width: '100%', textAlign: 'center' }}>
@@ -93,7 +93,7 @@ export default function Page() {
           </div>
         </div>
 
-        <Heading level={2} size="md" color="navy" style={{ marginBottom: '24px' }}>
+        <Heading level={2} size="md" color="ink" style={{ marginBottom: '24px' }}>
           Tasting Notes (Hương Vị)
         </Heading>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
@@ -104,7 +104,7 @@ export default function Page() {
             { title: 'Hậu vị', desc: 'Ấm áp, mượt mà và sạch sẽ. Cảm giác béo ngậy của lúa mì hòa quyện hoàn hảo.' },
           ].map((item, i) => (
             <div key={i} style={{ padding: '24px', background: 'var(--web-bg-section)', borderRadius: '12px' }}>
-              <Heading level={3} size="sm" color="navy" style={{ marginBottom: '8px' }}>
+              <Heading level={3} size="sm" color="ink" style={{ marginBottom: '8px' }}>
                 {item.title}
               </Heading>
               <Text as="p" size="sm" color="secondary">
@@ -114,11 +114,11 @@ export default function Page() {
           ))}
         </div>
 
-        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: '#fff', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
-          <Heading level={2} size="md" color="gold" style={{ marginBottom: '16px' }}>
+        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
+          <Heading level={2} size="md" color="on-ink-accent" style={{ marginBottom: '16px' }}>
             Nghệ Thuật Thưởng Thức (Food Pairing)
           </Heading>
-          <Text as="p" color="white" style={{ opacity: 0.8, marginBottom: '24px', lineHeight: 1.8 }}>
+          <Text as="p" color="on-ink" style={{ opacity: 0.8, marginBottom: '24px', lineHeight: 1.8 }}>
             Nhiệt độ thưởng thức lý tưởng từ <strong>8 - 10°C</strong> (ấm hơn một chút so với Weissbier để hương vị mạch nha bung tỏa tối đa).
           </Text>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '12px' }}>

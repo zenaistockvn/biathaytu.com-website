@@ -15,7 +15,10 @@
     "inject-articles": "node scripts/inject_four_articles.js",
     "inject-links": "node scripts/inject_internal_links.js",
     "inject-footer": "node scripts/inject_geo_footer.js",
-    "dump-data": "node scripts/dump_data.js"
+    "dump-data": "node scripts/dump_data.js",
+    "audit:contrast": "node scripts/audit/contrast.cjs",
+    "audit:overflow": "node scripts/audit/overflow.cjs",
+    "audit:colors": "node scripts/audit/color-literals.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -35,6 +38,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.6",
+    "playwright": "^1.56.1",
     "typescript": "^5.7.0",
     "vitest": "^4.1.2"
   },

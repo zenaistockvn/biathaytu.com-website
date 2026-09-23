@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com/bitburger-premium-pils',
     images: [
       {
-        url: '/images/products/bitburger_combo_match_night.jpg',
+        url: '/images/brand/bitburger-official/siegelhopfen-field.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bitburger Premium Pils Football Edition 2026',
+        alt: 'Vùng trồng hop Holsthum của nhà máy bia Bitburger',
       },
     ],
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
     description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026.',
-    images: ['/images/products/bitburger_combo_match_night.jpg'],
+    images: ['/images/brand/bitburger-official/siegelhopfen-field.jpg'],
   },
 };
 
@@ -87,7 +87,7 @@ export default function Page() {
             <div className="campaign-wc-card">
               <div className="campaign-wc-img-holder">
                 <Image 
-                  src="/images/products/bitburger_combo_match_night.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Thùng 24 lon Bitburger WC 2026"
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -123,7 +123,7 @@ export default function Page() {
             <div className="campaign-wc-card">
               <div className="campaign-wc-img-holder">
                 <Image 
-                  src="/images/products/bitburger_football_edition.jpg"
+                  src="/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
                   alt="Combo Match Night 2026"
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -164,7 +164,7 @@ export default function Page() {
           <div className="bitburger-intro-card">
             <div className="bitburger-intro-img-wrap">
               <Image
-                src="/images/products/hero_bitburger_v2.png" 
+                src="/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp" 
                 alt="Bitburger Premium Pils Classic" 
                 width={1024}
                 height={1024}
@@ -254,107 +254,27 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Lifestyle Image Gallery */}
+      {/* Official Benediktiner/Bitburger imagery (no AI-generated scenes) */}
       <section className="lifestyle-gallery-section">
         <div className="container" style={{ padding: '0 20px' }}>
-          <h2 className="bitburger-section-title">Khoảnh Khắc Di Sản &amp; Đời Sống</h2>
+          <h2 className="bitburger-section-title">Hop Siegelhopfen Từ Bitburg</h2>
           <p className="bitburger-section-subtitle">
-            Cảm hứng thưởng thức Bitburger Premium Pils trong những bữa tiệc bóng đá và sum họp chiến hữu
+            Hình ảnh chính thức của nhà máy bia Bitburger
           </p>
 
           <div className="lifestyle-gallery-grid">
             <div className="lifestyle-gallery-card">
               <div className="lifestyle-gallery-img-wrap">
                 <Image
-                  src="/images/products/amc_assets/bitburg_heritage_story_1775753219026.png" 
-                  alt="Di sản lịch sử" 
+                  src="/images/brand/bitburger-official/siegelhopfen-field.jpg"
+                  alt="Vùng trồng hop Holsthum của Bitburger"
                   fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="lifestyle-gallery-img"
                 />
                 <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Di Sản Lịch Sử</h3>
-                  <p className="lifestyle-gallery-card-desc">Hơn 200 năm chế tác bia Pilsner số 1 nước Đức</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/amc_assets/bitburg_to_saigon_1775741871482.png" 
-                  alt="Bitburger đến Sài Gòn" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Hành Trình Vượt Thời Gian</h3>
-                  <p className="lifestyle-gallery-card-desc">Hương vị đẳng cấp thế giới đồng hành cùng người yêu bia Việt</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/amc_assets/bitburger_bbq_food_1775741893404.png" 
-                  alt="Tiệc nướng BBQ" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Tiệc Nướng BBQ</h3>
-                  <p className="lifestyle-gallery-card-desc">Vị đắng thanh khiết hòa quyện cùng thớ thịt nướng đậm vị</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/amc_assets/bitburger_driving_lifestyle_1775733642452.png" 
-                  alt="Lối sống năng động" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Lối Sống Năng Động</h3>
-                  <p className="lifestyle-gallery-card-desc">Đồng hành trong những khoảnh khắc tụ họp tràn đầy năng lượng</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/amc_assets/bitburger_fusion_food_1775753401190.png" 
-                  alt="Ẩm thực Fusion" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Ẩm Thực Fusion</h3>
-                  <p className="lifestyle-gallery-card-desc">Khơi nguồn cảm hứng ẩm thực tinh tế không biên giới</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/products/amc_assets/bitburger_pour_tutorial_1775753451837.png" 
-                  alt="Nghệ thuật rót bia" 
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 50vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Nghệ Thuật Rót Bia</h3>
-                  <p className="lifestyle-gallery-card-desc">Đánh thức lớp bọt dày mịn và giải phóng hương hoa bia Hallertau</p>
+                  <h3 className="lifestyle-gallery-card-title">Vùng hop Holsthum</h3>
+                  <p className="lifestyle-gallery-card-desc">Hop Siegelhopfen trồng độc quyền gần Bitburg, trong Vườn quốc gia Südeifel</p>
                 </div>
               </div>
             </div>
@@ -368,7 +288,7 @@ export default function Page() {
           <div className="bitburger-pairing-wrap">
             <div className="bitburger-pairing-content">
               <h2 className="bitburger-section-title" style={{ textAlign: 'left', marginBottom: '16px' }}>Nghệ Thuật Kết Hợp Ẩm Thực</h2>
-              <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', margin: 0 }}>
+              <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', margin: 0 }}>
                 Nhờ vị đắng thanh khiết và khả năng làm sạch vòm họng xuất sắc, Bitburger Premium Pils là sự kết hợp ẩm thực hoàn hảo cho các bữa tiệc:
               </p>
 
@@ -395,7 +315,7 @@ export default function Page() {
 
             <div className="bitburger-pairing-img-wrap">
               <Image 
-                src="/images/products/lifestyle_friends_v2.png"
+                src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
                 alt="Thưởng thức bia Bitburger cùng bạn bè"
                 fill
                 style={{ objectFit: 'cover' }}

@@ -22,8 +22,8 @@ export default function CompanyLegalDetails({ compact = false }: CompanyLegalDet
       style={{
         marginTop: compact ? '16px' : '28px',
         padding: compact ? '16px' : '20px',
-        background: '#f8fafc',
-        border: '1px solid #e2e8f0',
+        background: 'var(--web-bg-section)',
+        border: '1px solid var(--web-border)',
         borderRadius: '12px',
         fontSize: '14px',
         lineHeight: 1.7,

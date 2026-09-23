@@ -12,6 +12,8 @@ const RETIRED_BEER_PRODUCT_SLUGS = [
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ];
 
+const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -31,6 +33,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      ...Object.entries(RETIRED_ARTICLES).map(([slug, destination]) => ({
+        source: `/kien-thuc/${slug}`,
+        destination,
+        statusCode: 301,
+      })),
       ...RETIRED_BEER_ARTICLE_SLUGS.map((slug) => ({
         source: `/kien-thuc/${slug}`,
         destination: '/bia-benediktiner-chinh-hang',
@@ -41,6 +48,26 @@ const nextConfig = {
         destination: '/san-pham',
         statusCode: 301,
       })),
+      {
+        source: '/san-pham/benediktiner-weissbier-naturtrub-500ml',
+        destination: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/bitburger-premium-pils-330ml',
+        destination: '/san-pham/bitburger-premium-pils-thung-12-chai-330ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/benediktiner-dunkel-500ml',
+        destination: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml',
+        statusCode: 301,
+      },
+      {
+        source: '/san-pham/bom-5l-benediktiner-weissbier',
+        destination: '/san-pham/benediktiner-naturtrub-bom-5l',
+        statusCode: 301,
+      },
       {
         source: '/dat-hang',
         destination: '/lien-he',
