@@ -148,7 +148,9 @@
 .catalogHeroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgb(var(--web-ink-deep-rgb) / 0.94) 0%, rgb(var(--web-ink-deep-rgb) / 0.72) 42%, rgb(var(--web-ink-deep-rgb) / 0.18) 78%);
+  background:
+    linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.75) 0%, transparent 28%),
+    linear-gradient(90deg, rgb(var(--web-ink-deep-rgb) / 0.94) 0%, rgb(var(--web-ink-deep-rgb) / 0.72) 42%, rgb(var(--web-ink-deep-rgb) / 0.3) 78%, rgb(var(--web-ink-deep-rgb) / 0.2) 100%);
 }
 
 .catalogHeroCopy {
