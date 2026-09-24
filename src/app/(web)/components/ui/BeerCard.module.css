@@ -1,0 +1,86 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 4vw, 48px) clamp(16px, 2vw, 24px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  color: var(--web-text);
+  text-decoration: none;
+}
+
+.media {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--web-bg-section);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contain {
+  aspect-ratio: 1 / 1;
+}
+
+.contain .image {
+  object-fit: contain;
+  padding: 8% 12%;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 12px 0;
+}
+
+/* .body .name (0,2,0) thắng cỡ mặc định `.web-app h3` (0,1,1). */
+.body .name {
+  margin: 0;
+  font-size: var(--web-fs-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.type {
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--web-text-secondary);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--web-accent);
+  outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contain {
+    aspect-ratio: 4 / 5;
+  }
+}

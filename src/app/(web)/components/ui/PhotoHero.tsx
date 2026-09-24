@@ -15,6 +15,11 @@ interface PhotoHeroProps {
   wordmark?: string | false;
   size?: 'full' | 'medium';
   titleId?: string;
+  /** Ghi nguồn ảnh chính hãng, hiện nhỏ ở góc. */
+  credit?: { href: string; label: string };
+  /** Gắn data-hero-reveal lên từng khối chữ để component bọc ngoài chạy hiệu ứng hiện dần. */
+  reveal?: boolean;
+  ref?: React.Ref<HTMLElement>;
 }
 
 /**
@@ -31,9 +36,13 @@ export default function PhotoHero({
   wordmark = 'BENEDIKTINER',
   size = 'full',
   titleId,
+  credit,
+  reveal = false,
+  ref,
 }: PhotoHeroProps) {
+  const revealAttr = reveal ? { 'data-hero-reveal': '' } : {};
   return (
-    <section className={`${styles.hero} ${styles[size]}`} data-surface="ink" aria-labelledby={titleId}>
+    <section ref={ref} className={`${styles.hero} ${styles[size]}`} data-surface="ink" aria-labelledby={titleId}>
       <Image
         src={image.src}
         alt={image.alt}
@@ -48,13 +57,20 @@ export default function PhotoHero({
       <div className={styles.inner}>
         <div className="container">
           <div className={styles.copy}>
-            <TitleBlock as="h1" size="hero" id={titleId} title={title} kicker={kicker} eyebrow={eyebrow} />
-            {children ? <div className={styles.body}>{children}</div> : null}
-            {actions ? <div className={styles.actions}>{actions}</div> : null}
+            <div {...revealAttr}>
+              <TitleBlock as="h1" size="hero" id={titleId} title={title} kicker={kicker} eyebrow={eyebrow} />
+            </div>
+            {children ? <div className={styles.body} {...revealAttr}>{children}</div> : null}
+            {actions ? <div className={styles.actions} {...revealAttr}>{actions}</div> : null}
           </div>
         </div>
       </div>
       {wordmark ? <OutlineWordmark text={wordmark} className={styles.wordmark} /> : null}
+      {credit ? (
+        <a className={styles.credit} href={credit.href} target="_blank" rel="noopener noreferrer">
+          {credit.label}
+        </a>
+      ) : null}
     </section>
   );
 }

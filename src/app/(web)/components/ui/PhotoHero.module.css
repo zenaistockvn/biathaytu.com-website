@@ -66,6 +66,30 @@
   opacity: 0.95;
 }
 
+.credit {
+  position: absolute;
+  top: calc(var(--web-header-h) + 12px);
+  right: 16px;
+  z-index: 2;
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--web-on-ink);
+  text-shadow: 0 0 1px rgb(var(--web-ink-rgb) / 0.9), 0 0 2px rgb(var(--web-ink-rgb) / 0.9);
+}
+
+/* Dưới 769px có thanh điều hướng đáy (MobileBottomNav) che mất phần cuối màn hình. */
+@media (max-width: 768px) {
+  .full {
+    min-height: calc(100svh - var(--web-mobile-bottom-nav-height));
+  }
+
+  .inner {
+    padding-top: calc(var(--web-header-h) + 32px);
+    padding-bottom: calc(10vw + 28px);
+  }
+}
+
 @media (max-width: 599px) {
   .overlay {
     background: linear-gradient(0deg, rgb(var(--web-ink-rgb) / 0.92) 0%, rgb(var(--web-ink-rgb) / 0.6) 60%, rgb(var(--web-ink-rgb) / 0.3) 100%);

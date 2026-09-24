@@ -1,13 +1,13 @@
 'use client';
 
 import { useRef } from 'react';
-import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Button } from './ui/Button';
+import PhotoHero from './ui/PhotoHero';
 import { useLanguage } from '../context/LanguageContext';
-import styles from '../HomeBrand.module.css';
 
+/** Hero trang chủ: PhotoHero kiểu Chimay, các khối chữ hiện dần bằng GSAP (tắt khi giảm chuyển động). */
 export default function LandingHero() {
   const { t } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
@@ -31,58 +31,27 @@ export default function LandingHero() {
   }, { scope: heroRef });
 
   return (
-    <section ref={heroRef} className={styles.hero} aria-labelledby="home-hero-title">
-      <Image
-        src="/images/brand/benediktiner-official/home-hero.jpg"
-        alt="Benediktiner Weissbier Naturtrüb bên ly bia, phía sau là Tu viện Ettal và dãy Alps"
-        fill
-        priority
-        sizes="100vw"
-        className={styles.heroImage}
-      />
-      <div className={styles.heroOverlay} />
-
-      <div className={`container ${styles.heroInner}`}>
-        <div className={styles.heroCopy}>
-          <div className={styles.heroBadge} data-hero-reveal>
-            <span className={styles.heroBadgeDot} aria-hidden="true" />
-            <span>Di sản Tu viện Ettal Bavaria, từ năm 1330</span>
-          </div>
-          <h1 id="home-hero-title" className={styles.heroTitle} data-hero-reveal>
-            {t('hero.title.line1')}
-            <span>{t('hero.title.line2')}</span>
-          </h1>
-          <p className={styles.heroDescription} data-hero-reveal>
-            {t('hero.description.1')} {t('hero.description.2')}
-          </p>
-          <div className={styles.heroActions} data-hero-reveal>
-            <Button href="/san-pham" variant="primary" size="lg">
-              {t('hero.btn.explore')}
-            </Button>
-            <Button href="/thuong-hieu" variant="outline" size="lg" className={styles.heroSecondaryButton}>
-              {t('hero.btn.story')}
-            </Button>
-          </div>
-          <div className={styles.heroFacts} data-hero-reveal aria-label="Thông tin nổi bật">
-            <div className={styles.heroFactItem}>
-              <strong>1330</strong>
-              <span>Khởi nguồn Tu viện Ettal</span>
-            </div>
-            <div className={styles.heroFactItem}>
-              <strong>400+</strong>
-              <span>Năm truyền thống ủ bia</span>
-            </div>
-            <div className={styles.heroFactItem}>
-              <strong>100%</strong>
-              <span>Men sống & Nước dãy Alps</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <a className={styles.imageCredit} href="https://www.benediktiner-weissbier.de/en/" target="_blank" rel="noopener noreferrer">
-        Hình ảnh: Benediktiner Weissbräu
-      </a>
-    </section>
+    <PhotoHero
+      ref={heroRef}
+      reveal
+      titleId="home-hero-title"
+      image={{
+        src: '/images/brand/benediktiner-official/home-hero.jpg',
+        alt: 'Benediktiner Weissbier Naturtrüb bên ly bia, phía sau là Tu viện Ettal và dãy Alps',
+        position: '68% center',
+      }}
+      eyebrow="Tu viện Ettal, Bavaria, từ 1330"
+      title={t('hero.title.line1')}
+      kicker={t('hero.title.line2')}
+      actions={(
+        <>
+          <Button href="/san-pham" variant="light" size="lg">{t('hero.btn.explore')}</Button>
+          <Button href="/thuong-hieu" variant="outline" size="lg">{t('hero.btn.story')}</Button>
+        </>
+      )}
+      credit={{ href: 'https://www.benediktiner-weissbier.de/en/', label: 'Hình ảnh: Benediktiner Weissbräu' }}
+    >
+      <p>{t('hero.description.1')} {t('hero.description.2')}</p>
+    </PhotoHero>
   );
 }

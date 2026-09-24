@@ -1,67 +1,5 @@
-.hero {
-  position: relative;
-  min-height: min(860px, 100svh);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--web-ink);
-  color: var(--web-on-ink);
-}
-
-.heroImage,
-.storyImage,
-.experienceImage {
+.storyImage {
   object-fit: cover;
-}
-
-.heroImage {
-  object-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgb(var(--web-ink-rgb) / 0.55) 0%, rgb(var(--web-ink-rgb) / 0) 22%),
-    linear-gradient(0deg, rgb(var(--web-ink-rgb) / 0.72) 0%, rgb(var(--web-ink-rgb) / 0) 32%),
-    linear-gradient(90deg, rgb(var(--web-ink-rgb) / 0.88) 0%, rgb(var(--web-ink-rgb) / 0.8) 44%, rgb(var(--web-ink-rgb) / 0.16) 66%, rgb(var(--web-ink-rgb) / 0) 100%);
-}
-
-.heroInner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding-top: 120px !important;
-  padding-bottom: 80px !important;
-}
-
-.heroCopy {
-  width: min(610px, 55%);
-}
-
-.heroBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: 0;
-  background: rgb(var(--web-ink-deep-rgb) / 0.85);
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.55);
-  color: var(--web-accent-on-ink);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  backdrop-filter: blur(8px);
-}
-
-.heroBadgeDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--web-accent-on-ink);
-  box-shadow: none;
 }
 
 .eyebrow,
@@ -81,93 +19,6 @@
 
 .eyebrowDark {
   color: var(--web-heritage);
-}
-
-.heroTitle.heroTitle {
-  max-width: 680px;
-  color: var(--web-on-ink) !important;
-  font-size: clamp(38px, 6vw, 84px);
-  font-weight: 600 !important;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-}
-
-.heroTitle span {
-  display: block;
-  margin-top: 8px;
-  color: var(--web-accent-on-ink);
-  font-size: 0.88em;
-}
-
-.heroDescription {
-  max-width: 590px;
-  margin-top: 26px !important;
-  color: var(--web-on-ink-muted);
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.75;
-}
-
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.heroSecondaryButton.heroSecondaryButton {
-  border-color: rgb(var(--web-on-ink-rgb) / 0.5) !important;
-  background: rgb(var(--web-ink-deep-rgb) / 0.35) !important;
-  color: var(--web-on-ink) !important;
-  backdrop-filter: blur(8px);
-}
-
-.heroFacts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.28);
-}
-
-.heroFactItem {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.heroFactItem strong {
-  color: var(--web-accent-on-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-stretch: var(--web-display-stretch);
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.heroFactItem span {
-  color: var(--web-on-ink-muted);
-  font-size: 12px;
-  line-height: 1.45;
-}
-
-.imageCredit {
-  position: absolute;
-  right: 18px;
-  bottom: 14px;
-  z-index: 2;
-  padding: 5px 8px;
-  border-radius: 0;
-  background: rgb(var(--web-ink-deep-rgb) / 0.5);
-  color: var(--web-on-ink-muted) !important;
-  font-size: 10px;
-}
-
-.proofStrip {
-  background: var(--web-ink-deep);
-  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
-  color: var(--web-on-ink);
 }
 
 .catalogHero {
@@ -223,53 +74,6 @@
   text-align: center;
 }
 
-.proofGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.proofItem {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 24px 28px;
-  border-right: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
-}
-
-.proofItem:first-child {
-  border-left: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
-}
-
-.proofIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.12);
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
-  color: var(--web-accent-on-ink);
-  flex-shrink: 0;
-}
-
-.proofText {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.proofText strong {
-  color: var(--web-accent-on-ink);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.proofText span {
-  color: var(--web-on-ink-muted);
-  font-size: 13px;
-}
-
 .section {
   padding: clamp(72px, 9vw, 120px) 0;
 }
@@ -280,28 +84,16 @@
   text-align: center;
 }
 
-.sectionDivider {
-  width: 56px;
-  height: 2px;
-  background: var(--web-accent-on-ink);
-  margin: 16px auto 20px;
-  border-radius: 0;
-}
-
 .sectionHeading h2,
 .storyCopy h2,
-.tastingIntro h2,
-.experienceCard h2,
-.b2bInner h2,
-.faqGrid h2 {
+.b2bInner h2 {
   color: var(--web-ink) !important;
   font-size: clamp(34px, 4.2vw, 56px);
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
 
-.sectionHeading > p:last-child,
-.faqIntro {
+.sectionHeading > p:last-child {
   max-width: 680px;
   margin: 0 auto !important;
   color: var(--web-text-muted);
@@ -309,162 +101,11 @@
   line-height: 1.75;
 }
 
-.beerGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.beerCard {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
-  border-radius: 0;
-  background: var(--web-card-bg);
-  box-shadow: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.beerCard:hover {
-  transform: translateY(-8px);
-  border-color: var(--web-accent-on-ink);
-  box-shadow: none;
-}
-
-.beerImageWrap {
-  position: relative;
-  height: 380px;
-  overflow: hidden;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
-  background: linear-gradient(180deg, var(--web-bg) 0%, var(--web-bg-warm) 100%);
-}
-
-.beerBadge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 2;
-  padding: 5px 12px;
-  border-radius: 0;
-  background: rgb(var(--web-ink-deep-rgb) / 0.85);
-  color: var(--web-accent-on-ink);
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(6px);
-}
-
-.beerImage {
-  object-fit: contain;
-  padding: 30px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.beerCard:hover .beerImage {
-  transform: scale(1.04);
-}
-
-.beerSubBrand {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--web-heritage);
-  font-weight: 600;
-  margin: 0 0 6px;
-}
-
-.beerContent {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.beerContent h3 {
-  font-family: var(--font-display), Georgia, serif !important;
-  font-stretch: var(--web-display-stretch);
-  font-size: 28px;
-  color: var(--web-ink);
-  font-weight: 600;
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-
-.beerDescription {
-  min-height: 72px;
-  color: var(--web-text-muted);
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0;
-}
-
-.beerFacts {
-  display: grid;
-  gap: 0;
-  margin: 20px 0;
-  border-top: 1px solid rgb(var(--web-border-rgb) / 0.8);
-}
-
-.beerFacts div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.8);
-  font-size: 12px;
-}
-
-.beerFacts dt {
-  color: var(--web-text-muted);
-}
-
-.beerFacts dd {
-  margin: 0;
-  color: var(--web-ink);
-  font-weight: 700;
-  text-align: right;
-}
-
-.beerCtaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 12px 18px;
-  border-radius: 0;
-  background: var(--web-bg);
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.55);
-  color: var(--web-ink);
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.25s ease;
-  margin-top: auto;
-  text-decoration: none;
-}
-
-.beerCtaButton:hover {
-  background: var(--web-accent-on-ink);
-  color: var(--web-ink);
-  border-color: var(--web-accent-on-ink);
-  transform: translateY(-2px);
-  box-shadow: none;
-}
-
-.textLink,
 .lightLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-weight: 700;
-}
-
-.textLink.textLink {
-  color: var(--web-accent) !important;
-  font-size: 14px;
 }
 
 .lightLink.lightLink {
@@ -477,16 +118,14 @@
   background: var(--web-bg-section);
 }
 
-.storyGrid,
-.experienceGrid {
+.storyGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   align-items: center;
   gap: clamp(40px, 7vw, 88px);
 }
 
-.storyImageWrap,
-.experienceImageWrap {
+.storyImageWrap {
   position: relative;
   min-height: 520px;
   overflow: hidden;
@@ -605,19 +244,10 @@
   color: var(--web-bg);
 }
 
-.tastingGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(46px, 8vw, 100px);
-  align-items: start;
-}
-
-.tastingIntro h2,
 .b2bInner h2 {
   color: var(--web-on-ink) !important;
 }
 
-.tastingIntro > p:last-of-type,
 .b2bInner > div:first-child > p:last-child {
   margin-top: 22px !important;
   color: var(--web-on-ink-muted);
@@ -625,92 +255,6 @@
   line-height: 1.75;
 }
 
-.tastingSteps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
-}
-
-.tastingSteps li {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 24px;
-  padding: 28px 0;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
-  align-items: start;
-}
-
-.tastingSteps > li > span {
-  color: var(--web-accent-on-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-stretch: var(--web-display-stretch);
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.tastingSteps h3 {
-  color: var(--web-on-ink) !important;
-  font-family: var(--font-display), Georgia, serif !important;
-  font-stretch: var(--web-display-stretch);
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.tastingSteps p {
-  margin-top: 8px !important;
-  color: var(--web-on-ink-muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.experienceImageWrap {
-  min-height: 560px;
-}
-
-.experienceCard {
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
-  border-radius: 0;
-  padding: clamp(28px, 4vw, 44px);
-  background: var(--web-card-bg);
-  box-shadow: none;
-}
-
-.experienceCard h2 {
-  margin-bottom: 22px;
-}
-
-.experienceCard > p:not(.eyebrowDark) {
-  color: var(--web-text-muted);
-  font-size: 16px;
-  line-height: 1.75;
-}
-
-.experienceCard address {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 10px 18px;
-  margin-top: 26px;
-  padding: 20px 0;
-  border-top: 1px solid var(--web-border);
-  border-bottom: 1px solid var(--web-border);
-  font-style: normal;
-}
-
-.experienceCard address span {
-  color: var(--web-text-muted);
-  font-size: 12px;
-}
-
-.experienceCard address strong {
-  color: var(--web-ink);
-  font-size: 14px;
-}
-
-.experienceActions,
 .b2bActions {
   display: flex;
   flex-wrap: wrap;
@@ -718,8 +262,6 @@
   margin-top: 28px;
 }
 
-.primaryLink,
-.secondaryLink,
 .primaryLightLink,
 .outlineLightLink {
   display: inline-flex;
@@ -730,16 +272,6 @@
   border-radius: 0;
   font-size: 14px;
   font-weight: 700;
-}
-
-.primaryLink.primaryLink {
-  background: var(--web-accent);
-  color: var(--web-on-ink) !important;
-}
-
-.secondaryLink.secondaryLink {
-  border: 1px solid var(--web-on-ink-muted);
-  color: var(--web-ink) !important;
 }
 
 .b2bSection {
@@ -779,133 +311,13 @@
   color: var(--web-on-ink) !important;
 }
 
-.faqGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
-  gap: clamp(40px, 7vw, 90px);
-  align-items: start;
-}
-
-.faqIntro {
-  margin-left: 0 !important;
-  font-size: 15px;
-}
-
-.faqList {
-  border-top: 1px solid var(--web-border);
-}
-
-.faqList details {
-  border-bottom: 1px solid var(--web-border);
-}
-
-.faqList summary {
-  display: flex;
-  min-height: 76px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  cursor: pointer;
-  color: var(--web-ink);
-  font-size: 16px;
-  font-weight: 700;
-  list-style: none;
-}
-
-.faqList summary::-webkit-details-marker {
-  display: none;
-}
-
-.faqList summary span {
-  font-size: 22px;
-  font-weight: 400;
-  transition: transform 0.2s ease;
-}
-
-.faqList details[open] summary span {
-  transform: rotate(45deg);
-}
-
-.faqList details p {
-  padding: 0 40px 22px 0;
-  color: var(--web-text-muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.contactBar {
-  padding: 30px 0;
-  background: var(--web-bg-section);
-  border-top: 1px solid var(--web-border);
-}
-
-.contactBarInner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.contactBarInner p,
-.contactBarInner > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-}
-
-.contactBarInner strong {
-  color: var(--web-ink);
-}
-
-.contactBarInner span {
-  color: var(--web-text-muted);
-}
-
-.contactBarInner a {
-  color: var(--web-accent) !important;
-  font-weight: 700;
-}
-
 @media (max-width: 960px) {
-  .hero {
-    min-height: 760px;
-  }
 
-  .heroCopy {
-    width: min(610px, 68%);
-  }
-
-  .beerGrid {
-    grid-template-columns: 1fr;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .beerCard {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-  }
-
-  .beerImageWrap {
-    height: auto;
-    min-height: 430px;
-    border-right: 1px solid var(--web-border);
-    border-bottom: 0;
-  }
-
-  .beerDescription {
-    min-height: 0;
-  }
-
-  .storyGrid,
-  .experienceGrid,
-  .tastingGrid,
-  .faqGrid {
+  .storyGrid {
     grid-template-columns: 1fr;
   }
 
-  .storyImageWrap,
-  .experienceImageWrap {
+  .storyImageWrap {
     min-height: 460px;
   }
 
@@ -937,60 +349,6 @@
 }
 
 @media (max-width: 680px) {
-  .hero {
-    min-height: 760px;
-    align-items: flex-end;
-  }
-
-  .heroImage {
-    object-position: 65% center;
-  }
-
-  .heroOverlay {
-    background:
-      linear-gradient(180deg, rgb(var(--web-ink-rgb) / 0.76) 0%, rgb(var(--web-ink-rgb) / 0.64) 40%, rgb(var(--web-ink-rgb) / 0.9) 64%, rgb(var(--web-ink-rgb) / 0.97) 100%);
-  }
-
-  .heroInner {
-    padding-top: 100px !important;
-    padding-bottom: 54px !important;
-  }
-
-  .heroCopy {
-    width: 100%;
-  }
-
-  .heroTitle.heroTitle {
-    font-size: clamp(30px, 8.8vw, 44px);
-  }
-
-  .heroDescription {
-    font-size: 16px;
-  }
-
-  .heroActions > * {
-    width: 100%;
-  }
-
-  .heroFacts {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 30px;
-  }
-
-  .heroFacts span {
-    grid-template-columns: 60px 1fr;
-    align-items: baseline;
-  }
-
-  .imageCredit {
-    display: none;
-  }
-
-  .proofGrid {
-    grid-template-columns: 1fr;
-    padding: 8px 16px;
-  }
 
   .catalogHero {
     min-height: 600px;
@@ -1013,19 +371,6 @@
     font-size: 16px;
   }
 
-  .proofGrid > div,
-  .proofGrid > div:first-child {
-    min-height: 88px;
-    padding: 16px 4px;
-    border-right: 0;
-    border-left: 0;
-    border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
-  }
-
-  .proofGrid > div:last-child {
-    border-bottom: 0;
-  }
-
   .sectionHeading {
     text-align: left;
   }
@@ -1034,23 +379,7 @@
     margin-left: 0 !important;
   }
 
-  .beerCard {
-    display: block;
-  }
-
-  .beerImageWrap {
-    height: 330px;
-    min-height: 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--web-border);
-  }
-
-  .beerContent {
-    padding: 24px;
-  }
-
-  .storyImageWrap,
-  .experienceImageWrap {
+  .storyImageWrap {
     min-height: 320px;
     border-radius: 0;
   }
@@ -1064,32 +393,7 @@
     align-items: baseline;
   }
 
-  .experienceCard address {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .experienceCard address strong + span {
-    margin-top: 10px;
-  }
-
-  .experienceActions > *,
   .b2bActions > * {
     width: 100%;
-  }
-
-  .contactBarInner,
-  .contactBarInner p,
-  .contactBarInner > div {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .beerCard,
-  .beerImage,
-  .faqList summary span {
-    transition: none;
   }
 }

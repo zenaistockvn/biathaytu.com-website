@@ -1,0 +1,230 @@
+/* Trang chủ theo ngữ pháp chimay.com. Khối dùng chung nằm ở components/ui; file này chỉ giữ phần riêng của trang. */
+
+.section {
+  padding: clamp(64px, 8vw, 112px) 0;
+}
+
+.afterTitle {
+  margin-top: clamp(36px, 4vw, 56px);
+}
+
+.moreLink {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+/* ─── Mốc lịch sử trong khối Ettal ─── */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.25);
+}
+
+.facts dt {
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  color: var(--web-accent-on-ink);
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* ─── Các bước thưởng thức ─── */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--web-border);
+}
+
+.steps li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stepNumber {
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--web-accent);
+}
+
+/* `.steps li h3` (0,1,2) thắng `.web-app h3` (0,1,1); font-family ở đó có !important nên ở đây cũng cần. */
+.steps li h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-condensed), sans-serif !important;
+  font-stretch: normal;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+}
+
+.steps p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ─── Hai khối màu Showroom / HORECA ─── */
+.visit {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.visitPanel {
+  display: flex;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 6vw, 88px);
+}
+
+.visitAccent {
+  background: var(--web-accent);
+  color: var(--web-on-ink);
+}
+
+.visitGold {
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  --heading-color: var(--web-ink);
+}
+
+.visitContent {
+  width: 100%;
+  max-width: 480px;
+}
+
+.visitContent > p {
+  margin: 20px 0 0;
+  line-height: 1.7;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 20px 0 28px;
+  font-style: normal;
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.address a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.visitActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  margin-top: 28px;
+}
+
+/* ─── Câu hỏi thường gặp ─── */
+.faqGrid {
+  display: grid;
+  gap: 32px;
+}
+
+.faqIntro {
+  margin-top: 16px;
+  max-width: 420px;
+  color: var(--web-text-secondary);
+}
+
+.faqList {
+  border-top: 1px solid var(--web-ink);
+}
+
+.faqList details {
+  border-bottom: 1px solid var(--web-border);
+}
+
+.faqList summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 64px;
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--web-ink);
+}
+
+.faqList summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Dấu cộng vẽ bằng hai vạch, xoay thành dấu trừ khi mở. */
+.faqList summary span {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.faqList summary span::before,
+.faqList summary span::after {
+  content: '';
+  position: absolute;
+  inset: 7px 0 auto;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.faqList summary span::after {
+  transform: rotate(90deg);
+}
+
+.faqList details[open] summary span::after {
+  transform: rotate(0deg);
+}
+
+.faqList details p {
+  margin: 0;
+  padding: 0 0 22px;
+  max-width: 680px;
+  line-height: 1.7;
+  color: var(--web-text-secondary);
+}
+
+@media (min-width: 900px) {
+  .visit {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .faqGrid {
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+  }
+}
