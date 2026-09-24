@@ -142,6 +142,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
               fill
               sizes="(max-width: 1000px) 100vw, 1000px"
               priority
+              fetchPriority="high"
               className={styles.coverImage}
             />
           </div>

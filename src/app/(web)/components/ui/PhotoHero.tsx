@@ -48,6 +48,8 @@ export default function PhotoHero({
         alt={image.alt}
         fill
         priority
+        // Ảnh đầu trang là phần tử LCP; không có mức ưu tiên cao thì trình duyệt xếp sau font và JS.
+        fetchPriority="high"
         sizes="100vw"
         className={styles.image}
         style={image.position ? { objectPosition: image.position } : undefined}

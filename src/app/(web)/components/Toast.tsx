@@ -24,7 +24,7 @@ export default function Toast() {
           display: 'flex',
           alignItems: 'center',
           gap: '16px',
-          fontWeight: 500,
+          fontWeight: 600,
           fontSize: '15px',
         }}
       >

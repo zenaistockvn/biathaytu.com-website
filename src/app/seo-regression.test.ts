@@ -57,6 +57,7 @@ describe('SEO and GEO regressions', () => {
   });
 
   it('redirects every path on the secondary .com domain to the same path on biathaytu.com.vn', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const nextConfig = require('../../next.config.js');
     const redirects: Array<{ source: string; destination: string; statusCode?: number; has?: Array<{ type: string; value: string }> }> = await nextConfig.redirects();
     for (const host of ['www.biathaytu.com', 'biathaytu.com']) {

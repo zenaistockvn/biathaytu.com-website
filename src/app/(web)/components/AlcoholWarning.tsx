@@ -61,7 +61,7 @@ export default function AlcoholWarning({
           color: 'var(--web-ink)',
           padding: '12px 16px',
           fontSize: '13px',
-          fontWeight: '500',
+          fontWeight: '600',
           lineHeight: '1.5',
           margin: '16px 0',
           ...style,

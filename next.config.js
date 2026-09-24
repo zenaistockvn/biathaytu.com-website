@@ -126,6 +126,16 @@ const nextConfig = {
         ],
       },
       {
+        // Tên file font đổi mỗi khi tạo lại (xem public/fonts/README.md), nên được cache vĩnh viễn.
+        source: '/fonts/:all*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/logo.jpg',
         headers: [
           {

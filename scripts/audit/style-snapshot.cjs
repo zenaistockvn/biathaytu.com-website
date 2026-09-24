@@ -116,7 +116,7 @@ function compare(a, b) {
   const da = path.join(OUT, a);
   const db = path.join(OUT, b);
   let total = 0;
-  for (const file of fs.readdirSync(da)) {
+  for (const file of fs.readdirSync(da).filter((f) => f.endsWith('.json'))) {
     if (!fs.existsSync(path.join(db, file))) { console.log(`THIẾU ${file} trong ${b}`); total++; continue; }
     const A = JSON.parse(fs.readFileSync(path.join(da, file), 'utf8'));
     const B = JSON.parse(fs.readFileSync(path.join(db, file), 'utf8'));

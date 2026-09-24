@@ -48,13 +48,30 @@ describe('design tokens', () => {
   });
 
   it('DESIGN.md khai đúng font đang nạp trong layout.tsx', () => {
-    expect(LAYOUT).toContain('Roboto_Serif');
+    expect(LAYOUT).toContain("import './fonts.css'");
     expect(LAYOUT).toContain('Barlow_Condensed');
     expect(LAYOUT).toMatch(/\bBarlow\(/);
     const fm = DESIGN.slice(0, DESIGN.indexOf('---', 4));
     expect(fm).toMatch(/display:\s*"Roboto Serif/);
     expect(fm).toMatch(/sans:\s*"Barlow,/);
     expect(fm).toMatch(/condensed:\s*"Barlow Condensed/);
+  });
+
+  it('font tiêu đề tự phục vụ khớp đúng độ rộng và độ đậm web dùng', () => {
+    const fontsCss = fs.readFileSync(path.join(ROOT, 'src/app/fonts.css'), 'utf8');
+    const faces = [...fontsCss.matchAll(/@font-face\s*\{([^}]*)\}/g)]
+      .map((m) => m[1])
+      .filter((body) => body.includes("font-family: 'Roboto Serif';"));
+    expect(faces.length).toBe(2);
+    // File chỉ chứa bản rộng 125% và độ đậm 600–700; lệch token là trình duyệt ép giãn/đậm giả.
+    const stretch = definedTokens().get('--web-display-stretch');
+    for (const body of faces) {
+      expect(body).toContain(`font-stretch: ${stretch};`);
+      expect(body).toContain('font-weight: 600 700;');
+      const file = /url\('([^']+)'\)/.exec(body)?.[1] ?? '';
+      expect(fs.existsSync(path.join(ROOT, 'public', file)), file).toBe(true);
+      expect(LAYOUT).toContain(`preload('${file}'`);
+    }
   });
 
   it('mọi quy tắc dùng font tiêu đề đều kèm font-stretch (không thì ra bản hẹp)', () => {

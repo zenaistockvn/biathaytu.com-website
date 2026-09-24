@@ -101,7 +101,7 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
               </div>
               {hero.cutout ? (
                 <div className={styles.cutoutMedia}>
-                  <Image src={hero.cutout.src} alt={hero.cutout.alt} fill priority sizes="(max-width: 767px) 80vw, 40vw" className={styles.cutoutImage} />
+                  <Image src={hero.cutout.src} alt={hero.cutout.alt} fill priority fetchPriority="high" sizes="(max-width: 767px) 80vw, 40vw" className={styles.cutoutImage} />
                 </div>
               ) : null}
             </div>

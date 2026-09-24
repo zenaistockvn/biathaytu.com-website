@@ -32,6 +32,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
           style={{ objectFit: 'contain', padding: '20px' }}
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
+          fetchPriority="high"
         />
       </div>
 

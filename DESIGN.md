@@ -140,6 +140,8 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 - **Tiêu đề `h1`, `h2` và logo chữ:** Roboto Serif 600, bản rộng (`font-stretch: var(--web-display-stretch)`), **in hoa** như Copperplate trên web Benediktiner. Line-height 1.28 để dấu chồng trên chữ hoa (`Ầ Ẫ Ỗ`) không chạm dòng trên.
 - **Mọi chỗ khai `font-family: var(--font-display)` phải kèm `font-stretch: var(--web-display-stretch)`**, nếu không chữ sẽ ra bản hẹp.
+- Roboto Serif được tự phục vụ từ `public/fonts/` (khai ở `src/app/fonts.css`), đã cắt gọn còn đúng độ rộng 125% và độ đậm 600–700: khoảng 56 KB thay vì 180 KB. Cần độ đậm hay độ rộng khác thì cắt lại theo `public/fonts/README.md`, đừng khai thêm trong CSS.
+- Barlow chỉ nạp 400 và 600, Barlow Condensed nạp 500, 600, 700. Thêm độ đậm mới thì nạp thêm trong `src/app/layout.tsx`.
 - **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường. Câu tiếng Việt dài in hoa rất khó đọc.
 - **`h3`:** Roboto Serif 600 bản rộng, chữ thường (tên sản phẩm, tiêu đề thẻ).
 - **`h4`–`h6`:** Barlow Condensed 700, in hoa, giãn `0.04em`.

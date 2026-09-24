@@ -59,7 +59,7 @@ export function FeaturedArticle({ article }: { article: ArticleSummary }) {
   return (
     <Link href={`/kien-thuc/${article.slug || article.id}`} className={styles.featured}>
       <span className={styles.featuredMedia}>
-        <Image src={imageOf(article)} alt="" fill priority sizes="(max-width: 899px) 100vw, 60vw" className={styles.image} />
+        <Image src={imageOf(article)} alt="" fill priority fetchPriority="high" sizes="(max-width: 899px) 100vw, 60vw" className={styles.image} />
       </span>
       <span className={styles.featuredBody}>
         <span className={styles.meta}>Bài nổi bật · {meta(article)}</span>
