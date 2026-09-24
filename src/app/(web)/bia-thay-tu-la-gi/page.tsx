@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
+import EditorialPage, { CtaBand, FaqSection, InfoGrid, Summary } from '../components/EditorialPage';
 import { COMPANY_CONFIG } from '@/config/company';
 
 export const metadata: Metadata = {
@@ -37,78 +37,50 @@ export default function Page() {
   ];
 
   return (
-    <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+    <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu Là Gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Kiến Thức Bia Đức</p>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Bia Thầy Tu Là Gì?</h1>
-          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>Câu chuyện về dòng bia lúa mì được ủ bởi các tu sĩ dòng Benedictine từ năm 1609 tại chân dãy Alps.</p>
-        </div>
-      </section>
+      <EditorialPage
+        hero={{
+          eyebrow: 'Kiến thức bia Đức',
+          title: 'Bia Thầy Tu là gì?',
+          kicker: 'Benediktiner Weissbier',
+          lead: 'Câu chuyện về dòng bia lúa mì được ủ bởi các tu sĩ dòng Benedictine từ năm 1609 tại chân dãy Alps.',
+        }}
+        after={<FaqSection items={faqs} />}
+      >
+        <Summary>
+          <p><strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, được ủ theo truyền thống tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Bia tuân thủ Luật Tinh Khiết 1516, chỉ dùng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men.</p>
+        </Summary>
 
-      <article className="container" style={{ maxWidth: '780px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, được ủ theo truyền thống tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Bia tuân thủ Luật Tinh Khiết 1516, chỉ dùng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men.
-        </div>
+        <h2>Vì sao gọi là &quot;Bia Thầy Tu&quot;?</h2>
+        <p>Cái tên &quot;Bia Thầy Tu&quot; bắt nguồn từ việc dòng bia này được các tu sĩ (thầy tu) dòng Benedictine ủ trong tu viện. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ, các tu sĩ coi bia là &quot;bánh mì lỏng&quot; giúp duy trì sức lực trong những ngày ăn chay dài.</p>
+        <p>Tu Viện Ettal được thành lập năm 1330 bởi Hoàng đế Ludwig IV. Đến năm 1609, các tu sĩ tại đây bắt đầu ủ bia lúa mì theo phương pháp lên men đỉnh truyền thống. Hơn 400 năm qua, công thức gần như không thay đổi.</p>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-display)' }}>Vì sao gọi là "Bia Thầy Tu"?</h2>
-        <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
-          Cái tên "Bia Thầy Tu" bắt nguồn từ việc dòng bia này được các tu sĩ (thầy tu) dòng Benedictine ủ trong tu viện. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ, các tu sĩ coi bia là "bánh mì lỏng" giúp duy trì sức lực trong những ngày ăn chay dài.
-        </p>
-        <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
-          Tu Viện Ettal được thành lập năm 1330 bởi Hoàng đế Ludwig IV. Đến năm 1609, các tu sĩ tại đây bắt đầu ủ bia lúa mì theo phương pháp lên men đỉnh truyền thống. Hơn 400 năm qua, công thức gần như không thay đổi.
-        </p>
+        <h2>Luật Tinh Khiết 1516, Reinheitsgebot</h2>
+        <p>Benediktiner tuân thủ Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, luật an toàn thực phẩm lâu đời nhất thế giới. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.</p>
+        <p>Không phụ gia. Không chất bảo quản. Không hương liệu nhân tạo.</p>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-display)' }}>Luật Tinh Khiết 1516, Reinheitsgebot</h2>
-        <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '20px' }}>
-          Benediktiner tuân thủ tuyệt đối Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, luật an toàn thực phẩm lâu đời nhất thế giới. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.
-        </p>
-        <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
-          Không phụ gia. Không chất bảo quản. Không hương liệu nhân tạo. Mỗi chai bia Benediktiner là minh chứng cho sự thuần khiết tuyệt đối.
-        </p>
+        <h2>Các dòng bia Thầy Tu tại Việt Nam</h2>
+        <InfoGrid
+          items={[
+            { title: 'Weissbier Naturtrüb', text: 'Bia lúa mì không lọc. Hương chuối chín, đinh hương, bọt trắng dày.', meta: '5,4% vol.' },
+            { title: 'Benediktiner Dunkel', text: 'Bia đen lúa mì. Hương caramel, mật ong, mạch nha rang.', meta: '5,4% vol.' },
+            { title: 'Bitburger Premium Pils', text: 'Pilsner chuẩn Đức. Hoa bia Hallertau, đắng thanh, sạch miệng.', meta: '4,8% vol.' },
+          ]}
+        />
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-display)' }}>Các dòng bia Thầy Tu tại Việt Nam</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-          {[
-            { name: 'Benediktiner Weissbier Naturtrüb', note: 'Bia lúa mì không lọc. Hương chuối chín, đinh hương, bọt trắng dày.', abv: '5.4%' },
-            { name: 'Benediktiner Dunkel', note: 'Bia đen lúa mì. Hương caramel, mật ong, mạch nha rang.', abv: '5.4%' },
-            { name: 'Bitburger Premium Pils', note: 'Pilsner chuẩn Đức. Hoa bia Hallertau, đắng thanh, sạch miệng.', abv: '4.8%' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.name}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--web-text-muted)', lineHeight: 1.6, marginBottom: '8px' }}>{item.note}</p>
-              <span style={{ fontSize: '13px', color: 'var(--web-accent-strong)', fontWeight: 600 }}>ABV: {item.abv}</span>
-            </div>
-          ))}
-        </div>
+        <h2>Bia Thầy Tu khác gì bia thông thường?</h2>
+        <p>Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ &quot;Naturtrüb&quot;, nghĩa là &quot;tự nhiên không lọc&quot; trong tiếng Đức.</p>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '20px', fontFamily: 'var(--font-display)' }}>Bia Thầy Tu khác gì bia thông thường?</h2>
-        <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '40px' }}>
-          Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ "Naturtrüb", nghĩa là "tự nhiên không lọc" trong tiếng Đức.
-        </p>
-
-        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: 'var(--web-on-ink)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Sẵn sàng trải nghiệm?</h3>
-          <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Đặt mua bia Thầy Tu Benediktiner chính hãng, giao tận nơi toàn quốc.</p>
-          <Link href="/san-pham" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Xem Sản Phẩm</Link>
-        </div>
-      </article>
-
-      <section style={{ background: 'var(--web-bg-section)', padding: '60px 0' }}>
-        <div className="container" style={{ maxWidth: '780px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>Câu Hỏi Thường Gặp</h2>
-          {faqs.map((f, i) => (
-            <div key={i} style={{ padding: '20px 24px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)', marginBottom: '12px' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{f.question}</h3>
-              <p style={{ fontSize: '15px', color: 'var(--web-text-secondary)', lineHeight: 1.7 }}>{f.answer}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+        <CtaBand
+          title="Sẵn sàng trải nghiệm?"
+          text="Xem các dòng Bia Thầy Tu Benediktiner chính hãng và liên hệ để được tư vấn giao hàng."
+          action={{ href: '/san-pham', label: 'Xem sản phẩm' }}
+        />
+      </EditorialPage>
+    </>
   );
 }

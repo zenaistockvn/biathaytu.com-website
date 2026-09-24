@@ -239,7 +239,8 @@ body.overflow-hidden {
   max-width: 100%;
 }
 
-.web-app p {
+/* :where() giữ specificity (0,0,1) để class của component (0,1,0) đặt được margin cho <p>. */
+:where(.web-app) p {
   margin: 0;
 }
 

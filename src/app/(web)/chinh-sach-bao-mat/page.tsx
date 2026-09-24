@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import AlcoholWarning from '../components/AlcoholWarning';
 import CompanyLegalDetails from '../components/CompanyLegalDetails';
 import { COMPANY_CONFIG } from '@/config/company';
+import EditorialPage from '../components/EditorialPage';
 
 export const metadata: Metadata = {
   title: 'Chính Sách Bảo Mật',
@@ -12,17 +13,12 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="subpage-wrap container" style={{ padding: '60px 20px', maxWidth: '900px' }}>
-      <div className="section-header-center" style={{ marginBottom: '40px' }}>
-        <span className="section-label">Quyền Riêng Tư</span>
-        <h1 className="page-title">Chính Sách Bảo Mật</h1>
-      </div>
-
+    <EditorialPage tone="light" hero={{ eyebrow: "Quyền Riêng Tư", title: "Chính Sách Bảo Mật" }}>
       <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
 
-      <div style={{ lineHeight: '1.8', color: 'var(--web-text-secondary)', fontSize: '15px' }}>
-        <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
+      <div>
+        <section>
+          <h2>
             1. Thông tin được xử lý trên website
           </h2>
           <p>
@@ -33,8 +29,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
+        <section>
+          <h2>
             2. Phân tích và tiếp thị
           </h2>
           <p>
@@ -42,8 +38,8 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <section style={{ marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
+        <section>
+          <h2>
             3. Quyền và kênh liên hệ của người dùng
           </h2>
           <p>
@@ -52,12 +48,12 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2 style={{ fontSize: '18px', color: 'var(--web-ink)', fontWeight: '700', marginBottom: '12px' }}>
+          <h2>
             4. Thông tin đơn vị vận hành
           </h2>
           <CompanyLegalDetails compact />
         </section>
       </div>
-    </div>
+    </EditorialPage>
   );
 }

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
+import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
 
 export const metadata: Metadata = {
   title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
@@ -30,65 +31,46 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+    <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Chất Lượng Đức</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2 }}>Bia Benediktiner Chính Hãng</h1>
-          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Tìm hiểu nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.</p>
-        </div>
-      </section>
+      <EditorialPage
+        hero={{
+          eyebrow: 'Chất lượng Đức',
+          title: 'Benediktiner chính hãng',
+          kicker: 'Cách nhận biết',
+          lead: 'Nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.',
+        }}
+      >
+        <Summary>
+          <p><strong>Cam kết chính hãng:</strong> mọi sản phẩm Bia Thầy Tu Benediktiner được phân phối qua hệ thống của chúng tôi đều có nguồn gốc rõ ràng, đầy đủ giấy tờ hải quan (CO/CQ), và được bảo quản trong kho lạnh để giữ trọn hương vị.</p>
+        </Summary>
 
-      <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-accent)', color: 'var(--web-on-ink)', padding: '24px 28px', borderRadius: '12px', marginBottom: '48px', fontSize: '16px', lineHeight: 1.7, fontWeight: 500 }}>
-          <strong>Cam kết chính hãng:</strong> Mọi sản phẩm Bia Thầy Tu Benediktiner được phân phối qua hệ thống của chúng tôi đều có nguồn gốc rõ ràng, đầy đủ giấy tờ hải quan (CO/CQ), và được bảo quản trong hệ thống kho lạnh tiêu chuẩn để giữ trọn vẹn hương vị tu viện.
-        </div>
+        <h2>Ba cách nhận biết</h2>
+        <h3>1. Nhãn mác và ngôn ngữ</h3>
+        <p>Bia nhập khẩu nguyên chai từ Đức luôn có nhãn phụ tiếng Việt (theo quy định của pháp luật Việt Nam) dán đè hoặc in kèm, ghi rõ đơn vị nhập khẩu, nồng độ cồn, thành phần và cảnh báo sức khỏe. Ngày sản xuất (MFG) và hạn sử dụng (EXP) được in laser trên chai, lon.</p>
+        <h3>2. Nguồn gốc xuất xứ</h3>
+        <p>Mã vạch của bia Đức thường bắt đầu bằng đầu số 400 đến 440. Trên nhãn chai, lon bắt buộc có thông tin nhà sản xuất: <strong>Benediktiner Weißbräu GmbH</strong> (Ettal, Bavaria).</p>
+        <h3>3. Chất lượng bia bên trong</h3>
+        <p>Với dòng Weissbier Naturtrüb, bia thật có độ đục tự nhiên (do men sống chưa lọc) và màu vàng hổ phách đậm. Bọt bia trắng, mịn, giữ lâu trên miệng ly. Hương chuối chín và đinh hương rõ.</p>
 
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>3 Cách nhận biết Benediktiner chính hãng</h2>
-        
-        <div style={{ marginBottom: '32px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>1. Nhãn mác và ngôn ngữ</h3>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>Bia chính hãng nhập khẩu nguyên chai từ Đức luôn có nhãn phụ bằng tiếng Việt (theo quy định của pháp luật Việt Nam) dán đè hoặc in kèm, ghi rõ đơn vị nhập khẩu, thông số ABV, thành phần và cảnh báo sức khỏe. Thông tin ngày sản xuất (MFG) và hạn sử dụng (EXP) được in laser sắc nét trên chai/lon.</p>
-        </div>
+        <h2>Vì sao nên mua tại đại lý chính thức?</h2>
+        <InfoGrid
+          items={[
+            { title: 'Bảo quản chuẩn', text: 'Bia lúa mì chứa men sống nhạy cảm với nhiệt độ; chúng tôi bảo quản trong kho lạnh chuyên dụng.' },
+            { title: 'Date mới', text: 'Nhập khẩu liên tục, đảm bảo hạn sử dụng dài và bia luôn tươi.' },
+            { title: 'Hỗ trợ B2B', text: 'Hóa đơn VAT đầy đủ cho doanh nghiệp, nhà hàng, khách sạn.' },
+          ]}
+        />
+        <p>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham">bộ sưu tập Benediktiner</Link>.</p>
 
-        <div style={{ marginBottom: '32px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>2. Nguồn gốc xuất xứ (Made in Germany)</h3>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>Kiểm tra mã vạch: Mã vạch của bia Đức thường bắt đầu bằng đầu số 400 - 440. Trên nhãn chai/lon bắt buộc phải có thông tin nhà sản xuất: <strong>Benediktiner Weißbräu GmbH</strong> (Ettal, Bavaria).</p>
-        </div>
-
-        <div style={{ marginBottom: '48px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '12px' }}>3. Chất lượng bia bên trong (Naturtrüb)</h3>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)' }}>Với dòng Weissbier Naturtrüb, bia thật sẽ có độ vẩn đục tự nhiên (do men sống chưa lọc) và màu vàng hổ phách đậm. Bọt bia rót ra phải trắng, mịn, và giữ được rất lâu trên miệng ly. Hương vị nồng nàn mùi chuối chín và đinh hương.</p>
-        </div>
-
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Tại sao nên mua tại hệ thống đại lý chính thức?</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-          {[
-            { title: 'Bảo quản chuẩn', desc: 'Bia lúa mì chứa men sống rất nhạy cảm với nhiệt độ. Chúng tôi bảo quản 100% trong kho lạnh chuyên dụng.' },
-            { title: 'Date mới nhất', desc: 'Nhập khẩu liên tục hàng tháng, đảm bảo hạn sử dụng dài và chất lượng bia luôn ở mức tươi ngon nhất.' },
-            { title: 'Hỗ trợ B2B', desc: 'Cung cấp hóa đơn VAT đầy đủ cho khách hàng doanh nghiệp, nhà hàng, khách sạn.' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '20px', background: 'var(--web-card-bg)', borderRadius: '12px', border: '1px solid var(--web-border)' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <p style={{ marginTop: '16px', marginBottom: '24px' }}>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham" style={{ color: 'var(--web-accent-strong)', fontWeight: 600 }}>bộ sưu tập Benediktiner</Link></p>
-
-        <div data-surface="ink" style={{ padding: '32px', background: 'var(--web-ink)', borderRadius: '16px', color: 'var(--web-on-ink)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '22px', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>Yên tâm thưởng thức</h3>
-          <p style={{ color: 'var(--web-on-ink-muted)', marginBottom: '24px', fontSize: '15px' }}>Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác.</p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/lien-he" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none' }}>Liên hệ tư vấn</Link>
-          </div>
-        </div>
-      </article>
-
-    </div>
+        <CtaBand
+          title="Yên tâm thưởng thức"
+          text="Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác."
+          action={{ href: '/lien-he', label: 'Liên hệ tư vấn' }}
+        />
+      </EditorialPage>
+    </>
   );
 }
