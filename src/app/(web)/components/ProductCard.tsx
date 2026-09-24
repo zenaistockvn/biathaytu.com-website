@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { formatPrice } from '@/utils/formatPrice';
 import { hasWhiteCanvas } from '@/lib/data/productImages';
 import { getDisplayProductImage } from '../utils/productImages';
+import styles from './ProductCard.module.css';
 
 export interface ProductCardProps {
   id: string;
@@ -30,8 +31,8 @@ export interface ProductCardProps {
 }
 
 /**
- * Unified product card used across homepage featured grid and /san-pham listing.
- * The entire card is a single accessible link to avoid nested interactive controls.
+ * Thẻ sản phẩm dùng chung (trang chủ, /san-pham, bài viết), theo kiểu danh sách bia của Chimay:
+ * ảnh trên nền xám, tên in hoa, thông số một dòng, giá bán lẻ. Cả thẻ là một link duy nhất.
  */
 export default function ProductCard({
   id, name, slug, images, price, description,
@@ -40,78 +41,54 @@ export default function ProductCard({
   const [imageFailed, setImageFailed] = useState(false);
 
   const href = `/san-pham/${slug || id}`;
-  const isWine = category === 'vang';
   const primaryImage = getDisplayProductImage({ images, category });
-  const cardClassName = `product-card-v2${isWine ? ' wine-card' : ''}${highlightLabel ? ' product-card-highlight' : ''}`;
+  const specs = [abv ? `${abv}% vol.` : null, ibu ? `IBU ${ibu}` : null, volume].filter(Boolean).join(' · ');
 
   return (
-    <Link
-      id={cardId}
-      href={href}
-      className={cardClassName}
-      aria-label={`Xem chi tiết ${name}`}
-      style={{ color: 'inherit', textDecoration: 'none' }}
-    >
-      <div className="card-image">
-        {highlightLabel && (
-          <span className="card-promo-badge">{highlightLabel}</span>
-        )}
+    <Link id={cardId} href={href} className={styles.card} aria-label={`Xem chi tiết ${name}`}>
+      <div className={styles.media}>
+        {highlightLabel && <span className={styles.badge}>{highlightLabel}</span>}
 
         {primaryImage && !imageFailed ? (
           <Image
             src={primaryImage}
             alt={name}
             fill
-            className={hasWhiteCanvas(primaryImage) ? 'product-image-blend' : undefined}
-            style={{ objectFit: 'contain' }}
+            className={`${styles.image}${hasWhiteCanvas(primaryImage) ? ' product-image-blend' : ''}`}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             onError={() => setImageFailed(true)}
           />
         ) : (
-          <div className="card-image-empty">
+          <div className={styles.empty}>
             Đang cập nhật hình
           </div>
         )}
       </div>
 
-      <div className="card-body">
-        <h3 className="card-name">{name}</h3>
+      <div className={styles.body}>
+        <h3 className={styles.name}>{name}</h3>
+        {specs && <p className={styles.specs}>{specs}</p>}
 
         {description && (
-          <p className="card-description">{description}</p>
+          <p className={styles.description}>{description}</p>
+        )}
+
+        {quickTags && quickTags.length > 0 && (
+          <p className={styles.tags}>{quickTags.join(' · ')}</p>
         )}
 
         {price !== null && (
-          <p className={`card-price${isWine ? ' card-price-wine' : ''}`}>
-            <span style={{ display: 'block', marginBottom: '3px', fontSize: '12px', fontWeight: 600, color: 'var(--web-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              Giá bán lẻ
-            </span>
+          <p className={styles.price}>
+            <span className={styles.priceLabel}>Giá bán lẻ</span>
             {formatPrice(price)}
           </p>
         )}
 
-        {quickTags && quickTags.length > 0 && (
-          <div className="card-quick-tags">
-            {quickTags.map((tag) => (
-              <span key={tag} className="card-quick-tag">{tag}</span>
-            ))}
-          </div>
-        )}
-
-        {(abv || ibu || volume) && (
-          <div className="card-meta">
-            {abv && <span className="card-meta-tag">ABV {abv}%</span>}
-            {ibu && <span className="card-meta-tag">IBU {ibu}</span>}
-            {volume && <span className="card-meta-tag">{volume}</span>}
-          </div>
-        )}
-
         {showCTA && (
-          <div className="card-actions" aria-hidden="true">
-            <span className="card-link-cue">
-              Khám phá sản phẩm
-            </span>
-          </div>
+          <span className={styles.cue} aria-hidden="true">
+            Khám phá sản phẩm
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+          </span>
         )}
       </div>
     </Link>

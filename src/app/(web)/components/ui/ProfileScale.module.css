@@ -1,0 +1,58 @@
+.scale + .scale {
+  margin-top: 22px;
+}
+
+.label {
+  margin: 0 0 10px;
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--web-ink);
+}
+
+.row {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.box {
+  display: block;
+  height: 22px;
+  background: var(--web-bg);
+  border: 1px solid var(--web-border);
+}
+
+.selected .box {
+  background: var(--web-ink);
+  border-color: var(--web-ink);
+}
+
+.caption {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--web-text-secondary);
+}
+
+.selected .caption {
+  color: var(--web-ink);
+  font-weight: 600;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

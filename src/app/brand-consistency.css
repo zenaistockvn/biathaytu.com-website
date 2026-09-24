@@ -206,40 +206,21 @@
 }
 
 /* Product titles use the functional sans face; editorial headings remain serif. */
-.web-app .product-card-v2 .card-name,
-.web-app .product-card .card-name {
-  font-family: var(--font-sans), sans-serif !important;
-  font-size: 18px;
-  line-height: 1.35;
-  letter-spacing: -0.15px;
-}
 
 /* Product photography first: preserve true product color instead of multiply tint. */
-.web-app .product-card-v2 .card-image,
-.web-app .product-card .card-image {
-  background: radial-gradient(120% 90% at 50% 8%, var(--web-bg) 0%, var(--web-bg-warm) 62%, var(--web-bg-warm) 100%);
-}
-
-.web-app .product-card-v2 .card-image img,
-.web-app .card-image img {
-  mix-blend-mode: normal !important;
-}
 
 /* Ngoại lệ: ảnh banner Haravan dựng sẵn trên khung nền trắng, không tách nền được.
    Nhân nền để mảng trắng chìm vào khoang ảnh thay vì nổi thành một hộp trắng. */
-.web-app .card-image img.product-image-blend,
 .web-app .product-img-box img.product-image-blend,
 .web-app img.product-image-blend {
   mix-blend-mode: multiply !important;
 }
 
-.web-app .product-card-v2,
 .web-app .product-card {
   border-radius: 0;
   box-shadow: none !important;
 }
 
-.web-app .product-card-v2:hover,
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
   border-color: var(--web-accent-soft);
@@ -358,21 +339,6 @@
 }
 
 /* Thông số đọc như dòng chú thích của catalogue in, không phải viên pill UI-kit. */
-.web-app .product-card-v2 .card-meta-tag {
-  padding: 0 12px;
-  background: none;
-  border: none;
-  border-left: 1px solid var(--web-border);
-  border-radius: 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--web-text-muted);
-}
-
-.web-app .product-card-v2 .card-meta-tag:first-child {
-  padding-left: 0;
-  border-left: none;
-}
 
 @media (max-width: 768px) {
   .web-app .catalog-sticky-spacer {

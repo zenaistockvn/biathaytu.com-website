@@ -1,0 +1,44 @@
+.box {
+  margin-top: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--web-ink);
+  border-bottom: 1px solid var(--web-border);
+}
+
+.price {
+  margin: 0 0 14px;
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--web-ink);
+}
+
+.priceLabel {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-condensed), sans-serif;
+  font-stretch: normal;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--web-text-secondary);
+}
+
+/* `.box .title` (0,2,0) thắng cỡ và kiểu mặc định của `.web-app h2` (0,1,1). */
+.box .title {
+  margin: 0 0 16px;
+  font-family: var(--font-condensed), sans-serif !important;
+  font-stretch: normal;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}

@@ -90,7 +90,18 @@ async function capture(name) {
         const data = await page.evaluate(snapshot, PROPS);
         const file = `${width}${p.replace(/\//g, '_') || '_'}.json`;
         fs.writeFileSync(path.join(dir, file), JSON.stringify(data));
-        if (process.env.AUDIT_SHOTS) await page.screenshot({ path: path.join(dir, file.replace(/\.json$/, '.png')), fullPage: true });
+        if (process.env.AUDIT_SHOTS) {
+          // Cuộn hết trang để ảnh lazy-load tải xong, rồi về đầu trang trước khi chụp.
+          await page.evaluate(async () => {
+            for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo({ top: y, behavior: 'instant' }); await new Promise((r) => setTimeout(r, 60)); }
+            // 'instant': trang có scroll-behavior: smooth, cuộn mượt sẽ chưa về đầu khi chụp.
+            scrollTo({ top: 0, behavior: 'instant' });
+            dispatchEvent(new Event('scroll'));
+            await new Promise((r) => setTimeout(r, 400));
+          });
+          await page.waitForLoadState('networkidle');
+          await page.screenshot({ path: path.join(dir, file.replace(/\.json$/, '.png')), fullPage: true });
+        }
         process.stdout.write(`${width}px ${p}  ${Object.keys(data).length} phần tử\n`);
       }
       await context.close();

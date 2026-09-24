@@ -46,7 +46,8 @@ function inspect() {
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden' || inScroller(el)) continue;
     const r = el.getBoundingClientRect();
-    if (!r.width || r.bottom + scrollY <= 0) continue;
+    // Bỏ qua chữ chỉ dành cho trình đọc màn hình (khung 1x1px, cố ý bị cắt).
+    if (!r.width || r.bottom + scrollY <= 0 || (r.width <= 1 && r.height <= 1)) continue;
     const clipped = el.scrollWidth > el.clientWidth + 1 && cs.overflowX !== 'visible' && el.clientWidth > 0;
     if (r.right > vw + 1 || clipped) {
       issues.push({ tag: el.tagName.toLowerCase(), cls: String(el.className).slice(0, 60), text: el.textContent.trim().slice(0, 50), fontSize: cs.fontSize, right: Math.round(r.right), viewport: vw });

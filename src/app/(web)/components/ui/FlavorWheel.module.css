@@ -1,0 +1,54 @@
+.figure {
+  margin: 0;
+}
+
+/* .figure .title (0,2,0) thắng cỡ mặc định `.web-app h3` (0,1,1). */
+.figure .title {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.grid {
+  fill: none;
+  stroke: var(--web-border);
+  stroke-width: 1;
+}
+
+.axis {
+  stroke: var(--web-border);
+  stroke-width: 1;
+}
+
+.shape {
+  fill: rgb(var(--web-accent-rgb) / 0.16);
+  stroke: var(--web-accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.dot {
+  fill: var(--web-accent);
+}
+
+.label {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--web-ink);
+}
+
+.note {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--web-text-secondary);
+}

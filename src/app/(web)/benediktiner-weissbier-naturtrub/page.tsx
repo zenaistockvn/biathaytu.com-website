@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
+import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
+import { getBeerProducts } from '@/lib/data/products';
 import { getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
@@ -44,275 +45,99 @@ export default function Page() {
   const zaloBaseUrl = getCompanyZaloUrl();
   const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia lúa mì Benediktiner Weissbier Naturtrüb chính hãng. Tư vấn chương trình ưu đãi và giao hàng giúp mình nhé.';
   const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
+  const formats = getBeerProducts().filter((p) => p.name.includes('Naturtrüb'));
 
   return (
-    <div className="weissbier-landing">
+    <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Weissbier Naturtrüb', url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' }])} />
 
-      {/* Hero Section */}
-      <section className="weissbier-hero">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <span className="weissbier-hero-badge">Di Sản Tu Viện Bavarian 1330</span>
-          <h1 className="weissbier-hero-title">
-            Benediktiner <span>Weissbier Naturtrüb</span>
-          </h1>
-          <p className="weissbier-hero-desc">
-            Dòng bia lúa mì men sống không lọc thượng hạng, chế tác theo công thức cổ truyền của các tu sĩ vùng Bavaria. Đậm đà, êm dịu và sảng khoái tột độ.
-          </p>
-        </div>
-      </section>
-
-      {/* Intro & Specs Section */}
-      <section className="weissbier-intro">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <div className="weissbier-intro-card">
-            <div className="weissbier-intro-img-wrap">
-              <Image
-                src="/images/products/official/benediktiner/bottle_removebg.png" 
-                alt="Chai Bia Thầy Tu Benediktiner Weissbier" 
-                width={270}
-                height={925}
-                sizes="(max-width: 768px) 70vw, 300px"
-                className="weissbier-intro-img"
-              />
-            </div>
-            <div className="weissbier-intro-content">
-              <span className="weissbier-tag">iTQi 3 Sao Danh Giá</span>
-              <h2 className="weissbier-intro-title">Naturtrüb, Tinh túy từ lớp men sống tự nhiên</h2>
-              <p className="weissbier-intro-desc">
-                Naturtrüb trong tiếng Đức có nghĩa là "vẩn đục tự nhiên". Thay vì lọc sạch men sống như các dòng bia công nghiệp phổ thông, Bia Thầy Tu Benediktiner Weissbier bảo tồn lớp men sống nguyên bản. Lớp men quý giá này tiếp tục lên men thứ cấp ngay trong chai, tạo nên màu sắc hổ phách đục mờ quyến rũ, lớp bọt kem dày mịn như tuyết và giải phóng hương vị trọn vẹn nhất.
-              </p>
-              
-              <div className="weissbier-specs">
-                <div className="weissbier-spec-item">
-                  <span className="weissbier-spec-label">Nồng Độ Cồn (ABV)</span>
-                  <span className="weissbier-spec-value">5.4%</span>
-                </div>
-                <div className="weissbier-spec-item">
-                  <span className="weissbier-spec-label">Quy Cách Đóng Gói</span>
-                  <span className="weissbier-spec-value">Lon/Chai 500ml</span>
-                </div>
-              </div>
-
-              <a 
-                href={linkOrder}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="football-popup-cta-btn button-gold-pulse"
-                style={{ display: 'block', textAlign: 'center', textDecoration: 'none', maxWidth: '300px' }}
-              >
-                LIÊN HỆ ĐẶT HÀNG NGAY
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bavarian Pouring Ritual */}
-      <section className="weissbier-ritual">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <h2 className="weissbier-section-title">Nghi Thức Rót Bia Chuẩn Bavaria</h2>
-          <p className="weissbier-section-subtitle">
-            Hãy làm đúng 4 bước dưới đây để đánh thức lớp men sống tinh túy đọng dưới đáy chai bia
-          </p>
-
-          <div className="weissbier-ritual-grid">
-            <div className="weissbier-ritual-card">
-              <span className="weissbier-ritual-num">01</span>
-              <h3 className="weissbier-ritual-title">Ướp Lạnh Sâu</h3>
-              <p className="weissbier-ritual-desc">Ủ lạnh chai bia và ly thủy tinh thon dài chuyên dụng ở nhiệt độ lý tưởng từ 6 - 8°C trước khi rót.</p>
-            </div>
-            <div className="weissbier-ritual-card">
-              <span className="weissbier-ritual-num">02</span>
-              <h3 className="weissbier-ritual-title">Rót Nghiêng 45°</h3>
-              <p className="weissbier-ritual-desc">Rót từ từ bia dọc theo thành ly nghiêng 45° cho đến khi lượng bia trong chai còn khoảng 1/4.</p>
-            </div>
-            <div className="weissbier-ritual-card">
-              <span className="weissbier-ritual-num">03</span>
-              <h3 className="weissbier-ritual-title">Xoay Nhẹ Chai</h3>
-              <p className="weissbier-ritual-desc">Giữ chai nằm ngang, lắc tròn hoặc lăn nhẹ vài vòng để lớp men sống dưới đáy hòa tan hoàn toàn.</p>
-            </div>
-            <div className="weissbier-ritual-card">
-              <span className="weissbier-ritual-num">04</span>
-              <h3 className="weissbier-ritual-title">Phủ Bọt Tuyết</h3>
-              <p className="weissbier-ritual-desc">Rót hết phần men sống còn lại thẳng vào giữa ly để tạo nên lớp bọt kem dày mịn như tuyết phủ.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tasting Notes */}
-      <section className="weissbier-tasting">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <h2 className="weissbier-section-title">Hương Vị Cảm Nhận (Tasting Notes)</h2>
-          <p className="weissbier-section-subtitle">Trải nghiệm bốn tầng vị của dòng bia di sản được nấu theo Luật Tinh Khiết 1516</p>
-
-          <div className="weissbier-tasting-grid">
-            <div className="weissbier-tasting-card">
-              <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon"></span>
-                <h3 className="weissbier-tasting-title">Thị Giác (Visual)</h3>
-              </div>
-              <p className="weissbier-tasting-desc">
-                Sắc vàng hổ phách đục mờ quyến rũ đặc trưng. Lớp bọt kem màu trắng tuyết, dày dặn, lâu tan và bám chặt vào thành ly thủy tinh.
-              </p>
-            </div>
-
-            <div className="weissbier-tasting-card">
-              <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon"></span>
-                <h3 className="weissbier-tasting-title">Khứu Giác (Aroma)</h3>
-              </div>
-              <p className="weissbier-tasting-desc">
-                Lan tỏa hương thơm ngọt ngào tự nhiên của quả chuối chín, hương thơm cay nhẹ thanh tao của đinh hương và nốt hương lúa mì nướng ấm áp.
-              </p>
-            </div>
-
-            <div className="weissbier-tasting-card">
-              <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon"></span>
-                <h3 className="weissbier-tasting-title">Vị Giác (Taste)</h3>
-              </div>
-              <p className="weissbier-tasting-desc">
-                Cảm giác ngụm bia vô cùng êm dịu, mượt mà và tròn trịa trong khoang miệng. Vị ngọt nhẹ của hoa quả cân bằng hoàn hảo, không có vị đắng gắt.
-              </p>
-            </div>
-
-            <div className="weissbier-tasting-card">
-              <div className="weissbier-tasting-header">
-                <span className="weissbier-tasting-icon"></span>
-                <h3 className="weissbier-tasting-title">Hậu Vị (Finish)</h3>
-              </div>
-              <p className="weissbier-tasting-desc">
-                Trôi qua cuống họng nhẹ nhàng, để lại hậu vị ngọt thanh nhẹ của mạch nha, hương thơm hoa quả kéo dài tạo cảm giác thư giãn sâu sắc.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Official Benediktiner/Bitburger imagery (no AI-generated scenes) */}
-      <section className="lifestyle-gallery-section">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <h2 className="weissbier-section-title">Từ Tu Viện Ettal</h2>
-          <p className="weissbier-section-subtitle">
-            Hình ảnh chính thức của Benediktiner Weissbräu, Ettal
-          </p>
-
-          <div className="lifestyle-gallery-grid">
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/brand/benediktiner-official/home-hero.jpg"
-                  alt="Ly và chai Benediktiner Weissbier trước tu viện Ettal"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Ettal, dưới chân dãy Alps</h3>
-                  <p className="lifestyle-gallery-card-desc">Tu viện nằm ở độ cao 877 m, nơi khởi nguồn công thức Benediktiner</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/brand/benediktiner-official/ettal-monastery.jpg"
-                  alt="Tu viện Ettal"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">Tu viện Ettal</h3>
-                  <p className="lifestyle-gallery-card-desc">Tu viện dòng Benedictine thành lập năm 1330 tại Bavaria</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lifestyle-gallery-card">
-              <div className="lifestyle-gallery-img-wrap">
-                <Image
-                  src="/images/brand/benediktiner-official/so-close-to-heaven.jpg"
-                  alt="Ảnh chiến dịch So close to heaven của Benediktiner Weissbier"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="lifestyle-gallery-img"
-                />
-                <div className="lifestyle-gallery-overlay">
-                  <h3 className="lifestyle-gallery-card-title">So close to heaven</h3>
-                  <p className="lifestyle-gallery-card-desc">Chiến dịch chính thức của Benediktiner Weissbier</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Food Pairing */}
-      <section className="weissbier-pairing">
-        <div className="container" style={{ padding: '0 20px' }}>
-          <div className="weissbier-pairing-wrap">
-            <div className="weissbier-pairing-content">
-              <h2 className="weissbier-section-title" style={{ textAlign: 'left', marginBottom: '16px' }}>Nghệ Thuật Kết Hợp Ẩm Thực</h2>
-              <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', margin: 0 }}>
-                Nhờ hương vị lúa mì ngọt mát và độ sủi tăm mượt mà, Benediktiner Weissbier là thức uống đồng hành lý tưởng để tôn vinh hương vị của các món ăn chính:
-              </p>
-
-              <div className="weissbier-pairing-list">
-                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
-                    <strong>Hải sản tươi sống</strong>
-                    <p>Cực kỳ hợp với tôm hấp sả, cua huỳnh đế, mực nướng sa tế và lẩu hải sản chua ngọt.</p>
-                  </div>
-                </div>
-
-                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
-                    <strong>Đồ nướng & Gia cầm</strong>
-                    <p>Gà quay mật ong, heo xá xíu, salad bơ ức gà nướng và xúc xích bê trắng truyền thống Đức.</p>
-                  </div>
-                </div>
-
-                <div className="weissbier-pairing-item">                  <div className="weissbier-pairing-text">
-                    <strong>Phô mai mềm & Đồ ngọt</strong>
-                    <p>Phô mai dê, Gouda mềm, bánh tart táo nướng và các món panna cotta hoa quả ngọt dịu.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="weissbier-pairing-img-wrap">
-              <Image 
-                src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
-                alt="Thưởng thức bia lúa mì Benediktiner cùng bạn bè"
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-            </div>
-          </div>
-
-          {/* CTA Box */}
-          <div className="weissbier-cta-box">
-            <h3 className="weissbier-cta-title">Thưởng Thức Hương Vị Bavaria Ngay Hôm Nay</h3>
-            <p className="weissbier-cta-desc">
-              Nhập khẩu nguyên chai chính ngạch từ Đức. Đặt lịch giao nhanh mát lạnh tận nơi chỉ trong 1 chạm.
-            </p>
-            <a 
-              href={linkOrder}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="football-popup-cta-btn button-gold-pulse"
-              style={{ display: 'inline-block', minWidth: '240px', textDecoration: 'none' }}
-            >
-              LIÊN HỆ ĐẶT HÀNG QUA ZALO
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </div>
+      <ProductStory
+        wordmark="BENEDIKTINER"
+        hero={{
+          eyebrow: 'Benediktiner Weissbräu Ettal',
+          title: 'Weissbier Naturtrüb',
+          kicker: 'Bia lúa mì không lọc',
+          meta: '5,4% vol. Thưởng thức ở 6 đến 8°C.',
+          photo: { src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Ly và chai Benediktiner Weissbier Naturtrüb trước Tu viện Ettal và dãy Alps', position: '68% center' },
+        }}
+        intro={{
+          title: 'Tinh túy từ lớp men sống',
+          image: { src: '/images/products/official/benediktiner/bottle_removebg.png', alt: 'Chai Benediktiner Weissbier Naturtrüb' },
+          body: (
+            <>
+              <p>Naturtrüb trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;. Thay vì lọc sạch men như bia công nghiệp phổ thông, Benediktiner Weissbier giữ lại lớp men sống nguyên bản.</p>
+              <p>Lớp men tiếp tục lên men trong chai, tạo nên màu hổ phách đục, lớp bọt dày mịn và hương vị trọn vẹn nhất của bia lúa mì Bavaria.</p>
+            </>
+          ),
+          actions: [
+            { href: linkOrder, label: 'Liên hệ đặt hàng', external: Boolean(zaloBaseUrl) },
+            { href: '/san-pham#benediktiner', label: 'Xem các quy cách' },
+          ],
+        }}
+        profile={{
+          serving: '5,4% vol. Nhiệt độ 6 đến 8°C. Ly Weizen cao.',
+          flavors: [
+            { label: 'Trái cây', value: 5 },
+            { label: 'Gia vị', value: 4 },
+            { label: 'Lúa mì', value: 4 },
+            { label: 'Mạch nha', value: 2 },
+            { label: 'Caramel', value: 1 },
+            { label: 'Rang', value: 0 },
+            { label: 'Hoa bia', value: 1 },
+            { label: 'Đắng', value: 1 },
+          ],
+          color: 2,
+          clarity: 2,
+          foam: 2,
+        }}
+        notes={{
+          title: 'Hương vị cảm nhận',
+          items: [
+            { term: 'Thị giác', text: 'Vàng hổ phách đục. Lớp bọt trắng dày, lâu tan, bám chặt thành ly.' },
+            { term: 'Khứu giác', text: 'Hương chuối chín ngọt tự nhiên, đinh hương cay nhẹ và lúa mì nướng ấm.' },
+            { term: 'Vị giác', text: 'Êm, mượt và tròn trong khoang miệng. Vị ngọt nhẹ của trái cây cân bằng, không đắng gắt.' },
+            { term: 'Hậu vị', text: 'Nhẹ nhàng, ngọt thanh của mạch nha, hương trái cây kéo dài.' },
+          ],
+        }}
+        story={{
+          title: 'Một chút lịch sử',
+          body: (
+            <>
+              <p>Tu viện Ettal được các tu sĩ dòng Benedictine thành lập năm 1330, ở độ cao 877 m dưới chân dãy Alps, Bavaria. Truyền thống bia lúa mì của tu viện là nền tảng của công thức Benediktiner.</p>
+              <p>Ngày nay bia được nấu tại Lich theo công thức Benedictine nguyên bản và Luật Tinh Khiết 1516.</p>
+            </>
+          ),
+        }}
+        ritual={{
+          title: 'Nghi thức rót',
+          kicker: 'Chuẩn Bavaria, bốn bước',
+          steps: [
+            ['Ướp lạnh', 'Ủ lạnh chai và ly Weizen thon dài ở 6 đến 8°C trước khi rót.'],
+            ['Rót nghiêng 45°', 'Rót chậm dọc thành ly nghiêng cho đến khi trong chai còn khoảng một phần tư.'],
+            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men sống dưới đáy hòa tan.'],
+            ['Phủ bọt', 'Rót phần men còn lại vào giữa ly để tạo lớp bọt dày mịn.'],
+          ],
+        }}
+        formats={{ products: formats }}
+        pairing={{
+          image: { src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier trên bàn gỗ ngoài vườn', position: '70% center' },
+          title: 'Món ăn kèm',
+          kicker: 'Nghệ thuật kết hợp',
+          intro: 'Vị lúa mì ngọt mát và độ sủi mượt giúp Weissbier tôn lên nhiều món ăn:',
+          items: [
+            { title: 'Hải sản', text: 'Tôm hấp sả, cua, mực nướng sa tế và lẩu hải sản chua ngọt.' },
+            { title: 'Đồ nướng và gia cầm', text: 'Gà quay mật ong, xá xíu, salad ức gà nướng và xúc xích trắng kiểu Đức.' },
+            { title: 'Phô mai mềm và tráng miệng', text: 'Phô mai dê, Gouda mềm, tart táo và panna cotta trái cây.' },
+          ],
+        }}
+        cta={{
+          title: 'Đặt hàng',
+          kicker: 'Tư vấn qua Zalo',
+          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
+          action: { href: linkOrder, label: 'Liên hệ đặt hàng qua Zalo', external: Boolean(zaloBaseUrl) },
+        }}
+      />
+    </>
   );
 }

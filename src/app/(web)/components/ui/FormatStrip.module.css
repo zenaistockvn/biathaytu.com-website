@@ -1,0 +1,53 @@
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 32px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--web-text);
+  text-decoration: none;
+}
+
+.media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 8px;
+}
+
+.image {
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.item:hover .image {
+  transform: translateY(-4px);
+}
+
+.label {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+.price {
+  font-size: 14px;
+  color: var(--web-text-secondary);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--web-accent);
+  outline-offset: 3px;
+}

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
+import ProductStory from '../components/ProductStory';
+import { getBeerProducts } from '@/lib/data/products';
 
 export const metadata: Metadata = {
   title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
@@ -39,68 +39,55 @@ export default function Page() {
     volume: '5000ml',
   };
 
+  // Mọi bom 5L đang bán, giá lấy từ dữ liệu sản phẩm.
+  const kegs = getBeerProducts().filter((p) => /bom\s*5\s*l/i.test(p.name));
+
   return (
-    <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+    <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' }])} />
 
-      <section data-surface="ink" style={{ padding: '120px 0 60px', background: 'var(--web-ink)', color: 'var(--web-on-ink)', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent-on-ink)', textTransform: 'uppercase', marginBottom: '20px' }}>Linh Hồn Bữa Tiệc</p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', marginBottom: '24px', fontFamily: 'var(--font-display)', lineHeight: 1.2, color: 'var(--web-on-ink)' }}>Bom Bia 5L Benediktiner</h1>
-          <p style={{ fontSize: '18px', color: 'var(--web-on-ink-muted)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>Mang cả không khí lễ hội Oktoberfest của vùng Bavaria về ngay bàn tiệc nhà bạn.</p>
-        </div>
-      </section>
-
-      <article className="container" style={{ maxWidth: '850px', padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-card-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             <Image src="/images/brand/benediktiner-official/festbier-keg-nobg.webp" alt="Bom Bia 5L Benediktiner" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
-          </div>
-          <div style={{ flex: '2 1 400px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Sang Trọng, Đẳng Cấp, Tiện Lợi</h2>
-            <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-text-secondary)', marginBottom: '24px' }}>
-              Không gì tạo điểm nhấn cho bàn tiệc tốt hơn một bom bia Đức 5 Lít. Với thiết kế vỏ hợp kim nhôm chuyên dụng, bom bia không chỉ giữ lạnh cực tốt mà còn bảo quản chất lượng men bia tươi nguyên bản. Vòi rót tích hợp sẵn (built-in tap) mang đến trải nghiệm tự tay rót bia tươi chuẩn như tại nhà máy Đức.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-              <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Giá Tham Khảo</span>
-                <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>963.000đ / Bom</strong>
-                <span style={{ display: 'block', marginTop: '6px', fontSize: '12px', lineHeight: 1.45, color: 'var(--web-text-muted)' }}>Giá tham khảo, vui lòng liên hệ để được báo giá và đặt hàng.</span>
-              </div>
-              <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '13px', color: 'var(--web-text-muted)', display: 'block', marginBottom: '4px' }}>Dung Tích</span>
-                <strong style={{ fontSize: '18px', color: 'var(--web-ink)' }}>5 Lít (~15 ly)</strong>
-              </div>
-            </div>
-            <Link href="/san-pham/benediktiner-naturtrub-bom-5l" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--web-accent)', color: 'var(--web-on-ink)', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', width: '100%', textAlign: 'center' }}>Xem Chi Tiết Sản Phẩm</Link>
-          </div>
-        </div>
-
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '24px', fontFamily: 'var(--font-display)' }}>Hướng dẫn sử dụng & Bảo quản</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-          {[
-            { title: '1. Làm lạnh sâu', desc: 'Làm lạnh bom bia trong tủ lạnh ít nhất 10 tiếng trước khi sử dụng. Không để vào ngăn đá.' },
-            { title: '2. Thông khí', desc: 'Xoay van thông khí ở trên đỉnh bom theo hướng dẫn để giảm áp suất dư thừa trước khi rót.' },
-            { title: '3. Mở vòi rót', desc: 'Kéo vòi rót ở hông bom ra, xoay vòi xuống dưới để bia chảy ra. Điều chỉnh lực xoay để kiểm soát bọt.' },
-            { title: '4. Thời gian dùng', desc: 'Ngon nhất khi uống hết trong vòng 48h sau khi mở nắp để đảm bảo lớp bọt và độ tươi.' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: 'var(--web-bg-section)', borderRadius: '12px' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--web-ink)', marginBottom: '8px' }}>{item.title}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.6 }}>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: '40px', borderRadius: '16px', marginBottom: '40px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--web-accent-on-ink)', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>Món Quà Tặng Độc Đáo</h2>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--web-on-ink-muted)', marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}>
-            Không chỉ dùng trong các bữa tiệc gia đình, dã ngoại cuối tuần, Bom bia 5L còn là món quà tặng đối tác, sếp, hoặc bạn bè cực kỳ đẳng cấp trong các dịp Lễ, Tết.
-          </p>
-          <Link href="/qua-tang-bia-duc" style={{ color: 'var(--web-accent-on-ink)', fontWeight: 700, textDecoration: 'none' }}>Xem thêm các set quà tặng doanh nghiệp</Link>
-        </div>
-      </article>
-
-    </div>
+      <ProductStory
+        wordmark="BENEDIKTINER"
+        hero={{
+          eyebrow: 'Cho bàn tiệc',
+          title: 'Bom bia 5 lít',
+          kicker: 'Benediktiner',
+          meta: 'Khoảng 15 ly. Vòi rót tích hợp sẵn.',
+          cutout: { src: '/images/brand/benediktiner-official/festbier-keg-nobg.webp', alt: 'Bom 5 lít Benediktiner Festbier' },
+        }}
+        intro={{
+          title: 'Bia tươi tại bàn tiệc',
+          image: { src: '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp', alt: 'Bom Benediktiner Festbier 5 lít' },
+          body: (
+            <>
+              <p>Bom 5 lít làm điểm nhấn cho bàn tiệc gia đình, dã ngoại hay sự kiện. Vỏ kim loại chuyên dụng giữ lạnh tốt và bảo quản chất lượng bia.</p>
+              <p>Vòi rót tích hợp sẵn cho phép tự rót bia tươi ngay tại bàn.</p>
+            </>
+          ),
+          actions: [
+            { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Xem chi tiết sản phẩm' },
+            { href: '/lien-he', label: 'Liên hệ tư vấn' },
+          ],
+        }}
+        ritual={{
+          title: 'Sử dụng và bảo quản',
+          kicker: 'Bốn bước',
+          steps: [
+            ['Làm lạnh sâu', 'Để bom trong tủ lạnh ít nhất 10 tiếng trước khi dùng. Không để ngăn đá.'],
+            ['Thông khí', 'Xoay van thông khí trên đỉnh bom theo hướng dẫn để giảm áp suất trước khi rót.'],
+            ['Mở vòi rót', 'Kéo vòi ở hông bom ra, xoay xuống để bia chảy. Điều chỉnh lực xoay để kiểm soát bọt.'],
+            ['Dùng trong 48 giờ', 'Ngon nhất khi dùng hết trong 48 giờ sau khi mở để giữ bọt và độ tươi.'],
+          ],
+        }}
+        formats={{ title: 'Các bom 5 lít', products: kegs }}
+        cta={{
+          title: 'Quà tặng',
+          kicker: 'Doanh nghiệp và dịp lễ',
+          text: 'Bom bia 5 lít còn là món quà tặng đối tác, bạn bè trong các dịp lễ, Tết.',
+          action: { href: '/qua-tang-bia-duc', label: 'Xem các set quà tặng' },
+        }}
+      />
+    </>
   );
 }

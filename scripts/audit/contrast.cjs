@@ -157,7 +157,8 @@ async function auditPage(browser, viewportName, pagePath, gate) {
     await page.evaluate(() => { scrollTo(0, 0); dispatchEvent(new Event('scroll')); });
     await page.waitForTimeout(600);
     const items = (await page.evaluate(collect, DECORATIVE)).filter((i) => (gate ? i.inDialog : true));
-    await page.addStyleTag({ content: '*,*::before,*::after{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;caret-color:transparent!important;text-decoration-color:transparent!important}' });
+    // nextjs-portal: nút dev tools của `next dev`, nằm trong shadow DOM nên bước ẩn phần tử cố định không bắt được.
+    await page.addStyleTag({ content: '*,*::before,*::after{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;caret-color:transparent!important;text-decoration-color:transparent!important}nextjs-portal{display:none!important}' });
     await page.waitForTimeout(150);
     // Ảnh B: đúng khung màn hình ở đầu trang. Phần tử cố định (header, thanh điều hướng, cổng tuổi)
     // chỉ đúng vị trí trong ảnh khung màn hình; ảnh toàn trang sẽ dời chúng đi.

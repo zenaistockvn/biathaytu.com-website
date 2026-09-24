@@ -8,8 +8,11 @@ import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
 import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/JsonLd';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
+import { Button } from '../../components/ui/Button';
+import TitleBlock from '../../components/ui/TitleBlock';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
+import styles from './page.module.css';
 
 export function generateStaticParams() {
   return getVisibleProducts()
@@ -37,6 +40,14 @@ function getPackagingFormat(name: string): string | null {
   const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^,:]*/i);
   return match?.[0]?.trim() || null;
 }
+
+const CATEGORY_LABEL: Record<string, string> = {
+  bia: 'Bia Đức nhập khẩu',
+  vang: 'Vang Đức',
+  'xuc-xich': 'Xúc xích kiểu Đức',
+  combo: 'Combo tham khảo',
+  'phu-kien': 'Phụ kiện',
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -77,6 +88,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+/** Trang chi tiết: ảnh trên nền xám bên trái, tên, giá, thông số dạng bảng bên phải (như trang sản phẩm Chimay). */
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = getProductBySlugOrId(slug) as ProductData | null;
@@ -105,6 +117,23 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         'Hỗ trợ thông tin giao nhận khi khách hàng liên hệ qua hotline hoặc Zalo.',
       ];
 
+  const sausageTags = (() => {
+    const s = product.slug || '';
+    if (s === 'the-wurst-wiener-hun-khoi-500g') return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
+    if (s === 'the-wurst-thuringer-bratwurst-500g') return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
+    if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
+    return [];
+  })();
+  const tags = isSausage ? sausageTags : isCombo ? ['Combo Tham Khảo', 'Bia & Xúc xích Đức', 'Quà tặng kèm'] : [];
+
+  const specs = [
+    product.abv ? ['Nồng độ cồn', `${product.abv}%`] : null,
+    product.ibu ? ['Độ đắng (IBU)', String(product.ibu)] : null,
+    product.volume ? [isSausage ? 'Quy cách' : 'Dung tích', product.volume] : null,
+    packagingFormat && !isSausage ? ['Quy cách', packagingFormat] : null,
+    ['Xuất xứ', product.origin || 'Đức'],
+  ].filter((row): row is string[] => Boolean(row));
+
   const relatedProductsData = getRelatedBeers(product.id, 4);
   const isBeer = product.category === 'bia';
   const sausageProducts = isBeer ? getSausageProducts() : [];
@@ -129,192 +158,109 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       ])} />
 
       <div className="container">
-        <div className="product-breadcrumb">
-          <Link href="/">Trang chủ</Link> &rsaquo;
-          <Link href="/san-pham"> Sản phẩm</Link> &rsaquo;
-          <span className="breadcrumb-active"> {product.name}</span>
-        </div>
+        <nav className={styles.breadcrumb} aria-label="Đường dẫn">
+          <Link href="/">Trang chủ</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/san-pham">Sản phẩm</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{product.name}</span>
+        </nav>
 
-        <div className="product-detail-grid">
-          <div className="product-img-sticky">
+        <div className={styles.top}>
+          <div className={styles.gallery}>
             <ProductGallery images={product.images || []} productName={product.name} />
           </div>
 
           <div>
-            <h1 className="product-detail-name">{product.name}</h1>
+            <p className={styles.kicker}>{CATEGORY_LABEL[product.category ?? ''] ?? 'Sản phẩm'}</p>
+            <h1 className={styles.name}>{product.name}</h1>
             {isAlcohol && (
-              <p style={{ margin: '8px 0 18px', color: 'var(--web-text-muted)', fontSize: '13px', fontWeight: 600 }}>
-                Sản phẩm chỉ dành cho người từ đủ 18 tuổi.
-              </p>
+              <p className={styles.ageNote}>Sản phẩm chỉ dành cho người từ đủ 18 tuổi.</p>
             )}
+            {tags.length > 0 && <p className={styles.tags}>{tags.join(' · ')}</p>}
 
             <ProductOrderActions product={product} />
 
-            {isSausage && (
-              <div className="product-detail-tags">
-                {(() => {
-                  const s = product.slug || '';
-                  if (s === 'the-wurst-wiener-hun-khoi-500g') return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
-                  if (s === 'the-wurst-thuringer-bratwurst-500g') return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
-                  if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
-                  return [];
-                })().map((tag) => (
-                  <span key={tag} className={`detail-pill-tag${tag === 'Combo 99K' ? ' highlight-tag' : ''}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+            <dl className={styles.specs}>
+              {specs.map(([label, value]) => (
+                <div key={label + value}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
 
-            {isCombo && (
-              <div className="product-detail-tags">
-                {['Combo Tham Khảo', 'Bia & Xúc xích Đức', 'Quà tặng kèm'].map((tag) => (
-                  <span key={tag} className={`detail-pill-tag${tag === 'Combo Tham Khảo' ? ' highlight-tag' : ''}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            <div className="product-specs">
-              {product.abv && (
-                <div className="product-spec-item">
-                  <div className="product-spec-label">Nồng độ cồn</div>
-                  <div className="product-spec-value">{product.abv}%</div>
-                </div>
-              )}
-              {product.ibu && (
-                <div className="product-spec-item">
-                  <div className="product-spec-label">Độ đắng (IBU)</div>
-                  <div className="product-spec-value">{product.ibu}</div>
-                </div>
-              )}
-              {product.volume && (
-                <div className="product-spec-item">
-                  <div className="product-spec-label">{isSausage ? 'Quy cách' : 'Dung tích'}</div>
-                  <div className="product-spec-value">{product.volume}</div>
-                </div>
-              )}
-              {packagingFormat && !isSausage && (
-                <div className="product-spec-item">
-                  <div className="product-spec-label">Quy cách</div>
-                  <div className="product-spec-value">{packagingFormat}</div>
-                </div>
-              )}
-              <div className="product-spec-item">
-                <div className="product-spec-label">Xuất xứ</div>
-                <div className="product-spec-value">{product.origin || 'Đức'}</div>
-              </div>
+            <div className={styles.tasting}>
+              <p className={styles.tastingLabel}>Hương vị nổi bật</p>
+              <p>{tastingNote}</p>
             </div>
+          </div>
+        </div>
 
-            <div
-              style={{
-                margin: '20px 0',
-                padding: '16px 18px',
-                borderLeft: '3px solid var(--web-accent)',
-                background: 'var(--web-bg-warm)',
-                borderRadius: '0 10px 10px 0',
-              }}
-            >
-              <strong style={{ display: 'block', marginBottom: '5px', color: 'var(--web-ink)' }}>Hương vị nổi bật</strong>
-              <span style={{ color: 'var(--web-text-muted)', lineHeight: 1.6 }}>{tastingNote}</span>
-            </div>
-
-            <div className="product-description">
+        <div className={styles.details}>
+          <div>
+            <div className={`product-description ${styles.description}`}>
               {product.description || (
                 <p>
                   Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
                 </p>
               )}
             </div>
-
-            <div className="product-guarantee">
-              <h4>
-                {guaranteeTitle}
-              </h4>
-              <ul>
-                {guaranteeItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
             <ProductDetailsAccordion productName={product.name} category={product.category} />
           </div>
+
+          <aside className={styles.guarantee}>
+            <h2>{guaranteeTitle}</h2>
+            <ul>
+              {guaranteeItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </aside>
         </div>
 
         {isBeer && sausageProducts.length > 0 && (
-          <section className="perfect-pairings-section" style={{ marginTop: '60px', borderTop: '1px solid var(--web-border)', paddingTop: '60px' }}>
-            <div className="section-header-center" style={{ marginBottom: '40px' }}>
-              <span className="section-label" style={{ color: 'var(--web-accent)', fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Gợi Ý Food Pairing</span>
-              <h2 className="section-title" style={{ color: 'var(--web-ink)', fontSize: '28px', fontWeight: 700, margin: 0 }}>Món Nhắm Hoàn Hảo</h2>
-              <p style={{ color: 'var(--web-text-secondary)', marginTop: '8px', fontSize: '15px' }}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
-            </div>
+          <section className={styles.pairings} aria-labelledby="pairings-title">
+            <TitleBlock id="pairings-title" align="center" title="Món nhắm" kicker="Gợi ý food pairing" />
+            <p className={styles.pairingsLead}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
 
-            <div className="pairings-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', alignItems: 'stretch' }}>
-              <div style={{ background: 'var(--web-card-bg)', border: '1px solid var(--web-border)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--web-shadow)' }}>
-                <h3 style={{ color: 'var(--web-ink)', borderBottom: '2px solid var(--web-accent)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  Xúc Xích Đức Ăn Kèm
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className={styles.pairingsGrid}>
+              <div className={styles.sausages}>
+                <h3 className={styles.panelTitle}>Xúc xích Đức ăn kèm</h3>
+                <ul>
                   {sausageProducts.map((sausage) => (
-                    <Link
-                      key={sausage.id}
-                      href={`/san-pham/${sausage.slug}`}
-                      className="pairing-sausage-item"
-                      style={{ display: 'flex', gap: '16px', alignItems: 'center', padding: '12px', borderRadius: '12px', background: 'var(--web-bg-warm)', border: '1px solid var(--web-border)', color: 'inherit', textDecoration: 'none' }}
-                    >
-                      {sausage.images?.[0] ? (
-                        <div style={{ width: '70px', height: '70px', position: 'relative', flexShrink: 0, background: 'var(--web-card-bg)', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--web-border)' }}>
-                          <Image
-                            src={sausage.images[0]}
-                            alt={sausage.name}
-                            fill
-                            sizes="70px"
-                            style={{ objectFit: 'contain' }}
-                          />
-                        </div>
-                      ) : null}
-                      <div style={{ flexGrow: 1 }}>
-                        <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', fontWeight: 600, color: 'var(--web-ink)' }}>{sausage.name}</h4>
-                        <span style={{ display: 'inline-block', marginTop: '5px', fontSize: '12px', color: 'var(--web-accent-strong)', fontWeight: 600, textDecoration: 'underline' }}>
-                          Xem chi tiết &rsaquo;
+                    <li key={sausage.id}>
+                      <Link href={`/san-pham/${sausage.slug}`} className={styles.sausage}>
+                        {sausage.images?.[0] ? (
+                          <span className={styles.sausageImage}>
+                            <Image src={sausage.images[0]} alt={sausage.name} fill sizes="72px" />
+                          </span>
+                        ) : null}
+                        <span>
+                          <span className={styles.sausageName}>{sausage.name}</span>
+                          <span className={styles.sausageCue}>Xem chi tiết</span>
                         </span>
-                      </div>
-                    </Link>
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
               {relatedCombo && (
-                <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', border: '1px solid var(--web-ink-soft)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--web-shadow-xl)', position: 'relative', overflow: 'hidden' }}>
-                  <div>
-                    <h3 style={{ color: 'var(--web-accent-on-ink)', borderBottom: '2px solid var(--web-accent-on-ink)', paddingBottom: '12px', marginBottom: '20px', fontSize: '18px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      Combo Đề Xuất
-                    </h3>
-                    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                      {relatedCombo.images?.[0] ? (
-                        <div style={{ width: '100px', height: '100px', position: 'relative', background: 'var(--web-card-bg)', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <Image
-                            src={relatedCombo.images[0]}
-                            alt={relatedCombo.name}
-                            fill
-                            sizes="100px"
-                            style={{ objectFit: 'contain' }}
-                          />
-                        </div>
-                      ) : null}
-                      <div style={{ flex: '1 1 180px' }}>
-                        <h4 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 700, color: 'var(--web-on-ink)', lineHeight: 1.4 }}>{relatedCombo.name}</h4>
-                        <p style={{ margin: 0, fontSize: '13px', color: 'var(--web-on-ink-muted)', lineHeight: 1.5 }}>{relatedCombo.description}</p>
-                      </div>
+                <div className={styles.combo} data-surface="ink">
+                  <h3 className={styles.panelTitle}>Combo đề xuất</h3>
+                  <div className={styles.comboBody}>
+                    {relatedCombo.images?.[0] ? (
+                      <span className={styles.comboImage}>
+                        <Image src={relatedCombo.images[0]} alt={relatedCombo.name} fill sizes="104px" />
+                      </span>
+                    ) : null}
+                    <div>
+                      <p className={styles.comboName}>{relatedCombo.name}</p>
+                      <p className={styles.comboDesc}>{relatedCombo.description}</p>
                     </div>
                   </div>
-                  <div style={{ borderTop: '1px solid var(--web-ink-soft)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Link href={`/san-pham/${relatedCombo.slug}`} className="btn-primary" style={{ padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none', background: 'var(--web-accent)', color: 'var(--web-on-ink)', display: 'inline-block', border: 'none', cursor: 'pointer', textAlign: 'center' }}>
-                      Xem chi tiết
-                    </Link>
-                  </div>
+                  <Button href={`/san-pham/${relatedCombo.slug}`} variant="light">Xem chi tiết</Button>
                 </div>
               )}
             </div>
@@ -322,13 +268,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         )}
 
         {relatedProductsData && relatedProductsData.length > 0 && (
-          <section className="related-products related-products-section">
-            <div className="section-header-center">
-              <span className="section-label">Gợi Ý Thêm</span>
-              <h2 className="section-title related-products-title">Có Thể Bạn Sẽ Thích</h2>
-            </div>
-
-            <div className="grid-featured-products">
+          <section className={styles.related} aria-labelledby="related-title">
+            <TitleBlock id="related-title" align="center" title="Có thể bạn sẽ thích" kicker="Gợi ý thêm" />
+            <div className={`grid-featured-products ${styles.relatedGrid}`}>
               {(relatedProductsData as unknown as ProductCardProps[])?.map((relatedProduct) => (
                 <ProductCard
                   key={relatedProduct.id}

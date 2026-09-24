@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
+import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import Section from '../components/ui/Section';
-import Container from '../components/ui/Container';
-import Heading from '../components/ui/Heading';
-import Text from '../components/ui/Text';
-import { Button } from '../components/ui/Button';
+import { getBeerProducts } from '@/lib/data/products';
+import { getCompanyZaloUrl } from '@/config/company';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
@@ -43,95 +40,92 @@ export default function Page() {
     description: 'Bia đen lúa mì từ Đức, hương mạch nha rang caramel đậm đà.',
     abv: '5.4',
     volume: '500ml',
-    images: ['https://www.biathaytu.com/images/products/official/benediktiner/bottle_removebg.png'] // Fallback
+    images: ['https://www.biathaytu.com/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp'],
   };
 
+  const zaloBaseUrl = getCompanyZaloUrl();
+  const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia đen lúa mì Benediktiner Dunkel chính hãng. Tư vấn giúp mình nhé.';
+  const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
+  const formats = getBeerProducts().filter((p) => p.name.includes('Dunkel'));
+
   return (
-    <div className="web-app">
+    <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Benediktiner Dunkel', url: 'https://www.biathaytu.com/benediktiner-dunkel' }])} />
 
-      <Section variant="dark" padding="xl" style={{ textAlign: 'center' }}>
-        <Container maxWidth="800px">
-          <Text as="p" size="xs" weight="bold" letterSpacing="3px" color="on-ink-accent" transform="uppercase" style={{ marginBottom: '20px' }}>
-            Bia Đen Thượng Hạng
-          </Text>
-          <Heading level={1} size="fluid" style={{ marginBottom: '24px' }}>
-            Benediktiner Dunkel
-          </Heading>
-          <Text as="p" size="lg" color="on-ink" style={{ opacity: 0.8, maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
-            Bia đen lúa mì quyến rũ với nốt hương caramel và mạch nha rang đậm đà.
-          </Text>
-        </Container>
-      </Section>
-
-      <Container maxWidth="850px" style={{ padding: '60px 20px 40px' }}>
-        <div style={{ background: 'var(--web-card-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--web-border)', marginBottom: '48px', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-             <Image src="/images/brand/benediktiner-official/dunkel-glass-nobg.webp" alt="Benediktiner Dunkel" width={1024} height={1024} sizes="(max-width: 768px) 100vw, 400px" style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px' }} />
-          </div>
-          <div style={{ flex: '2 1 400px' }}>
-            <Heading level={2} size="lg" color="ink" style={{ marginBottom: '16px' }}>
-              Tuyệt tác từ lúa mì và mạch nha rang
-            </Heading>
-            <Text as="p" color="secondary" style={{ marginBottom: '24px', lineHeight: 1.8 }}>
-              Dunkel trong tiếng Đức nghĩa là "Đậm/Đen". Khác với bia đen Stout thông thường, Benediktiner Dunkel là dòng <strong>bia đen lúa mì</strong> (Dunkelweizen). Mạch nha lúa mì được rang ở nhiệt độ cao để tạo ra màu nâu hạt dẻ tuyệt đẹp và mang lại hương vị caramel ấm áp, nhưng vẫn giữ được sự mượt mà sảng khoái đặc trưng của dòng Weissbier.
-            </Text>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-              <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
-                <Text as="span" size="xs" color="muted" style={{ display: 'block', marginBottom: '4px' }}>Độ Cồn (ABV)</Text>
-                <Text as="strong" size="lg" color="ink">5.4%</Text>
-              </div>
-              <div style={{ background: 'var(--web-bg-section)', padding: '16px', borderRadius: '8px' }}>
-                <Text as="span" size="xs" color="muted" style={{ display: 'block', marginBottom: '4px' }}>Quy Cách</Text>
-                <Text as="strong" size="lg" color="ink">Lon/Chai 500ml</Text>
-              </div>
-            </div>
-            <Button href="/mua-bia-benediktiner-chinh-hang" variant="primary" style={{ width: '100%', textAlign: 'center' }}>
-              Xem Giá & Đặt Hàng
-            </Button>
-          </div>
-        </div>
-
-        <Heading level={2} size="md" color="ink" style={{ marginBottom: '24px' }}>
-          Tasting Notes (Hương Vị)
-        </Heading>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '48px' }}>
-          {[
-            { title: 'Thị giác (Màu sắc)', desc: 'Màu nâu hạt dẻ đậm, đục mờ quyến rũ. Bọt bia màu caramel nhạt, xốp mịn.' },
-            { title: 'Khứu giác (Hương thơm)', desc: 'Hương thơm nồng nàn của mạch nha rang, kẹo bơ cứng (toffee), chocolate đen và thoang thoảng chuối nướng.' },
-            { title: 'Vị giác (Hương vị)', desc: 'Vị ngọt của caramel và mật ong lan tỏa, xen lẫn vị bánh mì nướng và một chút đắng nhẹ nhàng của hoa bia.' },
-            { title: 'Hậu vị', desc: 'Ấm áp, mượt mà và sạch sẽ. Cảm giác béo ngậy của lúa mì hòa quyện hoàn hảo.' },
-          ].map((item, i) => (
-            <div key={i} style={{ padding: '24px', background: 'var(--web-bg-section)', borderRadius: '12px' }}>
-              <Heading level={3} size="sm" color="ink" style={{ marginBottom: '8px' }}>
-                {item.title}
-              </Heading>
-              <Text as="p" size="sm" color="secondary">
-                {item.desc}
-              </Text>
-            </div>
-          ))}
-        </div>
-
-        <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: '40px', borderRadius: '16px', marginBottom: '40px' }}>
-          <Heading level={2} size="md" color="on-ink-accent" style={{ marginBottom: '16px' }}>
-            Nghệ Thuật Thưởng Thức (Food Pairing)
-          </Heading>
-          <Text as="p" color="on-ink" style={{ opacity: 0.8, marginBottom: '24px', lineHeight: 1.8 }}>
-            Nhiệt độ thưởng thức lý tưởng từ <strong>8 - 10°C</strong> (ấm hơn một chút so với Weissbier để hương vị mạch nha bung tỏa tối đa).
-          </Text>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '12px' }}>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Món nướng BBQ:</strong> Đặc biệt sinh ra để kết hợp với sườn nướng, xúc xích nướng, thịt bò bít tết.</div>
-            </li>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Phô mai:</strong> Tuyệt vời khi dùng chung với phô mai có mùi đậm như Gouda hay phô mai xanh.</div>
-            </li>
-            <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>              <div><strong>Tráng miệng:</strong> Ghép đôi hoàn hảo với bánh chocolate đen hoặc tiramisu.</div>
-            </li>
-          </ul>
-        </div>
-      </Container>
-
-    </div>
+      <ProductStory
+        wordmark="BENEDIKTINER"
+        hero={{
+          eyebrow: 'Benediktiner Weissbräu Ettal',
+          title: 'Weissbier Dunkel',
+          kicker: 'Bia lúa mì đen',
+          meta: '5,4% vol. Thưởng thức ở 8 đến 10°C.',
+          cutout: { src: '/images/brand/benediktiner-official/dunkel-glass-nobg.webp', alt: 'Ly Benediktiner Weissbier Dunkel' },
+        }}
+        intro={{
+          title: 'Lúa mì và mạch nha rang',
+          image: { src: '/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp', alt: 'Chai Benediktiner Weissbier Dunkel 500ml' },
+          body: (
+            <>
+              <p>Dunkel trong tiếng Đức nghĩa là &quot;tối, đậm&quot;. Khác với bia đen Stout, Benediktiner Dunkel là bia đen lúa mì (Dunkelweizen).</p>
+              <p>Mạch nha được rang để tạo màu nâu hạt dẻ và hương caramel ấm, nhưng bia vẫn giữ độ mượt và sảng khoái đặc trưng của dòng Weissbier.</p>
+            </>
+          ),
+          actions: [
+            { href: linkOrder, label: 'Liên hệ đặt hàng', external: Boolean(zaloBaseUrl) },
+            { href: '/san-pham#benediktiner', label: 'Xem các quy cách' },
+          ],
+        }}
+        profile={{
+          serving: '5,4% vol. Nhiệt độ 8 đến 10°C, ấm hơn Weissbier một chút để hương mạch nha bung tỏa.',
+          flavors: [
+            { label: 'Trái cây', value: 2 },
+            { label: 'Gia vị', value: 1 },
+            { label: 'Lúa mì', value: 3 },
+            { label: 'Mạch nha', value: 5 },
+            { label: 'Caramel', value: 5 },
+            { label: 'Rang', value: 4 },
+            { label: 'Hoa bia', value: 1 },
+            { label: 'Đắng', value: 2 },
+          ],
+          color: 3,
+          clarity: 2,
+          foam: 2,
+        }}
+        notes={{
+          title: 'Hương vị cảm nhận',
+          items: [
+            { term: 'Thị giác', text: 'Nâu hạt dẻ đậm, đục. Bọt màu caramel nhạt, xốp mịn.' },
+            { term: 'Khứu giác', text: 'Mạch nha rang, kẹo bơ cứng, chocolate đen và thoảng chuối nướng.' },
+            { term: 'Vị giác', text: 'Caramel và mật ong, xen vị bánh mì nướng và chút đắng nhẹ của hoa bia.' },
+            { term: 'Hậu vị', text: 'Ấm, mượt và sạch. Độ béo của lúa mì hòa quyện với mạch nha.' },
+          ],
+        }}
+        story={{
+          title: 'Một chút lịch sử',
+          body: (
+            <>
+              <p>Cùng truyền thống Benedictine từ Tu viện Ettal (thành lập năm 1330) như Weissbier Naturtrüb, Dunkel được nấu tại Lich theo Luật Tinh Khiết 1516.</p>
+            </>
+          ),
+        }}
+        formats={{ products: formats }}
+        pairing={{
+          title: 'Món ăn kèm',
+          kicker: 'Nghệ thuật kết hợp',
+          items: [
+            { title: 'Món nướng', text: 'Sườn nướng, xúc xích nướng và bò bít tết.' },
+            { title: 'Phô mai', text: 'Phô mai đậm vị như Gouda lâu năm hoặc phô mai xanh.' },
+            { title: 'Tráng miệng', text: 'Bánh chocolate đen hoặc tiramisu.' },
+          ],
+        }}
+        cta={{
+          title: 'Đặt hàng',
+          kicker: 'Tư vấn qua Zalo',
+          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
+          action: { href: linkOrder, label: 'Liên hệ đặt hàng qua Zalo', external: Boolean(zaloBaseUrl) },
+        }}
+      />
+    </>
   );
 }

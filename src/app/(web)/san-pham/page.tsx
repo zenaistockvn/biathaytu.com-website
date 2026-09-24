@@ -1,11 +1,13 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getBeerProducts } from '@/lib/data/products';
 import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
+import { Button } from '../components/ui/Button';
+import { BottleIcon, WeizenGlassIcon } from '../components/ui/LineIcons';
+import PhotoHero from '../components/ui/PhotoHero';
+import TitleBlock from '../components/ui/TitleBlock';
 import { getTastingNotes } from '../utils/getTastingNotes';
-import styles from '../HomeBrand.module.css';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Và Bia Đức Tuyển Chọn',
@@ -49,6 +51,7 @@ function isBenediktiner(product: CatalogProduct) {
   return product.name.toLowerCase().includes('benediktiner');
 }
 
+/** Danh mục kiểu trang "Nos bières" của Chimay: hero ảnh, cụm tiêu đề có icon, lưới thẻ không viền. */
 export default function ProductsPage() {
   const beers = (getBeerProducts() as CatalogProduct[] | null) ?? [];
   const benediktinerProducts = beers.filter(isBenediktiner);
@@ -61,36 +64,33 @@ export default function ProductsPage() {
         { name: 'Benediktiner', url: 'https://www.biathaytu.com/san-pham' },
       ])} />
 
-      <section className={styles.catalogHero} aria-labelledby="catalog-title">
-        <Image
-          src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
-          alt="Chai và ly Benediktiner Weissbier Naturtrüb"
-          fill
-          priority
-          sizes="100vw"
-          className={styles.catalogHeroImage}
-        />
-        <div className={styles.catalogHeroOverlay} />
-        <div className={`container ${styles.catalogHeroCopy}`}>
-          <p className={styles.eyebrow}>Benediktiner và bia Đức tuyển chọn</p>
-          <h1 id="catalog-title">Benediktiner là trung tâm.<br />Bia Đức được tuyển chọn.</h1>
-          <p>Khám phá Naturtrüb, Dunkel, Festbier cùng Bitburger và những dòng bia Đức bổ sung được German Taste lựa chọn.</p>
-        </div>
-      </section>
+      <PhotoHero
+        size="medium"
+        titleId="catalog-title"
+        image={{ src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier Naturtrüb', position: '70% center' }}
+        eyebrow="Bia Thầy Tu"
+        title="Bia của chúng tôi"
+        kicker="Benediktiner và bia Đức tuyển chọn"
+      >
+        <p>Naturtrüb, Dunkel, Festbier cùng Bitburger và những dòng bia Đức bổ sung được German Taste lựa chọn.</p>
+      </PhotoHero>
 
-      <section className={styles.catalogNote} aria-label="Thông tin website">
-        <div className="container">
+      <p className={styles.note}>
+        <span className="container">
           Website giới thiệu sản phẩm và cung cấp thông tin tư vấn; không thực hiện đặt hàng hoặc thanh toán trực tuyến.
-        </div>
-      </section>
+        </span>
+      </p>
 
       <section className={styles.section} id="benediktiner" aria-labelledby="benediktiner-title">
         <div className="container">
-          <div className={styles.sectionHeading}>
-            <p className={styles.eyebrowDark}>Bia Thầy Tu</p>
-            <h2 id="benediktiner-title">Bộ sưu tập Benediktiner</h2>
-            <p>Thông tin quy cách có thể thay đổi theo từng thời điểm. Trang chi tiết tập trung vào hương vị, nguồn gốc và cách thưởng thức.</p>
-          </div>
+          <TitleBlock
+            id="benediktiner-title"
+            align="center"
+            icon={<WeizenGlassIcon size={72} />}
+            title="Bộ sưu tập Benediktiner"
+            kicker="Bia lúa mì tu viện"
+          />
+          <p className={styles.lead}>Thông tin quy cách có thể thay đổi theo từng thời điểm. Trang chi tiết tập trung vào hương vị, nguồn gốc và cách thưởng thức.</p>
           <div className="grid-featured-products">
             {benediktinerProducts.map((product) => (
               <ProductCard
@@ -104,13 +104,16 @@ export default function ProductsPage() {
       </section>
 
       {selectedGermanBeers.length > 0 ? (
-        <section className={`${styles.section} ${styles.storySection}`} id="bia-duc-khac" aria-labelledby="selected-beers-title">
+        <section className={`${styles.section} ${styles.alt}`} id="bia-duc-khac" aria-labelledby="selected-beers-title">
           <div className="container">
-            <div className={styles.sectionHeading}>
-              <p className={styles.eyebrowDark}>Bia Đức tuyển chọn</p>
-              <h2 id="selected-beers-title">Bitburger và các dòng bia bổ sung</h2>
-              <p>Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.</p>
-            </div>
+            <TitleBlock
+              id="selected-beers-title"
+              align="center"
+              icon={<BottleIcon size={72} />}
+              title="Bia Đức tuyển chọn"
+              kicker="Bitburger và các dòng bổ sung"
+            />
+            <p className={styles.lead}>Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.</p>
             <div className="grid-featured-products">
               {selectedGermanBeers.map((product) => (
                 <ProductCard
@@ -124,16 +127,13 @@ export default function ProductsPage() {
         </section>
       ) : null}
 
-      <section className={styles.b2bSection} aria-labelledby="catalog-help-title">
-        <div className={`container ${styles.b2bInner}`}>
-          <div>
-            <p className={styles.eyebrow}>HORECA / Đại lý</p>
-            <h2 id="catalog-help-title">Danh mục phù hợp cho từng mô hình kinh doanh</h2>
-            <p>Tư vấn sản phẩm, quy cách, chính sách và giải pháp phục vụ nhà hàng, khách sạn, pub, beer club hoặc đại lý tỉnh.</p>
-          </div>
-          <div className={styles.b2bActions}>
-            <Link href="/lien-he" className={styles.primaryLightLink}>Liên hệ tư vấn</Link>
-            <Link href="/bia-duc-cho-nha-hang-khach-san" className={styles.outlineLightLink}>Giải pháp HORECA</Link>
+      <section className={styles.help} data-surface="ink" aria-labelledby="catalog-help-title">
+        <div className={`container ${styles.helpInner}`}>
+          <TitleBlock id="catalog-help-title" title="Cho nhà hàng" kicker="HORECA và đại lý" />
+          <p>Tư vấn sản phẩm, quy cách, chính sách và giải pháp phục vụ nhà hàng, khách sạn, pub, beer club hoặc đại lý tỉnh.</p>
+          <div className={styles.helpActions}>
+            <Button href="/lien-he" variant="light">Liên hệ tư vấn</Button>
+            <Button href="/bia-duc-cho-nha-hang-khach-san" variant="link">Giải pháp HORECA</Button>
           </div>
         </div>
       </section>

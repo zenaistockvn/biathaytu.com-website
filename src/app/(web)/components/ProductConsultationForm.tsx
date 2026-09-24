@@ -61,10 +61,8 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
       aria-labelledby="tu-van-san-pham-title"
       style={{
         marginTop: '64px',
-        padding: '32px',
-        border: '1px solid var(--web-border)',
-        borderRadius: '16px',
-        background: 'var(--web-bg-warm)',
+        padding: 'clamp(28px, 5vw, 56px) clamp(20px, 4vw, 40px)',
+        background: 'var(--web-bg-section)',
       }}
     >
       <div style={{ maxWidth: '760px', margin: '0 auto' }}>
@@ -89,7 +87,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('name')}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
               />
             </label>
 
@@ -105,7 +103,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('phone')}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
+                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
               />
             </label>
           </div>
@@ -120,7 +118,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('email')}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)' }}
+              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
             />
           </label>
 
@@ -134,7 +132,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('content')}
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: '8px', background: 'var(--web-card-bg)', resize: 'vertical' }}
+              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)', resize: 'vertical', font: 'inherit' }}
             />
           </label>
 
@@ -144,7 +142,6 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               role={status === 'success' ? 'status' : 'alert'}
               style={{
                 padding: '12px 14px',
-                borderRadius: '8px',
                 background: status === 'success' ? 'var(--web-accent-bg)' : 'rgb(var(--web-red-rgb) / 0.1)',
                 color: status === 'success' ? 'var(--web-accent)' : 'var(--web-red)',
                 lineHeight: 1.5,

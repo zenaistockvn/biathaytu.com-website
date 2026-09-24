@@ -4,8 +4,9 @@ import path from 'node:path';
 
 const CSS = fs.readFileSync(path.join(process.cwd(), 'src/app/web.css'), 'utf8').split('\n');
 
-/** Vùng CSS của 4 landing — miễn trừ ở 6C, sẽ dọn ở 6E. */
-const LANDING_START = CSS.findIndex((l) => l.includes('.weissbier-landing {'));
+/** Vùng CSS của các landing cũ còn lại, được miễn trừ cho tới khi dọn hết.
+ *  Mốc là landing đầu tiên còn trong file (weissbier/bitburger đã chuyển sang ProductStory). */
+const LANDING_START = CSS.findIndex((l) => /^\.(weissbier|bitburger|biaduc|uudai)-landing\b/.test(l));
 const LANDING_END = CSS.findIndex((l) => l.includes('.uudai-landing')) + 300;
 
 /** Bóng của nút thương hiệu bên thứ ba (Zalo/Messenger/phone) — giữ nguyên. */
