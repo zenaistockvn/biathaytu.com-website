@@ -1,18 +1,26 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
+import { Barlow, Barlow_Condensed, Roboto_Serif } from 'next/font/google';
 
-// Theo phong cách di sản tu viện sang trọng (tương tự Chimay, châu Âu cổ điển):
-// Cormorant Garamond cho tiêu đề trang nhã, quý tộc; Plus Jakarta Sans cho nội dung & UI dễ đọc, ấm áp.
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Theo web chính hãng benediktiner-weissbier.de: Copperplate cho tiêu đề, Barlow Condensed cho chữ.
+// Copperplate không có ký tự tiếng Việt nên thay bằng Roboto Serif bản rộng (trục wdth), gần nhất về
+// độ rộng và nét. Barlow bản thường cho đoạn văn dài, Barlow Condensed cho menu, nút, nhãn.
+const barlow = Barlow({
   subsets: ['latin', 'vietnamese'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const barlowCondensed = Barlow_Condensed({
   subsets: ['latin', 'vietnamese'],
   weight: ['500', '600', '700'],
+  display: 'swap',
+  variable: '--font-condensed',
+});
+
+const robotoSerif = Roboto_Serif({
+  subsets: ['latin', 'vietnamese'],
+  axes: ['wdth'],
   display: 'swap',
   variable: '--font-display',
 });
@@ -32,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`${plusJakartaSans.variable} ${cormorantGaramond.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`${barlow.variable} ${barlowCondensed.variable} ${robotoSerif.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

@@ -9,16 +9,18 @@ colors:
   accent-on-dark: "#D6BD79" # Vàng nhãn chai, chỉ đặt trên nền xanh
   heritage: "#7A6230"     # Vàng đồng cho badge giải thưởng trên nền sáng
   danger: "#C8202A"       # Đỏ chữ "Weissbier" trên nhãn
-  background: "#F4F1E9"   # Kem nhãn chai
+  background: "#FFFFFF"   # Nền trắng như chimay.com
+  section: "#F4F4F2"      # Section xen kẽ xám nhạt
   surface: "#FFFFFF"
-  border: "#CFC9B6"
+  border: "#DADAD5"
   text-main: "#1C3157"
   text-secondary: "#464E66"
   text-muted: "#596077"
 typography:
-  display: "Cormorant Garamond, serif"      # Tiêu đề di sản tu viện sang trọng (phong cách Chimay)
-  sans: "Plus Jakarta Sans, sans-serif"     # Nội dung và UI thanh lịch, ấm áp, tối ưu tiếng Việt
-  condensed: "Plus Jakarta Sans, sans-serif" # Đồng bộ nhãn, nút, menu thanh lịch
+  display: "Roboto Serif, serif"             # Bản rộng (wdth 125), thay Copperplate của benediktiner-weissbier.de
+  sans: "Barlow, sans-serif"                 # Đoạn văn dài
+  condensed: "Barlow Condensed, sans-serif"  # Menu, nút, nhãn, h4-h6 (như benediktiner-weissbier.de)
+  display-stretch: "125%"
   base-size: "16px"
 spacing:
   xs: "8px"
@@ -28,44 +30,45 @@ spacing:
   xl: "60px"
   2xl: "80px"
 rounded:
-  sm: "4px"
-  md: "8px"
-  lg: "12px"
-  xl: "20px"
-  full: "9999px"
+  default: "0"            # Góc vuông như chimay.com
+  full: "9999px"          # Chỉ cho chấm tròn, bong bóng số
+shadow: "none"
 components:
   button:
     primary:
       bg: "{colors.primary}"
       text: "#FFFFFF"
-      radius: "{rounded.md}"
+      radius: "{rounded.default}"
     on-dark:
       bg: "{colors.accent-on-dark}"
       text: "{colors.secondary}"
   card:
     bg: "{colors.surface}"
     border: "1px solid {colors.border}"
-    radius: "{rounded.lg}"
+    radius: "{rounded.default}"
 ---
 
 ## Nguồn gốc
 
-Hệ thiết kế bám theo tài liệu chính hãng có trong repo, không tự phát minh:
+Hệ thiết kế ghép hai nguồn, không tự phát minh:
+
+- **Bố cục lấy theo chimay.com:** hero ảnh tràn màn hình, section chia đôi (nửa ảnh, nửa khối màu phẳng), ô danh mục lớn, nền trắng xen xám nhạt, góc vuông, không đổ bóng, nút chữ nhật chữ in hoa.
+- **Màu và chữ lấy theo Benediktiner:**
 
 | Yếu tố | Nguồn |
 | --- | --- |
-| Xanh đêm `#1C3157`, dải trời `--web-sky` | Ảnh chiến dịch `Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf` |
+| Xanh đêm `#1C3157` | Ảnh chiến dịch `Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf` |
 | Xanh trời `#004787` | Ảnh hero `brand/benediktiner-official/home-hero.jpg` (benediktiner-weissbier.de) |
 | Vàng nhãn `#D6BD79`, đỏ `#C8202A` | Logo và nhãn chai Benediktiner |
-| Font tiêu đề, font nội dung | Di sản tu viện châu Âu (chuẩn phong cách Chimay): Cormorant Garamond (tiêu đề trang nhã, quý tộc) và Plus Jakarta Sans (nội dung & nút bấm thanh lịch, tối ưu tiếng Việt) |
+| Font | benediktiner-weissbier.de dùng Copperplate (tiêu đề) và Barlow Condensed (chữ). Copperplate không có ký tự tiếng Việt (thiếu cả `đ ư ơ`) nên thay bằng **Roboto Serif bản rộng** (`font-stretch: 125%`), gần nhất về độ rộng và nét. Barlow Condensed giữ nguyên. Đoạn văn dài dùng **Barlow** bản thường cùng họ cho dễ đọc. |
 
-Cormorant Garamond kế thừa tinh thần di sản tu viện châu Âu cổ kính và nghệ thuật thủ công, trong khi Plus Jakarta Sans mang lại trải nghiệm đọc ấm áp, trong trẻo và hỗ trợ hoàn hảo hệ dấu tiếng Việt.
+Không dùng màu đỏ, vàng da bò hay huy hiệu của Chimay: đó là nhận diện của hãng khác.
 
 ## Màu
 
-- **Nền trang:** kem `#F4F1E9` (`--web-bg`), section xen kẽ `#E9E5D8` (`--web-bg-section`).
+- **Nền trang:** trắng `#FFFFFF` (`--web-bg`), section xen kẽ xám nhạt `#F4F4F2` (`--web-bg-section`).
 - **Hành động chính:** xanh trời `#004787` (`--web-accent`), chữ trắng.
-- **Dải tối:** gradient trời `--web-sky` (xanh đêm `#1C3157` xuống `#0A4A86`), như bầu trời trong ảnh chiến dịch. Dùng cho hero, USP, B2B, kiến thức, footer, landing page.
+- **Khối màu phẳng:** xanh đêm `--web-ink` (`--web-sky` nay là cùng một màu, không chuyển sắc). Dùng thành khối lớn như Chimay: nửa section cạnh ảnh, dải HORECA, footer.
 - **Quy tắc duy nhất về điểm nhấn:** nền sáng nhấn bằng xanh trời; nền xanh nhấn bằng vàng nhãn (`--web-accent-on-ink`). Đúng như cách logo tự phối màu.
 - **Đỏ** `#C8202A` chỉ dành cho giảm giá, sắp hết hàng và cảnh báo pháp lý.
 
@@ -87,17 +90,17 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 | `--web-accent-rgb` | `0 71 135` | `--web-accent` (`#004787`) | Quầng sáng nút, viền focus ring, nền phụ bán trong suốt |
 | `--web-accent-on-ink-rgb` | `214 189 121` | `--web-accent-on-ink` (`#D6BD79`) | Điểm nhấn viền hoặc nền nhẹ trên bề mặt tối |
 | `--web-on-ink-rgb` | `255 255 255` | `--web-on-ink` (`#FFFFFF`) | Viền thẻ trên dải tối, nền thẻ bán trong suốt |
-| `--web-bg-rgb` | `244 241 233` | `--web-bg` (`#F4F1E9`) | Nền kem bán trong suốt khi cần pha trộn |
-| `--web-border-rgb` | `207 201 182` | `--web-border` (`#CFC9B6`) | Đường phân cách, viền bán trong suốt |
+| `--web-bg-rgb` | `255 255 255` | `--web-bg` (`#FFFFFF`) | Nền trắng bán trong suốt khi cần pha trộn |
+| `--web-border-rgb` | `218 218 213` | `--web-border` (`#DADAD5`) | Đường phân cách, viền bán trong suốt |
 | `--web-red-rgb` | `200 32 42` | `--web-red` (`#C8202A`) | Nền thông báo lỗi/cảnh báo pháp lý bán trong suốt |
 
-**Quy tắc bóng đổ:** Bóng đổ không dùng màu đen trung tính `rgba(0,0,0, a)`, mà sử dụng kênh navy `--web-ink-rgb` (`rgb(var(--web-ink-rgb) / a)`). Điều này tạo bóng đổ có chiều sâu và ấm áp, hòa hợp hoàn hảo với phong cách cao cấp của tu viện Benedictine.
+**Không đổ bóng, không bo góc.** Như chimay.com, bề mặt phẳng: `--web-shadow*` là `none`, `--web-radius*` là `0`. Chiều sâu đến từ ảnh và khối màu, không từ bóng. Chỉ giữ `box-shadow` cho vòng focus (`0 0 0 3px ...`). `--web-radius-full` chỉ cho chấm tròn và bong bóng số, không cho nút hay nhãn.
 
 ### Quy tắc bề mặt (Surfaces)
 
 Để website có nhịp điệu thị giác nhất quán và không bị loãng:
-1. **Section đầu tiên (Hero):** Dùng `background: var(--web-sky)` (dải trời xanh chuyển từ xanh đêm `#1C3157` xuống `#0A4A86`).
-2. **Các dải tối tiếp theo trên trang:** Dùng `background: var(--web-ink)` (xanh đêm phẳng `#1C3157`), không lặp lại gradient dải trời.
+1. **Section đầu tiên (Hero):** ảnh chính hãng tràn màn hình. Khi không có ảnh, dùng khối phẳng `var(--web-sky)` (cùng màu `--web-ink`).
+2. **Các dải tối tiếp theo trên trang:** khối phẳng `var(--web-ink)`, thường đặt cạnh ảnh theo kiểu chia đôi của Chimay.
 3. **Thẻ nằm trên dải tối:** Dùng `background: var(--web-ink-deep)` (`#152645`), viền `rgb(var(--web-on-ink-rgb) / 0.12)`.
 4. **Khai báo ngữ cảnh bề mặt:** Mọi dải tối phải có thuộc tính `data-surface="ink"` hoặc nằm trong selector tối để các component con (Heading, Text, Button, Form) tự động áp dụng token chữ và focus tương ứng (`--web-on-ink`, `--web-accent-on-ink`).
 
@@ -105,7 +108,7 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 1. **Header cuộn (`.web-header--solid`):**
    - Nền **đặc** hoàn toàn `var(--web-bg)` (bỏ `saturate(180%)`), viền dưới `var(--web-border)`.
-   - Khi người dùng cuộn trang, header giữ nền kem đặc với chữ `--web-ink` để nội dung trang cuộn bên dưới không bao giờ bị lẫn vào thanh điều hướng.
+   - Khi người dùng cuộn trang, header giữ nền trắng đặc với chữ `--web-ink` để nội dung trang cuộn bên dưới không bao giờ bị lẫn vào thanh điều hướng.
 2. **Header trong suốt (`.web-header--transparent`):**
    - Chỉ kích hoạt khi đang ở đầu trang tại các route có hero tối trong `DARK_HERO_PATHS` hoặc route kiến thức (`/kien-thuc/*`).
    - Logo và link điều hướng hiển thị `--web-on-ink` (trắng).
@@ -135,11 +138,14 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 ## Chữ
 
-- **Tiêu đề `h1`, `h2` và logo chữ:** Cormorant Garamond 600–700, viết theo Title Case / Sentence Case tự nhiên, sang trọng, thanh thoát. Line-height 1.25–1.35 để các ký tự tiếng Việt có dấu bay bổng, không chạm dòng trên.
-- **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường, mềm mại và dễ đọc.
-- **`h3`–`h6`:** Cormorant Garamond 600, chữ thường.
-- **Nội dung:** Plus Jakarta Sans 400, 16px, line-height 1.65.
-- **Nhãn, nút, menu:** Plus Jakarta Sans 600, giãn nhẹ `0.02em - 0.05em`.
+- **Tiêu đề `h1`, `h2` và logo chữ:** Roboto Serif 600, bản rộng (`font-stretch: var(--web-display-stretch)`), **in hoa** như Copperplate trên web Benediktiner. Line-height 1.28 để dấu chồng trên chữ hoa (`Ầ Ẫ Ỗ`) không chạm dòng trên.
+- **Mọi chỗ khai `font-family: var(--font-display)` phải kèm `font-stretch: var(--web-display-stretch)`**, nếu không chữ sẽ ra bản hẹp.
+- **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường. Câu tiếng Việt dài in hoa rất khó đọc.
+- **`h3`:** Roboto Serif 600 bản rộng, chữ thường (tên sản phẩm, tiêu đề thẻ).
+- **`h4`–`h6`:** Barlow Condensed 700, in hoa, giãn `0.04em`.
+- **Nội dung:** Barlow 400, 16px, line-height 1.65.
+- **Nhãn, nút, menu:** Barlow Condensed 600–700, in hoa, giãn `0.04em–0.08em`.
+- Không dùng chữ nghiêng cho tiêu đề (chỉ nạp bản đứng, trình duyệt sẽ nghiêng giả).
 - Độ đậm tối đa 700. Không dùng 800/900.
 
 ## Hình ảnh
@@ -160,10 +166,11 @@ Không dùng: chữ gradient, quầng sáng (glow), vệt sáng quét (shimmer),
 
 - **Container:** tối đa 1200px, lề 20px trên mobile.
 - **Khoảng cách section:** 80px trên desktop, giảm dần trên mobile.
-- **Nút:** bo góc 8px, chiều cao tối thiểu 44px.
+- **Nút:** góc vuông, chiều cao tối thiểu 44px.
+- **Ngữ pháp Chimay:** hero ảnh tràn màn hình; section chia đôi nửa ảnh, nửa khối màu phẳng; ô danh mục lớn; thẻ sản phẩm là ảnh ngữ cảnh kèm tên, không viền, không bóng.
 
 ## Khả năng truy cập
 
 - Mọi phần tử tương tác phải có focus ring nhìn thấy được (`--web-accent` trên nền sáng, `--web-accent-on-ink` trên dải tối).
-- Chữ đạt WCAG 2.1 AA (4.5:1, chữ lớn 3:1) trên mọi nền, kể cả điểm sáng nhất của gradient.
+- Chữ đạt WCAG 2.1 AA (4.5:1, chữ lớn 3:1) trên mọi nền, kể cả chữ đặt trên ảnh (cần lớp phủ tối).
 - 0 lỗi tràn ngang trên toàn bộ các kích thước màn hình (360px, 390px, 768px, 1024px, 1440px).

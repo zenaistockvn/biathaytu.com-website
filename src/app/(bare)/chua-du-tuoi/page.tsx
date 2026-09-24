@@ -44,6 +44,7 @@ export default function UnderagePage() {
             color: 'var(--web-accent-on-ink)',
             marginBottom: '16px',
             fontFamily: 'var(--font-display), sans-serif',
+            fontStretch: 'var(--web-display-stretch)',
           }}
         >
           Thông Báo Kiểm Soát Độ Tuổi

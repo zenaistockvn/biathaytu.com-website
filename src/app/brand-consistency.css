@@ -83,10 +83,10 @@
   gap: 8px;
   padding: 0 15px;
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.78);
-  border-radius: 14px;
+  border-radius: 0;
   background: var(--web-ink);
   color: var(--web-bg);
-  box-shadow: 0 12px 30px rgb(var(--web-ink-rgb) / 0.22);
+  box-shadow: none;
   cursor: pointer;
   font: inherit;
   font-size: 13px;
@@ -98,7 +98,7 @@
 .web-app .brand-contact-trigger.is-open {
   background: var(--web-ink-soft);
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgb(var(--web-ink-rgb) / 0.28);
+  box-shadow: none;
 }
 
 .web-app .brand-contact-trigger:focus-visible {
@@ -113,9 +113,9 @@
   width: min(250px, calc(100vw - 28px));
   overflow: hidden;
   border: 1px solid var(--web-border);
-  border-radius: 16px;
+  border-radius: 0;
   background: var(--web-bg);
-  box-shadow: 0 24px 56px rgb(var(--web-ink-rgb) / 0.22);
+  box-shadow: none;
   color: var(--web-ink);
 }
 
@@ -215,7 +215,7 @@
 .web-app .btn-primary,
 .web-app .btn-outline,
 .web-app .zalo-cta-class {
-  border-radius: 12px !important;
+  border-radius: 0 !important;
 }
 
 /* Product titles use the functional sans face; editorial headings remain serif. */
@@ -248,7 +248,7 @@
 
 .web-app .product-card-v2,
 .web-app .product-card {
-  border-radius: 6px;
+  border-radius: 0;
   box-shadow: none !important;
 }
 
@@ -256,7 +256,7 @@
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
   border-color: var(--web-accent-soft);
-  box-shadow: 0 14px 34px -22px rgb(var(--web-ink-rgb) / .45) !important;
+  box-shadow: none !important;
 }
 
 /* Food pairing becomes editorial rows rather than three floating white cards. */
@@ -319,7 +319,7 @@
   align-items: center;
   background: rgb(var(--web-bg-rgb) / 0.94);
   border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.78);
-  box-shadow: 0 8px 22px rgb(var(--web-ink-rgb) / 0.055);
+  box-shadow: none;
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
@@ -344,7 +344,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0 13px;
-  border-radius: 9px;
+  border-radius: 0;
   color: var(--web-text-muted) !important;
   font-size: 13px;
   font-weight: 700;

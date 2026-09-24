@@ -207,7 +207,7 @@ describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
   });
 
   it('không còn font cũ và không dùng độ đậm 800/900', () => {
-    expect(css).not.toMatch(/Playfair|--font-serif/);
+    expect(css).not.toMatch(/Playfair|Cormorant|Plus Jakarta|--font-serif/);
     expect(css).not.toMatch(/font-weight:\s*(800|900)/);
   });
 });

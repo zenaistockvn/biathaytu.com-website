@@ -214,6 +214,7 @@ export default function AgeVerificationGate() {
             fontSize: 'clamp(24px, 6vw, 30px)',
             fontWeight: 700,
             fontFamily: 'var(--font-display), sans-serif',
+            fontStretch: 'var(--web-display-stretch)',
           }}
         >
           Bạn đã đủ 18 tuổi?

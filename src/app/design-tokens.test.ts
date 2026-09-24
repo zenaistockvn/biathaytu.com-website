@@ -48,12 +48,37 @@ describe('design tokens', () => {
   });
 
   it('DESIGN.md khai đúng font đang nạp trong layout.tsx', () => {
-    expect(LAYOUT).toContain('Cormorant_Garamond');
-    expect(LAYOUT).toContain('Plus_Jakarta_Sans');
+    expect(LAYOUT).toContain('Roboto_Serif');
+    expect(LAYOUT).toContain('Barlow_Condensed');
+    expect(LAYOUT).toMatch(/\bBarlow\(/);
     const fm = DESIGN.slice(0, DESIGN.indexOf('---', 4));
-    expect(fm).toMatch(/display:\s*"Cormorant Garamond/);
-    expect(fm).toMatch(/sans:\s*"Plus Jakarta Sans/);
-    expect(fm).toMatch(/condensed:\s*"Plus Jakarta Sans/);
+    expect(fm).toMatch(/display:\s*"Roboto Serif/);
+    expect(fm).toMatch(/sans:\s*"Barlow,/);
+    expect(fm).toMatch(/condensed:\s*"Barlow Condensed/);
+  });
+
+  it('mọi quy tắc dùng font tiêu đề đều kèm font-stretch (không thì ra bản hẹp)', () => {
+    const offenders: string[] = [];
+    (function walk(dir: string) {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) walk(p);
+        else if (/\.css$/.test(e.name)) {
+          for (const block of fs.readFileSync(p, 'utf8').match(/[^{}]+\{[^{}]*\}/g) || []) {
+            if (/font(?:-family)?:\s*var\(--font-display\)/.test(block) && !/font-stretch:/.test(block)) {
+              offenders.push(`${path.relative(ROOT, p)}: ${block.trim().split('{')[0].trim()}`);
+            }
+          }
+        }
+      }
+    })(path.join(ROOT, 'src'));
+    expect(offenders).toEqual([]);
+  });
+
+  it('bề mặt phẳng: không bóng đổ, góc vuông', () => {
+    const defined = definedTokens();
+    for (const t of ['--web-shadow', '--web-shadow-md', '--web-shadow-lg', '--web-shadow-xl']) expect(defined.get(t), t).toBe('none');
+    for (const t of ['--web-radius', '--web-radius-md', '--web-radius-lg']) expect(defined.get(t), t).toBe('0');
   });
 
   it('DESIGN.md khai đúng màu chủ đạo của web.css', () => {

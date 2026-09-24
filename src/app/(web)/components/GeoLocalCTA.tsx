@@ -43,6 +43,7 @@ export default function GeoLocalCTA() {
         }
         .geo-cta-title {
           font-family: var(--font-display);
+          font-stretch: var(--web-display-stretch);
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 12px;

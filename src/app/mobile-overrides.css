@@ -98,6 +98,7 @@
   .mobile-compact-footer .mobile-footer-brand {
     color: var(--web-accent-on-ink);
     font-family: var(--font-display);
+    font-stretch: var(--web-display-stretch);
     font-size: 20px;
     margin: 0 0 10px;
   }
