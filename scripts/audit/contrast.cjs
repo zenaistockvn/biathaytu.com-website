@@ -24,7 +24,7 @@ const SHOTS = process.env.AUDIT_SHOTS ? path.join(OUT, 'shots', process.env.AUDI
 
 const PAGES = (process.env.AUDIT_PAGES || [
   '/', '/san-pham', '/san-pham/benediktiner-festbier-bom-5l', '/san-pham/the-wurst-wiener-hun-khoi-500g',
-  '/benediktiner-weissbier-naturtrub', '/bitburger-premium-pils', '/bia-duc-nhap-khau', '/nhan-uu-dai',
+  '/benediktiner-weissbier-naturtrub', '/bitburger-premium-pils',
   '/benediktiner-dunkel', '/bom-bia-5l-benediktiner', '/qua-tang-bia-duc', '/bang-gia-si-dai-ly',
   '/thuong-hieu', '/ve-chung-toi', '/kien-thuc', '/kien-thuc/nguon-goc-bia-thay-tu-tu-vien-ettal', '/lien-he',
   '/bia-thay-tu-la-gi', '/food-pairing-bia-duc', '/chung-nhan-nhap-khau-chinh-hang', '/bia-benediktiner-chinh-hang',
@@ -35,7 +35,7 @@ const PAGES = (process.env.AUDIT_PAGES || [
 const VIEWPORTS = { desktop: { width: 1440, height: 900 }, mobile: { width: 390, height: 844 } };
 
 /** Chữ trang trí có chủ đích mờ (không mang thông tin). Thêm vào đây phải có lý do. */
-const DECORATIVE = ['.weissbier-ritual-num'];
+const DECORATIVE = [];
 
 async function ensureServer() {
   try { await fetch(BASE); return null; } catch { /* chưa chạy */ }
@@ -137,7 +137,6 @@ async function auditPage(browser, viewportName, pagePath, gate) {
   await context.addInitScript(() => {
     try {
       localStorage.setItem('cookie_consent_preferences', JSON.stringify({ necessary: true, analytics: false, marketing: false }));
-      sessionStorage.setItem('football_campaign_popup_shown', 'true');
     } catch { /* storage bị chặn */ }
   });
   const page = await context.newPage();

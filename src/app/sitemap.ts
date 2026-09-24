@@ -33,7 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'chinh-sach-cookie',
     'dieu-khoan-su-dung',
     'thong-tin-mua-hang',
-    'nhan-uu-dai',
   ];
   for (const slug of policyPages) {
     routes.push({
@@ -47,7 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const landingPages = [
     'bia-thay-tu-la-gi',
     'bia-benediktiner-chinh-hang',
-    'bia-duc-nhap-khau',
     'benediktiner-weissbier-naturtrub',
     'benediktiner-dunkel',
     'bom-bia-5l-benediktiner',

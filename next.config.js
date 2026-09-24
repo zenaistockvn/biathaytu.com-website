@@ -68,6 +68,17 @@ const nextConfig = {
         destination: '/san-pham/benediktiner-naturtrub-bom-5l',
         statusCode: 301,
       },
+      // Trang chiến dịch đã gỡ (09/2026); danh mục sản phẩm thay thế.
+      {
+        source: '/nhan-uu-dai',
+        destination: '/san-pham',
+        statusCode: 301,
+      },
+      {
+        source: '/bia-duc-nhap-khau',
+        destination: '/san-pham',
+        statusCode: 301,
+      },
       {
         source: '/dat-hang',
         destination: '/lien-he',

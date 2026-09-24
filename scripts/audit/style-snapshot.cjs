@@ -17,7 +17,7 @@ const BASE = process.env.AUDIT_BASE_URL || 'http://localhost:3000';
 const WIDTHS = (process.env.AUDIT_WIDTHS || '360,768,1024,1440').split(',').map(Number);
 const PAGES = (process.env.AUDIT_PAGES || [
   '/', '/san-pham', '/san-pham/benediktiner-festbier-bom-5l', '/benediktiner-weissbier-naturtrub', '/bitburger-premium-pils',
-  '/bia-duc-nhap-khau', '/nhan-uu-dai', '/benediktiner-dunkel', '/bom-bia-5l-benediktiner', '/qua-tang-bia-duc',
+  '/benediktiner-dunkel', '/bom-bia-5l-benediktiner', '/qua-tang-bia-duc',
   '/bang-gia-si-dai-ly', '/thuong-hieu', '/ve-chung-toi', '/kien-thuc', '/kien-thuc/nguon-goc-bia-thay-tu-tu-vien-ettal',
   '/lien-he', '/bia-thay-tu-la-gi', '/food-pairing-bia-duc', '/chung-nhan-nhap-khau-chinh-hang', '/chua-du-tuoi',
 ].join(',')).split(',').map((p) => p.trim()).filter(Boolean);
@@ -81,7 +81,7 @@ async function capture(name) {
     for (const width of WIDTHS) {
       const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       await context.addCookies([{ name: 'age_verified', value: '2.0', url: BASE }]);
-      await context.addInitScript(() => { try { sessionStorage.setItem('football_campaign_popup_shown', 'true'); localStorage.setItem('cookie_consent_preferences', '{"necessary":true}'); } catch { /* */ } });
+      await context.addInitScript(() => { try { localStorage.setItem('cookie_consent_preferences', '{"necessary":true}'); } catch { /* */ } });
       const page = await context.newPage();
       for (const p of PAGES) {
         await page.goto(BASE + p, { waitUntil: 'networkidle', timeout: 120000 });

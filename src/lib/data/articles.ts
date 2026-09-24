@@ -29,6 +29,12 @@ const OUT_OF_SCOPE_BEER_MENTION_PATTERN =
   /(?:chimay|la\s*trappe|rochefort)/i;
 const ARTICLE_BLOCK_PATTERN = /<(p|li|h2|h3|h4|figure)\b[^>]*>[\s\S]*?<\/\1>/gi;
 
+/** Trang đã gỡ, link trong bài viết trỏ thẳng tới trang thay thế (khớp redirect 301 trong next.config.js). */
+const RETIRED_PAGE_MAP: Record<string, string> = {
+  '/bia-duc-nhap-khau': '/san-pham',
+  '/nhan-uu-dai': '/san-pham',
+};
+
 const LEGACY_PRODUCT_SLUG_MAP: Record<string, string> = {
   'benediktiner-weissbier-naturtrub-500ml': 'benediktiner-naturtrub-thung-12-chai-500ml',
   'bitburger-premium-pils-330ml': 'bitburger-premium-pils-thung-12-chai-330ml',
@@ -309,6 +315,14 @@ function sanitizeArticleContent(content: string | null, slug?: string | null): s
     )
     .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, COMPANY_CONFIG.hotline)
     .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, COMPANY_CONFIG.hotline);
+
+  for (const [retiredPath, destination] of Object.entries(RETIRED_PAGE_MAP)) {
+    sanitized = sanitized.replace(
+      // Chỉ khớp khi đường dẫn đứng đầu href="..." hoặc (...) của markdown, không khớp giữa slug khác.
+      new RegExp(`((?:href=["']|\\]\\()(?:https?://(?:www\\.)?biathaytu\\.com)?)${retiredPath}(?=[/"'?#)])`, 'g'),
+      `$1${destination}`,
+    );
+  }
 
   // Phase A: Viết lại slug sản phẩm cũ sang slug mới
   for (const [legacySlug, newSlug] of Object.entries(LEGACY_PRODUCT_SLUG_MAP)) {

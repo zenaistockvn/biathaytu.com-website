@@ -15,8 +15,6 @@ const DARK_HERO_PATHS = new Set([
   '/',
   '/benediktiner-weissbier-naturtrub',
   '/bitburger-premium-pils',
-  '/bia-duc-nhap-khau',
-  '/nhan-uu-dai',
   '/benediktiner-dunkel',
   '/bang-gia-si-dai-ly',
   '/qua-tang-bia-duc',

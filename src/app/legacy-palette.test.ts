@@ -4,12 +4,8 @@ import path from 'node:path';
 
 const CSS = fs.readFileSync(path.join(process.cwd(), 'src/app/web.css'), 'utf8').split('\n');
 
-/** Vùng CSS của các landing cũ còn lại, được miễn trừ cho tới khi dọn hết.
- *  Mốc là landing đầu tiên còn trong file (weissbier/bitburger đã chuyển sang ProductStory). */
-const LANDING_START = CSS.findIndex((l) => /^\.(weissbier|bitburger|biaduc|uudai)-landing\b/.test(l));
-const LANDING_END = CSS.findIndex((l) => l.includes('.uudai-landing')) + 300;
-
-/** Bóng của nút thương hiệu bên thứ ba (Zalo/Messenger/phone) — giữ nguyên. */
+/** Bóng của nút thương hiệu bên thứ ba (Zalo/Messenger/phone) — giữ nguyên.
+ *  (CSS các landing cũ từng được miễn trừ đã gỡ hết ở giai đoạn 4-5 nên không còn vùng miễn trừ nào.) */
 const THIRD_PARTY = /floating-(zalo|phone|messenger|contact)/;
 
 function offendingLines(pattern: RegExp): string[] {
@@ -17,7 +13,6 @@ function offendingLines(pattern: RegExp): string[] {
   let inThirdParty = false;
   CSS.forEach((line, i) => {
     if (/^\.web-app \./.test(line) || /^\.[a-z]/.test(line)) inThirdParty = THIRD_PARTY.test(line);
-    if (i >= LANDING_START && i <= LANDING_END) return;
     if (inThirdParty) return;
     if (pattern.test(line)) out.push(`${i + 1}: ${line.trim()}`);
   });
