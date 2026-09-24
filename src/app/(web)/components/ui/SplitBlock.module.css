@@ -1,0 +1,86 @@
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--web-ink);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.wordmark {
+  display: none;
+}
+
+/* ─── Khối màu phẳng ─── */
+.panel {
+  display: flex;
+  align-items: center;
+  padding: clamp(40px, 7vw, 96px) clamp(20px, 6vw, 88px);
+}
+
+.ink { background: var(--web-ink); color: var(--web-on-ink); }
+.accent { background: var(--web-accent); color: var(--web-on-ink); }
+.gold { background: var(--web-accent-on-ink); color: var(--web-ink); --heading-color: var(--web-ink); }
+.mist { background: var(--web-bg-section); color: var(--web-text); }
+
+.content {
+  width: 100%;
+  max-width: 500px;
+}
+
+.body {
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.ink .body,
+.accent .body {
+  color: var(--web-on-ink-muted);
+}
+
+.body > * + * {
+  margin-top: 12px;
+}
+
+.action {
+  margin-top: 28px;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    min-height: clamp(440px, 42vw, 600px);
+  }
+
+  .media {
+    aspect-ratio: auto;
+  }
+
+  .reverse .media {
+    order: 2;
+  }
+
+  /* Chữ viền dọc nằm trong ảnh, sát đường nối với khối màu. */
+  .wordmark {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.9;
+  }
+
+  .reverse .wordmark {
+    right: auto;
+    left: 0;
+    transform: scaleX(-1) scaleY(-1);
+  }
+}

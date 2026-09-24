@@ -2,19 +2,6 @@
    Benediktiner palette: sky-blue bands, cream pages, label gold on blue only. */
 
 /* Header: dark only when it genuinely overlays a dark hero. */
-.web-app .web-header--transparent {
-  background: linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.85) 0%, rgb(var(--web-ink-deep-rgb) / 0.35) 64%, transparent 100%);
-}
-
-.web-app .web-header--solid {
-  border-bottom-color: var(--web-border);
-}
-
-.web-app .web-mobile-menu-overlay {
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding-bottom: calc(28px + env(safe-area-inset-bottom));
-}
 
 /* Dark bands follow the sky of the official "So close to heaven" campaign. */
 .web-app .hero-dark {

@@ -11,26 +11,30 @@ function readProjectFile(path: string) {
 describe('mobile-first responsive regressions', () => {
   it('shows the mobile header actions by default and hides them on larger screens', () => {
     const header = readProjectFile('src/app/(web)/components/WebHeader.tsx');
-    const css = readProjectFile('src/app/web.css');
+    const css = readProjectFile('src/app/(web)/components/WebHeader.module.css');
 
-    expect(header).toContain('className="web-nav-mobile-right"');
-    expect(header).not.toContain("className=\"web-nav-mobile-right\" style={{ display: 'none'");
-    expect(css).toMatch(/\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*flex/);
-    expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.web-nav-mobile-right\s*\{[^}]*display:\s*none/);
+    expect(header).toContain('className={`web-nav-mobile-right ${styles.mobileRight}`}');
+    expect(header).not.toMatch(/mobileRight[^>]*style=/);
+    // Mobile-first: nút menu hiện mặc định, menu desktop ẩn; từ 1024px thì đảo lại.
+    expect(css).toMatch(/\.mobileRight\s*\{[^}]*display:\s*flex/);
+    expect(css).toMatch(/\.desktop\s*\{[^}]*display:\s*none/);
+    expect(css).toMatch(/@media\s*\(min-width:\s*1024px\)\s*\{[\s\S]*\.desktop\s*\{[^}]*display:\s*flex[\s\S]*\.mobileRight\s*\{[^}]*display:\s*none/);
   });
 
   it('keeps header links legible on dark heroes without inline color overrides', () => {
     const header = readProjectFile('src/app/(web)/components/WebHeader.tsx');
-    const css = readProjectFile('src/app/web.css');
+    const css = readProjectFile('src/app/(web)/components/WebHeader.module.css');
+    const globalCss = readProjectFile('src/app/web.css');
 
     expect(header).not.toContain('const textColor');
     expect(header).not.toContain('const logoColor');
-    expect(header).not.toMatch(/className="header-logo"\s+style=/);
-    expect(header).not.toMatch(/className="nav-desktop-link"\s+style=/);
+    expect(header).not.toMatch(/className=\{styles\.(brand|navLink)\}\s+style=/);
     expect(header).toContain("aria-current={isCurrentPath(link.href) ? 'page' : undefined}");
-    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.header-logo[^}]*color:\s*#fff/);
-    expect(css).toMatch(/\.web-app\s+\.web-header--transparent\s+\.nav-desktop-link[^}]*color:\s*var\(--web-on-ink\)/);
-    expect(css).not.toMatch(/\.web-app\s+a\s*\{[^}]*color:\s*inherit\s*!important/);
+    // Chữ trắng trên hero tối, link kế thừa màu của header.
+    expect(css).toMatch(/\.onDark\s*\{[^}]*color:\s*var\(--web-on-ink\)/);
+    expect(css).toMatch(/\.navLink\s*\{[^}]*color:\s*inherit/);
+    expect(css).toMatch(/\.onDark::before\s*\{[^}]*linear-gradient/);
+    expect(globalCss).not.toMatch(/\.web-app\s+a\s*\{[^}]*color:\s*inherit\s*!important/);
   });
 
   it('defines the web primary color token used by primary CTAs', () => {

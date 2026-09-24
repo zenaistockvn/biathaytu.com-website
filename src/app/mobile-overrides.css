@@ -27,11 +27,6 @@
   }
 
   /* Mobile menu remains usable on short screens / landscape / large text. */
-  .web-app .web-mobile-menu-overlay {
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    padding-bottom: calc(28px + var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
-  }
 
   /* Hero typography: preserve premium hierarchy without consuming the whole first viewport. */
   .web-app .hero-title {

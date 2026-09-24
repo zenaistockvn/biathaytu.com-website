@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--web-bg-section);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tile:hover .image {
+  transform: scale(1.04);
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: clamp(128px, 14vw, 180px);
+  padding: 24px;
+}
+
+.ink { background: var(--web-ink); color: var(--web-on-ink); }
+.accent { background: var(--web-accent); color: var(--web-on-ink); }
+.gold { background: var(--web-accent-on-ink); color: var(--web-ink); --heading-color: var(--web-ink); }
+.mist { background: var(--web-bg-section); color: var(--web-text); }
+
+.icon {
+  display: inline-flex;
+  flex: none;
+}
+
+/* .panel .title (0,2,0) thắng cỡ mặc định `.web-app h3` (0,1,1). */
+.panel .title {
+  margin: 0;
+  font-size: var(--web-fs-h2);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.kicker {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-condensed), sans-serif;
+  font-size: var(--web-fs-kicker);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tile:focus-visible {
+  outline: 2px solid var(--web-accent);
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

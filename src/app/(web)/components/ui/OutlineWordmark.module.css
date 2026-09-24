@@ -1,0 +1,29 @@
+.wordmark {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--web-on-ink);
+}
+
+.horizontal {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 1;
+}
+
+.vertical {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 10;
+}
+
+.text {
+  font-family: var(--font-display), Georgia, serif;
+  font-stretch: var(--web-display-stretch);
+  font-size: 118px;
+  font-weight: 700;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4px;
+  vector-effect: non-scaling-stroke;
+}

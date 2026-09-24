@@ -74,6 +74,15 @@
   /* Font tiêu đề là Roboto Serif bản rộng, thay cho Copperplate của Benediktiner. */
   --web-display-stretch: 125%;
 
+  /* Thang cỡ chữ. Chữ hoa bản rộng chiếm chỗ hơn chữ thường ~30%, nên cỡ nhỏ hơn thói quen
+     (Chimay: h2 38px với font thường). */
+  --web-fs-hero: clamp(38px, 6.2vw, 84px);
+  --web-fs-h1: clamp(30px, 4vw, 52px);
+  --web-fs-h2: clamp(24px, 2.7vw, 36px);
+  --web-fs-h3: clamp(19px, 1.7vw, 24px);
+  --web-fs-kicker: clamp(14px, 1.25vw, 18px);
+  --web-header-h: 72px;
+
   /* Standardized Spacing */
   --web-spacing-xs: 8px;
   --web-spacing-sm: 16px;
@@ -141,12 +150,10 @@ body.overflow-hidden {
   line-height: 1.28 !important;
 }
 
-.web-app .header-logo {
-  font-family: var(--font-display), Georgia, serif !important;
-  font-stretch: var(--web-display-stretch);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
+/* Cỡ mặc định theo thang; class riêng của từng khối vẫn ghi đè được. */
+.web-app h1 { font-size: var(--web-fs-h1); }
+.web-app h2 { font-size: var(--web-fs-h2); }
+.web-app h3 { font-size: var(--web-fs-h3); line-height: 1.3; }
 
 /* Tiêu đề dạng câu dài (bài viết, thẻ bài viết) giữ chữ thường: câu tiếng Việt dài in hoa rất khó đọc. */
 .web-app .article-detail-title,
@@ -177,8 +184,7 @@ body.overflow-hidden {
 .web-app button,
 .web-app .btn-primary,
 .web-app .btn-secondary,
-.web-app .btn-outline,
-.web-app .nav-desktop-link {
+.web-app .btn-outline {
   font-family: var(--font-condensed), sans-serif !important;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -186,8 +192,7 @@ body.overflow-hidden {
 
 .web-app .btn-primary,
 .web-app .btn-secondary,
-.web-app .btn-outline,
-.web-app .nav-desktop-link {
+.web-app .btn-outline {
   text-transform: uppercase;
 }
 
@@ -245,34 +250,6 @@ body.overflow-hidden {
 }
 
 /* ─── Header / Navigation ─── */
-.web-app .web-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
-  -webkit-transition: background-color 0.35s ease, -webkit-backdrop-filter 0.35s ease, box-shadow 0.35s ease;
-}
-
-.web-app .web-header--transparent {
-  isolation: isolate;
-}
-
-.web-app .web-header--transparent::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background: linear-gradient(to bottom, rgb(var(--web-ink-rgb) / 0.55), transparent);
-}
-
-.web-app .web-header--solid {
-  background-color: var(--web-bg);
-  box-shadow: none;
-  border-bottom: 1px solid var(--web-border);
-}
 
 /* ─── Layout ─── */
 .web-app .container {
@@ -295,16 +272,16 @@ body.overflow-hidden {
 .web-app .section-label {
   display: inline-block;
   color: var(--web-text-muted);
-  letter-spacing: 0;
-  text-transform: none;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: var(--font-sans), sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-condensed), sans-serif;
   margin-bottom: 12px;
 }
 
 .web-app .section-title {
-  font-size: 28px;
+  font-size: var(--web-fs-h2);
   line-height: 1.2;
   margin-bottom: 16px;
   color: var(--web-text);
@@ -616,31 +593,104 @@ body.overflow-hidden {
   color: var(--web-ink);
 }
 
-/* ─── Buttons (override globals .btn-primary) ─── */
+/* ─── Buttons ───
+   Nút chữ nhật kiểu Chimay: góc vuông, Barlow Condensed in hoa, không nhấc lên khi hover.
+   primary (xanh trời), dark (xanh đêm, như nút đen của Chimay), light (trắng, đặt trên khối màu),
+   outline, link (chữ in hoa kèm mũi tên SVG). */
+.web-app .btn-primary,
+.web-app .btn-dark,
+.web-app .btn-light,
+.web-app .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 26px;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-condensed), sans-serif !important;
+  font-size: 15px;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
 .web-app .btn-primary {
   background: var(--web-accent) !important;
   color: var(--web-on-ink) !important;
-  font-weight: 600 !important;
-  padding: 14px 32px;
-  border-radius: 0 !important;
-  border: none !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  box-shadow: none !important;
-  font-family: var(--font-sans), sans-serif !important;
+  border: 2px solid var(--web-accent) !important;
 }
 
 .web-app .btn-primary:hover {
   background: var(--web-accent-hover) !important;
-  transform: translateY(-2px) !important;
+  border-color: var(--web-accent-hover) !important;
   box-shadow: none !important;
   opacity: 1 !important;
+}
+
+.web-app .btn-dark {
+  background: var(--web-ink);
+  color: var(--web-on-ink) !important;
+  border: 2px solid var(--web-ink);
+}
+
+.web-app .btn-dark:hover {
+  background: var(--web-ink-deep);
+  border-color: var(--web-ink-deep);
+}
+
+.web-app .btn-light {
+  background: var(--web-on-ink);
+  color: var(--web-ink) !important;
+  border: 2px solid var(--web-on-ink);
+}
+
+.web-app .btn-light:hover {
+  background: transparent;
+  color: var(--web-on-ink) !important;
+}
+
+.web-app .btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  font-family: var(--font-condensed), sans-serif !important;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--web-ink) !important;
+  text-decoration: none !important;
+}
+
+.web-app .btn-link svg {
+  transition: transform 0.2s ease;
+}
+
+.web-app .btn-link:hover svg {
+  transform: translateX(4px);
+}
+
+.web-app [data-surface="ink"] .btn-link {
+  color: var(--web-on-ink) !important;
+}
+
+/* Outline trên dải tối/ảnh: viền và chữ trắng (thắng quy tắc tương phản .btn-outline cho nền sáng). */
+.web-app [data-surface="ink"] .btn-outline {
+  color: var(--web-on-ink) !important;
+  border-color: var(--web-on-ink) !important;
+}
+
+.web-app [data-surface="ink"] .btn-outline:hover {
+  background: var(--web-on-ink) !important;
+  color: var(--web-ink) !important;
 }
 
 /* Primary buttons on dark/blue surfaces */
@@ -669,23 +719,13 @@ body.overflow-hidden {
 .web-app .btn-outline {
   background: transparent !important;
   color: var(--web-accent-strong) !important;
-  font-weight: 600;
-  padding: 14px 32px;
-  border-radius: 0;
   border: 2px solid var(--web-accent-strong) !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-align: center;
-  font-size: 15px;
-  font-family: var(--font-sans), sans-serif !important;
 }
 
 .web-app .btn-outline:hover {
   background: var(--web-accent-strong) !important;
   border-color: var(--web-accent-strong) !important;
   color: var(--web-on-ink) !important;
-  transform: translateY(-2px);
   opacity: 1 !important;
 }
 
@@ -926,19 +966,6 @@ body.overflow-hidden {
 
 
 /* ─── Navigation — Mobile-first: hamburger visible, desktop nav hidden ─── */
-.web-app .web-nav-hamburger {
-  display: flex !important;
-}
-
-.web-app .web-nav-desktop {
-  display: none !important;
-}
-
-.web-app .web-nav-mobile-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
 
 /* ─── Food Pairing Card ─── */
 .web-app .food-pairing-card {
@@ -1395,16 +1422,6 @@ body.overflow-hidden {
 /* ── Tablet+ (≥ 769px) ── */
 @media (min-width: 769px) {
   /* Show desktop nav, hide hamburger */
-  .web-app .web-nav-desktop {
-    display: flex !important;
-  }
-  .web-app .web-nav-hamburger {
-    display: none !important;
-  }
-
-  .web-app .web-nav-mobile-right {
-    display: none;
-  }
 
   /* Sections scale up */
   .web-app .section,
@@ -2260,13 +2277,14 @@ html {
 
 /* ─── Standardized UI Kit Additions ─── */
 .web-app .btn-sm {
-  padding: 8px 16px;
+  min-height: 36px;
+  padding: 6px 14px;
   font-size: 13px;
 }
 
 .web-app .btn-lg {
-  padding: 16px 36px;
-  font-size: 15px;
+  padding: 15px 34px;
+  font-size: 16px;
 }
 
 /* ─── Hero Specific Classes ─── */
@@ -2325,62 +2343,6 @@ html {
 }
 
 /* ─── Web Header Phase 2 Refactor ─── */
-.web-app .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 72px;
-}
-
-.web-app .header-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  transition: color 0.3s ease;
-}
-
-.web-app .web-header--transparent .header-logo,
-.web-app .web-header--transparent .web-nav-hamburger {
-  color: var(--web-on-ink); /* color: #fff */
-}
-
-.web-app .web-header--transparent .nav-desktop-link {
-  color: var(--web-on-ink);
-}
-
-.web-app .web-header--solid .header-logo,
-.web-app .web-header--solid .web-nav-hamburger {
-  color: var(--web-ink);
-}
-
-.web-app .web-header--solid .nav-desktop-link {
-  color: var(--web-text-secondary);
-}
-
-.web-app .header-logo img {
-  border-radius: 50%;
-  object-fit: cover;
-  border: none;
-  box-shadow: none !important;
-}
-
-.web-app .nav-desktop-links {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-}
-
-.web-app .nav-desktop-link {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.3px;
-  transition: color 0.3s ease;
-}
 
 .web-app .cart-icon-wrap {
   position: relative;
@@ -2390,20 +2352,6 @@ html {
   min-width: 44px;
   min-height: 44px;
   transition: transform 0.2s ease;
-}
-
-.web-app .web-mobile-menu-overlay {
-  position: fixed;
-  top: 72px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--web-bg);
-  z-index: 49;
-  display: flex;
-  flex-direction: column;
-  padding: 32px 24px;
-  gap: 24px;
 }
 
 /* ─── Knowledge Page Styles (Mobile-first) ─── */
@@ -2719,52 +2667,6 @@ html {
 
 .web-app .cart-icon-wrap svg {
   transition: stroke 0.3s ease;
-}
-
-.web-app .web-nav-hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  min-width: 44px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  transition: color 0.3s ease;
-}
-
-.web-app .web-mobile-menu-overlay {
-  position: fixed;
-  top: 72px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(var(--web-bg-rgb) / 0.98);
-  backdrop-filter: blur(12px);
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 49;
-  animation: fadeIn 0.2s ease;
-}
-
-.web-app .web-mobile-menu-link {
-  padding: 16px 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--web-text);
-  border-bottom: 1px solid var(--web-border);
-  display: block;
-}
-
-.web-app .web-mobile-menu-action {
-  text-align: center;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  width: 100%;
 }
 
 /* ═══════════════════════════════════════════

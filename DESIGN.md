@@ -169,6 +169,24 @@ Không dùng: chữ gradient, quầng sáng (glow), vệt sáng quét (shimmer),
 - **Nút:** góc vuông, chiều cao tối thiểu 44px.
 - **Ngữ pháp Chimay:** hero ảnh tràn màn hình; section chia đôi nửa ảnh, nửa khối màu phẳng; ô danh mục lớn; thẻ sản phẩm là ảnh ngữ cảnh kèm tên, không viền, không bóng.
 
+## Component (ngữ pháp Chimay)
+
+Nằm trong `src/app/(web)/components/ui/`, mỗi component có CSS module riêng. Xem tất cả ở `/xem-truoc-giao-dien` (chỉ chạy khi dev).
+
+| Component | Dùng cho | Tương ứng trên chimay.com |
+| --- | --- | --- |
+| `PhotoHero` | Hero ảnh tràn màn hình, chữ viền rỗng "BENEDIKTINER" tràn đáy | Hero trang chủ, trang Chimay Bleue |
+| `TitleBlock` | Tiêu đề kèm dòng phụ in hoa (`kicker`), icon nét mảnh tuỳ chọn | "Nos Bières / TRAPPISTES" |
+| `SplitBlock` | Nửa ảnh, nửa khối màu phẳng (`ink`, `accent`, `gold`, `mist`); `wordmark` thêm chữ viền dọc | "Découvrez l'Abbaye", "Visitez l'Espace" |
+| `CategoryTile` + `CategoryTileGrid` | Hai ô danh mục lớn: ảnh trên, khối màu có icon dưới | "Nos bières / Nos fromages" |
+| `OutlineWordmark` | Chữ viền rỗng khổng lồ, ngang hoặc dọc, chỉ để trang trí | Chữ "CHIMAY" viền |
+| `LineIcons` | Icon nét mảnh: ly Weizen, chai, bom, tu viện | Hình khắc ly bia, bánh phô mai |
+| `Button` | `primary`, `dark`, `light`, `outline`, `link` | Nút chữ nhật đen/trắng, "VOIR TOUTES LES ACTUALITÉS" |
+
+- **Khối màu và nút:** trên `ink`/`accent` dùng nút `light`; trên `gold`/`mist` dùng nút `dark`. `SplitBlock` tự chọn.
+- **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng. Tầng trên là hàng tiện ích nhỏ (hotline, ô viền "Showroom", "Liên hệ tư vấn", ngôn ngữ), tầng dưới là menu in hoa. Huy hiệu 96px treo xuống dưới thanh header 72px, thu còn 80px khi cuộn. Dưới 1024px chỉ có huy hiệu, tên và nút menu.
+- **Class `container` toàn cục đặt lại `padding`**: khoảng đệm dọc phải nằm ở phần tử bọc ngoài, không đặt chung phần tử với `container`.
+
 ## Khả năng truy cập
 
 - Mọi phần tử tương tác phải có focus ring nhìn thấy được (`--web-accent` trên nền sáng, `--web-accent-on-ink` trên dải tối).
