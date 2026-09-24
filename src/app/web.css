@@ -90,8 +90,8 @@
 /* ─── Base Reset (override globals.css) ─── */
 .web-app {
   background-color: var(--web-bg) !important;
-  color: var(--web-text) !important;
-  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--web-text);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
@@ -103,9 +103,9 @@
 
 /* Override body background when web-app is active */
 body:has(.web-app) {
-  background: var(--web-bg) !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background: var(--web-bg);
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
@@ -277,7 +277,7 @@ body.overflow-hidden {
   text-transform: none;
   font-size: 13px;
   font-weight: 500;
-  font-family: var(--font-sans), sans-serif !important;
+  font-family: var(--font-sans), sans-serif;
   margin-bottom: 12px;
 }
 
@@ -443,7 +443,7 @@ body.overflow-hidden {
 
 .web-app .product-card-v2 .card-image {
   position: relative;
-  aspect-ratio: 1/1 !important;
+  aspect-ratio: 1/1;
   height: clamp(180px, 30vh, 240px);
   max-height: 35vh;
   display: block;
@@ -477,7 +477,7 @@ body.overflow-hidden {
   color: var(--web-text-secondary);
   margin-bottom: 16px;
   line-height: 1.6;
-  font-style: normal !important;
+  font-style: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -507,7 +507,7 @@ body.overflow-hidden {
 .web-app .product-card-v2 .card-price {
   font-size: 22px;
   font-weight: 700;
-  color: var(--web-ink) !important;
+  color: var(--web-ink);
   margin-bottom: 4px;
   font-family: var(--font-sans);
 }
@@ -525,7 +525,7 @@ body.overflow-hidden {
 
 @media (max-width: 640px) {
   .web-app .product-card-v2 .card-actions {
-    gap: 12px !important;
+    gap: 12px;
   }
 }
 
@@ -601,7 +601,7 @@ body.overflow-hidden {
   border-radius: var(--web-radius-full) !important;
   border: none !important;
   cursor: pointer;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1947,7 +1947,7 @@ body.overflow-hidden {
   border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.15);
 }
 
-.web-app .contact-divider h3 { font-size: 16px; margin-bottom: 16px; color: var(--web-on-ink) !important; }
+.web-app .contact-divider h3 { font-size: 16px; margin-bottom: 16px; color: var(--web-on-ink); }
 
 .web-app .contact-cta-panel {
   background-color: var(--web-card-bg);
@@ -1972,7 +1972,7 @@ body.overflow-hidden {
   text-align: center;
 }
 
-.web-app .contact-alt-phone a { color: var(--web-accent) !important; font-weight: 600; }
+.web-app .contact-alt-phone a { color: var(--web-accent); font-weight: 600; }
 
 /* ─── Footer ─── */
 .web-app .web-footer { background-color: var(--web-ink); padding: 60px 0 0; color: var(--web-on-ink); }
@@ -2030,7 +2030,7 @@ body.overflow-hidden {
 .web-app .product-guarantee h4 { color: var(--web-accent-on-ink); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
 .web-app .product-guarantee ul { margin: 0; padding-left: 20px; opacity: 0.85; font-size: 14px; display: flex; flex-direction: column; gap: 10px; }
 .web-app .product-breadcrumb { font-size: 14px; margin-bottom: 40px; color: var(--web-text-muted); }
-.web-app .product-breadcrumb a { color: var(--web-accent) !important; }
+.web-app .product-breadcrumb a { color: var(--web-accent); }
 
 /* ─── iTQi Section (mobile-first) ─── */
 .web-app .itqi-img-wrap { position: relative; height: 320px; border-radius: var(--web-radius-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -2198,8 +2198,8 @@ html {
 }
 
 .web-app .mobile-bottom-nav-item {
-  min-height: 60px !important;
-  padding: 8px 4px !important;
+  min-height: 60px;
+  padding: 8px 4px;
 }
 
 /* 4. Reveal on Scroll Animations (Dynamic Design) */
@@ -2237,13 +2237,13 @@ html {
 
 /* ─── Standardized UI Kit Additions ─── */
 .web-app .btn-sm {
-  padding: 8px 16px !important;
-  font-size: 13px !important;
+  padding: 8px 16px;
+  font-size: 13px;
 }
 
 .web-app .btn-lg {
-  padding: 16px 36px !important;
-  font-size: 15px !important;
+  padding: 16px 36px;
+  font-size: 15px;
 }
 
 /* ─── Hero Specific Classes ─── */
@@ -2341,7 +2341,7 @@ html {
 .web-app .header-logo img {
   border-radius: 50%;
   object-fit: cover;
-  border: none !important;
+  border: none;
   box-shadow: none !important;
 }
 
@@ -2462,8 +2462,8 @@ html {
 }
 
 .web-app .knowledge-featured-link {
-  text-decoration: none !important;
-  color: inherit !important;
+  text-decoration: none;
+  color: inherit;
 }
 
 .web-app .knowledge-featured-card {
@@ -2593,8 +2593,8 @@ html {
 .web-app .knowledge-card {
   display: flex;
   flex-direction: column;
-  text-decoration: none !important;
-  color: inherit !important;
+  text-decoration: none;
+  color: inherit;
   background-color: var(--web-card-bg);
   border-radius: var(--web-radius-lg);
   overflow: hidden;
@@ -2778,10 +2778,10 @@ html {
 
 /* Product Order Actions (Detail page) layout classes */
 .web-app .detail-product-actions {
-  display: flex !important;
-  gap: 12px !important;
-  flex-wrap: wrap !important;
-  margin-bottom: 32px !important;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
 .web-app .detail-buy-block {
@@ -2818,14 +2818,14 @@ html {
 }
 
 .web-app .detail-btn-buy {
-  flex: 2 !important;
-  padding: 16px 24px !important;
-  font-size: 16px !important;
+  flex: 2;
+  padding: 16px 24px;
+  font-size: 16px;
   font-weight: 700 !important;
   border: none !important;
   cursor: pointer !important;
   font-family: inherit !important;
-  min-height: 52px !important;
+  min-height: 52px;
 }
 
 /* Product Gallery Thumbnail Slider */
@@ -2864,25 +2864,25 @@ html {
 
 /* Zalo CTA component styles */
 .web-app .zalo-cta-class {
-  display: inline-flex !important;
-  align-items: center !important;
+  display: inline-flex;
+  align-items: center;
   justify-content: center !important;
-  gap: 10px !important;
-  font-weight: 700 !important;
-  padding: 14px 28px !important;
+  gap: 10px;
+  font-weight: 700;
+  padding: 14px 28px;
   border-radius: var(--web-radius-full) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  font-family: var(--font-sans), sans-serif !important;
-  font-size: 15px !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .web-app .zalo-cta-gold-class {
   background: var(--web-accent) !important;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   box-shadow: 0 4px 15px rgb(var(--web-accent-rgb) / 0.2) !important;
-  border: none !important;
+  border: none;
 }
 
 .web-app .zalo-cta-gold-class:hover {
@@ -2894,7 +2894,7 @@ html {
 .web-app .zalo-cta-outline-class {
   background: transparent !important;
   color: var(--web-accent-strong) !important;
-  border: 2px solid var(--web-accent-strong) !important;
+  border: 2px solid var(--web-accent-strong);
 }
 
 .web-app .zalo-cta-outline-class:hover {
@@ -2997,7 +2997,7 @@ html {
 }
 
 .web-app .object-cover {
-  object-fit: cover !important;
+  object-fit: cover;
 }
 
 .web-app .object-contain {
@@ -3005,9 +3005,9 @@ html {
 }
 
 .web-app .products-page-container {
-  padding-top: 80px !important;
-  padding-bottom: 120px !important;
-  background-color: var(--web-bg) !important;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  background-color: var(--web-bg);
 }
 
 .web-app .catalog-header {
@@ -3043,17 +3043,17 @@ html {
 }
 
 .web-app .breadcrumb-active {
-  color: var(--web-text) !important;
+  color: var(--web-text);
 }
 
 .web-app .related-products-section {
-  margin-top: 100px !important;
-  border-top: 1px solid var(--web-border) !important;
-  padding-top: 60px !important;
+  margin-top: 100px;
+  border-top: 1px solid var(--web-border);
+  padding-top: 60px;
 }
 
 .web-app .related-products-title {
-  font-size: 32px !important;
+  font-size: 32px;
 }
 
 /* ─── AEO & Design Standard Refactor Styles ─── */
@@ -3937,27 +3937,27 @@ html {
 
 /* ─── Weissbier Landing Page Premium Styles ─── */
 .weissbier-landing {
-  background-color: var(--web-ink) !important;
-  color: var(--web-on-ink) !important;
-  font-family: var(--font-sans), sans-serif !important;
+  background-color: var(--web-ink);
+  color: var(--web-on-ink);
+  font-family: var(--font-sans), sans-serif;
   overflow: hidden;
 }
 
 .weissbier-landing .weissbier-hero {
   position: relative;
   padding: 140px 0 100px;
-  background: var(--web-sky) !important;
+  background: var(--web-sky);
   text-align: center;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
 }
 
 .weissbier-landing .weissbier-hero-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 999px !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 999px;
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -3966,37 +3966,37 @@ html {
 }
 
 .weissbier-landing .weissbier-hero-title {
-  font-size: clamp(32px, 6vw, 56px) !important;
+  font-size: clamp(32px, 6vw, 56px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   line-height: 1.15 !important;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin-bottom: 24px;
   letter-spacing: -1px;
 }
 
 .weissbier-landing .weissbier-hero-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .weissbier-landing .weissbier-hero-desc {
-  font-size: clamp(16px, 2vw, 20px) !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--web-on-ink-muted);
   max-width: 700px;
   margin: 0 auto 40px;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 .weissbier-landing .weissbier-intro {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
   position: relative;
 }
 
 .weissbier-landing .weissbier-intro-card {
-  background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
+  background: rgb(var(--web-on-ink-rgb) / 0.02);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  border-radius: 24px;
   padding: 48px;
   box-shadow: 0 20px 50px rgb(var(--web-ink-rgb) / 0.4) !important;
   display: flex;
@@ -4019,7 +4019,7 @@ html {
   left: 50%;
   width: 250px;
   height: 250px;
-  background: none !important;
+  background: none;
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
@@ -4044,28 +4044,28 @@ html {
 .weissbier-landing .weissbier-tag {
   display: inline-block;
   padding: 4px 12px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  color: var(--web-accent-on-ink-soft);
   font-size: 11px;
   font-weight: 700;
-  border-radius: 4px !important;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
 .weissbier-landing .weissbier-intro-title {
-  font-size: clamp(24px, 4vw, 36px) !important;
-  color: var(--web-on-ink) !important;
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--web-on-ink);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
 .weissbier-landing .weissbier-intro-desc {
-  font-size: 16px !important;
-  line-height: 1.8 !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--web-on-ink-muted);
   margin-bottom: 32px;
 }
 
@@ -4080,7 +4080,7 @@ html {
   background: rgb(var(--web-on-ink-rgb) / 0.03) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
   padding: 20px;
-  border-radius: 16px !important;
+  border-radius: 16px;
   transition: all 0.3s ease;
 }
 
@@ -4091,7 +4091,7 @@ html {
 
 .weissbier-landing .weissbier-spec-label {
   font-size: 13px;
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
   display: block;
   margin-bottom: 6px;
 }
@@ -4099,31 +4099,31 @@ html {
 .weissbier-landing .weissbier-spec-value {
   font-size: 20px;
   font-weight: 700;
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .weissbier-landing .weissbier-ritual {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
   position: relative;
 }
 
 .weissbier-landing .weissbier-section-title {
   text-align: center;
-  font-size: clamp(28px, 5vw, 40px) !important;
+  font-size: clamp(28px, 5vw, 40px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   color: var(--web-on-ink) !important;
   margin-bottom: 16px;
 }
 
 .weissbier-landing .weissbier-section-subtitle {
   text-align: center;
-  font-size: 16px !important;
+  font-size: 16px;
   color: var(--web-on-ink-muted) !important;
   max-width: 600px;
   margin: 0 auto 60px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
 }
 
 .weissbier-landing .weissbier-ritual-grid {
@@ -4135,11 +4135,11 @@ html {
 .weissbier-landing .weissbier-ritual-card {
   background: rgb(var(--web-on-ink-rgb) / 0.01) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
-  border-radius: 20px !important;
+  border-radius: 20px;
   padding: 32px 24px;
   text-align: center;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .weissbier-landing .weissbier-ritual-card:hover {
@@ -4152,8 +4152,8 @@ html {
 .weissbier-landing .weissbier-ritual-num {
   font-size: 64px;
   font-weight: 700;
-  font-family: var(--font-display) !important;
-  color: var(--web-accent-on-ink) !important;
+  font-family: var(--font-display);
+  color: var(--web-accent-on-ink);
   opacity: 0.55;
   line-height: 1;
   margin-bottom: 8px;
@@ -4163,19 +4163,19 @@ html {
 .weissbier-landing .weissbier-ritual-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin-bottom: 12px;
 }
 
 .weissbier-landing .weissbier-ritual-desc {
-  font-size: 14px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.6 !important;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.6;
 }
 
 .weissbier-landing .weissbier-tasting {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
 }
 
 .weissbier-landing .weissbier-tasting-grid {
@@ -4187,7 +4187,7 @@ html {
 .weissbier-landing .weissbier-tasting-card {
   background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
-  border-radius: 20px !important;
+  border-radius: 20px;
   padding: 32px;
   transition: all 0.3s ease;
 }
@@ -4207,33 +4207,33 @@ html {
 
 .weissbier-landing .weissbier-tasting-icon {
   font-size: 24px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
   width: 48px;
   height: 48px;
-  border-radius: 50% !important;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .weissbier-landing .weissbier-tasting-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin: 0;
 }
 
 .weissbier-landing .weissbier-tasting-desc {
-  font-size: 15px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.7 !important;
+  font-size: 15px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.7;
   margin: 0;
 }
 
 .weissbier-landing .weissbier-pairing {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
 }
 
 .weissbier-landing .weissbier-pairing-wrap {
@@ -4268,16 +4268,16 @@ html {
 }
 
 .weissbier-landing .weissbier-pairing-text strong {
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   font-size: 16px;
   display: block;
   margin-bottom: 4px;
 }
 
 .weissbier-landing .weissbier-pairing-text p {
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
   font-size: 14px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -4285,17 +4285,17 @@ html {
   flex: 1 1 300px;
   position: relative;
   height: 400px;
-  border-radius: 24px !important;
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2) !important;
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
   box-shadow: 0 20px 40px rgb(var(--web-ink-rgb) / 0.5) !important;
 }
 
 .weissbier-landing .weissbier-cta-box {
   margin-top: 80px;
-  background: var(--web-ink-deep) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 30px !important;
+  background: var(--web-ink-deep);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 30px;
   padding: 60px 40px;
   text-align: center;
   position: relative;
@@ -4310,24 +4310,24 @@ html {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: none !important;
+  background: none;
   pointer-events: none;
 }
 
 .weissbier-landing .weissbier-cta-title {
-  font-size: clamp(24px, 4vw, 36px) !important;
+  font-size: clamp(24px, 4vw, 36px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 16px;
 }
 
 .weissbier-landing .weissbier-cta-desc {
-  font-size: 16px !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  color: var(--web-on-ink-muted);
   max-width: 500px;
   margin: 0 auto 36px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
 }
 
 .weissbier-landing .weissbier-ai-section {
@@ -4355,9 +4355,9 @@ html {
 }
 
 .weissbier-landing .button-gold-pulse {
-  background: var(--web-accent-on-ink) !important;
-  color: var(--web-ink) !important;
-  font-weight: 700 !important;
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
 }
 
@@ -4380,27 +4380,27 @@ html {
 
 /* ─── Bitburger Landing Page Premium Styles ─── */
 .bitburger-landing {
-  background-color: var(--web-ink) !important;
-  color: var(--web-on-ink) !important;
-  font-family: var(--font-sans), sans-serif !important;
+  background-color: var(--web-ink);
+  color: var(--web-on-ink);
+  font-family: var(--font-sans), sans-serif;
   overflow: hidden;
 }
 
 .bitburger-landing .bitburger-hero {
   position: relative;
   padding: 140px 0 100px;
-  background: var(--web-sky) !important;
+  background: var(--web-sky);
   text-align: center;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
 }
 
 .bitburger-landing .bitburger-hero-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 999px !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 999px;
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -4409,31 +4409,31 @@ html {
 }
 
 .bitburger-landing .bitburger-hero-title {
-  font-size: clamp(32px, 6vw, 56px) !important;
+  font-size: clamp(32px, 6vw, 56px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   line-height: 1.15 !important;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin-bottom: 24px;
   letter-spacing: -1px;
 }
 
 .bitburger-landing .bitburger-hero-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .bitburger-landing .bitburger-hero-desc {
-  font-size: clamp(16px, 2vw, 20px) !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--web-on-ink-muted);
   max-width: 700px;
   margin: 0 auto 40px;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 /* Campaign World Cup Section Under Hero */
 .bitburger-landing .campaign-wc-section {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
   position: relative;
 }
 
@@ -4444,7 +4444,7 @@ html {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.2) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.2);
 }
 
 .bitburger-landing .campaign-title-wrap {
@@ -4455,36 +4455,36 @@ html {
 .bitburger-landing .campaign-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4);
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
-  border-radius: 999px !important;
+  border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
 .bitburger-landing .campaign-main-title {
-  font-size: clamp(28px, 5vw, 40px) !important;
-  color: var(--web-on-ink) !important;
+  font-size: clamp(28px, 5vw, 40px);
+  color: var(--web-on-ink);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 
 .bitburger-landing .campaign-main-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .bitburger-landing .campaign-subtitle {
-  font-size: 16px !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  color: var(--web-on-ink-muted);
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 .bitburger-landing .campaign-wc-grid {
@@ -4497,12 +4497,12 @@ html {
 }
 
 .bitburger-landing .campaign-wc-card {
-  background: var(--web-ink-deep) !important;
+  background: var(--web-ink-deep);
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgb(var(--web-ink-rgb) / 0.4) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
@@ -4516,15 +4516,15 @@ html {
 .bitburger-landing .campaign-wc-img-holder {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3 !important;
-  background: var(--web-sky) !important;
+  aspect-ratio: 4 / 3;
+  background: var(--web-sky);
   overflow: hidden;
 }
 
 .bitburger-landing .campaign-wc-img-holder img {
-  object-fit: contain !important;
+  object-fit: contain;
   padding: 20px;
-  transition: transform 0.6s ease !important;
+  transition: transform 0.6s ease;
 }
 
 .bitburger-landing .campaign-wc-card:hover .campaign-wc-img-holder img {
@@ -4532,27 +4532,27 @@ html {
 }
 
 .bitburger-landing .campaign-wc-info {
-  padding: 32px !important;
+  padding: 32px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  background: linear-gradient(180deg, var(--web-ink-deep) 0%, var(--web-ink) 100%) !important;
+  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  background: linear-gradient(180deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
 }
 
 .bitburger-landing .campaign-wc-name {
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 12px;
   font-family: var(--font-display) !important;
 }
 
 .bitburger-landing .campaign-wc-desc {
-  font-size: 14px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.6 !important;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.6;
   margin-bottom: 24px;
 }
 
@@ -4562,31 +4562,31 @@ html {
   align-items: center;
   margin-bottom: 24px;
   padding-top: 16px;
-  border-top: 1px dashed rgb(var(--web-on-ink-rgb) / 0.1) !important;
+  border-top: 1px dashed rgb(var(--web-on-ink-rgb) / 0.1);
 }
 
 .bitburger-landing .campaign-wc-price {
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  color: var(--web-accent-on-ink) !important;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--web-accent-on-ink);
 }
 
 .bitburger-landing .campaign-wc-unit {
   font-size: 14px;
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
 }
 
 /* Intro Section */
 .bitburger-landing .bitburger-intro {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
   position: relative;
 }
 
 .bitburger-landing .bitburger-intro-card {
-  background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
+  background: rgb(var(--web-on-ink-rgb) / 0.02);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  border-radius: 24px;
   padding: 48px;
   box-shadow: 0 20px 50px rgb(var(--web-ink-rgb) / 0.4) !important;
   display: flex;
@@ -4609,7 +4609,7 @@ html {
   left: 50%;
   width: 250px;
   height: 250px;
-  background: none !important;
+  background: none;
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
@@ -4634,28 +4634,28 @@ html {
 .bitburger-landing .bitburger-tag {
   display: inline-block;
   padding: 4px 12px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  color: var(--web-accent-on-ink-soft);
   font-size: 11px;
   font-weight: 700;
-  border-radius: 4px !important;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
 .bitburger-landing .bitburger-intro-title {
-  font-size: clamp(24px, 4vw, 36px) !important;
-  color: var(--web-on-ink) !important;
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--web-on-ink);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
 .bitburger-landing .bitburger-intro-desc {
-  font-size: 16px !important;
-  line-height: 1.8 !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--web-on-ink-muted);
   margin-bottom: 32px;
 }
 
@@ -4670,7 +4670,7 @@ html {
   background: rgb(var(--web-on-ink-rgb) / 0.03) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
   padding: 20px;
-  border-radius: 16px !important;
+  border-radius: 16px;
   transition: all 0.3s ease;
 }
 
@@ -4681,7 +4681,7 @@ html {
 
 .bitburger-landing .bitburger-spec-label {
   font-size: 13px;
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
   display: block;
   margin-bottom: 6px;
 }
@@ -4689,32 +4689,32 @@ html {
 .bitburger-landing .bitburger-spec-value {
   font-size: 20px;
   font-weight: 700;
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 /* Section Global Title & Subtitle */
 .bitburger-landing .bitburger-section-title {
   text-align: center;
-  font-size: clamp(28px, 5vw, 40px) !important;
+  font-size: clamp(28px, 5vw, 40px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   color: var(--web-on-ink) !important;
   margin-bottom: 16px;
 }
 
 .bitburger-landing .bitburger-section-subtitle {
   text-align: center;
-  font-size: 16px !important;
+  font-size: 16px;
   color: var(--web-on-ink-muted) !important;
   max-width: 600px;
   margin: 0 auto 60px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
 }
 
 /* Tasting Section */
 .bitburger-landing .bitburger-tasting {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
 }
 
 .bitburger-landing .bitburger-tasting-grid {
@@ -4726,7 +4726,7 @@ html {
 .bitburger-landing .bitburger-tasting-card {
   background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
-  border-radius: 20px !important;
+  border-radius: 20px;
   padding: 32px;
   transition: all 0.3s ease;
 }
@@ -4746,34 +4746,34 @@ html {
 
 .bitburger-landing .bitburger-tasting-icon {
   font-size: 24px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
   width: 48px;
   height: 48px;
-  border-radius: 50% !important;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .bitburger-landing .bitburger-tasting-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin: 0;
 }
 
 .bitburger-landing .bitburger-tasting-desc {
-  font-size: 14px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.7 !important;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.7;
   margin: 0;
 }
 
 /* Pairing Section */
 .bitburger-landing .bitburger-pairing {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
 }
 
 .bitburger-landing .bitburger-pairing-wrap {
@@ -4808,16 +4808,16 @@ html {
 }
 
 .bitburger-landing .bitburger-pairing-text strong {
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   font-size: 16px;
   display: block;
   margin-bottom: 4px;
 }
 
 .bitburger-landing .bitburger-pairing-text p {
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
   font-size: 14px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -4825,18 +4825,18 @@ html {
   flex: 1 1 300px;
   position: relative;
   height: 400px;
-  border-radius: 24px !important;
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2) !important;
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
   box-shadow: 0 20px 40px rgb(var(--web-ink-rgb) / 0.5) !important;
 }
 
 /* CTA Box */
 .bitburger-landing .bitburger-cta-box {
   margin-top: 80px;
-  background: var(--web-ink-deep) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 30px !important;
+  background: var(--web-ink-deep);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 30px;
   padding: 60px 40px;
   text-align: center;
   position: relative;
@@ -4851,24 +4851,24 @@ html {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: none !important;
+  background: none;
   pointer-events: none;
 }
 
 .bitburger-landing .bitburger-cta-title {
-  font-size: clamp(24px, 4vw, 36px) !important;
+  font-size: clamp(24px, 4vw, 36px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 16px;
 }
 
 .bitburger-landing .bitburger-cta-desc {
-  font-size: 16px !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  color: var(--web-on-ink-muted);
   max-width: 500px;
   margin: 0 auto 36px;
-  line-height: 1.6 !important;
+  line-height: 1.6;
 }
 
 /* AI Summary Section */
@@ -4898,9 +4898,9 @@ html {
 
 /* Buttons */
 .bitburger-landing .button-gold-pulse {
-  background: var(--web-accent-on-ink) !important;
-  color: var(--web-ink) !important;
-  font-weight: 700 !important;
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
 }
 
@@ -4910,10 +4910,10 @@ html {
 }
 
 .bitburger-landing .button-navy-glow {
-  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%) !important;
-  color: var(--web-on-ink) !important;
+  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
+  color: var(--web-on-ink);
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.5) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-ink-rgb) / 0.4) !important;
 }
 
@@ -4937,27 +4937,27 @@ html {
 
 /* ─── Bia Duc Nhap Khau Landing Page Premium Styles ─── */
 .biaduc-landing {
-  background-color: var(--web-ink) !important;
-  color: var(--web-on-ink) !important;
-  font-family: var(--font-sans), sans-serif !important;
+  background-color: var(--web-ink);
+  color: var(--web-on-ink);
+  font-family: var(--font-sans), sans-serif;
   overflow: hidden;
 }
 
 .biaduc-landing .bia-duc-hero {
   position: relative;
   padding: 140px 0 100px;
-  background: var(--web-sky) !important;
+  background: var(--web-sky);
   text-align: center;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
 }
 
 .biaduc-landing .biaduc-hero-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 999px !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 999px;
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -4966,32 +4966,32 @@ html {
 }
 
 .biaduc-landing .biaduc-hero-title {
-  font-size: clamp(32px, 6vw, 56px) !important;
+  font-size: clamp(32px, 6vw, 56px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   line-height: 1.15 !important;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin-bottom: 24px;
   letter-spacing: -1px;
 }
 
 .biaduc-landing .biaduc-hero-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .biaduc-landing .biaduc-hero-desc {
-  font-size: clamp(16px, 2vw, 20px) !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--web-on-ink-muted);
   max-width: 700px;
   margin: 0 auto 40px;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 
 /* Campaign World Cup Section */
 .biaduc-landing .campaign-wc-section {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
   position: relative;
 }
 
@@ -5002,7 +5002,7 @@ html {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.2) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.2);
 }
 
 .biaduc-landing .campaign-title-wrap {
@@ -5013,36 +5013,36 @@ html {
 .biaduc-landing .campaign-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.15);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4);
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
-  border-radius: 999px !important;
+  border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
 .biaduc-landing .campaign-main-title {
-  font-size: clamp(28px, 5vw, 40px) !important;
-  color: var(--web-on-ink) !important;
+  font-size: clamp(28px, 5vw, 40px);
+  color: var(--web-on-ink);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 
 .biaduc-landing .campaign-main-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .biaduc-landing .campaign-subtitle {
-  font-size: 16px !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: 16px;
+  color: var(--web-on-ink-muted);
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 .biaduc-landing .campaign-wc-grid {
@@ -5055,12 +5055,12 @@ html {
 }
 
 .biaduc-landing .campaign-wc-card {
-  background: var(--web-ink-deep) !important;
+  background: var(--web-ink-deep);
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgb(var(--web-ink-rgb) / 0.4) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
@@ -5074,15 +5074,15 @@ html {
 .biaduc-landing .campaign-wc-img-holder {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3 !important;
-  background: var(--web-sky) !important;
+  aspect-ratio: 4 / 3;
+  background: var(--web-sky);
   overflow: hidden;
 }
 
 .biaduc-landing .campaign-wc-img-holder img {
-  object-fit: contain !important;
+  object-fit: contain;
   padding: 20px;
-  transition: transform 0.6s ease !important;
+  transition: transform 0.6s ease;
 }
 
 .biaduc-landing .campaign-wc-card:hover .campaign-wc-img-holder img {
@@ -5090,27 +5090,27 @@ html {
 }
 
 .biaduc-landing .campaign-wc-info {
-  padding: 32px !important;
+  padding: 32px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  background: linear-gradient(180deg, var(--web-ink-deep) 0%, var(--web-ink) 100%) !important;
+  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  background: linear-gradient(180deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
 }
 
 .biaduc-landing .campaign-wc-name {
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 12px;
   font-family: var(--font-display) !important;
 }
 
 .biaduc-landing .campaign-wc-desc {
-  font-size: 14px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.6 !important;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.6;
   margin-bottom: 24px;
 }
 
@@ -5120,24 +5120,24 @@ html {
   align-items: center;
   margin-bottom: 24px;
   padding-top: 16px;
-  border-top: 1px dashed rgb(var(--web-on-ink-rgb) / 0.1) !important;
+  border-top: 1px dashed rgb(var(--web-on-ink-rgb) / 0.1);
 }
 
 .biaduc-landing .campaign-wc-price {
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  color: var(--web-accent-on-ink) !important;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--web-accent-on-ink);
 }
 
 .biaduc-landing .campaign-wc-unit {
   font-size: 14px;
-  color: var(--web-on-ink-muted) !important;
+  color: var(--web-on-ink-muted);
 }
 
 /* Classic Beer Collections Section */
 .biaduc-landing .product-beer-section {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
 }
 
 .biaduc-landing .product-beer-grid {
@@ -5152,10 +5152,10 @@ html {
 .biaduc-landing .beer-card-premium {
   background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
-  padding: 40px 32px !important;
+  border-radius: 24px;
+  padding: 40px 32px;
   box-shadow: 0 15px 35px rgb(var(--web-ink-rgb) / 0.3) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -5169,24 +5169,24 @@ html {
 }
 
 .biaduc-landing .beer-card-title {
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 16px;
   font-family: var(--font-display) !important;
 }
 
 .biaduc-landing .beer-card-desc {
-  font-size: 14px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.7 !important;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
 .biaduc-landing .beer-card-meta {
-  font-size: 13px !important;
-  color: var(--web-on-ink-muted) !important;
-  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
+  font-size: 13px;
+  color: var(--web-on-ink-muted);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.05);
   padding-top: 16px;
   margin-top: auto;
   margin-bottom: 12px;
@@ -5196,7 +5196,7 @@ html {
   display: inline-block;
   margin-top: 12px;
   color: var(--web-accent-on-ink) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   text-decoration: none;
   font-size: 14px;
   transition: all 0.2s ease;
@@ -5234,9 +5234,9 @@ html {
 
 /* Buttons */
 .biaduc-landing .button-gold-pulse {
-  background: var(--web-accent-on-ink) !important;
-  color: var(--web-ink) !important;
-  font-weight: 700 !important;
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
 }
 
@@ -5246,10 +5246,10 @@ html {
 }
 
 .biaduc-landing .button-navy-glow {
-  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%) !important;
-  color: var(--web-on-ink) !important;
+  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
+  color: var(--web-on-ink);
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.5) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-ink-rgb) / 0.4) !important;
 }
 
@@ -5267,27 +5267,27 @@ html {
 
 /* ─── Nhan Uu Dai Landing Page Premium Styles ─── */
 .uudai-landing {
-  background-color: var(--web-ink) !important;
-  color: var(--web-on-ink) !important;
-  font-family: var(--font-sans), sans-serif !important;
+  background-color: var(--web-ink);
+  color: var(--web-on-ink);
+  font-family: var(--font-sans), sans-serif;
   overflow: hidden;
 }
 
 .uudai-landing .uudai-hero {
   position: relative;
   padding: 140px 0 100px;
-  background: var(--web-sky) !important;
+  background: var(--web-sky);
   text-align: center;
-  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15);
 }
 
 .uudai-landing .uudai-hero-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgb(var(--web-accent-on-ink-rgb) / 0.1) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3) !important;
-  border-radius: 999px !important;
-  color: var(--web-accent-on-ink-soft) !important;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.1);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3);
+  border-radius: 999px;
+  color: var(--web-accent-on-ink-soft);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -5296,31 +5296,31 @@ html {
 }
 
 .uudai-landing .uudai-hero-title {
-  font-size: clamp(32px, 6vw, 56px) !important;
+  font-size: clamp(32px, 6vw, 56px);
   font-family: var(--font-display) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   line-height: 1.15 !important;
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   margin-bottom: 24px;
   letter-spacing: -1px;
 }
 
 .uudai-landing .uudai-hero-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .uudai-landing .uudai-hero-desc {
-  font-size: clamp(16px, 2vw, 20px) !important;
-  color: var(--web-on-ink-muted) !important;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--web-on-ink-muted);
   max-width: 700px;
   margin: 0 auto 40px;
-  line-height: 1.7 !important;
+  line-height: 1.7;
 }
 
 /* Bento Grid Layout */
 .uudai-landing .bento-section {
   padding: 100px 0;
-  background-color: var(--web-ink) !important;
+  background-color: var(--web-ink);
 }
 
 .uudai-landing .bento-grid {
@@ -5336,10 +5336,10 @@ html {
 .uudai-landing .bento-card {
   background: rgb(var(--web-on-ink-rgb) / 0.02) !important;
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.15) !important;
-  border-radius: 24px !important;
+  border-radius: 24px;
   padding: 36px;
   box-shadow: 0 15px 35px rgb(var(--web-ink-rgb) / 0.3) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -5366,27 +5366,27 @@ html {
 
 .uudai-landing .bento-title {
   font-size: 24px !important;
-  font-weight: 700 !important;
-  color: var(--web-on-ink) !important;
+  font-weight: 700;
+  color: var(--web-on-ink);
   margin-bottom: 12px;
   font-family: var(--font-display) !important;
 }
 
 .uudai-landing .bento-title span {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .uudai-landing .bento-desc {
   font-size: 15px !important;
-  color: var(--web-on-ink-muted) !important;
-  line-height: 1.6 !important;
+  color: var(--web-on-ink-muted);
+  line-height: 1.6;
   margin: 0 0 20px 0;
 }
 
 .uudai-landing .bento-meta {
-  font-size: 13px !important;
-  color: var(--web-on-ink-muted) !important;
-  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.05) !important;
+  font-size: 13px;
+  color: var(--web-on-ink-muted);
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.05);
   padding-top: 16px;
   margin-top: auto;
 }
@@ -5394,14 +5394,14 @@ html {
 /* Form Section */
 .uudai-landing .form-section {
   padding: 100px 0;
-  background-color: var(--web-ink-deep) !important;
+  background-color: var(--web-ink-deep);
   position: relative;
 }
 
 .uudai-landing .glass-form-card {
-  background: var(--web-ink-deep) !important;
-  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25) !important;
-  border-radius: 30px !important;
+  background: var(--web-ink-deep);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
+  border-radius: 30px;
   padding: 56px 48px !important;
   max-width: 600px;
   margin: 0 auto;
@@ -5417,7 +5417,7 @@ html {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: none !important;
+  background: none;
   pointer-events: none;
 }
 
@@ -5429,7 +5429,7 @@ html {
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: var(--web-accent-on-ink-soft) !important;
+  color: var(--web-accent-on-ink-soft);
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -5440,12 +5440,12 @@ html {
   width: 100%;
   background: rgb(var(--web-on-ink-rgb) / 0.03) !important;
   border: 1px solid rgb(var(--web-on-ink-rgb) / 0.1) !important;
-  border-radius: 12px !important;
+  border-radius: 12px;
   padding: 14px 18px;
   color: var(--web-on-ink) !important;
   font-size: 15px;
   transition: all 0.2s ease;
-  font-family: var(--font-sans), sans-serif !important;
+  font-family: var(--font-sans), sans-serif;
 }
 
 .uudai-landing .form-input:focus,
@@ -5456,8 +5456,8 @@ html {
 }
 
 .uudai-landing .form-select option {
-  background-color: var(--web-ink-deep) !important;
-  color: var(--web-on-ink) !important;
+  background-color: var(--web-ink-deep);
+  color: var(--web-on-ink);
 }
 
 /* AI Summary Section */
@@ -5487,9 +5487,9 @@ html {
 
 /* Buttons & Animations */
 .uudai-landing .button-gold-pulse {
-  background: var(--web-accent-on-ink) !important;
-  color: var(--web-ink) !important;
-  font-weight: 700 !important;
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-accent-on-ink-rgb) / 0.4) !important;
   border: none !important;
   cursor: pointer;
@@ -5503,10 +5503,10 @@ html {
 }
 
 .uudai-landing .button-navy-glow {
-  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%) !important;
-  color: var(--web-on-ink) !important;
+  background: linear-gradient(135deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
+  color: var(--web-on-ink);
   border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.5) !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   box-shadow: 0 4px 15px rgb(var(--web-ink-rgb) / 0.4) !important;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -5915,7 +5915,7 @@ html {
   z-index: 100000;
   padding: 12px 20px;
   background: var(--web-ink);
-  color: var(--web-on-ink) !important;
+  color: var(--web-on-ink);
   border-radius: 0 0 var(--web-radius-md) 0;
   font-weight: 700;
   font-size: 14px;

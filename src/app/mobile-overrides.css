@@ -11,11 +11,11 @@
 @media (max-width: 768px) {
   /* Keep all interactive content clear of the fixed bottom navigation. */
   .web-app main {
-    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px) !important;
+    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px);
   }
 
   .web-app .mobile-bottom-nav {
-    min-height: var(--web-mobile-bottom-nav-height) !important;
+    min-height: var(--web-mobile-bottom-nav-height);
   }
 
   .web-app .floating-contact-stack {

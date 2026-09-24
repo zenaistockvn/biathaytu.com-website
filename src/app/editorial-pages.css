@@ -4,28 +4,28 @@
 @media (min-width: 769px) {
   .web-app .knowledge-featured-card {
     min-height: 430px;
-    flex-direction: row !important;
+    flex-direction: row;
     align-items: stretch;
   }
 
   .web-app .knowledge-featured-thumb {
     width: 55%;
-    height: auto !important;
+    height: auto;
     min-height: 430px;
-    max-height: none !important;
+    max-height: none;
     flex: 0 0 55%;
   }
 
   .web-app .knowledge-featured-body {
     width: 45%;
-    align-items: flex-start !important;
+    align-items: flex-start;
     justify-content: center;
-    padding: 48px !important;
-    text-align: left !important;
+    padding: 48px;
+    text-align: left;
   }
 
   .web-app .knowledge-featured-meta {
-    justify-content: flex-start !important;
+    justify-content: flex-start;
   }
 
   .web-app .knowledge-featured-title,
@@ -35,27 +35,27 @@
 }
 
 .web-app .knowledge-featured-cta {
-  padding: 0 0 5px !important;
-  border: 0 !important;
-  border-bottom: 1px solid rgb(var(--web-accent-rgb) / 0.34) !important;
-  border-radius: 0 !important;
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid rgb(var(--web-accent-rgb) / 0.34);
+  border-radius: 0;
   color: var(--web-accent-strong) !important;
 }
 
 .web-app .knowledge-featured-card:hover .knowledge-featured-cta {
-  background: transparent !important;
+  background: transparent;
   color: var(--web-accent-strong) !important;
 }
 
 /* Article grid feels more like editorial print: quieter cards and wider gutters. */
 @media (min-width: 1025px) {
   .web-app .knowledge-grid {
-    gap: 48px 36px !important;
+    gap: 48px 36px;
   }
 }
 
 .web-app .knowledge-card {
-  border-color: rgb(var(--web-border-rgb) / 0.72) !important;
+  border-color: rgb(var(--web-border-rgb) / 0.72);
 }
 
 .web-app .knowledge-card-action {

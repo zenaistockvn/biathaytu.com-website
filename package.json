@@ -18,7 +18,9 @@
     "dump-data": "node scripts/dump_data.js",
     "audit:contrast": "node scripts/audit/contrast.cjs",
     "audit:overflow": "node scripts/audit/overflow.cjs",
-    "audit:colors": "node scripts/audit/color-literals.cjs"
+    "audit:colors": "node scripts/audit/color-literals.cjs",
+    "audit:style": "node scripts/audit/style-snapshot.cjs",
+    "audit:important": "node scripts/audit/important-usage.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

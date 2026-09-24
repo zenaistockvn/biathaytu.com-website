@@ -42,7 +42,7 @@
 /* Accessible accents on dark surfaces. */
 .web-app .knowledge-hero-badge,
 .web-app .hero-trust-icon {
-  color: var(--web-accent-on-ink) !important;
+  color: var(--web-accent-on-ink);
 }
 
 .web-app .hero-trust-icon {
@@ -54,7 +54,7 @@
 }
 
 .web-app .knowledge-hero-overlay {
-  background: none !important;
+  background: none;
 }
 
 .web-app .hero-bottom-divider {
@@ -230,7 +230,7 @@
 /* Product photography first: preserve true product color instead of multiply tint. */
 .web-app .product-card-v2 .card-image,
 .web-app .product-card .card-image {
-  background: radial-gradient(120% 90% at 50% 8%, var(--web-bg) 0%, var(--web-bg-warm) 62%, var(--web-bg-warm) 100%) !important;
+  background: radial-gradient(120% 90% at 50% 8%, var(--web-bg) 0%, var(--web-bg-warm) 62%, var(--web-bg-warm) 100%);
 }
 
 .web-app .product-card-v2 .card-image img,
@@ -248,14 +248,14 @@
 
 .web-app .product-card-v2,
 .web-app .product-card {
-  border-radius: 6px !important;
+  border-radius: 6px;
   box-shadow: none !important;
 }
 
 .web-app .product-card-v2:hover,
 .web-app .product-card:hover {
   transform: translateY(-3px) !important;
-  border-color: var(--web-accent-soft) !important;
+  border-color: var(--web-accent-soft);
   box-shadow: 0 14px 34px -22px rgb(var(--web-ink-rgb) / .45) !important;
 }
 
