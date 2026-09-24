@@ -39,12 +39,39 @@
   width: min(610px, 55%);
 }
 
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgb(var(--web-ink-deep-rgb) / 0.85);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.55);
+  color: var(--web-accent-on-ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.heroBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--web-accent-on-ink);
+  box-shadow: 0 0 8px var(--web-accent-on-ink);
+}
+
 .eyebrow,
 .eyebrowDark {
   margin: 0 0 16px !important;
   font-family: var(--font-sans), sans-serif !important;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   line-height: 1.5;
 }
 
@@ -53,28 +80,32 @@
 }
 
 .eyebrowDark {
-  color: var(--web-accent);
+  color: var(--web-heritage);
 }
 
 .heroTitle.heroTitle {
-  max-width: 610px;
+  max-width: 680px;
   color: var(--web-on-ink) !important;
-  font-size: clamp(34px, 5.6vw, 80px);
-  font-weight: 700 !important;
+  font-size: clamp(38px, 6vw, 84px);
+  font-weight: 600 !important;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
 }
 
 .heroTitle span {
   display: block;
-  margin-top: 10px;
-  color: var(--web-accent-on-ink-soft);
+  margin-top: 8px;
+  color: var(--web-accent-on-ink);
+  font-style: italic;
+  font-size: 0.88em;
 }
 
 .heroDescription {
   max-width: 590px;
   margin-top: 26px !important;
-  color: var(--web-on-ink);
-  font-size: clamp(17px, 1.55vw, 21px);
-  line-height: 1.65;
+  color: var(--web-on-ink-muted);
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.75;
 }
 
 .heroActions {
@@ -85,8 +116,8 @@
 }
 
 .heroSecondaryButton.heroSecondaryButton {
-  border-color: rgb(var(--web-on-ink-rgb) / 0.58) !important;
-  background: rgb(var(--web-ink-deep-rgb) / 0.18) !important;
+  border-color: rgb(var(--web-on-ink-rgb) / 0.5) !important;
+  background: rgb(var(--web-ink-deep-rgb) / 0.35) !important;
   color: var(--web-on-ink) !important;
   backdrop-filter: blur(8px);
 }
@@ -94,24 +125,30 @@
 .heroFacts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 24px;
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.22);
+  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.28);
 }
 
-.heroFacts span {
-  display: grid;
-  gap: 3px;
+.heroFactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroFactItem strong {
+  color: var(--web-accent-on-ink);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.heroFactItem span {
   color: var(--web-on-ink-muted);
   font-size: 12px;
   line-height: 1.45;
-}
-
-.heroFacts strong {
-  color: var(--web-on-ink);
-  font-family: var(--font-sans), sans-serif;
-  font-size: 18px;
 }
 
 .imageCredit {
@@ -127,8 +164,10 @@
 }
 
 .proofStrip {
-  background: var(--web-ink);
-  color: var(--web-bg);
+  background: var(--web-ink-deep);
+  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
+  color: var(--web-on-ink);
 }
 
 .catalogHero {
@@ -189,25 +228,44 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.proofGrid > div {
-  display: grid;
-  gap: 4px;
-  min-height: 116px;
-  align-content: center;
-  padding: 20px 30px;
+.proofItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
   border-right: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
 }
 
-.proofGrid > div:first-child {
+.proofItem:first-child {
   border-left: 1px solid rgb(var(--web-on-ink-rgb) / 0.12);
 }
 
-.proofGrid strong {
-  color: var(--web-on-ink);
-  font-size: 15px;
+.proofIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgb(var(--web-accent-on-ink-rgb) / 0.12);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
+  color: var(--web-accent-on-ink);
+  flex-shrink: 0;
 }
 
-.proofGrid span {
+.proofText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.proofText strong {
+  color: var(--web-accent-on-ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.proofText span {
   color: var(--web-on-ink-muted);
   font-size: 13px;
 }
@@ -218,8 +276,16 @@
 
 .sectionHeading {
   max-width: 760px;
-  margin: 0 auto 52px;
+  margin: 0 auto 56px;
   text-align: center;
+}
+
+.sectionDivider {
+  width: 56px;
+  height: 2px;
+  background: var(--web-accent-on-ink);
+  margin: 16px auto 20px;
+  border-radius: 2px;
 }
 
 .sectionHeading h2,
@@ -230,97 +296,124 @@
 .faqGrid h2 {
   color: var(--web-ink) !important;
   font-size: clamp(34px, 4.2vw, 56px);
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .sectionHeading > p:last-child,
 .faqIntro {
   max-width: 680px;
-  margin: 20px auto 0 !important;
+  margin: 0 auto !important;
   color: var(--web-text-muted);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
 .beerGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 28px;
 }
 
 .beerCard {
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--web-border);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
   border-radius: 18px;
   background: var(--web-card-bg);
-  box-shadow: 0 22px 50px -38px rgb(var(--web-ink-rgb) / 0.38);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 16px 45px -15px rgb(var(--web-ink-rgb) / 0.12);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .beerCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 28px 58px -34px rgb(var(--web-ink-rgb) / 0.32);
+  transform: translateY(-8px);
+  border-color: var(--web-accent-on-ink);
+  box-shadow: 0 24px 60px -15px rgb(var(--web-accent-on-ink-rgb) / 0.28);
 }
 
 .beerImageWrap {
   position: relative;
-  height: 360px;
+  height: 380px;
   overflow: hidden;
-  border-bottom: 1px solid var(--web-border);
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
   background: linear-gradient(180deg, var(--web-bg) 0%, var(--web-bg-warm) 100%);
+}
+
+.beerBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgb(var(--web-ink-deep-rgb) / 0.85);
+  color: var(--web-accent-on-ink);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.4);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
 }
 
 .beerImage {
   object-fit: contain;
   padding: 30px;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .beerCard:hover .beerImage {
-  transform: scale(1.025);
+  transform: scale(1.04);
+}
+
+.beerSubBrand {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--web-heritage);
+  font-weight: 600;
+  margin: 0 0 6px;
 }
 
 .beerContent {
   padding: 28px;
-}
-
-.beerType {
-  color: var(--web-accent);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .beerContent h3 {
-  margin-top: 8px;
+  font-family: var(--font-display), Georgia, serif !important;
+  font-size: 28px;
   color: var(--web-ink);
-  font-size: 27px;
-  line-height: 1.15;
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.2;
 }
 
 .beerDescription {
-  min-height: 86px;
-  margin-top: 14px !important;
+  min-height: 72px;
   color: var(--web-text-muted);
   font-size: 14px;
   line-height: 1.65;
+  margin: 0;
 }
 
 .beerFacts {
   display: grid;
   gap: 0;
-  margin: 22px 0;
-  border-top: 1px solid var(--web-border);
+  margin: 20px 0;
+  border-top: 1px solid rgb(var(--web-border-rgb) / 0.8);
 }
 
 .beerFacts div {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--web-border);
+  padding: 8px 0;
+  border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.8);
   font-size: 12px;
 }
 
@@ -333,6 +426,31 @@
   color: var(--web-ink);
   font-weight: 700;
   text-align: right;
+}
+
+.beerCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--web-bg);
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.55);
+  color: var(--web-ink);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.beerCtaButton:hover {
+  background: var(--web-accent-on-ink);
+  color: var(--web-ink);
+  border-color: var(--web-accent-on-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgb(var(--web-accent-on-ink-rgb) / 0.3);
 }
 
 .textLink,
@@ -406,25 +524,28 @@
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 30px 0 26px;
+  gap: 16px;
+  margin: 32px 0 28px;
 }
 
 .timeline div {
   display: grid;
-  gap: 5px;
-  padding-top: 14px;
-  border-top: 2px solid var(--web-heritage);
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 2px solid var(--web-accent-on-ink);
 }
 
 .timeline strong {
   color: var(--web-ink);
-  font-size: 18px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .timeline span {
   color: var(--web-text-muted);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -506,40 +627,52 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.18);
+  border-top: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
 }
 
 .tastingSteps li {
   display: grid;
-  grid-template-columns: 54px 1fr;
-  gap: 20px;
-  padding: 26px 0;
-  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.18);
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.25);
+  align-items: start;
 }
 
 .tastingSteps > li > span {
   color: var(--web-accent-on-ink);
-  font-family: var(--font-sans), sans-serif;
-  font-size: 13px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 34px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  line-height: 1;
 }
 
 .tastingSteps h3 {
   color: var(--web-on-ink) !important;
-  font-family: var(--font-sans), sans-serif !important;
-  font-size: 18px;
+  font-family: var(--font-display), Georgia, serif !important;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.25;
 }
 
 .tastingSteps p {
-  margin-top: 7px !important;
+  margin-top: 8px !important;
   color: var(--web-on-ink-muted);
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .experienceImageWrap {
   min-height: 560px;
+}
+
+.experienceCard {
+  border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.35);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--web-card-bg);
+  box-shadow: 0 20px 50px -20px rgb(var(--web-ink-rgb) / 0.15);
 }
 
 .experienceCard h2 {

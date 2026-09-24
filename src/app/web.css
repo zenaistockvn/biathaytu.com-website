@@ -84,6 +84,7 @@
   --web-gap-sm: var(--web-spacing-md);
   --web-gap-md: var(--web-spacing-lg);
   --web-gap-lg: var(--web-spacing-xl);
+  --font-condensed: var(--font-sans);
 }
 
 /* ─── Base Reset (override globals.css) ─── */
@@ -120,21 +121,26 @@ body.overflow-hidden {
 
 .web-app h1, .web-app h2, .web-app h3,
 .web-app h4, .web-app h5, .web-app h6 {
-  font-family: var(--font-display), 'Montserrat', sans-serif !important;
-  font-weight: 700;
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600;
   margin: 0;
   color: var(--heading-color, var(--web-text));
   text-wrap: balance;
 }
 
-/* Tiêu đề theo ảnh chiến dịch Benediktiner "So close to heaven": chữ in hoa rộng,
-   giãn nhẹ. Line-height ≥ 1.2 để dấu chồng của chữ hoa tiếng Việt (Ể, Ồ, Ữ) không chạm dòng trên. */
+/* Tiêu đề theo phong cách tu viện di sản quý tộc (như Chimay): chữ có chân Cormorant Garamond,
+   giữ nguyên sắc thái hoa/thường tự nhiên (Title Case/Sentence Case), thanh thoát, sang trọng.
+   Line-height 1.25 - 1.35 để các ký tự tiếng Việt có dấu bay bổng, không chạm dòng trên. */
 .web-app h1,
-.web-app h2,
+.web-app h2 {
+  letter-spacing: -0.01em;
+  line-height: 1.28 !important;
+}
+
 .web-app .header-logo {
-  text-transform: uppercase;
-  letter-spacing: 0.03em !important;
-  line-height: 1.2 !important;
+  font-family: var(--font-display), Georgia, serif !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 /* Tiêu đề dạng câu dài (bài viết, thẻ bài viết) giữ chữ thường để dễ đọc. */
@@ -152,18 +158,23 @@ body.overflow-hidden {
   letter-spacing: 0 !important;
 }
 
-/* Nhãn, nút, menu: chữ không chân dạng hẹp như Trade Gothic Condensed trên bao bì. */
+/* Nhãn, nút, menu: chữ không chân thanh lịch Plus Jakarta Sans, sang trọng và chuẩn mực. */
 .web-app button,
 .web-app .btn-primary,
 .web-app .btn-secondary,
 .web-app .btn-outline,
-.web-app .nav-desktop-link,
+.web-app .nav-desktop-link {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .web-app [class*="eyebrow"],
 .web-app [class*="Eyebrow"],
 .web-app [class*="badge"],
 .web-app [class*="Badge"] {
-  font-family: var(--font-condensed), 'Barlow Condensed', sans-serif !important;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans), sans-serif !important;
+  letter-spacing: 0.05em;
 }
 
 /* Vùng nền tối: heading và chữ tự động đảo màu */

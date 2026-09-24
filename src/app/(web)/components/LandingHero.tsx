@@ -44,7 +44,10 @@ export default function LandingHero() {
 
       <div className={`container ${styles.heroInner}`}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow} data-hero-reveal>{t('hero.badge')}</p>
+          <div className={styles.heroBadge} data-hero-reveal>
+            <span className={styles.heroBadgeDot} aria-hidden="true" />
+            <span>Di sản Tu viện Ettal Bavaria, từ năm 1330</span>
+          </div>
           <h1 id="home-hero-title" className={styles.heroTitle} data-hero-reveal>
             {t('hero.title.line1')}
             <span>{t('hero.title.line2')}</span>
@@ -61,9 +64,18 @@ export default function LandingHero() {
             </Button>
           </div>
           <div className={styles.heroFacts} data-hero-reveal aria-label="Thông tin nổi bật">
-            <span><strong>1330</strong> Tu viện Ettal thành lập</span>
-            <span><strong>400+</strong> năm truyền thống ủ bia</span>
-            <span><strong>Đức</strong> nấu theo công thức Benedictine</span>
+            <div className={styles.heroFactItem}>
+              <strong>1330</strong>
+              <span>Khởi nguồn Tu viện Ettal</span>
+            </div>
+            <div className={styles.heroFactItem}>
+              <strong>400+</strong>
+              <span>Năm truyền thống ủ bia</span>
+            </div>
+            <div className={styles.heroFactItem}>
+              <strong>100%</strong>
+              <span>Men sống & Nước dãy Alps</span>
+            </div>
           </div>
         </div>
       </div>

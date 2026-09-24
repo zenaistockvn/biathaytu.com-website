@@ -48,13 +48,12 @@ describe('design tokens', () => {
   });
 
   it('DESIGN.md khai đúng font đang nạp trong layout.tsx', () => {
-    expect(LAYOUT).toContain('Montserrat');
-    expect(LAYOUT).toContain('Barlow_Condensed');
-    expect(LAYOUT).not.toMatch(/Playfair|Inter\b/);
+    expect(LAYOUT).toContain('Cormorant_Garamond');
+    expect(LAYOUT).toContain('Plus_Jakarta_Sans');
     const fm = DESIGN.slice(0, DESIGN.indexOf('---', 4));
-    expect(fm).toMatch(/display:\s*"Montserrat/);
-    expect(fm).toMatch(/sans:\s*"Barlow/);
-    expect(fm).toMatch(/condensed:\s*"Barlow Condensed/);
+    expect(fm).toMatch(/display:\s*"Cormorant Garamond/);
+    expect(fm).toMatch(/sans:\s*"Plus Jakarta Sans/);
+    expect(fm).toMatch(/condensed:\s*"Plus Jakarta Sans/);
   });
 
   it('DESIGN.md khai đúng màu chủ đạo của web.css', () => {

@@ -105,37 +105,67 @@ export default function LandingPage() {
 
       <LandingHero />
 
-      <section className={styles.proofStrip} aria-label="Cam kết thông tin">
+      <section className={styles.proofStrip} aria-label="Cam kết thông tin và di sản">
         <div className={`container ${styles.proofGrid}`}>
-          <div><strong>Nguồn gốc rõ ràng</strong><span>Thông tin dựa trên tài liệu hãng</span></div>
-          <div><strong>Hương vị nguyên bản</strong><span>Công thức Benedictine từ Ettal</span></div>
-          <div><strong>Tư vấn tại Việt Nam</strong><span>Khách lẻ, nhà hàng và HORECA</span></div>
+          <div className={styles.proofItem}>
+            <div className={styles.proofIcon} aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div className={styles.proofText}>
+              <strong>Nguồn gốc rõ ràng</strong>
+              <span>Tài liệu chính hãng Benediktiner Weissbräu</span>
+            </div>
+          </div>
+          <div className={styles.proofItem}>
+            <div className={styles.proofIcon} aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div className={styles.proofText}>
+              <strong>Hương vị nguyên bản</strong>
+              <span>Công thức Benedictine hơn 400 năm từ Ettal</span>
+            </div>
+          </div>
+          <div className={styles.proofItem}>
+            <div className={styles.proofIcon} aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div className={styles.proofText}>
+              <strong>Tư vấn tại Việt Nam</strong>
+              <span>Khách lẻ, nhà hàng cao cấp và HORECA</span>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className={styles.section} aria-labelledby="featured-beers-title">
         <div className="container">
           <div className={styles.sectionHeading}>
-            <h2 id="featured-beers-title">Ba dòng Benediktiner: Naturtrüb, Dunkel, Festbier</h2>
-            <p>Mỗi dòng có một cá tính riêng, nhưng cùng chia sẻ sự cân bằng và tinh thần thưởng thức chậm rãi.</p>
+            <p className={styles.eyebrowDark}>Bộ sưu tập bia tu viện</p>
+            <h2 id="featured-beers-title">Ba dòng bia biểu tượng: Naturtrüb, Dunkel, Festbier</h2>
+            <div className={styles.sectionDivider} aria-hidden="true" />
+            <p>Mỗi dòng bia là một tuyệt phẩm hương vị với cá tính riêng biệt, nhưng cùng sẻ chia sự cân bằng và triết lý thưởng thức tao nhã của các tu sĩ Bavaria.</p>
           </div>
 
           <div className={styles.beerGrid}>
             {beers.map((beer) => (
               <article key={beer.name} className={styles.beerCard}>
                 <div className={styles.beerImageWrap}>
+                  <span className={styles.beerBadge}>{beer.type}</span>
                   <Image src={beer.image} alt={`${beer.name}, hình ảnh sản phẩm chính hãng`} fill sizes="(max-width: 768px) 80vw, 30vw" className={styles.beerImage} />
                 </div>
                 <div className={styles.beerContent}>
-                  <p className={styles.beerType}>{beer.type}</p>
+                  <p className={styles.beerSubBrand}>Benediktiner Weissbräu Ettal</p>
                   <h3>{beer.name}</h3>
                   <p className={styles.beerDescription}>{beer.description}</p>
                   <dl className={styles.beerFacts}>
                     <div><dt>Màu sắc</dt><dd>{beer.color}</dd></div>
-                    <div><dt>Hương</dt><dd>{beer.aroma}</dd></div>
+                    <div><dt>Hương thơm</dt><dd>{beer.aroma}</dd></div>
                     <div><dt>Nồng độ</dt><dd>{beer.abv}</dd></div>
                   </dl>
-                  <Link href={beer.href} className={styles.textLink}>Khám phá hương vị</Link>
+                  <Link href={beer.href} className={styles.beerCtaButton}>
+                    <span>Khám phá hương vị</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
                 </div>
               </article>
             ))}

@@ -1,25 +1,18 @@
 import type { Metadata } from 'next';
-import { Barlow, Barlow_Condensed, Montserrat } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 
-// Theo tài liệu chiến dịch chính hãng Benediktiner (Copperplate Bold + Trade Gothic Condensed).
-// Hai font gốc là font thương mại, không có dấu tiếng Việt; đây là bản gần nhất trên Google Fonts.
-const barlow = Barlow({
+// Theo phong cách di sản tu viện sang trọng (tương tự Chimay, châu Âu cổ điển):
+// Cormorant Garamond cho tiêu đề trang nhã, quý tộc; Plus Jakarta Sans cho nội dung & UI dễ đọc, ấm áp.
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin', 'vietnamese'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const barlowCondensed = Barlow_Condensed({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin', 'vietnamese'],
   weight: ['500', '600', '700'],
-  display: 'swap',
-  variable: '--font-condensed',
-});
-
-const montserrat = Montserrat({
-  subsets: ['latin', 'vietnamese'],
-  weight: ['600', '700'],
   display: 'swap',
   variable: '--font-display',
 });
@@ -39,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`${barlow.variable} ${barlowCondensed.variable} ${montserrat.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`${plusJakartaSans.variable} ${cormorantGaramond.variable}`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

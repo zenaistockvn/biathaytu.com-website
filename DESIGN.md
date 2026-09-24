@@ -16,9 +16,9 @@ colors:
   text-secondary: "#464E66"
   text-muted: "#596077"
 typography:
-  display: "Montserrat, sans-serif"      # thay cho Copperplate Bold (tiêu đề chiến dịch)
-  sans: "Barlow, sans-serif"             # thay cho Trade Gothic (nội dung)
-  condensed: "Barlow Condensed, sans-serif" # thay cho Trade Gothic Condensed (nhãn, nút, menu)
+  display: "Cormorant Garamond, serif"      # Tiêu đề di sản tu viện sang trọng (phong cách Chimay)
+  sans: "Plus Jakarta Sans, sans-serif"     # Nội dung và UI thanh lịch, ấm áp, tối ưu tiếng Việt
+  condensed: "Plus Jakarta Sans, sans-serif" # Đồng bộ nhãn, nút, menu thanh lịch
   base-size: "16px"
 spacing:
   xs: "8px"
@@ -57,9 +57,9 @@ Hệ thiết kế bám theo tài liệu chính hãng có trong repo, không tự
 | Xanh đêm `#1C3157`, dải trời `--web-sky` | Ảnh chiến dịch `Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf` |
 | Xanh trời `#004787` | Ảnh hero `brand/benediktiner-official/home-hero.jpg` (benediktiner-weissbier.de) |
 | Vàng nhãn `#D6BD79`, đỏ `#C8202A` | Logo và nhãn chai Benediktiner |
-| Font tiêu đề, font nội dung | Font nhúng trong PDF chiến dịch: Copperplate Bold, Trade Gothic LT Std Condensed |
+| Font tiêu đề, font nội dung | Di sản tu viện châu Âu (chuẩn phong cách Chimay): Cormorant Garamond (tiêu đề trang nhã, quý tộc) và Plus Jakarta Sans (nội dung & nút bấm thanh lịch, tối ưu tiếng Việt) |
 
-Copperplate và Trade Gothic là font thương mại, không có dấu tiếng Việt. Montserrat và Barlow là bản gần nhất trên Google Fonts có đủ dấu tiếng Việt.
+Cormorant Garamond kế thừa tinh thần di sản tu viện châu Âu cổ kính và nghệ thuật thủ công, trong khi Plus Jakarta Sans mang lại trải nghiệm đọc ấm áp, trong trẻo và hỗ trợ hoàn hảo hệ dấu tiếng Việt.
 
 ## Màu
 
@@ -135,11 +135,11 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 ## Chữ
 
-- **Tiêu đề `h1`, `h2` và logo chữ:** Montserrat 700, IN HOA, giãn `0.03em`, line-height tối thiểu 1.2 để dấu chồng của chữ hoa tiếng Việt không chạm dòng trên.
-- **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường.
-- **`h3`–`h6`:** Montserrat 700, chữ thường.
-- **Nội dung:** Barlow 400, 16px, line-height 1.6.
-- **Nhãn, nút, menu:** Barlow Condensed, giãn `0.04em`.
+- **Tiêu đề `h1`, `h2` và logo chữ:** Cormorant Garamond 600–700, viết theo Title Case / Sentence Case tự nhiên, sang trọng, thanh thoát. Line-height 1.25–1.35 để các ký tự tiếng Việt có dấu bay bổng, không chạm dòng trên.
+- **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường, mềm mại và dễ đọc.
+- **`h3`–`h6`:** Cormorant Garamond 600, chữ thường.
+- **Nội dung:** Plus Jakarta Sans 400, 16px, line-height 1.65.
+- **Nhãn, nút, menu:** Plus Jakarta Sans 600, giãn nhẹ `0.02em - 0.05em`.
 - Độ đậm tối đa 700. Không dùng 800/900.
 
 ## Hình ảnh
