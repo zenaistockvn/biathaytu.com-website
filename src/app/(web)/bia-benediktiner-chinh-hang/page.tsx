@@ -6,12 +6,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 export const metadata: Metadata = {
   title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
   description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
-  alternates: { canonical: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' },
   openGraph: {
     title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
     description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
     type: 'article',
-    url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang',
+    url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com/bia-benediktiner-chinh-hang' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' }])} />
 
       <EditorialPage
         hero={{

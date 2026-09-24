@@ -8,7 +8,7 @@ import EditorialPage from '../components/EditorialPage';
 export const metadata: Metadata = {
   title: 'Chính Sách Kiểm Soát Độ Tuổi',
   description: 'Thông tin về cơ chế khai báo và kiểm soát độ tuổi trước khi truy cập nội dung rượu, bia trên website Bia Thầy Tu.',
-  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-kiem-soat-do-tuoi' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/chinh-sach-kiem-soat-do-tuoi' },
 };
 
 export default function AgeControlPolicyPage() {

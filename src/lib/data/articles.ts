@@ -316,6 +316,13 @@ function sanitizeArticleContent(content: string | null, slug?: string | null): s
     .replace(/0899(?:[\s.]*)191(?:[\s.]*)313/g, COMPANY_CONFIG.hotline)
     .replace(/0899(?:[\s.]*)19(?:[\s.]*)13(?:[\s.]*)13/g, COMPANY_CONFIG.hotline);
 
+  // Domain chính là biathaytu.com.vn: link nội bộ tuyệt đối (.com hay .com.vn) đổi thành đường dẫn tương đối
+  // để không đi vòng qua redirect; tên miền nhắc trong chữ đổi sang domain chính.
+  sanitized = sanitized
+    .replace(/((?:href=["']|\]\())https?:\/\/(?:www\.)?biathaytu\.com(?:\.vn)?(?=[/"')])/gi, '$1')
+    .replace(/((?:href=["']|\]\())(?=["')])/g, '$1/')
+    .replace(/(?<![\w@./-])(?:www\.)?biathaytu\.com(?!\.vn|[\w-])/gi, 'biathaytu.com.vn');
+
   for (const [retiredPath, destination] of Object.entries(RETIRED_PAGE_MAP)) {
     sanitized = sanitized.replace(
       // Chỉ khớp khi đường dẫn đứng đầu href="..." hoặc (...) của markdown, không khớp giữa slug khác.

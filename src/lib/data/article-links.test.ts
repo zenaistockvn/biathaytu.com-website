@@ -50,7 +50,7 @@ function normalizeInternalLink(rawHref: string): string | null {
   }
 
   // Chuẩn hóa tên miền nội bộ
-  const internalDomainPattern = /^https?:\/\/(?:www\.)?biathaytu\.com/i;
+  const internalDomainPattern = /^https?:\/\/(?:www\.)?biathaytu\.com(?:\.vn)?/i;
   if (internalDomainPattern.test(href)) {
     href = href.replace(internalDomainPattern, '');
   } else if (/^https?:\/\//i.test(href)) {

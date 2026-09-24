@@ -8,12 +8,12 @@ import { getCompanyZaloUrl } from '@/config/company';
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
   description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
-  alternates: { canonical: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' },
   openGraph: {
     title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
     description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
     type: 'website',
-    url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
+    url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
     images: [
       {
         url: '/images/brand/benediktiner-official/home-hero.jpg',
@@ -36,7 +36,7 @@ export default function Page() {
   const product = {
     name: 'Benediktiner Weissbier Naturtrüb',
     slug: 'benediktiner-weissbier-naturtrub',
-    url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub',
+    url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
     description: 'Bia lúa mì Đức nguyên bản, không lọc, giữ trọn vẹn hương vị men sống tự nhiên từ tu viện Ettal.',
     abv: '5.4',
     volume: '500ml',
@@ -50,7 +50,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Weissbier Naturtrüb', url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Weissbier Naturtrüb', url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' }])} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

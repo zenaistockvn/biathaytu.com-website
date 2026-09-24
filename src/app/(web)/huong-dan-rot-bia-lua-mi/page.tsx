@@ -5,12 +5,12 @@ import EditorialPage, { CtaBand, StepList, Summary } from '../components/Editori
 export const metadata: Metadata = {
   title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
   description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
-  alternates: { canonical: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi' },
   openGraph: {
     title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
     description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
     type: 'article',
-    url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi',
+    url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Hướng Dẫn Rót Bia Lúa Mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Hướng Dẫn Rót Bia', url: 'https://www.biathaytu.com/huong-dan-rot-bia-lua-mi' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Hướng Dẫn Rót Bia Lúa Mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Hướng Dẫn Rót Bia', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi' }])} />
 
       <EditorialPage
         hero={{

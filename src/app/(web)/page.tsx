@@ -17,12 +17,12 @@ import styles from './Home.module.css';
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
   description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, các dòng Naturtrüb, Dunkel, Festbier, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam.',
-  alternates: { canonical: 'https://www.biathaytu.com' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn' },
   openGraph: {
     title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
     description: 'Câu chuyện Ettal, hương vị Benediktiner và điểm giới thiệu tại Việt Nam.',
     type: 'website',
-    url: 'https://www.biathaytu.com',
+    url: 'https://www.biathaytu.com.vn',
     images: [{
       url: '/images/brand/benediktiner-official/home-hero.jpg',
       width: 1920,
@@ -96,7 +96,7 @@ export default function LandingPage() {
     <>
       <JsonLd type="faq" data={getLandingFAQSchema()} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com' },
+        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
       ])} />
       <JsonLd type="organization" data={getStoreSchema()} />
 

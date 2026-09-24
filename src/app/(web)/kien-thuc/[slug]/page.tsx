@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!article) return {};
 
-  const articleUrl = `https://www.biathaytu.com/kien-thuc/${article.slug || slug}`;
+  const articleUrl = `https://www.biathaytu.com.vn/kien-thuc/${article.slug || slug}`;
   const ogImage = toAbsoluteSiteUrl(article.thumbnail_url || '/logo.jpg');
 
   return {
@@ -89,7 +89,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   }
 
   const readTime = article.word_count ? Math.round(article.word_count / 200) : 3;
-  const articleUrl = `https://www.biathaytu.com/kien-thuc/${article.slug || article.id}`;
+  const articleUrl = `https://www.biathaytu.com.vn/kien-thuc/${article.slug || article.id}`;
 
   // Related articles (3 most recent, excluding current)
   const relatedArticles = getRelatedArticles(article.id, 3) as unknown as Array<{
@@ -114,8 +114,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         imageUrl: article.thumbnail_url || undefined,
       })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Kiến Thức', url: 'https://www.biathaytu.com/kien-thuc' },
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
+        { name: 'Kiến Thức', url: 'https://www.biathaytu.com.vn/kien-thuc' },
         { name: article.title, url: articleUrl },
       ])} />
 

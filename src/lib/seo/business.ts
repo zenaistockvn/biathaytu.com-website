@@ -29,7 +29,7 @@ export const BUSINESS = {
   phoneTel: phoneDigits,
   email: COMPANY_CONFIG.email,
   zaloUrl: getCompanyZaloUrl() || '',
-  websiteUrl: 'https://www.biathaytu.com',
+  websiteUrl: 'https://www.biathaytu.com.vn',
 } as const;
 
 export interface BrandInfo {

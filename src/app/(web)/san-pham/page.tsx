@@ -12,12 +12,12 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Benediktiner Và Bia Đức Tuyển Chọn',
   description: 'Benediktiner là danh mục chính, bên cạnh Bitburger và các dòng bia Đức được German Taste tuyển chọn. Xem hương vị, quy cách và giá bán lẻ.',
-  alternates: { canonical: 'https://www.biathaytu.com/san-pham' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/san-pham' },
   openGraph: {
     title: 'Benediktiner Và Bia Đức Tuyển Chọn | Bia Thầy Tu',
     description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
     type: 'website',
-    url: 'https://www.biathaytu.com/san-pham',
+    url: 'https://www.biathaytu.com.vn/san-pham',
     images: [{
       url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
       width: 1100,
@@ -60,8 +60,8 @@ export default function ProductsPage() {
   return (
     <div className="products-page-container">
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Benediktiner', url: 'https://www.biathaytu.com/san-pham' },
+        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
+        { name: 'Benediktiner', url: 'https://www.biathaytu.com.vn/san-pham' },
       ])} />
 
       <PhotoHero

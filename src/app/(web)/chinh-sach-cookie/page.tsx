@@ -9,7 +9,7 @@ import EditorialPage from '../components/EditorialPage';
 export const metadata: Metadata = {
   title: 'Chính Sách Cookie',
   description: 'Thông tin về cookie cần thiết, quyền lựa chọn cookie phân tích và quyền riêng tư khi sử dụng website Bia Thầy Tu.',
-  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-cookie' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/chinh-sach-cookie' },
 };
 
 export default function CookiePolicyPage() {

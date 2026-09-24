@@ -19,7 +19,7 @@ import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/Js
 import { POLICY_VERSION, STORAGE_KEYS } from '@/constants/compliance';
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://www.biathaytu.com';
+const BASE_URL = 'https://www.biathaytu.com.vn';
 
 const AGE_GATE_PREPAINT_SCRIPT = `
 (function () {

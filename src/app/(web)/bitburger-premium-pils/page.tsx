@@ -11,12 +11,12 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
   description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
-  alternates: { canonical: 'https://www.biathaytu.com/bitburger-premium-pils' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/bitburger-premium-pils' },
   openGraph: {
     title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
     description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
     type: 'website',
-    url: 'https://www.biathaytu.com/bitburger-premium-pils',
+    url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
     images: [
       {
         url: '/images/brand/bitburger-official/siegelhopfen-field.jpg',
@@ -39,7 +39,7 @@ export default function Page() {
   const product = {
     name: 'Bitburger Premium Pils',
     slug: 'bitburger-premium-pils',
-    url: 'https://www.biathaytu.com/bitburger-premium-pils',
+    url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
     description: 'Bia Pilsner tươi mát chuẩn Đức, lên men đáy với hoa bia hảo hạng. Phiên bản giới hạn Football Edition 2026.',
     abv: '4.8',
     volume: '330ml, 500ml',
@@ -58,7 +58,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bitburger Premium Pils', url: 'https://www.biathaytu.com/bitburger-premium-pils' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Bitburger Premium Pils', url: 'https://www.biathaytu.com.vn/bitburger-premium-pils' }])} />
 
       <ProductStory
         wordmark="BITBURGER"

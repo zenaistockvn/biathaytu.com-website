@@ -7,12 +7,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 export const metadata: Metadata = {
   title: 'Về Chúng Tôi | Bia Thầy Tu',
   description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
-  alternates: { canonical: 'https://www.biathaytu.com/ve-chung-toi' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/ve-chung-toi' },
   openGraph: {
     title: 'Về Chúng Tôi | Bia Thầy Tu',
     description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
     type: 'article',
-    url: 'https://www.biathaytu.com/ve-chung-toi',
+    url: 'https://www.biathaytu.com.vn/ve-chung-toi',
     images: [
       {
         url: '/images/brand/benediktiner-official/ettal-monastery.jpg',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Về Chúng Tôi', slug: 've-chung-toi', url: 'https://www.biathaytu.com/ve-chung-toi', description: 'Thông tin nhà nhập khẩu Bia Thầy Tu.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Về Chúng Tôi', url: 'https://www.biathaytu.com/ve-chung-toi' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Về Chúng Tôi', slug: 've-chung-toi', url: 'https://www.biathaytu.com.vn/ve-chung-toi', description: 'Thông tin nhà nhập khẩu Bia Thầy Tu.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Về Chúng Tôi', url: 'https://www.biathaytu.com.vn/ve-chung-toi' }])} />
 
       <EditorialPage
         hero={{

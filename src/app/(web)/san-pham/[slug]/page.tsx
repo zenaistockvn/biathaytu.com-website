@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = getProductBySlugOrId(slug) as ProductData | null;
   if (!product || product.hidden) return {};
-  const productUrl = `https://www.biathaytu.com/san-pham/${product.slug || product.id}`;
+  const productUrl = `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}`;
 
   const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
   const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
@@ -152,9 +152,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         category: product.category,
       })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' },
-        { name: product.name, url: `https://www.biathaytu.com/san-pham/${product.slug || product.id}` },
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
+        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' },
+        { name: product.name, url: `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}` },
       ])} />
 
       <div className="container">

@@ -25,7 +25,7 @@ const robotoSerif = Roboto_Serif({
   variable: '--font-display',
 });
 
-const BASE_URL = 'https://www.biathaytu.com';
+const BASE_URL = 'https://www.biathaytu.com.vn';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

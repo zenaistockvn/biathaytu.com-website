@@ -9,12 +9,12 @@ import { formatPrice } from '@/utils/formatPrice';
 export const metadata: Metadata = {
   title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
   description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
-  alternates: { canonical: 'https://www.biathaytu.com/qua-tang-bia-duc' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/qua-tang-bia-duc' },
   openGraph: {
     title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
     description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
     type: 'article',
-    url: 'https://www.biathaytu.com/qua-tang-bia-duc',
+    url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -44,8 +44,8 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Quà Tặng Bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Quà Tặng Bia Đức', url: 'https://www.biathaytu.com/qua-tang-bia-duc' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Quà Tặng Bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Quà Tặng Bia Đức', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc' }])} />
 
       <EditorialPage
         hero={{

@@ -33,6 +33,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Domain chính là www.biathaytu.com.vn; biathaytu.com (có hoặc không www) chuyển 301 giữ nguyên đường dẫn.
+      // Đặt đầu danh sách để đổi domain trước, các redirect đường dẫn bên dưới áp dụng ở bước sau.
+      ...['www.biathaytu.com', 'biathaytu.com'].map((host) => ({
+        source: '/:path*',
+        has: [{ type: 'host', value: host }],
+        destination: 'https://www.biathaytu.com.vn/:path*',
+        statusCode: 301,
+      })),
       ...Object.entries(RETIRED_ARTICLES).map(([slug, destination]) => ({
         source: `/kien-thuc/${slug}`,
         destination,

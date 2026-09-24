@@ -5,12 +5,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 export const metadata: Metadata = {
   title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
   description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
-  alternates: { canonical: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang' },
   openGraph: {
     title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
     description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
     type: 'article',
-    url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang',
+    url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Chứng Nhận Nhập Khẩu', url: 'https://www.biathaytu.com/chung-nhan-nhap-khau-chinh-hang' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Chứng Nhận Nhập Khẩu', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang' }])} />
 
       <EditorialPage
         hero={{

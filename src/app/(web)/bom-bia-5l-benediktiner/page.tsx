@@ -6,12 +6,12 @@ import { getBeerProducts } from '@/lib/data/products';
 export const metadata: Metadata = {
   title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
   description: 'Bom bia 5L Benediktiner Weissbier, bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
-  alternates: { canonical: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' },
   openGraph: {
     title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
     description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
     type: 'website',
-    url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
+    url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -33,7 +33,7 @@ export default function Page() {
   const product = {
     name: 'Bom Bia 5L Benediktiner',
     slug: 'bom-bia-5l-benediktiner',
-    url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner',
+    url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
     description: 'Bom bia Đức 5 lít, phù hợp tiệc tùng và quà tặng doanh nghiệp.',
     abv: '5.4',
     volume: '5000ml',
@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com/bom-bia-5l-benediktiner' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' }])} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

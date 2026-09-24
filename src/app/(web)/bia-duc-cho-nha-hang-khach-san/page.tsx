@@ -7,12 +7,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 export const metadata: Metadata = {
   title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
   description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
-  alternates: { canonical: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san' },
   openGraph: {
     title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
     description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
     type: 'article',
-    url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san',
+    url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -36,8 +36,8 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Đức Cho Nhà Hàng Khách Sạn', url: 'https://www.biathaytu.com/bia-duc-cho-nha-hang-khach-san' }])} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Đức Cho Nhà Hàng Khách Sạn', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san' }])} />
 
       <EditorialPage
         hero={{

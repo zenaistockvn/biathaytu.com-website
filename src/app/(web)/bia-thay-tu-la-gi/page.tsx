@@ -6,12 +6,12 @@ import { COMPANY_CONFIG } from '@/config/company';
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
   description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
-  alternates: { canonical: 'https://www.biathaytu.com/bia-thay-tu-la-gi' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' },
   openGraph: {
     title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
     description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
     type: 'article',
-    url: 'https://www.biathaytu.com/bia-thay-tu-la-gi',
+    url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -33,14 +33,14 @@ export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
     { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal, nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
-    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
+    { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com.vn, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
   ];
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu Là Gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu Là Gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com/bia-thay-tu-la-gi' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' }])} />
 
       <EditorialPage
         hero={{

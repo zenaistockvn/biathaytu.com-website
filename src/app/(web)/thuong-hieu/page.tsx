@@ -10,12 +10,12 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
   description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine và hành trình công thức nguyên bản được tiếp nối tại Lich, Đức.',
-  alternates: { canonical: 'https://www.biathaytu.com/thuong-hieu' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/thuong-hieu' },
   openGraph: {
     title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
     description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     type: 'website',
-    url: 'https://www.biathaytu.com/thuong-hieu',
+    url: 'https://www.biathaytu.com.vn/thuong-hieu',
     images: [{
       url: '/images/brand/benediktiner-official/home-hero.jpg',
       width: 1920,
@@ -42,8 +42,8 @@ export default function BrandStoryPage() {
   return (
     <>
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Câu chuyện', url: 'https://www.biathaytu.com/thuong-hieu' },
+        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
+        { name: 'Câu chuyện', url: 'https://www.biathaytu.com.vn/thuong-hieu' },
       ])} />
 
       <PhotoHero

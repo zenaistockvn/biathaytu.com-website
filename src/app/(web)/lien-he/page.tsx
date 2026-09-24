@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
   description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}. Tư vấn sản phẩm, HORECA và hợp tác phân phối.`,
   alternates: {
-    canonical: 'https://www.biathaytu.com/lien-he',
+    canonical: 'https://www.biathaytu.com.vn/lien-he',
   },
   openGraph: {
     title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
     description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
     type: 'website',
-    url: 'https://www.biathaytu.com/lien-he',
+    url: 'https://www.biathaytu.com.vn/lien-he',
     images: [
       {
         url: '/images/brand/benediktiner-official/home-hero.jpg',
@@ -43,8 +43,8 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
-        { name: 'Liên Hệ', url: 'https://www.biathaytu.com/lien-he' },
+        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
+        { name: 'Liên Hệ', url: 'https://www.biathaytu.com.vn/lien-he' },
       ])} />
 
       <PageHeader

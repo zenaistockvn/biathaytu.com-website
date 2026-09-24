@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: 'Kiến Thức Bia Đức',
   description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
   alternates: {
-    canonical: 'https://www.biathaytu.com/kien-thuc',
+    canonical: 'https://www.biathaytu.com.vn/kien-thuc',
   },
   openGraph: {
     title: 'Kiến Thức Bia Đức',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
     type: 'website',
-    url: 'https://www.biathaytu.com/kien-thuc',
+    url: 'https://www.biathaytu.com.vn/kien-thuc',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',

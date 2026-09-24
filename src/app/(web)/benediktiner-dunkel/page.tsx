@@ -8,12 +8,12 @@ import { getCompanyZaloUrl } from '@/config/company';
 export const metadata: Metadata = {
   title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
   description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
-  alternates: { canonical: 'https://www.biathaytu.com/benediktiner-dunkel' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-dunkel' },
   openGraph: {
     title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
     description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
     type: 'website',
-    url: 'https://www.biathaytu.com/benediktiner-dunkel',
+    url: 'https://www.biathaytu.com.vn/benediktiner-dunkel',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -36,11 +36,11 @@ export default function Page() {
   const product = {
     name: 'Benediktiner Dunkel',
     slug: 'benediktiner-dunkel',
-    url: 'https://www.biathaytu.com/benediktiner-dunkel',
+    url: 'https://www.biathaytu.com.vn/benediktiner-dunkel',
     description: 'Bia đen lúa mì từ Đức, hương mạch nha rang caramel đậm đà.',
     abv: '5.4',
     volume: '500ml',
-    images: ['https://www.biathaytu.com/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp'],
+    images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp'],
   };
 
   const zaloBaseUrl = getCompanyZaloUrl();
@@ -51,7 +51,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com/san-pham' }, { name: 'Benediktiner Dunkel', url: 'https://www.biathaytu.com/benediktiner-dunkel' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Benediktiner Dunkel', url: 'https://www.biathaytu.com.vn/benediktiner-dunkel' }])} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

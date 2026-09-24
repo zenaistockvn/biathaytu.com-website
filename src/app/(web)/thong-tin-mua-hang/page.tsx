@@ -9,7 +9,7 @@ import EditorialPage from '../components/EditorialPage';
 export const metadata: Metadata = {
   title: 'Thông Tin Mua Hàng',
   description: 'Thông tin tham khảo về kênh tư vấn, phương thức giao dịch, giao nhận và hỗ trợ sau giao dịch đối với sản phẩm Bia Thầy Tu.',
-  alternates: { canonical: 'https://www.biathaytu.com/thong-tin-mua-hang' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/thong-tin-mua-hang' },
 };
 
 export default function PurchaseInformationPage() {

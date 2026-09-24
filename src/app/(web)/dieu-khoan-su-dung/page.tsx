@@ -8,7 +8,7 @@ import EditorialPage from '../components/EditorialPage';
 export const metadata: Metadata = {
   title: 'Điều Khoản Sử Dụng',
   description: 'Nguyên tắc sử dụng website giới thiệu sản phẩm, thông tin thương hiệu và kênh tư vấn của Bia Thầy Tu.',
-  alternates: { canonical: 'https://www.biathaytu.com/dieu-khoan-su-dung' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/dieu-khoan-su-dung' },
 };
 
 export default function TermsOfUsePage() {
@@ -20,7 +20,7 @@ export default function TermsOfUsePage() {
         <section>
           <h2>1. Tính chất của website</h2>
           <p>
-            Website biathaytu.com là kênh giới thiệu sản phẩm và thông tin thương hiệu, không thực hiện chức năng đặt hàng trực tuyến; mọi giao dịch mua bán được thực hiện trực tiếp tại địa điểm kinh doanh hoặc qua các kênh liên hệ được công bố.
+            Website biathaytu.com.vn là kênh giới thiệu sản phẩm và thông tin thương hiệu, không thực hiện chức năng đặt hàng trực tuyến; mọi giao dịch mua bán được thực hiện trực tiếp tại địa điểm kinh doanh hoặc qua các kênh liên hệ được công bố.
           </p>
         </section>
 

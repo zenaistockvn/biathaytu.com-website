@@ -8,7 +8,7 @@ import EditorialPage from '../components/EditorialPage';
 export const metadata: Metadata = {
   title: 'Chính Sách Bảo Mật',
   description: 'Thông tin bảo vệ dữ liệu cá nhân và quyền riêng tư khi truy cập website Bia Thầy Tu và sử dụng các kênh tư vấn.',
-  alternates: { canonical: 'https://www.biathaytu.com/chinh-sach-bao-mat' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/chinh-sach-bao-mat' },
 };
 
 export default function PrivacyPolicyPage() {

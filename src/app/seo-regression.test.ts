@@ -37,17 +37,62 @@ describe('SEO and GEO regressions', () => {
   it('uses the public production host when env contains a localhost URL', () => {
     process.env.NEXT_PUBLIC_APP_URL = 'http://localhost:3000';
 
-    expect(getPublicBaseUrl()).toBe('https://www.biathaytu.com');
+    expect(getPublicBaseUrl()).toBe('https://www.biathaytu.com.vn');
   });
 
   it('keeps a valid public app URL from the environment', () => {
-    process.env.NEXT_PUBLIC_APP_URL = 'https://www.biathaytu.com/';
+    process.env.NEXT_PUBLIC_APP_URL = 'https://www.biathaytu.com.vn/';
 
-    expect(getPublicBaseUrl()).toBe('https://www.biathaytu.com');
+    expect(getPublicBaseUrl()).toBe('https://www.biathaytu.com.vn');
+
+    process.env.NEXT_PUBLIC_APP_URL = 'https://staging.example.vn/';
+    expect(getPublicBaseUrl()).toBe('https://staging.example.vn');
+  });
+
+  it('uses biathaytu.com.vn even when the environment still points at the secondary .com domain', () => {
+    for (const legacy of ['https://www.biathaytu.com', 'https://biathaytu.com/', 'https://biathaytu.com.vn']) {
+      process.env.NEXT_PUBLIC_APP_URL = legacy;
+      expect(getPublicBaseUrl(), legacy).toBe('https://www.biathaytu.com.vn');
+    }
+  });
+
+  it('redirects every path on the secondary .com domain to the same path on biathaytu.com.vn', async () => {
+    const nextConfig = require('../../next.config.js');
+    const redirects: Array<{ source: string; destination: string; statusCode?: number; has?: Array<{ type: string; value: string }> }> = await nextConfig.redirects();
+    for (const host of ['www.biathaytu.com', 'biathaytu.com']) {
+      const rule = redirects.find((r) => r.has?.some((h) => h.type === 'host' && h.value === host));
+      expect(rule, host).toMatchObject({ source: '/:path*', destination: 'https://www.biathaytu.com.vn/:path*', statusCode: 301 });
+    }
+    // Đổi domain phải chạy trước các redirect theo đường dẫn.
+    expect(redirects[0].has?.[0]?.type).toBe('host');
+  });
+
+  it('article content from the database is served with the biathaytu.com.vn domain', async () => {
+    const { getPublishedArticles } = await import('@/lib/data/articles');
+    const leaks = getPublishedArticles()
+      .filter((article) => /biathaytu\.com(?!\.vn)/i.test(article.content ?? ''))
+      .map((article) => article.slug);
+    expect(leaks).toEqual([]);
+  });
+
+  it('no source file hardcodes the secondary .com domain as a URL', () => {
+    const offenders: string[] = [];
+    (function walk(directory: string) {
+      for (const entry of readdirSync(directory, { withFileTypes: true })) {
+        const absolutePath = join(directory, entry.name);
+        if (entry.isDirectory()) walk(absolutePath);
+        else if (/\.(ts|tsx)$/.test(entry.name) && !/\.test\.(ts|tsx)$/.test(entry.name)) {
+          const content = readFileSync(absolutePath, 'utf8');
+          // Bỏ qua biểu thức chính quy nhận diện link nội bộ (dạng biathaytu\.com).
+          if (/https?:\/\/(?:www\.)?biathaytu\.com(?!\.vn)/.test(content)) offenders.push(absolutePath);
+        }
+      }
+    })(join(root, 'src'));
+    expect(offenders).toEqual([]);
   });
 
   it('lets product schema use the page canonical URL and absolute image URLs', () => {
-    const canonicalUrl = 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub';
+    const canonicalUrl = 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub';
     const schema = getProductSchema({
       id: 'test-product-id',
       name: 'Benediktiner Weissbier Naturtrub',
@@ -58,12 +103,12 @@ describe('SEO and GEO regressions', () => {
     });
 
     expect(schema.url).toBe(canonicalUrl);
-    expect(schema.image).toBe('https://www.biathaytu.com/images/products/official/benediktiner/bottle_removebg.png');
+    expect(schema.image).toBe('https://www.biathaytu.com.vn/images/products/official/benediktiner/bottle_removebg.png');
     expect((schema as Record<string, unknown>).offers).toBeUndefined();
   });
 
   it('lets article schema use root landing canonical URLs and absolute image URLs', () => {
-    const canonicalUrl = 'https://www.biathaytu.com/bia-thay-tu-la-gi';
+    const canonicalUrl = 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi';
     const schema = getArticleSchema({
       title: 'Bia Thay Tu La Gi?',
       slug: 'bia-thay-tu-la-gi',
@@ -75,7 +120,7 @@ describe('SEO and GEO regressions', () => {
     });
 
     expect(schema.mainEntityOfPage['@id']).toBe(canonicalUrl);
-    expect(schema.image).toBe('https://www.biathaytu.com/images/products/story_monastery_v2.png');
+    expect(schema.image).toBe('https://www.biathaytu.com.vn/images/products/story_monastery_v2.png');
   });
 
   it('does not advertise missing language routes', () => {
@@ -96,8 +141,8 @@ describe('SEO and GEO regressions', () => {
     const productLanding = readProjectFile('src/app/(web)/benediktiner-weissbier-naturtrub/page.tsx');
     const articleLanding = readProjectFile('src/app/(web)/bia-thay-tu-la-gi/page.tsx');
 
-    expect(productLanding).toContain("url: 'https://www.biathaytu.com/benediktiner-weissbier-naturtrub'");
-    expect(articleLanding).toContain("url: 'https://www.biathaytu.com/bia-thay-tu-la-gi'");
+    expect(productLanding).toContain("url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub'");
+    expect(articleLanding).toContain("url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi'");
   });
 
   it('uses the current hotline and never leaks the legacy number across SEO surfaces', () => {

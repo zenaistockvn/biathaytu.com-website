@@ -5,12 +5,12 @@ import EditorialPage, { CtaBand, FaqSection, InfoGrid, Summary } from '../compon
 export const metadata: Metadata = {
   title: 'Nghệ Thuật Food Pairing: Bia Đức Kết Hợp Cùng Ẩm Thực',
   description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
-  alternates: { canonical: 'https://www.biathaytu.com/food-pairing-bia-duc' },
+  alternates: { canonical: 'https://www.biathaytu.com.vn/food-pairing-bia-duc' },
   openGraph: {
     title: 'Nghệ Thuật Food Pairing: Bia Đức Kết Hợp Cùng Ẩm Thực',
     description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
     type: 'article',
-    url: 'https://www.biathaytu.com/food-pairing-bia-duc',
+    url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc',
     images: [
       {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
@@ -37,9 +37,9 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Food Pairing với Bia Đức', slug: 'food-pairing-bia-duc', url: 'https://www.biathaytu.com/food-pairing-bia-duc', description: 'Cách kết hợp món ăn và bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Food Pairing với Bia Đức', slug: 'food-pairing-bia-duc', url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc', description: 'Cách kết hợp món ăn và bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com' }, { name: 'Food Pairing Bia Đức', url: 'https://www.biathaytu.com/food-pairing-bia-duc' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Food Pairing Bia Đức', url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc' }])} />
 
       <EditorialPage
         hero={{
