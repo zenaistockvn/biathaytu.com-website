@@ -226,6 +226,11 @@
   color: var(--web-on-ink-muted);
 }
 
+/* (0,3,1) thắng màu link xanh trời của cột bài viết `.prose a:not([class])`: trên nền xanh đêm dùng vàng nhãn. */
+.prose .cta a:not([class]) {
+  color: var(--web-accent-on-ink);
+}
+
 .ctaActions {
   display: flex;
   flex-wrap: wrap;

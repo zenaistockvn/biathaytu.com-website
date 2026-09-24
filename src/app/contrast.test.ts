@@ -37,6 +37,9 @@ describe('tương phản WCAG AA của các cặp màu token', () => {
     { name: 'chữ chính trên dải tối', fg: '--web-on-ink', bg: '--web-ink', min: 4.5 },
     { name: 'body copy trên section-alt', fg: '--web-text-secondary', bg: '--web-bg-section', min: 4.5 },
     { name: 'body copy trên bg-warm', fg: '--web-text-secondary', bg: '--web-bg-warm', min: 4.5 },
+    { name: 'chữ phụ (muted) trên section-alt', fg: '--web-text-muted', bg: '--web-bg-section', min: 4.5 },
+    { name: 'chữ phụ (muted) trên bg-warm', fg: '--web-text-muted', bg: '--web-bg-warm', min: 4.5 },
+    { name: 'chữ xanh đêm trên thanh vàng nhãn (footer, khối gold)', fg: '--web-ink', bg: '--web-accent-on-ink', min: 4.5 },
     { name: 'chữ chính trên nền trang', fg: '--web-text', bg: '--web-bg', min: 4.5 },
     { name: 'accent trên nền trang', fg: '--web-accent-strong', bg: '--web-bg', min: 4.5 },
   ];
@@ -47,20 +50,12 @@ describe('tương phản WCAG AA của các cặp màu token', () => {
     expect(+ratio(T[fg], T[bg]).toFixed(2)).toBeGreaterThanOrEqual(min);
   });
 
-  it('không selector nào còn dùng --web-text-muted trên nền section-alt/bg-warm', () => {
-    for (const sel of ['.web-app .p-body', '.web-app .disclaimer-text', '.web-app .tab-count']) {
-      const i = CSS.indexOf(sel + ' ');
-      expect(i, `không tìm thấy ${sel}`).toBeGreaterThan(-1);
-      const block = CSS.slice(i, CSS.indexOf('}', i));
-      expect(block, `${sel} vẫn dùng --web-text-muted`).not.toContain('--web-text-muted');
-    }
-  });
-
   it('badge 18+ ở footer có font ≥ 12px', () => {
-    const i = CSS.indexOf('.web-app .footer-18-badge');
-    const block = CSS.slice(i, CSS.indexOf('}', i));
-    const size = Number((block.match(/font-size:\s*(\d+)px/) ?? [])[1]);
-    expect(size).toBeGreaterThanOrEqual(12);
+    // Nhãn 18+ của footer nằm trong AlcoholWarning (variant footer), đặt bằng style inline.
+    const src = fs.readFileSync(path.join(process.cwd(), 'src/app/(web)/components/AlcoholWarning.tsx'), 'utf8');
+    const badge = /fontSize:\s*'(\d+)px'[^}]*\}\}>\s*18\+/.exec(src);
+    expect(badge, 'không tìm thấy nhãn 18+ trong AlcoholWarning').not.toBeNull();
+    expect(Number(badge![1])).toBeGreaterThanOrEqual(12);
   });
 
   it('mọi token kênh màu -rgb khớp chính xác với token hex cùng tên', () => {

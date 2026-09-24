@@ -1,0 +1,107 @@
+/* Cổng tuổi kiểu chimay.com: ảnh tối phía sau, hộp trắng vuông ở giữa. */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--web-ink-deep);
+}
+
+.backdrop {
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--web-ink-deep-rgb) / 0.82);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  padding: clamp(28px, 5vw, 44px);
+  background: var(--web-bg);
+  color: var(--web-text);
+  text-align: center;
+}
+
+.crest {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 30px;
+  margin-top: 16px;
+  padding: 0 10px;
+  border: 2px solid var(--web-ink);
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--web-ink);
+}
+
+/* `.card .title` (0,2,0) thắng `.web-app h2` (0,1,1). */
+.card .title {
+  margin: 16px 0 10px;
+  font-size: clamp(22px, 5vw, 28px);
+  color: var(--web-ink);
+}
+
+.card .description {
+  max-width: 400px;
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--web-text-secondary);
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.actions > button {
+  width: 100%;
+  min-height: 50px;
+}
+
+.denied {
+  width: 100%;
+  padding: 18px;
+  border-left: 4px solid var(--web-red);
+  background: var(--web-bg-section);
+  color: var(--web-text);
+  line-height: 1.6;
+}
+
+.card .policy {
+  margin: 20px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--web-text-secondary);
+}
+
+.policy a {
+  color: var(--web-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

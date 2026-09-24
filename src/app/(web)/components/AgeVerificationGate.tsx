@@ -10,6 +10,7 @@ import {
   isSearchCrawlerUserAgent,
   setAgeVerifiedStatus,
 } from '@/utils/ageVerification';
+import styles from './AgeVerificationGate.module.css';
 
 type GateStatus = 'prompt' | 'denied';
 
@@ -140,171 +141,51 @@ export default function AgeVerificationGate() {
 
   return (
     <div
-      className="age-gate-overlay"
+      className={`age-gate-overlay ${styles.overlay}`}
       ref={modalRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="age-gate-title"
       aria-describedby="age-gate-description"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 99999,
-        backgroundColor: 'var(--web-ink-deep)',
-        backgroundImage: 'radial-gradient(circle at center, var(--web-ink-soft) 0%, var(--web-ink-deep) 72%)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '16px',
-        overflowY: 'auto',
-      }}
     >
-      <div
-        className="age-gate-card"
-        style={{
-          width: '100%',
-          maxWidth: '520px',
-          backgroundColor: 'var(--web-ink)',
-          border: '1px solid rgb(var(--web-accent-on-ink-rgb) / 0.28)',
-          borderRadius: '18px',
-          padding: 'clamp(24px, 5vw, 36px)',
-          boxShadow: '0 28px 70px rgb(var(--web-ink-deep-rgb) / 0.45)',
-          color: 'var(--web-on-ink)',
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
-          <Image
-            src="/logo.png"
-            alt="Bia Thầy Tu"
-            width={112}
-            height={56}
-            priority
-            style={{ objectFit: 'contain' }}
-          />
-        </div>
+      {/* Như cổng tuổi của chimay.com: ảnh thương hiệu tối phía sau, hộp trắng vuông ở giữa. */}
+      <Image src="/images/brand/benediktiner-official/home-hero.jpg" alt="" fill priority sizes="100vw" className={styles.backdrop} />
+      <div className={styles.shade} aria-hidden="true" />
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-          <span
-            aria-label="Chỉ dành cho người từ đủ 18 tuổi"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: '58px',
-              height: '36px',
-              padding: '0 12px',
-              borderRadius: '999px',
-              border: '1.5px solid var(--web-accent-on-ink)',
-              color: 'var(--web-accent-on-ink)',
-              background: 'rgb(var(--web-accent-on-ink-rgb) / 0.08)',
-              fontWeight: 700,
-              fontSize: '16px',
-            }}
-          >
-            18+
-          </span>
-        </div>
+      <div className={`age-gate-card ${styles.card}`}>
+        <Image src="/logo.png" alt="Bia Thầy Tu" width={88} height={88} priority className={styles.crest} />
 
-        <h2
-          id="age-gate-title"
-          style={{
-            margin: '0 0 12px',
-            textAlign: 'center',
-            color: 'var(--web-on-ink)',
-            fontSize: 'clamp(24px, 6vw, 30px)',
-            fontWeight: 700,
-            fontFamily: 'var(--font-display), sans-serif',
-            fontStretch: 'var(--web-display-stretch)',
-          }}
-        >
+        <span className={styles.badge} aria-label="Chỉ dành cho người từ đủ 18 tuổi">18+</span>
+
+        <h2 id="age-gate-title" className={styles.title}>
           Bạn đã đủ 18 tuổi?
         </h2>
 
-        <p
-          id="age-gate-description"
-          style={{
-            margin: '0 auto 24px',
-            maxWidth: '420px',
-            textAlign: 'center',
-            color: 'var(--web-on-ink-muted)',
-            fontSize: '14px',
-            lineHeight: 1.65,
-          }}
-        >
+        <p id="age-gate-description" className={styles.description}>
           Website có nội dung giới thiệu sản phẩm bia và đồ uống có cồn. Vui lòng xác nhận độ tuổi để tiếp tục.
         </p>
 
         {status === 'prompt' ? (
-          <div style={{ display: 'grid', gap: '12px' }}>
-            <button
-              ref={adultButtonRef}
-              type="button"
-              onClick={handleAdultConfirm}
-              style={{
-                width: '100%',
-                minHeight: '54px',
-                padding: '14px 18px',
-                border: '1px solid var(--web-accent-on-ink)',
-                borderRadius: '10px',
-                background: 'var(--web-accent-on-ink)',
-                color: 'var(--web-ink)',
-                fontWeight: 700,
-                fontSize: '15px',
-                cursor: 'pointer',
-                boxShadow: '0 10px 24px rgb(var(--web-ink-rgb) / 0.18)',
-              }}
-            >
+          <div className={styles.actions}>
+            <button ref={adultButtonRef} type="button" onClick={handleAdultConfirm} className="btn-dark">
               Tôi từ đủ 18 tuổi
             </button>
-
-            <button
-              type="button"
-              onClick={handleUnderage}
-              style={{
-                width: '100%',
-                minHeight: '50px',
-                padding: '12px 18px',
-                borderRadius: '10px',
-                border: '1px solid rgb(var(--web-bg-rgb) / 0.22)',
-                background: 'rgb(var(--web-bg-rgb) / 0.03)',
-                color: 'var(--web-on-ink)',
-                fontWeight: 700,
-                fontSize: '14px',
-                cursor: 'pointer',
-              }}
-            >
+            <button type="button" onClick={handleUnderage} className="btn-outline">
               Tôi chưa đủ 18 tuổi
             </button>
           </div>
         ) : (
-          <div
-            role="alert"
-            style={{
-              padding: '20px',
-              borderRadius: '12px',
-              background: 'rgb(var(--web-red-rgb) / 0.14)',
-              border: '1px solid rgb(var(--web-red-rgb) / 0.52)',
-              color: 'var(--web-on-ink)',
-              textAlign: 'center',
-              fontSize: '15px',
-              lineHeight: 1.65,
-            }}
-          >
+          <div role="alert" className={styles.denied}>
             Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.
           </div>
         )}
 
-        <div style={{ marginTop: '20px', textAlign: 'center', color: 'var(--web-on-ink-muted)', fontSize: '12px', lineHeight: 1.6 }}>
+        <p className={styles.policy}>
           Khi tiếp tục, bạn xác nhận mình từ đủ 18 tuổi. Xem{' '}
-          <Link
-            href="/chinh-sach-kiem-soat-do-tuoi"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--web-accent-on-ink)', textDecoration: 'underline' }}
-          >
+          <Link href="/chinh-sach-kiem-soat-do-tuoi" target="_blank" rel="noopener noreferrer">
             Chính sách kiểm soát độ tuổi
           </Link>.
-        </div>
+        </p>
       </div>
     </div>
   );

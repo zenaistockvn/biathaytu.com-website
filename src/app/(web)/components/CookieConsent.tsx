@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { STORAGE_KEYS } from '@/constants/compliance';
+import styles from './CookieConsent.module.css';
 
 export interface CookiePreferences {
   essential: boolean;
@@ -74,137 +75,49 @@ export default function CookieConsent() {
   };
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        left: '20px',
-        right: '20px',
-        maxWidth: '560px',
-        margin: '0 auto',
-        backgroundColor: 'var(--web-ink)',
-        border: '1px solid rgb(var(--web-bg-rgb) / 0.14)',
-        borderRadius: '12px',
-        padding: '20px',
-        boxShadow: '0 10px 25px -5px rgb(var(--web-ink-deep-rgb) / 0.5)',
-        zIndex: 9999,
-        color: 'var(--web-on-ink)',
-        fontSize: '13px',
-      }}
-      role="region"
-      aria-label="Cài đặt Cookie và Quyền riêng tư"
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-        <span style={{ fontSize: '18px' }}></span>
-        <strong style={{ fontSize: '15px', color: 'var(--web-accent-on-ink)' }}>Cài Đặt Cookie & Quyền Riêng Tư</strong>
-      </div>
+    <div className={styles.banner} role="region" aria-label="Cài đặt Cookie và Quyền riêng tư">
+      <p className={styles.title}>Cookie và quyền riêng tư</p>
 
-      <p style={{ color: 'var(--web-on-ink-muted)', lineHeight: '1.5', marginBottom: '16px' }}>
+      <p className={styles.text}>
         Website sử dụng Cookie cần thiết để vận hành và Cookie tùy chọn để phân tích lượt truy cập, hỗ trợ tiếp thị. Bạn có thể tự do lựa chọn và tùy chỉnh quyền riêng tư của mình.{' '}
-        <Link href="/chinh-sach-cookie" style={{ color: 'var(--web-accent-on-ink)', textDecoration: 'underline' }}>
-          Chính sách Cookie
-        </Link>
+        <Link href="/chinh-sach-cookie">Chính sách Cookie</Link>
       </p>
 
       {showCustomize && (
-        <div style={{ backgroundColor: 'var(--web-ink-soft)', padding: '14px', borderRadius: '8px', marginBottom: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-            <div>
-              <strong>Cookie Bắt Buộc (Essential)</strong>
-              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Duy trì xác minh độ tuổi và các chức năng vận hành cốt lõi</div>
-            </div>
-            <input type="checkbox" checked disabled style={{ cursor: 'not-allowed' }} />
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-            <div>
-              <strong>Cookie Phân Tích (Analytics)</strong>
-              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Giúp cải thiện hiệu năng và trải nghiệm người dùng</div>
-            </div>
-            <input
-              type="checkbox"
-              checked={analytics}
-              onChange={(e) => setAnalytics(e.target.checked)}
-              style={{ cursor: 'pointer', width: '16px', height: '16px' }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <strong>Cookie Tiếp Thị (Marketing)</strong>
-              <div style={{ fontSize: '11px', color: 'var(--web-on-ink-muted)' }}>Hỗ trợ đo lường quảng cáo Facebook / TikTok</div>
-            </div>
-            <input
-              type="checkbox"
-              checked={marketing}
-              onChange={(e) => setMarketing(e.target.checked)}
-              style={{ cursor: 'pointer', width: '16px', height: '16px' }}
-            />
-          </div>
+        <div className={styles.options}>
+          <label className={styles.option}>
+            <span>
+              <strong>Cookie bắt buộc</strong>
+              <span className={styles.hint}>Duy trì xác minh độ tuổi và các chức năng vận hành cốt lõi</span>
+            </span>
+            <input type="checkbox" checked disabled />
+          </label>
+          <label className={styles.option}>
+            <span>
+              <strong>Cookie phân tích</strong>
+              <span className={styles.hint}>Giúp cải thiện hiệu năng và trải nghiệm người dùng</span>
+            </span>
+            <input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} />
+          </label>
+          <label className={styles.option}>
+            <span>
+              <strong>Cookie tiếp thị</strong>
+              <span className={styles.hint}>Hỗ trợ đo lường quảng cáo Facebook / TikTok</span>
+            </span>
+            <input type="checkbox" checked={marketing} onChange={(e) => setMarketing(e.target.checked)} />
+          </label>
         </div>
       )}
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'flex-end' }}>
+      <div className={styles.actions}>
         {!showCustomize ? (
           <>
-            <button
-              onClick={() => setShowCustomize(true)}
-              style={{
-                padding: '8px 14px',
-                borderRadius: '6px',
-                border: '1px solid rgb(var(--web-bg-rgb) / 0.28)',
-                backgroundColor: 'transparent',
-                color: 'var(--web-on-ink)',
-                cursor: 'pointer',
-                fontWeight: '500',
-              }}
-            >
-              Tùy chỉnh
-            </button>
-            <button
-              onClick={handleRejectOptional}
-              style={{
-                padding: '8px 14px',
-                borderRadius: '6px',
-                border: '1px solid rgb(var(--web-bg-rgb) / 0.28)',
-                backgroundColor: 'rgb(var(--web-bg-rgb) / 0.14)',
-                color: 'var(--web-on-ink)',
-                cursor: 'pointer',
-                fontWeight: '500',
-              }}
-            >
-              Từ chối tùy chọn
-            </button>
-            <button
-              onClick={handleAcceptAll}
-              style={{
-                padding: '8px 16px',
-                borderRadius: '6px',
-                border: 'none',
-                backgroundColor: 'var(--web-accent-on-ink)',
-                color: 'var(--web-ink)',
-                cursor: 'pointer',
-                fontWeight: '700',
-              }}
-            >
-              Chấp nhận tất cả
-            </button>
+            <button type="button" onClick={handleAcceptAll} className="btn-dark btn-sm">Chấp nhận tất cả</button>
+            <button type="button" onClick={handleRejectOptional} className="btn-outline btn-sm">Từ chối tùy chọn</button>
+            <button type="button" onClick={() => setShowCustomize(true)} className={`btn-link ${styles.customize}`}>Tùy chỉnh</button>
           </>
         ) : (
-          <button
-            onClick={handleSaveCustom}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '6px',
-              border: 'none',
-              backgroundColor: 'var(--web-accent-on-ink)',
-              color: 'var(--web-ink)',
-              cursor: 'pointer',
-              fontWeight: '700',
-            }}
-          >
-            Lưu lựa chọn của tôi
-          </button>
+          <button type="button" onClick={handleSaveCustom} className="btn-dark btn-sm">Lưu lựa chọn của tôi</button>
         )}
       </div>
     </div>

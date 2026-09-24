@@ -9,6 +9,10 @@ import JsonLd, { getArticleSchema, getBreadcrumbSchema, getStoreSchema } from '.
 import GeoLocalCTA from '../../components/GeoLocalCTA';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
+import { Button } from '../../components/ui/Button'
+import ArticleCard, { ArticleGrid } from '../../components/ui/ArticleCard'
+import TitleBlock from '../../components/ui/TitleBlock'
+import styles from './page.module.css';
 
 export const revalidate = 3600;
 
@@ -75,6 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+/** Trang bài viết: dải tiêu đề xanh đêm, ảnh bìa, thân bài, gợi ý sản phẩm, bài liên quan. */
 export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = getArticleBySlugOrId(slug) as unknown as ArticleData | null;
@@ -97,7 +102,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   const suggestedProducts = getFeaturedBeers(3);
 
   return (
-    <div className="web-app" style={{ backgroundColor: 'var(--web-bg)' }}>
+    <>
       <JsonLd type="store" data={getStoreSchema()} />
       <JsonLd type="article" data={getArticleSchema({
         title: article.title,
@@ -113,177 +118,77 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         { name: 'Kiến Thức', url: 'https://www.biathaytu.com/kien-thuc' },
         { name: article.title, url: articleUrl },
       ])} />
-      
-      {/* Article Hero */}
-      <section className="article-detail-hero">
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at bottom, rgb(var(--web-on-ink-rgb) / 0.05) 0%, transparent 70%)',
-          zIndex: 1
-        }} />
-        <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '900px', textAlign: 'center' }}>
-          <div className="article-detail-breadcrumb">
-            <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Trang chủ</Link> 
-            <span style={{ margin: '0 8px', color: 'var(--web-on-ink-muted)' }}>/</span>
-            <Link href="/kien-thuc" style={{ color: 'inherit', textDecoration: 'none' }}> Kiến thức</Link>
-          </div>
-          
-          <h1 className="article-detail-title">
-            {article.title}
-          </h1>
-          
-          <div className="article-detail-meta">
-            <span>{new Date(article.created_at).toLocaleDateString('vi-VN')}</span>            <span>{readTime} phút đọc</span>
-          </div>
-        </div>
-      </section>
 
-      {/* Hero Image, between header and body */}
+      <header className={`${styles.hero} ${article.thumbnail_url ? styles.withCover : ''}`} data-surface="ink">
+        <div className={`container ${styles.heroInner}`}>
+          <nav className={styles.breadcrumb} aria-label="Đường dẫn">
+            <Link href="/">Trang chủ</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/kien-thuc">Kiến thức</Link>
+          </nav>
+          <h1 className={`article-detail-title ${styles.title}`}>{article.title}</h1>
+          <p className={styles.meta}>
+            {new Date(article.created_at).toLocaleDateString('vi-VN')} · {readTime} phút đọc
+          </p>
+        </div>
+      </header>
+
       {article.thumbnail_url && (
-        <div className="container article-detail-cover-wrapper">
-          <div className="article-detail-cover">
+        <div className={`container ${styles.coverWrap}`}>
+          <div className={styles.cover}>
             <Image
               src={article.thumbnail_url}
               alt={article.title}
               fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 900px) 100vw, 900px"
+              sizes="(max-width: 1000px) 100vw, 1000px"
               priority
+              className={styles.coverImage}
             />
           </div>
         </div>
       )}
 
-      {/* Article Body */}
-      <article className="container article-detail-body-container">
+      <article className={`container article-detail-body-container ${styles.body}`}>
         <ArticleBody content={article.content} />
-        
         <GeoLocalCTA />
-
-        {/* CTA Footer */}
-        <div style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid var(--web-border)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '28px', marginBottom: '16px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-display)' }}>
-            Tìm hiểu thêm về các dòng bia
-          </h3>
-          <p style={{ color: 'var(--web-text-muted)', marginBottom: '40px', fontSize: '16px' }}>
-            Thông tin chi tiết về các dòng bia Đức nhập khẩu chính hãng do Bia Thầy Tu phân phối.
-          </p>
-          
-          {suggestedProducts && suggestedProducts.length > 0 && (
-            <div style={{
-              display: 'flex',
-              gap: '20px',
-              textAlign: 'left',
-              marginBottom: '40px',
-              overflowX: 'auto',
-              paddingBottom: '16px',
-              scrollSnapType: 'x mandatory',
-              WebkitOverflowScrolling: 'touch',
-              msOverflowStyle: 'none', // Hide scrollbar IE and Edge
-              scrollbarWidth: 'none', // Hide scrollbar Firefox
-            }}>
-              <style dangerouslySetInnerHTML={{__html: `
-                .suggestions-row::-webkit-scrollbar { display: none; }
-              `}} />
-              <div className="suggestions-row" style={{ display: 'flex', gap: '20px', width: '100%' }}>
-                {(suggestedProducts as unknown as ProductCardProps[]).map((product) => (
-                   <div key={product.id} style={{ flex: '1', minWidth: '240px', scrollSnapAlign: 'start' }}>
-                    <ProductCard
-                      {...product}
-                      description={product.description || `"${getTastingNotes(product.name)}"`}
-                      showCTA={true}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <Link href="/san-pham" style={{ 
-            display: 'inline-flex', padding: '14px 32px', background: 'transparent', color: 'var(--web-accent-strong)', 
-            fontWeight: 700, borderRadius: 'var(--web-radius)', textDecoration: 'none', transition: 'all 0.3s ease',
-            border: '2px solid var(--web-accent)'
-          }}>
-            Xem các dòng bia
-          </Link>
-        </div>
       </article>
 
-      {/* Related Articles */}
-      {relatedArticles.length > 0 && (
-        <section style={{ background: 'var(--web-bg-section)', padding: '80px 0' }}>
+      {suggestedProducts && suggestedProducts.length > 0 && (
+        <section className={styles.products} aria-labelledby="article-products-title">
           <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '3px', color: 'var(--web-accent)', textTransform: 'uppercase', marginBottom: '12px', fontFamily: 'var(--font-condensed)' }}>
-                Đọc Thêm
-              </p>
-              <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--web-ink)', fontFamily: 'var(--font-display)' }}>
-                Bài Viết Liên Quan
-              </h2>
-            </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-              gap: '32px'
-            }}>
-              {relatedArticles.map((related) => (
-                <Link
-                  key={related.id}
-                  href={`/kien-thuc/${related.slug || related.id}`}
-                  className="article-index-card"
-                  style={{
-                    display: 'flex', flexDirection: 'column',
-                    textDecoration: 'none', backgroundColor: 'var(--web-card-bg)',
-                    borderRadius: 'var(--web-radius-lg)',
-                    overflow: 'hidden',
-                    border: '1px solid var(--web-border)',
-                    boxShadow: '0 10px 40px -20px rgb(var(--web-ink-rgb) / 0.05)',
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
-                >
-                  {/* Related Article Thumbnail */}
-                  {related.thumbnail_url && (
-                    <div style={{ position: 'relative', width: '100%', height: '180px', overflow: 'hidden' }}>
-                      <Image
-                        src={related.thumbnail_url}
-                        alt={related.title}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                        sizes="(max-width: 768px) 100vw, 350px"
-                      />
-                    </div>
-                  )}
-                  <div style={{ padding: '24px 28px 28px' }}>
-                    <div style={{ fontSize: '13px', color: 'var(--web-accent-strong)', fontWeight: 600, marginBottom: '12px' }}>
-                      {new Date(related.created_at).toLocaleDateString('vi-VN')}
-                      <span style={{ margin: '0 8px', color: 'var(--web-text-muted)' }}>,</span>
-                      {related.word_count ? Math.round(related.word_count / 200) : 3} phút
-                    </div>
-                    <h3 style={{
-                      fontSize: '19px', fontWeight: 700, color: 'var(--web-ink)',
-                      marginBottom: '10px', lineHeight: 1.4,
-                      fontFamily: 'var(--font-display)',
-                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as never, overflow: 'hidden'
-                    }}>
-                      {related.title}
-                    </h3>
-                    <p style={{
-                      fontSize: '14px', color: 'var(--web-text-secondary)', lineHeight: 1.7,
-                      display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as never,
-                      overflow: 'hidden', flex: 1, marginBottom: '16px'
-                    }}>
-                      {related.meta_description || ''}
-                    </p>
-                    <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--web-accent-strong)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      Đọc tiếp
-                    </div>
-                  </div>
-                </Link>
+            <TitleBlock id="article-products-title" align="center" title="Tìm hiểu thêm về các dòng bia" kicker="Nhập khẩu chính hãng" />
+            <p className={styles.productsLead}>Thông tin chi tiết về các dòng bia Đức nhập khẩu chính hãng do Bia Thầy Tu phân phối.</p>
+            <div className="grid-featured-products">
+              {(suggestedProducts as unknown as ProductCardProps[]).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  description={product.description || getTastingNotes(product.name)}
+                  showCTA={true}
+                />
               ))}
+            </div>
+            <div className={styles.more}>
+              <Button href="/san-pham" variant="link">Xem các dòng bia</Button>
             </div>
           </div>
         </section>
       )}
-    </div>
+
+      {relatedArticles.length > 0 && (
+        <section className={styles.related} aria-labelledby="related-title">
+          <div className="container">
+            <TitleBlock id="related-title" title="Bài viết liên quan" kicker="Đọc thêm" />
+            <div className={styles.relatedGrid}>
+              <ArticleGrid>
+                {relatedArticles.map((related) => (
+                  <ArticleCard key={related.id} article={related} />
+                ))}
+              </ArticleGrid>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }

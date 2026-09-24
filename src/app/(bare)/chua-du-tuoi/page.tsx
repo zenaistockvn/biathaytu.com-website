@@ -31,10 +31,9 @@ export default function UnderagePage() {
         style={{
           maxWidth: '600px',
           backgroundColor: 'var(--web-ink-soft)',
-          borderRadius: '16px',
+          borderRadius: 0,
           padding: '40px 28px',
           border: '1px solid var(--web-border)',
-          boxShadow: '0 20px 25px -5px rgb(var(--web-ink-rgb) / 0.3)',
         }}
       >
         <h1
@@ -64,7 +63,7 @@ export default function UnderagePage() {
         <div
           style={{
             backgroundColor: 'var(--web-ink)',
-            borderRadius: '10px',
+            borderRadius: 0,
             padding: '20px',
             textAlign: 'left',
             fontSize: '14px',

@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import '../web.css';
 import '../mobile-overrides.css';
 import '../brand-consistency.css';
-import '../editorial-pages.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';
 import Toast from './components/Toast';

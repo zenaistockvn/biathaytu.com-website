@@ -100,7 +100,6 @@ describe('mobile-first responsive regressions', () => {
 
   it('uses a scoped GSAP timeline for the landing hero', () => {
     const hero = readProjectFile('src/app/(web)/components/LandingHero.tsx');
-    const css = readProjectFile('src/app/web.css');
 
     expect(hero).toContain("import gsap from 'gsap'");
     expect(hero).toContain("import { useGSAP } from '@gsap/react'");
@@ -108,6 +107,7 @@ describe('mobile-first responsive regressions', () => {
     expect(hero).toContain('scope: heroRef');
     expect(hero).toContain('gsap.timeline');
     expect(hero).toContain("prefers-reduced-motion: reduce");
-    expect(css).toMatch(/\.web-app\s+\.hero-fade-in\s*\{[^}]*opacity:\s*1/);
+    // Các khối chữ hiện dần được đánh dấu qua PhotoHero (reveal) thay cho class CSS cũ.
+    expect(hero).toMatch(/<PhotoHero[\s\S]*\breveal\b/);
   });
 });

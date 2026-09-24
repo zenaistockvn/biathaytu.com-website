@@ -24,7 +24,7 @@ export default function CompanyLegalDetails({ compact = false }: CompanyLegalDet
         padding: compact ? '16px' : '20px',
         background: 'var(--web-bg-section)',
         border: '1px solid var(--web-border)',
-        borderRadius: '12px',
+        borderRadius: 0,
         fontSize: '14px',
         lineHeight: 1.7,
       }}

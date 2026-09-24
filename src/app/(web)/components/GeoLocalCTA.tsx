@@ -11,11 +11,9 @@ export default function GeoLocalCTA() {
       <style dangerouslySetInnerHTML={{ __html: `
         .geo-cta-card {
           background-color: var(--web-ink);
-          border: 1px solid var(--web-accent);
-          border-radius: var(--web-radius-lg);
+          border-radius: 0;
           padding: 32px;
           margin-top: 60px;
-          box-shadow: var(--web-shadow-xl);
           color: var(--web-on-ink);
           display: grid;
           grid-template-columns: 1.2fr 1fr;
@@ -29,12 +27,13 @@ export default function GeoLocalCTA() {
           position: absolute;
           top: 0; right: 0;
           width: 250px; height: 250px;
-          background: radial-gradient(circle, rgb(var(--web-accent-on-ink-rgb) / 0.08) 0%, rgb(var(--web-accent-on-ink-rgb) / 0) 70%);
+          display: none;
           pointer-events: none;
         }
         .geo-cta-badge {
-          font-size: 11px;
-          letter-spacing: 2px;
+          font-family: var(--font-condensed), sans-serif;
+          font-size: 13px;
+          letter-spacing: 0.12em;
           color: var(--web-accent-on-ink);
           text-transform: uppercase;
           font-weight: 700;
@@ -44,8 +43,9 @@ export default function GeoLocalCTA() {
         .geo-cta-title {
           font-family: var(--font-display);
           font-stretch: var(--web-display-stretch);
-          font-size: 26px;
-          font-weight: 700;
+          font-size: 24px;
+          font-weight: 600;
+          text-transform: uppercase;
           margin-bottom: 12px;
           line-height: 1.3;
         }
@@ -90,10 +90,14 @@ export default function GeoLocalCTA() {
           align-items: center;
           justify-content: center;
           gap: 8px;
-          padding: 12px 22px;
-          border-radius: var(--web-radius);
-          font-size: 14px;
-          font-weight: 700;
+          min-height: 44px;
+          padding: 10px 20px;
+          border-radius: 0;
+          font-family: var(--font-condensed), sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
@@ -106,7 +110,6 @@ export default function GeoLocalCTA() {
         }
         .geo-cta-btn-primary:hover {
           background: var(--web-accent-on-ink-soft);
-          transform: translateY(-2px);
         }
         .geo-cta-btn-outline {
           background: transparent;
@@ -116,16 +119,12 @@ export default function GeoLocalCTA() {
         .geo-cta-btn-outline:hover {
           border-color: var(--web-accent-on-ink);
           color: var(--web-accent-on-ink) !important;
-          transform: translateY(-2px);
         }
         .geo-cta-map-container {
           width: 100%;
           height: 100%;
           min-height: 250px;
-          border-radius: 12px;
           overflow: hidden;
-          border: 1px solid rgb(var(--web-accent-on-ink-rgb) / 0.2);
-          box-shadow: 0 10px 30px rgb(var(--web-ink-rgb) / 0.3);
           position: relative;
         }
         .geo-cta-iframe {

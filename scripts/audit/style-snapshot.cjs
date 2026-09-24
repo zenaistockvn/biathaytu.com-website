@@ -99,7 +99,8 @@ async function capture(name) {
             dispatchEvent(new Event('scroll'));
             await new Promise((r) => setTimeout(r, 400));
           });
-          await page.waitForLoadState('networkidle');
+          // Trang có kết nối kéo dài (widget chat...) có thể không bao giờ "networkidle"; không chặn việc chụp.
+          await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
           await page.screenshot({ path: path.join(dir, file.replace(/\.json$/, '.png')), fullPage: true });
         }
         process.stdout.write(`${width}px ${p}  ${Object.keys(data).length} phần tử\n`);

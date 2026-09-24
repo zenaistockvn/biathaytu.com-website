@@ -198,7 +198,7 @@ describe('màu: không lặp lại lỗi của lần đổi palette trước', (
 });
 
 describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
-  const css = ['src/app/web.css', 'src/app/brand-consistency.css', 'src/app/editorial-pages.css', 'src/app/mobile-overrides.css']
+  const css = ['src/app/web.css', 'src/app/brand-consistency.css', 'src/app/mobile-overrides.css']
     .map(read).join('\n');
 
   it('không chữ gradient và không animation lặp vô hạn', () => {

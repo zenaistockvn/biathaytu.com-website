@@ -12,7 +12,7 @@ export default function CookieResetButtons() {
   };
 
   return (
-    <div style={{ marginTop: '24px', padding: '20px', background: 'var(--web-bg-section)', borderRadius: '8px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+    <div style={{ marginTop: '24px', padding: '20px', background: 'var(--web-bg-section)', borderRadius: 0, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
       <button
         onClick={handleResetAge}
         style={{
@@ -20,7 +20,7 @@ export default function CookieResetButtons() {
           border: '1px solid var(--web-accent)',
           color: 'var(--web-accent-strong)',
           padding: '8px 16px',
-          borderRadius: '6px',
+          borderRadius: 0,
           fontSize: '13px',
           fontWeight: 600,
           cursor: 'pointer',
@@ -36,7 +36,7 @@ export default function CookieResetButtons() {
           border: '1px solid var(--web-ink)',
           color: 'var(--web-ink)',
           padding: '8px 16px',
-          borderRadius: '6px',
+          borderRadius: 0,
           fontSize: '13px',
           fontWeight: 600,
           cursor: 'pointer',

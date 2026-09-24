@@ -2,6 +2,9 @@ import ZaloCTA from '../components/ZaloCTA';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref } from '@/config/company';
 import type { Metadata } from 'next';
+import { PageHeader } from '../components/EditorialPage'
+import TitleBlock from '../components/ui/TitleBlock'
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
@@ -31,92 +34,71 @@ export const metadata: Metadata = {
   },
 };
 
+/** Liên hệ: dải tiêu đề, cột thông tin (bảng kẻ mảnh) và cột chọn nhu cầu mở Zalo. */
 export default function ContactPage() {
   const telHref = getCompanyTelHref();
   const mailtoHref = getCompanyMailtoHref();
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_CONFIG.showroomAddress)}`;
 
   return (
-    <div className="subpage-wrap">
+    <>
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
         { name: 'Trang Chủ', url: 'https://www.biathaytu.com' },
         { name: 'Liên Hệ', url: 'https://www.biathaytu.com/lien-he' },
       ])} />
 
-      {/* Header */}
-      <section className="container subpage-header-compact">
-        <span className="section-label">Liên Hệ</span>
-        <h1 className="page-title">Kết Nối Với Chúng Tôi</h1>
-        <p className="page-subtitle" style={{ maxWidth: '700px' }}>
-          Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng tư vấn về các dòng bia, hỗ trợ đại lý, hoặc cung cấp cho sự kiện.
-        </p>
-      </section>
+      <PageHeader
+        tone="light"
+        eyebrow="Liên hệ"
+        title="Kết nối với chúng tôi"
+        lead="Đội ngũ tư vấn luôn sẵn sàng về các dòng bia, hỗ trợ đại lý hoặc cung cấp cho sự kiện."
+      />
 
-      <section className="container" style={{ maxWidth: '900px' }}>
-        <div className="contact-grid">
-          {/* Contact Info */}
-          <div className="contact-info-panel">
-            <h2>Thông Tin Liên Hệ</h2>
-            
-            <div className="contact-info-list">
+      <div className={styles.body}>
+        <div className={`container ${styles.grid}`}>
+          <section aria-labelledby="contact-info-title">
+            <TitleBlock id="contact-info-title" as="h2" size="h3" title="Thông tin liên hệ" />
+            <dl className={styles.rows}>
               <div>
-                <strong>Bia Thầy Tu</strong>
-                <span className="muted">Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner tại Việt Nam.</span>
+                <dt>Bia Thầy Tu</dt>
+                <dd>Điểm giới thiệu và tư vấn Bia Thầy Tu Benediktiner tại Việt Nam.</dd>
               </div>
-              
               <div>
-                <strong>Điểm giới thiệu sản phẩm</strong>
-                <span className="muted">{COMPANY_CONFIG.showroomAddress}</span>
+                <dt>Showroom</dt>
+                <dd>
+                  {COMPANY_CONFIG.showroomAddress}
+                  <a href={mapUrl} target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>Xem chỉ đường</a>
+                </dd>
               </div>
-              
               <div>
-                <strong>Tổng đài CSKH</strong>
-                {telHref ? <a href={telHref} className="phone">{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
-                <span className="small">(Hỗ trợ: 09:00 - 21:00 hàng ngày)</span>
+                <dt>Tổng đài</dt>
+                <dd>
+                  {telHref ? <a href={telHref} className={styles.phone}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
+                  <span className={styles.note}>Hỗ trợ 09:00 đến 21:00 hàng ngày</span>
+                </dd>
               </div>
+              <div>
+                <dt>Email</dt>
+                <dd>{mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}</dd>
+              </div>
+            </dl>
+          </section>
 
-              <div>
-                <strong>Email</strong>
-                {mailtoHref ? <a href={mailtoHref} style={{ opacity: 0.85 }}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}
-              </div>
-            </div>
-
-            <div className="contact-divider">
-               <h3>Tư vấn Khách Sỉ &amp; Đại Lý</h3>
-               <ZaloCTA label="Nhắn tin cho chuyên viên Zalo" />
-            </div>
-          </div>
-
-          {/* Quick CTA Panel */}
-          <div className="contact-cta-panel">
-            <h2>Bạn Cần Hỗ Trợ Gì?</h2>
-            <p className="subtitle">
-              Chọn loại yêu cầu bên dưới, chúng tôi sẽ phản hồi trong vòng 30 phút qua Zalo.
-            </p>
-            
-            <div className="contact-cta-list">
+          <section className={styles.panel} data-surface="ink" aria-labelledby="contact-help-title">
+            <TitleBlock id="contact-help-title" as="h2" size="h3" title="Bạn cần hỗ trợ gì?" />
+            <p className={styles.panelText}>Chọn nhu cầu bên dưới để mở Zalo với lời nhắn soạn sẵn; chúng tôi phản hồi trong khoảng 30 phút.</p>
+            <div className={styles.actions}>
               <ZaloCTA label="Tư vấn dòng bia phù hợp" productName="Tư vấn sản phẩm" />
-              <ZaloCTA 
-                label="Báo giá sỉ / Đại lý" 
-                productName="Báo giá sỉ / Đại lý"
-                variant="outline"
-              />
-              <ZaloCTA 
-                label="Cung cấp cho sự kiện / nhà hàng" 
-                productName="Cung cấp sự kiện / nhà hàng"
-                variant="outline"
-              />
-              <ZaloCTA 
-                label="Câu hỏi khác" 
-                variant="outline"
-              />
+              <ZaloCTA label="Báo giá sỉ / Đại lý" productName="Báo giá sỉ / Đại lý" variant="outline" />
+              <ZaloCTA label="Cung cấp cho sự kiện / nhà hàng" productName="Cung cấp sự kiện / nhà hàng" variant="outline" />
+              <ZaloCTA label="Câu hỏi khác" variant="outline" />
             </div>
-
-            <p className="contact-alt-phone">
+            <p className={styles.panelText}>
               Hoặc gọi trực tiếp {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
             </p>
-          </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }

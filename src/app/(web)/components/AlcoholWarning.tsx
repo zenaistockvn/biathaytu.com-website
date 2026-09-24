@@ -56,16 +56,14 @@ export default function AlcoholWarning({
       <div
         className={`alcohol-warning-checkout ${className}`}
         style={{
-          backgroundColor: 'var(--web-bg-warm)',
+          backgroundColor: 'var(--web-bg-section)',
           borderLeft: '4px solid var(--web-heritage)',
           color: 'var(--web-ink)',
           padding: '12px 16px',
-          borderRadius: '6px',
           fontSize: '13px',
           fontWeight: '500',
           lineHeight: '1.5',
           margin: '16px 0',
-          boxShadow: '0 1px 3px rgb(var(--web-ink-rgb) / 0.05)',
           ...style,
         }}
         role="alert"
@@ -88,23 +86,20 @@ export default function AlcoholWarning({
       <div
         className={`alcohol-warning-footer ${className}`}
         style={{
+          // Màu kế thừa từ khối chứa (thanh vàng của footer), chỉ có nhãn 18+ là khối màu riêng.
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          backgroundColor: 'rgb(var(--web-accent-on-ink-rgb) / 0.15)',
-          border: '1px solid rgb(var(--web-accent-on-ink-rgb) / 0.3)',
-          color: 'var(--web-accent-on-ink)',
-          padding: '6px 12px',
-          borderRadius: '20px',
-          fontSize: '12px',
+          color: 'inherit',
+          fontSize: '13px',
           fontWeight: '600',
           lineHeight: '1.4',
           ...style,
         }}
       >
         <span style={{
-          backgroundColor: 'var(--web-accent-on-ink)',
-          color: 'var(--web-ink)',
+          backgroundColor: 'var(--web-ink)',
+          color: 'var(--web-accent-on-ink)',
           borderRadius: '50%',
           width: '20px',
           height: '20px',
@@ -112,7 +107,7 @@ export default function AlcoholWarning({
           alignItems: 'center',
           justifyContent: 'center',
           fontWeight: 'bold',
-          fontSize: '11px',
+          fontSize: '12px',
           flexShrink: 0
         }}>
           18+
@@ -130,7 +125,6 @@ export default function AlcoholWarning({
         border: '1px solid rgb(var(--web-on-ink-rgb) / 0.15)',
         color: 'var(--web-on-ink-muted)',
         padding: '8px 12px',
-        borderRadius: '6px',
         fontSize: '12px',
         lineHeight: '1.4',
         margin: '8px 0',

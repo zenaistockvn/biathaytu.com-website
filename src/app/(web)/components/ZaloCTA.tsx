@@ -19,8 +19,9 @@ export default function ZaloCTA({ productName, className = '', label = 'Tư vấ
     ? `${zaloBaseUrl}?text=${encodeURIComponent(defaultMessage)}`
     : '/lien-he';
 
-  const variantClass = variant === 'outline' ? 'zalo-cta-outline-class' : 'zalo-cta-gold-class';
-  const combinedClassName = `zalo-cta-class ${variantClass} ${className}`.trim();
+  // Dùng chung kiểu nút của site (xem Button.tsx); 'gold' giữ tên cũ cho các chỗ gọi hiện có.
+  const variantClass = variant === 'outline' ? 'btn-outline' : 'btn-primary';
+  const combinedClassName = `${variantClass} ${className}`.trim();
 
   return (
     <a

@@ -157,9 +157,6 @@ body.overflow-hidden {
 
 /* Tiêu đề dạng câu dài (bài viết, thẻ bài viết) giữ chữ thường: câu tiếng Việt dài in hoa rất khó đọc. */
 .web-app .article-detail-title,
-.web-app .knowledge-featured-title,
-.web-app .knowledge-card-title,
-.web-app .article-index-card h2,
 .web-app .markdown-content h1,
 .web-app .markdown-content h2 {
   text-transform: none;
@@ -205,15 +202,7 @@ body.overflow-hidden {
 }
 
 /* Vùng nền tối: heading và chữ tự động đảo màu */
-.web-app .hero-dark,
-.web-app .usp-bar,
-.web-app .b2b-section,
-.web-app .product-guarantee,
-.web-app .knowledge-hero,
-.web-app .web-footer,
-.web-app .glass-card-dark,
 .web-app .geo-cta-card,
-.web-app .product-beer-section,
 .web-app [data-surface="ink"] {
   --heading-color: var(--web-on-ink);
 }
@@ -222,15 +211,17 @@ body.overflow-hidden {
   text-wrap: pretty;
 }
 
-.web-app a {
+/* :where() giữ specificity (0,0,1) để class của component (0,1,0) đặt được màu cho link. */
+:where(.web-app) a {
   color: inherit;
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.web-app p a:not([class*="btn"]):not([class*="button"]),
-.web-app li a:not([class*="btn"]):not([class*="button"]),
-.web-app .prose a:not([class*="btn"]):not([class*="button"]) {
+/* Link trong đoạn văn được gạch chân. Specificity thấp (0,0,2) để class của component
+   (vd. link footer, menu) tự quyết kiểu gạch chân của mình. */
+:where(.web-app) :is(p, li) a:where(:not([class*="btn"]):not([class*="button"])),
+:where(.web-app .prose) a:where(:not([class*="btn"]):not([class*="button"])) {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -263,10 +254,6 @@ body.overflow-hidden {
   .web-app .container {
     padding: 0 24px;
   }
-  .web-app .usp-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
 }
 
 /* ─── Section Utilities ─── */
@@ -287,8 +274,6 @@ body.overflow-hidden {
   margin-bottom: 16px;
   color: var(--web-text);
 }
-
-.web-app .section-divider { display: none; }
 
 /* Section Wrappers */
 .web-app .section {
@@ -317,170 +302,23 @@ body.overflow-hidden {
   line-height: 1.1;
 }
 
-.web-app .page-subtitle {
-  max-width: 750px;
-  margin: 0 auto;
-  color: var(--web-text-secondary);
-  font-size: 17px;
-  line-height: 1.8;
-  font-weight: 500;
-}
-
 /* Split Section — 2 column image + text */
-.web-app .split-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  align-items: center;
-}
 
 /* Inline Divider (used in split sections) */
-.web-app .inline-divider {
-  width: 60px;
-  height: 3px;
-  background: var(--web-accent);
-  margin: 20px 0 28px;
-  border-radius: 0;
-}
 
 /* USP Bar */
-.web-app .usp-bar {
-  background-color: var(--web-ink);
-  padding: 40px 0;
-}
-
-.web-app .usp-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  text-align: center;
-  color: var(--web-on-ink);
-}
-
-.web-app .usp-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--web-accent-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-  font-weight: 700;
-  color: var(--web-accent-on-ink);
-  font-family: var(--font-sans);
-}
-
-.web-app .usp-title {
-  margin-bottom: 6px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--web-on-ink);
-  font-family: var(--font-sans) !important;
-}
-
-.web-app .usp-desc {
-  opacity: 0.6;
-  font-size: 13px;
-  margin: 0;
-  line-height: 1.5;
-}
 
 /* Stat Card — floating overlay */
-.web-app .stat-card {
-  background: rgb(var(--web-on-ink-rgb) / 0.95);
-  backdrop-filter: blur(12px);
-  border-radius: var(--web-radius);
-  padding: 20px 24px;
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-.web-app .stat-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--web-accent-strong);
-}
-
-.web-app .stat-label {
-  font-size: 11px;
-  color: var(--web-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.web-app .stat-separator {
-  width: 1px;
-  background: var(--web-border);
-}
 
 /* Star Rating */
-.web-app .star-rating {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 16px;
-  color: var(--web-star);
-  font-size: 16px;
-}
 
 /* Product Card — Unified */
 
 /* Wine card variant */
 
 /* Partnership Cards — Glass */
-.web-app .glass-card-dark {
-  padding: 28px;
-  background: var(--web-ink-deep);
-  border-radius: var(--web-radius-lg);
-  border: 1px solid rgb(var(--web-accent-rgb) / 0.3);
-  box-shadow: none;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  color: var(--web-on-ink);
-}
-
-.web-app .glass-card-dark:hover {
-  transform: translateY(-8px);
-  border-color: rgb(var(--web-accent-rgb) / 0.6);
-}
-
-.web-app .glass-card-light {
-  padding: 28px;
-  background: var(--web-card-bg);
-  border-radius: var(--web-radius-lg);
-  border: 1px solid rgb(var(--web-on-ink-rgb) / 0.5);
-  box-shadow: none;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  color: var(--web-ink);
-}
-
-.web-app .glass-card-light:hover {
-  transform: translateY(-8px);
-  border-color: var(--web-accent);
-}
 
 /* Icon Circle */
-.web-app .icon-circle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.web-app .icon-circle-accent {
-  background: linear-gradient(135deg, rgb(var(--web-accent-rgb) / 0.2) 0%, rgb(var(--web-accent-rgb) / 0.05) 100%);
-  border: 1px solid var(--web-accent);
-  color: var(--web-accent);
-}
-
-.web-app .icon-circle-ink {
-  background: var(--web-accent-bg);
-  border: 1px solid var(--web-accent);
-  color: var(--web-ink);
-}
 
 /* ─── Buttons ───
    Nút chữ nhật kiểu Chimay: góc vuông, Barlow Condensed in hoa, không nhấc lên khi hover.
@@ -584,22 +422,14 @@ body.overflow-hidden {
 
 /* Primary buttons on dark/blue surfaces */
 .web-app [data-surface="ink"] .btn-primary,
-.web-app .hero-dark .btn-primary,
-.web-app .usp-bar .btn-primary,
-.web-app .glass-card-dark .btn-primary,
-.web-app [class*="navy"] .btn-primary,
-.web-app .section-dark .btn-primary {
+.web-app [class*="navy"] .btn-primary {
   background: var(--web-accent-on-ink) !important;
   color: var(--web-ink) !important;
   box-shadow: none !important;
 }
 
 .web-app [data-surface="ink"] .btn-primary:hover,
-.web-app .hero-dark .btn-primary:hover,
-.web-app .usp-bar .btn-primary:hover,
-.web-app .glass-card-dark .btn-primary:hover,
-.web-app [class*="navy"] .btn-primary:hover,
-.web-app .section-dark .btn-primary:hover {
+.web-app [class*="navy"] .btn-primary:hover {
   background: var(--web-accent-on-ink-soft) !important;
   color: var(--web-ink) !important;
   box-shadow: none !important;
@@ -619,98 +449,6 @@ body.overflow-hidden {
 }
 
 /* Floating Zalo CTA */
-.web-app .floating-contact-stack {
-  position: fixed;
-  right: calc(12px + env(safe-area-inset-right));
-  bottom: calc(var(--web-mobile-bottom-nav-height) + 10px + env(safe-area-inset-bottom));
-  z-index: 45;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 8px;
-  align-items: center;
-}
-
-.web-app .floating-contact-button {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--web-on-ink) !important;
-  border: 3px solid var(--web-on-ink);
-  font-family: var(--font-sans);
-  font-weight: 700;
-  text-decoration: none !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.web-app .floating-contact-button:hover {
-  transform: translateY(-3px);
-  opacity: 1 !important;
-}
-
-.web-app .floating-contact-button:focus-visible {
-  outline: 3px solid rgb(var(--web-ink-deep-rgb) / 0.18);
-  outline-offset: 4px;
-}
-
-.web-app .floating-zalo-cta {
-  background: linear-gradient(145deg, #2ea3ff 0%, #0068ff 52%, #004bc1 100%);
-  box-shadow:
-    none;
-}
-
-.web-app .floating-zalo-cta:hover {
-  box-shadow: none;
-}
-
-.web-app .floating-phone-cta {
-  background: linear-gradient(145deg, #35d86a 0%, #16a34a 55%, #087c34 100%);
-  box-shadow:
-    none;
-}
-
-.web-app .floating-phone-cta:hover {
-  box-shadow: none;
-}
-
-.web-app .floating-messenger-cta {
-  background: linear-gradient(135deg, #00C6FF 0%, #0072FF 50%, #9026FF 100%);
-  box-shadow:
-    none;
-}
-
-.web-app .floating-messenger-cta:hover {
-  box-shadow: none;
-}
-
-.web-app .floating-messenger-icon {
-  filter: drop-shadow(0 2px 4px rgba(0, 43, 119, 0.28));
-}
-
-.web-app .floating-zalo-logo {
-  font-size: 15px;
-  line-height: 1;
-  letter-spacing: -0.4px;
-  text-shadow: 0 2px 4px rgba(0, 43, 119, 0.35);
-}
-
-.web-app .floating-phone-icon {
-  filter: drop-shadow(0 2px 4px rgb(var(--web-accent-rgb) / 0.28));
-}
-
-@media (min-width: 769px) {
-  .web-app .floating-contact-stack {
-    right: calc(24px + env(safe-area-inset-right));
-    bottom: calc(24px + env(safe-area-inset-bottom));
-  }
-
-  .web-app .floating-contact-button {
-    width: 62px;
-    height: 62px;
-  }
-}
 
 /* Mobile bottom navigation */
 .web-app .mobile-bottom-nav {
@@ -773,25 +511,6 @@ body.overflow-hidden {
   stroke-linejoin: round;
 }
 
-.web-app .mobile-bottom-nav-badge {
-  position: absolute;
-  top: -7px;
-  right: -11px;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--web-red);
-  color: var(--web-on-ink);
-  border: 2px solid var(--web-on-ink);
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1;
-}
-
 .web-app .mobile-bottom-nav-label {
   display: block;
   max-width: 100%;
@@ -807,271 +526,24 @@ body.overflow-hidden {
 }
 
 /* ─── Product Card ─── */
-.web-app .product-card {
-  background: var(--web-card-bg) !important;
-  border-radius: var(--web-radius) !important;
-  overflow: hidden;
-  box-shadow: var(--web-shadow) !important;
-  border: 1px solid var(--web-border) !important;
-  transition: all 0.35s ease !important;
-  padding: 0 !important;
-  backdrop-filter: none !important;
-}
-
-.web-app .product-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: var(--web-shadow-lg) !important;
-  border-color: var(--web-accent-soft) !important;
-}
 
 /* ─── Testimonial Card ─── */
-.web-app .testimonial-card {
-  background: var(--web-card-bg);
-  border-radius: var(--web-radius);
-  padding: 36px 28px;
-  box-shadow: var(--web-shadow);
-  border: 1px solid var(--web-border);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.web-app .testimonial-card:hover {
-  box-shadow: var(--web-shadow-lg);
-}
-
-.web-app .testimonial-card::before {
-  content: '\201C';
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-size: 72px;
-  color: var(--web-accent);
-  opacity: 0.3;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  line-height: 1;
-}
 
 
 
 /* ─── Navigation — Mobile-first: hamburger visible, desktop nav hidden ─── */
 
 /* ─── Food Pairing Card ─── */
-.web-app .food-pairing-card {
-  transition: all 0.3s ease !important;
-}
-
-.web-app .food-pairing-card:hover {
-  transform: translateX(8px);
-  border-color: var(--web-accent-soft) !important;
-  box-shadow: var(--web-shadow);
-}
 
 /* ─── Hero Section — Dark Premium (mobile-first) ─── */
-.web-app .hero-dark {
-  background: var(--web-sky);
-  position: relative;
-  min-height: auto;
-  padding-top: 76px;
-  padding-bottom: 24px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.web-app .hero-dark::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  background: none;
-  pointer-events: none;
-}
-
-.web-app .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  align-items: center;
-}
-
-.web-app .hero-product-zone {
-  position: relative;
-  height: 180px;
-  max-height: 28vh;
-  order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.web-app .hero-product-glow {
-  position: absolute;
-  inset: 5%;
-  background: none;
-  filter: blur(50px);
-  animation: none;
-}
-
-.web-app .hero-product-bottle {
-  position: absolute;
-  left: 20%;
-  bottom: 5%;
-  width: 80px;
-  height: 160px;
-  max-height: 25vh;
-  animation: none;
-  z-index: 2;
-  filter: drop-shadow(0 15px 30px rgb(var(--web-ink-rgb) / 0.6)) contrast(1.05);
-}
-
-.web-app .hero-product-glass {
-  position: absolute;
-  right: 20%;
-  bottom: 5%;
-  width: 95px;
-  height: 170px;
-  max-height: 26vh;
-  animation: none;
-  z-index: 2;
-  filter: drop-shadow(0 15px 30px rgb(var(--web-ink-rgb) / 0.6)) contrast(1.05);
-}
-
-.web-app .hero-fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Hero Trust Badges (mobile-first: hiển thị gọn 3 mục ở 390x844) */
-.web-app .hero-trust-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 16px;
-}
-
-.web-app .hero-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0;
-  border-right: none;
-  font-size: 12px;
-}
-
-@media (min-width: 769px) {
-  .web-app .hero-dark {
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 40px;
-  }
-
-  .web-app .hero-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .web-app .hero-product-zone {
-    height: 340px;
-    max-height: none;
-    order: 0;
-  }
-
-  .web-app .hero-product-bottle {
-    left: 15%;
-    width: 120px;
-    height: 300px;
-    max-height: none;
-  }
-
-  .web-app .hero-product-glass {
-    right: 12%;
-    width: 140px;
-    height: 320px;
-    max-height: none;
-  }
-
-  .web-app .hero-trust-bar {
-    gap: 16px;
-    margin-top: 40px;
-  }
-
-  .web-app .hero-trust-item {
-    padding: 0 12px;
-  }
-}
-
-.web-app .hero-trust-item:first-child {
-  padding-left: 0;
-}
-
-.web-app .hero-trust-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1.5px solid var(--web-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--web-accent);
-  font-family: var(--font-sans), sans-serif;
-  flex-shrink: 0;
-}
-
-.web-app .hero-trust-label {
-  font-size: 13px;
-  color: var(--web-on-ink-muted);
-  font-weight: 500;
-  font-family: var(--font-sans), sans-serif;
-}
 
 /* Hero Bottom Divider */
-.web-app .hero-bottom-divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, transparent 0%, var(--web-accent) 30%, var(--web-accent-soft) 70%, transparent 100%);
-}
 
 /* Hero Outline Button — visible on dark bg */
-.web-app .hero-outline-btn {
-  color: var(--web-on-ink) !important;
-  border-color: rgb(var(--web-on-ink-rgb) / 0.35) !important;
-  backdrop-filter: blur(8px);
-  background: rgb(var(--web-on-ink-rgb) / 0.06) !important;
-}
-
-.web-app .hero-outline-btn:hover {
-  background: rgb(var(--web-on-ink-rgb) / 0.15) !important;
-  border-color: rgb(var(--web-on-ink-rgb) / 0.6) !important;
-  color: var(--web-on-ink) !important;
-}
 
 /* Hero Background Image */
-.web-app .hero-bg-image {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.web-app .hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgb(var(--web-ink-rgb) / 0.94) 0%,
-    rgb(var(--web-ink-rgb) / 0.85) 40%,
-    rgb(var(--web-ink-rgb) / 0.6) 70%,
-    rgb(var(--web-ink-rgb) / 0.4) 100%
-  );
-  z-index: 1;
-}
 
 /* ─── Animations ─── */
 @keyframes fadeIn {
@@ -1080,49 +552,10 @@ body.overflow-hidden {
 }
 
 /* Testimonial Carousel Scrollbar */
-.web-app .testimonial-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-.web-app .testimonial-carousel::-webkit-scrollbar-track {
-  background: var(--web-border);
-  border-radius: 0;
-}
-.web-app .testimonial-carousel::-webkit-scrollbar-thumb {
-  background: var(--web-accent);
-  border-radius: 0;
-}
-.web-app .testimonial-carousel::-webkit-scrollbar-thumb:hover {
-  background: var(--web-accent-hover);
-}
 
 /* Partnership & Food Pairing Card Hovers */
-.web-app .partnership-card-b2b:hover {
-  transform: translateY(-8px) !important;
-  border-color: rgb(var(--web-accent-rgb) / 0.6) !important;
-}
-
-.web-app .partnership-card-ctv:hover {
-  transform: translateY(-8px) !important;
-  border-color: var(--web-accent) !important;
-}
-
-.web-app .food-pairing-card:hover {
-  transform: translateY(-5px);
-  border-color: rgb(var(--web-ink-rgb) / 0.15) !important;
-  box-shadow: none !important;
-}
 
 /* Article Cards Hover Effects (Kien Thuc Page) */
-.web-app .featured-article-card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: none !important;
-}
-
-.web-app .article-index-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: none !important;
-  border-color: rgb(var(--web-ink-rgb) / 0.2) !important;
-}
 
 /* ─── Markdown Content (Article Detail) ─── */
 .web-app .markdown-content h2 {
@@ -1244,7 +677,6 @@ body.overflow-hidden {
 }
 
 /* Responsive table — horizontal scroll on mobile */
-.web-app .markdown-content .table-wrapper,
 .web-app .markdown-content table {
   display: block;
   overflow-x: auto;
@@ -1259,31 +691,8 @@ body.overflow-hidden {
 }
 
 /* ─── Article Hero Image (full-width above content) ─── */
-.web-app .article-hero-image {
-  width: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  border-radius: var(--web-radius-lg);
-  box-shadow: none;
-  margin-bottom: 48px;
-}
 
 /* ─── Article Thumbnail on Listing Cards ─── */
-.web-app .article-card-thumbnail {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0;
-  display: block;
-}
-
-.web-app .article-card-thumbnail-featured {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 0;
-  display: block;
-}
 
 /* ─── Responsive — MOBILE-FIRST ─── */
 /* 
@@ -1317,381 +726,37 @@ body.overflow-hidden {
     letter-spacing: -1.5px;
   }
 
-  .web-app .page-subtitle {
-    font-size: 20px;
-  }
-
   /* Hero → 2 columns */
-  .web-app .hero-dark {
-    min-height: 90vh;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .web-app .hero-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
-
-  .web-app .hero-product-zone {
-    height: 460px;
-    order: 0;
-  }
-
-  .web-app .hero-product-bottle {
-    width: 160px;
-    height: 400px;
-    left: 8%;
-  }
-
-  .web-app .hero-product-glass {
-    width: 180px;
-    height: 420px;
-    right: 5%;
-  }
-
-  .web-app .hero-trust-bar {
-    flex-wrap: nowrap;
-  }
-
-  .web-app .hero-trust-item {
-    padding: 0 20px;
-    border-right: 1px solid rgb(var(--web-accent-rgb) / 0.25);
-  }
-
-  .web-app .hero-trust-item:last-child {
-    border-right: none;
-  }
 
   /* Cards scale */
 
-  .web-app .glass-card-dark,
-  .web-app .glass-card-light {
-    padding: 44px;
-  }
-
   /* Food pairing images */
-  .web-app .food-img-tall { height: 320px; }
-  .web-app .food-img-wide { height: 240px; }
-  .web-app .food-img-offset { transform: translateY(40px); }
 
   /* Story blocks */
-  .web-app .story-img-wrap { height: 500px; }
-  .web-app .story-heading { font-size: 36px; }
 
   /* CTA Banner */
-  .web-app .cta-banner { padding: 80px 40px; }
-  .web-app .cta-banner-watermark { font-size: 400px; }
 
   /* Product detail */
   .web-app .product-img-box { height: 500px; }
-  .web-app .product-img-sticky { position: sticky; top: 100px; }
 
   /* iTQi section */
-  .web-app .itqi-img-wrap { height: 460px; }
 
   /* Footer */
-  .web-app .footer-grid { gap: 40px; }
 }
 
 /* ── Desktop (≥ 1025px) ── */
-@media (min-width: 1025px) {
-  .web-app .hero-product-zone {
-    height: 560px;
-  }
-
-  .web-app .hero-product-bottle {
-    width: 240px;
-    height: 520px;
-    left: 5%;
-  }
-
-  .web-app .hero-product-glass {
-    width: 260px;
-    height: 540px;
-    right: 5%;
-  }
-}
 
 /* ─── FAQ Accordion ─── */
-.web-app .faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.web-app .faq-item {
-  background: var(--web-card-bg);
-  border: 1px solid var(--web-border);
-  border-radius: var(--web-radius);
-  overflow: hidden;
-}
-
-.web-app .faq-summary {
-  padding: 20px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--web-ink);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.web-app .faq-summary::-webkit-details-marker { display: none; }
-
-.web-app .faq-toggle {
-  font-size: 20px;
-  color: var(--web-accent-strong);
-  flex-shrink: 0;
-  margin-left: 16px;
-  transition: transform 0.25s ease;
-  display: inline-block;
-}
-
-.web-app .faq-item[open] .faq-toggle {
-  transform: rotate(45deg);
-}
-
-.web-app .faq-summary:hover {
-  background: var(--web-bg-warm);
-}
-
-.web-app .faq-answer {
-  padding: 0 24px 20px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--web-text-secondary);
-}
 
 /* ─── Testimonial Carousel ─── */
-.web-app .testimonial-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: var(--web-gap-sm);
-  padding-bottom: 32px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.web-app .testimonial-item {
-  flex: 0 0 auto;
-  width: 380px;
-  max-width: 85vw;
-  scroll-snap-align: start;
-}
-
-.web-app .testimonial-quote {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--web-text-secondary);
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.web-app .testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--web-border);
-}
-
-.web-app .testimonial-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-  border: 2px solid var(--web-accent);
-  position: relative;
-}
-
-.web-app .testimonial-name {
-  font-weight: 700;
-  font-size: 14px;
-  font-family: var(--font-sans);
-}
-
-.web-app .testimonial-role {
-  font-size: 12px;
-  color: var(--web-text-muted);
-}
 
 /* ─── Food Pairing ─── */
-.web-app .food-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--web-gap-lg);
-  align-items: center;
-}
-
-.web-app .food-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--web-gap-sm);
-}
-
-.web-app .food-card-body {
-  display: flex;
-  gap: 24px;
-  padding: 36px;
-  background: var(--web-card-bg);
-  border-radius: var(--web-radius-lg);
-  border: 1px solid var(--web-border);
-  box-shadow: var(--web-shadow-md);
-}
-
-.web-app .food-icon {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--web-bg);
-  border: 1px solid var(--web-border);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.web-app .food-card-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.web-app .food-card-title {
-  color: var(--web-ink);
-  margin-bottom: 10px;
-  font-size: 22px;
-  font-weight: 600;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-}
-
-.web-app .food-card-desc {
-  color: var(--web-text-secondary);
-  font-size: 15px;
-  margin: 0;
-  line-height: 1.7;
-}
-
-.web-app .food-images {
-  display: grid;
-  gap: var(--web-gap-sm);
-  grid-template-columns: 1fr 1fr;
-}
-
-.web-app .food-img-wrap {
-  position: relative;
-  border-radius: var(--web-radius-lg);
-  overflow: hidden;
-  box-shadow: var(--web-shadow-xl);
-}
-
-.web-app .food-img-tall { height: 240px; }
-.web-app .food-img-wide { height: 180px; grid-column: span 2; margin-top: 16px; }
-.web-app .food-img-offset { transform: none; }
-
-.web-app .food-img-badge {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgb(var(--web-on-ink-rgb) / 0.95);
-  backdrop-filter: blur(12px);
-  padding: 12px 24px;
-  border-radius: var(--web-radius-md);
-  border: 1px solid rgb(var(--web-on-ink-rgb) / 0.6);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--web-ink);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: none;
-}
 
 /* ─── B2B / Partnership Section ─── */
-.web-app .b2b-section {
-  position: relative;
-  border-top: 1px solid var(--web-border);
-  overflow: hidden;
-}
-
-.web-app .b2b-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-}
-
-.web-app .b2b-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse at top, var(--web-ink-deep) 0%, var(--web-ink) 100%);
-}
-
-.web-app .b2b-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-}
-
-.web-app .b2b-card-title {
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-
-.web-app .b2b-card-desc {
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 32px;
-}
 
 /* B2B card text colors based on glass-card context */
-.web-app .glass-card-dark .b2b-card-title { color: var(--web-on-ink) !important; }
-.web-app .glass-card-dark .b2b-card-desc { color: var(--web-on-ink-muted); }
-.web-app .glass-card-light .b2b-card-title { color: var(--web-ink) !important; }
-.web-app .glass-card-light .b2b-card-desc { color: var(--web-text-secondary); }
 
 /* ─── 18+ Disclaimer ─── */
-.web-app .disclaimer-bar {
-  padding: 24px 0;
-  background: var(--web-bg-section);
-  text-align: center;
-  border-bottom: 1px solid var(--web-border);
-}
-
-.web-app .disclaimer-text {
-  margin: 0;
-  font-size: 13px;
-  color: var(--web-text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.web-app .disclaimer-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--web-red);
-  color: var(--web-red);
-  font-size: 11px;
-  font-weight: 700;
-}
 
 /* ─── Sub-page Wrapper ─── */
 .web-app .subpage-wrap {
@@ -1699,258 +764,29 @@ body.overflow-hidden {
   padding-bottom: 100px;
 }
 
-.web-app .subpage-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.web-app .subpage-header-compact {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
 /* ─── Story Blocks (thuong-hieu) ─── */
-.web-app .story-img-wrap {
-  position: relative;
-  height: 320px;
-  border-radius: var(--web-radius-lg);
-  overflow: hidden;
-  box-shadow: none;
-}
-
-.web-app .story-heading {
-  color: var(--web-ink);
-  font-size: 28px;
-  margin-bottom: 24px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.web-app .story-lead {
-  color: var(--web-text);
-  line-height: 1.8;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.web-app .story-body {
-  color: var(--web-text-secondary);
-  line-height: 1.8;
-  font-size: 18px;
-}
-
-.web-app .story-accent {
-  font-size: 28px;
-  color: var(--web-accent);
-  font-weight: 600;
-}
 
 /* ─── CTA Banner ─── */
-.web-app .cta-banner {
-  background-color: var(--web-ink);
-  padding: 48px 24px;
-  border-radius: 0;
-  text-align: center;
-  background-image: linear-gradient(135deg, var(--web-ink) 0%, rgb(var(--web-ink-rgb) / 0.95) 100%);
-  box-shadow: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.web-app .cta-banner-watermark {
-  position: absolute;
-  opacity: 0.05;
-  top: -50px;
-  left: -50px;
-  pointer-events: none;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-size: 200px;
-  font-weight: 700;
-  color: var(--web-on-ink);
-}
-
-.web-app .cta-banner-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 24px;
-  background: var(--web-accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-
-.web-app .cta-banner-icon span {
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  color: var(--web-on-ink);
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.web-app .cta-banner h2 {
-  font-size: 36px;
-  color: var(--web-on-ink);
-  margin-bottom: 20px;
-  font-weight: 700;
-  position: relative;
-  z-index: 2;
-}
-
-.web-app .cta-banner p {
-  opacity: 0.9;
-  color: var(--web-bg);
-  max-width: 700px;
-  margin: 0 auto 40px;
-  line-height: 1.8;
-  font-size: 18px;
-  position: relative;
-  z-index: 2;
-}
-
-.web-app .cta-banner .btn-primary {
-  position: relative;
-  z-index: 2;
-}
 
 /* ─── Contact Page ─── */
-.web-app .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.web-app .contact-info-panel {
-  background-color: var(--web-ink);
-  padding: 36px;
-  border-radius: var(--web-radius-lg);
-  color: var(--web-on-ink);
-}
-
-.web-app .contact-info-panel h2 {
-  font-size: 22px;
-  color: var(--web-accent-on-ink);
-  margin-bottom: 28px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-}
-
-.web-app .contact-info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.web-app .contact-info-list strong { display: block; margin-bottom: 4px; }
-.web-app .contact-info-list .muted { opacity: 0.75; font-size: 14px; }
-.web-app .contact-info-list .phone { font-size: 22px; color: var(--web-accent-on-ink); font-weight: bold; display: block; }
-.web-app .contact-info-list .small { opacity: 0.6; font-size: 13px; }
-
-.web-app .contact-divider {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.15);
-}
-
-.web-app .contact-divider h3 { font-size: 16px; margin-bottom: 16px; color: var(--web-on-ink); }
-
-.web-app .contact-cta-panel {
-  background-color: var(--web-card-bg);
-  padding: 36px;
-  border-radius: var(--web-radius-lg);
-  border: 1px solid var(--web-border);
-  box-shadow: var(--web-shadow);
-  display: flex;
-  flex-direction: column;
-}
-
-.web-app .contact-cta-panel h2 { font-size: 22px; color: var(--web-ink); margin-bottom: 16px; font-family: var(--font-display); font-stretch: var(--web-display-stretch); }
-.web-app .contact-cta-panel .subtitle { color: var(--web-text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
-.web-app .contact-cta-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-
-.web-app .contact-alt-phone {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--web-border);
-  font-size: 13px;
-  color: var(--web-text-muted);
-  text-align: center;
-}
-
-.web-app .contact-alt-phone a { color: var(--web-accent); font-weight: 600; }
 
 /* ─── Footer ─── */
-.web-app .web-footer { background-color: var(--web-ink); padding: 60px 0 0; color: var(--web-on-ink); }
-.web-app .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
-.web-app .footer-brand { color: var(--web-accent-on-ink); margin-bottom: 16px; font-size: 18px; font-family: var(--font-display); font-stretch: var(--web-display-stretch); }
-.web-app .footer-desc { opacity: 0.75; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
-.web-app .footer-socials { display: flex; gap: 12px; }
-
-.web-app .footer-social-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; border-radius: 0;
-  background: rgb(var(--web-on-ink-rgb) / 0.1); font-size: 14px; transition: background 0.2s;
-}
-
-.web-app .footer-social-icon:hover { background: rgb(var(--web-on-ink-rgb) / 0.2); }
-
-.web-app .footer-heading {
-  color: var(--web-on-ink) !important; margin-bottom: 16px; font-size: 14px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-sans), sans-serif !important;
-}
-
-.web-app .footer-links { display: flex; flex-direction: column; gap: 10px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact { display: flex; flex-direction: column; gap: 12px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact p { margin: 0; line-height: 1.6; }
 .web-app .footer-contact strong { color: var(--web-accent-on-ink); }
 
-.web-app .footer-bottom { margin-top: 48px; border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.1); }
-
-.web-app .footer-bottom-inner {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px; font-size: 13px; opacity: 0.6; flex-wrap: wrap; gap: 8px;
-}
-
-.web-app .footer-18-badge {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 22px; min-height: 22px; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--web-bg); color: var(--web-ink); font-size: 12px; font-weight: 700;
-}
-
 /* ─── Product Detail (mobile-first) ─── */
-.web-app .product-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; align-items: start; }
-.web-app .product-img-sticky { position: static; }
 .web-app .product-img-box { background-color: var(--web-card-bg); border-radius: var(--web-radius-lg); padding: 32px; height: 360px; position: relative; box-shadow: none; }
-.web-app .product-detail-name { font-size: clamp(28px, 4vw, 42px); color: var(--web-ink); margin-bottom: 16px; font-family: var(--font-display); font-stretch: var(--web-display-stretch); font-weight: 700; letter-spacing: -0.5px; }
-.web-app .product-detail-price { font-size: 32px; font-weight: 700; color: var(--web-accent-strong); margin-bottom: 24px; font-family: var(--font-sans), sans-serif; }
-
-.web-app .product-specs { display: flex; gap: 16px; margin-bottom: 30px; padding: 20px; background-color: var(--web-bg-warm); border-radius: var(--web-radius); flex-wrap: wrap; }
-.web-app .product-spec-item { flex: 1; min-width: 80px; }
-.web-app .product-spec-label { font-size: 12px; color: var(--web-text-secondary); text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
-.web-app .product-spec-value { font-size: 22px; font-weight: 700; color: var(--web-ink); }
 .web-app .product-description { font-size: 16px; line-height: 1.8; color: var(--web-text-secondary); margin-bottom: 32px; }
 
-.web-app .product-guarantee { background-color: var(--web-ink); padding: 24px; border-radius: var(--web-radius); color: var(--web-on-ink); }
-.web-app .product-guarantee h4 { color: var(--web-accent-on-ink); margin-bottom: 16px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
-.web-app .product-guarantee ul { margin: 0; padding-left: 20px; opacity: 0.85; font-size: 14px; display: flex; flex-direction: column; gap: 10px; }
-.web-app .product-breadcrumb { font-size: 14px; margin-bottom: 40px; color: var(--web-text-muted); }
-.web-app .product-breadcrumb a { color: var(--web-accent); }
-
 /* ─── iTQi Section (mobile-first) ─── */
-.web-app .itqi-img-wrap { position: relative; height: 320px; border-radius: var(--web-radius-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 
 /* Product gallery responsive sizing */
 .web-app .product-gallery-main {
   position: relative;
   width: 100%;
   height: clamp(300px, 68svh, 420px);
-  background: radial-gradient(120% 90% at 50% 8%, var(--web-bg) 0%, var(--web-bg-warm) 62%, var(--web-bg-warm) 100%);
+  background: var(--web-bg-section);
   border-radius: 0;
   overflow: hidden;
   padding: 0;
@@ -1970,62 +806,6 @@ body.overflow-hidden {
 }
 
 /* Checkout responsive rows */
-.web-app .checkout-item-row {
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) auto;
-  grid-template-areas:
-    "image info remove"
-    "actions actions actions";
-  gap: 12px 16px;
-  align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--web-border);
-}
-
-.web-app .checkout-item-image {
-  grid-area: image;
-}
-
-.web-app .checkout-item-info {
-  grid-area: info;
-  min-width: 0;
-}
-
-.web-app .checkout-item-info h3 {
-  line-height: 1.35;
-  overflow-wrap: anywhere;
-}
-
-.web-app .checkout-qty-controls {
-  grid-area: actions;
-  justify-content: flex-start;
-}
-
-.web-app .checkout-remove-btn {
-  grid-area: remove;
-  justify-self: end;
-  min-width: 40px;
-  min-height: 40px;
-}
-
-.web-app .checkout-promo-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 560px) {
-  .web-app .checkout-item-row {
-    grid-template-columns: 80px minmax(0, 1fr) auto auto;
-    grid-template-areas: "image info actions remove";
-    gap: 20px;
-  }
-
-  .web-app .checkout-promo-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-}
 
 /* ─── UI/UX Pro Max Enhancements ─── */
 
@@ -2041,11 +821,7 @@ html {
 }
 
 .web-app [data-surface="ink"] *:focus-visible,
-.web-app .hero-dark *:focus-visible,
-.web-app .usp-bar *:focus-visible,
-.web-app .glass-card-dark *:focus-visible,
-.web-app [class*="navy"] *:focus-visible,
-.web-app .section-dark *:focus-visible {
+.web-app [class*="navy"] *:focus-visible {
   outline: 2px solid var(--web-accent-on-ink);
   outline-offset: 2px;
 }
@@ -2068,11 +844,7 @@ html {
   box-shadow: 0 0 0 3px rgb(var(--web-accent-rgb) / 0.2);
 }
 
-.web-app input:not([type="checkbox"]):not([type="radio"]):invalid,
-.web-app input:not([type="checkbox"]):not([type="radio"]).is-invalid,
-.web-app input:not([type="checkbox"]):not([type="radio"]).has-error,
-.web-app textarea.is-invalid,
-.web-app textarea.has-error {
+.web-app input:not([type="checkbox"]):not([type="radio"]):invalid {
   border-color: var(--web-red);
 }
 
@@ -2097,15 +869,7 @@ html {
   border-color: var(--web-accent-strong) !important;
 }
 
-.web-app .faq-summary {
-  color: var(--web-ink) !important;
-}
-
 /* 3. Touch Targets (Mobile) */
-.web-app .faq-summary {
-  padding: 16px 20px !important;
-  min-height: 48px;
-}
 
 .web-app .mobile-bottom-nav-item {
   min-height: 60px;
@@ -2132,10 +896,6 @@ html {
 }
 
 /* Stagger delays (transition for GSAP, animation for fallback safety-net) */
-.web-app .delay-100 { transition-delay: 100ms; animation-delay: 1.6s; }
-.web-app .delay-200 { transition-delay: 200ms; animation-delay: 1.7s; }
-.web-app .delay-300 { transition-delay: 300ms; animation-delay: 1.8s; }
-.web-app .delay-400 { transition-delay: 400ms; animation-delay: 1.9s; }
 
 /* When GSAP activates, cancel fallback and let transition handle reveal */
 .web-app .reveal-on-scroll.reveal-visible {
@@ -2158,386 +918,12 @@ html {
 }
 
 /* ─── Hero Specific Classes ─── */
-.web-app .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  background-color: rgb(var(--web-accent-rgb) / 0.12);
-  color: var(--web-accent-on-ink);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  border-radius: 0;
-  border: 1px solid rgb(var(--web-accent-rgb) / 0.2);
-  font-family: var(--font-sans), sans-serif;
-}
-
-.web-app .hero-title {
-  font-size: clamp(48px, 5.5vw, 72px);
-  margin-bottom: 24px;
-  line-height: 1.08;
-  font-weight: 700;
-  color: var(--web-on-ink);
-  letter-spacing: -1.5px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-}
-
-.web-app .hero-title-highlight {
-  color: var(--web-accent-on-ink);
-  display: block;
-  font-size: clamp(32px, 3.5vw, 48px);
-  margin-top: 12px;
-  letter-spacing: 0px;
-  font-weight: 600;
-}
-
-.web-app .hero-desc {
-  font-size: clamp(16px, 1.8vw, 20px);
-  margin-bottom: 36px;
-  color: var(--web-on-ink-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  font-weight: 400;
-  font-family: var(--font-sans), sans-serif;
-}
 
 /* ─── Zalo CTA Wrapper ─── */
-.web-app .hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
 
 /* ─── Web Header Phase 2 Refactor ─── */
 
-.web-app .cart-icon-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  transition: transform 0.2s ease;
-}
-
 /* ─── Knowledge Page Styles (Mobile-first) ─── */
-.web-app .knowledge-page {
-  background-color: var(--web-bg);
-}
-
-.web-app .knowledge-hero {
-  position: relative;
-  padding: 100px 0 60px;
-  background: var(--web-sky);
-  color: var(--web-on-ink);
-  overflow: hidden;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-hero {
-    padding: 160px 0 120px;
-  }
-}
-
-.web-app .knowledge-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: none;
-  z-index: 1;
-}
-
-.web-app .knowledge-hero-container {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.web-app .knowledge-hero-badge {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--web-accent-strong);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.web-app .knowledge-hero-title {
-  font-size: clamp(32px, 6vw, 64px);
-  color: var(--web-on-ink);
-  margin-bottom: 16px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.web-app .knowledge-hero-subtitle {
-  max-width: 650px;
-  margin: 0 auto;
-  color: var(--web-on-ink);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-hero-subtitle {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-}
-
-.web-app .knowledge-featured-section {
-  margin-top: -30px;
-  position: relative;
-  z-index: 10;
-  margin-bottom: 48px;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-featured-section {
-    margin-top: -60px;
-    margin-bottom: 80px;
-  }
-}
-
-.web-app .knowledge-featured-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.web-app .knowledge-featured-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--web-card-bg);
-  border-radius: var(--web-radius-lg);
-  box-shadow: none;
-  overflow: hidden;
-  border: 1px solid var(--web-border);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.web-app .knowledge-featured-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--web-shadow-lg);
-}
-
-.web-app .knowledge-featured-thumb {
-  position: relative;
-  width: 100%;
-  height: clamp(200px, 32vh, 360px);
-  max-height: 35vh;
-  overflow: hidden;
-}
-
-.web-app .knowledge-featured-body {
-  padding: 24px 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-featured-body {
-    padding: 48px;
-  }
-}
-
-.web-app .knowledge-featured-meta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 12px;
-  font-size: 13px;
-  color: var(--web-text-secondary);
-  margin-bottom: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.web-app .knowledge-featured-badge {
-  color: var(--web-accent-strong);
-}
-
-.web-app .knowledge-featured-title {
-  font-size: clamp(22px, 4vw, 42px);
-  font-weight: 700;
-  color: var(--web-ink);
-  margin-bottom: 16px;
-  line-height: 1.3;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  max-width: 900px;
-}
-
-.web-app .knowledge-featured-desc {
-  font-size: 15px;
-  color: var(--web-text-muted);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  max-width: 800px;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-featured-desc {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 32px;
-  }
-}
-
-.web-app .knowledge-featured-cta {
-  font-weight: 600;
-  color: var(--web-ink);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  padding: 12px 24px;
-  border: 2px solid var(--web-ink);
-  border-radius: var(--web-radius-md);
-  transition: all 0.2s ease;
-}
-
-.web-app .knowledge-featured-card:hover .knowledge-featured-cta {
-  background-color: var(--web-ink);
-  color: var(--web-on-ink);
-}
-
-.web-app .knowledge-grid-section {
-  padding-bottom: 60px;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-grid-section {
-    padding-bottom: 120px;
-  }
-}
-
-.web-app .knowledge-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 40px;
-  }
-}
-
-.web-app .knowledge-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  background-color: var(--web-card-bg);
-  border-radius: var(--web-radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--web-border);
-  box-shadow: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.web-app .knowledge-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--web-shadow-lg);
-}
-
-.web-app .knowledge-card-thumb {
-  position: relative;
-  width: 100%;
-  height: clamp(160px, 25vh, 200px);
-  max-height: 35vh;
-  overflow: hidden;
-}
-
-.web-app .knowledge-card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-@media (min-width: 769px) {
-  .web-app .knowledge-card-body {
-    padding: 28px 32px 32px;
-  }
-}
-
-.web-app .knowledge-card-meta {
-  display: flex;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--web-text-secondary);
-  margin-bottom: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.web-app .knowledge-card-date {
-  color: var(--web-accent-strong);
-}
-
-.web-app .knowledge-card-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--web-ink);
-  margin-bottom: 12px;
-  line-height: 1.4;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.web-app .knowledge-card-desc {
-  font-size: 14px;
-  color: var(--web-text-secondary);
-  line-height: 1.6;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  flex: 1;
-  margin-bottom: 20px;
-}
-
-.web-app .knowledge-card-action {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--web-accent-strong);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-}
-
-.web-app .knowledge-empty-state {
-  text-align: center;
-  padding: 60px 0;
-  color: var(--web-text-secondary);
-}
-
-.web-app .knowledge-empty-title {
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  font-weight: 400;
-}
-
-.web-app .cart-icon-wrap svg {
-  transition: stroke 0.3s ease;
-}
 
 /* ═══════════════════════════════════════════
    PREMIUM 2026 & STANDARD UI LAYOUT KIT
@@ -2551,65 +937,8 @@ html {
 }
 
 /* Product Card Actions and Button overrides */
-.web-app .card-actions-dual {
-  display: flex !important;
-  gap: 8px !important;
-  margin-top: 16px !important;
-  width: 100% !important;
-}
-
-.web-app .card-btn-cart {
-  flex: 1 !important;
-  padding: 10px !important;
-  min-height: 44px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.web-app .card-btn-buy {
-  flex: 3 !important;
-  padding: 10px 16px !important;
-  min-height: 44px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
 
 /* Product Order Actions (Detail page) layout classes */
-
-.web-app .detail-buy-block {
-  display: flex !important;
-  gap: 8px !important;
-  flex: 1 1 auto !important;
-}
-
-.web-app .detail-btn-cart {
-  flex: 1 !important;
-  text-align: center !important;
-  font-size: 16px !important;
-  padding: 16px !important;
-  border: 2px solid var(--web-primary) !important;
-  background-color: transparent !important;
-  color: var(--web-primary) !important;
-  cursor: pointer !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-family: inherit !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.web-app .detail-btn-cart svg {
-  margin-right: 8px !important;
-}
-
-.web-app .detail-btn-cart:hover {
-  background-color: rgb(var(--web-accent-rgb) / 0.05) !important;
-  transform: translateY(-2px) !important;
-}
 
 /* Product Gallery Thumbnail Slider */
 .web-app .gallery-thumb-list {
@@ -2646,129 +975,15 @@ html {
 }
 
 /* Zalo CTA component styles */
-.web-app .zalo-cta-class {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center !important;
-  gap: 10px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 0 !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: var(--font-sans), sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.web-app .zalo-cta-gold-class {
-  background: var(--web-accent) !important;
-  color: var(--web-on-ink);
-  box-shadow: none !important;
-  border: none;
-}
-
-.web-app .zalo-cta-gold-class:hover {
-  background: var(--web-accent-hover) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: none !important;
-}
-
-.web-app .zalo-cta-outline-class {
-  background: transparent !important;
-  color: var(--web-accent-strong) !important;
-  border: 2px solid var(--web-accent-strong);
-}
-
-.web-app .zalo-cta-outline-class:hover {
-  background: var(--web-accent-strong) !important;
-  color: var(--web-on-ink) !important;
-  transform: translateY(-2px) !important;
-}
 
 /* Premium 2026 Shimmer Effect */
-.web-app .shimmer-effect {
-  position: relative;
-  overflow: hidden;
-}
 
 /* Bỏ vệt sáng quét qua ảnh: hiệu ứng trang trí không hợp thương hiệu cao cấp. */
-.web-app .shimmer-effect::after {
-  content: none;
-}
-
-.web-app .shimmer-effect:hover::after {
-  animation: none;
-}
 
 /* Helper spacing classes */
-.web-app .text-center { text-align: center !important; }
-.web-app .text-gold { color: var(--web-accent-strong) !important; }
 .web-app .text-muted { color: var(--web-text-muted) !important; }
-.web-app .mt-lg { margin-top: var(--web-spacing-lg) !important; }
-.web-app .mt-md { margin-top: var(--web-spacing-md) !important; }
-.web-app .mb-sm { margin-bottom: var(--web-spacing-sm) !important; }
-.web-app .py-lg { padding-top: var(--web-spacing-lg) !important; padding-bottom: var(--web-spacing-lg) !important; }
-.web-app .py-xl { padding-top: var(--web-spacing-xl) !important; padding-bottom: var(--web-spacing-xl) !important; }
-.web-app .bg-warm { background-color: var(--web-bg-warm) !important; }
-
-.web-app .usp-item-wrap {
-  padding: 8px 12px !important;
-}
-.web-app .p-lead {
-  font-size: 17px !important;
-  line-height: 1.8 !important;
-  color: var(--web-text-secondary) !important;
-  margin-bottom: 20px !important;
-}
-.web-app .p-body {
-  font-size: 15px !important;
-  line-height: 1.8 !important;
-  color: var(--web-text-secondary) !important;
-  margin-bottom: 28px !important;
-}
-.web-app .stat-card-bordered {
-  border: 1px solid var(--web-border) !important;
-}
-.web-app .stat-value-dark {
-  color: var(--web-text) !important;
-}
-.web-app .story-img-container {
-  position: relative !important;
-  height: 280px !important;
-  border-radius: var(--web-radius-lg) !important;
-  overflow: hidden !important;
-}
-@media (min-width: 769px) {
-  .web-app .story-img-container {
-    height: 500px !important;
-  }
-}
-.web-app .stat-card-absolute {
-  position: absolute !important;
-  bottom: 24px !important;
-  left: 24px !important;
-  right: 24px !important;
-}
-.web-app .emoji-span {
-  font-size: 16px !important;
-}
 
 /* Classes to support full removal of inline styles in pages and components */
-.web-app .hero-container {
-  position: relative !important;
-  z-index: 2 !important;
-  padding-top: 40px !important;
-  padding-bottom: 40px !important;
-}
-
-.web-app .object-cover {
-  object-fit: cover;
-}
-
-.web-app .object-contain {
-  object-fit: contain !important;
-}
 
 .web-app .products-page-container {
   padding-top: 80px;
@@ -2776,72 +991,7 @@ html {
   background-color: var(--web-bg);
 }
 
-.web-app .catalog-header {
-  text-align: center !important;
-  margin-bottom: 80px !important;
-}
-
-.web-app .empty-state-container {
-  text-align: center !important;
-  padding: 100px 0 !important;
-  color: var(--web-text-secondary) !important;
-}
-
-.web-app .empty-state-title {
-  font-family: var(--font-display) !important;
-  font-stretch: var(--web-display-stretch);
-  font-size: 28px !important;
-}
-
-.web-app .mt-100 {
-  margin-top: 100px !important;
-}
-
-.web-app .mb-48 {
-  margin-bottom: 48px !important;
-}
-
-.web-app .accessories-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)) !important;
-  gap: 32px !important;
-  max-width: 700px !important;
-  margin: 0 auto !important;
-}
-
-.web-app .breadcrumb-active {
-  color: var(--web-text);
-}
-
-.web-app .related-products-section {
-  margin-top: 100px;
-  border-top: 1px solid var(--web-border);
-  padding-top: 60px;
-}
-
-.web-app .related-products-title {
-  font-size: 32px;
-}
-
 /* ─── AEO & Design Standard Refactor Styles ─── */
-.web-app .usp-icon--small {
-  font-size: 11px !important;
-  letter-spacing: 0.5px !important;
-}
-
-.web-app .usp-icon--stars {
-  font-size: 14px !important;
-  letter-spacing: 2px !important;
-}
-
-.web-app .itqi-img-contain {
-  object-fit: contain !important;
-  padding: 30px !important;
-}
-
-.web-app .b2b-bg {
-  background-image: url('/images/brand/benediktiner-official/beer-garden-closeup.jpg') !important;
-}
 
 /* ─── Product Tabs Styles ─── */
 .web-app .product-tabs-wrapper {
@@ -2948,331 +1098,21 @@ html {
 }
 
 /* ─── Checkout & Order Page Styling ─── */
-.web-app .checkout-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  margin-top: 32px;
-}
-
-@media (max-width: 768px) {
-  .web-app .checkout-container {
-    gap: 20px;
-    margin-top: 20px;
-  }
-}
-
-.web-app .checkout-column-cart {
-  flex: 1 1 500px;
-}
-
-.web-app .checkout-column-form {
-  flex: 1 1 400px;
-}
-
-.web-app .checkout-section-title {
-  font-size: 22px;
-  margin-bottom: 20px;
-  font-family: var(--font-display);
-  font-stretch: var(--web-display-stretch);
-  color: var(--web-ink);
-}
-
-@media (max-width: 768px) {
-  .web-app .checkout-section-title {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-}
-
-.web-app .checkout-card {
-  border: 1px solid var(--web-border);
-  border-radius: var(--web-radius);
-  padding: 24px;
-  background-color: var(--web-card-bg);
-  box-shadow: var(--web-shadow);
-}
-
-@media (max-width: 560px) {
-  .web-app .checkout-card {
-    padding: 16px;
-  }
-}
-
-.web-app .checkout-item-image {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  flex-shrink: 0;
-  background-color: var(--web-card-bg);
-  border-radius: var(--web-radius-md);
-  border: 1px solid rgb(var(--web-border-rgb) / 0.4);
-}
-
-.web-app .checkout-item-image img {
-  object-fit: contain;
-  padding: 5px;
-}
-
-.web-app .checkout-item-info h3 {
-  font-size: 15px;
-  font-weight: 700;
-  margin: 0 0 5px 0;
-  color: var(--web-text);
-  font-family: var(--font-sans) !important;
-}
-
-.web-app .checkout-item-info .price {
-  color: var(--web-primary);
-  font-weight: 700;
-}
-
-.web-app .checkout-qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.web-app .checkout-qty-btn {
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--web-border);
-  background: transparent;
-  cursor: pointer;
-  border-radius: 0;
-  font-weight: bold;
-  color: var(--web-text-secondary);
-  transition: all 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.web-app .checkout-qty-btn:hover {
-  border-color: var(--web-accent);
-  color: var(--web-accent-strong);
-  background-color: var(--web-accent-bg);
-}
-
-.web-app .checkout-qty-val {
-  width: 20px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.web-app .checkout-remove-btn {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--web-red);
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-  flex-shrink: 0;
-  border-radius: 50%;
-}
-
-.web-app .checkout-remove-btn:hover {
-  background-color: rgb(var(--web-red-rgb) / 0.08);
-  transform: scale(1.08);
-}
-
-.web-app .checkout-summary-block {
-  border-top: 1px solid var(--web-border);
-  padding-top: 20px;
-  margin-top: 20px;
-}
-
-.web-app .checkout-summary-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  margin-bottom: 12px;
-  color: var(--web-text-secondary);
-}
-
-.web-app .checkout-summary-line--discount {
-  color: #16a34a;
-  font-weight: 600;
-}
-
-.web-app .checkout-summary-line--total {
-  font-size: 18px;
-  font-weight: 700;
-  padding-top: 14px;
-  border-top: 1px dashed var(--web-border);
-  color: var(--web-text);
-}
-
-.web-app .checkout-summary-line--total .price {
-  color: var(--web-primary);
-  font-size: 20px;
-}
 
 /* Promo Code styles */
-.web-app .checkout-promo-row input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid var(--web-border);
-  border-radius: 0;
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  background-color: var(--web-card-bg);
-}
-
-.web-app .checkout-promo-row input:focus {
-  outline: none;
-  border-color: var(--web-accent-strong);
-  box-shadow: 0 0 0 3px rgb(var(--web-accent-rgb) / 0.25);
-}
-
-.web-app .checkout-promo-row button {
-  padding: 12px 24px;
-  background-color: var(--web-surface);
-  border: 1px solid var(--web-border);
-  border-radius: 0;
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--web-text-secondary);
-  transition: all 0.2s ease;
-  font-size: 14px;
-}
-
-.web-app .checkout-promo-row button:hover:not(:disabled) {
-  border-color: var(--web-accent);
-  background-color: var(--web-accent-bg);
-  color: var(--web-accent-strong);
-}
-
-.web-app .checkout-promo-active {
-  font-size: 13px;
-  color: #16a34a;
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-.web-app .checkout-promo-active .clear {
-  margin-left: 10px;
-  color: var(--web-red);
-  cursor: pointer;
-  text-decoration: underline;
-}
 
 /* Link Indicators (T07) */
-.web-app .markdown-content a,
-.web-app .article-body a,
-.web-app .faq-answer a {
+.web-app .markdown-content a {
   color: var(--web-accent-strong) !important;
-  text-decoration: underline !important;
-  text-underline-offset: 2px;
-}
-.web-app .web-footer .footer-links a,
-.web-app .web-footer .footer-contact a {
-  color: var(--web-accent-on-ink) !important;
   text-decoration: underline !important;
   text-underline-offset: 2px;
 }
 
 /* Form inputs & styling */
-.web-app .checkout-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.web-app .checkout-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.web-app .checkout-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--web-text-secondary);
-}
-
-.web-app .checkout-input-text {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--web-border);
-  border-radius: var(--web-radius-md);
-  font-size: 15px;
-  background-color: var(--web-card-bg);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  font-family: inherit;
-}
-
-.web-app .checkout-input-text:focus {
-  outline: none;
-  border-color: var(--web-accent-strong);
-  box-shadow: 0 0 0 3px rgb(var(--web-accent-rgb) / 0.25);
-}
-
-.web-app .checkout-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--web-border);
-  border-radius: var(--web-radius-md);
-  min-height: 100px;
-  font-size: 15px;
-  background-color: var(--web-card-bg);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  font-family: inherit;
-  resize: vertical;
-}
-
-.web-app .checkout-textarea:focus {
-  outline: none;
-  border-color: var(--web-accent-strong);
-  box-shadow: 0 0 0 3px rgb(var(--web-accent-rgb) / 0.25);
-}
-
-.web-app .checkout-error-alert {
-  color: var(--web-red);
-  padding: 12px 16px;
-  background-color: rgb(var(--web-red-rgb) / 0.08);
-  border-radius: var(--web-radius-md);
-  font-size: 14px;
-  line-height: 1.5;
-  border: 1px solid rgb(var(--web-red-rgb) / 0.2);
-}
-
-.web-app .checkout-submit-btn {
-  padding: 16px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 0 !important;
-  letter-spacing: 0.5px;
-}
 
 /* ─── Football Campaign Popup Styles ─── */
 
 /* ─── Bia Đức Nhập Khẩu Page Styles ─── */
-
-.web-app .product-beer-section {
-  padding: 80px 0;
-  background-color: var(--web-bg);
-}
-
-.web-app .product-beer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
-}
 
 /* ─── Weissbier Landing Page Premium Styles ─── */
 
@@ -3327,26 +1167,10 @@ html {
 .web-app h3,
 .web-app .page-title,
 .web-app .section-title,
-.web-app .section-title-light,
-.web-app .hero-title,
-.web-app .landing-hero-title,
 .web-app .story-title,
-.web-app .review-title,
 .web-app .faq-title,
-.web-app .b2b-title,
-.web-app .contact-title,
-.web-app .contact-cta-panel h2,
-.web-app .checkout-title,
-.web-app .checkout-success-title,
-.web-app .blog-post-title,
-.web-app .article-title,
-.web-app .tasting-note-title,
-.web-app .pairing-title,
-.web-app .spec-title,
-.web-app .footer-brand,
 .web-app .markdown-content h2,
-.web-app .markdown-content h3,
-.web-app .product-detail-name {
+.web-app .markdown-content h3 {
   font-family: var(--font-display) !important;
   font-stretch: var(--web-display-stretch);
   letter-spacing: -0.01em;
@@ -3354,86 +1178,8 @@ html {
 
 
 /* 2. Premium Pill Navigation (under catalog header) */
-.web-app .catalog-pills-nav-wrapper {
-  margin-top: 16px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start; /* Mobile-first: scrollable starting from left */
-  padding: 8px 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.web-app .catalog-pills-nav-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-@media (min-width: 769px) {
-  .web-app .catalog-pills-nav-wrapper {
-    margin-top: 24px;
-    justify-content: center; /* Desktop: centered */
-    padding: 8px 0;
-  }
-}
-
-.web-app .catalog-pills-nav {
-  display: inline-flex;
-  gap: 8px;
-  padding: 5px;
-  background: var(--web-bg-warm);
-  border: 1px solid rgb(var(--web-accent-rgb) / 0.18);
-  border-radius: 0;
-  white-space: nowrap;
-}
-
-.web-app .catalog-pill-link {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 0;
-  color: var(--web-text-secondary);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
-}
-
-.web-app .catalog-pill-link:hover {
-  color: var(--web-ink);
-  background: var(--web-card-bg);
-  border-color: rgb(var(--web-accent-rgb) / 0.25);
-  box-shadow: none;
-}
-
-.web-app .catalog-pill-link.highlight-pill {
-  color: var(--web-accent-strong) !important;
-  border: 1px solid var(--web-accent-soft) !important;
-  background: var(--web-bg-warm) !important;
-  font-weight: 700 !important;
-}
-
-.web-app .catalog-pill-link.highlight-pill:hover {
-  background: var(--web-bg-section) !important;
-  color: var(--web-accent-strong) !important;
-}
 
 /* Article Details Page (T16b) */
-.web-app .article-detail-hero {
-  padding: 120px 0 80px;
-  background: var(--web-ink);
-  color: var(--web-on-ink);
-  position: relative;
-}
-.web-app .article-detail-breadcrumb {
-  font-size: 14px;
-  color: var(--web-accent-on-ink);
-  margin-bottom: 30px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
 .web-app .article-detail-title {
   font-size: clamp(32px, 5vw, 52px);
   color: var(--web-on-ink);
@@ -3443,30 +1189,6 @@ html {
   font-stretch: var(--web-display-stretch);
   font-weight: 700;
 }
-.web-app .article-detail-meta {
-  display: flex;
-  gap: 20px;
-  font-size: 15px;
-  color: var(--web-on-ink-muted);
-  justify-content: center;
-  font-weight: 500;
-}
-.web-app .article-detail-cover-wrapper {
-  max-width: 900px;
-  margin-top: -40px;
-  position: relative;
-  z-index: 10;
-  padding: 0 20px;
-}
-.web-app .article-detail-cover {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: none;
-}
 .web-app .article-detail-body-container {
   max-width: 800px;
   padding: 60px 20px 100px;
@@ -3475,41 +1197,8 @@ html {
 /* 3. Quick Tags on Product Cards */
 
 /* 4. Detail Page Tags */
-.web-app .product-detail-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-  margin-bottom: 24px;
-}
-
-.web-app .detail-pill-tag {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--web-text-secondary);
-  padding: 5px 12px;
-  border-radius: 0;
-  background: var(--web-bg-warm);
-  border: 1px solid rgb(var(--web-accent-rgb) / 0.2);
-  line-height: 1.2;
-  transition: all 0.2s ease;
-}
-
-.web-app .detail-pill-tag.highlight-tag {
-  color: var(--web-red);
-  background: rgb(var(--web-red-rgb) / 0.04);
-  border-color: rgb(var(--web-red-rgb) / 0.32);
-  font-weight: 700;
-}
 
 /* 5. Mobile-First Spacing Adjustments (Products Page) */
-@media (max-width: 768px) {
-  .web-app .products-page-container .mt-100 {
-    margin-top: 48px !important;
-  }
-}
 
 /* 6. Anti-Overlap Scroll Margins (Account for fixed header) */
 .web-app .products-page-container [id] {
@@ -3521,27 +1210,6 @@ html {
 /* Smooth scrolling for anchor targets */
 html {
   scroll-behavior: smooth;
-}
-
-.card-unit-price {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--web-text-muted);
-  margin-left: 6px;
-}
-
-.card-trust-signals {
-  font-size: 11px;
-  color: var(--web-text-muted);
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.web-app .footer-links a {
-  display: block;
-  padding: 10px 0;
 }
 
 .web-app .skip-link {
@@ -3585,17 +1253,6 @@ html {
    nút không bị bóp vỡ chữ. Số hotline không bao giờ được xuống dòng. */
 
 /* Breadcrumb trang sản phẩm: giữ 1 dòng để CTA không bị đẩy khỏi màn hình đầu. */
-.web-app .product-breadcrumb {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 768px) {
-  .web-app .product-breadcrumb {
-    margin-bottom: 20px;
-  }
-}
 
 
 /* ═══════════════════════════════════════════════════════════════

@@ -29,7 +29,7 @@ const PAGES = (process.env.AUDIT_PAGES || [
   '/bia-duc-cho-nha-hang-khach-san', '/bia-benediktiner-chinh-hang', '/huong-dan-rot-bia-lua-mi', '/thong-tin-mua-hang',
   '/chinh-sach-bao-mat', '/chinh-sach-cookie', '/chinh-sach-kiem-soat-do-tuoi', '/dieu-khoan-su-dung',
 ].join(',')).split(',').map((p) => p.trim()).filter(Boolean);
-const FILES = ['src/app/web.css', 'src/app/mobile-overrides.css', 'src/app/brand-consistency.css', 'src/app/editorial-pages.css'];
+const FILES = ['src/app/web.css', 'src/app/mobile-overrides.css', 'src/app/brand-consistency.css'];
 
 /* Chạy trong trình duyệt. */
 function analyze() {

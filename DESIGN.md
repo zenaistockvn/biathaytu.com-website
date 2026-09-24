@@ -183,7 +183,17 @@ Nằm trong `src/app/(web)/components/ui/`, mỗi component có CSS module riên
 | `LineIcons` | Icon nét mảnh: ly Weizen, chai, bom, tu viện | Hình khắc ly bia, bánh phô mai |
 | `Button` | `primary`, `dark`, `light`, `outline`, `link` | Nút chữ nhật đen/trắng, "VOIR TOUTES LES ACTUALITÉS" |
 
+| `BeerCard`, `ProductCard` | Thẻ bia / sản phẩm: ảnh trên nền xám, tên, thông số một dòng, giá | Danh sách "Nos bières" |
+| `ProductStory` | Template trang sản phẩm: hero, giới thiệu, hồ sơ hương vị, cách rót, quy cách, món ăn kèm | Trang Chimay Bleue |
+| `FlavorWheel`, `ProfileScale`, `FormatStrip` | Bánh xe hương vị, thang màu/độ trong/bọt, hàng quy cách lấy từ dữ liệu | "Roue des saveurs", "Couleur", "Nos différents formats" |
+| `EditorialPage` (+ `PageHeader`, `Summary`, `InfoGrid`, `StepList`, `CtaBand`, `FaqSection`) | Trang nội dung và pháp lý: dải tiêu đề, cột bài viết 760px có sẵn kiểu chữ | Các trang phụ |
+| `ArticleCard`, `FeaturedArticle` | Thẻ bài viết và bài nổi bật (ảnh trái, khối xám phải) | "Une actualité pétillante" |
+
 - **Khối màu và nút:** trên `ink`/`accent` dùng nút `light`; trên `gold`/`mist` dùng nút `dark`. `SplitBlock` tự chọn.
+- **Footer:** khối xanh đêm chia cột (giới thiệu, khám phá, liên hệ, thông tin doanh nghiệp) và thanh vàng nhãn cuối trang (link pháp lý, cảnh báo đồ uống có cồn, bản quyền), tương ứng thanh da bò của Chimay. Thông tin doanh nghiệp và cảnh báo là bắt buộc, không được bỏ.
+- **Cổng tuổi, banner cookie:** hộp trắng góc vuông như chimay.com; cổng tuổi đặt trên ảnh thương hiệu tối. Nút "Từ chối" cookie cùng kích thước nút "Chấp nhận".
+- **Giá không viết cứng trong trang:** lấy từ dữ liệu sản phẩm (`getProductBySlugOrId`, `FormatStrip`) để luôn khớp trang chi tiết.
+- **Reset toàn cục dùng `:where(.web-app)`** (thẻ `p`, `a`, gạch chân link) để giữ specificity thấp; class của component luôn thắng mà không cần `!important`.
 - **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng. Tầng trên là hàng tiện ích nhỏ (hotline, ô viền "Showroom", "Liên hệ tư vấn", ngôn ngữ), tầng dưới là menu in hoa. Huy hiệu 96px treo xuống dưới thanh header 72px, thu còn 80px khi cuộn. Dưới 1024px chỉ có huy hiệu, tên và nút menu.
 - **Class `container` toàn cục đặt lại `padding`**: khoảng đệm dọc phải nằm ở phần tử bọc ngoài, không đặt chung phần tử với `container`.
 

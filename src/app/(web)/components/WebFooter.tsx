@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import AlcoholWarning from './AlcoholWarning';
 import styles from './WebFooter.module.css';
@@ -16,6 +17,7 @@ const productLinks = [
   { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Bom 5L Benediktiner' },
   { href: '/bitburger-premium-pils', label: 'Bitburger Premium Pils' },
   { href: '/huong-dan-rot-bia-lua-mi', label: 'Nghệ thuật thưởng thức' },
+  { href: '/thuong-hieu', label: 'Câu chuyện Ettal' },
 ];
 
 const policyLinks = [
@@ -23,8 +25,14 @@ const policyLinks = [
   { href: '/chinh-sach-bao-mat', label: 'Chính sách bảo mật' },
   { href: '/chinh-sach-cookie', label: 'Chính sách cookie' },
   { href: '/dieu-khoan-su-dung', label: 'Điều khoản sử dụng' },
+  { href: '/thong-tin-mua-hang', label: 'Thông tin mua hàng' },
 ];
 
+/**
+ * Footer theo ngữ pháp chimay.com: khối xanh đêm phẳng chia cột và thanh màu cuối trang
+ * (Chimay dùng thanh da bò; ở đây là vàng nhãn Benediktiner) chứa link pháp lý.
+ * Giữ đủ thông tin doanh nghiệp và cảnh báo đồ uống có cồn theo quy định.
+ */
 export default function WebFooter() {
   const telHref = getCompanyTelHref();
   const mailtoHref = getCompanyMailtoHref();
@@ -33,170 +41,89 @@ export default function WebFooter() {
     ? COMPANY_CONFIG.taxCode
     : `${COMPANY_CONFIG.taxCode} / ${COMPANY_CONFIG.businessRegistrationCertificateNumber}`;
 
-  const brandBlock = (
-    <>
-      <h3 className={styles.brandTitle}>BIA THẦY TU</h3>
-      <p className={styles.brandDesc}>
-        Khám phá Benediktiner tại Việt Nam, câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
-      </p>
-      <p className={styles.brochureNote}>
-        Website giới thiệu sản phẩm, không bán hàng trực tuyến.
-      </p>
-      <div className={styles.socialRow}>
-        {zaloUrl ? (
-          <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={`${styles.iconButton} ${styles.primaryAction}`}>
-            Zalo
-          </a>
-        ) : null}
-        {telHref ? (
-          <a href={telHref} className={styles.iconButton} aria-label={`Gọi ${COMPANY_CONFIG.hotline}`}>
-            Gọi điện
-          </a>
-        ) : null}
-        {mailtoHref ? (
-          <a href={mailtoHref} className={styles.iconButton} aria-label={`Email ${COMPANY_CONFIG.email}`}>
-            Email
-          </a>
-        ) : null}
-      </div>
-    </>
-  );
-
-  const companyBlock = (
-    <div className={styles.companyList}>
-      <p className={styles.companyItem}>
-        <span className={styles.itemLabel}>Pháp nhân</span>
-        {COMPANY_CONFIG.legalName}
-      </p>
-      <p className={styles.companyItem}>
-        <span className={styles.itemLabel}>MST / ĐKKD</span>
-        {registrationValue}
-      </p>
-      <p className={styles.companyItem}>
-        <span className={styles.itemLabel}>Trụ sở</span>
-        {COMPANY_CONFIG.registeredAddress}
-      </p>
-      <p className={styles.companyItem}>
-        <span className={styles.itemLabel}>Showroom</span>
-        {COMPANY_CONFIG.showroomAddress}
-      </p>
-      <p className={styles.companyItem}>
-        <span className={styles.itemLabel}>Đại diện pháp luật</span>
-        {COMPANY_CONFIG.legalRepresentative}
-      </p>
-    </div>
-  );
-
-  const quickLinksBlock = (
-    <div className={styles.quickGroups}>
-      <div>
-        <h5 className={styles.quickGroupTitle}>Sản phẩm</h5>
-        <div className={styles.linkList}>
-          {productLinks.map((link) => (
-            <Link key={link.href} href={link.href}>{link.label}</Link>
-          ))}
-        </div>
-      </div>
-      <div>
-        <h5 className={styles.quickGroupTitle}>Chính sách</h5>
-        <div className={styles.linkList}>
-          {policyLinks.map((link) => (
-            <Link key={link.href} href={link.href}>{link.label}</Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const contactBlock = (
-    <>
-      <div className={styles.contactList}>
-        <p className={styles.contactItem}>
-          <span className={styles.itemLabel}>Hotline</span>
-          {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
-        </p>
-        <p className={styles.contactItem}>
-          <span className={styles.itemLabel}>Email</span>
-          {mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}
-        </p>
-        <p className={styles.contactItem}>
-          <span className={styles.itemLabel}>Showroom</span>
-          {COMPANY_CONFIG.showroomAddress}
-        </p>
-      </div>
-      <div className={styles.contactActions}>
-        {zaloUrl ? (
-          <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={`${styles.actionButton} ${styles.primaryAction}`}>
-            Chat Zalo
-          </a>
-        ) : null}
-        {telHref ? (
-          <a href={telHref} className={styles.actionButton}>
-            Gọi ngay
-          </a>
-        ) : null}
-      </div>
-    </>
-  );
+  const companyRows = [
+    ['Pháp nhân', COMPANY_CONFIG.legalName],
+    ['MST / ĐKKD', registrationValue],
+    ['Trụ sở', COMPANY_CONFIG.registeredAddress],
+    ['Đại diện pháp luật', COMPANY_CONFIG.legalRepresentative],
+  ] as const;
 
   return (
     <footer className={styles.footer} data-surface="ink">
-      <div className="container">
-        <aside className={styles.wineBridge} aria-label="Khám phá rượu vang Đức">
-          <div>
-            <span className={styles.wineEyebrow}>Từ German Taste</span>
-            <strong>Khám phá rượu vang Đức</strong>
-            <p>Riesling, Spätburgunder, giải pháp quà tặng và tư vấn cho nhà hàng, doanh nghiệp.</p>
-          </div>
-          <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer">
-            Sang website rượu vang
-          </a>
-        </aside>
-
-        <div className={styles.desktopFooter}>
-          <section aria-label="Giới thiệu Bia Thầy Tu">
-            {brandBlock}
+      <div className={styles.main}>
+        <div className={`container ${styles.grid}`}>
+          <section className={styles.brand} aria-label="Giới thiệu Bia Thầy Tu">
+            <Link href="/" className={styles.brandLink} aria-label="Bia Thầy Tu, về trang chủ">
+              <Image src="/logo.png" alt="" width={64} height={64} className={styles.crest} />
+              <span className={styles.brandTitle}>Bia Thầy Tu</span>
+            </Link>
+            <p className={styles.brandDesc}>
+              Khám phá Benediktiner tại Việt Nam, câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
+            </p>
+            <p className={styles.brochureNote}>
+              Website giới thiệu sản phẩm, không bán hàng trực tuyến.
+            </p>
+            {zaloUrl ? (
+              <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-light btn-sm">
+                Chat Zalo
+              </a>
+            ) : null}
           </section>
 
-          <section aria-label="Thông tin doanh nghiệp">
-            <h4 className={styles.columnTitle}>Thông tin doanh nghiệp</h4>
-            {companyBlock}
+          <section aria-labelledby="footer-explore">
+            <h2 id="footer-explore" className={styles.columnTitle}>Khám phá</h2>
+            <ul className={styles.linkList}>
+              {productLinks.map((link) => (
+                <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+              ))}
+            </ul>
           </section>
 
-          <section aria-label="Liên kết nhanh">
-            <h4 className={styles.columnTitle}>Liên kết nhanh</h4>
-            {quickLinksBlock}
+          <section aria-labelledby="footer-contact">
+            <h2 id="footer-contact" className={styles.columnTitle}>Liên hệ</h2>
+            <dl className={styles.rows}>
+              <div>
+                <dt>Hotline</dt>
+                <dd>{telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}</dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd>{mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}</dd>
+              </div>
+              <div>
+                <dt>Showroom</dt>
+                <dd>{COMPANY_CONFIG.showroomAddress}</dd>
+              </div>
+            </dl>
+            <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
+              Từ German Taste: khám phá rượu vang Đức
+            </a>
           </section>
 
-          <section aria-label="Liên hệ">
-            <h4 className={styles.columnTitle}>Liên hệ</h4>
-            {contactBlock}
+          <section aria-labelledby="footer-company">
+            <h2 id="footer-company" className={styles.columnTitle}>Thông tin doanh nghiệp</h2>
+            <dl className={`${styles.rows} ${styles.company}`}>
+              {companyRows.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
         </div>
+      </div>
 
-        <div className={styles.mobileFooter}>
-          <div className={styles.mobileBrand}>{brandBlock}</div>
-
-          <details className={styles.mobileDetails}>
-            <summary className={styles.mobileSummary}>Thông tin doanh nghiệp</summary>
-            <div className={styles.mobileDetailsContent}>{companyBlock}</div>
-          </details>
-
-          <details className={styles.mobileDetails}>
-            <summary className={styles.mobileSummary}>Liên kết nhanh</summary>
-            <div className={styles.mobileDetailsContent}>{quickLinksBlock}</div>
-          </details>
-
-          <details className={styles.mobileDetails}>
-            <summary className={styles.mobileSummary}>Liên hệ</summary>
-            <div className={styles.mobileDetailsContent}>{contactBlock}</div>
-          </details>
-        </div>
-
-        <div className={styles.bottomArea}>
-          <div className={styles.warningWrap}>
-            <AlcoholWarning variant="footer" />
-          </div>
+      <div className={styles.bar}>
+        <div className={`container ${styles.barInner}`}>
+          <nav aria-label="Chính sách">
+            <ul className={styles.policyList}>
+              {policyLinks.map((link) => (
+                <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+              ))}
+            </ul>
+          </nav>
+          <AlcoholWarning variant="footer" className={styles.warning} />
           <p className={styles.copyright}>
             © {new Date().getFullYear()} Bia Thầy Tu. All rights reserved.
           </p>

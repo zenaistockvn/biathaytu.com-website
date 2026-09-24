@@ -54,6 +54,21 @@ export default function EditorialPage({ hero, tone = 'ink', width = 'narrow', ch
   );
 }
 
+/** Dải tiêu đề xanh đêm (hoặc nền trắng) dùng riêng cho trang không cần cột bài viết (vd. danh sách kiến thức). */
+export function PageHeader({ eyebrow, title, kicker, lead, tone = 'ink', children }: {
+  eyebrow?: React.ReactNode; title: React.ReactNode; kicker?: React.ReactNode; lead?: React.ReactNode; tone?: 'ink' | 'light'; children?: React.ReactNode;
+}) {
+  return (
+    <header className={tone === 'light' ? styles.heroLight : styles.heroInk} data-surface={tone === 'ink' ? 'ink' : undefined}>
+      <div className="container">
+        {children}
+        <TitleBlock as="h1" size="h1" align={tone === 'light' ? 'center' : 'left'} id="page-title" eyebrow={eyebrow} title={title} kicker={kicker} />
+        {lead ? <p className={styles.lead}>{lead}</p> : null}
+      </div>
+    </header>
+  );
+}
+
 /** Khung tóm tắt đầu bài. */
 export function Summary({ children }: { children: React.ReactNode }) {
   return <aside className={styles.summary}>{children}</aside>;
