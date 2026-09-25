@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -47,6 +47,9 @@ const NAV_LINKS = [
   { href: '/bia-duc-cho-nha-hang-khach-san', label: 'HORECA' },
 ];
 
+const MOBILE_MENU_ID = 'mobile-menu';
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 /**
  * Header hai tầng kiểu chimay.com: huy hiệu lớn treo xuống dưới thanh header, bên phải là
  * hàng tiện ích nhỏ (hotline, liên hệ, tư vấn, ngôn ngữ) và hàng menu chính in hoa.
@@ -55,6 +58,8 @@ const NAV_LINKS = [
 export default function WebHeader() {
   const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const { t } = useLanguage();
   const menuOpen = menuOpenPath === pathname;
@@ -74,6 +79,46 @@ export default function WebHeader() {
     }
     return () => {
       document.body.classList.remove('overflow-hidden');
+    };
+  }, [menuOpen]);
+
+  // Menu mobile là hộp thoại: focus vào mục đầu khi mở, Escape để đóng, Tab chạy vòng trong
+  // menu và nút menu (trang nền đã khoá cuộn nên không cho focus lọt ra), đóng thì trả focus về nút menu.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const menu = menuRef.current;
+    const toggle = menuButtonRef.current;
+    const focusables = () => [
+      ...(toggle ? [toggle] : []),
+      ...(menu ? Array.from(menu.querySelectorAll<HTMLElement>(FOCUSABLE)) : []),
+    ];
+    focusables()[1]?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenuOpenPath(null);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (event.shiftKey && (active === first || !items.includes(active!))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (active === last || !items.includes(active!))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      toggle?.focus();
     };
   }, [menuOpen]);
 
@@ -136,10 +181,13 @@ export default function WebHeader() {
 
         <div className={`web-nav-mobile-right ${styles.mobileRight}`}>
           <button
+            ref={menuButtonRef}
+            type="button"
             className={styles.hamburger}
             onClick={() => setMenuOpenPath(menuOpen ? null : pathname)}
             aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
             aria-expanded={menuOpen}
+            aria-controls={MOBILE_MENU_ID}
           >
             {menuOpen ? (
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
@@ -151,8 +199,15 @@ export default function WebHeader() {
       </div>
 
       {menuOpen && (
-        <div className={styles.mobileMenu}>
-          <nav aria-label="Điều hướng chính">
+        <div
+          ref={menuRef}
+          id={MOBILE_MENU_ID}
+          className={styles.mobileMenu}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+        >
+          <nav aria-label="Menu di động">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
