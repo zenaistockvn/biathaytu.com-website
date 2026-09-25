@@ -33,6 +33,7 @@
 }
 
 .block .hero { font-size: var(--web-fs-hero); line-height: 1.12 !important; }
+.block .page { font-size: var(--web-fs-hero-page); }
 .block .h1 { font-size: var(--web-fs-h1); }
 .block .h2 { font-size: var(--web-fs-h2); }
 .block .h3 { font-size: var(--web-fs-h3); }

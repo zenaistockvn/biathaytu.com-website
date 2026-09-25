@@ -10,7 +10,8 @@ interface TitleBlockProps {
   /** Icon nét mảnh đặt bên trái, xem LineIcons.tsx. */
   icon?: React.ReactNode;
   as?: 'h1' | 'h2' | 'h3';
-  size?: 'hero' | 'h1' | 'h2' | 'h3';
+  /** `hero`: trang chủ; `page`: hero trang con. */
+  size?: 'hero' | 'page' | 'h1' | 'h2' | 'h3';
   align?: 'left' | 'center';
   id?: string;
   className?: string;

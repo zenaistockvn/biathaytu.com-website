@@ -60,7 +60,7 @@ export default function PhotoHero({
         <div className="container">
           <div className={styles.copy}>
             <div {...revealAttr}>
-              <TitleBlock as="h1" size="hero" id={titleId} title={title} kicker={kicker} eyebrow={eyebrow} />
+              <TitleBlock as="h1" size={size === 'full' ? 'hero' : 'page'} id={titleId} title={title} kicker={kicker} eyebrow={eyebrow} />
             </div>
             {children ? <div className={styles.body} {...revealAttr}>{children}</div> : null}
             {actions ? <div className={styles.actions} {...revealAttr}>{actions}</div> : null}

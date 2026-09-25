@@ -77,6 +77,8 @@
   /* Thang cỡ chữ. Chữ hoa bản rộng chiếm chỗ hơn chữ thường ~30%, nên cỡ nhỏ hơn thói quen
      (Chimay: h2 38px với font thường). */
   --web-fs-hero: clamp(38px, 6.2vw, 84px);
+  /* Hero trang con (size="medium"): tiêu đề 2–4 chữ phải nằm một dòng trong khung 760px. */
+  --web-fs-hero-page: clamp(34px, 4.4vw, 60px);
   --web-fs-h1: clamp(30px, 4vw, 52px);
   --web-fs-h2: clamp(24px, 2.7vw, 36px);
   --web-fs-h3: clamp(19px, 1.7vw, 24px);

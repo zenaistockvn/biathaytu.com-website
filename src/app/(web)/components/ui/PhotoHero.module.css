@@ -49,7 +49,8 @@
   }
 }
 
-/* 760px để tiêu đề ba chữ như "Cho nhà hàng" nằm trọn một dòng; đoạn dẫn giữ 520px bên dưới. */
+/* 760px cho cụm chữ; hero trang con dùng cỡ --web-fs-hero-page để tiêu đề như "Cho nhà hàng"
+   nằm trọn một dòng (cỡ 84px của trang chủ làm gãy thành "CHO NHÀ / HÀNG"). Đoạn dẫn giữ 520px. */
 .copy {
   max-width: 760px;
 }
