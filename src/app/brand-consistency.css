@@ -170,14 +170,6 @@
   cursor: pointer;
 }
 
-/* P2 editorial hierarchy — fewer UI boxes, stronger photography. */
-.web-app {
-  --web-radius-lg: 16px;
-  --web-shadow: 0 8px 28px rgb(var(--web-ink-rgb) / 0.055);
-  --web-shadow-md: 0 14px 34px -22px rgb(var(--web-ink-rgb) / 0.14);
-  --web-shadow-lg: 0 18px 42px -20px rgb(var(--web-ink-rgb) / 0.18);
-}
-
 /* Functional controls should feel tailored, not SaaS-pill heavy. */
 .web-app .btn-primary,
 .web-app .btn-outline {

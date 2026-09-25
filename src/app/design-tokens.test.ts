@@ -98,6 +98,21 @@ describe('design tokens', () => {
     for (const t of ['--web-radius', '--web-radius-md', '--web-radius-lg']) expect(defined.get(t), t).toBe('0');
   });
 
+  it('chỉ web.css được khai --web-radius*/--web-shadow* (file nạp sau không được đặt lại)', () => {
+    const webLayout = fs.readFileSync(path.join(ROOT, 'src/app/(web)/layout.tsx'), 'utf8');
+    const cssFiles = [...webLayout.matchAll(/^import\s+['"]([^'"]+\.css)['"];?/gm)]
+      .map((m) => path.resolve(ROOT, 'src/app/(web)', m[1]));
+    expect(cssFiles).toContain(path.join(ROOT, 'src/app/web.css'));
+    const offenders: string[] = [];
+    for (const file of cssFiles) {
+      if (file === path.join(ROOT, 'src/app/web.css')) continue;
+      for (const m of fs.readFileSync(file, 'utf8').matchAll(/(--web-(?:radius|shadow)[a-z0-9-]*)\s*:/g)) {
+        offenders.push(`${path.relative(ROOT, file)}: ${m[1]}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('DESIGN.md khai đúng màu chủ đạo của web.css', () => {
     const defined = definedTokens();
     const fm = DESIGN.slice(0, DESIGN.indexOf('---', 4));
