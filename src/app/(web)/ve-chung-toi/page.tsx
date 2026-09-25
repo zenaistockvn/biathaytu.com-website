@@ -5,7 +5,8 @@ import { COMPANY_CONFIG } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
 
 export const metadata: Metadata = {
-  title: 'Về Chúng Tôi | Bia Thầy Tu',
+  // Layout tự thêm "| Bia Thầy Tu"; ghi ở đây sẽ lặp thành "... | Bia Thầy Tu | Bia Thầy Tu".
+  title: 'Về Chúng Tôi',
   description: 'Tìm hiểu về Bia Thầy Tu, điểm kết nối câu chuyện Benediktiner, văn hoá bia Đức và nghệ thuật thưởng thức tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/ve-chung-toi' },
   openGraph: {

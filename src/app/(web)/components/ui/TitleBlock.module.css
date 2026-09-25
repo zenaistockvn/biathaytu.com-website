@@ -28,6 +28,8 @@
    Màu lấy từ --heading-color nên tự đảo sang trắng trong khối data-surface="ink". */
 .block .title {
   margin: 0;
+  /* Chia dòng đều nhau, tránh một chữ đứng lẻ ở dòng cuối ("CHO NHÀ / HÀNG"). */
+  text-wrap: balance;
 }
 
 .block .hero { font-size: var(--web-fs-hero); line-height: 1.12 !important; }

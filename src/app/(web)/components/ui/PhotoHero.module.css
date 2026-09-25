@@ -37,8 +37,21 @@
   padding-bottom: max(88px, calc(10.2vw + 32px));
 }
 
+/* Không có chữ viền rỗng thì không cần chừa đáy: cụm chữ nằm thấp, cách xa huy hiệu treo của header. */
+.noWordmark .inner {
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+
+/* Huy hiệu header treo xuống dưới thanh header (96px + 10px so với header 72px); chữ phải bắt đầu dưới nó. */
+@media (min-width: 1024px) {
+  .inner {
+    padding-top: calc(var(--web-header-h) + 88px);
+  }
+}
+
+/* 760px để tiêu đề ba chữ như "Cho nhà hàng" nằm trọn một dòng; đoạn dẫn giữ 520px bên dưới. */
 .copy {
-  max-width: 640px;
+  max-width: 760px;
 }
 
 .body {

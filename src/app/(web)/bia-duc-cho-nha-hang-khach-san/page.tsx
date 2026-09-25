@@ -41,11 +41,12 @@ export default function Page() {
 
       <EditorialPage
         hero={{
-          eyebrow: 'B2B và HORECA',
+          // Menu đã đánh dấu HORECA nên bỏ nhãn "B2B và HORECA": còn tiêu đề, dòng phụ, một câu dẫn.
+          // Ảnh cũ là góc cắt poster Bitburger, lộ chữ in của poster; dùng ảnh Benediktiner trên bàn gỗ.
           title: 'Cho nhà hàng',
           kicker: 'Khách sạn, bar và sự kiện',
           lead: 'Đưa các dòng bia Đức lâu đời vào menu đồ uống, cùng đơn vị phân phối chính hãng.',
-          image: { src: '/images/brand/bitburger-official/siegelhopfen-field.jpg', alt: 'Ly Bitburger giữa vùng trồng hoa bia Siegelhopfen', position: 'center 35%' },
+          image: { src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier trên bàn gỗ ngoài vườn bia', position: '70% center' },
         }}
       >
         <Summary>

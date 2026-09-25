@@ -42,7 +42,7 @@ export default function PhotoHero({
 }: PhotoHeroProps) {
   const revealAttr = reveal ? { 'data-hero-reveal': '' } : {};
   return (
-    <section ref={ref} className={`${styles.hero} ${styles[size]}`} data-surface="ink" aria-labelledby={titleId}>
+    <section ref={ref} className={`${styles.hero} ${styles[size]}${wordmark ? '' : ` ${styles.noWordmark}`}`} data-surface="ink" aria-labelledby={titleId}>
       <Image
         src={image.src}
         alt={image.alt}
