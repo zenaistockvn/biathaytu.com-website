@@ -14,6 +14,7 @@ import { getTastingNotes } from '../../utils/getTastingNotes';
 import { formatAbv, packWithoutVolume, splitProductName } from '../../utils/productName';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import styles from './page.module.css';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export function generateStaticParams() {
   return getVisibleProducts()
@@ -150,17 +151,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         volume: product.volume || undefined,
         category: product.category,
       })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
-        { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' },
-        { name: product.name, url: `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}` },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: `/san-pham/${product.slug || product.id}`, label: product.name }))} />
 
       <div className="container">
         <nav className={styles.breadcrumb} aria-label="Đường dẫn">
-          <Link href="/">Trang chủ</Link>
+          <Link href={NAV.home.href}>{NAV.home.label}</Link>
           <span aria-hidden="true">/</span>
-          <Link href="/san-pham">Sản phẩm</Link>
+          <Link href={NAV.products.href}>{NAV.products.label}</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{product.name}</span>
         </nav>

@@ -4,6 +4,7 @@ import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
 import { getBeerProducts } from '@/lib/data/products';
 import { getCompanyZaloUrl } from '@/config/company';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
@@ -50,7 +51,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Weissbier Naturtrüb', url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: '/benediktiner-weissbier-naturtrub', label: 'Weissbier Naturtrüb' }))} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

@@ -78,8 +78,8 @@ describe('mobile-first responsive regressions', () => {
     expect(layout).toContain("import MobileBottomNav from './components/MobileBottomNav'");
     expect(layout).toContain('<MobileBottomNav />');
     expect(bottomNav).toContain('className={styles.nav}');
-    for (const href of ['/', '/san-pham', '/kien-thuc']) {
-      expect(bottomNav).toContain(`href: '${href}'`);
+    for (const key of ['home', 'products', 'knowledge']) {
+      expect(bottomNav).toContain(`...NAV.${key}`);
     }
     expect(css).toMatch(/^\.nav\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/m);
     // Mục thứ tư mở bảng liên hệ thay cho nút nổi (nút nổi ẩn trên mobile để không đè nội dung).

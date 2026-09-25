@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
 import EditorialPage, { CtaBand, FaqSection, InfoGrid, Summary } from '../components/EditorialPage';
 import { COMPANY_CONFIG } from '@/config/company';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
@@ -40,7 +41,7 @@ export default function Page() {
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu Là Gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Thầy Tu Là Gì?', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-thay-tu-la-gi', label: 'Bia Thầy Tu Là Gì?' }))} />
 
       <EditorialPage
         hero={{

@@ -6,6 +6,7 @@ import SplitBlock from '../components/ui/SplitBlock';
 import TitleBlock from '../components/ui/TitleBlock';
 import { AbbeyIcon } from '../components/ui/LineIcons';
 import styles from './page.module.css';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
@@ -41,10 +42,7 @@ const principles = [
 export default function BrandStoryPage() {
   return (
     <>
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
-        { name: 'Câu chuyện', url: 'https://www.biathaytu.com.vn/thuong-hieu' },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.story))} />
 
       <PhotoHero
         size="medium"

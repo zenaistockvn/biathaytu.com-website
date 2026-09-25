@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import EditorialPage, { CtaBand, StepList, Summary } from '../components/EditorialPage';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
@@ -32,7 +33,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Hướng Dẫn Rót Bia Lúa Mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Hướng Dẫn Rót Bia', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.enjoy.href, label: 'Hướng Dẫn Rót Bia' }))} />
 
       <EditorialPage
         hero={{

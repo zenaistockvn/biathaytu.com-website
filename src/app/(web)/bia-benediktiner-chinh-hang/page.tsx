@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
@@ -33,7 +34,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Benediktiner Chính Hãng', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-benediktiner-chinh-hang', label: 'Bia Benediktiner Chính Hãng' }))} />
 
       <EditorialPage
         hero={{

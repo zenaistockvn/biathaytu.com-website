@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
@@ -36,7 +37,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Chính Sách Đại Lý & Giá Sỉ Bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Đại Lý Phân Phối', url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bang-gia-si-dai-ly', label: 'Đại Lý Phân Phối' }))} />
 
       <EditorialPage
         hero={{

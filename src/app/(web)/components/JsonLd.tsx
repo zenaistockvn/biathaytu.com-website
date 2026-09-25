@@ -6,6 +6,7 @@
 import { getPublicBaseUrl, toAbsoluteSiteUrl } from '@/lib/seo/site';
 import { BUSINESS, getBrandInfo } from '@/lib/seo/business';
 import { COMPANY_CONFIG, isPendingCompanyValue } from '@/config/company';
+import type { NavItem } from '@/config/navigation';
 
 const BASE_URL = getPublicBaseUrl();
 const hasConfirmedLegalName = !isPendingCompanyValue(COMPANY_CONFIG.legalName);
@@ -164,15 +165,16 @@ export function getProductSchema(product: {
   };
 }
 
-export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+/** Nhận chuỗi từ `breadcrumbTrail()` (src/config/navigation.ts) để tên khớp breadcrumb hiển thị và menu. */
+export function getBreadcrumbSchema(items: NavItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
-      item: item.url,
+      name: item.label,
+      item: item.href === '/' ? BASE_URL : toAbsoluteSiteUrl(item.href, BASE_URL),
     })),
   };
 }

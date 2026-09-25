@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '../components/JsonLd';
 import EditorialPage, { CtaBand, FaqSection, InfoGrid, Summary } from '../components/EditorialPage';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Nghệ Thuật Food Pairing: Bia Đức Kết Hợp Cùng Ẩm Thực',
@@ -39,7 +40,7 @@ export default function Page() {
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Food Pairing với Bia Đức', slug: 'food-pairing-bia-duc', url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc', description: 'Cách kết hợp món ăn và bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Food Pairing Bia Đức', url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/food-pairing-bia-duc', label: 'Food Pairing Bia Đức' }))} />
 
       <EditorialPage
         hero={{

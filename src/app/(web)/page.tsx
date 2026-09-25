@@ -13,6 +13,7 @@ import {
   getCompanyZaloUrl,
 } from '@/config/company';
 import styles from './Home.module.css';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
@@ -95,9 +96,7 @@ export default function LandingPage() {
   return (
     <>
       <JsonLd type="faq" data={getLandingFAQSchema()} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail())} />
       <JsonLd type="organization" data={getStoreSchema()} />
 
       <LandingHero />

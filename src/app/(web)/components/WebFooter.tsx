@@ -10,14 +10,15 @@ import {
   getCompanyTelHref,
   getCompanyZaloUrl,
 } from '@/config/company';
+import { NAV } from '@/config/navigation';
 
 const productLinks = [
   { href: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml', label: 'Benediktiner Weissbier' },
   { href: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml', label: 'Benediktiner Dunkel' },
   { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Bom 5L Benediktiner' },
   { href: '/bitburger-premium-pils', label: 'Bitburger Premium Pils' },
-  { href: '/huong-dan-rot-bia-lua-mi', label: 'Nghệ thuật thưởng thức' },
-  { href: '/thuong-hieu', label: 'Câu chuyện Ettal' },
+  NAV.enjoy,
+  NAV.story,
 ];
 
 const policyLinks = [

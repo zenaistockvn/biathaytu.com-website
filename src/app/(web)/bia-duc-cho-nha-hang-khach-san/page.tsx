@@ -3,6 +3,7 @@ import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import { getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
@@ -37,7 +38,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Bia Đức Cho Nhà Hàng Khách Sạn', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.horeca.href, label: 'Bia Đức Cho Nhà Hàng Khách Sạn' }))} />
 
       <EditorialPage
         hero={{

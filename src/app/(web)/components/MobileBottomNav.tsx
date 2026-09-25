@@ -2,26 +2,24 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NAV } from '@/config/navigation';
 import styles from './MobileBottomNav.module.css';
 
 const navItems = [
   {
-    href: '/',
-    label: 'Trang chủ',
+    ...NAV.home,
     icon: (
       <path d="M3 10.8 12 3l9 7.8V21a1 1 0 0 1-1 1h-5.2v-6.6H9.2V22H4a1 1 0 0 1-1-1V10.8Z" />
     ),
   },
   {
-    href: '/san-pham',
-    label: 'Bia Đức',
+    ...NAV.products,
     icon: (
       <path d="M5.5 8.2 12 4.5l6.5 3.7v7.6L12 19.5l-6.5-3.7V8.2Zm.7.1 5.8 3.4 5.8-3.4M12 12v7" />
     ),
   },
   {
-    href: '/kien-thuc',
-    label: 'Kiến thức',
+    ...NAV.knowledge,
     icon: (
       <path d="M5 4.5h9.5A2.5 2.5 0 0 1 17 7v12.5H7A2 2 0 0 1 5 17.5v-13Zm12 3h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2M8 8h6M8 12h6M8 16h4" />
     ),

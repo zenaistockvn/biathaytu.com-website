@@ -4,6 +4,7 @@ import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
 import { getBeerProducts } from '@/lib/data/products';
 import { getCompanyZaloUrl } from '@/config/company';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
@@ -51,7 +52,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Benediktiner Dunkel', url: 'https://www.biathaytu.com.vn/benediktiner-dunkel' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: '/benediktiner-dunkel', label: 'Benediktiner Dunkel' }))} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

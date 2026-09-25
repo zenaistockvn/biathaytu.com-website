@@ -3,6 +3,7 @@ import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import { COMPANY_CONFIG } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   // Layout tự thêm "| Bia Thầy Tu"; ghi ở đây sẽ lặp thành "... | Bia Thầy Tu | Bia Thầy Tu".
@@ -35,7 +36,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Về Chúng Tôi', slug: 've-chung-toi', url: 'https://www.biathaytu.com.vn/ve-chung-toi', description: 'Thông tin nhà nhập khẩu Bia Thầy Tu.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Về Chúng Tôi', url: 'https://www.biathaytu.com.vn/ve-chung-toi' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/ve-chung-toi', label: 'Về Chúng Tôi' }))} />
 
       <EditorialPage
         hero={{

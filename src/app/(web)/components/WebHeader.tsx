@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
+import { NAV } from '@/config/navigation';
 import styles from './WebHeader.module.css';
 
 // Trang có section đầu là dải xanh ngay dưới header. Không thêm /san-pham: thanh menu phụ
@@ -37,14 +38,15 @@ function isDarkHeroPath(pathname: string): boolean {
   );
 }
 
-// Menu chính theo ngữ pháp Chimay (Nos bières, Depuis 1850, Recettes...).
+// Menu chính theo ngữ pháp Chimay (Nos bières, Depuis 1850, Recettes...). Tên route lấy từ NAV;
+// hai mục đầu là anchor danh mục trong /san-pham, sẽ gộp thành một mục "Sản phẩm" (audit A1).
 const NAV_LINKS = [
   { href: '/san-pham#benediktiner', label: 'Bia Benediktiner' },
   { href: '/san-pham#bia-duc-khac', label: 'Bia Đức tuyển chọn' },
-  { href: '/thuong-hieu', label: 'Từ 1330' },
-  { href: '/huong-dan-rot-bia-lua-mi', label: 'Thưởng thức' },
-  { href: '/kien-thuc', label: 'Kiến thức' },
-  { href: '/bia-duc-cho-nha-hang-khach-san', label: 'HORECA' },
+  NAV.story,
+  NAV.enjoy,
+  NAV.knowledge,
+  NAV.horeca,
 ];
 
 const MOBILE_MENU_ID = 'mobile-menu';
@@ -151,8 +153,8 @@ export default function WebHeader() {
                 {COMPANY_CONFIG.hotline}
               </a>
             ) : null}
-            <Link href="/lien-he" className={styles.utilityBox} aria-current={isCurrentPath('/lien-he') ? 'page' : undefined}>
-              Showroom
+            <Link href={NAV.contact.href} className={styles.utilityBox} aria-current={isCurrentPath(NAV.contact.href) ? 'page' : undefined}>
+              {NAV.contact.label}
             </Link>
             <a
               href={consultUrl || '/lien-he'}
@@ -219,8 +221,13 @@ export default function WebHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/lien-he" onClick={() => setMenuOpenPath(null)} className={styles.mobileLink}>
-              Showroom
+            <Link
+              href={NAV.contact.href}
+              onClick={() => setMenuOpenPath(null)}
+              className={styles.mobileLink}
+              aria-current={isCurrentPath(NAV.contact.href) ? 'page' : undefined}
+            >
+              {NAV.contact.label}
             </Link>
           </nav>
           <Button

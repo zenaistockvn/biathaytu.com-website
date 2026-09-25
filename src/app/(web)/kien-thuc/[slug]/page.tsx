@@ -13,6 +13,7 @@ import { Button } from '../../components/ui/Button'
 import ArticleCard, { ArticleGrid } from '../../components/ui/ArticleCard'
 import TitleBlock from '../../components/ui/TitleBlock'
 import styles from './page.module.css';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const revalidate = 3600;
 
@@ -113,18 +114,14 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         dateModified: article.updated_at || article.created_at,
         imageUrl: article.thumbnail_url || undefined,
       })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
-        { name: 'Kiến Thức', url: 'https://www.biathaytu.com.vn/kien-thuc' },
-        { name: article.title, url: articleUrl },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.knowledge, { href: articleUrl, label: article.title }))} />
 
       <header className={`${styles.hero} ${article.thumbnail_url ? styles.withCover : ''}`} data-surface="ink">
         <div className={`container ${styles.heroInner}`}>
           <nav className={styles.breadcrumb} aria-label="Đường dẫn">
-            <Link href="/">Trang chủ</Link>
+            <Link href={NAV.home.href}>{NAV.home.label}</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/kien-thuc">Kiến thức</Link>
+            <Link href={NAV.knowledge.href}>{NAV.knowledge.label}</Link>
           </nav>
           <h1 className={`article-detail-title ${styles.title}`}>{article.title}</h1>
           <p className={styles.meta}>

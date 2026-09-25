@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
@@ -32,7 +33,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Chứng Nhận Nhập Khẩu', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/chung-nhan-nhap-khau-chinh-hang', label: 'Chứng Nhận Nhập Khẩu' }))} />
 
       <EditorialPage
         hero={{

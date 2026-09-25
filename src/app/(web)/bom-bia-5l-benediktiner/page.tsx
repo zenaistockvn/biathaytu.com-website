@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
 import { getBeerProducts } from '@/lib/data/products';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
@@ -45,7 +46,7 @@ export default function Page() {
   return (
     <>
       <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([{ name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' }, { name: 'Sản Phẩm', url: 'https://www.biathaytu.com.vn/san-pham' }, { name: 'Bom Bia 5L', url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' }])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: '/bom-bia-5l-benediktiner', label: 'Bom Bia 5L' }))} />
 
       <ProductStory
         wordmark="BENEDIKTINER"

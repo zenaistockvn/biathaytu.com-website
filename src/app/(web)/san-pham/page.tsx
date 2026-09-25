@@ -8,6 +8,7 @@ import PhotoHero from '../components/ui/PhotoHero';
 import TitleBlock from '../components/ui/TitleBlock';
 import { getTastingNotes } from '../utils/getTastingNotes';
 import styles from './page.module.css';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Và Bia Đức Tuyển Chọn',
@@ -59,10 +60,7 @@ export default function ProductsPage() {
 
   return (
     <div className="products-page-container">
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang chủ', url: 'https://www.biathaytu.com.vn' },
-        { name: 'Benediktiner', url: 'https://www.biathaytu.com.vn/san-pham' },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products))} />
 
       <PhotoHero
         size="medium"

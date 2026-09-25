@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { PageHeader } from '../components/EditorialPage'
 import TitleBlock from '../components/ui/TitleBlock'
 import styles from './page.module.css';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Liên Hệ & Tư Vấn Bia Thầy Tu Benediktiner',
@@ -42,10 +43,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema([
-        { name: 'Trang Chủ', url: 'https://www.biathaytu.com.vn' },
-        { name: 'Liên Hệ', url: 'https://www.biathaytu.com.vn/lien-he' },
-      ])} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.contact))} />
 
       <PageHeader
         tone="light"
