@@ -32,6 +32,9 @@ Trang dòng bia (`/benediktiner-weissbier-naturtrub`, `/benediktiner-dunkel`, `/
 
 **Sửa:** `src/config/navigation.ts` — một bảng `{ href, label }` chuẩn; header, menu mobile, bottom nav, footer, breadcrumb, JSON-LD cùng đọc.
 
+> **Đã sửa · đợt 1 · `536fb10`.** Nhãn đã duyệt: `/san-pham` "Sản phẩm", `/thuong-hieu` "Câu chuyện Ettal", `/lien-he` "Showroom" ("Liên hệ" dành cho nút mở bảng kênh). Header, menu mobile, bottom nav, footer, breadcrumb hiển thị (SKU, bài viết) và JSON-LD breadcrumb của 19 trang đọc từ `NAV` qua `breadcrumbTrail()`. Kèm theo: footer "Nghệ thuật thưởng thức" thành "Thưởng thức"; JSON-LD "Trang Chủ" thành "Trang chủ". Test: `src/config/navigation.test.ts`.
+> **Còn mở:** hai mục anchor "Bia Benediktiner", "Bia Đức tuyển chọn" trên header giữ tới A1 (đợt 2); nút "Liên hệ tư vấn" (Zalo) giữ tới A5. JSON-LD của `/huong-dan-rot-bia-lua-mi` và `/bia-duc-cho-nha-hang-khach-san` vẫn dùng tên trang ("Hướng Dẫn Rót Bia", "Bia Đức Cho Nhà Hàng Khách Sạn"), khác nhãn menu ("Thưởng thức", "HORECA"): cần chủ dự án chọn.
+
 ### A4 · Trung bình — Trang không có lối vào từ header/footer/menu
 Không có link nội bộ: `/ve-chung-toi`, `/bia-thay-tu-la-gi`, `/bia-benediktiner-chinh-hang`, `/bom-bia-5l-benediktiner`. Chỉ một lối vào sâu: `/bang-gia-si-dai-ly`, `/food-pairing-bia-duc` (từ trang HORECA), `/qua-tang-bia-duc` (từ trang bom 5L, vốn mồ côi), `/chung-nhan-nhap-khau-chinh-hang` (từ /ve-chung-toi). Chưa kiểm link trong nội dung bài viết.
 **Sửa:** footer thêm cột "Mua hàng" và "Tìm hiểu" (A7). Cân nhắc gộp `/ve-chung-toi` vào `/thuong-hieu`.
@@ -69,6 +72,8 @@ DESIGN.md: không bóng, không bo góc (`--web-shadow*: none`, `--web-radius*: 
 Mọi chỗ dùng `var(--web-radius-lg)` (vd. `.product-img-box` trang SKU) đang bo 16px. `design-tokens.test.ts` chỉ kiểm `web.css` nên không bắt được.
 **Sửa:** xoá khối đó; mở rộng test quét mọi CSS import trong `src/app/(web)/layout.tsx`, fail nếu file ngoài `web.css` khai lại `--web-radius*`/`--web-shadow*`.
 
+> **Đã sửa · đợt 1 · `f76121e`.** Khối "P2 editorial hierarchy" đã xoá; `.product-img-box` trang SKU về góc vuông (kiểm trên trình duyệt: `border-radius: 0px`). Test mới trong `src/app/design-tokens.test.ts`.
+
 ### B2 · Trung bình — Nhãn điều hướng lệch quy tắc Barlow Condensed in hoa
 - Bottom nav: Barlow 700, 11px, chữ thường (`web.css` .mobile-bottom-nav-item).
 - Thanh danh mục: 12–13px, chữ thường (`brand-consistency.css` .catalog-sticky-link).
@@ -82,6 +87,9 @@ Mọi chỗ dùng `var(--web-radius-lg)` (vd. `.product-img-box` trang SKU) đan
 - Màu link dùng `!important` ở bottom nav, thanh danh mục, bảng liên hệ.
 
 **Sửa:** một nguồn cho mỗi token (74px trong `web.css`). Chuyển MobileBottomNav, CatalogStickyNav, FloatingZaloCTA sang CSS module như `WebHeader.module.css`.
+
+> **Đã sửa · đợt 1 · `4b0cb3e`.** `--web-mobile-bottom-nav-height: 74px` và `padding-bottom` của main chỉ khai trong `web.css`; thêm token `--web-catalog-nav-h` (54px, mobile 50px). Thanh danh mục `top: var(--web-header-h)`; `scroll-margin-top` và `rootMargin` của IntersectionObserver tính từ token. Ba component có `*.module.css` riêng, không `!important`. Kích thước, màu đo lại trên trình duyệt không đổi. Test: `mobile-first-regression.test.ts`.
+> **Còn mở:** `.toast-container` vẫn khai `bottom` ở cả `web.css` và `mobile-overrides.css` (bản sau có `!important`).
 
 ### B4 · Thấp — Focus ring nút liên hệ khác chuẩn
 Outline 3px vàng 50%, offset 3px, gần như không thấy trên nền trắng. Chuẩn: 2px đặc, offset 2px, `--web-accent` trên nền sáng.
@@ -101,6 +109,9 @@ Nút liên hệ `translateY(-2px)`, FormatStrip `translateY(-4px)` khi hover (h�
 Không đóng bằng Escape, không bẫy focus (Tab thoát ra trang nền đã khoá cuộn), không `role="dialog"`/`aria-modal`, nút menu thiếu `aria-controls`. Nav desktop và mobile cùng nhãn "Điều hướng chính". 7 mục phẳng, hotline ở cuối.
 **Sửa:** hành vi dialog đầy đủ, trả focus về nút menu khi đóng, đổi nhãn nav mobile thành "Menu di động". Bố cục mới: D4.
 
+> **Đã sửa (hành vi) · đợt 1 · `b8a6361`.** `role="dialog"`, `aria-modal`, `id` + `aria-controls`; mở thì focus mục đầu, Tab/Shift+Tab chạy vòng trong menu và nút menu, Escape đóng và trả focus về nút menu; nav mobile nhãn "Menu di động". Đã thử bằng phím thật ở 390px. Test: `components/header-menu-a11y.test.ts`.
+> **Còn mở:** nút đóng nằm ngoài dialog nên trình đọc màn hình có thể bỏ qua; đưa vào trong menu khi làm D4. Bố cục mới (D4) chưa làm.
+
 ### C3 · Trung bình — Thanh cố định chiếm ≈23% màn hình
 `/san-pham`: header 72 + thanh danh mục 50 + bottom nav 74 = 196px / 844px. Lần đầu thêm banner cookie.
 **Sửa:** header thu còn 56px khi cuộn (đã có state `scrolled`); thanh danh mục thay chỗ header khi cuộn thay vì xếp chồng.
@@ -115,6 +126,8 @@ Không đóng bằng Escape, không bẫy focus (Tab thoát ra trang nền đã 
 - Ảnh thu nhỏ `ProductGallery` là `<div onClick>`: không focus, không nhãn, không trạng thái chọn.
 
 **Sửa:** `min-height: 44px` cho tab; vùng chạm ảo `::after` cho hàng tiện ích; ảnh thu nhỏ → `<button type="button" aria-pressed aria-label="Ảnh N">`.
+
+> **Đã sửa · đợt 1 · `1e56bd8`.** Tab danh mục 44px; hotline, Showroom, Liên hệ tư vấn, nút ngôn ngữ nhìn 26px nhưng vùng chạm 44px (đo ở 1280px). Ảnh thu nhỏ là `<button>`, style trong `ProductGallery.module.css`. Hiện không sản phẩm nào có hơn một ảnh nên dải ảnh thu nhỏ chỉ được kiểm bằng test.
 
 ### C6 · Thấp — Breadcrumb in hoa cả tên sản phẩm dài
 "TRANG CHỦ / SẢN PHẨM / BENEDIKTINER DUNKEL THÙNG 12 CHAI 500ML" xuống 2–3 dòng ở 390px, lặp H1. Trên mobile chỉ cần link về cấp cha.
@@ -182,12 +195,23 @@ Tiêu chí: giá và hai nút nằm trong màn hình đầu ở 390×844 (kiểm
 ---
 
 ## Lộ trình
-- **Đợt 1 · sửa nhanh:** B1 · C2 (hành vi dialog) · C5 · B3 · A3
+- **Đợt 1 · sửa nhanh:** B1 · C2 (hành vi dialog) · C5 · B3 · A3 — **xong 26/09/2026**, nhánh `claude/compassionate-goodall-dizuq0`
+
+  | Mục | Commit |
+  |---|---|
+  | B1 | `f76121e` |
+  | B3 | `4b0cb3e` |
+  | C5 | `1e56bd8` |
+  | C2 | `b8a6361` |
+  | A3 | `536fb10` |
+
+  Kiểm: `npm test` 192/192; `next build` thành công (`npm run build` cần `DATABASE_URL` cho `scripts/dump_data.js`, máy kiểm không có `.env.local`).
 - **Đợt 2 · điều hướng:** A1 + D2 · D4 · A5 · A7
 - **Đợt 3 · cấu trúc sản phẩm:** A2 + D1 · C1 + D3 · A6 · A8
 
 ## Cần chủ dự án quyết định
-1. Nhãn chuẩn cho `/san-pham`, `/thuong-hieu`, `/lien-he` (A3).
+1. ~~Nhãn chuẩn cho `/san-pham`, `/thuong-hieu`, `/lien-he` (A3).~~ Đã duyệt: Sản phẩm · Câu chuyện Ettal · Showroom.
+   Còn lại: tên JSON-LD của `/huong-dan-rot-bia-lua-mi` và `/bia-duc-cho-nha-hang-khach-san` theo tên trang hay nhãn menu (A3).
 2. Nội dung câu hướng dẫn cách mua (A6).
 3. Festbier: tạo trang dòng bia hay tạm trỏ SKU (A2).
 4. Gộp `/ve-chung-toi` vào `/thuong-hieu` hay giữ riêng (A4).
