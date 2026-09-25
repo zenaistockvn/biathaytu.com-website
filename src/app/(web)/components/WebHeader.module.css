@@ -125,6 +125,22 @@
   color: var(--web-ink);
 }
 
+/* Hàng tiện ích chỉ cao 26px để giữ hình Chimay; vùng chạm ảo nới lên 44px (26 + 9 + 9)
+   mà không đổi kích thước nhìn thấy. */
+.utilityLink,
+.utilityBox,
+.utility :global(.language-switcher) > button {
+  position: relative;
+}
+
+.utilityLink::after,
+.utilityBox::after,
+.utility :global(.language-switcher) > button::after {
+  content: '';
+  position: absolute;
+  inset: -9px -4px;
+}
+
 .nav {
   display: flex;
   align-items: center;

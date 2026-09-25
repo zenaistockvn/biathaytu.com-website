@@ -205,6 +205,7 @@ describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
     'src/app/(web)/components/MobileBottomNav.module.css',
     'src/app/(web)/components/CatalogStickyNav.module.css',
     'src/app/(web)/components/FloatingZaloCTA.module.css',
+    'src/app/(web)/components/ProductGallery.module.css',
   ].map(read).join('\n');
 
   it('không chữ gradient và không animation lặp vô hạn', () => {

@@ -867,39 +867,7 @@ html {
 
 /* Product Order Actions (Detail page) layout classes */
 
-/* Product Gallery Thumbnail Slider */
-.web-app .gallery-thumb-list {
-  display: flex !important;
-  gap: 10px !important;
-  margin-top: 16px !important;
-  overflow-x: auto !important;
-  padding-bottom: 10px !important;
-  scroll-behavior: smooth !important;
-}
-
-.web-app .gallery-thumb-item {
-  position: relative !important;
-  width: 80px !important;
-  height: 80px !important;
-  flex-shrink: 0 !important;
-  border-radius: 0 !important;
-  cursor: pointer !important;
-  overflow: hidden !important;
-  background-color: var(--web-card-bg) !important;
-  transition: border-color 0.25s ease, transform 0.25s ease !important;
-}
-
-.web-app .gallery-thumb-item:hover {
-  transform: scale(1.05) !important;
-}
-
-.web-app .gallery-thumb-active {
-  border: 2px solid var(--web-primary) !important;
-}
-
-.web-app .gallery-thumb-inactive {
-  border: 1px solid var(--web-border) !important;
-}
+/* Product Gallery Thumbnail Slider: ProductGallery.module.css */
 
 /* Zalo CTA component styles */
 

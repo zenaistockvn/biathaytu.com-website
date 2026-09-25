@@ -1,0 +1,32 @@
+/* Dải ảnh thu nhỏ dưới ảnh chính. Mỗi ảnh là <button> để dùng được bằng bàn phím. */
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* .thumbs .thumb (0,2,0) thắng quy tắc chung .web-app button (0,1,1). */
+.thumbs .thumb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--web-border);
+  border-radius: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: var(--web-card-bg);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.thumbs .thumb:hover {
+  transform: scale(1.05);
+}
+
+.thumbs .thumb[aria-pressed='true'] {
+  border: 2px solid var(--web-primary);
+}

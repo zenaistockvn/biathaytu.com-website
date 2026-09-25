@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { hasWhiteCanvas } from '@/lib/data/productImages';
+import styles from './ProductGallery.module.css';
 
 interface ProductGalleryProps {
   images: string[];
@@ -38,21 +39,24 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
 
       {/* Thumbnails */}
       {images.length > 1 && (
-        <div className="gallery-thumb-list">
+        <div className={styles.thumbs}>
           {images.map((img, index) => (
-            <div 
-              key={index} 
+            <button
+              type="button"
+              key={index}
               onClick={() => setMainImage(img)}
-              className={`gallery-thumb-item ${mainImage === img ? 'gallery-thumb-active' : 'gallery-thumb-inactive'}`}
+              className={styles.thumb}
+              aria-pressed={mainImage === img}
+              aria-label={`Ảnh ${index + 1}`}
             >
               <Image
                 src={img}
-                alt={`${productName} - ảnh ${index + 1}`}
+                alt=""
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="80px"
               />
-            </div>
+            </button>
           ))}
         </div>
       )}

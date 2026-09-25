@@ -34,7 +34,7 @@
 
 .link {
   flex: 0 0 auto;
-  min-height: 38px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   padding: 0 13px;
@@ -54,7 +54,6 @@
 
 @media (max-width: 768px) {
   .link {
-    min-height: 36px;
     padding: 0 11px;
     font-size: 12px;
   }

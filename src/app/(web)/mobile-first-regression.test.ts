@@ -114,6 +114,25 @@ describe('mobile-first responsive regressions', () => {
     expect(brand).not.toContain('catalog-sticky');
   });
 
+  it('vùng chạm ≥ 44px: tab danh mục, hàng tiện ích header, ảnh thu nhỏ là button', () => {
+    const catalogCss = readProjectFile('src/app/(web)/components/CatalogStickyNav.module.css');
+    for (const m of catalogCss.matchAll(/\.link\s*\{([^}]*)\}/g)) {
+      const minHeight = /min-height:\s*(\d+)px/.exec(m[1])?.[1];
+      if (minHeight) expect(Number(minHeight)).toBeGreaterThanOrEqual(44);
+    }
+    expect(catalogCss).toMatch(/^\.link\s*\{[^}]*min-height:\s*44px/m);
+
+    const headerCss = readProjectFile('src/app/(web)/components/WebHeader.module.css');
+    expect(headerCss).toMatch(/\.utilityBox::after[^{]*\{[^}]*inset:\s*-9px/);
+    expect(headerCss).toMatch(/\.utilityLink::after/);
+
+    const gallery = readProjectFile('src/app/(web)/components/ProductGallery.tsx');
+    expect(gallery).not.toMatch(/<div[^>]*onClick/);
+    expect(gallery).toContain('type="button"');
+    expect(gallery).toContain('aria-pressed={mainImage === img}');
+    expect(gallery).toContain('aria-label={`Ảnh ${index + 1}`}');
+  });
+
   it('uses GSAP ScrollTrigger for class-based scroll reveal with reduced motion support', () => {
     const reveal = readProjectFile('src/app/(web)/components/ScrollRevealObserver.tsx');
 
