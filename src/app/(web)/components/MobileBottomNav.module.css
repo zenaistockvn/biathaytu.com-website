@@ -1,0 +1,79 @@
+/* Thanh điều hướng dưới, chỉ hiện dưới 769px. Chiều cao lấy từ --web-mobile-bottom-nav-height (web.css). */
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 46;
+  min-height: var(--web-mobile-bottom-nav-height);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  padding: 7px max(8px, env(safe-area-inset-left)) calc(7px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right));
+  background: var(--web-bg);
+  border-top: 1px solid var(--web-border);
+  box-shadow: none;
+}
+
+/* .nav .item (0,2,0) thắng quy tắc chung .web-app button (0,1,1) để ô nút và ô link giống nhau. */
+.nav .item {
+  min-width: 0;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--web-text-muted);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav .item:hover,
+.nav .item.active {
+  color: var(--web-accent-strong);
+  background: var(--web-accent-bg);
+}
+
+.icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.label {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 769px) {
+  .nav {
+    display: none;
+  }
+}

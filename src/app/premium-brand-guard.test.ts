@@ -198,8 +198,14 @@ describe('màu: không lặp lại lỗi của lần đổi palette trước', (
 });
 
 describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
-  const css = ['src/app/web.css', 'src/app/brand-consistency.css', 'src/app/mobile-overrides.css']
-    .map(read).join('\n');
+  const css = [
+    'src/app/web.css',
+    'src/app/brand-consistency.css',
+    'src/app/mobile-overrides.css',
+    'src/app/(web)/components/MobileBottomNav.module.css',
+    'src/app/(web)/components/CatalogStickyNav.module.css',
+    'src/app/(web)/components/FloatingZaloCTA.module.css',
+  ].map(read).join('\n');
 
   it('không chữ gradient và không animation lặp vô hạn', () => {
     expect(css).not.toMatch(/background-clip:\s*text/);

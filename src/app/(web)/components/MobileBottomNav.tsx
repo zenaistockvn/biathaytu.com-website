@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import styles from './MobileBottomNav.module.css';
 
 const navItems = [
   {
@@ -34,11 +35,7 @@ export default function MobileBottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav
-      className="mobile-bottom-nav"
-      aria-label="Thanh điều hướng nhanh"
-      style={{ gridTemplateColumns: 'repeat(4, minmax(0, 1fr))' }}
-    >
+    <nav className={styles.nav} aria-label="Thanh điều hướng nhanh">
       {navItems.map((item) => {
         const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
 
@@ -46,32 +43,32 @@ export default function MobileBottomNav() {
           <Link
             key={item.href}
             href={item.href}
-            className={`mobile-bottom-nav-item${active ? ' is-active' : ''}`}
+            className={`${styles.item}${active ? ` ${styles.active}` : ''}`}
             aria-current={active ? 'page' : undefined}
             aria-label={item.label}
           >
-            <span className="mobile-bottom-nav-icon">
+            <span className={styles.icon}>
               <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
                 {item.icon}
               </svg>
             </span>
-            <span className="mobile-bottom-nav-label">{item.label}</span>
+            <span className={styles.label}>{item.label}</span>
           </Link>
         );
       })}
       <button
         type="button"
-        className="mobile-bottom-nav-item"
+        className={styles.item}
         data-contact-toggle
         aria-label="Liên hệ"
         onClick={() => window.dispatchEvent(new Event(CONTACT_TOGGLE_EVENT))}
       >
-        <span className="mobile-bottom-nav-icon">
+        <span className={styles.icon}>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8ZM8 10h.01M12 10h.01M16 10h.01" />
           </svg>
         </span>
-        <span className="mobile-bottom-nav-label">Liên hệ</span>
+        <span className={styles.label}>Liên hệ</span>
       </button>
     </nav>
   );

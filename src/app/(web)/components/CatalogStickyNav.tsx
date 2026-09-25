@@ -2,11 +2,20 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import styles from './CatalogStickyNav.module.css';
 
 const categories = [
   { id: 'benediktiner', label: 'Benediktiner' },
   { id: 'bia-duc-khac', label: 'Bia Đức tuyển chọn' },
 ];
+
+/** Tổng chiều cao header + thanh danh mục, đọc từ token CSS để khớp với scroll-margin-top. */
+function stickyOffset(): number {
+  const root = document.querySelector('.web-app') ?? document.documentElement;
+  const style = getComputedStyle(root);
+  const px = (token: string) => parseFloat(style.getPropertyValue(token)) || 0;
+  return px('--web-header-h') + px('--web-catalog-nav-h');
+}
 
 export default function CatalogStickyNav() {
   const pathname = usePathname();
@@ -29,7 +38,7 @@ export default function CatalogStickyNav() {
         if (visible[0]?.target.id) setActiveId(visible[0].target.id);
       },
       {
-        rootMargin: '-145px 0px -58% 0px',
+        rootMargin: `-${Math.round(stickyOffset())}px 0px -58% 0px`,
         threshold: [0, 0.05, 0.2, 0.5],
       },
     );
@@ -42,14 +51,14 @@ export default function CatalogStickyNav() {
 
   return (
     <>
-      <div className="catalog-sticky-spacer" aria-hidden="true" />
-      <nav className="catalog-sticky-nav" aria-label="Danh mục sản phẩm">
-        <div className="container catalog-sticky-inner">
+      <div className={styles.spacer} aria-hidden="true" />
+      <nav className={styles.nav} aria-label="Danh mục sản phẩm">
+        <div className={`container ${styles.inner}`}>
           {categories.map(({ id, label }) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`catalog-sticky-link${activeId === id ? ' is-active' : ''}`}
+              className={`${styles.link}${activeId === id ? ` ${styles.active}` : ''}`}
               aria-current={activeId === id ? 'location' : undefined}
             >
               {label}

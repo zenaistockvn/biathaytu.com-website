@@ -1,19 +1,7 @@
-/* Mobile-specific UX hardening — loaded after web.css. */
-
-.web-app {
-  --web-mobile-bottom-nav-height: 74px;
-}
+/* Mobile-specific UX hardening — loaded after web.css.
+   Token chiều cao thanh điều hướng dưới và padding-bottom của main chỉ khai trong web.css. */
 
 @media (max-width: 768px) {
-  /* Keep all interactive content clear of the fixed bottom navigation. */
-  .web-app main {
-    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px);
-  }
-
-  .web-app .mobile-bottom-nav {
-    min-height: var(--web-mobile-bottom-nav-height);
-  }
-
   .web-app .toast-container {
     bottom: calc(var(--web-mobile-bottom-nav-height) + 14px + env(safe-area-inset-bottom)) !important;
   }

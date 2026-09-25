@@ -91,7 +91,9 @@
   --web-spacing-xl: 60px;
   --web-section-py: 80px;
   --web-section-header-mb: 60px;
-  --web-mobile-bottom-nav-height: 60px;
+  --web-mobile-bottom-nav-height: 74px;
+  /* Thanh danh mục dính dưới header ở /san-pham; dưới 769px còn 50px (xem media query bên dưới). */
+  --web-catalog-nav-h: 54px;
 
   /* Backward Compatibility (Optional) */
   --web-gap-sm: var(--web-spacing-md);
@@ -236,8 +238,13 @@ body.overflow-hidden {
 }
 
 @media (max-width: 768px) {
+  .web-app {
+    --web-catalog-nav-h: 50px;
+  }
+
+  /* Nội dung cuối trang không bị thanh điều hướng dưới che. */
   .web-app main {
-    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
+    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px);
   }
 }
 
@@ -450,80 +457,7 @@ body.overflow-hidden {
 
 /* Floating Zalo CTA */
 
-/* Mobile bottom navigation */
-.web-app .mobile-bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 46;
-  min-height: var(--web-mobile-bottom-nav-height);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2px;
-  padding: 7px max(8px, env(safe-area-inset-left)) calc(7px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right));
-  background: var(--web-bg);
-  border-top: 1px solid var(--web-border);
-  box-shadow: none;
-}
-
-.web-app .mobile-bottom-nav-item {
-  min-width: 0;
-  min-height: 56px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  border-radius: 0;
-  color: var(--web-text-muted) !important;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.web-app .mobile-bottom-nav-item:hover,
-.web-app .mobile-bottom-nav-item.is-active {
-  color: var(--web-accent-strong) !important;
-  background: var(--web-accent-bg);
-  opacity: 1 !important;
-}
-
-.web-app .mobile-bottom-nav-icon {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.web-app .mobile-bottom-nav-icon svg {
-  display: block;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.9;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.web-app .mobile-bottom-nav-label {
-  display: block;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (min-width: 769px) {
-  .web-app .mobile-bottom-nav {
-    display: none;
-  }
-}
+/* Mobile bottom navigation: MobileBottomNav.module.css */
 
 /* ─── Product Card ─── */
 
@@ -867,13 +801,6 @@ html {
 .web-app .btn-outline {
   color: var(--web-accent-strong) !important;
   border-color: var(--web-accent-strong) !important;
-}
-
-/* 3. Touch Targets (Mobile) */
-
-.web-app .mobile-bottom-nav-item {
-  min-height: 60px;
-  padding: 8px 4px;
 }
 
 /* 4. Reveal on Scroll Animations (Dynamic Design) */

@@ -8,6 +8,7 @@ import {
   getCompanyZaloUrl,
 } from '@/config/company';
 import { CONTACT_TOGGLE_EVENT } from './MobileBottomNav';
+import styles from './FloatingZaloCTA.module.css';
 
 export default function FloatingZaloCTA() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -55,38 +56,38 @@ export default function FloatingZaloCTA() {
   }, [isExpanded]);
 
   return (
-    <div ref={rootRef} className="brand-contact-root" aria-label="Liên hệ nhanh">
+    <div ref={rootRef} className={styles.root} aria-label="Liên hệ nhanh">
       {isExpanded && (
-        <div className="brand-contact-panel" role="menu" aria-label="Các kênh liên hệ">
-          <div className="brand-contact-panel-head">
+        <div className={styles.panel} role="menu" aria-label="Các kênh liên hệ">
+          <div className={styles.head}>
             <strong>Liên hệ Bia Thầy Tu</strong>
             <span>Tư vấn sản phẩm &amp; hợp tác</span>
           </div>
 
           {zaloUrl ? (
-            <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="brand-contact-item" role="menuitem">
-              <span className="brand-contact-mark" aria-hidden="true">Z</span>
-              <span><strong>Zalo</strong><small>Chat tư vấn</small></span>
+            <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
+              <span className={styles.mark} aria-hidden="true">Z</span>
+              <span className={styles.text}><strong>Zalo</strong><small>Chat tư vấn</small></span>
             </a>
           ) : null}
 
           {telHref ? (
-            <a href={telHref} className="brand-contact-item" role="menuitem">
-              <span className="brand-contact-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg></span>
-              <span><strong>Điện thoại</strong><small>{COMPANY_CONFIG.hotline}</small></span>
+            <a href={telHref} className={styles.item} role="menuitem">
+              <span className={styles.mark} aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg></span>
+              <span className={styles.text}><strong>Điện thoại</strong><small>{COMPANY_CONFIG.hotline}</small></span>
             </a>
           ) : null}
 
-          <a href={messengerUrl} target="_blank" rel="noopener noreferrer" className="brand-contact-item" role="menuitem">
-            <span className="brand-contact-mark" aria-hidden="true">M</span>
-            <span><strong>Messenger</strong><small>Nhắn tin fanpage</small></span>
+          <a href={messengerUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
+            <span className={styles.mark} aria-hidden="true">M</span>
+            <span className={styles.text}><strong>Messenger</strong><small>Nhắn tin fanpage</small></span>
           </a>
         </div>
       )}
 
       <button
         type="button"
-        className={`brand-contact-trigger${isExpanded ? ' is-open' : ''}`}
+        className={`${styles.trigger}${isExpanded ? ` ${styles.open}` : ''}`}
         onClick={() => setIsExpanded((value) => !value)}
         aria-expanded={isExpanded}
         aria-label={isExpanded ? 'Đóng menu liên hệ' : 'Mở menu liên hệ'}
