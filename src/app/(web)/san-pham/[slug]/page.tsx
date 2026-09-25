@@ -11,6 +11,7 @@ import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { Button } from '../../components/ui/Button';
 import TitleBlock from '../../components/ui/TitleBlock';
 import { getTastingNotes } from '../../utils/getTastingNotes';
+import { formatAbv, packWithoutVolume, splitProductName } from '../../utils/productName';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import styles from './page.module.css';
 
@@ -34,11 +35,6 @@ interface ProductData {
   origin: string | null;
   category: string | null;
   hidden?: boolean;
-}
-
-function getPackagingFormat(name: string): string | null {
-  const match = name.match(/\b(Thùng|Két|Bom|Bộ|Set|Combo)\b[^,:]*/i);
-  return match?.[0]?.trim() || null;
 }
 
 const CATEGORY_LABEL: Record<string, string> = {
@@ -100,9 +96,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const isSausage = product.category === 'xuc-xich';
   const isCombo = product.category === 'combo';
   const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo;
-  const packagingFormat = getPackagingFormat(product.name);
+  const { title: productTitle, pack } = splitProductName(product.name);
+  // Dung tích đã có dòng riêng nên quy cách chỉ ghi "Két 24 lon".
+  const packagingFormat = product.volume ? packWithoutVolume(pack) : pack;
+  const abvText = formatAbv(product.abv);
   const tastingNote = getTastingNotes(product.name);
-  const guaranteeTitle = isSausage || isCombo ? 'Cam Kết Thực Phẩm Lạnh & Tươi' : 'Cam Kết Chất Lượng';
+  const guaranteeTitle = isSausage || isCombo ? 'Cam kết thực phẩm lạnh và tươi' : 'Cam kết chất lượng';
   const guaranteeItems = isSausage || isCombo
     ? [
         'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh từ 0 - 4°C chuyên dụng.',
@@ -124,10 +123,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
     return [];
   })();
-  const tags = isSausage ? sausageTags : isCombo ? ['Combo Tham Khảo', 'Bia & Xúc xích Đức', 'Quà tặng kèm'] : [];
+  const tags = isSausage ? sausageTags : isCombo ? ['Combo tham khảo', 'Bia và xúc xích Đức', 'Quà tặng kèm'] : [];
 
   const specs = [
-    product.abv ? ['Nồng độ cồn', `${product.abv}%`] : null,
+    abvText ? ['Nồng độ cồn', abvText] : null,
     product.ibu ? ['Độ đắng (IBU)', String(product.ibu)] : null,
     product.volume ? [isSausage ? 'Quy cách' : 'Dung tích', product.volume] : null,
     packagingFormat && !isSausage ? ['Quy cách', packagingFormat] : null,
@@ -173,7 +172,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
           <div>
             <p className={styles.kicker}>{CATEGORY_LABEL[product.category ?? ''] ?? 'Sản phẩm'}</p>
-            <h1 className={styles.name}>{product.name}</h1>
+            <h1 className={styles.name}>
+              {productTitle}
+              {pack && <span className={styles.pack}>{pack}</span>}
+            </h1>
             {isAlcohol && (
               <p className={styles.ageNote}>Sản phẩm chỉ dành cho người từ đủ 18 tuổi.</p>
             )}

@@ -168,7 +168,7 @@ export default function AgeVerificationGate() {
         {status === 'prompt' ? (
           <div className={styles.actions}>
             <button ref={adultButtonRef} type="button" onClick={handleAdultConfirm} className="btn-dark">
-              Tôi từ đủ 18 tuổi
+              Tôi đã đủ 18 tuổi
             </button>
             <button type="button" onClick={handleUnderage} className="btn-outline">
               Tôi chưa đủ 18 tuổi

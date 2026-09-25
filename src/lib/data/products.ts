@@ -36,6 +36,27 @@ export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ]);
 
+const BITBURGER_DIR = '/images/products/official/bitburger';
+
+/**
+ * Sửa theo slug khi render, vì `npm run build` đổ lại products.json từ database.
+ * - images: ảnh phải khớp quy cách (lon ra lon, chai ra chai, đúng dung tích nếu có ảnh).
+ * - sort_order: database để 0 cho vài SKU nên Festbier đứng trước Naturtrüb; xếp lại theo dòng bia.
+ */
+const PRODUCT_OVERRIDES: Record<string, Partial<Pick<Product, 'images' | 'sort_order'>>> = {
+  // Két lon 330ml đang dùng ảnh chai longneck. Chưa có ảnh lon 330ml chính hãng nên tạm dùng ảnh lon.
+  'bitburger-premium-pils-ket-24-lon-330ml': { images: [`${BITBURGER_DIR}/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp`] },
+  // Thùng chai 330ml đang dùng ảnh chai 0,5L; đổi sang chai longneck 330ml.
+  'bitburger-premium-pils-thung-12-chai-330ml': {
+    images: [`${BITBURGER_DIR}/flasche_longneck_033l_pils_frontal_betaut_V8.webp`],
+    sort_order: 10,
+  },
+  // Mô tả là lon 500ml lẻ nhưng ảnh là chai 0,5L kèm ly.
+  'bitburger-premium-pils': { images: [`${BITBURGER_DIR}/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp`] },
+  'benediktiner-festbier-ket-24-lon-500ml': { sort_order: 9 },
+  'benediktiner-festbier-bom-5l': { sort_order: 9.5 },
+};
+
 const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
@@ -62,7 +83,9 @@ function sanitizeProductDescription(description: string | null): string | null {
     .replace(
       /Đại lý bia nhập khẩu Tây Hồ/gi,
       'Bia Thầy Tu tại Ba Đình, Hà Nội',
-    );
+    )
+    // Showroom đã chuyển về Ba Đình; mô tả cũ còn nhắc Tây Hồ.
+    .replace(/tại Tây Hồ, Hà Nội/gi, 'tại Hà Nội');
 }
 
 function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
@@ -73,9 +96,11 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       continue;
     }
 
+    const override = PRODUCT_OVERRIDES[product.slug];
     const item = {
       ...product,
-      images: resolveProductImages(product.images),
+      ...override,
+      images: resolveProductImages(override?.images ?? product.images),
       description: sanitizeProductDescription(
         toBrochureMetadataCopy(product.description) || product.description,
       ),

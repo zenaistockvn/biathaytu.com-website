@@ -34,7 +34,7 @@ export const PRODUCT_IMAGE_CUTOUTS: Readonly<Record<string, string>> = {
   'https://product.hstatic.net/200000919029/product/1_c3ac6d2d42134f4984a3145fc430d49b_grande.png': '/images/products/official/thorle/spatburgunder_bottle.webp',
   'https://product.hstatic.net/200000919029/product/6_343530997b684b809e3e2d570d7197c1_grande.png': '/images/products/official/thorle/kabinett_bottle.webp',
   'https://product.hstatic.net/200000919029/product/9_587336c129e1466391e80e0f5273bcb4_grande.png': '/images/products/official/thorle/riesling_750_bottle.webp',
-  'https://product.hstatic.net/200000919029/product/riesling_auslese_a286249bffb40c5b2ed798abe388ca2_grande.png': '/images/products/official/rappenhof/riesling_auslese_bottle.webp',
+  'https://product.hstatic.net/200000919029/product/riesling_auslese_a286249fbffb40c5b2ed798abe388ca2_grande.png': '/images/products/official/rappenhof/riesling_auslese_bottle.webp',
   'https://product.hstatic.net/200000919029/product/riesling_kabinett_2f5a9c2ff1874c91b3ee1765b6814e3e_grande.png': '/images/products/official/rappenhof/riesling_kabinett_bottle.webp',
   'https://product.hstatic.net/200000919029/product/riesling_trocken_d50b8e7cdd8540f9a290fd83ea36ca75_grande.png': '/images/products/official/rappenhof/riesling_trocken_bottle.webp',
 };

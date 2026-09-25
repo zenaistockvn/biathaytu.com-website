@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { formatPrice } from '@/utils/formatPrice';
 import { hasWhiteCanvas } from '@/lib/data/productImages';
 import { getDisplayProductImage } from '../utils/productImages';
+import { formatAbv, splitProductName } from '../utils/productName';
 import styles from './ProductCard.module.css';
 
 export interface ProductCardProps {
@@ -14,6 +15,7 @@ export interface ProductCardProps {
   slug: string;
   images: string[] | null;
   price: number | null;
+  /** Không hiện trên thẻ (mô tả SEO dài, bị cắt giữa chữ); giữ cho các nơi gọi cũ. */
   description?: string | null;
   abv?: string | null;
   ibu?: number | null;
@@ -32,17 +34,20 @@ export interface ProductCardProps {
 
 /**
  * Thẻ sản phẩm dùng chung (trang chủ, /san-pham, bài viết), theo kiểu danh sách bia của Chimay:
- * ảnh trên nền xám, tên in hoa, thông số một dòng, giá bán lẻ. Cả thẻ là một link duy nhất.
+ * ảnh trên nền xám, tên dòng bia, quy cách, thông số một dòng, giá bán lẻ. Cả thẻ là một link duy nhất.
  */
 export default function ProductCard({
-  id, name, slug, images, price, description,
+  id, name, slug, images, price,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
 
   const href = `/san-pham/${slug || id}`;
   const primaryImage = getDisplayProductImage({ images, category });
-  const specs = [abv ? `${abv}% vol.` : null, ibu ? `IBU ${ibu}` : null, volume].filter(Boolean).join(' · ');
+  const { title, pack } = splitProductName(name);
+  const abvText = formatAbv(abv);
+  // Quy cách đã ghi dung tích thì không lặp lại dung tích ở dòng thông số.
+  const specs = [abvText ? `${abvText} vol.` : null, ibu ? `IBU ${ibu}` : null, pack ? null : volume].filter(Boolean).join(' · ');
 
   return (
     <Link id={cardId} href={href} className={styles.card} aria-label={`Xem chi tiết ${name}`}>
@@ -66,12 +71,11 @@ export default function ProductCard({
       </div>
 
       <div className={styles.body}>
-        <h3 className={styles.name}>{name}</h3>
+        <h3 className={styles.name}>
+          {title}
+          {pack && <span className={styles.pack}>{pack}</span>}
+        </h3>
         {specs && <p className={styles.specs}>{specs}</p>}
-
-        {description && (
-          <p className={styles.description}>{description}</p>
-        )}
 
         {quickTags && quickTags.length > 0 && (
           <p className={styles.tags}>{quickTags.join(' · ')}</p>

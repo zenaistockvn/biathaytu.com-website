@@ -88,7 +88,7 @@ describe('public product data regressions', () => {
     );
 
     expect(productDetailPage).toContain("product.category === 'xuc-xich'");
-    expect(productDetailPage).toContain('Cam Kết Thực Phẩm Lạnh');
+    expect(productDetailPage).toContain('Cam kết thực phẩm lạnh');
     expect(productDetailPage).toContain('Quy cách');
     expect(productDetailPage).toContain('category={product.category}');
     expect(productDetailsAccordion).toContain("category === 'xuc-xich'");

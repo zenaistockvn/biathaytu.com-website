@@ -182,8 +182,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             <TitleBlock id="related-title" title="Bài viết liên quan" kicker="Đọc thêm" />
             <div className={styles.relatedGrid}>
               <ArticleGrid>
-                {relatedArticles.map((related) => (
-                  <ArticleCard key={related.id} article={related} />
+                {relatedArticles.map((related, index) => (
+                  <ArticleCard key={related.id} article={related} position={index} />
                 ))}
               </ArticleGrid>
             </div>

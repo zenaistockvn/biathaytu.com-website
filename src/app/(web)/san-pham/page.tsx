@@ -90,7 +90,7 @@ export default function ProductsPage() {
             title="Bộ sưu tập Benediktiner"
             kicker="Bia lúa mì tu viện"
           />
-          <p className={styles.lead}>Thông tin quy cách có thể thay đổi theo từng thời điểm. Trang chi tiết tập trung vào hương vị, nguồn gốc và cách thưởng thức.</p>
+          <p className={styles.lead}>Bia lúa mì của tu viện Ettal: vàng đục Naturtrüb, đen Dunkel và Festbier mùa lễ hội, có dạng chai, lon và bom 5 lít.</p>
           <div className="grid-featured-products">
             {benediktinerProducts.map((product) => (
               <ProductCard

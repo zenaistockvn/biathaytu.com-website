@@ -55,7 +55,6 @@ export default async function KienThucPage() {
       <PageHeader
         eyebrow="Tạp chí văn hóa"
         title="Kiến thức bia Đức"
-        kicker="Thưởng thức, ẩm thực, lịch sử"
         lead="Từ nghệ thuật rót bia, kết hợp món ăn đến những câu chuyện lịch sử đằng sau các tu viện Bavaria."
       />
 
@@ -66,8 +65,8 @@ export default async function KienThucPage() {
           {standardArticles.length > 0 ? (
             <section className={styles.list} aria-label="Tất cả bài viết">
               <ArticleGrid>
-                {standardArticles.map((article) => (
-                  <ArticleCard key={article.id} article={article} />
+                {standardArticles.map((article, index) => (
+                  <ArticleCard key={article.id} article={article} position={index + 1} />
                 ))}
               </ArticleGrid>
             </section>

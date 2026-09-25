@@ -120,7 +120,7 @@ MANIFEST_PATH = ROOT / "src" / "lib" / "data" / "productImageCutouts.ts"
 # tách nền trong repo. Dữ liệu sản phẩm đổ từ database vẫn trỏ vào URL Haravan,
 # nên ánh xạ sang bản đã tách nền tại đây.
 REMOTE_ALIASES = {
-    "https://product.hstatic.net/200000919029/product/riesling_auslese_a286249bffb40c5b2ed798abe388ca2_grande.png":
+    "https://product.hstatic.net/200000919029/product/riesling_auslese_a286249fbffb40c5b2ed798abe388ca2_grande.png":
         "/images/products/official/rappenhof/riesling_auslese_bottle.webp",
     "https://product.hstatic.net/200000919029/product/riesling_kabinett_2f5a9c2ff1874c91b3ee1765b6814e3e_grande.png":
         "/images/products/official/rappenhof/riesling_kabinett_bottle.webp",

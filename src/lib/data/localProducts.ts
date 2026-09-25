@@ -60,7 +60,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     name: 'Combo Match Night: 2 Két Bitburger Football + Tặng Xúc Xích 500g',
     slug: 'combo-match-night-bitburger-football-edition-xuc-xich',
     description:
-      'Trải nghiệm cổ vũ bóng đá Đức trọn vẹn tại gia. Combo bao gồm 2 két Bitburger Football Edition (lon 500ml) mát lạnh, tặng kèm 1 gói 500g xúc xích bê trắng (Thüringer Bratwurst) chuẩn vị Đức nướng xèo xèo cực đã.',
+      'Trải nghiệm cổ vũ bóng đá Đức trọn vẹn tại gia. Combo bao gồm 2 két Bitburger Football Edition (lon 500ml) mát lạnh, tặng kèm 1 gói 500g xúc xích nướng Thüringer Bratwurst chuẩn vị Đức.',
     abv: '4.8',
     ibu: 25,
     volume: '2 Két (48 Lon 500ml) + 500g Xúc Xích',
@@ -82,7 +82,7 @@ export const LOCAL_STOREFRONT_PRODUCTS: Product[] = [
     abv: '5.4',
     ibu: 13,
     volume: '1 Thùng (12 Chai 500ml) + 500g Xúc Xích',
-    images: ['/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.webp'],
+    images: ['/images/products/official/benediktiner/86480_Benediktiner_Weiss_NT_Flasche_05l_betaut.webp'],
     price: 1150000,
     haravan_url: null,
     category: 'combo',

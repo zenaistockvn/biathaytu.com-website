@@ -192,11 +192,10 @@
   min-height: 54px;
   display: flex;
   align-items: center;
-  background: rgb(var(--web-bg-rgb) / 0.94);
-  border-bottom: 1px solid rgb(var(--web-border-rgb) / 0.78);
+  /* Nền đặc như header: nền mờ kính để lộ chữ của thẻ sản phẩm chạy bên dưới. */
+  background: var(--web-bg);
+  border-bottom: 1px solid var(--web-border);
   box-shadow: none;
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
 
 .web-app .catalog-sticky-inner {

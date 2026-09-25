@@ -52,6 +52,19 @@
   text-transform: none;
 }
 
+/* Quy cách tách khỏi tên dòng bia, như thẻ sản phẩm. */
+.top .pack {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-sans), sans-serif;
+  font-stretch: normal;
+  font-size: clamp(18px, 1.6vw, 21px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--web-text-secondary);
+}
+
 .ageNote {
   margin: 10px 0 0;
   font-size: 13px;
@@ -264,7 +277,8 @@
   flex: none;
   width: 104px;
   height: 104px;
-  background: var(--web-bg);
+  /* Nền xám như khoang ảnh của thẻ: lon Bitburger màu trắng chìm mất trên nền trắng. */
+  background: var(--web-bg-section);
 }
 
 .comboImage img {

@@ -63,6 +63,20 @@
   line-height: 1.3;
 }
 
+/* Quy cách ("Két 24 lon 330ml") nằm trong h3 để tên đầy đủ vẫn là một tiêu đề, nhưng hiện như dòng phụ. */
+.pack {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-sans), sans-serif;
+  font-stretch: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--web-text-secondary);
+}
+
 .specs {
   margin: 0;
   font-family: var(--font-condensed), sans-serif;
@@ -70,17 +84,6 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--web-text-secondary);
-}
-
-.description {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--web-text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .tags {
