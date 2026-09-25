@@ -2,7 +2,8 @@ import articlesData from '@/data/articles.json';
 import retiredArticlesData from '@/config/retired-articles.json';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
-import { getVisibleProducts } from './products';
+import { getVisibleProducts, RENAMED_PRODUCT_SLUGS } from './products';
+import { toSentenceCase } from './titleCase';
 
 export const DEFAULT_TENANT_ID = 'biathaytu';
 
@@ -40,6 +41,7 @@ const LEGACY_PRODUCT_SLUG_MAP: Record<string, string> = {
   'bitburger-premium-pils-330ml': 'bitburger-premium-pils-thung-12-chai-330ml',
   'benediktiner-dunkel-500ml': 'benediktiner-dunkel-thung-12-chai-500ml',
   'bom-5l-benediktiner-weissbier': 'benediktiner-naturtrub-bom-5l',
+  ...RENAMED_PRODUCT_SLUGS,
 };
 
 /**
@@ -396,7 +398,7 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
     const sanitizedContent = sanitizeArticleContent(article.content, article.slug);
     return {
       ...article,
-      title: toBrochureMetadataCopy(article.title) || article.title,
+      title: toSentenceCase(toBrochureMetadataCopy(article.title) || article.title),
       content: sanitizedContent,
       word_count: countWords(sanitizedContent),
       meta_description: toBrochureMetadataCopy(article.meta_description) || article.meta_description,

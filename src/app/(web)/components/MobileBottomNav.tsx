@@ -27,6 +27,9 @@ const navItems = [
   },
 ];
 
+/** Sự kiện mở bảng liên hệ của FloatingZaloCTA; trên mobile nút nổi ẩn đi để không đè lên nội dung. */
+export const CONTACT_TOGGLE_EVENT = 'biathaytu:toggle-contact';
+
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
@@ -34,7 +37,7 @@ export default function MobileBottomNav() {
     <nav
       className="mobile-bottom-nav"
       aria-label="Thanh điều hướng nhanh"
-      style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}
+      style={{ gridTemplateColumns: 'repeat(4, minmax(0, 1fr))' }}
     >
       {navItems.map((item) => {
         const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
@@ -56,6 +59,20 @@ export default function MobileBottomNav() {
           </Link>
         );
       })}
+      <button
+        type="button"
+        className="mobile-bottom-nav-item"
+        data-contact-toggle
+        aria-label="Liên hệ"
+        onClick={() => window.dispatchEvent(new Event(CONTACT_TOGGLE_EVENT))}
+      >
+        <span className="mobile-bottom-nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8ZM8 10h.01M12 10h.01M16 10h.01" />
+          </svg>
+        </span>
+        <span className="mobile-bottom-nav-label">Liên hệ</span>
+      </button>
     </nav>
   );
 }

@@ -13,6 +13,8 @@ const RETIRED_BEER_PRODUCT_SLUGS = [
 ];
 
 const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
+// Slug trong database bị mất dấu khi tạo ("mix-2-v-thng"); site dùng slug sửa lại, slug cũ chuyển 301.
+const RENAMED_PRODUCT_SLUGS = require('./src/config/renamed-product-slugs.json');
 
 const nextConfig = {
   images: {
@@ -54,6 +56,11 @@ const nextConfig = {
       ...RETIRED_BEER_PRODUCT_SLUGS.map((slug) => ({
         source: `/san-pham/${slug}`,
         destination: '/san-pham',
+        statusCode: 301,
+      })),
+      ...Object.entries(RENAMED_PRODUCT_SLUGS).map(([slug, renamed]) => ({
+        source: `/san-pham/${slug}`,
+        destination: `/san-pham/${renamed}`,
         statusCode: 301,
       })),
       {

@@ -7,6 +7,7 @@ import {
   getCompanyTelHref,
   getCompanyZaloUrl,
 } from '@/config/company';
+import { CONTACT_TOGGLE_EVENT } from './MobileBottomNav';
 
 export default function FloatingZaloCTA() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -24,11 +25,19 @@ export default function FloatingZaloCTA() {
     setIsExpanded(false);
   }, [pathname]);
 
+  // Nút "Liên hệ" của thanh điều hướng dưới (mobile) mở cùng bảng này.
+  useEffect(() => {
+    const toggle = () => setIsExpanded((value) => !value);
+    window.addEventListener(CONTACT_TOGGLE_EVENT, toggle);
+    return () => window.removeEventListener(CONTACT_TOGGLE_EVENT, toggle);
+  }, []);
+
   useEffect(() => {
     if (!isExpanded) return;
 
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) {
+      const target = event.target as Element;
+      if (!rootRef.current?.contains(target) && !target.closest?.('[data-contact-toggle]')) {
         setIsExpanded(false);
       }
     };

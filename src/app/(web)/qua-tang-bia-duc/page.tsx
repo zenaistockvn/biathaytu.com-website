@@ -62,7 +62,7 @@ export default function Page() {
         <h2>Các lựa chọn quà tặng</h2>
         <InfoGrid
           items={[
-            { title: <Link href="/san-pham/benediktiner-mix-2-v-thng-12-chai-500ml">Hộp Mix 2 vị</Link>, text: 'Thùng 12 chai gồm 6 Weissbier (bia lúa mì) và 6 Dunkel (bia đen). Hộp cứng, quai xách.', meta: priceOf('benediktiner-mix-2-v-thng-12-chai-500ml') },
+            { title: <Link href="/san-pham/benediktiner-mix-2-vi-thung-12-chai-500ml">Hộp Mix 2 vị</Link>, text: 'Thùng 12 chai gồm 6 Weissbier (bia lúa mì) và 6 Dunkel (bia đen). Hộp cứng, quai xách.', meta: priceOf('benediktiner-mix-2-vi-thung-12-chai-500ml') },
             { title: <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5 lít lễ hội</Link>, text: 'Bom 5 lít có vòi rót sẵn, để đối tác dùng ngay trong các bữa tiệc tụ họp.', meta: priceOf('benediktiner-naturtrub-bom-5l') },
             { title: 'Set quà kèm ly', text: 'Combo 6 chai bia nhập khẩu kèm 1 ly Weizen tiêu chuẩn Đức.', meta: 'Liên hệ B2B' },
           ]}

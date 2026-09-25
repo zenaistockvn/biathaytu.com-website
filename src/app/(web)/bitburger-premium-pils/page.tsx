@@ -1,20 +1,17 @@
 import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
-import ProductCard from '../components/ProductCard';
 import ProductStory from '../components/ProductStory';
-import TitleBlock from '../components/ui/TitleBlock';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { getBeerProducts, getProductBySlugOrId, type Product } from '@/lib/data/products';
+import { getBeerProducts } from '@/lib/data/products';
 import { getCompanyZaloUrl } from '@/config/company';
-import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
-  description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
+  title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+  description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817. Xem hương vị, món ăn kèm và các quy cách chai, lon, bom 5 lít.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bitburger-premium-pils' },
   openGraph: {
-    title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
-    description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026. Đặt mua thùng 24 lon và Combo Match Night giao nhanh.',
+    title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+    description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817. Xem hương vị, món ăn kèm và các quy cách chai, lon, bom 5 lít.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
     images: [
@@ -28,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitburger Premium Pils, Bản Giới Hạn World Cup 2026',
-    description: 'Khám phá dòng bia pilsner số 1 nước Đức - Bitburger Premium Pils phiên bản giới hạn Football Edition 2026.',
+    title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+    description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817.',
     images: ['/images/brand/bitburger-official/siegelhopfen-field.jpg'],
   },
 };
@@ -40,7 +37,7 @@ export default function Page() {
     name: 'Bitburger Premium Pils',
     slug: 'bitburger-premium-pils',
     url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
-    description: 'Bia Pilsner tươi mát chuẩn Đức, lên men đáy với hoa bia hảo hạng. Phiên bản giới hạn Football Edition 2026.',
+    description: 'Bia Pilsner tươi mát chuẩn Đức, lên men đáy với hoa bia Siegelhopfen.',
     abv: '4.8',
     volume: '330ml, 500ml',
   };
@@ -49,10 +46,6 @@ export default function Page() {
   const msgGeneral = 'Chào Bia Thầy Tu, mình muốn tư vấn đặt mua bia Bitburger Premium Pils chính hãng. Giao nhanh giúp mình nhé.';
   const linkGeneral = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgGeneral)}` : '/lien-he';
 
-  // Ưu đãi mùa bóng lấy từ dữ liệu sản phẩm để giá luôn khớp trang chi tiết.
-  const campaign = ['bitburger-football-edition-2026', 'combo-match-night-bitburger-football-edition-xuc-xich']
-    .map((slug) => getProductBySlugOrId(slug))
-    .filter((p): p is Product => Boolean(p && !p.hidden));
   const formats = getBeerProducts().filter((p) => p.name.includes('Bitburger'));
 
   return (
@@ -131,20 +124,7 @@ export default function Page() {
           text: 'Nhập khẩu nguyên chai, lon từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
           action: { href: linkGeneral, label: 'Liên hệ đặt hàng qua Zalo', external: Boolean(zaloBaseUrl) },
         }}
-      >
-        {campaign.length > 0 ? (
-          <section className={styles.campaign} aria-labelledby="campaign-title">
-            <div className="container">
-              <TitleBlock id="campaign-title" title="Mùa bóng 2026" kicker="Bitburger Football Edition, bản giới hạn" />
-              <div className={styles.campaignGrid}>
-                {campaign.map((p) => (
-                  <ProductCard key={p.id} {...p} />
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : null}
-      </ProductStory>
+      />
     </>
   );
 }

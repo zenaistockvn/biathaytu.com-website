@@ -68,7 +68,7 @@ describe('mobile-first responsive regressions', () => {
     expect(css).toMatch(/\.web-app\s+\.brand-contact-root\s*\{[^}]*position:\s*fixed[^}]*right:\s*calc\([^}]*bottom:\s*calc\(/);
   });
 
-  it('mounts a mobile-only bottom navigation with exactly three primary choices', () => {
+  it('mounts a mobile-only bottom navigation with three primary choices plus contact', () => {
     const layout = readProjectFile('src/app/(web)/layout.tsx');
     const bottomNav = readProjectFile('src/app/(web)/components/MobileBottomNav.tsx');
     const css = readProjectFile('src/app/web.css');
@@ -79,7 +79,10 @@ describe('mobile-first responsive regressions', () => {
     for (const href of ['/', '/san-pham', '/kien-thuc']) {
       expect(bottomNav).toContain(`href: '${href}'`);
     }
-    expect(bottomNav).toContain("gridTemplateColumns: 'repeat(3, minmax(0, 1fr))'");
+    expect(bottomNav).toContain("gridTemplateColumns: 'repeat(4, minmax(0, 1fr))'");
+    // Mục thứ tư mở bảng liên hệ thay cho nút nổi (nút nổi ẩn trên mobile để không đè nội dung).
+    expect(bottomNav).toContain('CONTACT_TOGGLE_EVENT');
+    expect(readProjectFile('src/app/brand-consistency.css')).toMatch(/@media\s*\(max-width:\s*768px\)\s*\{\s*\.web-app\s+\.brand-contact-trigger\s*\{\s*display:\s*none/);
     expect(bottomNav).not.toContain("label: 'Giỏ hàng'");
     expect(css).toMatch(/\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*position:\s*fixed[^}]*bottom:\s*0[^}]*display:\s*grid/);
     expect(css).toMatch(/@media\s*\(min-width:\s*769px\)[\s\S]*\.web-app\s+\.mobile-bottom-nav\s*\{[^}]*display:\s*none/);
