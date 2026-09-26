@@ -2,7 +2,7 @@
 
 **Ngày:** 26/09/2026 · **Cách kiểm:** chụp nguyên trang 21 route bằng Playwright ở 1440px và 390px, xem từng ảnh; đo chiều cao trang, số thẻ, ảnh lặp. Cùng loại vấn đề với footer vừa sửa (`713bec7`): quá nhiều khối, thông tin lặp, bố cục lệch.
 
-Mức độ: 4 cao · 6 trung bình · 2 thấp. Chưa sửa mục nào.
+Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); còn L3, L4, L5, L8, L11, L12.
 
 ---
 
@@ -15,6 +15,8 @@ Mức độ: 4 cao · 6 trung bình · 2 thấp. Chưa sửa mục nào.
 
 **Đề xuất:** lưới 4 cột desktop, 2 cột mobile; thẻ trong nhóm chỉ ghi quy cách + giá (tên dòng đã ở tiêu đề nhóm); gộp nhóm 1 thẻ vào hàng của nhóm liền trước hoặc hiển thị dạng hàng ngang.
 
+> **Đã sửa · `d818dda`.** Thẻ gọn trong danh mục: 2 cột mobile, 3 cột tablet, 4 cột desktop; thẻ chỉ ghi quy cách, thông số, giá (tên dòng ở tiêu đề nhóm), SKU khác tên chung ghi thêm tên riêng (Bitburger 0.0, Football Edition). Mobile 13.286px → 6.688px.
+
 ### L2 · Trang SKU: 8 khối sau phần đầu, nhiều khối lặp hoặc chung chung
 Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · accordion 4 mục · Cam kết chất lượng · Món nhắm (3 xúc xích + combo) · Có thể bạn sẽ thích (4 thẻ) · form tư vấn. Mobile ~10.000px.
 - Bảng thông số lặp ABV, IBU (đã ở hàng giá), dung tích và quy cách (đã ở dưới tên): 4/5 dòng trùng.
@@ -22,6 +24,8 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 - "Có thể bạn sẽ thích" và "Món nhắm" kéo người xem sang sản phẩm khác trước khi thấy form.
 
 **Đề xuất:** bảng thông số chỉ giữ Xuất xứ (hoặc bỏ); gộp "Hương vị nổi bật" vào mô tả; bỏ "Cam kết" hoặc thu thành một dòng; "Có thể bạn sẽ thích" thay bằng dải quy cách cùng dòng (FormatStrip); "Món nhắm" thu thành một dòng link.
+
+> **Đã sửa · `d818dda`.** Bảng thông số bỏ dòng đã hiện phía trên (bia chỉ còn Xuất xứ); "Hương vị nổi bật" vào đầu phần mô tả; bỏ "Cam kết chất lượng" ở bia (xúc xích, combo giữ vì có thông tin bảo quản lạnh); món nhắm thành một dòng link; "Có thể bạn sẽ thích" thay bằng "Quy cách khác" cùng dòng. Mobile ~10.000px → 5.234px.
 
 ### L3 · `/kien-thuc`: 23 bài hiện một lượt, ảnh bìa lặp
 - Mobile **13.227px**. 64/66 bài không có ảnh bìa riêng nên dùng ảnh thay thế: 23 thẻ chỉ có 5 ảnh (`home-hero.jpg` 8 lần, `beer-garden-closeup.jpg` 7 lần, `so-close-to-heaven.jpg` 5 lần).
@@ -49,9 +53,13 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 `/benediktiner-dunkel` (và 2 trang dòng bia khác) "Đặt hàng", `/thuong-hieu` "Tiếp tục hành trình", `/san-pham` "Cho nhà hàng": nền xanh đêm nối thẳng vào footer xanh đêm, thành một mảng dài không thấy ranh giới.
 **Đề xuất:** dải cuối dùng nền xám hoặc vàng nhãn, hoặc bỏ khi footer đã có liên hệ.
 
+> **Đã sửa · `d818dda`.** Dải cuối của 3 trang dòng bia, trang bom 5L, `/thuong-hieu` nền trắng kẻ trên; `/san-pham` nền xám; nút chính xanh trời.
+
 ### L7 · `/bom-bia-5l-benediktiner`: ảnh lặp và nhãn trùng (lỗi)
 - Ảnh bom Festbier xuất hiện hai lần liền (hero và khối giới thiệu).
 - Dải "Các bom 5 lít": 3 ô cùng ghi **"Bom 5L"**, không phân biệt Naturtrüb / Festbier / Bitburger (`formatLabel` bỏ tên dòng).
+
+> **Đã sửa · `d818dda`.** Khối giới thiệu dùng ảnh bom Naturtrüb (hero giữ bom Festbier). FormatStrip ghi tên dòng khi dải gồm nhiều dòng: Naturtrüb / Festbier / Bitburger.
 
 ### L8 · `/ve-chung-toi` trùng `/thuong-hieu` và lặp liên hệ
 Bảng "Thông tin liên hệ" + khối "Kết nối với chúng tôi" + footer: địa chỉ, hotline, email hiện ba lần trên một màn. Nội dung trùng ý với `/thuong-hieu` (A4, chờ quyết định gộp).
@@ -60,8 +68,12 @@ Bảng "Thông tin liên hệ" + khối "Kết nối với chúng tôi" + footer
 - "Một chút lịch sử" chỉ một câu nhưng chiếm một section có tiêu đề lớn.
 - "Các quy cách" 3 ô nhỏ dồn trái, trống 2/3 hàng trên desktop.
 
+> **Đã sửa · `d818dda`.** "Một chút lịch sử" thành dòng cuối bảng "Hương vị cảm nhận"; dải quy cách căn giữa, tiêu đề căn giữa.
+
 ### L10 · Nhãn Zalo còn sót, trái quy tắc A5
 "Chat Zalo B2B" (HORECA), "Chat qua Zalo" (bài viết), "Trao đổi qua Zalo" (trang chủ), "Liên hệ đặt hàng qua Zalo" (trang dòng bia). Ba nhãn "đặt hàng" cũng nên xem lại cùng lưu ý pháp lý của A6.
+
+> **Đã sửa · `d818dda`.** Mọi link mở Zalo ghi "Mở Zalo" (HORECA, quà tặng, bảng giá sỉ, trang chủ, bài viết, thông tin mua hàng, form tư vấn, mặc định ZaloCTA). Trang dòng bia: tiêu đề "Đặt hàng" → "Liên hệ tư vấn", tin nhắn soạn sẵn "muốn đặt mua" → "muốn được tư vấn về".
 
 ---
 
