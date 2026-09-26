@@ -76,7 +76,7 @@ export default function Page() {
         <CtaBand
           title="Nhận báo giá sỉ"
           text={<>Chuyên viên B2B sẽ liên hệ trong vòng 2 giờ làm việc. Xem chi tiết <Link href="/bang-gia-si-dai-ly">chính sách giá sỉ cho đại lý</Link>.</>}
-          action={{ href: zaloUrl, label: 'Chat Zalo B2B', external: zaloUrl.startsWith('https://') }}
+          action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: 'Gọi hotline HORECA' }}
         />
       </EditorialPage>

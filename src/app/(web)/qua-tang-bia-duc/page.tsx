@@ -80,7 +80,7 @@ export default function Page() {
         <CtaBand
           title="Đặt quà tặng"
           text="Để nhận catalog quà tặng mới nhất và báo giá chiết khấu, vui lòng liên hệ."
-          action={{ href: zaloUrl, label: 'Chat Zalo bộ phận B2B', external: zaloUrl.startsWith('https://') }}
+          action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: 'Hotline tư vấn quà tặng' }}
         />
       </EditorialPage>

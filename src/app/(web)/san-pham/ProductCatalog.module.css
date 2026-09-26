@@ -100,6 +100,26 @@
   color: var(--web-ink);
 }
 
+/* Thẻ gọn: 2 cột trên mobile, 3 cột tablet, 4 cột desktop (audit L1). */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 12px;
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 .lineTitle a {
   color: inherit;
   text-decoration: none;

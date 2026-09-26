@@ -154,10 +154,17 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
                         <dd>{n.text}</dd>
                       </div>
                     ))}
+                    {/* Lịch sử thường chỉ một câu: thành một dòng của bảng, không tách tiêu đề lớn riêng (audit L9). */}
+                    {story ? (
+                      <div>
+                        <dt>{story.title}</dt>
+                        <dd className={styles.noteProse}>{story.body}</dd>
+                      </div>
+                    ) : null}
                   </dl>
                 </div>
               ) : null}
-              {story ? (
+              {story && !notes ? (
                 <div className={styles.story}>
                   <TitleBlock title={story.title} />
                   <div className={styles.prose}>{story.body}</div>
@@ -188,7 +195,7 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
       {formats && formats.products.length > 0 ? (
         <section className={`${styles.section} ${styles.formatsSection}`} aria-labelledby="product-formats-title">
           <div className="container">
-            <TitleBlock id="product-formats-title" title={formats.title ?? 'Các quy cách'} kicker="Giá bán lẻ tham khảo" />
+            <TitleBlock id="product-formats-title" align="center" title={formats.title ?? 'Các quy cách'} kicker="Giá bán lẻ tham khảo" />
             <div className={styles.afterTitle}>
               <FormatStrip products={formats.products} />
             </div>
@@ -225,13 +232,13 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
         </section>
       ) : null}
 
-      <section className={styles.cta} data-surface="ink" aria-labelledby="product-cta-title">
+      <section className={styles.cta} aria-labelledby="product-cta-title">
         <div className={`container ${styles.ctaInner}`}>
           <TitleBlock id="product-cta-title" align="center" title={cta.title} kicker={cta.kicker} />
           <p>{cta.text}</p>
           <Button
             href={cta.action.href}
-            variant="light"
+            variant="primary"
             size="lg"
             target={cta.action.external ? '_blank' : undefined}
             rel={cta.action.external ? 'noopener noreferrer' : undefined}

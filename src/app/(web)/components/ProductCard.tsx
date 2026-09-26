@@ -30,6 +30,13 @@ export interface ProductCardProps {
   showCTA?: boolean;
   /** Kept for compatibility with legacy callers. */
   showReferencePriceNote?: boolean;
+  /**
+   * `compact`: thẻ nằm dưới tiêu đề dòng bia (danh mục /san-pham), tên dòng đã có ở tiêu đề nhóm nên
+   * thẻ chỉ ghi quy cách, thông số, giá; nhỏ gọn để xếp 2 cột trên mobile, 4 cột trên desktop.
+   */
+  variant?: 'default' | 'compact';
+  /** Thẻ compact: tên riêng khi SKU khác tên chung của nhóm (vd. "Bitburger 0.0% Alkoholfrei"). */
+  variantLabel?: string | null;
 }
 
 /**
@@ -38,8 +45,9 @@ export interface ProductCardProps {
  */
 export default function ProductCard({
   id, name, slug, images, price,
-  abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true,
+  abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true, variant = 'default', variantLabel = null,
 }: ProductCardProps) {
+  const compact = variant === 'compact';
   const [imageFailed, setImageFailed] = useState(false);
 
   const href = `/san-pham/${slug || id}`;
@@ -50,7 +58,7 @@ export default function ProductCard({
   const specs = [abvText ? `${abvText} vol.` : null, ibu ? `IBU ${ibu}` : null, pack ? null : volume].filter(Boolean).join(' · ');
 
   return (
-    <Link id={cardId} href={href} className={styles.card} aria-label={`Xem chi tiết ${name}`}>
+    <Link id={cardId} href={href} className={`${styles.card}${compact ? ` ${styles.compact}` : ''}`} aria-label={`Xem chi tiết ${name}`}>
       <div className={styles.media}>
         {highlightLabel && <span className={styles.badge}>{highlightLabel}</span>}
 
@@ -71,10 +79,17 @@ export default function ProductCard({
       </div>
 
       <div className={styles.body}>
-        <h3 className={styles.name}>
-          {title}
-          {pack && <span className={styles.pack}>{pack}</span>}
-        </h3>
+        {compact ? (
+          <h3 className={styles.name}>
+            {variantLabel && pack ? <span className={styles.variantLabel}>{variantLabel}</span> : null}
+            {pack ?? title}
+          </h3>
+        ) : (
+          <h3 className={styles.name}>
+            {title}
+            {pack && <span className={styles.pack}>{pack}</span>}
+          </h3>
+        )}
         {specs && <p className={styles.specs}>{specs}</p>}
 
         {quickTags && quickTags.length > 0 && (
@@ -88,7 +103,7 @@ export default function ProductCard({
           </p>
         )}
 
-        {showCTA && (
+        {showCTA && !compact && (
           <span className={styles.cue} aria-hidden="true">
             Khám phá sản phẩm
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square"><path d="M4 12h15M13 6l6 6-6 6" /></svg>

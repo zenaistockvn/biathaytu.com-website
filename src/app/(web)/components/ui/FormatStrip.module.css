@@ -1,6 +1,8 @@
+/* Ô rộng tối đa 220px, căn giữa: 3 quy cách không còn dồn trái bỏ trống 2/3 hàng (audit L9). */
 .strip {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 220px));
+  justify-content: center;
   gap: 32px 20px;
   margin: 0;
   padding: 0;
@@ -32,6 +34,15 @@
 
 .item:hover .image {
   transform: translateY(-4px);
+}
+
+.line {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--web-accent);
 }
 
 .label {

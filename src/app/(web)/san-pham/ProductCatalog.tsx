@@ -85,9 +85,9 @@ export default function ProductCatalog({ sections, kegPage }: { sections: Catalo
                   <h3 className={styles.lineTitle}>
                     {line.href ? <Link href={line.href}>{line.label}</Link> : line.label}
                   </h3>
-                  <div className="grid-featured-products">
+                  <div className={styles.cards}>
                     {line.products.map((product) => (
-                      <ProductCard key={product.id} {...product} />
+                      <ProductCard key={product.id} {...product} variant="compact" />
                     ))}
                   </div>
                 </div>

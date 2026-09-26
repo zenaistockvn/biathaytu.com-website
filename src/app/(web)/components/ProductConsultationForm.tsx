@@ -149,7 +149,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
             >
               {feedback}
               {status === 'error' && zaloUrl ? (
-                <>{' '}<a href={zaloUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline' }}>Nhắn Zalo để được hỗ trợ</a>.</>
+                <>{' '}<a href={zaloUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline' }}>Mở Zalo để được hỗ trợ</a>.</>
               ) : null}
             </div>
           ) : null}

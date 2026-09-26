@@ -135,6 +135,37 @@
   transform: translateX(4px);
 }
 
+/* Thẻ gọn trong danh mục: tên dòng nằm ở tiêu đề nhóm, thẻ chỉ còn quy cách, thông số, giá. */
+.compact .body {
+  gap: 4px;
+  padding-top: 12px;
+}
+
+.compact .body .name {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.compact .variantLabel {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-condensed), sans-serif;
+  font-stretch: normal;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--web-accent);
+}
+
+.compact .specs {
+  font-size: 14px;
+}
+
+.compact .price {
+  font-size: 17px;
+}
+
 .card:focus-visible {
   outline: 2px solid var(--web-accent);
   outline-offset: 3px;

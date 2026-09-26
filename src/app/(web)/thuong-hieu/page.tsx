@@ -106,12 +106,12 @@ export default function BrandStoryPage() {
         <p>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal, thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
       </SplitBlock>
 
-      <section className={styles.cta} data-surface="ink" aria-labelledby="story-cta-title">
+      <section className={styles.cta} aria-labelledby="story-cta-title">
         <div className="container">
           <TitleBlock id="story-cta-title" title="Tiếp tục hành trình" kicker="Khám phá hương vị Benediktiner" />
           <p>Từ Naturtrüb cân bằng đến Dunkel đậm malt và Festbier dành cho những dịp sum họp.</p>
           <div className={styles.actions}>
-            <Button href="/san-pham" variant="light">Xem các dòng bia</Button>
+            <Button href="/san-pham" variant="primary">Xem các dòng bia</Button>
             <Button href="/huong-dan-rot-bia-lua-mi" variant="link">Nghệ thuật thưởng thức</Button>
           </div>
         </div>

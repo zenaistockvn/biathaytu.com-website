@@ -9,7 +9,7 @@ interface ZaloCTAProps {
   variant?: 'gold' | 'outline';
 }
 
-export default function ZaloCTA({ productName, className = '', label = 'Tư vấn qua Zalo', variant = 'gold' }: ZaloCTAProps) {
+export default function ZaloCTA({ productName, className = '', label = 'Mở Zalo', variant = 'gold' }: ZaloCTAProps) {
   const zaloBaseUrl = getCompanyZaloUrl();
   const defaultMessage = productName
     ? `Chào Bia Thầy Tu, mình muốn được tư vấn về sản phẩm ${productName}`

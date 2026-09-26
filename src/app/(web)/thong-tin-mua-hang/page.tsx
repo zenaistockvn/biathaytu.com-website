@@ -33,7 +33,7 @@ export default function PurchaseInformationPage() {
             Khách hàng có thể liên hệ hotline {telHref ? <a href={telHref}><strong>{COMPANY_CONFIG.hotline}</strong></a> : <strong>{COMPANY_CONFIG.hotline}</strong>}, email {mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : <strong>{COMPANY_CONFIG.email}</strong>} hoặc đến showroom tại <strong>{COMPANY_CONFIG.showroomAddress}</strong>. Đội ngũ tư vấn sẽ trao đổi trực tiếp về sản phẩm phù hợp, giá áp dụng, tình trạng sản phẩm và phương án nhận hàng.
           </p>
           <div style={{ marginTop: '14px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            {zaloUrl ? <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">Liên hệ tư vấn qua Zalo</a> : null}
+            {zaloUrl ? <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">Mở Zalo</a> : null}
             <Link href="/lien-he" className="btn-secondary">Xem thông tin liên hệ</Link>
           </div>
         </section>

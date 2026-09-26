@@ -12,10 +12,12 @@
   display: block;
 }
 
+/* Dải cuối trang nền sáng: nền xanh đêm dính liền footer xanh đêm thành một mảng (audit L6). */
 .help {
   padding: var(--web-section-py) 0;
-  background: var(--web-ink);
-  color: var(--web-on-ink);
+  border-top: 1px solid var(--web-border);
+  background: var(--web-bg-section);
+  color: var(--web-ink);
 }
 
 .helpInner {
@@ -26,7 +28,7 @@
 .helpInner > p {
   max-width: 620px;
   margin: 0;
-  color: var(--web-on-ink-muted);
+  color: var(--web-text-secondary);
   line-height: 1.7;
 }
 

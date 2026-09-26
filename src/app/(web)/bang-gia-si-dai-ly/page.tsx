@@ -78,7 +78,7 @@ export default function Page() {
         <CtaBand
           title="Nhận bảng giá sỉ"
           text="Để nhận file PDF báo giá sỉ chi tiết và chính sách chiết khấu, vui lòng liên hệ trực tiếp giám đốc kinh doanh."
-          action={{ href: zaloUrl, label: 'Nhắn Zalo nhận bảng giá', external: zaloUrl.startsWith('https://') }}
+          action={{ href: zaloUrl, label: 'Mở Zalo nhận bảng giá', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: `Hotline ${COMPANY_CONFIG.hotline}` }}
         />
       </EditorialPage>

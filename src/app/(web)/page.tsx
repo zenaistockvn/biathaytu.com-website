@@ -215,7 +215,7 @@ export default function LandingPage() {
             <p>Tư vấn danh mục, quy cách chai, lon, bom và giải pháp giới thiệu sản phẩm phù hợp với mô hình nhà hàng, khách sạn và sự kiện.</p>
             <div className={styles.visitActions}>
               <Button href="/bia-duc-cho-nha-hang-khach-san" variant="dark">Giải pháp HORECA</Button>
-              {zaloUrl ? <Button href={zaloUrl} variant="link" target="_blank" rel="noopener noreferrer">Trao đổi qua Zalo</Button> : null}
+              {zaloUrl ? <Button href={zaloUrl} variant="link" target="_blank" rel="noopener noreferrer">Mở Zalo</Button> : null}
             </div>
           </div>
         </div>

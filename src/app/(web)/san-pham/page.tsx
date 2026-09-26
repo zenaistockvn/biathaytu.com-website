@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button';
 import PhotoHero from '../components/ui/PhotoHero';
 import TitleBlock from '../components/ui/TitleBlock';
 import { getTastingNotes } from '../utils/getTastingNotes';
+import { splitProductName } from '../utils/productName';
 import ProductCatalog, { type CatalogSection } from './ProductCatalog';
 import styles from './page.module.css';
 import { KEG_PAGE, NAV, breadcrumbTrail } from '@/config/navigation';
@@ -48,6 +49,12 @@ interface CatalogProduct {
   category: string | null;
 }
 
+function mostCommon(values: string[]): string | null {
+  const counts = new Map<string, number>();
+  for (const value of values) counts.set(value, (counts.get(value) ?? 0) + 1);
+  return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+}
+
 const SECTION_COPY: Record<LineGroup, { kicker: string; lead: string }> = {
   benediktiner: {
     kicker: 'Bia lúa mì tu viện',
@@ -70,18 +77,25 @@ export default function ProductsPage() {
     ...LINE_GROUPS[group],
     ...SECTION_COPY[group],
     lines: BEER_LINES.filter((line) => line.group === group)
-      .map((line) => ({
-        id: line.id,
-        label: line.label,
-        href: line.href,
-        products: beers
-          .filter((product) => getLineForName(product.name)?.id === line.id)
-          .map((product) => ({
-            ...product,
-            description: product.description || getTastingNotes(product.name),
-            format: packFormatOf(product.name),
-          })),
-      }))
+      .map((line) => {
+        const lineProducts = beers.filter((product) => getLineForName(product.name)?.id === line.id);
+        const baseTitle = mostCommon(lineProducts.map((product) => splitProductName(product.name).title));
+        return {
+          id: line.id,
+          label: line.label,
+          href: line.href,
+          products: lineProducts.map((product) => {
+            const { title } = splitProductName(product.name);
+            return {
+              ...product,
+              description: product.description || getTastingNotes(product.name),
+              format: packFormatOf(product.name),
+              // Tên dòng đã ở tiêu đề nhóm; chỉ ghi tên khi SKU khác tên chung (Bitburger 0.0, Football Edition).
+              variantLabel: title !== baseTitle ? title : null,
+            };
+          }),
+        };
+      })
       .filter((line) => line.products.length > 0),
   }));
 
@@ -108,12 +122,12 @@ export default function ProductsPage() {
 
       <ProductCatalog sections={sections} kegPage={KEG_PAGE} />
 
-      <section className={styles.help} data-surface="ink" aria-labelledby="catalog-help-title">
+      <section className={styles.help} aria-labelledby="catalog-help-title">
         <div className={`container ${styles.helpInner}`}>
           <TitleBlock id="catalog-help-title" title="Cho nhà hàng" kicker="HORECA và đại lý" />
           <p>Tư vấn sản phẩm, quy cách, chính sách và giải pháp phục vụ nhà hàng, khách sạn, pub, beer club hoặc đại lý tỉnh.</p>
           <div className={styles.helpActions}>
-            <Button href="/lien-he" variant="light">Liên hệ tư vấn</Button>
+            <Button href="/lien-he" variant="primary">Liên hệ tư vấn</Button>
             <Button href="/bia-duc-cho-nha-hang-khach-san" variant="link">Giải pháp HORECA</Button>
           </div>
         </div>

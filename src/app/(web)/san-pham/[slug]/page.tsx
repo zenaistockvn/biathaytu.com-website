@@ -1,20 +1,18 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
-import { getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
+import { getLineProducts, getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductConsultationForm from '../../components/ProductConsultationForm';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
 import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/JsonLd';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
-import { Button } from '../../components/ui/Button';
 import TitleBlock from '../../components/ui/TitleBlock';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { formatAbv, packWithoutVolume, splitProductName } from '../../utils/productName';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import SkuActionBar from '../../components/SkuActionBar';
-import { formatLabel } from '../../components/ui/FormatStrip';
+import FormatStrip, { formatLabel } from '../../components/ui/FormatStrip';
 import { formatPrice } from '@/utils/formatPrice';
 import styles from './page.module.css';
 import { NAV, breadcrumbTrail, type NavItem } from '@/config/navigation';
@@ -106,20 +104,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const packagingFormat = product.volume ? packWithoutVolume(pack) : pack;
   const abvText = formatAbv(product.abv);
   const tastingNote = getTastingNotes(product.name);
-  const guaranteeTitle = isSausage || isCombo ? 'Cam kết thực phẩm lạnh và tươi' : 'Cam kết chất lượng';
-  const guaranteeItems = isSausage || isCombo
-    ? [
-        'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh từ 0 - 4°C chuyên dụng.',
-        'Tư vấn cách làm nóng, áp chảo, nướng hoặc bày lạnh theo từng dòng sản phẩm.',
-        'Hỗ trợ thông tin giao nhận và hướng dẫn bảo quản ngay sau khi nhận sản phẩm.',
-        'Hỗ trợ kiểm tra thông tin lô hàng và hạn sử dụng rõ ràng trên bao bì.',
-      ]
-    : [
-        'Sản phẩm nhập khẩu chính hãng với thông tin nguồn gốc rõ ràng.',
-        'Bảo quản theo điều kiện phù hợp với từng dòng sản phẩm.',
-        'Tư vấn lựa chọn quy cách theo nhu cầu sử dụng, biếu tặng hoặc sự kiện.',
-        'Hỗ trợ thông tin giao nhận khi khách hàng liên hệ qua hotline hoặc Zalo.',
-      ];
+  // Chỉ đồ ăn lạnh (xúc xích, combo) giữ khối cam kết vì có thông tin bảo quản thật; bia bỏ 4 câu chung chung (audit L2).
+  const foodGuarantee = isSausage || isCombo
+    ? {
+        title: 'Cam kết thực phẩm lạnh và tươi',
+        items: [
+          'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh từ 0 - 4°C chuyên dụng.',
+          'Tư vấn cách làm nóng, áp chảo, nướng hoặc bày lạnh theo từng dòng sản phẩm.',
+          'Hỗ trợ thông tin giao nhận và hướng dẫn bảo quản ngay sau khi nhận sản phẩm.',
+          'Hỗ trợ kiểm tra thông tin lô hàng và hạn sử dụng rõ ràng trên bao bì.',
+        ],
+      }
+    : null;
 
   const sausageTags = (() => {
     const s = product.slug || '';
@@ -130,15 +126,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   })();
   const tags = isSausage ? sausageTags : isCombo ? ['Combo tham khảo', 'Bia và xúc xích Đức', 'Quà tặng kèm'] : [];
 
-  const specs = [
-    abvText ? ['Nồng độ cồn', abvText] : null,
-    product.ibu ? ['Độ đắng (IBU)', String(product.ibu)] : null,
-    product.volume ? [isSausage ? 'Quy cách' : 'Dung tích', product.volume] : null,
-    packagingFormat && !isSausage ? ['Quy cách', packagingFormat] : null,
-    ['Xuất xứ', product.origin || 'Đức'],
-  ].filter((row): row is string[] => Boolean(row));
-
-  const relatedProductsData = getRelatedBeers(product.id, 4);
   const isBeer = product.category === 'bia';
 
   // Ba cấp Sản phẩm → Dòng bia → Quy cách (audit A2). Dòng chưa có trang riêng trỏ về nhóm trong danh mục.
@@ -147,6 +134,19 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const skuCrumb = { href: `/san-pham/${product.slug || product.id}`, label: line ? formatLabel(product) : product.name };
   const parentCrumb = lineCrumb ?? NAV.products;
   const priceSpecs = [abvText ? `${abvText} vol.` : null, product.ibu ? `IBU ${product.ibu}` : null].filter(Boolean).join(' · ');
+
+  // Bảng thông số chỉ giữ dòng chưa hiện phía trên: ABV/IBU đã ở hàng giá, dung tích và quy cách đã ở dưới tên (audit L2).
+  const specs = [
+    abvText && !priceSpecs ? ['Nồng độ cồn', abvText] : null,
+    product.ibu && !priceSpecs ? ['Độ đắng (IBU)', String(product.ibu)] : null,
+    product.volume && !pack ? [isSausage ? 'Quy cách' : 'Dung tích', product.volume] : null,
+    packagingFormat && !isSausage && !pack ? ['Quy cách', packagingFormat] : null,
+    ['Xuất xứ', product.origin || 'Đức'],
+  ].filter((row): row is string[] => Boolean(row));
+
+  // Cùng dòng bia: dải quy cách khác thay cho "Có thể bạn sẽ thích"; sản phẩm khác (xúc xích, vang) giữ gợi ý cũ.
+  const siblingFormats = line ? getLineProducts(line.id).filter((item) => item.id !== product.id) : [];
+  const relatedProductsData = line ? [] : getRelatedBeers(product.id, 4);
   const sausageProducts = isBeer ? getSausageProducts() : [];
   const relatedCombo = isBeer ? getRelatedCombo(product.slug || product.id) : null;
 
@@ -218,83 +218,53 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 </div>
               ))}
             </dl>
-
-            <div className={styles.tasting}>
-              <p className={styles.tastingLabel}>Hương vị nổi bật</p>
-              <p>{tastingNote}</p>
-            </div>
           </div>
         </div>
 
+        {/* Một cột: hương vị, mô tả, câu hỏi thường gặp; món nhắm thu thành một dòng link (audit L2). */}
         <div className={styles.details}>
-          <div>
-            <div className={`product-description ${styles.description}`}>
-              {product.description || (
-                <p>
-                  Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
-                </p>
-              )}
-            </div>
-            <ProductDetailsAccordion productName={product.name} category={product.category} />
+          <p className={styles.tastingInline}>
+            <strong>Hương vị nổi bật:</strong> {tastingNote}
+          </p>
+          <div className={`product-description ${styles.description}`}>
+            {product.description || (
+              <p>
+                Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
+              </p>
+            )}
           </div>
+          <ProductDetailsAccordion productName={product.name} category={product.category} />
 
-          <aside className={styles.guarantee}>
-            <h2>{guaranteeTitle}</h2>
-            <ul>
-              {guaranteeItems.map((item) => (
-                <li key={item}>{item}</li>
+          {foodGuarantee ? (
+            <aside className={styles.guarantee}>
+              <p className={styles.guaranteeTitle}>{foodGuarantee.title}</p>
+              <ul>
+                {foodGuarantee.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </aside>
+          ) : null}
+
+          {isBeer && (sausageProducts.length > 0 || relatedCombo) ? (
+            <p className={styles.pairingLinks}>
+              <span className={styles.pairingLabel}>Món nhắm gợi ý</span>
+              {sausageProducts.map((sausage) => (
+                <Link key={sausage.id} href={`/san-pham/${sausage.slug}`}>{sausage.name}</Link>
               ))}
-            </ul>
-          </aside>
+              {relatedCombo ? <Link href={`/san-pham/${relatedCombo.slug}`}>{relatedCombo.name}</Link> : null}
+            </p>
+          ) : null}
         </div>
 
-        {isBeer && sausageProducts.length > 0 && (
-          <section className={styles.pairings} aria-labelledby="pairings-title">
-            <TitleBlock id="pairings-title" align="center" title="Món nhắm" kicker="Gợi ý food pairing" />
-            <p className={styles.pairingsLead}>Tham khảo xúc xích Đức truyền thống và các combo phù hợp để hoàn thiện trải nghiệm thưởng thức.</p>
-
-            <div className={styles.pairingsGrid}>
-              <div className={styles.sausages}>
-                <h3 className={styles.panelTitle}>Xúc xích Đức ăn kèm</h3>
-                <ul>
-                  {sausageProducts.map((sausage) => (
-                    <li key={sausage.id}>
-                      <Link href={`/san-pham/${sausage.slug}`} className={styles.sausage}>
-                        {sausage.images?.[0] ? (
-                          <span className={styles.sausageImage}>
-                            <Image src={sausage.images[0]} alt={sausage.name} fill sizes="72px" />
-                          </span>
-                        ) : null}
-                        <span>
-                          <span className={styles.sausageName}>{sausage.name}</span>
-                          <span className={styles.sausageCue}>Xem chi tiết</span>
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {relatedCombo && (
-                <div className={styles.combo} data-surface="ink">
-                  <h3 className={styles.panelTitle}>Combo đề xuất</h3>
-                  <div className={styles.comboBody}>
-                    {relatedCombo.images?.[0] ? (
-                      <span className={styles.comboImage}>
-                        <Image src={relatedCombo.images[0]} alt={relatedCombo.name} fill sizes="104px" />
-                      </span>
-                    ) : null}
-                    <div>
-                      <p className={styles.comboName}>{relatedCombo.name}</p>
-                      <p className={styles.comboDesc}>{relatedCombo.description}</p>
-                    </div>
-                  </div>
-                  <Button href={`/san-pham/${relatedCombo.slug}`} variant="light">Xem chi tiết</Button>
-                </div>
-              )}
+        {line && siblingFormats.length > 0 ? (
+          <section className={styles.related} aria-labelledby="formats-title">
+            <TitleBlock id="formats-title" align="center" title="Quy cách khác" kicker={line.label} />
+            <div className={styles.formats}>
+              <FormatStrip products={siblingFormats} />
             </div>
           </section>
-        )}
+        ) : null}
 
         {relatedProductsData && relatedProductsData.length > 0 && (
           <section className={styles.related} aria-labelledby="related-title">

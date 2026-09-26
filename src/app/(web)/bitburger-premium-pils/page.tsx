@@ -45,7 +45,7 @@ export default function Page() {
   };
 
   const zaloBaseUrl = getCompanyZaloUrl();
-  const msgGeneral = 'Chào Bia Thầy Tu, mình muốn tư vấn đặt mua bia Bitburger Premium Pils chính hãng. Giao nhanh giúp mình nhé.';
+  const msgGeneral = 'Chào Bia Thầy Tu, mình muốn được tư vấn về bia Bitburger Premium Pils.';
   const linkGeneral = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgGeneral)}` : '/lien-he';
 
   const formats = getLineProducts('bitburger');
@@ -74,7 +74,7 @@ export default function Page() {
             </>
           ),
           actions: [
-            { href: linkGeneral, label: 'Tư vấn đặt hàng', external: Boolean(zaloBaseUrl) },
+            { href: linkGeneral, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
             { href: '/san-pham#bia-duc-khac', label: 'Xem các quy cách' },
           ],
         }}
@@ -121,10 +121,10 @@ export default function Page() {
           ],
         }}
         cta={{
-          title: 'Đặt hàng',
+          title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
           text: 'Nhập khẩu nguyên chai, lon từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
-          action: { href: linkGeneral, label: 'Liên hệ đặt hàng qua Zalo', external: Boolean(zaloBaseUrl) },
+          action: { href: linkGeneral, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />
     </>

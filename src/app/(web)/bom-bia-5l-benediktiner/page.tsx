@@ -59,7 +59,8 @@ export default function Page() {
         }}
         intro={{
           title: 'Bia tươi tại bàn tiệc',
-          image: { src: '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp', alt: 'Bom Benediktiner Festbier 5 lít' },
+          // Hero đã dùng bom Festbier; khối giới thiệu dùng bom Naturtrüb, khớp nút "Xem chi tiết sản phẩm" (audit L7).
+          image: { src: '/images/products/official/benediktiner/438775_Bene_Weissbier_NT_5l_Keg_front.webp', alt: 'Bom Benediktiner Weissbier Naturtrüb 5 lít' },
           body: (
             <>
               <p>Bom 5 lít làm điểm nhấn cho bàn tiệc gia đình, dã ngoại hay sự kiện. Vỏ kim loại chuyên dụng giữ lạnh tốt và bảo quản chất lượng bia.</p>

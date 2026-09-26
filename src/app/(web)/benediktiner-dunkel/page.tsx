@@ -46,7 +46,7 @@ export default function Page() {
   };
 
   const zaloBaseUrl = getCompanyZaloUrl();
-  const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia đen lúa mì Benediktiner Dunkel chính hãng. Tư vấn giúp mình nhé.';
+  const msgOrder = 'Chào Bia Thầy Tu, mình muốn được tư vấn về bia đen lúa mì Benediktiner Dunkel.';
   const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
   const formats = getLineProducts('dunkel');
 
@@ -74,7 +74,7 @@ export default function Page() {
             </>
           ),
           actions: [
-            { href: linkOrder, label: 'Liên hệ đặt hàng', external: Boolean(zaloBaseUrl) },
+            { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
             { href: '/san-pham#benediktiner', label: 'Xem các quy cách' },
           ],
         }}
@@ -122,10 +122,10 @@ export default function Page() {
           ],
         }}
         cta={{
-          title: 'Đặt hàng',
+          title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
           text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
-          action: { href: linkOrder, label: 'Liên hệ đặt hàng qua Zalo', external: Boolean(zaloBaseUrl) },
+          action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />
     </>
