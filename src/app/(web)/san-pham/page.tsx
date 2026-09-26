@@ -12,11 +12,11 @@ import { KEG_PAGE, NAV, breadcrumbTrail } from '@/config/navigation';
 import { BEER_LINES, LINE_GROUPS, getLineForName, packFormatOf, type LineGroup } from '@/config/productLines';
 
 export const metadata: Metadata = {
-  title: 'Benediktiner Và Bia Đức Tuyển Chọn',
+  title: 'Benediktiner và bia Đức tuyển chọn',
   description: 'Benediktiner là danh mục chính, bên cạnh Bitburger và các dòng bia Đức được German Taste tuyển chọn. Xem hương vị, quy cách và giá bán lẻ.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/san-pham' },
   openGraph: {
-    title: 'Benediktiner Và Bia Đức Tuyển Chọn | Bia Thầy Tu',
+    title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
     description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/san-pham',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Benediktiner Và Bia Đức Tuyển Chọn | Bia Thầy Tu',
+    title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
     description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },

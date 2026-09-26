@@ -5,11 +5,11 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
+  title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
   description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' },
   openGraph: {
-    title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
+    title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
     description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang',
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bia Benediktiner Chính Hãng',
+        alt: 'Bia Benediktiner chính hãng',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Benediktiner Chính Hãng Là Gì? Cách Nhận Biết Hàng Thật',
+    title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
     description: 'Tìm hiểu thương hiệu bia Benediktiner chính hãng từ Tu Viện Ettal: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật–giả, tiêu chuẩn Reinheitsgebot 1516.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner Chính Hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-benediktiner-chinh-hang', label: 'Bia Benediktiner Chính Hãng' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner chính hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-benediktiner-chinh-hang', label: 'Bia Benediktiner chính hãng' }))} />
 
       <EditorialPage
         hero={{

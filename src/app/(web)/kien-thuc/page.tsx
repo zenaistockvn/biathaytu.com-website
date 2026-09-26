@@ -9,13 +9,13 @@ import styles from './page.module.css';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Kiến Thức Bia Đức',
+  title: 'Kiến thức bia Đức',
   description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
   alternates: {
     canonical: 'https://www.biathaytu.com.vn/kien-thuc',
   },
   openGraph: {
-    title: 'Kiến Thức Bia Đức',
+    title: 'Kiến thức bia Đức',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/kien-thuc',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kiến Thức Bia Đức',
+        alt: 'Kiến thức bia Đức',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kiến Thức Bia Đức',
+    title: 'Kiến thức bia Đức',
     description: 'Khám phá thế giới bia Đức: từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },

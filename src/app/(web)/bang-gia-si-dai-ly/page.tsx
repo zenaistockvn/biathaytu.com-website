@@ -5,11 +5,11 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
+  title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
   description: 'Thông tin hợp tác phân phối Bia Thầy Tu Benediktiner và Bitburger dành cho đại lý, nhà hàng và khách sạn. Tư vấn sản phẩm, quy cách, chính sách hợp tác và hỗ trợ bán hàng.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly' },
   openGraph: {
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
+    title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
     description: 'Thông tin sản phẩm, quy cách và chương trình hợp tác dành cho đối tác phân phối Benediktiner và Bitburger. Liên hệ để được tư vấn.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly',
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/home-hero.jpg',
         width: 1200,
         height: 630,
-        alt: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu',
+        alt: 'Thông tin sỉ & đại lý bia Đức nhập khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thông Tin Sỉ & Đại Lý Bia Đức Nhập Khẩu, Benediktiner',
+    title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
     description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
@@ -36,8 +36,8 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Chính Sách Đại Lý & Giá Sỉ Bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bang-gia-si-dai-ly', label: 'Đại Lý Phân Phối' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Chính sách đại lý & giá sỉ bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bang-gia-si-dai-ly', label: 'Đại lý phân phối' }))} />
 
       <EditorialPage
         hero={{

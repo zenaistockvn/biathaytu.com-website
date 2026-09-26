@@ -8,11 +8,11 @@ import { formatPrice } from '@/utils/formatPrice';
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
+  title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
   description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/qua-tang-bia-duc' },
   openGraph: {
-    title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
+    title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
     description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
+        alt: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quà Tặng Bia Đức Cao Cấp Dành Cho Doanh Nghiệp',
+    title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
     description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -45,8 +45,8 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Quà Tặng Bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/qua-tang-bia-duc', label: 'Quà Tặng Bia Đức' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Quà tặng bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/qua-tang-bia-duc', label: 'Quà tặng bia Đức' }))} />
 
       <EditorialPage
         hero={{

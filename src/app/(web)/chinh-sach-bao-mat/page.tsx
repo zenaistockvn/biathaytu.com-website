@@ -6,14 +6,14 @@ import { COMPANY_CONFIG } from '@/config/company';
 import EditorialPage from '../components/EditorialPage';
 
 export const metadata: Metadata = {
-  title: 'Chính Sách Bảo Mật',
+  title: 'Chính sách bảo mật',
   description: 'Thông tin bảo vệ dữ liệu cá nhân và quyền riêng tư khi truy cập website Bia Thầy Tu và sử dụng các kênh tư vấn.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/chinh-sach-bao-mat' },
 };
 
 export default function PrivacyPolicyPage() {
   return (
-    <EditorialPage tone="light" hero={{ eyebrow: "Quyền Riêng Tư", title: "Chính Sách Bảo Mật" }}>
+    <EditorialPage tone="light" hero={{ eyebrow: "Quyền riêng tư", title: "Chính sách bảo mật" }}>
       <AlcoholWarning variant="checkout" />
 
       <div>

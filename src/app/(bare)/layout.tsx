@@ -2,7 +2,7 @@ import '../web.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Thông Báo Kiểm Soát Độ Tuổi | Bia Thầy Tu',
+  title: 'Thông báo kiểm soát độ tuổi | Bia Thầy Tu',
   description: 'Trang thông báo dành cho người truy cập chưa đủ 18 tuổi theo Luật Phòng, chống tác hại của rượu, bia.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/chua-du-tuoi' },
   robots: { index: false, follow: false },

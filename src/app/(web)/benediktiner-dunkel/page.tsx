@@ -8,11 +8,11 @@ import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
+  title: 'Benediktiner Dunkel, bia đen lúa mì Đức 5.4%',
   description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-dunkel' },
   openGraph: {
-    title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
+    title: 'Benediktiner Dunkel, bia đen lúa mì Đức 5.4%',
     description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/benediktiner-dunkel',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức',
+        alt: 'Benediktiner Dunkel, bia đen lúa mì Đức',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Benediktiner Dunkel, Bia Đen Lúa Mì Đức 5.4%',
+    title: 'Benediktiner Dunkel, bia đen lúa mì Đức 5.4%',
     description: 'Bia đen lúa mì Benediktiner Dunkel với hương mạch nha rang, caramel, chocolate đen và mật ong. Nhập khẩu Đức nguyên chai. Phù hợp món nướng BBQ.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },

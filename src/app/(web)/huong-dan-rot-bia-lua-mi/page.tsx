@@ -4,11 +4,11 @@ import EditorialPage, { CtaBand, StepList, Summary } from '../components/Editori
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
+  title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
   description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi' },
   openGraph: {
-    title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
+    title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
     description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
+        alt: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hướng Dẫn Rót Bia Lúa Mì Đức (Weissbier) Chuẩn Xác',
+    title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
     description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Hướng Dẫn Rót Bia Lúa Mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.enjoy.href, label: 'Hướng Dẫn Rót Bia' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Hướng dẫn rót bia lúa mì', slug: 'huong-dan-rot-bia-lua-mi', url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi', description: 'Nghệ thuật rót bia Weissbier chuẩn Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.enjoy.href, label: 'Hướng dẫn rót bia' }))} />
 
       <EditorialPage
         hero={{

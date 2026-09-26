@@ -8,11 +8,11 @@ import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+  title: 'Bitburger Premium Pils, bia Pilsner Đức từ 1817',
   description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817. Xem hương vị, món ăn kèm và các quy cách chai, lon, bom 5 lít.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bitburger-premium-pils' },
   openGraph: {
-    title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+    title: 'Bitburger Premium Pils, bia Pilsner Đức từ 1817',
     description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817. Xem hương vị, món ăn kèm và các quy cách chai, lon, bom 5 lít.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitburger Premium Pils, Bia Pilsner Đức Từ 1817',
+    title: 'Bitburger Premium Pils, bia Pilsner Đức từ 1817',
     description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817.',
     images: ['/images/brand/bitburger-official/siegelhopfen-field.jpg'],
   },

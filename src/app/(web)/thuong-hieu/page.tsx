@@ -9,11 +9,11 @@ import styles from './page.module.css';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
+  title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
   description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine và hành trình công thức nguyên bản được tiếp nối tại Lich, Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/thuong-hieu' },
   openGraph: {
-    title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
+    title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
     description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/thuong-hieu',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Câu Chuyện Benediktiner, Từ Tu Viện Ettal Đến Ngày Nay',
+    title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
     description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },

@@ -6,14 +6,14 @@ import { COMPANY_CONFIG } from '@/config/company';
 import EditorialPage from '../components/EditorialPage';
 
 export const metadata: Metadata = {
-  title: 'Điều Khoản Sử Dụng',
+  title: 'Điều khoản sử dụng',
   description: 'Nguyên tắc sử dụng website giới thiệu sản phẩm, thông tin thương hiệu và kênh tư vấn của Bia Thầy Tu.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/dieu-khoan-su-dung' },
 };
 
 export default function TermsOfUsePage() {
   return (
-    <EditorialPage tone="light" hero={{ eyebrow: "Quy Định Chung", title: "Điều Khoản Sử Dụng" }}>
+    <EditorialPage tone="light" hero={{ eyebrow: "Quy định chung", title: "Điều khoản sử dụng" }}>
       <AlcoholWarning variant="checkout" />
 
       <div>

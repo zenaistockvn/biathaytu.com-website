@@ -72,9 +72,9 @@ export async function GET() {
       markdown += `- [${article.title}](${articleUrl}): ${article.meta_description || ''}\n`;
     });
   } else {
-    markdown += `- [Bia Thầy Tu Là Gì?](${baseUrl}/bia-thay-tu-la-gi): Lịch sử sản xuất bia từ Tu viện Ettal từ năm 1609.\n`;
-    markdown += `- [Hướng Dẫn Rót Bia Lúa Mì](${baseUrl}/huong-dan-rot-bia-lua-mi): Nghệ thuật rót bia Weissbier chuẩn Đức giữ trọn men sống.\n`;
-    markdown += `- [Chứng Nhận Nhập Khẩu](${baseUrl}/chung-nhan-nhap-khau-chinh-hang): Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.\n`;
+    markdown += `- [Bia Thầy Tu là gì?](${baseUrl}/bia-thay-tu-la-gi): Lịch sử sản xuất bia từ Tu viện Ettal từ năm 1609.\n`;
+    markdown += `- [Hướng dẫn rót bia lúa mì](${baseUrl}/huong-dan-rot-bia-lua-mi): Nghệ thuật rót bia Weissbier chuẩn Đức giữ trọn men sống.\n`;
+    markdown += `- [Chứng nhận nhập khẩu](${baseUrl}/chung-nhan-nhap-khau-chinh-hang): Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.\n`;
   }
 
   markdown += `\n## Các Câu Hỏi Thường Gặp (FAQs)\n`;

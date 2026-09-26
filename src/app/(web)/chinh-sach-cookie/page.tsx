@@ -7,14 +7,14 @@ import { COMPANY_CONFIG } from '@/config/company';
 import EditorialPage from '../components/EditorialPage';
 
 export const metadata: Metadata = {
-  title: 'Chính Sách Cookie',
+  title: 'Chính sách cookie',
   description: 'Thông tin về cookie cần thiết, quyền lựa chọn cookie phân tích và quyền riêng tư khi sử dụng website Bia Thầy Tu.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/chinh-sach-cookie' },
 };
 
 export default function CookiePolicyPage() {
   return (
-    <EditorialPage tone="light" hero={{ eyebrow: "Quyền Riêng Tư", title: "Chính Sách Cookie" }}>
+    <EditorialPage tone="light" hero={{ eyebrow: "Quyền riêng tư", title: "Chính sách cookie" }}>
       <AlcoholWarning variant="checkout" />
 
       <div>

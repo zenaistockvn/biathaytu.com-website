@@ -58,6 +58,21 @@ describe('quy tắc DESIGN.md áp cho mọi component', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('tiêu đề, alt, breadcrumb của trang tĩnh viết hoa đầu câu', () => {
+    const offenders = walk('src/app', /\.tsx?$/)
+      .filter((file) => !/JsonLd\.tsx$/.test(file))
+      .flatMap((file) =>
+        [...read(file).matchAll(/(?:title|alt|label|eyebrow|default)\s*[:=]\s*['"`]([^'"`$]{8,}?)['"`]/g)]
+          .map((m) => m[1])
+          .filter((text) => {
+            const words = text.split(/\s+/).map((w) => w.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')).filter((w) => /^\p{L}/u.test(w) && !PROPER_NOUNS.has(w));
+            return words.length >= 3 && words.filter((w) => /^\p{Lu}/u.test(w)).length / words.length > 0.8;
+          })
+          .map((text) => `${file}: ${text}`),
+      );
+    expect(offenders).toEqual([]);
+  });
+
   it('không có chữ nhỏ hơn 12px trong CSS', () => {
     const offenders = walk('src/app', /\.css$/).flatMap((file) =>
       [...read(file).matchAll(/font-size:\s*(\d+(?:\.\d+)?)px/g)]

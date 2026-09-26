@@ -5,11 +5,11 @@ import { getBeerProducts } from '@/lib/data/products';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
+  title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu cho tiệc',
   description: 'Bom bia 5L Benediktiner Weissbier, bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' },
   openGraph: {
-    title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu Cho Tiệc',
+    title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu cho tiệc',
     description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
+        alt: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bom Bia 5L Benediktiner, Bia Đức Nhập Khẩu',
+    title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu',
     description: 'Thông tin bom bia 5L Benediktiner Weissbier, cách dùng, bảo quản và tư vấn sản phẩm.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },

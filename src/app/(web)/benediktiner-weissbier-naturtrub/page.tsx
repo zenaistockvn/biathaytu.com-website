@@ -8,11 +8,11 @@ import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
+  title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
   description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' },
   openGraph: {
-    title: 'Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
+    title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
     description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, Nhập Khẩu Đức',
+    title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
     description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },

@@ -6,11 +6,11 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
+  title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
   description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san' },
   openGraph: {
-    title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
+    title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
     description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san',
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Giải Pháp Cung Cấp Bia Đức Cho Nhà Hàng Khách Sạn (Horeca)',
+        alt: 'Giải pháp cung cấp bia Đức cho nhà hàng khách sạn (HORECA)',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Đức Cho Nhà Hàng, Khách Sạn (Horeca)',
+    title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
     description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -37,8 +37,8 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp Bia Đức cho Horeca', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.horeca.href, label: 'Bia Đức Cho Nhà Hàng Khách Sạn' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Giải pháp bia Đức cho HORECA', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: NAV.horeca.href, label: 'Bia Đức cho nhà hàng khách sạn' }))} />
 
       <EditorialPage
         hero={{

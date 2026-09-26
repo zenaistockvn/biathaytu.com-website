@@ -4,11 +4,11 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
+  title: 'Giấy tờ nhập khẩu & chứng nhận chất lượng bia Đức',
   description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang' },
   openGraph: {
-    title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
+    title: 'Giấy tờ nhập khẩu & chứng nhận chất lượng bia Đức',
     description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
+        alt: 'Giấy tờ nhập khẩu & chứng nhận chất lượng bia Đức',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Giấy Tờ Nhập Khẩu & Chứng Nhận Chất Lượng Bia Đức',
+    title: 'Giấy tờ nhập khẩu & chứng nhận chất lượng bia Đức',
     description: 'Minh bạch nguồn gốc xuất xứ Bia Thầy Tu Benediktiner. Đầy đủ giấy tờ hải quan, CO/CQ, Công bố chất lượng sản phẩm nhập khẩu nguyên chai từ Đức.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Chứng Nhận Nhập Khẩu Bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/chung-nhan-nhap-khau-chinh-hang', label: 'Chứng Nhận Nhập Khẩu' }))} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Chứng nhận nhập khẩu bia Đức', slug: 'chung-nhan-nhap-khau-chinh-hang', url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang', description: 'Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/chung-nhan-nhap-khau-chinh-hang', label: 'Chứng nhận nhập khẩu' }))} />
 
       <EditorialPage
         hero={{

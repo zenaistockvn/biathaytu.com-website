@@ -5,11 +5,11 @@ import { COMPANY_CONFIG } from '@/config/company';
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
+  title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
   description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' },
   openGraph: {
-    title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
+    title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
     description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi',
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Từ Tu Viện Ettal',
+        alt: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner từ Tu viện Ettal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Thầy Tu Là Gì? Nguồn Gốc Bia Benediktiner Đức',
+    title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
     description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -39,9 +39,9 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu Là Gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu là gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-thay-tu-la-gi', label: 'Bia Thầy Tu Là Gì?' }))} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-thay-tu-la-gi', label: 'Bia Thầy Tu là gì?' }))} />
 
       <EditorialPage
         hero={{

@@ -10,7 +10,7 @@ import { NAV } from '@/config/navigation';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Thông Tin Mua Hàng',
+  title: 'Thông tin mua hàng',
   description: 'Thông tin tham khảo về kênh tư vấn, phương thức giao dịch, giao nhận và hỗ trợ sau giao dịch đối với sản phẩm Bia Thầy Tu.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/thong-tin-mua-hang' },
 };
@@ -21,7 +21,7 @@ export default function PurchaseInformationPage() {
   const zaloUrl = getCompanyZaloUrl();
 
   return (
-    <EditorialPage tone="light" hero={{ eyebrow: "Thông Tin Tham Khảo", title: "Thông Tin Mua Hàng", lead: "Website không thực hiện đặt hàng trực tuyến. Nội dung dưới đây giúp khách hàng hiểu cách liên hệ, phương thức giao dịch, nhận hàng và yêu cầu hỗ trợ sau khi một giao dịch đã được xác nhận qua kênh liên hệ hoặc tại địa điểm kinh doanh." }}>
+    <EditorialPage tone="light" hero={{ eyebrow: "Thông tin tham khảo", title: "Thông tin mua hàng", lead: "Website không thực hiện đặt hàng trực tuyến. Nội dung dưới đây giúp khách hàng hiểu cách liên hệ, phương thức giao dịch, nhận hàng và yêu cầu hỗ trợ sau khi một giao dịch đã được xác nhận qua kênh liên hệ hoặc tại địa điểm kinh doanh." }}>
       <AlcoholWarning variant="checkout" />
 
       <div>
