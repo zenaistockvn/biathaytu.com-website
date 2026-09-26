@@ -1,52 +1,61 @@
-/* Footer theo ngữ pháp chimay.com: khối xanh đêm phẳng + thanh màu cuối trang. */
+/* Footer theo ngữ pháp chimay.com: khối xanh đêm phẳng + thanh màu cuối trang.
+   Ba tầng: giới thiệu + ba cột link · hàng liên hệ · một đoạn thông tin doanh nghiệp. */
 
 .footer {
   color: var(--web-on-ink);
 }
 
 .main {
-  padding: clamp(56px, 7vw, 88px) 0 clamp(40px, 5vw, 56px);
+  padding: var(--web-section-py) 0 32px;
   background: var(--web-ink);
 }
 
+/* ─── Tầng 1: giới thiệu và ba cột link ─── */
 .grid {
   display: grid;
-  gap: 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 24px;
+}
+
+.grid > .brand {
+  grid-column: 1 / -1;
 }
 
 .brandLink {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   color: var(--web-on-ink);
   text-decoration: none;
 }
 
 .crest {
-  width: 64px;
-  height: 64px;
+  flex: none;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
 }
 
 .brandTitle {
   font-family: var(--font-display), Georgia, serif;
   font-stretch: var(--web-display-stretch);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .brand .brandDesc {
-  max-width: 320px;
-  margin: 18px 0 0;
+  max-width: 340px;
+  margin: 16px 0 0;
   font-size: 15px;
   line-height: 1.65;
   color: var(--web-on-ink-muted);
 }
 
 .brand .brochureNote {
-  margin: 12px 0 20px;
+  margin: 10px 0 0;
   font-size: 14px;
   font-weight: 600;
   color: var(--web-on-ink);
@@ -74,25 +83,43 @@
 }
 
 .linkList a,
-.rows a {
+.contactList a {
   color: var(--web-on-ink);
   text-decoration: none;
 }
 
 .linkList a:hover,
-.rows a:hover {
+.contactList a:hover {
   color: var(--web-accent-on-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.rows {
-  display: grid;
-  gap: 12px;
+/* ─── Tầng 2: liên hệ trên một hàng ─── */
+.contact {
+  margin-top: 48px;
+}
+
+/* Kẻ trên dưới nằm trong khung chữ của container, thẳng mép với các cột. */
+.contactInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 24px 0;
+  border-top: 1px solid rgb(var(--web-on-ink-rgb) / 0.2);
+  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.2);
+}
+
+.contactList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
   margin: 0;
 }
 
-.rows dt {
+.contactList dt {
   font-family: var(--font-condensed), sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -101,31 +128,66 @@
   color: var(--web-on-ink-muted);
 }
 
-.rows dd {
+.contactList dd {
   margin: 2px 0 0;
   line-height: 1.5;
 }
 
-.contactRows {
-  margin-bottom: 20px;
+/* ─── Tầng 3: thông tin doanh nghiệp, một đoạn chữ nhỏ ─── */
+.company {
+  padding-top: 20px;
 }
 
-.company dd {
-  font-size: 14px;
+.companyInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+}
+
+.companyList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--web-on-ink-muted);
 }
 
+.companyList > div {
+  display: flex;
+  gap: 6px;
+}
+
+.companyList dt {
+  font-weight: 600;
+  color: var(--web-on-ink);
+}
+
+.companyList dd {
+  margin: 0;
+}
+
 .wine {
-  display: block;
-  width: fit-content;
-  margin-top: 20px;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--web-accent-on-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* ─── Thanh cuối trang ─── */
@@ -173,34 +235,18 @@
   color: var(--web-ink);
 }
 
-/* Mobile: ba cột link xếp hai cột cho gọn; cột giới thiệu và thông tin doanh nghiệp chiếm cả hàng. */
-.grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 24px;
-}
-
-.grid > .brand,
-.grid > :last-child {
-  grid-column: 1 / -1;
-}
-
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .grid > .brand {
+    grid-column: auto;
   }
 }
 
 @media (min-width: 1100px) {
-  .grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr;
-    gap: 40px;
-  }
-
-  .grid > .brand,
-  .grid > :last-child {
-    grid-column: auto;
-  }
-
   .barInner {
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -212,8 +258,12 @@
   }
 }
 
-/* Chừa chỗ cho thanh điều hướng đáy trên mobile. */
-@media (max-width: 768px) {
+/* Mobile: chữ thông tin doanh nghiệp xuống từng dòng cho dễ đọc; chừa chỗ cho thanh điều hướng đáy. */
+@media (max-width: 767px) {
+  .companyList {
+    flex-direction: column;
+  }
+
   .bar {
     padding-bottom: calc(18px + var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
   }

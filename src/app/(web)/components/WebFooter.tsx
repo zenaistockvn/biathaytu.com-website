@@ -51,13 +51,20 @@ export default function WebFooter() {
     ['Đại diện pháp luật', COMPANY_CONFIG.legalRepresentative],
   ] as const;
 
+  const contactRows = [
+    ['Hotline', telHref ? <a key="tel" href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline],
+    ['Email', mailtoHref ? <a key="mail" href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email],
+    ['Showroom', COMPANY_CONFIG.showroomAddress],
+  ] as const;
+
   return (
     <footer className={styles.footer} data-surface="ink">
       <div className={styles.main}>
+        {/* Tầng 1: giới thiệu ngắn và ba cột link, các cột cao gần bằng nhau. */}
         <div className={`container ${styles.grid}`}>
           <section className={styles.brand} aria-label="Giới thiệu Bia Thầy Tu">
             <Link href="/" className={styles.brandLink} aria-label="Bia Thầy Tu, về trang chủ">
-              <Image src="/logo.png" alt="" width={64} height={64} className={styles.crest} />
+              <Image src="/logo.png" alt="" width={56} height={56} className={styles.crest} />
               <span className={styles.brandTitle}>Bia Thầy Tu</span>
             </Link>
             <p className={styles.brandDesc}>
@@ -66,28 +73,6 @@ export default function WebFooter() {
             <p className={styles.brochureNote}>
               Website giới thiệu sản phẩm, không bán hàng trực tuyến.
             </p>
-            <dl className={`${styles.rows} ${styles.contactRows}`}>
-              <div>
-                <dt>Hotline</dt>
-                <dd>{telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}</dd>
-              </div>
-              <div>
-                <dt>Email</dt>
-                <dd>{mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}</dd>
-              </div>
-              <div>
-                <dt>Showroom</dt>
-                <dd>{COMPANY_CONFIG.showroomAddress}</dd>
-              </div>
-            </dl>
-            {zaloUrl ? (
-              <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-light btn-sm">
-                Mở Zalo
-              </a>
-            ) : null}
-            <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
-              Từ German Taste: khám phá rượu vang Đức
-            </a>
           </section>
 
           {linkColumns.map((column) => (
@@ -100,19 +85,47 @@ export default function WebFooter() {
               </ul>
             </section>
           ))}
+        </div>
 
-          <section aria-labelledby="footer-company">
-            <h2 id="footer-company" className={styles.columnTitle}>Thông tin doanh nghiệp</h2>
-            <dl className={`${styles.rows} ${styles.company}`}>
-              {companyRows.map(([label, value]) => (
+        {/* Tầng 2: liên hệ trên một hàng ngang, nút Zalo bên phải. */}
+        {/* Lớp ngoài giữ khoảng đệm: `.container` toàn cục đặt lại padding và margin. */}
+        <section className={styles.contact} aria-label="Liên hệ">
+          <div className="container">
+            <div className={styles.contactInner}>
+            <dl className={styles.contactList}>
+              {contactRows.map(([label, value]) => (
                 <div key={label}>
                   <dt>{label}</dt>
                   <dd>{value}</dd>
                 </div>
               ))}
             </dl>
-          </section>
-        </div>
+            {zaloUrl ? (
+              <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-light btn-sm">
+                Mở Zalo
+              </a>
+            ) : null}
+            </div>
+          </div>
+        </section>
+
+        {/* Tầng 3: thông tin doanh nghiệp bắt buộc, gộp thành một đoạn chữ nhỏ. */}
+        <section className={styles.company} aria-labelledby="footer-company">
+          <div className={`container ${styles.companyInner}`}>
+            <h2 id="footer-company" className={styles.srOnly}>Thông tin doanh nghiệp</h2>
+            <dl className={styles.companyList}>
+              {companyRows.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}:</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+            <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
+              Từ German Taste: khám phá rượu vang Đức
+            </a>
+          </div>
+        </section>
       </div>
 
       <div className={styles.bar}>
