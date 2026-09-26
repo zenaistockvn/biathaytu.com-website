@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { getBeerProducts } from '@/lib/data/products';
+import { getLineProducts } from '@/lib/data/products';
+import { getLineForName } from '@/config/productLines';
 import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.name.includes('Bitburger'));
+  const priceRange = getPriceRange((p) => p.category === 'bia' && getLineForName(p.name)?.id === 'bitburger');
   const product = {
     name: 'Bitburger Premium Pils',
     slug: 'bitburger-premium-pils',
@@ -47,7 +48,7 @@ export default function Page() {
   const msgGeneral = 'Chào Bia Thầy Tu, mình muốn tư vấn đặt mua bia Bitburger Premium Pils chính hãng. Giao nhanh giúp mình nhé.';
   const linkGeneral = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgGeneral)}` : '/lien-he';
 
-  const formats = getBeerProducts().filter((p) => p.name.includes('Bitburger'));
+  const formats = getLineProducts('bitburger');
 
   return (
     <>

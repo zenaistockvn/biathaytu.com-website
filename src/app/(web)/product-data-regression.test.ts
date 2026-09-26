@@ -20,8 +20,9 @@ describe('public product data regressions', () => {
     const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
 
     expect(productsPage).toContain('getBeerProducts');
-    expect(productsPage).toContain('benediktinerProducts');
-    expect(productsPage).toContain('Bộ sưu tập Benediktiner');
+    // Nhóm Benediktiner / Bia Đức tuyển chọn → dòng bia (audit A2); tên nhóm ở src/config/productLines.ts.
+    expect(productsPage).toContain('LINE_GROUPS');
+    expect(readProjectFile('src/config/productLines.ts')).toContain('Bộ sưu tập Benediktiner');
     expect(productsPage).not.toContain('getSausageProducts');
     expect(productsPage).not.toContain('getComboProducts');
     expect(productsPage).not.toContain("getProductsByCategory('vang')");

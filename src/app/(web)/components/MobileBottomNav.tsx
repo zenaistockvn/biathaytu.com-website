@@ -36,6 +36,9 @@ export const CONTACT_TOGGLE_EVENT = 'biathaytu:toggle-contact';
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
+  // Trang SKU có thanh Gọi / Zalo riêng (SkuActionBar) ở cùng vị trí (audit D3).
+  if (pathname.startsWith(`${NAV.products.href}/`)) return null;
+
   return (
     <nav className={styles.nav} aria-label="Thanh điều hướng nhanh">
       {navItems.map((item) => {

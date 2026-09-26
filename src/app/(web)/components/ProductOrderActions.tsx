@@ -2,18 +2,19 @@
 
 import ZaloCTA from './ZaloCTA';
 import { COMPANY_CONFIG, getCompanyTelHref } from '@/config/company';
-import { formatPrice } from '@/utils/formatPrice';
 import styles from './ProductOrderActions.module.css';
 
 interface ProductOrderActionsProps {
   product: {
     id: string;
     name: string;
-    price: number | null;
   };
 }
 
-/** Khối giá và liên hệ trên trang chi tiết: phẳng, góc vuông, nút gọi / Zalo / để lại thông tin. */
+/**
+ * Khối liên hệ trên trang chi tiết: phẳng, góc vuông, nút gọi / Zalo / để lại thông tin.
+ * Giá nằm ở hàng giá ngay dưới tên sản phẩm (audit D3), không lặp lại ở đây.
+ */
 export default function ProductOrderActions({ product }: ProductOrderActionsProps) {
   const telHref = getCompanyTelHref() || '/lien-he';
 
@@ -22,12 +23,6 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
       className={styles.box}
       aria-labelledby="product-consultation-title"
     >
-      {product.price !== null && (
-        <p className={styles.price}>
-          <span className={styles.priceLabel}>Giá bán lẻ</span>
-          {formatPrice(product.price)}
-        </p>
-      )}
       <h2 id="product-consultation-title" className={styles.title}>
         Quan tâm sản phẩm này?
       </h2>
@@ -40,7 +35,7 @@ export default function ProductOrderActions({ product }: ProductOrderActionsProp
         <ZaloCTA
           productId={product.id}
           productName={product.name}
-          label="Chat Zalo"
+          label="Mở Zalo"
           variant="outline"
         />
 

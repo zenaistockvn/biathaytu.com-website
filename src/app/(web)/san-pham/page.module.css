@@ -12,28 +12,6 @@
   display: block;
 }
 
-.section {
-  padding: var(--web-section-py) 0;
-}
-
-/* Neo #benediktiner, #bia-duc-khac không bị header và thanh danh mục dính che mất. */
-.section[id] {
-  scroll-margin-top: calc(var(--web-header-h) + var(--web-catalog-nav-h) + 20px);
-}
-
-/* Nền trắng như danh sách bia của Chimay; ô ảnh thẻ đã có nền xám nên phân cách bằng đường kẻ. */
-.alt {
-  border-top: 1px solid var(--web-border);
-}
-
-.lead {
-  max-width: 640px;
-  margin: 20px auto clamp(40px, 5vw, 56px);
-  text-align: center;
-  color: var(--web-text-secondary);
-  line-height: 1.7;
-}
-
 .help {
   padding: var(--web-section-py) 0;
   background: var(--web-ink);

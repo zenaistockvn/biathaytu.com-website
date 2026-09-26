@@ -13,8 +13,12 @@ import TitleBlock from '../../components/ui/TitleBlock';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { formatAbv, packWithoutVolume, splitProductName } from '../../utils/productName';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
+import SkuActionBar from '../../components/SkuActionBar';
+import { formatLabel } from '../../components/ui/FormatStrip';
+import { formatPrice } from '@/utils/formatPrice';
 import styles from './page.module.css';
-import { NAV, breadcrumbTrail } from '@/config/navigation';
+import { NAV, breadcrumbTrail, type NavItem } from '@/config/navigation';
+import { getLineForName, lineAnchor } from '@/config/productLines';
 
 export function generateStaticParams() {
   return getVisibleProducts()
@@ -136,6 +140,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   const relatedProductsData = getRelatedBeers(product.id, 4);
   const isBeer = product.category === 'bia';
+
+  // Ba cấp Sản phẩm → Dòng bia → Quy cách (audit A2). Dòng chưa có trang riêng trỏ về nhóm trong danh mục.
+  const line = isBeer ? getLineForName(product.name) : null;
+  const lineCrumb = line ? { href: line.hasPage && line.href ? line.href : lineAnchor(line), label: line.label } : null;
+  const skuCrumb = { href: `/san-pham/${product.slug || product.id}`, label: line ? formatLabel(product) : product.name };
+  const parentCrumb = lineCrumb ?? NAV.products;
+  const priceSpecs = [abvText ? `${abvText} vol.` : null, product.ibu ? `IBU ${product.ibu}` : null].filter(Boolean).join(' · ');
   const sausageProducts = isBeer ? getSausageProducts() : [];
   const relatedCombo = isBeer ? getRelatedCombo(product.slug || product.id) : null;
 
@@ -151,16 +162,24 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         volume: product.volume || undefined,
         category: product.category,
       })} />
-      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: `/san-pham/${product.slug || product.id}`, label: product.name }))} />
+      <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(...[NAV.products, lineCrumb, skuCrumb].filter((crumb): crumb is NavItem => Boolean(crumb))))} />
 
       <div className="container">
         <nav className={styles.breadcrumb} aria-label="Đường dẫn">
-          <Link href={NAV.home.href}>{NAV.home.label}</Link>
-          <span aria-hidden="true">/</span>
           <Link href={NAV.products.href}>{NAV.products.label}</Link>
+          {lineCrumb ? (
+            <>
+              <span aria-hidden="true">/</span>
+              <Link href={lineCrumb.href}>{lineCrumb.label}</Link>
+            </>
+          ) : null}
           <span aria-hidden="true">/</span>
-          <span aria-current="page">{product.name}</span>
+          <span aria-current="page">{skuCrumb.label}</span>
         </nav>
+        {/* Dưới 768px: một link về cấp cha thay cho breadcrumb dài (audit C6, D3). */}
+        <Link href={parentCrumb.href} className={styles.backLink}>
+          <span aria-hidden="true">‹</span> {parentCrumb.label}
+        </Link>
 
         <div className={styles.top}>
           <div className={styles.gallery}>
@@ -173,6 +192,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               {productTitle}
               {pack && <span className={styles.pack}>{pack}</span>}
             </h1>
+            {product.price !== null || priceSpecs ? (
+              <div className={styles.priceRow}>
+                {product.price !== null ? (
+                  <p className={styles.price}>
+                    <span className={styles.priceLabel}>Giá bán lẻ</span>
+                    {formatPrice(product.price)}
+                  </p>
+                ) : null}
+                {priceSpecs ? <p className={styles.priceSpecs}>{priceSpecs}</p> : null}
+              </div>
+            ) : null}
             {isAlcohol && (
               <p className={styles.ageNote}>Sản phẩm chỉ dành cho người từ đủ 18 tuổi.</p>
             )}
@@ -285,6 +315,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
         <ProductConsultationForm productName={product.name} />
       </div>
+      <SkuActionBar productId={product.id} productName={product.name} />
     </div>
   );
 }

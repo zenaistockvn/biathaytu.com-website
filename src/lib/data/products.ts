@@ -4,6 +4,7 @@ import { resolveProductImages } from './productImages';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
 import renamedProductSlugs from '@/config/renamed-product-slugs.json';
+import { getLineForName, type LineId } from '@/config/productLines';
 
 /** Slug database bị mất dấu → slug hiển thị; slug cũ chuyển 301 trong next.config.js. */
 export const RENAMED_PRODUCT_SLUGS: Readonly<Record<string, string>> = renamedProductSlugs;
@@ -180,6 +181,11 @@ export function getVisibleProducts(): Product[] {
 
 export function getProductBySlugOrId(key: string): Product | null {
   return ALL_PRODUCTS.find((product) => product.slug === key || product.id === key) ?? null;
+}
+
+/** Các SKU bia đang hiển thị thuộc một dòng bia (audit A2). */
+export function getLineProducts(lineId: LineId): Product[] {
+  return getBeerProducts().filter((product) => getLineForName(product.name)?.id === lineId);
 }
 
 export function getBeerProducts(opts?: { excludeBitburger?: boolean }): Product[] {

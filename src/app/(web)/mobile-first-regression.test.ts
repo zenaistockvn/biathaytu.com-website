@@ -140,6 +140,34 @@ describe('mobile-first responsive regressions', () => {
     expect(gallery).toContain('aria-label={`Ảnh ${index + 1}`}');
   });
 
+  it('trang SKU dưới 768px theo D3: link cấp cha, ảnh 300px, hàng giá, thanh Gọi / Zalo thay bottom nav', () => {
+    const page = readProjectFile('src/app/(web)/san-pham/[slug]/page.tsx');
+    const pageCss = readProjectFile('src/app/(web)/san-pham/[slug]/page.module.css');
+    const bottomNav = readProjectFile('src/app/(web)/components/MobileBottomNav.tsx');
+    const bar = readProjectFile('src/app/(web)/components/SkuActionBar.tsx');
+    const barCss = readProjectFile('src/app/(web)/components/SkuActionBar.module.css');
+    const gallery = readProjectFile('src/app/(web)/components/ProductGallery.tsx');
+
+    expect(page).toContain('className={styles.backLink}');
+    expect(pageCss).toMatch(/\.backLink\s*\{[^}]*min-height:\s*48px/);
+    expect(pageCss).toMatch(/@media \(max-width: 767px\)\s*\{\s*\.breadcrumb\s*\{\s*display:\s*none/);
+    expect(page).toContain('className={styles.priceRow}');
+    expect(pageCss).toMatch(/\.priceRow\s*\{[^}]*border-top:\s*1px[^}]*border-bottom:\s*1px/);
+    expect(readProjectFile('src/app/web.css')).toMatch(/@media \(max-width: 767px\)\s*\{\s*\.web-app \.product-gallery-main\s*\{\s*height:\s*300px/);
+    expect(gallery).toContain('className={styles.dot}');
+    expect(bottomNav).toMatch(/pathname\.startsWith\(`\$\{NAV\.products\.href\}\/`\)\) return null/);
+    expect(page).toContain('<SkuActionBar');
+    expect(bar).toContain('Mở Zalo');
+    expect(barCss).toMatch(/\.bar\s*\{[^}]*position:\s*fixed[^}]*min-height:\s*var\(--web-mobile-bottom-nav-height\)[^}]*safe-area-inset-bottom/);
+  });
+
+  it('giữ câu "không bán hàng trực tuyến": website chưa đăng ký bán hàng với Bộ Công Thương (A6)', () => {
+    expect(readProjectFile('src/app/(web)/components/WebFooter.tsx')).toContain('không bán hàng trực tuyến');
+    expect(readProjectFile('src/app/(web)/san-pham/page.tsx')).toContain('không thực hiện đặt hàng hoặc thanh toán trực tuyến');
+    // Không dùng lời kêu gọi đặt hàng trên nút cố định của trang SKU.
+    expect(readProjectFile('src/app/(web)/components/SkuActionBar.tsx')).not.toMatch(/>\s*Gọi đặt hàng/);
+  });
+
   it('uses GSAP ScrollTrigger for class-based scroll reveal with reduced motion support', () => {
     const reveal = readProjectFile('src/app/(web)/components/ScrollRevealObserver.tsx');
 

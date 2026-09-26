@@ -37,6 +37,22 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
         />
       </div>
 
+      {/* Dưới 768px: chấm chỉ báo thay dải ảnh thu nhỏ (audit D3); vẫn là button để dùng bằng bàn phím. */}
+      {images.length > 1 && (
+        <div className={styles.dots}>
+          {images.map((img, index) => (
+            <button
+              type="button"
+              key={index}
+              onClick={() => setMainImage(img)}
+              className={styles.dot}
+              aria-pressed={mainImage === img}
+              aria-label={`Ảnh ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Thumbnails */}
       {images.length > 1 && (
         <div className={styles.thumbs}>

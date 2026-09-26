@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { getBeerProducts } from '@/lib/data/products';
+import { getLineProducts } from '@/lib/data/products';
+import { getLineForName } from '@/config/productLines';
 import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.name.includes('Naturtrüb'));
+  const priceRange = getPriceRange((p) => p.category === 'bia' && getLineForName(p.name)?.id === 'naturtrub');
   const product = {
     name: 'Benediktiner Weissbier Naturtrüb',
     slug: 'benediktiner-weissbier-naturtrub',
@@ -46,7 +47,7 @@ export default function Page() {
   const zaloBaseUrl = getCompanyZaloUrl();
   const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia lúa mì Benediktiner Weissbier Naturtrüb chính hãng. Tư vấn chương trình ưu đãi và giao hàng giúp mình nhé.';
   const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
-  const formats = getBeerProducts().filter((p) => p.name.includes('Naturtrüb'));
+  const formats = getLineProducts('naturtrub');
 
   return (
     <>

@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
 import { getPriceRange } from '@/lib/seo/productPricing';
-import { getBeerProducts } from '@/lib/data/products';
+import { getLineProducts } from '@/lib/data/products';
+import { getLineForName } from '@/config/productLines';
 import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.name.includes('Dunkel'));
+  const priceRange = getPriceRange((p) => p.category === 'bia' && getLineForName(p.name)?.id === 'dunkel');
   const product = {
     name: 'Benediktiner Dunkel',
     slug: 'benediktiner-dunkel',
@@ -47,7 +48,7 @@ export default function Page() {
   const zaloBaseUrl = getCompanyZaloUrl();
   const msgOrder = 'Chào Bia Thầy Tu, mình muốn đặt mua bia đen lúa mì Benediktiner Dunkel chính hãng. Tư vấn giúp mình nhé.';
   const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
-  const formats = getBeerProducts().filter((p) => p.name.includes('Dunkel'));
+  const formats = getLineProducts('dunkel');
 
   return (
     <>

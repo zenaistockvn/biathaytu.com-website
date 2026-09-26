@@ -1,0 +1,112 @@
+/* Hàng lọc quy cách: nhãn nhỏ, nút chữ nhật in hoa, trạng thái chọn nền xanh trời. */
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--web-border);
+}
+
+.filterLabel {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--web-text-muted);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* .filters .filter (0,2,0) thắng `.web-app button` (0,1,1). */
+.filters .filter {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--web-border);
+  border-radius: 0;
+  background: var(--web-bg);
+  color: var(--web-ink);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filters .filter:hover {
+  border-color: var(--web-ink);
+}
+
+.filters .filter[aria-pressed='true'] {
+  border-color: var(--web-accent);
+  background: var(--web-accent);
+  color: var(--web-on-ink);
+}
+
+.kegLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--web-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section {
+  padding: var(--web-section-py) 0;
+}
+
+/* Neo nhóm và dòng bia dừng dưới header + thanh danh mục dính. */
+.section,
+.line {
+  scroll-margin-top: calc(var(--web-header-h) + var(--web-catalog-nav-h) + 20px);
+}
+
+/* Nền trắng như danh sách bia của Chimay; ô ảnh thẻ đã có nền xám nên phân cách bằng đường kẻ. */
+.alt {
+  border-top: 1px solid var(--web-border);
+}
+
+.lead {
+  max-width: 640px;
+  margin: 20px auto clamp(40px, 5vw, 56px);
+  text-align: center;
+  color: var(--web-text-secondary);
+  line-height: 1.7;
+}
+
+.line + .line {
+  margin-top: clamp(48px, 6vw, 72px);
+}
+
+/* Tên dòng bia: kẻ mảnh phía dưới, link tới trang dòng bia. (0,2,0) thắng `.web-app h3` (0,1,1). */
+.line .lineTitle {
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--web-ink);
+  font-size: var(--web-fs-h3);
+  color: var(--web-ink);
+}
+
+.lineTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lineTitle a:hover {
+  color: var(--web-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

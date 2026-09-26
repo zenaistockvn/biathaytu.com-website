@@ -756,6 +756,13 @@ body.overflow-hidden {
   }
 }
 
+/* Trang SKU dưới 768px: khung ảnh 300px để giá và nút nằm trong màn hình đầu (audit D3). */
+@media (max-width: 767px) {
+  .web-app .product-gallery-main {
+    height: 300px;
+  }
+}
+
 /* Checkout responsive rows */
 
 /* ─── UI/UX Pro Max Enhancements ─── */

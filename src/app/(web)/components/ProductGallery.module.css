@@ -30,3 +30,47 @@
 .thumbs .thumb[aria-pressed='true'] {
   border: 2px solid var(--web-primary);
 }
+
+/* Chấm chỉ báo: chấm 8px, vùng chạm 44px. Chỉ hiện dưới 768px, thay dải ảnh thu nhỏ. */
+.dots {
+  display: none;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.dots .dot {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dots .dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: var(--web-radius-full);
+  background: var(--web-border);
+}
+
+.dots .dot[aria-pressed='true']::before {
+  background: var(--web-accent);
+}
+
+@media (max-width: 767px) {
+  .dots {
+    display: flex;
+  }
+
+  .thumbs {
+    display: none;
+  }
+}

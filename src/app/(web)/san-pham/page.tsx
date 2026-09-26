@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { getBeerProducts } from '@/lib/data/products';
-import ProductCard from '../components/ProductCard';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { Button } from '../components/ui/Button';
-import { BottleIcon, WeizenGlassIcon } from '../components/ui/LineIcons';
 import PhotoHero from '../components/ui/PhotoHero';
 import TitleBlock from '../components/ui/TitleBlock';
 import { getTastingNotes } from '../utils/getTastingNotes';
+import ProductCatalog, { type CatalogSection } from './ProductCatalog';
 import styles from './page.module.css';
-import { NAV, breadcrumbTrail } from '@/config/navigation';
+import { KEG_PAGE, NAV, breadcrumbTrail } from '@/config/navigation';
+import { BEER_LINES, LINE_GROUPS, getLineForName, packFormatOf, type LineGroup } from '@/config/productLines';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Và Bia Đức Tuyển Chọn',
@@ -48,15 +48,42 @@ interface CatalogProduct {
   category: string | null;
 }
 
-function isBenediktiner(product: CatalogProduct) {
-  return product.name.toLowerCase().includes('benediktiner');
-}
+const SECTION_COPY: Record<LineGroup, { kicker: string; lead: string }> = {
+  benediktiner: {
+    kicker: 'Bia lúa mì tu viện',
+    lead: 'Bia lúa mì của tu viện Ettal: vàng đục Naturtrüb, đen Dunkel và Festbier mùa lễ hội, có dạng chai, lon và bom 5 lít.',
+  },
+  selected: {
+    kicker: 'Bitburger và các dòng bổ sung',
+    lead: 'Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.',
+  },
+};
 
-/** Danh mục kiểu trang "Nos bières" của Chimay: hero ảnh, cụm tiêu đề có icon, lưới thẻ không viền. */
+/**
+ * Danh mục kiểu trang "Nos bières" của Chimay: hero ảnh, cụm tiêu đề có icon, lưới thẻ không viền.
+ * Ba cấp (audit A2): nhóm → dòng bia (tên dòng link tới trang dòng bia) → thẻ SKU.
+ */
 export default function ProductsPage() {
   const beers = (getBeerProducts() as CatalogProduct[] | null) ?? [];
-  const benediktinerProducts = beers.filter(isBenediktiner);
-  const selectedGermanBeers = beers.filter((product) => !isBenediktiner(product));
+  const sections: CatalogSection[] = (Object.keys(LINE_GROUPS) as LineGroup[]).map((group) => ({
+    group,
+    ...LINE_GROUPS[group],
+    ...SECTION_COPY[group],
+    lines: BEER_LINES.filter((line) => line.group === group)
+      .map((line) => ({
+        id: line.id,
+        label: line.label,
+        href: line.href,
+        products: beers
+          .filter((product) => getLineForName(product.name)?.id === line.id)
+          .map((product) => ({
+            ...product,
+            description: product.description || getTastingNotes(product.name),
+            format: packFormatOf(product.name),
+          })),
+      }))
+      .filter((line) => line.products.length > 0),
+  }));
 
   return (
     <div className="products-page-container">
@@ -79,51 +106,7 @@ export default function ProductsPage() {
         </span>
       </p>
 
-      <section className={styles.section} id="benediktiner" aria-labelledby="benediktiner-title">
-        <div className="container">
-          <TitleBlock
-            id="benediktiner-title"
-            align="center"
-            icon={<WeizenGlassIcon size={72} />}
-            title="Bộ sưu tập Benediktiner"
-            kicker="Bia lúa mì tu viện"
-          />
-          <p className={styles.lead}>Bia lúa mì của tu viện Ettal: vàng đục Naturtrüb, đen Dunkel và Festbier mùa lễ hội, có dạng chai, lon và bom 5 lít.</p>
-          <div className="grid-featured-products">
-            {benediktinerProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                {...product}
-                description={product.description || getTastingNotes(product.name)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {selectedGermanBeers.length > 0 ? (
-        <section className={`${styles.section} ${styles.alt}`} id="bia-duc-khac" aria-labelledby="selected-beers-title">
-          <div className="container">
-            <TitleBlock
-              id="selected-beers-title"
-              align="center"
-              icon={<BottleIcon size={72} />}
-              title="Bia Đức tuyển chọn"
-              kicker="Bitburger và các dòng bổ sung"
-            />
-            <p className={styles.lead}>Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.</p>
-            <div className="grid-featured-products">
-              {selectedGermanBeers.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  {...product}
-                  description={product.description || getTastingNotes(product.name)}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
+      <ProductCatalog sections={sections} kegPage={KEG_PAGE} />
 
       <section className={styles.help} data-surface="ink" aria-labelledby="catalog-help-title">
         <div className={`container ${styles.helpInner}`}>

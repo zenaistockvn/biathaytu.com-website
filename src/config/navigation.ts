@@ -3,6 +3,8 @@
  * breadcrumb hiển thị và JSON-LD breadcrumb cùng đọc từ đây: một đích, một tên.
  * Đổi nhãn ở đây, không viết lại chuỗi trong component.
  */
+import { BEER_LINES, type LineGroup, type LineId } from './productLines';
+
 export interface NavItem {
   href: string;
   label: string;
@@ -26,21 +28,19 @@ export const NAV = {
 } as const satisfies Record<string, NavItem>;
 
 export interface ProductLine extends NavItem {
+  id: LineId;
   /** Tên ngắn cho chip menu mobile. */
   short: string;
-  group: 'benediktiner' | 'selected';
+  group: LineGroup;
 }
 
 /**
- * Các dòng bia, theo thứ tự hiển thị trong panel "Sản phẩm", menu mobile và footer.
- * Festbier chưa có trang dòng bia: tạm trỏ SKU két 24 lon (quyết định 26/09/2026, xem audit A2).
+ * Các dòng bia trong menu, theo thứ tự hiển thị ở panel "Sản phẩm", menu mobile, footer và tab danh mục.
+ * Nguồn: BEER_LINES (src/config/productLines.ts). Festbier tạm trỏ SKU két 24 lon.
  */
-export const PRODUCT_LINES: readonly ProductLine[] = [
-  { href: '/benediktiner-weissbier-naturtrub', label: 'Weissbier Naturtrüb', short: 'Naturtrüb', group: 'benediktiner' },
-  { href: '/benediktiner-dunkel', label: 'Weissbier Dunkel', short: 'Dunkel', group: 'benediktiner' },
-  { href: '/san-pham/benediktiner-festbier-ket-24-lon-500ml', label: 'Festbier', short: 'Festbier', group: 'benediktiner' },
-  { href: '/bitburger-premium-pils', label: 'Bitburger Premium Pils', short: 'Bitburger', group: 'selected' },
-];
+export const PRODUCT_LINES: readonly ProductLine[] = BEER_LINES
+  .filter((line) => line.inNav && line.href)
+  .map(({ id, label, short, group, href }) => ({ id, label, short, group, href: href as string }));
 
 /** Trang giới thiệu bom 5L; chưa gắn vào dòng bia nào (audit A2, đợt 3). */
 export const KEG_PAGE: NavItem = { href: '/bom-bia-5l-benediktiner', label: 'Bom bia 5L' };

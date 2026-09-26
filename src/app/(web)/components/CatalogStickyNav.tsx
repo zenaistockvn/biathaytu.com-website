@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { PRODUCT_LINES } from '@/config/navigation';
 import styles from './CatalogStickyNav.module.css';
 
-const categories = [
-  { id: 'benediktiner', label: 'Benediktiner' },
-  { id: 'bia-duc-khac', label: 'Bia Đức tuyển chọn' },
-];
+// Tab theo dòng bia (audit A8), neo tới nhóm dòng bia trong danh mục (ProductCatalog, id = line.id).
+const categories = PRODUCT_LINES.map(({ id, short }) => ({ id, label: short }));
 
 /** Tổng chiều cao header + thanh danh mục, đọc từ token CSS để khớp với scroll-margin-top. */
 function stickyOffset(): number {
@@ -19,7 +18,7 @@ function stickyOffset(): number {
 
 export default function CatalogStickyNav() {
   const pathname = usePathname();
-  const [activeId, setActiveId] = useState('benediktiner');
+  const [activeId, setActiveId] = useState<string>(categories[0].id);
 
   useEffect(() => {
     if (pathname !== '/san-pham') return;

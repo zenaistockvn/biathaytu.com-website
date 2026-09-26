@@ -14,6 +14,7 @@ import {
 } from '@/config/company';
 import styles from './Home.module.css';
 import { breadcrumbTrail } from '@/config/navigation';
+import { getLine } from '@/config/productLines';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
@@ -44,20 +45,21 @@ const beers = [
     name: 'Weissbier Naturtrüb',
     type: 'bia lúa mì không lọc',
     image: '/images/products/official/benediktiner/glass_removebg.png',
-    href: '/benediktiner-weissbier-naturtrub',
+    href: getLine('naturtrub').href as string,
     meta: '5,4% vol. Vàng hổ phách, hương chuối chín và đinh hương',
   },
   {
     name: 'Weissbier Dunkel',
     type: 'bia lúa mì đen',
     image: '/images/brand/benediktiner-official/dunkel-glass-nobg.webp',
-    href: '/benediktiner-dunkel',
+    href: getLine('dunkel').href as string,
     meta: '5,4% vol. Nâu hổ phách, hương malt rang và caramel',
   },
   {
     name: 'Festbier',
     type: 'bia lễ hội, bom 5 lít',
     image: '/images/brand/benediktiner-official/festbier-keg-nobg.webp',
+    // Thẻ này giới thiệu Festbier bom 5 lít (ảnh bom, chữ om 5 lít) nên trỏ đúng SKU bom, không trỏ đích chung của dòng.
     href: '/san-pham/benediktiner-festbier-bom-5l',
     meta: '5,8% vol. Vàng sáng, hương malt chín và hoa bia nhẹ',
   },

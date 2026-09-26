@@ -1,0 +1,34 @@
+/* Cao bằng thanh điều hướng dưới (74px + safe-area) để footer và nút liên hệ nổi chừa đúng chỗ. */
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 46;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+  min-height: var(--web-mobile-bottom-nav-height);
+  padding: 12px max(16px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  border-top: 1px solid var(--web-border);
+  background: var(--web-bg);
+}
+
+/* (0,2,0) thắng `.web-app .btn-*` về kích thước; màu nút giữ nguyên theo biến thể. */
+.bar .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+  .bar {
+    display: none;
+  }
+}
