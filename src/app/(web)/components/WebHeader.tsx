@@ -3,11 +3,11 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useLanguage } from '../context/LanguageContext';
 import { Button } from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import { CONTACT_TOGGLE_EVENT } from './MobileBottomNav';
 import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
-import { NAV } from '@/config/navigation';
+import { NAV, PRODUCT_LINES, isProductsPath } from '@/config/navigation';
 import styles from './WebHeader.module.css';
 
 // Trang có section đầu là dải xanh ngay dưới header. Không thêm /san-pham: thanh menu phụ
@@ -38,33 +38,35 @@ function isDarkHeroPath(pathname: string): boolean {
   );
 }
 
-// Menu chính theo ngữ pháp Chimay (Nos bières, Depuis 1850, Recettes...). Tên route lấy từ NAV;
-// hai mục đầu là anchor danh mục trong /san-pham, sẽ gộp thành một mục "Sản phẩm" (audit A1).
-const NAV_LINKS = [
-  { href: '/san-pham#benediktiner', label: 'Bia Benediktiner' },
-  { href: '/san-pham#bia-duc-khac', label: 'Bia Đức tuyển chọn' },
-  NAV.story,
-  NAV.enjoy,
-  NAV.knowledge,
-  NAV.horeca,
-];
+// Menu chính theo ngữ pháp Chimay (Nos bières, Depuis 1850, Recettes...): "Sản phẩm" mở panel,
+// các mục nội dung đi sau. Tên route lấy từ NAV.
+const CONTENT_LINKS = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.horeca];
+const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts, NAV.buyingInfo];
+const BENEDIKTINER_LINES = PRODUCT_LINES.filter((line) => line.group === 'benediktiner');
+const SELECTED_LINES = PRODUCT_LINES.filter((line) => line.group === 'selected');
 
 const MOBILE_MENU_ID = 'mobile-menu';
+const PRODUCTS_PANEL_ID = 'products-panel';
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const openContactPanel = () => window.dispatchEvent(new Event(CONTACT_TOGGLE_EVENT));
 
 /**
  * Header hai tầng kiểu chimay.com: huy hiệu lớn treo xuống dưới thanh header, bên phải là
- * hàng tiện ích nhỏ (hotline, liên hệ, tư vấn, ngôn ngữ) và hàng menu chính in hoa.
+ * hàng tiện ích nhỏ (hotline, liên hệ, ngôn ngữ) và hàng menu chính in hoa.
  * Dưới 1024px: huy hiệu nhỏ, nút menu mở lớp phủ toàn màn hình.
  */
 export default function WebHeader() {
   const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
+  const [productsOpenPath, setProductsOpenPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const productsLinkRef = useRef<HTMLAnchorElement>(null);
+  const skipFocusOpen = useRef(false);
   const pathname = usePathname();
-  const { t } = useLanguage();
   const menuOpen = menuOpenPath === pathname;
+  const productsOpen = productsOpenPath === pathname;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -124,12 +126,32 @@ export default function WebHeader() {
     };
   }, [menuOpen]);
 
-  const headerOnDark = isDarkHeroPath(pathname) && !scrolled && !menuOpen;
-  const consultUrl = getCompanyZaloUrl();
+  const headerOnDark = isDarkHeroPath(pathname) && !scrolled && !menuOpen && !productsOpen;
+  const zaloUrl = getCompanyZaloUrl();
   const telHref = getCompanyTelHref();
-  const isCurrentPath = (href: string) => {
-    if (href.includes('#')) return false;
-    return pathname === href || pathname.startsWith(`${href}/`);
+  const isCurrentPath = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const productsActive = isProductsPath(pathname);
+  const closeMenu = () => setMenuOpenPath(null);
+
+  // Panel "Sản phẩm": mở khi rê chuột hoặc focus vào mục, đóng khi rời chuột, focus ra ngoài hoặc Escape.
+  const openProducts = () => setProductsOpenPath(pathname);
+  const closeProducts = () => setProductsOpenPath(null);
+  const handleProductsFocus = () => {
+    if (skipFocusOpen.current) {
+      skipFocusOpen.current = false;
+      return;
+    }
+    openProducts();
+  };
+  const handleProductsBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) closeProducts();
+  };
+  const handleProductsKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Escape' || !productsOpen) return;
+    event.preventDefault();
+    closeProducts();
+    skipFocusOpen.current = true;
+    productsLinkRef.current?.focus();
   };
 
   return (
@@ -153,22 +175,74 @@ export default function WebHeader() {
                 {COMPANY_CONFIG.hotline}
               </a>
             ) : null}
-            <Link href={NAV.contact.href} className={styles.utilityBox} aria-current={isCurrentPath(NAV.contact.href) ? 'page' : undefined}>
-              {NAV.contact.label}
-            </Link>
-            <a
-              href={consultUrl || '/lien-he'}
-              className={styles.utilityBox}
-              target={consultUrl ? '_blank' : undefined}
-              rel={consultUrl ? 'noopener noreferrer' : undefined}
-            >
-              {t('nav.consult')}
-            </a>
+            {/* Mở cùng bảng kênh với nút liên hệ nổi (Zalo, gọi, Messenger, Showroom). */}
+            <button type="button" className={styles.utilityBox} data-contact-toggle onClick={openContactPanel}>
+              Liên hệ
+            </button>
             <LanguageSwitcher />
           </div>
 
           <nav className={styles.nav} aria-label="Điều hướng chính">
-            {NAV_LINKS.map((link) => (
+            <div
+              className={styles.navItem}
+              onMouseEnter={openProducts}
+              onMouseLeave={closeProducts}
+              onFocus={handleProductsFocus}
+              onBlur={handleProductsBlur}
+              onKeyDown={handleProductsKeyDown}
+            >
+              <Link
+                ref={productsLinkRef}
+                href={NAV.products.href}
+                className={styles.navLink}
+                aria-current={productsActive ? 'page' : undefined}
+                aria-expanded={productsOpen}
+                aria-controls={PRODUCTS_PANEL_ID}
+              >
+                {NAV.products.label}
+                <svg className={styles.chevron} width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+              </Link>
+
+              <div id={PRODUCTS_PANEL_ID} className={styles.panel} hidden={!productsOpen}>
+                <div className={styles.panelCol}>
+                  <p className={styles.panelLabel}>Benediktiner</p>
+                  <ul className={styles.panelList}>
+                    {BENEDIKTINER_LINES.map((line) => (
+                      <li key={line.href}>
+                        <Link href={line.href} className={styles.panelLink} onClick={closeProducts} aria-current={pathname === line.href ? 'page' : undefined}>
+                          {line.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.panelCol}>
+                  <p className={styles.panelLabel}>Bia Đức tuyển chọn</p>
+                  <ul className={styles.panelList}>
+                    {SELECTED_LINES.map((line) => (
+                      <li key={line.href}>
+                        <Link href={line.href} className={styles.panelLink} onClick={closeProducts} aria-current={pathname === line.href ? 'page' : undefined}>
+                          {line.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={NAV.products.href} className={styles.panelAll} onClick={closeProducts}>
+                    Xem tất cả sản phẩm
+                  </Link>
+                </div>
+                <div className={styles.panelImage}>
+                  <Image
+                    src="/images/brand/benediktiner-official/beer-garden-closeup.jpg"
+                    alt=""
+                    fill
+                    sizes="280px"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {CONTENT_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -210,37 +284,62 @@ export default function WebHeader() {
           aria-label="Menu"
         >
           <nav aria-label="Menu di động">
-            {NAV_LINKS.map((link) => (
+            <div className={styles.mobileGroup}>
+              <Link
+                href={NAV.products.href}
+                onClick={closeMenu}
+                className={`${styles.mobileLink} ${styles.mobileGroupTitle}`}
+                aria-current={productsActive ? 'page' : undefined}
+              >
+                {NAV.products.label}
+              </Link>
+              <ul className={styles.chips}>
+                {PRODUCT_LINES.map((line) => (
+                  <li key={line.href}>
+                    <Link href={line.href} onClick={closeMenu} className={styles.chip} aria-current={pathname === line.href ? 'page' : undefined}>
+                      {line.short}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {CONTENT_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpenPath(null)}
+                onClick={closeMenu}
                 className={styles.mobileLink}
                 aria-current={isCurrentPath(link.href) ? 'page' : undefined}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href={NAV.contact.href}
-              onClick={() => setMenuOpenPath(null)}
-              className={styles.mobileLink}
-              aria-current={isCurrentPath(NAV.contact.href) ? 'page' : undefined}
-            >
-              {NAV.contact.label}
-            </Link>
           </nav>
-          <Button
-            href={consultUrl || '/lien-he'}
-            variant="primary"
-            className={styles.mobileAction}
-            target={consultUrl ? '_blank' : undefined}
-            rel={consultUrl ? 'noopener noreferrer' : undefined}
-          >
-            {t('nav.consult')}
-          </Button>
-          <div className={styles.mobileFoot}>
-            {telHref ? <a href={telHref}>Hotline {COMPANY_CONFIG.hotline}</a> : null}
+
+          <section className={styles.mobileContact} aria-labelledby="mobile-contact-title">
+            <p id="mobile-contact-title" className={styles.mobileContactLabel}>Liên hệ</p>
+            <div className={styles.mobileContactActions}>
+              {telHref ? (
+                <Button href={telHref} variant="primary" className={styles.mobileContactButton}>
+                  Gọi hotline
+                </Button>
+              ) : null}
+              {zaloUrl ? (
+                <Button href={zaloUrl} variant="outline" className={styles.mobileContactButton} target="_blank" rel="noopener noreferrer">
+                  Mở Zalo
+                </Button>
+              ) : null}
+            </div>
+            <p className={styles.mobileShowroom}>
+              <Link href={NAV.contact.href} onClick={closeMenu}>{NAV.contact.label}</Link>: {COMPANY_CONFIG.showroomAddress}
+            </p>
+          </section>
+
+          <div className={styles.mobileSmall}>
+            {MOBILE_SMALL_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} onClick={closeMenu}>{link.label}</Link>
+            ))}
             <LanguageSwitcher />
           </div>
         </div>

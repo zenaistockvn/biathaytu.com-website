@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NAV } from '@/config/navigation';
 import {
   COMPANY_CONFIG,
   getCompanyTelHref,
@@ -67,7 +69,7 @@ export default function FloatingZaloCTA() {
           {zaloUrl ? (
             <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
               <span className={styles.mark} aria-hidden="true">Z</span>
-              <span className={styles.text}><strong>Zalo</strong><small>Chat tư vấn</small></span>
+              <span className={styles.text}><strong>Mở Zalo</strong><small>Chat tư vấn</small></span>
             </a>
           ) : null}
 
@@ -82,6 +84,11 @@ export default function FloatingZaloCTA() {
             <span className={styles.mark} aria-hidden="true">M</span>
             <span className={styles.text}><strong>Messenger</strong><small>Nhắn tin fanpage</small></span>
           </a>
+
+          <Link href={NAV.contact.href} className={styles.item} role="menuitem">
+            <span className={styles.mark} aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg></span>
+            <span className={styles.text}><strong>{NAV.contact.label}</strong><small>{COMPANY_CONFIG.showroomAddress}</small></span>
+          </Link>
         </div>
       )}
 

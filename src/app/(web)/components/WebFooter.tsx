@@ -10,23 +10,25 @@ import {
   getCompanyTelHref,
   getCompanyZaloUrl,
 } from '@/config/company';
-import { NAV } from '@/config/navigation';
+import { KEG_PAGE, NAV, PRODUCT_LINES } from '@/config/navigation';
 
-const productLinks = [
-  { href: '/san-pham/benediktiner-naturtrub-thung-12-chai-500ml', label: 'Benediktiner Weissbier' },
-  { href: '/san-pham/benediktiner-dunkel-thung-12-chai-500ml', label: 'Benediktiner Dunkel' },
-  { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Bom 5L Benediktiner' },
-  { href: '/bitburger-premium-pils', label: 'Bitburger Premium Pils' },
-  NAV.enjoy,
-  NAV.story,
-];
+// Ba cột điều hướng (audit A7): mỗi cột một loại link, tên lấy từ NAV/PRODUCT_LINES.
+const productLinks = [...PRODUCT_LINES, KEG_PAGE];
+const learnLinks = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.whatIs, NAV.authentic];
+const buyLinks = [NAV.priceList, NAV.gifts, NAV.buyingInfo, NAV.certificate, NAV.contact];
 
 const policyLinks = [
   { href: '/chinh-sach-kiem-soat-do-tuoi', label: 'Kiểm soát độ tuổi' },
   { href: '/chinh-sach-bao-mat', label: 'Chính sách bảo mật' },
   { href: '/chinh-sach-cookie', label: 'Chính sách cookie' },
   { href: '/dieu-khoan-su-dung', label: 'Điều khoản sử dụng' },
-  { href: '/thong-tin-mua-hang', label: 'Thông tin mua hàng' },
+  NAV.buyingInfo,
+];
+
+const linkColumns = [
+  { id: 'footer-products', title: 'Sản phẩm', links: productLinks },
+  { id: 'footer-learn', title: 'Tìm hiểu', links: learnLinks },
+  { id: 'footer-buy', title: 'Mua hàng', links: buyLinks },
 ];
 
 /**
@@ -64,25 +66,7 @@ export default function WebFooter() {
             <p className={styles.brochureNote}>
               Website giới thiệu sản phẩm, không bán hàng trực tuyến.
             </p>
-            {zaloUrl ? (
-              <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-light btn-sm">
-                Chat Zalo
-              </a>
-            ) : null}
-          </section>
-
-          <section aria-labelledby="footer-explore">
-            <h2 id="footer-explore" className={styles.columnTitle}>Khám phá</h2>
-            <ul className={styles.linkList}>
-              {productLinks.map((link) => (
-                <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
-              ))}
-            </ul>
-          </section>
-
-          <section aria-labelledby="footer-contact">
-            <h2 id="footer-contact" className={styles.columnTitle}>Liên hệ</h2>
-            <dl className={styles.rows}>
+            <dl className={`${styles.rows} ${styles.contactRows}`}>
               <div>
                 <dt>Hotline</dt>
                 <dd>{telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}</dd>
@@ -96,10 +80,26 @@ export default function WebFooter() {
                 <dd>{COMPANY_CONFIG.showroomAddress}</dd>
               </div>
             </dl>
+            {zaloUrl ? (
+              <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-light btn-sm">
+                Mở Zalo
+              </a>
+            ) : null}
             <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
               Từ German Taste: khám phá rượu vang Đức
             </a>
           </section>
+
+          {linkColumns.map((column) => (
+            <section key={column.id} aria-labelledby={column.id}>
+              <h2 id={column.id} className={styles.columnTitle}>{column.title}</h2>
+              <ul className={styles.linkList}>
+                {column.links.map((link) => (
+                  <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+                ))}
+              </ul>
+            </section>
+          ))}
 
           <section aria-labelledby="footer-company">
             <h2 id="footer-company" className={styles.columnTitle}>Thông tin doanh nghiệp</h2>

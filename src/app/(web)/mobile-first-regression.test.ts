@@ -78,9 +78,16 @@ describe('mobile-first responsive regressions', () => {
     expect(layout).toContain("import MobileBottomNav from './components/MobileBottomNav'");
     expect(layout).toContain('<MobileBottomNav />');
     expect(bottomNav).toContain('className={styles.nav}');
-    for (const key of ['home', 'products', 'knowledge']) {
+    // D4: Sản phẩm · Kiến thức · Showroom · Liên hệ (không còn ô Trang chủ).
+    for (const key of ['products', 'knowledge', 'contact']) {
       expect(bottomNav).toContain(`...NAV.${key}`);
     }
+    expect(bottomNav).not.toContain('...NAV.home');
+    // Nhãn Barlow Condensed in hoa; trạng thái chọn là vạch trên 3px, không đổi nền.
+    expect(css).toMatch(/\.nav \.item \{[^}]*font-family:\s*var\(--font-condensed\)[^}]*font-size:\s*13px[^}]*text-transform:\s*uppercase/);
+    expect(css).toMatch(/\.nav \.item\.active::before\s*\{[^}]*background:\s*var\(--web-accent\)/);
+    expect(css).toMatch(/\.nav \.item::before\s*\{[^}]*height:\s*3px/);
+    expect(css).not.toMatch(/\.active\s*\{[^}]*background:\s*var\(--web-accent-bg\)/);
     expect(css).toMatch(/^\.nav\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/m);
     // Mục thứ tư mở bảng liên hệ thay cho nút nổi (nút nổi ẩn trên mobile để không đè nội dung).
     expect(bottomNav).toContain('CONTACT_TOGGLE_EVENT');

@@ -106,13 +106,18 @@
   line-height: 1.5;
 }
 
+.contactRows {
+  margin-bottom: 20px;
+}
+
 .company dd {
   font-size: 14px;
   color: var(--web-on-ink-muted);
 }
 
 .wine {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-top: 20px;
   font-family: var(--font-condensed), sans-serif;
   font-size: 15px;
@@ -168,16 +173,32 @@
   color: var(--web-ink);
 }
 
+/* Mobile: ba cột link xếp hai cột cho gọn; cột giới thiệu và thông tin doanh nghiệp chiếm cả hàng. */
+.grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.grid > .brand,
+.grid > :last-child {
+  grid-column: 1 / -1;
+}
+
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1100px) {
   .grid {
-    grid-template-columns: 1.3fr 1fr 1.1fr 1.4fr;
-    gap: 48px;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr;
+    gap: 40px;
+  }
+
+  .grid > .brand,
+  .grid > :last-child {
+    grid-column: auto;
   }
 
   .barInner {
