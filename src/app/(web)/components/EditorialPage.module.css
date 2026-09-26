@@ -29,8 +29,8 @@
 }
 
 .body {
-  padding-top: clamp(48px, 6vw, 80px);
-  padding-bottom: clamp(56px, 7vw, 96px);
+  padding-top: var(--web-section-py);
+  padding-bottom: var(--web-section-py);
 }
 
 /* ─── Cột bài viết ─── */
@@ -131,6 +131,12 @@
   margin: 8px 0 32px;
   padding: 0;
   list-style: none;
+}
+
+/* (0,2,0) thắng `.prose ul`/`.prose ol` (0,1,1): lưới thẻ và các bước thẳng mép trái với tiêu đề, không thụt 22px. */
+.prose .grid,
+.prose .steps {
+  padding-left: 0;
 }
 
 .prose .grid li + li {
@@ -241,7 +247,7 @@
 
 /* ─── Câu hỏi thường gặp ─── */
 .faq {
-  padding: clamp(56px, 7vw, 96px) 0;
+  padding: var(--web-section-py) 0;
   background: var(--web-bg-section);
 }
 

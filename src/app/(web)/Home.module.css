@@ -1,7 +1,7 @@
 /* Trang chủ theo ngữ pháp chimay.com. Khối dùng chung nằm ở components/ui; file này chỉ giữ phần riêng của trang. */
 
 .section {
-  padding: clamp(64px, 8vw, 112px) 0;
+  padding: var(--web-section-py) 0;
 }
 
 .afterTitle {
@@ -94,7 +94,7 @@
 .visitPanel {
   display: flex;
   justify-content: center;
-  padding: clamp(48px, 7vw, 96px) clamp(20px, 6vw, 88px);
+  padding: var(--web-section-py) clamp(20px, 6vw, 88px);
 }
 
 .visitAccent {

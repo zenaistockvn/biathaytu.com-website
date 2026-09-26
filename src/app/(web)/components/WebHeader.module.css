@@ -23,7 +23,7 @@
   inset: 0 0 -40px;
   pointer-events: none;
   z-index: -1;
-  /* Giữ đậm đến hết hàng menu (~72px) vì ảnh hero có thể là trời sáng ngay dưới header. */
+  /* Giữ đậm đến hết hàng menu (hết --web-header-h) vì ảnh hero có thể là trời sáng ngay dưới header. */
   background: linear-gradient(180deg, rgb(var(--web-ink-deep-rgb) / 0.88) 0%, rgb(var(--web-ink-deep-rgb) / 0.72) 62%, transparent 100%);
 }
 

@@ -22,7 +22,7 @@
 .panel {
   display: flex;
   align-items: center;
-  padding: clamp(40px, 7vw, 96px) clamp(20px, 6vw, 88px);
+  padding: var(--web-section-py) clamp(20px, 6vw, 88px);
 }
 
 .ink { background: var(--web-ink); color: var(--web-on-ink); }

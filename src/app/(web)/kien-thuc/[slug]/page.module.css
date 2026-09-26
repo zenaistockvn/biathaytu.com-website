@@ -71,7 +71,7 @@
 }
 
 .products {
-  padding: clamp(56px, 7vw, 96px) 0;
+  padding: var(--web-section-py) 0;
   border-top: 1px solid var(--web-border);
 }
 
@@ -89,7 +89,7 @@
 }
 
 .related {
-  padding: clamp(56px, 7vw, 96px) 0;
+  padding: var(--web-section-py) 0;
   background: var(--web-bg-section);
 }
 

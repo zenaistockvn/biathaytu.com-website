@@ -22,7 +22,7 @@
 }
 
 .section {
-  padding: clamp(64px, 8vw, 112px) 0;
+  padding: var(--web-section-py) 0;
 }
 
 .lead {
@@ -69,7 +69,7 @@
 }
 
 .cta {
-  padding: clamp(64px, 8vw, 104px) 0;
+  padding: var(--web-section-py) 0;
   background: var(--web-ink);
   color: var(--web-on-ink);
 }

@@ -1,7 +1,7 @@
 /* Template trang sản phẩm theo bố cục trang Chimay Bleue. */
 
 .section {
-  padding: clamp(64px, 8vw, 112px) 0;
+  padding: var(--web-section-py) 0;
 }
 
 .afterTitle {
@@ -88,7 +88,7 @@
 
 /* ─── Hồ sơ hương vị: panel xám trái, chữ phải ─── */
 .profileSection {
-  padding: clamp(64px, 8vw, 112px) 0;
+  padding: var(--web-section-py) 0;
 }
 
 /* Ngay sau khối giới thiệu thì nối liền như trang Chimay; có khối chen giữa (ưu đãi Bitburger) thì giữ đệm trên. */
@@ -226,7 +226,7 @@
 }
 
 .pairingBand {
-  padding: clamp(56px, 7vw, 96px) 0;
+  padding: var(--web-section-py) 0;
   background: var(--web-accent-on-ink);
   color: var(--web-ink);
   --heading-color: var(--web-ink);
@@ -271,7 +271,7 @@
 
 /* ─── Dải liên hệ cuối trang ─── */
 .cta {
-  padding: clamp(64px, 8vw, 104px) 0;
+  padding: var(--web-section-py) 0;
   background: var(--web-ink);
   color: var(--web-on-ink);
   text-align: center;

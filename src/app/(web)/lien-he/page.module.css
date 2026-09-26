@@ -1,5 +1,5 @@
 .body {
-  padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 112px);
+  padding: var(--web-section-py) 0;
 }
 
 .grid {

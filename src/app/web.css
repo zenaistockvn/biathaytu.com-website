@@ -91,7 +91,9 @@
   --web-spacing-md: 24px;
   --web-spacing-lg: 40px;
   --web-spacing-xl: 60px;
-  --web-section-py: 80px;
+  /* Khoảng đệm trên/dưới của mọi section (DESIGN.md: 80px desktop, giảm dần trên mobile). Không viết
+     clamp riêng trong từng module: lệch nhau 96/104/112px và cộng dồn thành dải trắng 200px+. */
+  --web-section-py: clamp(56px, 6vw, 80px);
   --web-section-header-mb: 60px;
   --web-mobile-bottom-nav-height: 74px;
   /* Thanh danh mục dính dưới header ở /san-pham; dưới 769px còn 50px (xem media query bên dưới). */
@@ -239,15 +241,21 @@ body.overflow-hidden {
   margin: 0;
 }
 
+/* Từ 1024px header có hai hàng (tiện ích 26px + menu 32px): 88px để hai hàng có khoảng thở trên dưới,
+   không dán sát mép màn hình. Mọi chỗ đặt theo header đều đọc token này. */
+@media (min-width: 1024px) {
+  .web-app {
+    --web-header-h: 88px;
+  }
+}
+
 @media (max-width: 768px) {
   .web-app {
     --web-catalog-nav-h: 50px;
   }
 
-  /* Nội dung cuối trang không bị thanh điều hướng dưới che. */
-  .web-app main {
-    padding-bottom: calc(var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom) + 8px);
-  }
+  /* Không đặt padding-bottom cho main: footer nằm sau main và tự chừa chỗ cho thanh điều hướng dưới
+     (WebFooter.module.css .bar). Đệm thêm ở main thành dải trắng 82px ngay trên footer. */
 }
 
 /* ─── Header / Navigation ─── */
@@ -696,8 +704,15 @@ body.overflow-hidden {
 
 /* ─── Sub-page Wrapper ─── */
 .web-app .subpage-wrap {
-  padding-top: 80px;
-  padding-bottom: 100px;
+  padding-top: calc(var(--web-header-h) + 8px);
+  padding-bottom: var(--web-section-py);
+}
+
+/* Huy hiệu header treo 18px dưới thanh header từ 1024px; chừa thêm để breadcrumb không nằm sát huy hiệu. */
+@media (min-width: 1024px) {
+  .web-app .subpage-wrap {
+    padding-top: calc(var(--web-header-h) + 32px);
+  }
 }
 
 /* ─── Story Blocks (thuong-hieu) ─── */
@@ -882,9 +897,11 @@ html {
 
 /* Classes to support full removal of inline styles in pages and components */
 
+/* Chỉ chừa chỗ cho header cố định (thanh danh mục có spacer riêng). Không đệm đáy: trang kết thúc bằng
+   dải xanh đêm nối liền footer, đệm đáy thành dải trắng kẹp giữa hai khối xanh. */
 .web-app .products-page-container {
-  padding-top: 80px;
-  padding-bottom: 120px;
+  padding-top: var(--web-header-h);
+  padding-bottom: 0;
   background-color: var(--web-bg);
 }
 
@@ -1049,9 +1066,6 @@ html {
 /* 5. Mobile-First Spacing Adjustments (Products Page) */
 
 /* 6. Anti-Overlap Scroll Margins (Account for fixed header) */
-.web-app .products-page-container [id] {
-  scroll-margin-top: 100px;
-}
 
 /* 7. Combo Cold Cut Highlight styling (Restored) */
 
@@ -1089,7 +1103,7 @@ html {
 @media (min-width: 769px) {
   .web-app .toast-container {
     left: auto;
-    top: 88px;
+    top: calc(var(--web-header-h) + 16px);
     bottom: auto;
   }
 }
