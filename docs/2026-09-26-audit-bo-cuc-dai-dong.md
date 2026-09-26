@@ -2,7 +2,7 @@
 
 **Ngày:** 26/09/2026 · **Cách kiểm:** chụp nguyên trang 21 route bằng Playwright ở 1440px và 390px, xem từng ảnh; đo chiều cao trang, số thẻ, ảnh lặp. Cùng loại vấn đề với footer vừa sửa (`713bec7`): quá nhiều khối, thông tin lặp, bố cục lệch.
 
-Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); còn L3, L4, L5, L8, L11, L12.
+Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); L3, L4, L5, L8 (`1ab5346`); còn L11, L12 và giờ hỗ trợ (L4).
 
 ---
 
@@ -33,6 +33,8 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 
 **Đề xuất:** hiện 9 bài + nút "Xem thêm" (hoặc phân trang); nhóm theo chủ đề; ảnh bìa riêng cho bài (cần ảnh chính hãng).
 
+> **Đã sửa · `1ab5346`.** Bài nổi bật + 9 bài, nút "Xem thêm bài viết" (bài chưa hiện vẫn có trong HTML). Chip chủ đề: Món ăn kèm · Thưởng thức · Lịch sử và câu chuyện · Các dòng bia (xếp theo từ khoá tiêu đề, `src/config/articleTopics.ts`). **Chờ:** ảnh bìa riêng (chủ dự án có ảnh, 26/09).
+
 ### L4 · Khối "Ghé thăm showroom" trong bài viết (`GeoLocalCTA.tsx`)
 - Kiểu riêng, lệch hệ thống: nút vàng "Gọi Hotline Ngay", icon ghim, chữ in hoa kiểu khác.
 - **Giờ mâu thuẫn:** khối ghi "Hotline / Zalo (8:00 - 22:00)", trang Liên hệ và bản dịch ghi 9:00 – 21:00.
@@ -41,6 +43,8 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 
 **Đề xuất:** thống nhất giờ (cần chủ dự án xác nhận), đổi khối sang kiểu `CtaBand` của hệ thống, giữ một trong hai khối cuối.
 
+> **Đã sửa (một phần) · `1ab5346`.** Khối viết lại bằng CSS module theo hệ thống (bỏ `<style>` nhúng và `!important`), tiêu đề chữ thường, nút sáng + link "Mở Zalo". Tạm bỏ giờ khỏi khối cho tới khi xác nhận giờ đúng. **Giữ** khối sản phẩm cuối bài: có test bảo vệ (hướng brochure đã chọn trước đó).
+
 ---
 
 ## Trung bình
@@ -48,6 +52,8 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 ### L5 · Trang chủ: hai lối vào sản phẩm liền nhau, khối "Ghé thăm" lặp footer
 - "Bia của chúng tôi" (ô Benediktiner / Bia Đức) và "Các dòng bia" (3 thẻ) cùng dẫn vào sản phẩm, cách nhau một khối.
 - "Ghé thăm" ghi địa chỉ + hotline, ngay trên footer cũng ghi địa chỉ + hotline.
+
+> **Đã sửa · `1ab5346`.** Bỏ khối "Bia của chúng tôi" (quyết định chủ dự án: giữ "Các dòng bia"); "Các dòng bia" lên ngay sau hero, thêm icon ly.
 
 ### L6 · Dải xanh cuối trang dính liền footer xanh
 `/benediktiner-dunkel` (và 2 trang dòng bia khác) "Đặt hàng", `/thuong-hieu` "Tiếp tục hành trình", `/san-pham` "Cho nhà hàng": nền xanh đêm nối thẳng vào footer xanh đêm, thành một mảng dài không thấy ranh giới.
@@ -63,6 +69,8 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 
 ### L8 · `/ve-chung-toi` trùng `/thuong-hieu` và lặp liên hệ
 Bảng "Thông tin liên hệ" + khối "Kết nối với chúng tôi" + footer: địa chỉ, hotline, email hiện ba lần trên một màn. Nội dung trùng ý với `/thuong-hieu` (A4, chờ quyết định gộp).
+
+> **Đã sửa · `1ab5346`.** Gộp vào `/thuong-hieu`: 301 trong `next.config.js`, gỡ trang và mục sitemap. Không còn link nội bộ nào tới trang cũ. Phần "Ba giá trị cốt lõi" không chuyển sang (trang Câu chuyện Ettal đã có "Triết lý").
 
 ### L9 · Trang dòng bia: section một câu, dải quy cách lệch trái
 - "Một chút lịch sử" chỉ một câu nhưng chiếm một section có tiêu đề lớn.
@@ -89,6 +97,6 @@ Ví dụ "Giới Thiệu Về Xúc Xích Thüringer Bratwurst Trứ Danh". DESIG
 
 ## Cần chủ dự án quyết định
 1. Giờ hỗ trợ đúng: 8:00–22:00 hay 9:00–21:00 (L4).
-2. Trang chủ giữ khối nào: "Bia của chúng tôi" hay "Các dòng bia" (L5).
-3. Gộp `/ve-chung-toi` vào `/thuong-hieu` (L8, A4).
-4. Có ảnh bìa riêng cho bài Kiến thức không (L3).
+2. ~~Trang chủ giữ khối nào (L5).~~ Giữ "Các dòng bia".
+3. ~~Gộp `/ve-chung-toi` (L8).~~ Đã gộp.
+4. ~~Ảnh bìa riêng (L3).~~ Có, chờ chủ dự án gửi.
