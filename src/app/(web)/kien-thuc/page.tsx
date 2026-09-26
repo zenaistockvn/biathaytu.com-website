@@ -1,7 +1,9 @@
 import { getPublishedArticles } from '@/lib/data/articles';
 import type { Metadata } from 'next';
 import { PageHeader } from '../components/EditorialPage'
-import ArticleCard, { ArticleGrid, FeaturedArticle } from '../components/ui/ArticleCard'
+import { FeaturedArticle } from '../components/ui/ArticleCard'
+import { getArticleTopic } from '@/config/articleTopics';
+import KnowledgeBrowser from './KnowledgeBrowser';
 import styles from './page.module.css';
 
 export const revalidate = 3600;
@@ -63,13 +65,9 @@ export default async function KienThucPage() {
           {featuredArticle ? <FeaturedArticle article={featuredArticle} /> : null}
 
           {standardArticles.length > 0 ? (
-            <section className={styles.list} aria-label="Tất cả bài viết">
-              <ArticleGrid>
-                {standardArticles.map((article, index) => (
-                  <ArticleCard key={article.id} article={article} position={index + 1} />
-                ))}
-              </ArticleGrid>
-            </section>
+            <KnowledgeBrowser
+              articles={standardArticles.map((article) => ({ ...article, topic: getArticleTopic(article.title).id }))}
+            />
           ) : (
             !featuredArticle && <p className={styles.empty}>Danh mục đang được cập nhật.</p>
           )}

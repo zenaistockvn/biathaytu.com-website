@@ -3,8 +3,7 @@ import LandingHero from './components/LandingHero';
 import JsonLd, { getBreadcrumbSchema, getLandingFAQSchema, getStoreSchema } from './components/JsonLd';
 import BeerCard, { BeerCardGrid } from './components/ui/BeerCard';
 import { Button } from './components/ui/Button';
-import CategoryTile, { CategoryTileGrid } from './components/ui/CategoryTile';
-import { BottleIcon, WeizenGlassIcon } from './components/ui/LineIcons';
+import { WeizenGlassIcon } from './components/ui/LineIcons';
 import SplitBlock from './components/ui/SplitBlock';
 import TitleBlock from './components/ui/TitleBlock';
 import {
@@ -103,34 +102,27 @@ export default function LandingPage() {
 
       <LandingHero />
 
-      <section className={styles.section} aria-labelledby="home-categories-title">
+      {/* Một lối vào sản phẩm duy nhất ngay sau hero; bỏ khối "Bia của chúng tôi" trùng ý (audit L5). */}
+      <section className={styles.section} aria-labelledby="home-beers-title">
         <div className="container">
-          <TitleBlock
-            id="home-categories-title"
-            align="center"
-            icon={<WeizenGlassIcon size={72} />}
-            title="Bia của chúng tôi"
-            kicker="Nhập khẩu chính hãng từ Đức"
-          />
+          <TitleBlock id="home-beers-title" align="center" icon={<WeizenGlassIcon size={72} />} title="Các dòng bia" kicker="Benediktiner Weissbräu Ettal" />
           <div className={styles.afterTitle}>
-            <CategoryTileGrid>
-              <CategoryTile
-                href="/san-pham#benediktiner"
-                tone="ink"
-                image={{ src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier Naturtrüb trên bàn gỗ ngoài vườn', position: '70% center' }}
-                icon={<WeizenGlassIcon />}
-                title="Benediktiner"
-                kicker="Bia lúa mì tu viện"
-              />
-              <CategoryTile
-                href="/san-pham#bia-duc-khac"
-                tone="gold"
-                image={{ src: '/images/brand/bitburger-official/siegelhopfen-field.jpg', alt: 'Người trồng hoa bia cho Bitburger giữa cánh đồng hoa bia', position: 'center 35%' }}
-                icon={<BottleIcon />}
-                title="Bia Đức"
-                kicker="Tuyển chọn"
-              />
-            </CategoryTileGrid>
+            <BeerCardGrid>
+              {beers.map((beer) => (
+                <BeerCard
+                  key={beer.name}
+                  href={beer.href}
+                  fit="contain"
+                  image={{ src: beer.image, alt: `${beer.name}, hình ảnh sản phẩm chính hãng` }}
+                  name={beer.name}
+                  type={beer.type}
+                  meta={beer.meta}
+                />
+              ))}
+            </BeerCardGrid>
+          </div>
+          <div className={styles.moreLink}>
+            <Button href="/san-pham" variant="link">Xem tất cả sản phẩm</Button>
           </div>
         </div>
       </section>
@@ -152,29 +144,6 @@ export default function LandingPage() {
         </dl>
       </SplitBlock>
 
-      <section className={styles.section} aria-labelledby="home-beers-title">
-        <div className="container">
-          <TitleBlock id="home-beers-title" align="center" title="Các dòng bia" kicker="Benediktiner Weissbräu Ettal" />
-          <div className={styles.afterTitle}>
-            <BeerCardGrid>
-              {beers.map((beer) => (
-                <BeerCard
-                  key={beer.name}
-                  href={beer.href}
-                  fit="contain"
-                  image={{ src: beer.image, alt: `${beer.name}, hình ảnh sản phẩm chính hãng` }}
-                  name={beer.name}
-                  type={beer.type}
-                  meta={beer.meta}
-                />
-              ))}
-            </BeerCardGrid>
-          </div>
-          <div className={styles.moreLink}>
-            <Button href="/san-pham" variant="link">Xem tất cả sản phẩm</Button>
-          </div>
-        </div>
-      </section>
 
       <SplitBlock
         image={{ src: '/images/brand/benediktiner-official/so-close-to-heaven.jpg', alt: 'Poster chiến dịch Benediktiner So close to heaven: ly bia và lon Weissbier trước Tu viện Ettal', position: 'center 100%' }}

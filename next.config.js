@@ -119,6 +119,12 @@ const nextConfig = {
         destination: '/thong-tin-mua-hang',
         statusCode: 301,
       },
+      // Trùng nội dung với trang Câu chuyện Ettal; thông tin doanh nghiệp và liên hệ đã có ở footer (audit L8, 09/2026).
+      {
+        source: '/ve-chung-toi',
+        destination: '/thuong-hieu',
+        statusCode: 301,
+      },
     ];
   },
   async headers() {

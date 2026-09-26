@@ -56,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'huong-dan-rot-bia-lua-mi',
     'bang-gia-si-dai-ly',
     'chung-nhan-nhap-khau-chinh-hang',
-    've-chung-toi',
   ];
   for (const slug of landingPages) {
     routes.push({

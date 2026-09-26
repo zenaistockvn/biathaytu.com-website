@@ -1,0 +1,51 @@
+.browser {
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+/* Chip chủ đề: chữ nhật in hoa như hàng lọc quy cách của danh mục sản phẩm. */
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+/* .topics .topic (0,2,0) thắng `.web-app button` (0,1,1). */
+.topics .topic {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--web-border);
+  border-radius: 0;
+  background: var(--web-bg);
+  color: var(--web-ink);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.topics .topic:hover {
+  border-color: var(--web-ink);
+}
+
+.topics .topic[aria-pressed='true'] {
+  border-color: var(--web-accent);
+  background: var(--web-accent);
+  color: var(--web-on-ink);
+}
+
+.count {
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(40px, 5vw, 56px);
+}

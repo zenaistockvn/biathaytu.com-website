@@ -21,7 +21,6 @@ const DARK_HERO_PATHS = new Set([
   '/qua-tang-bia-duc',
   '/thuong-hieu',
   '/food-pairing-bia-duc',
-  '/ve-chung-toi',
   '/chung-nhan-nhap-khau-chinh-hang',
   '/bom-bia-5l-benediktiner',
   '/bia-benediktiner-chinh-hang',
