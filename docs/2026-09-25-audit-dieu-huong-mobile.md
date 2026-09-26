@@ -25,6 +25,10 @@ Trang dòng bia (`/benediktiner-weissbier-naturtrub`, `/benediktiner-dunkel`, `/
 
 **Sửa:** ba cấp Sản phẩm → Dòng bia (có `FormatStrip` liệt kê quy cách) → Quy cách (SKU). Danh mục nhóm thẻ theo dòng bia, tên dòng trỏ trang dòng bia. Breadcrumb SKU: `Sản phẩm / Weissbier Dunkel / Thùng 12 chai`. Xem D1.
 
+> **Đã sửa · đợt 3 · `dc51cd8`.** `src/config/productLines.ts` là nguồn chung: 5 dòng (Naturtrüb, Dunkel, Festbier, Hộp mix 2 vị, Bitburger), mỗi SKU bia khớp đúng một dòng (test `productLines.test.ts`). `/san-pham` nhóm thẻ theo dòng, tên dòng link tới trang dòng bia. Ba trang dòng bia lấy quy cách qua `getLineProducts()`. Trang SKU: breadcrumb `Sản phẩm / {Dòng bia} / {Quy cách}`, JSON-LD cùng chuỗi (kèm Trang chủ ở đầu). Không đổi URL nào.
+> Quyết định của chủ dự án (26/09): Festbier giữ trỏ SKU két 24 lon, chưa tạo trang dòng; "Mix 2 vị" là nhóm riêng không có trang; Bitburger 0.0 và Premium Pils 500ml xếp vào dòng Bitburger. Breadcrumb của SKU Festbier và Mix trỏ về nhóm trong danh mục (`/san-pham#festbier`, `#mix`) vì không có trang dòng.
+> **Còn mở:** thẻ Festbier trên trang chủ vẫn trỏ SKU bom 5L, vì chữ ("bom 5 lít") và ảnh của thẻ là bom; đổi khi có trang dòng Festbier.
+
 ### A3 · Cao — Cùng một đích, nhiều tên gọi
 | Route | Nhãn đang dùng |
 |---|---|
@@ -52,6 +56,9 @@ Không có link nội bộ: `/ve-chung-toi`, `/bia-thay-tu-la-gi`, `/bia-benedik
 Footer và `/san-pham` ghi "không bán hàng trực tuyến", trong khi thẻ có "Giá bán lẻ" và tin nhắn Zalo soạn sẵn là "muốn đặt mua". Câu phủ định nằm đầu danh mục nhưng không nói khách phải làm gì.
 **Sửa:** thay bằng một câu hướng dẫn (kênh đặt, ai giao, khu vực — **chủ dự án cung cấp nội dung**), đặt cạnh giá trên trang SKU.
 
+> **Không sửa, theo quyết định của chủ dự án (26/09/2026).** Website chưa đăng ký bán hàng với Bộ Công Thương nên giữ nguyên câu "không bán hàng trực tuyến" (footer, đầu `/san-pham`) và không thêm hướng dẫn đặt hàng. Test giữ câu này: `mobile-first-regression.test.ts`. Nút cố định trên trang SKU ghi "Gọi tư vấn" thay cho "Gọi đặt hàng" của D3.
+> **Cần xem lại (không thuộc audit):** trang vẫn có vài chỗ mang ý bán hàng: nhãn "Giá bán lẻ", nút "Liên hệ đặt hàng" và tin nhắn Zalo soạn sẵn "muốn đặt mua" trên các trang dòng bia. Nên hỏi ý kiến pháp lý xem các chỗ này có cần đổi không.
+
 ### A7 · Trung bình — Footer thiếu mục chính và trộn loại link
 Cột "Khám phá" trộn 3 trang SKU, 1 trang dòng bia, 2 trang nội dung. Không có Kiến thức, HORECA, Liên hệ. *(WebFooter.tsx, productLinks)*
 **Sửa:** cột Sản phẩm (4 dòng bia → trang dòng bia) · Tìm hiểu (Câu chuyện Ettal, Thưởng thức, Kiến thức, Bia Thầy Tu là gì, Benediktiner chính hãng) · Mua hàng (Bảng giá sỉ, Quà tặng, Thông tin mua hàng, Chứng nhận nhập khẩu, Liên hệ). Giữ cột thông tin doanh nghiệp và thanh pháp lý.
@@ -61,6 +68,10 @@ Cột "Khám phá" trộn 3 trang SKU, 1 trang dòng bia, 2 trang nội dung. Kh
 ### A8 · Thấp — Danh mục và Kiến thức chỉ có một cách duyệt
 Thanh dính `/san-pham` chỉ có 2 tab, trùng 2 mục header. Không lọc theo dòng bia hay quy cách (chai, lon, bom). `/kien-thuc` là danh sách phẳng.
 **Sửa:** tab theo dòng bia; hàng lọc quy cách. Kiến thức nhóm theo 3–4 chủ đề (thưởng thức, món ăn kèm, lịch sử, mua hàng).
+
+> **Đã sửa (phần danh mục) · đợt 3 · `dc51cd8`.** Thanh dính `/san-pham`: tab Naturtrüb · Dunkel · Festbier · Bitburger, neo tới nhóm dòng bia. Hàng lọc Tất cả · Chai · Lon · Bom (nút `aria-pressed`), ẩn thẻ và nhóm không khớp; chọn Bom hiện link tới trang bom 5L.
+> **Dữ liệu:** `products.json` **không có trường quy cách** (chỉ có `volume`); quy cách được suy từ tên sản phẩm. 15/16 SKU suy được. SKU `bitburger-premium-pils` (500ml, không giá, tên không ghi chai/lon) không suy được nên chỉ hiện ở "Tất cả". Nên thêm trường `packaging` (chai/lon/bom) vào dữ liệu.
+> **Còn mở:** Kiến thức nhóm theo chủ đề chưa làm (không có trong prompt đợt 3). Khi đang lọc, tab của dòng bị ẩn không cuộn tới đâu.
 
 ---
 
@@ -194,6 +205,17 @@ Từ trên xuống, 390×844:
 
 Tiêu chí: giá và hai nút nằm trong màn hình đầu ở 390×844 (kiểm bằng Playwright, chụp trước/sau).
 
+> **Đã làm · đợt 3 · `dc51cd8` (sửa C1, C6).** Link `‹ {Dòng bia}` cao 48px thay breadcrumb dưới 768px; khung ảnh 300px; chấm chỉ báo 8px (vùng chạm 44px) thay ảnh thu nhỏ dưới 768px; hàng giá kẻ mảnh ngay dưới tên (giá trái, "5,4% vol. · IBU 13" phải), giá bỏ khỏi khối liên hệ; thanh cố định đáy `Gọi tư vấn` / `Mở Zalo` cao 74px + safe-area, MobileBottomNav ẩn trên `/san-pham/*`.
+> **Đo bằng Playwright, 390×844:**
+>
+> | SKU | Trước: giá / nút (px) | Sau: giá / nút (px) |
+> |---|---|---|
+> | benediktiner-dunkel-thung-12-chai-500ml | 814–885 / 939–985 | 571–646 / 782–832 |
+> | benediktiner-naturtrub-bom-5l | 784–855 / 909–955 | 571–646 / 782–832 |
+> | bitburger-00-alkoholfrei-ket-24-lon-330ml | 847–918 / 972–1018 | 571–646 / 782–832 |
+>
+> Trước: cả ba ngoài màn hình đầu (844px). Sau: đều trong. SKU `bitburger-premium-pils` không có giá nên không có hàng giá. Nhãn phụ `BENEDIKTINER · BIA LÚA MÌ ĐEN` và câu cách mua (mục 4, 6) không làm: cần nội dung, và A6 giữ nguyên.
+
 ### D4 — Menu và bottom nav mobile (sửa C2, C4, A5, B2)
 **Menu mobile** (dialog toàn màn hình, dưới header 72px, padding 20px):
 1. Nhóm **SẢN PHẨM** (Roboto Serif 20px in hoa, `--web-accent`) + hàng chip: Naturtrüb · Dunkel · Festbier · Bitburger (nền `--web-surface-muted`, min-height 44px, Barlow Condensed 15px in hoa) → trang dòng bia.
@@ -222,11 +244,11 @@ Tiêu chí: giá và hai nút nằm trong màn hình đầu ở 390×844 (kiểm
   Kiểm: `npm test` 192/192; `next build` thành công (`npm run build` cần `DATABASE_URL` cho `scripts/dump_data.js`, máy kiểm không có `.env.local`).
 - **Sửa ngoài lộ trình (26/09/2026):** tiêu đề hero trang con gãy dòng (`49de329`); khoảng trống: header desktop 88px, bỏ dải trắng trên footer mobile và `/san-pham`, mọi section dùng `--web-section-py` (`42d2722`).
 - **Đợt 2 · điều hướng:** A1 + D2 · D4 · A5 · A7 — **xong 26/09/2026**, commit `f4f45cb`. Kiểm: `npm test` 205/205; `next build` thành công.
-- **Đợt 3 · cấu trúc sản phẩm:** A2 + D1 · C1 + D3 · A6 · A8
+- **Đợt 3 · cấu trúc sản phẩm:** A2 + D1 · C1 + D3 · A6 · A8 — **xong 26/09/2026**, commit `dc51cd8` (A6 giữ nguyên theo quyết định pháp lý). Kiểm: `npm test` 215/215; `next build` thành công; đo Playwright ở 390×844.
 
 ## Cần chủ dự án quyết định
 1. ~~Nhãn chuẩn cho `/san-pham`, `/thuong-hieu`, `/lien-he` (A3).~~ Đã duyệt: Sản phẩm · Câu chuyện Ettal · Showroom.
    Còn lại: tên JSON-LD của `/huong-dan-rot-bia-lua-mi` và `/bia-duc-cho-nha-hang-khach-san` theo tên trang hay nhãn menu (A3).
-2. Nội dung câu hướng dẫn cách mua (A6).
-3. Festbier: tạo trang dòng bia hay tạm trỏ SKU (A2). *Tạm thời (đợt 2): trỏ SKU két 24 lon; quyết định cuối ở đợt 3.*
+2. ~~Nội dung câu hướng dẫn cách mua (A6).~~ Giữ "không bán hàng trực tuyến" vì chưa đăng ký với Bộ Công Thương.
+3. ~~Festbier: tạo trang dòng bia hay tạm trỏ SKU (A2).~~ Giữ trỏ SKU két 24 lon; tạo trang khi có nội dung hương vị.
 4. Gộp `/ve-chung-toi` vào `/thuong-hieu` hay giữ riêng (A4).
