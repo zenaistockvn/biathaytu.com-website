@@ -14,6 +14,8 @@ Mức độ: 6 cao · 9 trung bình · 5 thấp.
 "Bia Benediktiner" và "Bia Đức tuyển chọn" đều là anchor của `/san-pham`. `isCurrentPath` trả `false` với mọi href có `#`, nên ở `/san-pham` không mục nào sáng. Trang SKU cũng không đánh dấu mục cha. *(WebHeader.tsx, NAV_LINKS)*
 **Sửa:** một mục **Sản phẩm** → `/san-pham`, active cho `/san-pham`, `/san-pham/*` và các trang dòng bia. Hai danh mục chuyển vào panel thả xuống (D2).
 
+> **Đã sửa · đợt 2 · `f4f45cb`.** Menu: Sản phẩm · Câu chuyện Ettal · Thưởng thức · Kiến thức · HORECA và đại lý. "Sản phẩm" sáng theo `isProductsPath()` (danh mục, mọi SKU, 3 trang dòng bia, trang bom 5L). Panel xem D2.
+
 ### A2 · Cao — Hai loại trang sản phẩm song song, không quan hệ cha con
 Trang dòng bia (`/benediktiner-weissbier-naturtrub`, `/benediktiner-dunkel`, `/bitburger-premium-pils`, `/bom-bia-5l-benediktiner`) và trang quy cách `/san-pham/[slug]` cùng mô tả một sản phẩm. Lối vào lẫn lộn:
 - Trang chủ: Naturtrüb, Dunkel → trang dòng bia; Festbier → trang SKU.
@@ -43,6 +45,9 @@ Không có link nội bộ: `/ve-chung-toi`, `/bia-thay-tu-la-gi`, `/bia-benedik
 "Showroom" mở `/lien-he`; "Liên hệ tư vấn" mở Zalo tab mới; "Liên hệ" bottom nav mở bảng nổi; nút nổi desktop mở cùng bảng; "Để lại thông tin tư vấn" cuộn tới form cuối trang SKU; thêm widget Messenger.
 **Sửa:** một nhãn "Liên hệ", một hành vi: mở bảng kênh (Zalo, gọi, Messenger, Showroom → `/lien-he`). Link mở app ngoài ghi rõ "Mở Zalo".
 
+> **Đã sửa · đợt 2 · `f4f45cb`.** Hàng tiện ích desktop: hotline · [LIÊN HỆ] · ngôn ngữ; bỏ ô "Showroom" và "Liên hệ tư vấn". Nút Liên hệ (header, bottom nav, nút nổi) cùng mở một bảng: Mở Zalo, Điện thoại, Messenger, Showroom (`/lien-he`, kèm địa chỉ). Footer "Chat Zalo" thành "Mở Zalo".
+> **Còn mở:** "Để lại thông tin tư vấn" trên trang SKU vẫn cuộn tới form (thuộc C1/D3, đợt 3). Trên desktop bảng bật ở góc dưới phải (vị trí nút nổi), không ngay dưới nút Liên hệ của header.
+
 ### A6 · Trung bình — Cách mua hàng không được nói rõ
 Footer và `/san-pham` ghi "không bán hàng trực tuyến", trong khi thẻ có "Giá bán lẻ" và tin nhắn Zalo soạn sẵn là "muốn đặt mua". Câu phủ định nằm đầu danh mục nhưng không nói khách phải làm gì.
 **Sửa:** thay bằng một câu hướng dẫn (kênh đặt, ai giao, khu vực — **chủ dự án cung cấp nội dung**), đặt cạnh giá trên trang SKU.
@@ -50,6 +55,8 @@ Footer và `/san-pham` ghi "không bán hàng trực tuyến", trong khi thẻ c
 ### A7 · Trung bình — Footer thiếu mục chính và trộn loại link
 Cột "Khám phá" trộn 3 trang SKU, 1 trang dòng bia, 2 trang nội dung. Không có Kiến thức, HORECA, Liên hệ. *(WebFooter.tsx, productLinks)*
 **Sửa:** cột Sản phẩm (4 dòng bia → trang dòng bia) · Tìm hiểu (Câu chuyện Ettal, Thưởng thức, Kiến thức, Bia Thầy Tu là gì, Benediktiner chính hãng) · Mua hàng (Bảng giá sỉ, Quà tặng, Thông tin mua hàng, Chứng nhận nhập khẩu, Liên hệ). Giữ cột thông tin doanh nghiệp và thanh pháp lý.
+
+> **Đã sửa · đợt 2 · `f4f45cb`.** Ba cột như trên, tên lấy từ `NAV`/`PRODUCT_LINES`. Cột Sản phẩm có thêm "Bom bia 5L" (chủ dự án duyệt 26/09) nên trang bom 5L hết mồ côi. Festbier tạm trỏ SKU két 24 lon. Mục cuối cột Mua hàng dùng nhãn chuẩn "Showroom" của `/lien-he` (A3) thay cho "Liên hệ". Hotline, email, địa chỉ showroom chuyển vào cột giới thiệu. Test: `footer-links.test.ts` kiểm mọi đích điều hướng có trang thật.
 
 ### A8 · Thấp — Danh mục và Kiến thức chỉ có một cách duyệt
 Thanh dính `/san-pham` chỉ có 2 tab, trùng 2 mục header. Không lọc theo dòng bia hay quy cách (chai, lon, bom). `/kien-thuc` là danh sách phẳng.
@@ -120,6 +127,8 @@ Không đóng bằng Escape, không bẫy focus (Tab thoát ra trang nền đã 
 4 ô: Trang chủ, Bia Đức, Kiến thức, Liên hệ. Logo đã về trang chủ; Showroom không có ô; "Bia Đức" khác mọi tên gọi khác của `/san-pham`.
 **Sửa:** Sản phẩm · Kiến thức · Showroom · Liên hệ (D4).
 
+> **Đã sửa · đợt 2 · `f4f45cb`.** Xem D4.
+
 ### C5 · Trung bình — Vùng chạm < 44px, ảnh thu nhỏ không dùng được bằng bàn phím
 - Tab thanh danh mục 36px (mobile) / 38px (desktop).
 - Hàng tiện ích header (hotline, Showroom, Liên hệ tư vấn) 26px.
@@ -171,6 +180,8 @@ Không đổi URL hiện có.
   2. Nhãn "BIA ĐỨC TUYỂN CHỌN" + Bitburger Premium Pils; cuối cột link "XEM TẤT CẢ SẢN PHẨM" (gạch chân, `--web-accent`).
   3. Ảnh `beer-garden-closeup.jpg`, object-fit cover, cao ≥170px.
 
+> **Đã làm · đợt 2 · `f4f45cb`.** Đúng như trên. Panel mở khi rê chuột hoặc focus vào "Sản phẩm", Tab đi vào các link trong panel, Escape đóng và trả focus về mục; có cầu nối vô hình để rê chuột xuống không làm panel đóng. Khi panel mở, header chuyển sang nền đặc. Đã thử bằng chuột và phím thật ở 1440px; menu vừa khung ở 1024px. Kèm theo (sửa khoảng trống, `42d2722`): header desktop cao 88px để hai hàng không dán sát mép trên.
+
 ### D3 — Trang SKU mobile, màn hình đầu (sửa C1, C6, B1)
 Từ trên xuống, 390×844:
 1. Header 72px.
@@ -192,6 +203,9 @@ Tiêu chí: giá và hai nút nằm trong màn hình đầu ở 390×844 (kiểm
 
 **Bottom nav:** `SẢN PHẨM` · `KIẾN THỨC` · `SHOWROOM` (/lien-he) · `LIÊN HỆ` (mở bảng). Barlow Condensed 600 13px in hoa, letter-spacing 0.06em, icon nét 1.6. Trạng thái chọn: vạch trên 3px `--web-accent` + chữ `--web-accent`; không đổi nền.
 
+> **Đã làm · đợt 2 · `f4f45cb`.** Menu mobile và bottom nav đúng như trên; chip dòng bia đang xem được tô xanh. "Showroom" trong nhóm Liên hệ là link tới `/lien-he`. Kiểm ở 390px.
+> **Còn mở:** nút đóng menu vẫn nằm ngoài dialog (ghi chú từ C2).
+
 ---
 
 ## Lộ trình
@@ -206,12 +220,13 @@ Tiêu chí: giá và hai nút nằm trong màn hình đầu ở 390×844 (kiểm
   | A3 | `536fb10` |
 
   Kiểm: `npm test` 192/192; `next build` thành công (`npm run build` cần `DATABASE_URL` cho `scripts/dump_data.js`, máy kiểm không có `.env.local`).
-- **Đợt 2 · điều hướng:** A1 + D2 · D4 · A5 · A7
+- **Sửa ngoài lộ trình (26/09/2026):** tiêu đề hero trang con gãy dòng (`49de329`); khoảng trống: header desktop 88px, bỏ dải trắng trên footer mobile và `/san-pham`, mọi section dùng `--web-section-py` (`42d2722`).
+- **Đợt 2 · điều hướng:** A1 + D2 · D4 · A5 · A7 — **xong 26/09/2026**, commit `f4f45cb`. Kiểm: `npm test` 205/205; `next build` thành công.
 - **Đợt 3 · cấu trúc sản phẩm:** A2 + D1 · C1 + D3 · A6 · A8
 
 ## Cần chủ dự án quyết định
 1. ~~Nhãn chuẩn cho `/san-pham`, `/thuong-hieu`, `/lien-he` (A3).~~ Đã duyệt: Sản phẩm · Câu chuyện Ettal · Showroom.
    Còn lại: tên JSON-LD của `/huong-dan-rot-bia-lua-mi` và `/bia-duc-cho-nha-hang-khach-san` theo tên trang hay nhãn menu (A3).
 2. Nội dung câu hướng dẫn cách mua (A6).
-3. Festbier: tạo trang dòng bia hay tạm trỏ SKU (A2).
+3. Festbier: tạo trang dòng bia hay tạm trỏ SKU (A2). *Tạm thời (đợt 2): trỏ SKU két 24 lon; quyết định cuối ở đợt 3.*
 4. Gộp `/ve-chung-toi` vào `/thuong-hieu` hay giữ riêng (A4).
