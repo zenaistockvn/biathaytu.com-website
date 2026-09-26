@@ -230,7 +230,7 @@ Component chức năng (trong `src/app/(web)/components/`, mỗi cái một CSS 
 - **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng trong thanh 88px (hàng tiện ích và menu in hoa, xem mục Header). Dưới 1024px chỉ có huy hiệu, tên và nút menu.
 - **Class `container` toàn cục đặt lại `padding` và `margin`**: khoảng đệm dọc và đường kẻ phải nằm ở phần tử bọc ngoài hoặc bên trong, không đặt chung phần tử với `container`.
 - **CSS module cạnh component, không style inline (`style={{}}`), không dùng `!important`.** Cần thắng quy tắc toàn cục `.web-app .btn-*` thì dùng bộ chọn hai class (0,2,0) hoặc đổi thẻ (`<p>` thay `h2`). Style inline chỉ còn cho giá trị động: `objectPosition` truyền qua prop ảnh, số cột của `ProfileScale`, và `display:none` trong noscript của Facebook Pixel. `design-rules.test.ts` chặn cả hai.
-- **Tiêu đề trong bài viết (h2–h4 trong `articles.json`) viết hoa đầu câu**, chỉ giữ hoa cho tên riêng (Bia Thầy Tu, Benediktiner, Đức, Hà Nội…). Bộ làm sạch trong `src/lib/data/articles.ts` tìm tiêu đề theo chuỗi chính xác, nên sửa chữ tiêu đề thì sửa cả mốc ở đó.
+- **Tiêu đề bài viết (trường `title` và h2–h4 trong `articles.json`) viết hoa đầu câu**, chỉ giữ hoa cho tên riêng (Bia Thầy Tu, Benediktiner, Đức, Hà Nội, Tu viện Ettal…); sau dấu ":" viết thường, sau "?" viết hoa. `toSentenceCase` (`src/lib/data/titleCase.ts`) áp cùng quy tắc cho bài nhập mới. Bộ làm sạch trong `src/lib/data/articles.ts` tìm tiêu đề theo chuỗi chính xác, nên sửa chữ tiêu đề thì sửa cả mốc ở đó.
 
 ## Nguồn dữ liệu dùng chung
 

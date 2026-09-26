@@ -1,12 +1,22 @@
 /**
- * Tiêu đề bài trong database lúc Viết Hoa Mỗi Chữ, lúc viết như câu. Site dùng một kiểu:
- * viết hoa chữ đầu câu, chữ đầu sau dấu ":" hoặc "?", và tên riêng.
+ * Tiêu đề bài trong `articles.json` đã viết như câu; hàm này là lưới an toàn cho bài nhập mới còn Viết Hoa Mỗi Chữ.
+ * Quy tắc (DESIGN.md): viết hoa chữ đầu, chữ đầu sau "?" "!" "." và tên riêng; sau dấu ":" viết thường.
  */
-const PROPER_PHRASES = ['Bia Thầy Tu', 'Luật Tinh Khiết', 'The Wurst', 'Hà Nội', 'Việt Nam'];
+const PROPER_PHRASES: Array<[string, string]> = [
+  ['Đạo Luật Tinh Khiết', 'Đạo luật Tinh khiết'],
+  ['Luật Tinh Khiết', 'Luật Tinh khiết'],
+  ['Tu Viện Ettal', 'Tu viện Ettal'],
+  ['Bia Thầy Tu', 'Bia Thầy Tu'],
+  ['The Wurst', 'The Wurst'],
+  ['La Trappe', 'La Trappe'],
+  ['Hà Nội', 'Hà Nội'],
+  ['Tây Hồ', 'Tây Hồ'],
+  ['Việt Nam', 'Việt Nam'],
+];
 const PROPER_WORDS = new Set([
   'Benediktiner', 'Bitburger', 'Premium', 'Pils', 'Pilsner', 'Weissbier', 'Weizen', 'Dunkel', 'Naturtrüb',
-  'Festbier', 'Đức', 'Ettal', 'Bavaria', 'Việt', 'Thüringer', 'Bratwurst', 'Wiener', 'Reinheitsgebot',
-  'Siegelhopfen', 'Eifel', 'Hallertau', 'Oktoberfest',
+  'Festbier', 'Đức', 'Bỉ', 'Chimay', 'Trappist', 'Ettal', 'Bavaria', 'Việt', 'Thüringer', 'Bratwurst', 'Wiener',
+  'Reinheitsgebot', 'Siegelhopfen', 'Eifel', 'Hallertau', 'Oktoberfest', 'Facebook',
 ]);
 
 const WORD = /^\p{Lu}\p{Ll}*$/u;
@@ -23,8 +33,8 @@ export function toSentenceCase(title: string): string {
 
   const placeholders: string[] = [];
   let text = title;
-  for (const phrase of PROPER_PHRASES) {
-    text = text.split(phrase).join(`\u0000${placeholders.push(phrase) - 1}\u0000`);
+  for (const [from, to] of PROPER_PHRASES) {
+    text = text.split(from).join(`\u0000${placeholders.push(to) - 1}\u0000`);
   }
 
   let startOfSentence = true;
@@ -40,7 +50,7 @@ export function toSentenceCase(title: string): string {
       if (!startOfSentence && WORD.test(bare) && !PROPER_WORDS.has(bare)) {
         out = lead + core.charAt(0).toLowerCase() + core.slice(1);
       }
-      startOfSentence = /[:?!.]$/.test(token);
+      startOfSentence = /[?!.]$/.test(token);
       return out;
     })
     .join('');
