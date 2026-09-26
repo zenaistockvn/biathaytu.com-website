@@ -2,7 +2,7 @@
 
 **Ngày:** 26/09/2026 · **Cách kiểm:** chụp nguyên trang 21 route bằng Playwright ở 1440px và 390px, xem từng ảnh; đo chiều cao trang, số thẻ, ảnh lặp. Cùng loại vấn đề với footer vừa sửa (`713bec7`): quá nhiều khối, thông tin lặp, bố cục lệch.
 
-Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); L3, L4, L5, L8 (`1ab5346`); còn L11, L12 và giờ hỗ trợ (L4).
+Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); L3, L4, L5, L8 (`1ab5346`); giờ hỗ trợ (L4, ``0a6fa29``); còn L11, L12.
 
 ---
 
@@ -43,7 +43,7 @@ Theo thứ tự: bảng thông số · Hương vị nổi bật · mô tả · a
 
 **Đề xuất:** thống nhất giờ (cần chủ dự án xác nhận), đổi khối sang kiểu `CtaBand` của hệ thống, giữ một trong hai khối cuối.
 
-> **Đã sửa (một phần) · `1ab5346`.** Khối viết lại bằng CSS module theo hệ thống (bỏ `<style>` nhúng và `!important`), tiêu đề chữ thường, nút sáng + link "Mở Zalo". Tạm bỏ giờ khỏi khối cho tới khi xác nhận giờ đúng. **Giữ** khối sản phẩm cuối bài: có test bảo vệ (hướng brochure đã chọn trước đó).
+> **Đã sửa (một phần) · `1ab5346`.** Khối viết lại bằng CSS module theo hệ thống (bỏ `<style>` nhúng và `!important`), tiêu đề chữ thường, nút sáng + link "Mở Zalo". Giờ hỗ trợ thống nhất **8:00 - 22:00** (chủ dự án xác nhận) trong `COMPANY_CONFIG.supportHours`, dùng ở trang Liên hệ, khối showroom, bản dịch (`0a6fa29`). **Giữ** khối sản phẩm cuối bài (chủ dự án xác nhận giữ).
 
 ---
 
@@ -96,7 +96,7 @@ Ví dụ "Giới Thiệu Về Xúc Xích Thüringer Bratwurst Trứ Danh". DESIG
 ---
 
 ## Cần chủ dự án quyết định
-1. Giờ hỗ trợ đúng: 8:00–22:00 hay 9:00–21:00 (L4).
+1. ~~Giờ hỗ trợ (L4).~~ 8:00 – 22:00.
 2. ~~Trang chủ giữ khối nào (L5).~~ Giữ "Các dòng bia".
 3. ~~Gộp `/ve-chung-toi` (L8).~~ Đã gộp.
 4. ~~Ảnh bìa riêng (L3).~~ Có, chờ chủ dự án gửi.
