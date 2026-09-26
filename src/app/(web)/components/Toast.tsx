@@ -1,6 +1,8 @@
 'use client';
 import { useToastStore } from '@/stores/useToastStore';
+import styles from './Toast.module.css';
 
+/** Thông báo ngắn; vị trí nằm ở `.toast-container` (web.css) để né thanh điều hướng dưới trên mobile. */
 export default function Toast() {
   const { message, visible, hide } = useToastStore();
 
@@ -13,34 +15,9 @@ export default function Toast() {
       aria-live="polite"
       aria-atomic="true"
     >
-      <div
-        className="toast-item"
-        data-surface="ink"
-        style={{
-          background: 'var(--web-ink)',
-          color: 'var(--web-on-ink)',
-          padding: '16px 24px',
-          borderRadius: 0,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
-          fontWeight: 600,
-          fontSize: '15px',
-        }}
-      >
+      <div className={styles.item} data-surface="ink">
         <span>{message}</span>
-        <button
-          onClick={hide}
-          aria-label="Đóng thông báo"
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--web-on-ink-muted)',
-            cursor: 'pointer',
-            padding: '4px',
-            marginLeft: 'auto',
-          }}
-        >
+        <button type="button" className={styles.close} onClick={hide} aria-label="Đóng thông báo">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
       </div>

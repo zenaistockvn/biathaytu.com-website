@@ -7,6 +7,7 @@ import PhotoHero from '../components/ui/PhotoHero';
 import SplitBlock from '../components/ui/SplitBlock';
 import TitleBlock from '../components/ui/TitleBlock';
 import { COMPANY_CONFIG } from '@/config/company';
+import styles from './page.module.css';
 
 // Trang duyệt component nội bộ. Chỉ có khi chạy dev; bản build production trả 404.
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default function DesignPreviewPage() {
       <section className="section">
         <div className="container">
           <TitleBlock align="center" icon={<WeizenGlassIcon size={72} />} title="Bia của chúng tôi" kicker="Truyền thống tu viện" />
-          <div style={{ marginTop: 48 }}>
+          <div className={styles.tiles}>
             <CategoryTileGrid>
               <CategoryTile href="/san-pham#benediktiner" image={IMG.garden} tone="ink" icon={<WeizenGlassIcon />} title="Benediktiner" kicker="Bia lúa mì tu viện" />
               <CategoryTile href="/san-pham#bia-duc-khac" image={IMG.poster} tone="gold" icon={<BottleIcon />} title="Bia Đức" kicker="Tuyển chọn" />
@@ -79,7 +80,7 @@ export default function DesignPreviewPage() {
       <section className="section">
         <div className="container">
           <TitleBlock title="Nút" kicker="Barlow Condensed in hoa, góc vuông" />
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 32, alignItems: 'center' }}>
+          <div className={styles.buttons}>
             <Button href="#">Primary</Button>
             <Button href="#" variant="dark">Dark</Button>
             <Button href="#" variant="outline">Outline</Button>
@@ -87,7 +88,7 @@ export default function DesignPreviewPage() {
             <Button href="#" size="sm">Nhỏ</Button>
             <Button href="#" size="lg" variant="dark">Lớn</Button>
           </div>
-          <div data-surface="ink" style={{ background: 'var(--web-ink)', color: 'var(--web-on-ink)', padding: 32, marginTop: 32, display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+          <div data-surface="ink" className={styles.inkBand}>
             <Button href="#">Primary trên dải tối</Button>
             <Button href="#" variant="light">Light</Button>
             <Button href="#" variant="link">Link trên dải tối</Button>
@@ -96,14 +97,14 @@ export default function DesignPreviewPage() {
       </section>
 
       <section className="section-alt">
-        <div className="container" style={{ display: 'grid', gap: 40 }}>
+        <div className={`container ${styles.scale}`}>
           <TitleBlock as="h2" size="h1" title="Thang chữ H1: Thầy tu Ettal" kicker="Kicker in hoa" />
           <TitleBlock title="H2: Ba dòng bia biểu tượng" eyebrow="Eyebrow phía trên" />
           <TitleBlock as="h3" title="H3: Weissbier Naturtrüb, bia lúa mì không lọc" />
           <TitleBlock icon={<AbbeyIcon size={64} />} title="Từ 1330" kicker="Tu viện Ettal" />
           <TitleBlock icon={<KegIcon size={64} />} title="Bom 5 lít" kicker="Festbier" />
           <h4>H4: Barlow Condensed đậm, in hoa</h4>
-          <p style={{ maxWidth: 680 }}>Đoạn văn Barlow: Ướp lạnh vừa đủ để bia vẫn giữ được hương lúa mì, malt và men đặc trưng. Ly Weissbier cao giúp giữ lớp bọt, gom hương và thể hiện trọn màu sắc của bia.</p>
+          <p className={styles.paragraph}>Đoạn văn Barlow: Ướp lạnh vừa đủ để bia vẫn giữ được hương lúa mì, malt và men đặc trưng. Ly Weissbier cao giúp giữ lớp bọt, gom hương và thể hiện trọn màu sắc của bia.</p>
         </div>
       </section>
     </>

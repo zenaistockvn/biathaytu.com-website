@@ -1,0 +1,39 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--web-bg-section);
+}
+
+/* .box .button (0,2,0) thắng `.web-app button`; nút viền theo hệ thống, vùng chạm 44px. */
+.box .button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--web-ink);
+  border-radius: 0;
+  background: var(--web-card-bg);
+  color: var(--web-ink);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.box .button:hover {
+  background: var(--web-ink);
+  color: var(--web-on-ink);
+}
+
+.box .accent {
+  border-color: var(--web-accent);
+  color: var(--web-accent-strong);
+}
+
+.box .accent:hover {
+  background: var(--web-accent);
+  color: var(--web-on-ink);
+}

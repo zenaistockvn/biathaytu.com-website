@@ -189,11 +189,11 @@
 /* `.ritual li h3` (0,1,2) thắng `.web-app h3` (0,1,1). */
 .ritual li h3 {
   margin: 10px 0 8px;
-  font-family: var(--font-condensed), sans-serif !important;
+  font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
   font-size: 19px;
   font-weight: 700;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 

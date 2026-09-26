@@ -2,7 +2,7 @@
 
 **Ngày:** 26/09/2026 · **Cách kiểm:** chụp nguyên trang 21 route bằng Playwright ở 1440px và 390px, xem từng ảnh; đo chiều cao trang, số thẻ, ảnh lặp. Cùng loại vấn đề với footer vừa sửa (`713bec7`): quá nhiều khối, thông tin lặp, bố cục lệch.
 
-Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); L3, L4, L5, L8 (`1ab5346`); giờ hỗ trợ (L4, ``0a6fa29``); còn L11, L12.
+Mức độ: 4 cao · 6 trung bình · 2 thấp. Đã sửa L1, L2, L6, L7, L9, L10 (`d818dda`); L3, L4, L5, L8 (`1ab5346`); giờ hỗ trợ (L4, ``0a6fa29``); L12 sửa, L11 giữ có chủ đích (commit dọn `!important`).
 
 ---
 
@@ -89,9 +89,11 @@ Bảng "Thông tin liên hệ" + khối "Kết nối với chúng tôi" + footer
 
 ### L11 · `/thong-tin-mua-hang` mục 8 lặp thông tin doanh nghiệp của footer
 Trang pháp lý nên chấp nhận được; có thể thay bằng một câu dẫn xuống footer.
+**Giữ có chủ đích:** trang thông tin mua hàng là trang pháp lý, thông tin pháp nhân phải đọc được ngay trên trang, không phụ thuộc footer.
 
 ### L12 · Tiêu đề trong bài viết viết Hoa Mỗi Chữ
 Ví dụ "Giới Thiệu Về Xúc Xích Thüringer Bratwurst Trứ Danh". DESIGN.md: tiêu đề dạng câu dài viết thường. Nằm trong `articles.json`, sửa được bằng bước làm sạch dữ liệu.
+**Đã sửa:** 180 tiêu đề h2–h4 trong 35 bài chuyển về viết hoa đầu câu, giữ hoa tên riêng; mốc cắt đoạn trong `articles.ts` đổi theo; nội dung 23 bài đang hiển thị giống hệt trước khi bỏ qua hoa thường. `design-rules.test.ts` chặn tái phát. Tiêu đề bài (h1) chưa đổi.
 
 ---
 

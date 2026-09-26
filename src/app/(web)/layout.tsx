@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import '../web.css';
-import '../mobile-overrides.css';
 import '../brand-consistency.css';
 import WebHeader from './components/WebHeader';
 import WebFooter from './components/WebFooter';

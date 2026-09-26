@@ -103,7 +103,7 @@ describe('mobile-first responsive regressions', () => {
     const webCss = readProjectFile('src/app/web.css');
     const decls = [...webCss.matchAll(/--web-mobile-bottom-nav-height\s*:\s*([^;]+);/g)].map((m) => m[1].trim());
     expect(decls).toEqual(['74px']);
-    for (const file of ['src/app/mobile-overrides.css', 'src/app/brand-consistency.css']) {
+    for (const file of ['src/app/brand-consistency.css']) {
       expect(readProjectFile(file), file).not.toMatch(/--web-mobile-bottom-nav-height\s*:/);
       expect(readProjectFile(file), file).not.toMatch(/\.web-app\s+main\s*\{[^}]*padding-bottom/);
     }

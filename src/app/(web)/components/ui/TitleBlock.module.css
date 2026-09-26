@@ -19,7 +19,7 @@
   font-family: var(--font-condensed), sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.85;
 }
@@ -32,7 +32,7 @@
   text-wrap: balance;
 }
 
-.block .hero { font-size: var(--web-fs-hero); line-height: 1.12 !important; }
+.block .hero { font-size: var(--web-fs-hero); line-height: 1.12; }
 .block .page { font-size: var(--web-fs-hero-page); }
 .block .h1 { font-size: var(--web-fs-h1); }
 .block .h2 { font-size: var(--web-fs-h2); }

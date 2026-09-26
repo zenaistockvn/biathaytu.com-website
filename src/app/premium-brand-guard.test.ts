@@ -176,10 +176,8 @@ describe('màu: không lặp lại lỗi của lần đổi palette trước', (
     expect(offenders).toEqual([]);
   });
 
-  it('Heading/Text đặt tên màu theo vai trò, không theo tên màu', () => {
-    for (const f of ['src/app/(web)/components/ui/Heading.tsx', 'src/app/(web)/components/ui/Text.tsx']) {
-      expect(read(f)).not.toMatch(/'(gold|navy|white|gold-dark)'/);
-    }
+  it('không prop màu nào đặt theo tên màu (gold, navy, white)', () => {
+    // Heading/Text cũ đã gỡ (09/2026, không còn nơi dùng); vẫn chặn cách đặt tên màu theo màu nếu thêm lại.
     const calls = sourceFiles('src/app', /\.tsx$/).flatMap((f) => [...read(f).matchAll(/<(?:Heading|Text)[^>]*color="([a-z-]+)"/g)].map((m) => m[1]));
     expect(calls.filter((c) => ['gold', 'navy', 'white', 'gold-dark'].includes(c))).toEqual([]);
   });
@@ -201,7 +199,6 @@ describe('hiệu ứng: không dùng hiệu ứng kiểu AI', () => {
   const css = [
     'src/app/web.css',
     'src/app/brand-consistency.css',
-    'src/app/mobile-overrides.css',
     'src/app/(web)/components/MobileBottomNav.module.css',
     'src/app/(web)/components/CatalogStickyNav.module.css',
     'src/app/(web)/components/FloatingZaloCTA.module.css',

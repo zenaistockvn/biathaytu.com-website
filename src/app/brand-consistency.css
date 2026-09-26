@@ -3,17 +3,11 @@
    Nút liên hệ nổi, thanh điều hướng dưới và thanh danh mục dính đã chuyển sang CSS module
    cạnh component (FloatingZaloCTA, MobileBottomNav, CatalogStickyNav). */
 
-/* Functional controls should feel tailored, not SaaS-pill heavy. */
-.web-app .btn-primary,
-.web-app .btn-outline {
-  border-radius: 0 !important;
-}
-
 /* Ngoại lệ: ảnh banner Haravan dựng sẵn trên khung nền trắng, không tách nền được.
    Nhân nền để mảng trắng chìm vào khoang ảnh thay vì nổi thành một hộp trắng. */
 .web-app .product-img-box img.product-image-blend,
 .web-app img.product-image-blend {
-  mix-blend-mode: multiply !important;
+  mix-blend-mode: multiply;
 }
 
 /* Neo #benediktiner, #bia-duc-khac dừng ngay dưới header + thanh danh mục dính. */

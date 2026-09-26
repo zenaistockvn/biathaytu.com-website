@@ -284,10 +284,10 @@ function sanitizeArticleContent(content: string | null, slug?: string | null): s
 
   // C.2.3 (đặc biệt cho su-that-ve-lop-men-van-duc-naturtrub): cắt đoạn Men Sống
   if (slug === 'su-that-ve-lop-men-van-duc-naturtrub') {
-    const startMarker = sanitized.includes('### Men Sống — "Vitamin Bia" Từ Thiên Nhiên')
-      ? '### Men Sống — "Vitamin Bia" Từ Thiên Nhiên'
-      : '### Men Sống: "Vitamin Bia" Từ Thiên Nhiên';
-    const endMarker = '### Bia Lọc vs. Bia Không Lọc';
+    const startMarker = sanitized.includes('### Men sống — "vitamin bia" từ thiên nhiên')
+      ? '### Men sống — "vitamin bia" từ thiên nhiên'
+      : '### Men sống: "vitamin bia" từ thiên nhiên';
+    const endMarker = '### Bia lọc vs. bia không lọc';
     const startIdx = sanitized.indexOf(startMarker);
     const endIdx = sanitized.indexOf(endMarker);
     if (startIdx !== -1 && endIdx !== -1 && endIdx > startIdx) {

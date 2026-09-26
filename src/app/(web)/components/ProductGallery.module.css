@@ -1,3 +1,13 @@
+/* Ảnh chính: giữ trọn chai/lon trong khung, chừa lề 20px. */
+.mainImage {
+  object-fit: contain;
+  padding: 20px;
+}
+
+.thumbImage {
+  object-fit: cover;
+}
+
 /* Dải ảnh thu nhỏ dưới ảnh chính. Mỗi ảnh là <button> để dùng được bằng bàn phím. */
 .thumbs {
   display: flex;

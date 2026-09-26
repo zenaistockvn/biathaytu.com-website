@@ -8,7 +8,7 @@
 /* `.box .title` (0,2,0) thắng cỡ và kiểu mặc định của `.web-app h2` (0,1,1). */
 .box .title {
   margin: 0 0 16px;
-  font-family: var(--font-condensed), sans-serif !important;
+  font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
   font-size: 18px;
   font-weight: 700;

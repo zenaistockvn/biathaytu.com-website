@@ -77,7 +77,7 @@ Không dùng màu đỏ, vàng da bò hay huy hiệu của Chimay: đó là nh�
 - Chữ phụ: `--web-on-ink-muted` (`#C9D3E3`, tối thiểu 6.0:1 kể cả ở đáy gradient)
 - Link, điểm nhấn: `--web-accent-on-ink` (`#D6BD79`, tối thiểu 4.9:1)
 
-**Đặt tên token và prop theo vai trò, không theo màu.** Component `Heading`/`Text` nhận `ink`, `accent`, `on-ink`, `on-ink-accent`. Palette đổi thì chỗ gọi vẫn đúng. (Lần đổi palette trước, prop `color="gold"` và khối "nền accent, chữ ink" viết inline đã thành chữ tối trên nền tối ở 15 chỗ.)
+**Đặt tên token và prop theo vai trò, không theo màu.** Prop `tone` của `SplitBlock`, `CategoryTile` nhận `ink`, `accent`, `gold`, `mist`; token chữ là `--web-on-ink`, `--web-accent-on-ink`… Palette đổi thì chỗ gọi vẫn đúng. (Lần đổi palette trước, prop `color="gold"` và khối "nền accent, chữ ink" viết inline đã thành chữ tối trên nền tối ở 15 chỗ.)
 
 ### Token kênh màu và độ trong suốt
 
@@ -102,7 +102,7 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 1. **Section đầu tiên (Hero):** ảnh chính hãng tràn màn hình. Khi không có ảnh, dùng khối phẳng `var(--web-sky)` (cùng màu `--web-ink`).
 2. **Các dải tối tiếp theo trên trang:** khối phẳng `var(--web-ink)`, thường đặt cạnh ảnh theo kiểu chia đôi của Chimay.
 3. **Thẻ nằm trên dải tối:** Dùng `background: var(--web-ink-deep)` (`#152645`), viền `rgb(var(--web-on-ink-rgb) / 0.12)`.
-4. **Khai báo ngữ cảnh bề mặt:** Mọi dải tối phải có thuộc tính `data-surface="ink"` hoặc nằm trong selector tối để các component con (Heading, Text, Button, Form) tự động áp dụng token chữ và focus tương ứng (`--web-on-ink`, `--web-accent-on-ink`).
+4. **Khai báo ngữ cảnh bề mặt:** Mọi dải tối phải có thuộc tính `data-surface="ink"` hoặc nằm trong selector tối để tiêu đề, đoạn văn và component con (Button, form) tự động áp dụng token chữ và focus tương ứng (`--web-on-ink`, `--web-accent-on-ink`).
 
 ### Header và thanh điều hướng
 
@@ -226,10 +226,11 @@ Component chức năng (trong `src/app/(web)/components/`, mỗi cái một CSS 
 - **Nhãn link mở ứng dụng ngoài:** luôn ghi "Mở Zalo". Không dùng lời kêu gọi "đặt hàng / đặt mua": website chưa đăng ký bán hàng với Bộ Công Thương.
 - **Cổng tuổi, banner cookie:** hộp trắng góc vuông như chimay.com; cổng tuổi đặt trên ảnh thương hiệu tối. Nút "Từ chối" cookie cùng kích thước nút "Chấp nhận".
 - **Giá không viết cứng trong trang:** lấy từ dữ liệu sản phẩm (`getProductBySlugOrId`, `FormatStrip`) để luôn khớp trang chi tiết.
-- **Reset toàn cục dùng `:where(.web-app)`** (thẻ `p`, `a`, gạch chân link) để giữ specificity thấp; class của component luôn thắng mà không cần `!important`.
+- **Kiểu gốc dùng `:where(.web-app)`** (thẻ `p`, `a`, gạch chân link, `h1`–`h6`, `button`, eyebrow/badge) để giữ specificity thấp; class của component luôn thắng. CSS của site không còn `!important` nào và không còn file `mobile-overrides.css`; ngoại lệ duy nhất là đoạn style chặn tuổi chèn lúc chạy trong `(web)/layout.tsx`, phải thắng mọi CSS trước khi trang hiện.
 - **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng trong thanh 88px (hàng tiện ích và menu in hoa, xem mục Header). Dưới 1024px chỉ có huy hiệu, tên và nút menu.
 - **Class `container` toàn cục đặt lại `padding` và `margin`**: khoảng đệm dọc và đường kẻ phải nằm ở phần tử bọc ngoài hoặc bên trong, không đặt chung phần tử với `container`.
-- **CSS module cạnh component, không style inline (`style={{}}`), không thêm `!important` mới.** Cần thắng quy tắc toàn cục `.web-app h2` / `.web-app button` thì dùng bộ chọn hai class (0,2,0) hoặc đổi thẻ (`<p>` thay `h2`) thay vì `!important`.
+- **CSS module cạnh component, không style inline (`style={{}}`), không dùng `!important`.** Cần thắng quy tắc toàn cục `.web-app .btn-*` thì dùng bộ chọn hai class (0,2,0) hoặc đổi thẻ (`<p>` thay `h2`). Style inline chỉ còn cho giá trị động: `objectPosition` truyền qua prop ảnh, số cột của `ProfileScale`, và `display:none` trong noscript của Facebook Pixel. `design-rules.test.ts` chặn cả hai.
+- **Tiêu đề trong bài viết (h2–h4 trong `articles.json`) viết hoa đầu câu**, chỉ giữ hoa cho tên riêng (Bia Thầy Tu, Benediktiner, Đức, Hà Nội…). Bộ làm sạch trong `src/lib/data/articles.ts` tìm tiêu đề theo chuỗi chính xác, nên sửa chữ tiêu đề thì sửa cả mốc ở đó.
 
 ## Nguồn dữ liệu dùng chung
 

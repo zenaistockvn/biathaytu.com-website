@@ -1,0 +1,6 @@
+/* Cỡ chữ đọc bài dài; kiểu tiêu đề, link, danh sách trong bài nằm ở `.markdown-content` (web.css). */
+.body {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--web-text-secondary);
+}

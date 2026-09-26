@@ -32,7 +32,7 @@ describe('nhịp khoảng trống giữa các section', () => {
   });
 
   it('main không có padding-bottom: footer tự chừa chỗ cho thanh điều hướng dưới', () => {
-    for (const file of ['src/app/web.css', 'src/app/mobile-overrides.css', 'src/app/brand-consistency.css']) {
+    for (const file of ['src/app/web.css', 'src/app/brand-consistency.css']) {
       expect(read(file), file).not.toMatch(/\.web-app\s+main\s*\{[^}]*padding-bottom/);
     }
     expect(read('src/app/(web)/components/WebFooter.module.css')).toMatch(/\.bar\s*\{[^}]*--web-mobile-bottom-nav-height/);

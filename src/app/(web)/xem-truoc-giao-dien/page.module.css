@@ -1,0 +1,30 @@
+.tiles {
+  margin-top: 48px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.inkBand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 32px;
+  background: var(--web-ink);
+  color: var(--web-on-ink);
+}
+
+.scale {
+  display: grid;
+  gap: 40px;
+}
+
+.paragraph {
+  max-width: 680px;
+}

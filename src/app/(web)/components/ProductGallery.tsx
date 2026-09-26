@@ -29,8 +29,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
           src={mainImage}
           alt={productName}
           fill
-          className={hasWhiteCanvas(mainImage) ? 'product-image-blend' : undefined}
-          style={{ objectFit: 'contain', padding: '20px' }}
+          className={`${styles.mainImage}${hasWhiteCanvas(mainImage) ? ' product-image-blend' : ''}`}
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
           fetchPriority="high"
@@ -69,7 +68,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
                 src={img}
                 alt=""
                 fill
-                style={{ objectFit: 'cover' }}
+                className={styles.thumbImage}
                 sizes="80px"
               />
             </button>

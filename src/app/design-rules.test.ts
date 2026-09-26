@@ -15,6 +15,9 @@ function walk(dir: string, match: RegExp): string[] {
   return out;
 }
 
+// Tên riêng được phép viết hoa giữa câu; không tính khi đo tiêu đề Viết Hoa Mỗi Chữ.
+const PROPER_NOUNS = new Set(['Bia', 'Thầy', 'Tu', 'Benediktiner', 'Bitburger', 'Reinheitsgebot', 'Đức', 'Weissbier', 'Dunkel', 'Naturtrüb', 'Ettal', 'Bavaria']);
+
 describe('quy tắc DESIGN.md áp cho mọi component', () => {
   it('component đã dọn không còn style inline', () => {
     for (const file of [
@@ -28,6 +31,31 @@ describe('quy tắc DESIGN.md áp cho mọi component', () => {
     ]) {
       expect(read(file), file).not.toMatch(/style=\{\{|dangerouslySetInnerHTML/);
     }
+  });
+
+  it('style inline chỉ còn ở chỗ giá trị động (số cột ProfileScale) và noscript của Pixel', () => {
+    const files = walk('src/app/(web)', /\.tsx$/).filter((file) => /style=\{\{/.test(read(file)));
+    expect(files.map((f) => path.basename(f)).sort()).toEqual(['FacebookPixel.tsx', 'ProfileScale.tsx']);
+  });
+
+  it('không có !important trong CSS (kiểu gốc dùng :where để class component thắng)', () => {
+    const offenders = walk('src', /\.css$/).filter((file) => read(file).replace(/\/\*[\s\S]*?\*\//g, '').includes('!important'));
+    expect(offenders).toEqual([]);
+    expect(fs.existsSync(path.join(ROOT, 'src/app/mobile-overrides.css'))).toBe(false);
+  });
+
+  it('tiêu đề trong bài viết viết hoa đầu câu, không Viết Hoa Mỗi Chữ (L12)', () => {
+    const articles = JSON.parse(read('src/data/articles.json')) as Array<{ slug: string; content?: string }>;
+    const offenders = articles.flatMap((a) =>
+      [...(a.content ?? '').matchAll(/^#{2,4} (.+)$|<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>/gm)]
+        .map((m) => (m[1] ?? m[2]).replace(/<[^>]+>/g, ''))
+        .filter((text) => {
+          const words = text.split(/\s+/).map((w) => w.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')).filter((w) => /^\p{L}/u.test(w) && !PROPER_NOUNS.has(w));
+          return words.length >= 4 && words.filter((w) => /^\p{Lu}/u.test(w)).length / words.length > 0.8;
+        })
+        .map((text) => `${a.slug}: ${text}`),
+    );
+    expect(offenders).toEqual([]);
   });
 
   it('không có chữ nhỏ hơn 12px trong CSS', () => {

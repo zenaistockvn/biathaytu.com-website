@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { marked } from 'marked';
+import styles from './ArticleBody.module.css';
 
 /**
  * Improved content format detection:
@@ -53,8 +54,7 @@ export default function ArticleBody({ content }: ArticleBodyProps) {
 
   return (
     <div 
-      className="markdown-content" 
-      style={{ fontSize: '18px', lineHeight: 1.9, color: 'var(--web-text-secondary)' }}
+      className={`markdown-content ${styles.body}`}
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );

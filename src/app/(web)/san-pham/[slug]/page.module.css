@@ -121,7 +121,7 @@
 .top .name {
   margin: 0;
   font-size: clamp(24px, 3vw, 38px);
-  line-height: 1.25 !important;
+  line-height: 1.25;
   text-transform: none;
 }
 

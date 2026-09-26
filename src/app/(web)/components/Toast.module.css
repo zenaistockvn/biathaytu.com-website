@@ -1,0 +1,26 @@
+/* Khối xanh đêm phẳng, góc vuông, không bóng. */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--web-ink);
+  color: var(--web-on-ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* .item .close (0,2,0) thắng `.web-app button`; vùng chạm 44px. */
+.item .close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--web-on-ink-muted);
+  cursor: pointer;
+}

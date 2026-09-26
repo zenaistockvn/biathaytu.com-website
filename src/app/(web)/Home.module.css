@@ -68,14 +68,14 @@
   color: var(--web-accent);
 }
 
-/* `.steps li h3` (0,1,2) thắng `.web-app h3` (0,1,1); font-family ở đó có !important nên ở đây cũng cần. */
+/* `.steps li h3` (0,1,2) thắng `.web-app h3` (0,1,1). */
 .steps li h3 {
   margin: 0 0 4px;
-  font-family: var(--font-condensed), sans-serif !important;
+  font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.04em !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 

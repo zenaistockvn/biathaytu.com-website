@@ -5,6 +5,9 @@ import AlcoholWarning from '../components/AlcoholWarning';
 import CompanyLegalDetails from '../components/CompanyLegalDetails';
 import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 import EditorialPage from '../components/EditorialPage';
+import { Button } from '../components/ui/Button';
+import { NAV } from '@/config/navigation';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Thông Tin Mua Hàng',
@@ -32,9 +35,9 @@ export default function PurchaseInformationPage() {
           <p>
             Khách hàng có thể liên hệ hotline {telHref ? <a href={telHref}><strong>{COMPANY_CONFIG.hotline}</strong></a> : <strong>{COMPANY_CONFIG.hotline}</strong>}, email {mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : <strong>{COMPANY_CONFIG.email}</strong>} hoặc đến showroom tại <strong>{COMPANY_CONFIG.showroomAddress}</strong>. Đội ngũ tư vấn sẽ trao đổi trực tiếp về sản phẩm phù hợp, giá áp dụng, tình trạng sản phẩm và phương án nhận hàng.
           </p>
-          <div style={{ marginTop: '14px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            {zaloUrl ? <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">Mở Zalo</a> : null}
-            <Link href="/lien-he" className="btn-secondary">Xem thông tin liên hệ</Link>
+          <div className={styles.actions}>
+            {zaloUrl ? <Button href={zaloUrl} variant="primary" target="_blank" rel="noopener noreferrer">Mở Zalo</Button> : null}
+            <Button href={NAV.contact.href} variant="link">Xem thông tin liên hệ</Button>
           </div>
         </section>
 
