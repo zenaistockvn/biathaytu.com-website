@@ -7,6 +7,8 @@ export const COMPANY_CONFIG = {
   legalRepresentative: 'PHẠM THANH TUYỀN',
   hotline: '0915 31 21 66',
   email: 'info@biathaytu.com.vn',
+  /** Giờ hỗ trợ hotline / Zalo hàng ngày (chủ dự án xác nhận 26/09/2026). Một nguồn cho mọi trang. */
+  supportHours: '8:00 - 22:00',
 } as const;
 
 export function isPendingCompanyValue(value: string): boolean {

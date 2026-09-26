@@ -4,7 +4,7 @@ import styles from './GeoLocalCTA.module.css';
 
 /**
  * Khối showroom cuối bài viết (audit L4): dải xanh đêm phẳng theo hệ thống, nút sáng + link,
- * bản đồ bên phải. Không ghi giờ mở cửa ở đây cho tới khi chủ dự án xác nhận một mốc giờ duy nhất.
+ * bản đồ bên phải. Giờ hỗ trợ đọc từ COMPANY_CONFIG.supportHours, không viết cứng.
  */
 export default function GeoLocalCTA() {
   const telHref = getCompanyTelHref() || NAV.contact.href;
@@ -24,8 +24,8 @@ export default function GeoLocalCTA() {
             <dd>{COMPANY_CONFIG.showroomAddress}</dd>
           </div>
           <div>
-            <dt>Hotline</dt>
-            <dd>{COMPANY_CONFIG.hotline}</dd>
+            <dt>Hotline / Zalo</dt>
+            <dd>{COMPANY_CONFIG.hotline} ({COMPANY_CONFIG.supportHours} hàng ngày)</dd>
           </div>
         </dl>
 

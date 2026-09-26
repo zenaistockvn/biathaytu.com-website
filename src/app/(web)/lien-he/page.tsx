@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <dt>Tổng đài</dt>
                 <dd>
                   {telHref ? <a href={telHref} className={styles.phone}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
-                  <span className={styles.note}>Hỗ trợ 09:00 đến 21:00 hàng ngày</span>
+                  <span className={styles.note}>Hỗ trợ {COMPANY_CONFIG.supportHours} hàng ngày</span>
                 </dd>
               </div>
               <div>
