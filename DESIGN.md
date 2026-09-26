@@ -106,15 +106,16 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 ### Header và thanh điều hướng
 
-1. **Header cuộn (`.web-header--solid`):**
-   - Nền **đặc** hoàn toàn `var(--web-bg)` (bỏ `saturate(180%)`), viền dưới `var(--web-border)`.
-   - Khi người dùng cuộn trang, header giữ nền trắng đặc với chữ `--web-ink` để nội dung trang cuộn bên dưới không bao giờ bị lẫn vào thanh điều hướng.
-2. **Header trong suốt (`.web-header--transparent`):**
-   - Chỉ kích hoạt khi đang ở đầu trang tại các route có hero tối trong `DARK_HERO_PATHS` hoặc route kiến thức (`/kien-thuc/*`).
-   - Logo và link điều hướng hiển thị `--web-on-ink` (trắng).
-   - Tích hợp gradient bảo vệ ở đỉnh (`rgb(var(--web-ink-deep-rgb) / 0.85)` xuống trong suốt) đảm bảo tỷ lệ tương phản chữ luôn đạt chuẩn WCAG AA ngay cả với ảnh hero nhiều chi tiết.
-3. **Thanh điều hướng dưới đáy mobile (`.mobile-bottom-nav`):**
-   - Nền đặc `var(--web-bg)`, viền trên `var(--web-border)`. Không dùng nền mờ/trong suốt để chữ của trang không bị nhìn xuyên qua.
+1. **Header nền đặc (`styles.solid` trong `WebHeader.module.css`):**
+   - Nền đặc `var(--web-bg)`, viền dưới `var(--web-border)`, chữ `--web-ink`. Dùng khi đã cuộn, khi mở menu mobile, khi mở panel "Sản phẩm", và trên mọi trang không có hero tối.
+2. **Header trong suốt (`styles.onDark`):**
+   - Chỉ ở đầu trang tại các route có hero tối trong `DARK_HERO_PATHS` hoặc `/kien-thuc/*`.
+   - Logo và menu hiển thị `--web-on-ink`; gradient bảo vệ ở đỉnh (`--web-ink-deep-rgb`) giữ tương phản AA trên ảnh.
+3. **Chiều cao:** `--web-header-h` là 72px, từ 1024px là 88px (hai hàng: tiện ích 26px + menu 32px, cách mép trên dưới ~12px). Huy hiệu 96px treo xuống dưới thanh header, thu còn 80px khi cuộn. Mọi chỗ đặt theo header (hero, thanh danh mục dính, trang không có hero, toast) đọc token này, không viết cứng px.
+4. **Menu desktop:** SẢN PHẨM ▾ · CÂU CHUYỆN ETTAL · THƯỞNG THỨC · KIẾN THỨC · HORECA VÀ ĐẠI LÝ. "Sản phẩm" sáng cho `/san-pham`, mọi SKU, trang dòng bia và trang bom 5L (`isProductsPath`). Panel "Sản phẩm" phẳng (nền trắng, viền 1px, không bóng) ba cột: Benediktiner, Bia Đức tuyển chọn + "Xem tất cả sản phẩm", ảnh; mở bằng rê chuột hoặc focus, đóng bằng Escape và trả focus về mục.
+5. **Hàng tiện ích:** hotline · [LIÊN HỆ] · ngôn ngữ. "Liên hệ" mở bảng kênh chung (Mở Zalo, Điện thoại, Messenger, Showroom) giống nút nổi và ô Liên hệ của bottom nav.
+6. **Menu mobile:** hộp thoại (`role="dialog"`, bẫy focus, Escape, trả focus về nút menu). Nhóm Sản phẩm có chip dòng bia; các mục nội dung; nhóm Liên hệ với hai nút Gọi hotline / Mở Zalo và địa chỉ showroom; dòng nhỏ Bảng giá sỉ · Quà tặng · Thông tin mua hàng · ngôn ngữ.
+7. **Thanh điều hướng dưới (mobile, `MobileBottomNav`):** SẢN PHẨM · KIẾN THỨC · SHOWROOM · LIÊN HỆ; cao `--web-mobile-bottom-nav-height` (74px); nền đặc, viền trên. Mục chọn: vạch trên 3px `--web-accent` + chữ xanh trời, không đổi nền. Trên `/san-pham/*` thay bằng `SkuActionBar` (Gọi tư vấn / Mở Zalo) cùng chiều cao.
 
 ### Trạng thái tương tác (Interaction States)
 
@@ -146,7 +147,9 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 - **`h3`:** Roboto Serif 600 bản rộng, chữ thường (tên sản phẩm, tiêu đề thẻ).
 - **`h4`–`h6`:** Barlow Condensed 700, in hoa, giãn `0.04em`.
 - **Nội dung:** Barlow 400, 16px, line-height 1.65.
-- **Nhãn, nút, menu:** Barlow Condensed 600–700, in hoa, giãn `0.04em–0.08em`.
+- **Nhãn, nút, menu, tab, chip:** Barlow Condensed 600, in hoa, 13–15px, giãn `0.06em` (tối đa `0.08em` cho nhãn nhỏ).
+- **Cỡ chữ tối thiểu 12px** ở mọi chỗ, kể cả nhãn phụ và dòng chú thích.
+- **Cỡ tiêu đề hero:** trang chủ `--web-fs-hero` (tối đa 84px); hero trang con (`PhotoHero size="medium"`) `--web-fs-hero-page` (tối đa 60px) để tiêu đề 2–4 chữ nằm một dòng.
 - Không dùng chữ nghiêng cho tiêu đề (chỉ nạp bản đứng, trình duyệt sẽ nghiêng giả).
 - Độ đậm tối đa 700. Không dùng 800/900.
 
@@ -164,11 +167,25 @@ Không dùng emoji, mũi tên `→` hay gạch ngang dài `—` trong nội dung
 
 Không dùng: chữ gradient, quầng sáng (glow), vệt sáng quét (shimmer), animation lặp vô hạn (lơ lửng, nhấp nháy), thẻ kính mờ. Hiệu ứng mờ nền chỉ giữ cho menu mobile và nền popup.
 
+Rê chuột chỉ đổi nền, màu chữ hoặc gạch chân; **không nhấc phần tử** (`translateY`). Ngoại lệ duy nhất: ảnh trong thẻ sản phẩm phóng nhẹ 4%.
+
 ## Bố cục
 
-- **Container:** tối đa 1200px, lề 20px trên mobile.
-- **Khoảng cách section:** 80px trên desktop, giảm dần trên mobile.
-- **Nút:** góc vuông, chiều cao tối thiểu 44px.
+- **Container:** tối đa 1200px, lề 16px trên mobile.
+- **Khoảng cách section:** mọi section dùng `--web-section-py` (`clamp(56px, 6vw, 80px)`: 80px desktop, 56px mobile), kể cả đệm trong khối màu của `SplitBlock` và đáy hero trang con. Không viết clamp riêng trong module (test `spacing.test.ts` chặn 96/104/112px).
+- **Hai section cùng nền đứng liền nhau** không được để dải trắng cộng dồn; dải cuối trang không dùng nền xanh đêm vì dính liền footer (dùng nền trắng có kẻ trên hoặc xám).
+- **`main` không có `padding-bottom`:** footer tự chừa chỗ cho thanh điều hướng dưới.
+- **Nút và mọi phần tử bấm được:** góc vuông, vùng chạm tối thiểu 44px (hàng tiện ích header dùng vùng chạm ảo `::after`).
+
+| Token | Giá trị | Dùng cho |
+| --- | --- | --- |
+| `--web-header-h` | 72px, 88px từ 1024px | Header, đệm trên hero và trang không hero |
+| `--web-section-py` | `clamp(56px, 6vw, 80px)` | Đệm trên dưới mọi section |
+| `--web-mobile-bottom-nav-height` | 74px | Bottom nav, `SkuActionBar`, đệm đáy footer |
+| `--web-catalog-nav-h` | 54px, 50px dưới 769px | Thanh danh mục dính ở `/san-pham` |
+| `--web-fs-hero` / `--web-fs-hero-page` | tối đa 84px / 60px | Tiêu đề hero trang chủ / trang con |
+
+Mỗi token chỉ khai trong `web.css` (test `design-tokens.test.ts` chặn file CSS khác khai lại `--web-radius*`, `--web-shadow*`).
 - **Ngữ pháp Chimay:** hero ảnh tràn màn hình; section chia đôi nửa ảnh, nửa khối màu phẳng; ô danh mục lớn; thẻ sản phẩm là ảnh ngữ cảnh kèm tên, không viền, không bóng.
 
 ## Component (ngữ pháp Chimay)
@@ -184,20 +201,46 @@ Nằm trong `src/app/(web)/components/ui/`, mỗi component có CSS module riên
 | `OutlineWordmark` | Chữ viền rỗng khổng lồ, ngang hoặc dọc, chỉ để trang trí | Chữ "CHIMAY" viền |
 | `LineIcons` | Icon nét mảnh: ly Weizen, chai, bom, tu viện | Hình khắc ly bia, bánh phô mai |
 | `Button` | `primary`, `dark`, `light`, `outline`, `link` | Nút chữ nhật đen/trắng, "VOIR TOUTES LES ACTUALITÉS" |
-
-| `BeerCard`, `ProductCard` | Thẻ bia / sản phẩm: ảnh trên nền xám, tên, thông số một dòng, giá | Danh sách "Nos bières" |
-| `ProductStory` | Template trang sản phẩm: hero, giới thiệu, hồ sơ hương vị, cách rót, quy cách, món ăn kèm | Trang Chimay Bleue |
-| `FlavorWheel`, `ProfileScale`, `FormatStrip` | Bánh xe hương vị, thang màu/độ trong/bọt, hàng quy cách lấy từ dữ liệu | "Roue des saveurs", "Couleur", "Nos différents formats" |
+| `BeerCard`, `ProductCard` | Thẻ bia / sản phẩm: ảnh trên nền xám, tên, thông số một dòng, giá. `ProductCard variant="compact"` dùng trong danh mục: chỉ quy cách, thông số, giá (tên dòng ở tiêu đề nhóm) | Danh sách "Nos bières" |
+| `ProductStory` | Template trang dòng bia: hero, giới thiệu, hồ sơ hương vị (lịch sử là dòng cuối bảng), cách rót, quy cách, món ăn kèm, dải cuối nền trắng | Trang Chimay Bleue |
+| `FlavorWheel`, `ProfileScale`, `FormatStrip` | Bánh xe hương vị, thang màu/độ trong/bọt, dải quy cách căn giữa lấy từ dữ liệu (ghi thêm tên dòng khi dải gồm nhiều dòng) | "Roue des saveurs", "Couleur", "Nos différents formats" |
 | `EditorialPage` (+ `PageHeader`, `Summary`, `InfoGrid`, `StepList`, `CtaBand`, `FaqSection`) | Trang nội dung và pháp lý: dải tiêu đề, cột bài viết 760px có sẵn kiểu chữ | Các trang phụ |
 | `ArticleCard`, `FeaturedArticle` | Thẻ bài viết và bài nổi bật (ảnh trái, khối xám phải) | "Une actualité pétillante" |
 
+Component chức năng (trong `src/app/(web)/components/`, mỗi cái một CSS module, không style inline):
+
+| Component | Dùng cho |
+| --- | --- |
+| `WebHeader`, `WebFooter`, `MobileBottomNav`, `CatalogStickyNav` | Khung điều hướng (xem mục Header và thanh điều hướng) |
+| `FloatingZaloCTA` | Bảng kênh liên hệ dùng chung (Mở Zalo, Điện thoại, Messenger, Showroom); icon nét mảnh, không khung tròn |
+| `SkuActionBar` | Thanh cố định Gọi tư vấn / Mở Zalo trên trang SKU dưới 769px |
+| `san-pham/ProductCatalog` | Danh mục ba cấp: nhóm → dòng bia (tên dòng link trang dòng) → thẻ compact 2/3/4 cột; hàng lọc Tất cả · Chai · Lon · Bom |
+| `kien-thuc/KnowledgeBrowser` | Chip chủ đề + 9 bài mỗi lượt, "Xem thêm"; bài chưa hiện vẫn có trong HTML |
+| `ProductGallery`, `ProductDetailsAccordion`, `ProductOrderActions`, `ProductConsultationForm` | Ảnh (chấm chỉ báo dưới 768px), câu hỏi thường gặp, khối liên hệ, form tư vấn trên trang SKU |
+| `GeoLocalCTA` | Khối showroom cuối bài viết: dải xanh đêm, nút sáng + link, bản đồ |
+| `AlcoholWarning` (`footer`, `checkout`), `CompanyLegalDetails` | Cảnh báo đồ uống có cồn và khối pháp nhân (bắt buộc) |
+| `LanguageSwitcher` | Ô ngôn ngữ trong hàng tiện ích và menu mobile |
+
 - **Khối màu và nút:** trên `ink`/`accent` dùng nút `light`; trên `gold`/`mist` dùng nút `dark`. `SplitBlock` tự chọn.
-- **Footer:** khối xanh đêm chia cột (giới thiệu, khám phá, liên hệ, thông tin doanh nghiệp) và thanh vàng nhãn cuối trang (link pháp lý, cảnh báo đồ uống có cồn, bản quyền), tương ứng thanh da bò của Chimay. Thông tin doanh nghiệp và cảnh báo là bắt buộc, không được bỏ.
+- **Footer:** khối xanh đêm ba tầng: (1) giới thiệu ngắn + ba cột Sản phẩm / Tìm hiểu / Mua hàng; (2) hàng liên hệ hotline · email · showroom + nút Mở Zalo; (3) một đoạn thông tin doanh nghiệp nhỏ. Cuối là thanh vàng nhãn (link pháp lý, cảnh báo đồ uống có cồn, bản quyền), tương ứng thanh da bò của Chimay. Thông tin doanh nghiệp, cảnh báo và câu "không bán hàng trực tuyến" là bắt buộc, không được bỏ.
+- **Nhãn link mở ứng dụng ngoài:** luôn ghi "Mở Zalo". Không dùng lời kêu gọi "đặt hàng / đặt mua": website chưa đăng ký bán hàng với Bộ Công Thương.
 - **Cổng tuổi, banner cookie:** hộp trắng góc vuông như chimay.com; cổng tuổi đặt trên ảnh thương hiệu tối. Nút "Từ chối" cookie cùng kích thước nút "Chấp nhận".
 - **Giá không viết cứng trong trang:** lấy từ dữ liệu sản phẩm (`getProductBySlugOrId`, `FormatStrip`) để luôn khớp trang chi tiết.
 - **Reset toàn cục dùng `:where(.web-app)`** (thẻ `p`, `a`, gạch chân link) để giữ specificity thấp; class của component luôn thắng mà không cần `!important`.
-- **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng. Tầng trên là hàng tiện ích nhỏ (hotline, ô viền "Showroom", "Liên hệ tư vấn", ngôn ngữ), tầng dưới là menu in hoa. Huy hiệu 96px treo xuống dưới thanh header 72px, thu còn 80px khi cuộn. Dưới 1024px chỉ có huy hiệu, tên và nút menu.
-- **Class `container` toàn cục đặt lại `padding`**: khoảng đệm dọc phải nằm ở phần tử bọc ngoài, không đặt chung phần tử với `container`.
+- **Header** (`WebHeader.tsx` + `WebHeader.module.css`): từ 1024px có hai tầng trong thanh 88px (hàng tiện ích và menu in hoa, xem mục Header). Dưới 1024px chỉ có huy hiệu, tên và nút menu.
+- **Class `container` toàn cục đặt lại `padding` và `margin`**: khoảng đệm dọc và đường kẻ phải nằm ở phần tử bọc ngoài hoặc bên trong, không đặt chung phần tử với `container`.
+- **CSS module cạnh component, không style inline (`style={{}}`), không thêm `!important` mới.** Cần thắng quy tắc toàn cục `.web-app h2` / `.web-app button` thì dùng bộ chọn hai class (0,2,0) hoặc đổi thẻ (`<p>` thay `h2`) thay vì `!important`.
+
+## Nguồn dữ liệu dùng chung
+
+Không viết lại chuỗi hay link trong component; đọc từ các file sau.
+
+| File | Nội dung |
+| --- | --- |
+| `src/config/navigation.ts` | `NAV` (tên chuẩn của mỗi route: Sản phẩm, Câu chuyện Ettal, Showroom cho `/lien-he`…), `PRODUCT_LINES`, `KEG_PAGE`, `isProductsPath()`, `breadcrumbTrail()` cho breadcrumb hiển thị và JSON-LD |
+| `src/config/productLines.ts` | Dòng bia (Naturtrüb, Dunkel, Festbier, Hộp mix 2 vị, Bitburger): mỗi SKU khớp đúng một dòng; quy cách Chai / Lon / Bom suy từ tên |
+| `src/config/company.ts` | Pháp nhân, địa chỉ, hotline, email, giờ hỗ trợ `supportHours` (8:00 - 22:00) |
+| `src/config/articleTopics.ts` | Chủ đề bài Kiến thức theo từ khoá tiêu đề |
 
 ## Khả năng truy cập
 

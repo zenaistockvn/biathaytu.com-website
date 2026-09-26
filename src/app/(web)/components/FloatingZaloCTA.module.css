@@ -25,22 +25,25 @@
   color: var(--web-bg);
   box-shadow: none;
   cursor: pointer;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  /* Nhãn nút theo hệ thống: Barlow Condensed 600 in hoa (audit B2). */
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
 }
 
+/* Rê chuột chỉ đổi nền, không nhấc nút (audit B5). */
 .root .trigger:hover,
 .root .trigger.open {
   background: var(--web-ink-soft);
-  transform: translateY(-2px);
-  box-shadow: none;
 }
 
+/* Focus chuẩn: 2px đặc, cách 2px; nút nằm trên nền trang sáng nên dùng xanh trời (audit B4). */
 .root .trigger:focus-visible {
-  outline: 3px solid rgb(var(--web-accent-on-ink-rgb) / 0.5);
-  outline-offset: 3px;
+  outline: 2px solid var(--web-accent);
+  outline-offset: 2px;
 }
 
 .panel {
@@ -72,7 +75,7 @@
   display: block;
   margin-top: 2px;
   color: var(--web-text-muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .item {
@@ -96,19 +99,15 @@
   background: var(--web-bg-section);
 }
 
+/* Icon nét mảnh, không khung tròn (audit B5). */
 .mark {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(var(--web-accent-rgb) / 0.26);
-  border-radius: 50%;
-  background: rgb(var(--web-accent-rgb) / 0.08);
   color: var(--web-accent);
-  font-size: 12px;
-  font-weight: 700;
 }
 
 .text {
@@ -119,14 +118,14 @@
 
 .item strong {
   color: var(--web-ink);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.25;
 }
 
 .item small {
   overflow: hidden;
   color: var(--web-text-muted);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.35;
   text-overflow: ellipsis;
   white-space: nowrap;

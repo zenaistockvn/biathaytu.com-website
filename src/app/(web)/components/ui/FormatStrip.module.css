@@ -29,11 +29,12 @@
 
 .image {
   object-fit: contain;
-  transition: transform 0.4s ease;
 }
 
-.item:hover .image {
-  transform: translateY(-4px);
+/* Rê chuột chỉ gạch chân nhãn, không nhấc ảnh (audit B5). */
+.item:hover .label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .line {

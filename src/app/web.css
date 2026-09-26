@@ -802,7 +802,9 @@ html {
   box-shadow: 0 0 0 3px rgb(var(--web-accent-rgb) / 0.2);
 }
 
-.web-app input:not([type="checkbox"]):not([type="radio"]):invalid {
+/* :user-invalid chỉ báo lỗi sau khi người dùng đã nhập hoặc bấm gửi; :invalid tô đỏ ô bắt buộc còn trống ngay khi mở trang. */
+.web-app input:not([type="checkbox"]):not([type="radio"]):user-invalid,
+.web-app textarea:user-invalid {
   border-color: var(--web-red);
 }
 
@@ -981,7 +983,7 @@ html {
 }
 
 .web-app .tab-count {
-  font-size: 11px;
+  font-size: 12px;
   background: rgb(var(--web-ink-rgb) / 0.06);
   padding: 2px 6px;
   border-radius: 0;

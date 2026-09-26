@@ -1,9 +1,11 @@
 import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref } from '@/config/company';
+import styles from './CompanyLegalDetails.module.css';
 
 interface CompanyLegalDetailsProps {
   compact?: boolean;
 }
 
+/** Khối pháp nhân và liên hệ ở cuối các trang pháp lý. */
 export default function CompanyLegalDetails({ compact = false }: CompanyLegalDetailsProps) {
   const telHref = getCompanyTelHref();
   const mailtoHref = getCompanyMailtoHref();
@@ -18,28 +20,17 @@ export default function CompanyLegalDetails({ compact = false }: CompanyLegalDet
   ] as const;
 
   return (
-    <div
-      style={{
-        marginTop: compact ? '16px' : '28px',
-        padding: compact ? '16px' : '20px',
-        background: 'var(--web-bg-section)',
-        border: '1px solid var(--web-border)',
-        borderRadius: 0,
-        fontSize: '14px',
-        lineHeight: 1.7,
-      }}
-      aria-label="Thông tin pháp nhân và liên hệ"
-    >
+    <div className={`${styles.box}${compact ? ` ${styles.compact}` : ''}`} aria-label="Thông tin pháp nhân và liên hệ">
       {rows.map(([label, value]) => (
-        <p key={label} style={{ margin: '4px 0' }}>
+        <p key={label} className={styles.row}>
           <strong>{label}:</strong> {value}
         </p>
       ))}
-      <p style={{ margin: '4px 0' }}>
+      <p className={styles.row}>
         <strong>Hotline:</strong>{' '}
         {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
       </p>
-      <p style={{ margin: '4px 0' }}>
+      <p className={styles.row}>
         <strong>Email:</strong>{' '}
         {mailtoHref ? <a href={mailtoHref}>{COMPANY_CONFIG.email}</a> : COMPANY_CONFIG.email}
       </p>

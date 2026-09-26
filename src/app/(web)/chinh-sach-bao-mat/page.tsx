@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <EditorialPage tone="light" hero={{ eyebrow: "Quyền Riêng Tư", title: "Chính Sách Bảo Mật" }}>
-      <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
+      <AlcoholWarning variant="checkout" />
 
       <div>
         <section>

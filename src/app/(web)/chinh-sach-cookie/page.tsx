@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function CookiePolicyPage() {
   return (
     <EditorialPage tone="light" hero={{ eyebrow: "Quyền Riêng Tư", title: "Chính Sách Cookie" }}>
-      <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
+      <AlcoholWarning variant="checkout" />
 
       <div>
         <section>

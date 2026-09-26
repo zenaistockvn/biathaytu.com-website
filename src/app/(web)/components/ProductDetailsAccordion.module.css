@@ -1,0 +1,46 @@
+/* Câu hỏi thường gặp trên trang SKU: hàng kẻ mảnh, nút in chữ Barlow Condensed (quy tắc chung cho <button>). */
+.accordion {
+  margin-top: 16px;
+  border-top: 1px solid var(--web-border);
+}
+
+.item {
+  border-bottom: 1px solid var(--web-border);
+}
+
+/* .item .toggle (0,2,0) thắng `.web-app button` (0,1,1) về độ đậm, giãn chữ. */
+.item .toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 44px;
+  padding: 20px 0;
+  border: 0;
+  background: none;
+  color: var(--web-text);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.panel {
+  padding-bottom: 20px;
+  line-height: 1.6;
+  color: var(--web-text-muted);
+}
+
+.panel p {
+  margin: 0;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.panel li + li {
+  margin-top: 8px;
+}

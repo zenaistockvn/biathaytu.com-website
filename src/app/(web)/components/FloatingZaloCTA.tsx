@@ -68,25 +68,25 @@ export default function FloatingZaloCTA() {
 
           {zaloUrl ? (
             <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
-              <span className={styles.mark} aria-hidden="true">Z</span>
+              <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" /><path d="M9 8.5h6l-6 5h6" /></svg></span>
               <span className={styles.text}><strong>Mở Zalo</strong><small>Chat tư vấn</small></span>
             </a>
           ) : null}
 
           {telHref ? (
             <a href={telHref} className={styles.item} role="menuitem">
-              <span className={styles.mark} aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg></span>
+              <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg></span>
               <span className={styles.text}><strong>Điện thoại</strong><small>{COMPANY_CONFIG.hotline}</small></span>
             </a>
           ) : null}
 
           <a href={messengerUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
-            <span className={styles.mark} aria-hidden="true">M</span>
+            <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.3S17 3 12 3Z" /><path d="m7.5 13 3-3.2 2.3 2.2 3.7-3.2" /></svg></span>
             <span className={styles.text}><strong>Messenger</strong><small>Nhắn tin fanpage</small></span>
           </a>
 
           <Link href={NAV.contact.href} className={styles.item} role="menuitem">
-            <span className={styles.mark} aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg></span>
+            <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg></span>
             <span className={styles.text}><strong>{NAV.contact.label}</strong><small>{COMPANY_CONFIG.showroomAddress}</small></span>
           </Link>
         </div>

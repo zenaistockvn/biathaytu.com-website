@@ -1,0 +1,60 @@
+/* Trang thông báo chưa đủ tuổi: nền xanh đêm, hộp phẳng góc vuông, chữ theo token trên dải tối. */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 60px 20px;
+  background: var(--web-ink);
+  color: var(--web-on-ink);
+  text-align: center;
+}
+
+.card {
+  max-width: 600px;
+  padding: 40px 28px;
+  border: 1px solid rgb(var(--web-on-ink-rgb) / 0.2);
+  background: var(--web-ink-soft);
+}
+
+/* (0,2,0) thắng cỡ mặc định `.web-app h1` (0,1,1). */
+.card .title {
+  margin: 0 0 16px;
+  font-size: 26px;
+  color: var(--web-accent-on-ink);
+}
+
+.card .lead {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--web-on-ink-muted);
+}
+
+.note {
+  margin-bottom: 28px;
+  padding: 20px;
+  border-left: 4px solid var(--web-accent-on-ink);
+  background: var(--web-ink);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  color: var(--web-on-ink-muted);
+}
+
+.noteTitle {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--web-accent-on-ink);
+}
+
+.note ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.card .small {
+  margin: 0;
+  font-size: 14px;
+  color: var(--web-on-ink-muted);
+}

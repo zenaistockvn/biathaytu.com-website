@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import styles from './ProductDetailsAccordion.module.css';
 
 interface ProductDetailsAccordionProps {
   productName: string;
@@ -98,26 +99,27 @@ export default function ProductDetailsAccordion({
   })();
 
   const sections = [
-    { id: 'story', title: 'Câu chuyện sản phẩm', content: <p style={{ margin: 0 }}>{getStory()}</p> },
-    { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{pairingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
-    { id: 'storage', title: `${storageTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{storageItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
-    { id: 'drink', title: `${servingTitle}`, content: <ul style={{ paddingLeft: '20px', margin: 0 }}>{servingItems.map((item) => <li key={item} style={{ marginBottom: '8px' }}>{item}</li>)}</ul> },
+    { id: 'story', title: 'Câu chuyện sản phẩm', content: <p>{getStory()}</p> },
+    { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul>{pairingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'storage', title: `${storageTitle}`, content: <ul>{storageItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'drink', title: `${servingTitle}`, content: <ul>{servingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
   ];
 
   return (
-    <div className="product-accordion" style={{ marginTop: '40px', borderTop: '1px solid var(--web-border)' }}>
+    <div className={styles.accordion}>
       {sections.map((section) => (
-        <div key={section.id} className="accordion-item" style={{ borderBottom: '1px solid var(--web-border)' }}>
+        <div key={section.id} className={styles.item}>
           <button
+            type="button"
+            className={styles.toggle}
             onClick={() => toggleSection(section.id)}
             aria-expanded={openSection === section.id}
-            style={{ width: '100%', padding: '20px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', cursor: 'pointer', fontSize: '18px', fontWeight: 600, color: 'var(--web-text)', textAlign: 'left' }}
           >
             <span>{section.title}</span>
             <span aria-hidden="true">{openSection === section.id ? '−' : '+'}</span>
           </button>
           {openSection === section.id && (
-            <div style={{ paddingBottom: '20px', color: 'var(--web-text-muted)', lineHeight: '1.6' }}>
+            <div className={styles.panel}>
               {section.content}
             </div>
           )}

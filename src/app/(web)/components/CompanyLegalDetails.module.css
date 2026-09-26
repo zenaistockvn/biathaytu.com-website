@@ -1,0 +1,18 @@
+.box {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid var(--web-border);
+  background: var(--web-bg-section);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.compact {
+  margin-top: 16px;
+  padding: 16px;
+}
+
+/* (0,2,0) thắng `.prose p` của cột bài viết khi khối nằm trong EditorialPage. */
+.box .row {
+  margin: 4px 0;
+}

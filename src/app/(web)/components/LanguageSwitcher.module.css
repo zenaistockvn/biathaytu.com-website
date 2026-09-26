@@ -1,0 +1,74 @@
+.root {
+  position: relative;
+}
+
+/* Ô viền mảnh cùng kiểu hàng tiện ích header; màu kế thừa (trắng trên hero tối, xanh đêm trên nền sáng). */
+.root .trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevron[data-open='true'] {
+  transform: rotate(180deg);
+}
+
+/* Menu thả phẳng: nền trắng, viền 1px, góc vuông, không bóng. */
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  min-width: 140px;
+  overflow: hidden;
+  border: 1px solid var(--web-border);
+  background: var(--web-bg);
+}
+
+.menu .option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--web-text);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-transform: none;
+}
+
+.menu .option:hover {
+  background: var(--web-bg-section);
+}
+
+.menu .option[aria-pressed='true'] {
+  background: var(--web-bg-section);
+  color: var(--web-ink);
+  font-weight: 600;
+}
+
+.code {
+  min-width: 22px;
+  font-weight: 600;
+}

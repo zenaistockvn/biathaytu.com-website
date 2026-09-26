@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
+import styles from './ProductConsultationForm.module.css';
 
 interface ProductConsultationFormProps {
   productName: string;
@@ -59,24 +60,20 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
     <section
       id="tu-van-san-pham"
       aria-labelledby="tu-van-san-pham-title"
-      style={{
-        marginTop: '64px',
-        padding: 'clamp(28px, 5vw, 56px) clamp(20px, 4vw, 40px)',
-        background: 'var(--web-bg-section)',
-      }}
+      className={styles.section}
     >
-      <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+      <div className={styles.inner}>
         <span className="section-label">Tư Vấn Sản Phẩm</span>
-        <h2 id="tu-van-san-pham-title" className="section-title" style={{ marginBottom: '10px' }}>
+        <h2 id="tu-van-san-pham-title" className={`section-title ${styles.title}`}>
           Để lại thông tin tư vấn
         </h2>
-        <p style={{ margin: '0 0 24px', color: 'var(--web-text-muted)', lineHeight: 1.6 }}>
+        <p className={styles.lead}>
           Gửi thông tin để đội ngũ Bia Thầy Tu tư vấn thêm về {productName}. Biểu mẫu này không tạo đơn hàng và không thu thập thông tin thanh toán.
         </p>
 
-        <form onSubmit={handleSubmit} aria-busy={status === 'submitting'} style={{ display: 'grid', gap: '16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-            <label style={{ display: 'grid', gap: '6px' }}>
+        <form onSubmit={handleSubmit} aria-busy={status === 'submitting'} className={styles.form}>
+          <div className={styles.pair}>
+            <label className={styles.field}>
               <span>Họ và tên <span aria-hidden="true">*</span></span>
               <input
                 type="text"
@@ -87,11 +84,11 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('name')}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
+                className={styles.input}
               />
             </label>
 
-            <label style={{ display: 'grid', gap: '6px' }}>
+            <label className={styles.field}>
               <span>Số điện thoại <span aria-hidden="true">*</span></span>
               <input
                 type="tel"
@@ -103,13 +100,13 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 aria-describedby={describedBy('phone')}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
-                style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
+                className={styles.input}
               />
             </label>
           </div>
 
-          <label style={{ display: 'grid', gap: '6px' }}>
-            <span>Email <span style={{ color: 'var(--web-text-muted)', fontSize: '12px' }}>(không bắt buộc)</span></span>
+          <label className={styles.field}>
+            <span>Email <span className={styles.optional}>(không bắt buộc)</span></span>
             <input
               type="email"
               name="email"
@@ -118,11 +115,11 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('email')}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              style={{ minHeight: '46px', padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)' }}
+              className={styles.input}
             />
           </label>
 
-          <label style={{ display: 'grid', gap: '6px' }}>
+          <label className={styles.field}>
             <span>Nội dung cần tư vấn <span aria-hidden="true">*</span></span>
             <textarea
               name="content"
@@ -132,7 +129,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
               aria-describedby={describedBy('content')}
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              style={{ padding: '10px 12px', border: '1px solid var(--web-border)', borderRadius: 0, background: 'var(--web-card-bg)', resize: 'vertical', font: 'inherit' }}
+              className={`${styles.input} ${styles.textarea}`}
             />
           </label>
 
@@ -140,16 +137,11 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
             <div
               id={feedbackId}
               role={status === 'success' ? 'status' : 'alert'}
-              style={{
-                padding: '12px 14px',
-                background: status === 'success' ? 'var(--web-accent-bg)' : 'rgb(var(--web-red-rgb) / 0.1)',
-                color: status === 'success' ? 'var(--web-accent)' : 'var(--web-red)',
-                lineHeight: 1.5,
-              }}
+              className={`${styles.feedback} ${status === 'success' ? styles.success : styles.error}`}
             >
               {feedback}
               {status === 'error' && zaloUrl ? (
-                <>{' '}<a href={zaloUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline' }}>Mở Zalo để được hỗ trợ</a>.</>
+                <>{' '}<a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.feedbackLink}>Mở Zalo để được hỗ trợ</a>.</>
               ) : null}
             </div>
           ) : null}

@@ -51,10 +51,12 @@ describe('tương phản WCAG AA của các cặp màu token', () => {
   });
 
   it('badge 18+ ở footer có font ≥ 12px', () => {
-    // Nhãn 18+ của footer nằm trong AlcoholWarning (variant footer), đặt bằng style inline.
+    // Nhãn 18+ của footer nằm trong AlcoholWarning (variant footer), kiểu ở AlcoholWarning.module.css (.badge).
     const src = fs.readFileSync(path.join(process.cwd(), 'src/app/(web)/components/AlcoholWarning.tsx'), 'utf8');
-    const badge = /fontSize:\s*'(\d+)px'[^}]*\}\}>\s*18\+/.exec(src);
-    expect(badge, 'không tìm thấy nhãn 18+ trong AlcoholWarning').not.toBeNull();
+    const css = fs.readFileSync(path.join(process.cwd(), 'src/app/(web)/components/AlcoholWarning.module.css'), 'utf8');
+    expect(src, 'không tìm thấy nhãn 18+ trong AlcoholWarning').toMatch(/className=\{styles\.badge\}[^>]*>18\+/);
+    const badge = /\.badge\s*\{[^}]*font-size:\s*(\d+)px/.exec(css);
+    expect(badge, 'không tìm thấy cỡ chữ của .badge').not.toBeNull();
     expect(Number(badge![1])).toBeGreaterThanOrEqual(12);
   });
 

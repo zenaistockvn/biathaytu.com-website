@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function TermsOfUsePage() {
   return (
     <EditorialPage tone="light" hero={{ eyebrow: "Quy Định Chung", title: "Điều Khoản Sử Dụng" }}>
-      <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
+      <AlcoholWarning variant="checkout" />
 
       <div>
         <section>

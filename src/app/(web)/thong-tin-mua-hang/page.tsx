@@ -19,7 +19,7 @@ export default function PurchaseInformationPage() {
 
   return (
     <EditorialPage tone="light" hero={{ eyebrow: "Thông Tin Tham Khảo", title: "Thông Tin Mua Hàng", lead: "Website không thực hiện đặt hàng trực tuyến. Nội dung dưới đây giúp khách hàng hiểu cách liên hệ, phương thức giao dịch, nhận hàng và yêu cầu hỗ trợ sau khi một giao dịch đã được xác nhận qua kênh liên hệ hoặc tại địa điểm kinh doanh." }}>
-      <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
+      <AlcoholWarning variant="checkout" />
 
       <div>
         <section>

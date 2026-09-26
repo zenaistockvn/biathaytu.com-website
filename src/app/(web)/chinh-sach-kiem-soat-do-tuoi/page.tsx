@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AgeControlPolicyPage() {
   return (
     <EditorialPage tone="light" hero={{ eyebrow: "Quy Định Tuân Thủ", title: "Chính Sách Kiểm Soát Độ Tuổi" }}>
-      <AlcoholWarning variant="checkout" style={{ marginBottom: '30px' }} />
+      <AlcoholWarning variant="checkout" />
 
       <div>
         <section>
