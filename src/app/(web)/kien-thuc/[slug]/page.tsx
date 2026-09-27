@@ -28,6 +28,7 @@ interface ArticleData {
   created_at: string;
   updated_at: string | null;
   thumbnail_url: string | null;
+  image_credit?: string | null;
   tenant_id: string;
   status: string;
 }
@@ -68,7 +69,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [
         {
           url: ogImage,
-          ...(article.thumbnail_url ? { width: 1200, height: 630 } : {}),
+          // Ảnh bìa bài viết 1600x1067 (3:2), xem ARTICLE_COVERS.
+          ...(article.thumbnail_url?.startsWith('/images/articles/') ? { width: 1600, height: 1067 } : {}),
           alt: article.title,
         },
       ],
@@ -140,6 +142,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
               className={styles.coverImage}
             />
           </div>
+          {article.image_credit ? <p className={styles.coverCredit}>{article.image_credit}</p> : null}
         </div>
       )}
 

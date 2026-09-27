@@ -23,7 +23,34 @@ export interface Article {
   thumbnail_url: string | null;
   tenant_id: string;
   status: string;
+  /** Dòng ghi nguồn ảnh bìa, bắt buộc với ảnh giấy phép CC BY / CC BY-SA. */
+  image_credit?: string | null;
 }
+
+const COVER_DIR = '/images/articles/kien-thuc';
+
+/**
+ * Ảnh bìa riêng từng bài (09/2026). Database không có ảnh nên gán theo slug khi render.
+ * Nguồn và giấy phép từng ảnh: public/images/articles/kien-thuc/SOURCES.md.
+ */
+export const ARTICLE_COVERS: Record<string, { src: string; credit?: string }> = {
+  'nguon-goc-bia-thay-tu-tu-vien-ettal': { src: '/images/brand/benediktiner-official/ettal-monastery.jpg' },
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': { src: `${COVER_DIR}/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel.webp` },
+  'bitburger-hanh-trinh-200-nam-bia-draft-so-1': { src: `${COVER_DIR}/bitburger-hanh-trinh-200-nam-bia-draft-so-1.webp` },
+  'huong-dan-chon-bia-duc-cho-nguoi-moi': { src: `${COVER_DIR}/huong-dan-chon-bia-duc-cho-nguoi-moi.webp` },
+  'top-7-mon-viet-ket-hop-bia-duc-food-pairing': { src: `${COVER_DIR}/top-7-mon-viet-ket-hop-bia-duc-food-pairing.webp` },
+  'cach-bao-quan-bia-nhap-khau-dung-cach': { src: `${COVER_DIR}/cach-bao-quan-bia-nhap-khau-dung-cach.webp` },
+  'su-tran-trong-nguyen-ban-bia-giao-thoa': { src: `${COVER_DIR}/su-tran-trong-nguyen-ban-bia-giao-thoa.webp` },
+  'ly-uong-bia-lua-mi-weizen-glass': { src: `${COVER_DIR}/ly-uong-bia-lua-mi-weizen-glass.webp` },
+  'nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu': { src: `${COVER_DIR}/nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu.webp` },
+  'huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi': { src: `${COVER_DIR}/huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi.webp` },
+  'phan-biet-weissbier-dunkel-festbier': { src: `${COVER_DIR}/phan-biet-weissbier-dunkel-festbier.webp` },
+  'su-that-ve-lop-men-van-duc-naturtrub': { src: `${COVER_DIR}/su-that-ve-lop-men-van-duc-naturtrub.webp` },
+  'dao-luat-tinh-khiet-1516-reinheitsgebot': {
+    src: `${COVER_DIR}/dao-luat-tinh-khiet-1516-reinheitsgebot.webp`,
+    credit: 'Ảnh: Luidger, Wikimedia Commons, CC BY-SA 3.0',
+  },
+};
 
 const OUT_OF_SCOPE_ARTICLE_PATTERN =
   /(?:chimay|la[-\s]*trappe|rochefort|bia[-\s]*b[iỉ])/i;
@@ -489,8 +516,11 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
   .map((article) => {
     const sanitizedContent = sanitizeArticleContent(article.content, article.slug);
     const override = ARTICLE_META_OVERRIDES[article.slug ?? ''];
+    const cover = ARTICLE_COVERS[article.slug ?? ''];
     return {
       ...article,
+      thumbnail_url: cover?.src ?? article.thumbnail_url,
+      image_credit: cover?.credit ?? null,
       title: override?.title ?? toSentenceCase(toBrochureMetadataCopy(article.title) || article.title),
       content: sanitizedContent,
       word_count: countWords(sanitizedContent),

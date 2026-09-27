@@ -65,6 +65,14 @@
   object-fit: cover;
 }
 
+/* Ghi nguồn ảnh theo giấy phép CC BY-SA. */
+.coverCredit {
+  max-width: 1000px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--web-text-secondary);
+}
+
 .body {
   padding-top: clamp(40px, 5vw, 64px);
   padding-bottom: clamp(48px, 6vw, 80px);

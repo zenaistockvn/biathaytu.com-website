@@ -44,25 +44,17 @@ describe('Phase D — Template trang bài viết và word count', () => {
     }
   });
 
-  it('D.3 OG image không khai báo width/height khi dùng ảnh fallback /logo.jpg', async () => {
-    const articles = getPublishedArticles();
-    const withoutThumb = articles.find((a) => !a.thumbnail_url);
-    expect(withoutThumb).toBeDefined();
-
-    if (withoutThumb?.slug) {
-      const meta = await generateMetadata({ params: Promise.resolve({ slug: withoutThumb.slug }) });
+  it('D.3 OG image là ảnh bìa của bài; chỉ khai báo kích thước khi biết chắc (ảnh bìa 1600x1067)', async () => {
+    for (const article of getPublishedArticles()) {
+      const meta = await generateMetadata({ params: Promise.resolve({ slug: article.slug! }) });
       const ogImages = meta.openGraph?.images as Array<{ url: string; width?: number; height?: number }> | undefined;
-      expect(ogImages).toBeDefined();
-      expect(ogImages?.[0]?.width).toBeUndefined();
-      expect(ogImages?.[0]?.height).toBeUndefined();
-    }
-
-    const withThumb = articles.find((a) => Boolean(a.thumbnail_url));
-    if (withThumb?.slug) {
-      const meta = await generateMetadata({ params: Promise.resolve({ slug: withThumb.slug }) });
-      const ogImages = meta.openGraph?.images as Array<{ url: string; width?: number; height?: number }> | undefined;
-      expect(ogImages?.[0]?.width).toBe(1200);
-      expect(ogImages?.[0]?.height).toBe(630);
+      expect(ogImages?.[0]?.url, article.slug!).toContain(article.thumbnail_url!);
+      if (article.thumbnail_url!.startsWith('/images/articles/')) {
+        expect(ogImages?.[0]?.width).toBe(1600);
+        expect(ogImages?.[0]?.height).toBe(1067);
+      } else {
+        expect(ogImages?.[0]?.width).toBeUndefined();
+      }
     }
   });
 

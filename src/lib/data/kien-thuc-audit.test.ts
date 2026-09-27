@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import articlesData from '@/data/articles.json';
 import { getArticleTopic } from '@/config/articleTopics';
@@ -74,6 +74,15 @@ describe('audit /kien-thuc 09/2026', () => {
     expect(violations).toEqual([]);
     const tooLong = getPublishedArticles().filter((a) => (a.meta_description ?? '').length > 160).map((a) => a.slug);
     expect(tooLong).toEqual([]);
+  });
+
+  it('mỗi bài có ảnh bìa riêng, file tồn tại, ảnh CC BY-SA có ghi nguồn', () => {
+    const articles = getPublishedArticles();
+    const covers = articles.map((a) => a.thumbnail_url);
+    expect(articles.filter((a) => !a.thumbnail_url).map((a) => a.slug)).toEqual([]);
+    expect(new Set(covers).size).toBe(covers.length);
+    for (const src of covers) expect(existsSync(join(process.cwd(), 'public', src!)), src!).toBe(true);
+    expect(getPublishedArticles().find((a) => a.slug === 'dao-luat-tinh-khiet-1516-reinheitsgebot')?.image_credit).toMatch(/CC BY-SA/);
   });
 
   it('thân bài không so sánh với bia Việt Nam và không nói nhà máy bia 700 năm', () => {
