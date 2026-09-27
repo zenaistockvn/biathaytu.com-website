@@ -39,6 +39,27 @@
   color: var(--web-on-ink);
 }
 
+/* Mobile: một hàng cuộn ngang thay cho 3 hàng chip (khoảng 170px) trước bài đầu tiên. */
+@media (max-width: 639px) {
+  .topics {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Kéo ra sát mép màn hình (lề .container là 16px) để chip cuộn hết chiều ngang. */
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scrollbar-width: none;
+  }
+
+  .topics::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topics .topic {
+    flex: none;
+    white-space: nowrap;
+  }
+}
+
 .count {
   font-weight: 500;
   opacity: 0.75;

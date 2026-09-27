@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { formatArticleDate, readingMinutes } from '@/lib/data/articleFormat';
 import styles from './ArticleCard.module.css';
 
 export interface ArticleSummary {
@@ -23,7 +24,7 @@ const BENEDIKTINER_IMAGES = [
 ];
 
 /** `position`: vị trí trong danh sách, để hai thẻ liền nhau không trùng ảnh; thiếu thì cố định theo slug. */
-function imageOf(article: ArticleSummary, position?: number): string {
+export function articleImage(article: Pick<ArticleSummary, 'id' | 'title' | 'slug' | 'thumbnail_url'>, position?: number): string {
   if (article.thumbnail_url) return article.thumbnail_url;
   const topic = `${article.title} ${article.slug ?? ''}`.toLowerCase();
   if (/bitburger|pils/.test(topic) && !/benediktiner|weissbier|lúa mì|lua-mi/.test(topic)) return HOPS_IMAGE;
@@ -39,8 +40,7 @@ function imageOf(article: ArticleSummary, position?: number): string {
 }
 
 function meta(article: ArticleSummary) {
-  const minutes = article.word_count ? Math.max(1, Math.round(article.word_count / 200)) : 3;
-  return `${new Date(article.created_at).toLocaleDateString('vi-VN')} · ${minutes} phút đọc`;
+  return `${formatArticleDate(article.created_at)} · ${readingMinutes(article.word_count)} phút đọc`;
 }
 
 /** Thẻ bài viết kiểu tin tức của Chimay: ảnh, ngày, tiêu đề, trích dẫn, "Đọc tiếp". */
@@ -48,7 +48,7 @@ export default function ArticleCard({ article, position }: { article: ArticleSum
   return (
     <Link href={`/kien-thuc/${article.slug || article.id}`} className={styles.card}>
       <span className={styles.media}>
-        <Image src={imageOf(article, position)} alt="" fill sizes="(max-width: 767px) 100vw, 33vw" className={styles.image} />
+        <Image src={articleImage(article, position)} alt="" fill sizes="(max-width: 767px) 100vw, 33vw" className={styles.image} />
       </span>
       <span className={styles.body}>
         <span className={styles.meta}>{meta(article)}</span>
@@ -68,7 +68,7 @@ export function FeaturedArticle({ article }: { article: ArticleSummary }) {
   return (
     <Link href={`/kien-thuc/${article.slug || article.id}`} className={styles.featured}>
       <span className={styles.featuredMedia}>
-        <Image src={imageOf(article, 0)} alt="" fill priority fetchPriority="high" sizes="(max-width: 899px) 100vw, 60vw" className={styles.image} />
+        <Image src={articleImage(article, 0)} alt="" fill priority fetchPriority="high" sizes="(max-width: 899px) 100vw, 60vw" className={styles.image} />
       </span>
       <span className={styles.featuredBody}>
         <span className={styles.meta}>Bài nổi bật · {meta(article)}</span>

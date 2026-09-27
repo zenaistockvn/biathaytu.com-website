@@ -10,14 +10,22 @@ const PAGE_SIZE = 9;
 /**
  * Lưới bài viết có lọc theo chủ đề và nút "Xem thêm" (audit L3). Mọi bài vẫn có trong HTML
  * (bài chưa hiện dùng thuộc tính `hidden`) để công cụ tìm kiếm đọc được đủ link.
+ * Số đếm tính cả bài nổi bật; bài nổi bật chỉ ẩn khỏi lưới ở mục "Tất cả" vì đã hiện phía trên.
  */
-export default function KnowledgeBrowser({ articles }: { articles: (ArticleSummary & { topic: ArticleTopicId })[] }) {
+export default function KnowledgeBrowser({
+  articles,
+  featuredId,
+}: {
+  articles: (ArticleSummary & { topic: ArticleTopicId })[];
+  featuredId: string | null;
+}) {
   const [topic, setTopic] = useState<ArticleTopicId | 'all'>('all');
   const [limit, setLimit] = useState(PAGE_SIZE);
 
   const counts = new Map<ArticleTopicId, number>();
   for (const article of articles) counts.set(article.topic, (counts.get(article.topic) ?? 0) + 1);
-  const matching = articles.filter((article) => topic === 'all' || article.topic === topic);
+  const matching = articles.filter((article) =>
+    topic === 'all' ? article.id !== featuredId : article.topic === topic);
   const visible = new Set(matching.slice(0, limit).map((article) => article.id));
   const remaining = matching.length - Math.min(limit, matching.length);
 

@@ -13,7 +13,7 @@ export interface ArticleTopic {
 export const ARTICLE_TOPICS: readonly ArticleTopic[] = [
   { id: 'mon-an-kem', label: 'Món ăn kèm', match: /xúc xích|food pairing|đồ nhắm|món\s/i },
   { id: 'thuong-thuc', label: 'Thưởng thức', match: /\brót\b|\bly\b|nhiệt độ|bảo quản/i },
-  { id: 'lich-su', label: 'Lịch sử và câu chuyện', match: /lịch sử|nguồn gốc|\d+\s*năm|1516|giải thưởng|nguyên bản/i },
+  { id: 'lich-su', label: 'Lịch sử và câu chuyện', match: /lịch sử|nguồn gốc|\d+\s*năm|1516|giải thưởng/i },
   { id: 'dong-bia', label: 'Các dòng bia', match: null },
 ];
 

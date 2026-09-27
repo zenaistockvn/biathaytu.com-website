@@ -22,9 +22,9 @@ function getRetiredArticlesConfig(): Record<string, string> {
 }
 
 describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
-  it('cấu hình có đủ 19 bài đã gỡ/gộp', () => {
+  it('cấu hình có đủ 22 bài đã gỡ/gộp (3 bài xúc xích The Wurst gỡ 09/2026)', () => {
     const retiredArticles = getRetiredArticlesConfig();
-    expect(Object.keys(retiredArticles).length).toBe(19);
+    expect(Object.keys(retiredArticles).length).toBe(22);
   });
 
   it('các bài đã gỡ/gộp không còn xuất hiện trên mọi bề mặt public và có redirect 301 hợp lệ', async () => {
@@ -73,7 +73,12 @@ describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
     }
   });
 
-  it('số lượng bài viết public sau khi gộp đúng bằng 23', () => {
-    expect(getPublishedArticles().length).toBe(23);
+  it('số lượng bài viết public sau khi gộp đúng bằng 20', () => {
+    expect(getPublishedArticles().length).toBe(20);
+  });
+
+  it('không còn bài nào về xúc xích The Wurst', () => {
+    const wurst = getPublishedArticles().filter((a) => /the wurst|xuc-xich/i.test(`${a.title} ${a.slug} ${a.content}`));
+    expect(wurst.map((a) => a.slug)).toEqual([]);
   });
 });

@@ -492,11 +492,12 @@ body.overflow-hidden {
 /* Article Cards Hover Effects (Kien Thuc Page) */
 
 /* ─── Markdown Content (Article Detail) ─── */
+/* Tiêu đề con luôn nhỏ hơn H1 của bài (clamp(28px, 3.6vw, 46px)); trên mobile H2 32px từng lớn hơn H1 28px. */
 .web-app .markdown-content h2 {
   color: var(--web-ink);
-  margin-top: 60px;
+  margin-top: clamp(40px, 5vw, 60px);
   margin-bottom: 24px;
-  font-size: 32px;
+  font-size: clamp(22px, 2.6vw, 32px);
   font-family: var(--font-display);
   font-stretch: var(--web-display-stretch);
   font-weight: 700;
@@ -505,12 +506,17 @@ body.overflow-hidden {
 
 .web-app .markdown-content h3 {
   color: var(--web-ink);
-  margin-top: 40px;
+  margin-top: clamp(28px, 4vw, 40px);
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: clamp(19px, 2vw, 24px);
   font-weight: 700;
   font-family: var(--font-display);
   font-stretch: var(--web-display-stretch);
+}
+
+/* Thân bài đã có padding-top: tiêu đề đầu tiên không cộng thêm lề trên. */
+.web-app .markdown-content > :first-child {
+  margin-top: 0;
 }
 
 .web-app .markdown-content p {
@@ -918,7 +924,7 @@ html {
 }
 
 /* ==========================================================================
-   PREMIUM 2026 UI UPGRADE (Sausage & Catalog UI)
+   PREMIUM 2026 UI UPGRADE (Catalog UI)
    ========================================================================== */
 
 /* 1. Font tiêu đề cho các class tiêu đề cũ (thẻ h1–h6 đã có kiểu gốc ở đầu file). */

@@ -2,10 +2,6 @@
   padding: var(--web-section-py) 0;
 }
 
-.list {
-  margin-top: clamp(48px, 6vw, 80px);
-}
-
 .body .empty {
   padding: 48px 0;
   text-align: center;

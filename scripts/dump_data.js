@@ -5,7 +5,7 @@ const { cleanArticle, cleanProduct } = require('./lib/editorial-clean.cjs');
 
 let databaseUrl = process.env.DATABASE_URL;
 const QUERY_TIMEOUT_MS = 30000;
-const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien', 'xuc-xich'];
+const VALID_PRODUCT_CATEGORIES = ['bia', 'vang', 'phu-kien'];
 const OUT_OF_SCOPE_BEER_PATTERN =
   /(?:chimay|la[-\s]*trappe|rochefort|bia[-\s]*b[iỉ])/i;
 const RETAIL_PRICE_BY_SLUG = {

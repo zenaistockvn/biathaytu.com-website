@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import productsData from '@/data/products.json';
-import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
 import { getAllProducts } from './products';
 
 const KOSTRITZER_RE = /k(ö|o)strit?zer/i;
@@ -17,13 +16,6 @@ describe('toàn vẹn dữ liệu sản phẩm', () => {
         return BITBURGER_IMAGE_RE.test(filename);
       });
     expect(wrongBrand).toEqual([]);
-  });
-
-  it('localProducts.ts chỉ chứa SKU do người thật thêm — không có SKU Köstritzer tự sinh', () => {
-    const invented = LOCAL_STOREFRONT_PRODUCTS
-      .filter((p) => KOSTRITZER_RE.test(p.name) && p.category === 'bia')
-      .map((p) => p.slug);
-    expect(invented).toEqual([]);
   });
 
   it('không có slug nào sai chính tả "kosteritzer"', () => {

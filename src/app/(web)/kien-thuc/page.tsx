@@ -1,4 +1,4 @@
-import { getPublishedArticles } from '@/lib/data/articles';
+import { getPublishedArticles, toArticleSummary } from '@/lib/data/articles';
 import type { Metadata } from 'next';
 import { PageHeader } from '../components/EditorialPage'
 import { FeaturedArticle } from '../components/ui/ArticleCard'
@@ -7,6 +7,9 @@ import KnowledgeBrowser from './KnowledgeBrowser';
 import styles from './page.module.css';
 
 export const revalidate = 3600;
+
+/** Bài nổi bật cố định (câu chuyện Tu viện Ettal) thay vì bài mới nhất; bài này bị gỡ thì dùng bài mới nhất. */
+const FEATURED_ARTICLE_SLUG = 'nguon-goc-bia-thay-tu-tu-vien-ettal';
 
 export const metadata: Metadata = {
   title: 'Kiến thức bia Đức',
@@ -36,21 +39,10 @@ export const metadata: Metadata = {
   },
 };
 
-interface ArticleSummary {
-  id: string;
-  title: string;
-  slug: string | null;
-  meta_description: string | null;
-  word_count: number | null;
-  created_at: string;
-  thumbnail_url: string | null;
-}
-
 /** Danh sách kiến thức: dải tiêu đề, bài nổi bật kiểu "Une actualité pétillante" của Chimay, lưới thẻ bài viết. */
 export default async function KienThucPage() {
-  const articleList = getPublishedArticles() as unknown as ArticleSummary[];
-  const featuredArticle = articleList.length > 0 ? articleList[0] : null;
-  const standardArticles = articleList.length > 1 ? articleList.slice(1) : [];
+  const articles = getPublishedArticles();
+  const featured = articles.find((article) => article.slug === FEATURED_ARTICLE_SLUG) ?? articles[0] ?? null;
 
   return (
     <>
@@ -62,14 +54,15 @@ export default async function KienThucPage() {
 
       <div className={styles.body}>
         <div className="container">
-          {featuredArticle ? <FeaturedArticle article={featuredArticle} /> : null}
+          {featured ? <FeaturedArticle article={toArticleSummary(featured)} /> : null}
 
-          {standardArticles.length > 0 ? (
+          {articles.length > 1 ? (
             <KnowledgeBrowser
-              articles={standardArticles.map((article) => ({ ...article, topic: getArticleTopic(article.title).id }))}
+              featuredId={featured?.id ?? null}
+              articles={articles.map((article) => ({ ...toArticleSummary(article), topic: getArticleTopic(article.title).id }))}
             />
           ) : (
-            !featuredArticle && <p className={styles.empty}>Danh mục đang được cập nhật.</p>
+            !featured && <p className={styles.empty}>Danh mục đang được cập nhật.</p>
           )}
         </div>
       </div>

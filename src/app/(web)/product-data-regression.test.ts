@@ -10,10 +10,10 @@ function readProjectFile(path: string) {
 }
 
 describe('public product data regressions', () => {
-  it('keeps sausage products in the database dump allow-list', () => {
+  it('không đổ xúc xích từ database (The Wurst ngừng cung cấp 09/2026)', () => {
     const dumpScript = readProjectFile('scripts/dump_data.js');
 
-    expect(dumpScript).toContain("['bia', 'vang', 'phu-kien', 'xuc-xich']");
+    expect(dumpScript).toContain("['bia', 'vang', 'phu-kien']");
   });
 
   it('keeps the public catalog focused on Benediktiner and other German beers', () => {
@@ -73,27 +73,15 @@ describe('public product data regressions', () => {
     expect(existsSync(join(root, 'public', image!.slice(1)))).toBe(true);
   });
 
-  it('shows the empty state (no supplier ad banner) for sausage products with no image', () => {
-    const image = getDisplayProductImage({
-      images: null,
-      category: 'xuc-xich',
-    });
-
-    expect(image).toBeNull();
-  });
-
-  it('uses food-specific product detail copy for sausage products', () => {
+  it('trang sản phẩm không còn gợi ý xúc xích hay combo', () => {
     const productDetailPage = readProjectFile('src/app/(web)/san-pham/[slug]/page.tsx');
     const productDetailsAccordion = readProjectFile(
       'src/app/(web)/components/ProductDetailsAccordion.tsx',
     );
 
-    expect(productDetailPage).toContain("product.category === 'xuc-xich'");
-    expect(productDetailPage).toContain('Cam kết thực phẩm lạnh');
-    expect(productDetailPage).toContain('Quy cách');
+    for (const source of [productDetailPage, productDetailsAccordion]) {
+      expect(source).not.toMatch(/xuc-xich|The Wurst|getSausageProducts|getRelatedCombo/);
+    }
     expect(productDetailPage).toContain('category={product.category}');
-    expect(productDetailsAccordion).toContain("category === 'xuc-xich'");
-    expect(productDetailsAccordion).toContain('bảo quản lạnh');
-    expect(productDetailsAccordion).toContain('áp chảo');
   });
 });

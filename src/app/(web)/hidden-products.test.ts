@@ -3,7 +3,8 @@ import { getAllProducts, getVisibleProducts, HIDDEN_PRODUCT_SLUGS } from '@/lib/
 
 describe('Cơ chế ẩn sản phẩm thiếu ảnh chính thức', () => {
   it('HIDDEN_PRODUCT_SLUGS chỉ chứa SKU Köstritzer đang chờ ảnh chính hãng', () => {
-    expect(HIDDEN_PRODUCT_SLUGS.size).toBe(2);
+    // Combo Köstritzer tặng xúc xích đã gỡ hẳn cùng The Wurst (09/2026).
+    expect(HIDDEN_PRODUCT_SLUGS.size).toBe(1);
     for (const slug of HIDDEN_PRODUCT_SLUGS) {
       expect(slug).toMatch(/kostritzer/i);
       expect(slug).not.toMatch(/kosteritzer/i);

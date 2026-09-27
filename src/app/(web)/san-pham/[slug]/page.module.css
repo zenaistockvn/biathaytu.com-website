@@ -145,15 +145,6 @@
   color: var(--web-text-secondary);
 }
 
-.tags {
-  margin: 10px 0 0;
-  font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--web-accent);
-}
-
 /* Bảng thông số như "9% vol. alc. - Dégustation 10°-12°" của Chimay, dạng hàng kẻ mảnh. */
 .specs {
   margin: 8px 0 0;
@@ -210,30 +201,7 @@
   color: var(--web-text-secondary);
 }
 
-/* Cam kết bảo quản cho đồ ăn lạnh (xúc xích, combo). */
-.guarantee {
-  padding: 24px;
-  background: var(--web-bg-section);
-}
-
-.guarantee .guaranteeTitle {
-  margin: 0 0 12px;
-  font-family: var(--font-condensed), sans-serif;
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--web-ink);
-}
-
-.guarantee ul {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.65;
-  color: var(--web-text-secondary);
-}
-
-/* Món nhắm: một dòng link thay cho khối hai cột có ảnh. */
+/* Món ăn kèm: một dòng link tới trang food pairing. */
 .pairingLinks {
   display: flex;
   flex-wrap: wrap;

@@ -6,11 +6,10 @@ import {
   getAccessories,
   getRelatedBeers,
   getProductsByCategory,
-  getSausageProducts,
 } from './products';
 
 describe('data/products', () => {
-  const storefrontCategories = ['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo'];
+  const storefrontCategories = ['bia', 'vang', 'phu-kien'];
 
   it('returns only storefront-ready products sorted by sort_order ascending', () => {
     const all = getAllProducts();
@@ -43,23 +42,10 @@ describe('data/products', () => {
     expect(beers.every((p) => !p.name.toLowerCase().includes('bitburger'))).toBe(true);
   });
 
-  it('returns The Wurst sausage products from the xuc-xich category', () => {
-    const sausages = getSausageProducts();
-
-    expect(sausages.map((product) => product.slug)).toEqual([
-      'the-wurst-wiener-hun-khoi-500g',
-      'the-wurst-thuringer-bratwurst-500g',
-      'the-wurst-combo-cold-cut-150g',
-    ]);
-    expect(sausages.every((product) => product.category === 'xuc-xich')).toBe(true);
-    expect(sausages.map((product) => product.price)).toEqual([139000, 139000, 99000]);
-    expect(sausages.map((product) => product.volume)).toEqual([
-      '500g/gói',
-      '500g/gói',
-      '150g/combo',
-    ]);
-    // Ảnh banner quảng cáo của nhà cung cấp đã bị gỡ; chờ ảnh sản phẩm thật.
-    expect(sausages.every((product) => (product.images ?? []).length === 0)).toBe(true);
+  it('không còn xúc xích The Wurst hay combo tặng xúc xích (ngừng cung cấp 09/2026)', () => {
+    const discontinued = getAllProducts().filter((product) => /wurst|xúc xích|xuc-xich/i.test(`${product.name} ${product.slug}`));
+    expect(discontinued.map((product) => product.slug)).toEqual([]);
+    expect(getAllProducts().some((product) => product.category === 'xuc-xich' || product.category === 'combo')).toBe(false);
   });
 
   it('getRelatedBeers excludes the current product and caps the limit', () => {

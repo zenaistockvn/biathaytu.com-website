@@ -13,7 +13,6 @@ export default function ProductDetailsAccordion({
   category,
 }: ProductDetailsAccordionProps) {
   const [openSection, setOpenSection] = useState<string | null>('story');
-  const isSausage = category === 'xuc-xich';
   const isWine = category === 'vang';
   const lowerName = productName.toLowerCase();
 
@@ -22,9 +21,6 @@ export default function ProductDetailsAccordion({
   };
 
   const getStory = () => {
-    if (isSausage) {
-      return "The Wurst là dòng xúc xích và thịt nguội thủ công kiểu Đức, phù hợp để làm món ăn kèm bia, vang, bữa gia đình hoặc bàn tiệc gọn tại nhà. Wiener dễ ăn và thơm khói, Thüringer hợp áp chảo hoặc nướng, còn Cold Cut tiện bày lạnh cùng bánh mì, phô mai và dưa chuột muối.";
-    }
     if (lowerName.includes('bitburger')) {
       return "Ra đời từ năm 1817 tại Bitburg, Đức, Bitburger là một trong những nhà máy bia gia đình lâu đời nhất nước Đức. Với hơn 200 năm kinh nghiệm, Bitburger tuân thủ Luật Tinh Khiết năm 1516 (Reinheitsgebot), sử dụng hoa bia, mạch nha lúa mạch, nước tinh khiết và men bia để tạo nên phong cách Pilsner đặc trưng.";
     }
@@ -37,13 +33,7 @@ export default function ProductDetailsAccordion({
     return "Sản phẩm được tuyển chọn kỹ lưỡng để mang đến trải nghiệm hương vị Đức nguyên bản và chất lượng cao cho người thưởng thức.";
   };
 
-  const storageItems = isSausage
-    ? [
-        'Bảo quản lạnh theo hướng dẫn trên bao bì ngay sau khi nhận hàng.',
-        'Không để sản phẩm lâu ngoài nhiệt độ phòng, đặc biệt trước khi chế biến hoặc bày tiệc.',
-        'Nếu sản phẩm đã để đông, rã đông trong ngăn mát trước khi áp chảo hoặc nướng.',
-      ]
-    : isWine
+  const storageItems = isWine
       ? [
           'Bảo quản chai ở nơi khô ráo, tránh ánh nắng trực tiếp và nguồn nhiệt mạnh.',
           'Vang trắng nên được làm mát trước khi thưởng thức; vang đỏ nên phục vụ ở nhiệt độ phù hợp với từng phong cách.',
@@ -55,15 +45,7 @@ export default function ProductDetailsAccordion({
           'Tránh để bia bị sốc nhiệt hoặc đóng băng trong ngăn đá.',
         ];
 
-  const storageTitle = isSausage ? 'Hướng dẫn bảo quản lạnh' : 'Hướng dẫn bảo quản';
-  const servingTitle = isSausage ? 'Cách dùng ngon nhất' : 'Cách thưởng thức ngon nhất';
-  const servingItems = isSausage
-    ? [
-        'Wiener: làm nóng nhanh bằng áp chảo hoặc nướng nhẹ.',
-        'Thüringer Bratwurst: áp chảo hoặc nướng để dậy mùi thơm.',
-        'Combo Cold Cut: bày lạnh trực tiếp cùng bánh mì, phô mai, olive hoặc dưa chuột muối.',
-      ]
-    : isWine
+  const servingItems = isWine
       ? [
           'Riesling và Sauvignon Blanc: phục vụ mát để làm nổi bật độ tươi và tính khoáng.',
           'Spätburgunder: có thể để chai nghỉ vài phút sau khi mở để hương trái cây và gia vị rõ hơn.',
@@ -77,9 +59,6 @@ export default function ProductDetailsAccordion({
         ];
 
   const pairingItems = (() => {
-    if (isSausage) {
-      return ['Bia Weissbier hoặc Pilsner Đức', 'Bánh mì, pretzel và mù tạt', 'Khoai tây, salad và dưa chuột muối'];
-    }
     if (isWine) {
       if (lowerName.includes('spätburgunder') || lowerName.includes('spatburgunder')) {
         return ['Steak và thịt nướng', 'Thịt vịt', 'Phô mai cứng'];
@@ -101,8 +80,8 @@ export default function ProductDetailsAccordion({
   const sections = [
     { id: 'story', title: 'Câu chuyện sản phẩm', content: <p>{getStory()}</p> },
     { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul>{pairingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
-    { id: 'storage', title: `${storageTitle}`, content: <ul>{storageItems.map((item) => <li key={item}>{item}</li>)}</ul> },
-    { id: 'drink', title: `${servingTitle}`, content: <ul>{servingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'storage', title: 'Hướng dẫn bảo quản', content: <ul>{storageItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'drink', title: 'Cách thưởng thức', content: <ul>{servingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
   ];
 
   return (

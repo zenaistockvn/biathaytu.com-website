@@ -1,6 +1,7 @@
 /**
- * Tiêu đề bài trong `articles.json` đã viết như câu; hàm này là lưới an toàn cho bài nhập mới còn Viết Hoa Mỗi Chữ.
- * Quy tắc (DESIGN.md): viết hoa chữ đầu, chữ đầu sau "?" "!" "." và tên riêng; sau dấu ":" viết thường.
+ * `npm run build` đổ lại articles.json từ database, nơi tiêu đề bài và tiêu đề con còn Viết Hoa Mỗi Chữ,
+ * nên phải đổi khi render. Quy tắc (DESIGN.md): viết hoa chữ đầu, chữ đầu sau "?" "!" "." và tên riêng;
+ * sau dấu ":" viết thường.
  */
 const PROPER_PHRASES: Array<[string, string]> = [
   ['Đạo Luật Tinh Khiết', 'Đạo luật Tinh khiết'],
@@ -12,48 +13,71 @@ const PROPER_PHRASES: Array<[string, string]> = [
   ['Hà Nội', 'Hà Nội'],
   ['Tây Hồ', 'Tây Hồ'],
   ['Việt Nam', 'Việt Nam'],
+  ['Nha Trang', 'Nha Trang'],
+  ['Chè Thái', 'Chè Thái'],
 ];
 const PROPER_WORDS = new Set([
-  'Benediktiner', 'Bitburger', 'Premium', 'Pils', 'Pilsner', 'Weissbier', 'Weizen', 'Dunkel', 'Naturtrüb',
+  'Benediktiner', 'Bitburger', 'Premium', 'Pils', 'Pilsner', 'Weissbier', 'Weizen', 'Weizenglas', 'Dunkel', 'Naturtrüb',
   'Festbier', 'Đức', 'Bỉ', 'Chimay', 'Trappist', 'Ettal', 'Bavaria', 'Việt', 'Thüringer', 'Bratwurst', 'Wiener',
-  'Reinheitsgebot', 'Siegelhopfen', 'Eifel', 'Hallertau', 'Oktoberfest', 'Facebook',
+  'Reinheitsgebot', 'Siegelhopfen', 'Eifel', 'Hallertau', 'Oktoberfest', 'Facebook', 'Kölsch', 'Altbier',
+  'Klosterbier', 'Hefe', 'Weisswurst', 'Märzen', 'Alps', 'Ammergau', 'Ludwig',
 ]);
 
 const WORD = /^\p{Lu}\p{Ll}*$/u;
 
-function isTitleCase(title: string): boolean {
-  const words = title.split(/\s+/).filter((w) => /^\p{L}/u.test(w));
-  if (words.length < 4) return false;
+function isTitleCase(text: string): boolean {
+  const words = text
+    .split(/\s+/)
+    .map((word) => word.replace(/^[^\p{L}]+/u, ''))
+    .filter((word) => /^\p{L}/u.test(word));
+  if (words.length < 3) return false;
   const capitalised = words.filter((w) => /^\p{Lu}/u.test(w)).length;
   return capitalised / words.length >= 0.7;
 }
 
-export function toSentenceCase(title: string): string {
-  if (!isTitleCase(title)) return title;
+/** Hết câu khi từ kết thúc bằng ? ! . nhưng không phải "vs." hay dấu ba chấm. */
+function endsSentence(token: string): boolean {
+  return /[?!.]$/.test(token) && !/\.\.\.$|…$/.test(token) && !/^vs\.$/i.test(token);
+}
 
+/** Đổi một đoạn chữ; `state.start` nối qua các đoạn khi tiêu đề có thẻ HTML xen giữa. */
+function convert(text: string, state: { start: boolean }): string {
   const placeholders: string[] = [];
-  let text = title;
+  let out = text;
   for (const [from, to] of PROPER_PHRASES) {
-    text = text.split(from).join(`\u0000${placeholders.push(to) - 1}\u0000`);
+    out = out.split(from).join(`\u0000${placeholders.push(to) - 1}\u0000`);
   }
 
-  let startOfSentence = true;
-  text = text
+  out = out
     .split(/(\s+)/)
     .map((token) => {
       if (/^\s+$/.test(token) || token === '') return token;
       const lead = token.match(/^[^\p{L}\p{N}\u0000]*/u)?.[0] ?? '';
       const core = token.slice(lead.length);
       const bare = core.replace(/[^\p{L}]+$/u, '');
-      let out = token;
+      let result = token;
 
-      if (!startOfSentence && WORD.test(bare) && !PROPER_WORDS.has(bare)) {
-        out = lead + core.charAt(0).toLowerCase() + core.slice(1);
+      if (!state.start && WORD.test(bare) && !PROPER_WORDS.has(bare)) {
+        result = lead + core.charAt(0).toLowerCase() + core.slice(1);
       }
-      startOfSentence = /[?!.]$/.test(token);
-      return out;
+      state.start = endsSentence(token);
+      return result;
     })
     .join('');
 
-  return text.replace(/\u0000(\d+)\u0000/g, (_, i: string) => placeholders[Number(i)]);
+  return out.replace(/\u0000(\d+)\u0000/g, (_, i: string) => placeholders[Number(i)]);
+}
+
+export function toSentenceCase(title: string): string {
+  if (!isTitleCase(title)) return title;
+  return convert(title, { start: true });
+}
+
+/** Như `toSentenceCase` cho nội dung thẻ tiêu đề HTML: chỉ đổi phần chữ, giữ nguyên thẻ và thuộc tính. */
+export function toSentenceCaseHtml(html: string): string {
+  const parts = html.split(/(<[^>]*>)/);
+  const text = parts.filter((_, i) => i % 2 === 0).join('');
+  if (!isTitleCase(text)) return html;
+  const state = { start: true };
+  return parts.map((part, i) => (i % 2 ? part : convert(part, state))).join('');
 }

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getLineProducts, getProductBySlugOrId, getRelatedBeers, getVisibleProducts, getSausageProducts, getRelatedCombo } from '@/lib/data/products';
+import { getLineProducts, getProductBySlugOrId, getRelatedBeers, getVisibleProducts } from '@/lib/data/products';
 import ProductOrderActions from '../../components/ProductOrderActions';
 import ProductConsultationForm from '../../components/ProductConsultationForm';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
@@ -43,8 +43,6 @@ interface ProductData {
 const CATEGORY_LABEL: Record<string, string> = {
   bia: 'Bia Đức nhập khẩu',
   vang: 'Vang Đức',
-  'xuc-xich': 'Xúc xích kiểu Đức',
-  combo: 'Combo tham khảo',
   'phu-kien': 'Phụ kiện',
 };
 
@@ -96,35 +94,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  const isSausage = product.category === 'xuc-xich';
-  const isCombo = product.category === 'combo';
-  const isAlcohol = product.category === 'bia' || product.category === 'vang' || isCombo;
+  const isAlcohol = product.category === 'bia' || product.category === 'vang';
   const { title: productTitle, pack } = splitProductName(product.name);
   // Dung tích đã có dòng riêng nên quy cách chỉ ghi "Két 24 lon".
   const packagingFormat = product.volume ? packWithoutVolume(pack) : pack;
   const abvText = formatAbv(product.abv);
   const tastingNote = getTastingNotes(product.name);
-  // Chỉ đồ ăn lạnh (xúc xích, combo) giữ khối cam kết vì có thông tin bảo quản thật; bia bỏ 4 câu chung chung (audit L2).
-  const foodGuarantee = isSausage || isCombo
-    ? {
-        title: 'Cam kết thực phẩm lạnh và tươi',
-        items: [
-          'Sản phẩm The Wurst kiểu Đức, bảo quản lạnh từ 0 - 4°C chuyên dụng.',
-          'Tư vấn cách làm nóng, áp chảo, nướng hoặc bày lạnh theo từng dòng sản phẩm.',
-          'Hỗ trợ thông tin giao nhận và hướng dẫn bảo quản ngay sau khi nhận sản phẩm.',
-          'Hỗ trợ kiểm tra thông tin lô hàng và hạn sử dụng rõ ràng trên bao bì.',
-        ],
-      }
-    : null;
-
-  const sausageTags = (() => {
-    const s = product.slug || '';
-    if (s === 'the-wurst-wiener-hun-khoi-500g') return ['500g/gói', 'Hun khói', 'Ăn kèm bia'];
-    if (s === 'the-wurst-thuringer-bratwurst-500g') return ['500g/gói', 'Bratwurst', 'Nướng áp chảo'];
-    if (s === 'the-wurst-combo-cold-cut-150g') return ['Combo 99K', 'Cold cut', '150g', 'Ăn kèm bia Đức'];
-    return [];
-  })();
-  const tags = isSausage ? sausageTags : isCombo ? ['Combo tham khảo', 'Bia và xúc xích Đức', 'Quà tặng kèm'] : [];
 
   const isBeer = product.category === 'bia';
 
@@ -139,16 +114,14 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const specs = [
     abvText && !priceSpecs ? ['Nồng độ cồn', abvText] : null,
     product.ibu && !priceSpecs ? ['Độ đắng (IBU)', String(product.ibu)] : null,
-    product.volume && !pack ? [isSausage ? 'Quy cách' : 'Dung tích', product.volume] : null,
-    packagingFormat && !isSausage && !pack ? ['Quy cách', packagingFormat] : null,
+    product.volume && !pack ? ['Dung tích', product.volume] : null,
+    packagingFormat && !pack ? ['Quy cách', packagingFormat] : null,
     ['Xuất xứ', product.origin || 'Đức'],
   ].filter((row): row is string[] => Boolean(row));
 
-  // Cùng dòng bia: dải quy cách khác thay cho "Có thể bạn sẽ thích"; sản phẩm khác (xúc xích, vang) giữ gợi ý cũ.
+  // Cùng dòng bia: dải quy cách khác thay cho "Có thể bạn sẽ thích"; sản phẩm khác (vang, phụ kiện) giữ gợi ý cũ.
   const siblingFormats = line ? getLineProducts(line.id).filter((item) => item.id !== product.id) : [];
   const relatedProductsData = line ? [] : getRelatedBeers(product.id, 4);
-  const sausageProducts = isBeer ? getSausageProducts() : [];
-  const relatedCombo = isBeer ? getRelatedCombo(product.slug || product.id) : null;
 
   return (
     <div className="subpage-wrap">
@@ -206,7 +179,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             {isAlcohol && (
               <p className={styles.ageNote}>Sản phẩm chỉ dành cho người từ đủ 18 tuổi.</p>
             )}
-            {tags.length > 0 && <p className={styles.tags}>{tags.join(' · ')}</p>}
 
             <ProductOrderActions product={product} />
 
@@ -235,24 +207,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
           <ProductDetailsAccordion productName={product.name} category={product.category} />
 
-          {foodGuarantee ? (
-            <aside className={styles.guarantee}>
-              <p className={styles.guaranteeTitle}>{foodGuarantee.title}</p>
-              <ul>
-                {foodGuarantee.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </aside>
-          ) : null}
-
-          {isBeer && (sausageProducts.length > 0 || relatedCombo) ? (
+          {isBeer ? (
             <p className={styles.pairingLinks}>
-              <span className={styles.pairingLabel}>Món nhắm gợi ý</span>
-              {sausageProducts.map((sausage) => (
-                <Link key={sausage.id} href={`/san-pham/${sausage.slug}`}>{sausage.name}</Link>
-              ))}
-              {relatedCombo ? <Link href={`/san-pham/${relatedCombo.slug}`}>{relatedCombo.name}</Link> : null}
+              <span className={styles.pairingLabel}>Món ăn kèm</span>
+              <Link href="/food-pairing-bia-duc">Gợi ý món ăn hợp với bia Đức</Link>
             </p>
           ) : null}
         </div>

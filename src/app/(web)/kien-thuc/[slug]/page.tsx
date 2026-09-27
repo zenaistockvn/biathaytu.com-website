@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getArticleBySlugOrId, getRelatedArticles, getPublishedArticles } from '@/lib/data/articles';
+import { getArticleBySlugOrId, getRelatedArticles, getPublishedArticles, toArticleSummary } from '@/lib/data/articles';
+import { formatArticleDate, readingMinutes } from '@/lib/data/articleFormat';
 import { getFeaturedBeers } from '@/lib/data/products';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
 import ArticleBody from './ArticleBody';
@@ -10,7 +11,7 @@ import GeoLocalCTA from '../../components/GeoLocalCTA';
 import ProductCard, { ProductCardProps } from '../../components/ProductCard';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { Button } from '../../components/ui/Button'
-import ArticleCard, { ArticleGrid } from '../../components/ui/ArticleCard'
+import ArticleCard, { ArticleGrid, articleImage } from '../../components/ui/ArticleCard'
 import TitleBlock from '../../components/ui/TitleBlock'
 import styles from './page.module.css';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
@@ -44,12 +45,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = getArticleBySlugOrId(slug) as unknown as { title: string; meta_description: string | null; slug: string; thumbnail_url: string | null } | null;
+  const article = getArticleBySlugOrId(slug);
 
   if (!article) return {};
 
   const articleUrl = `https://www.biathaytu.com.vn/kien-thuc/${article.slug || slug}`;
-  const ogImage = toAbsoluteSiteUrl(article.thumbnail_url || '/logo.jpg');
+  // Bài chưa có ảnh đại diện: dùng ảnh chính hãng như thẻ bài (1200x800) thay cho logo.
+  const ogImage = toAbsoluteSiteUrl(articleImage(article));
 
   return {
     title: article.title,
@@ -89,15 +91,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  const readTime = article.word_count ? Math.round(article.word_count / 200) : 3;
   const articleUrl = `https://www.biathaytu.com.vn/kien-thuc/${article.slug || article.id}`;
 
-  // Related articles (3 most recent, excluding current)
-  const relatedArticles = getRelatedArticles(article.id, 3) as unknown as Array<{
-    id: string; title: string; slug: string | null;
-    meta_description: string | null; word_count: number | null; created_at: string;
-    thumbnail_url: string | null;
-  }>;
+  // Bài cùng chủ đề trước, thiếu thì bù bằng bài mới nhất.
+  const relatedArticles = getRelatedArticles(article, 3).map(toArticleSummary);
 
   // Suggested products for CTA (featured Benediktiner)
   const suggestedProducts = getFeaturedBeers(3);
@@ -112,7 +109,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         description: article.meta_description || article.title,
         datePublished: article.created_at,
         dateModified: article.updated_at || article.created_at,
-        imageUrl: article.thumbnail_url || undefined,
+        imageUrl: articleImage(article),
       })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.knowledge, { href: articleUrl, label: article.title }))} />
 
@@ -125,7 +122,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           </nav>
           <h1 className={`article-detail-title ${styles.title}`}>{article.title}</h1>
           <p className={styles.meta}>
-            {new Date(article.created_at).toLocaleDateString('vi-VN')} · {readTime} phút đọc
+            {formatArticleDate(article.created_at)} · {readingMinutes(article.word_count)} phút đọc
           </p>
         </div>
       </header>

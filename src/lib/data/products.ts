@@ -1,5 +1,4 @@
 import productsData from '@/data/products.json';
-import { LOCAL_STOREFRONT_PRODUCTS } from './localProducts';
 import { resolveProductImages } from './productImages';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
@@ -38,7 +37,6 @@ export interface Product {
  */
 export const HIDDEN_PRODUCT_SLUGS = new Set<string>([
   'kostritzer-schwarzbier-bom-5l',
-  'combo-oktoberfest-keg-kostritzer-xuc-xich',
 ]);
 
 const BITBURGER_DIR = '/images/products/official/bitburger';
@@ -99,7 +97,8 @@ function officialIbu(name: string): number | null {
   return null;
 }
 
-const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien', 'xuc-xich', 'combo']);
+// Xúc xích The Wurst và combo tặng xúc xích đã ngừng cung cấp (09/2026); slug cũ chuyển 301 trong next.config.js.
+const STOREFRONT_CATEGORIES = new Set(['bia', 'vang', 'phu-kien']);
 function isStorefrontProduct(product: Product): boolean {
   return Boolean(
     product.id &&
@@ -132,10 +131,10 @@ function sanitizeProductDescription(description: string | null): string | null {
     .replace(/tại Tây Hồ, Hà Nội/gi, 'tại Hà Nội');
 }
 
-function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): Product[] {
+function mergeStorefrontProducts(products: Product[]): Product[] {
   const productsBySlug = new Map<string, Product>();
 
-  for (const product of [...primary, ...supplemental]) {
+  for (const product of products) {
     if (!isStorefrontProduct(product) || productsBySlug.has(product.slug)) {
       continue;
     }
@@ -146,7 +145,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
       ...product,
       slug,
       ...override,
-      ibu: product.category === 'bia' || product.category === 'combo' ? officialIbu(product.name) ?? product.ibu : product.ibu,
+      ibu: product.category === 'bia' ? officialIbu(product.name) ?? product.ibu : product.ibu,
       images: resolveProductImages(override?.images ?? product.images),
       description: sanitizeProductDescription(
         toBrochureMetadataCopy(product.description) || product.description,
@@ -164,10 +163,7 @@ function mergeStorefrontProducts(primary: Product[], supplemental: Product[]): P
   );
 }
 
-const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(
-  (productsData as unknown as Product[]).slice(),
-  LOCAL_STOREFRONT_PRODUCTS,
-);
+const ALL_PRODUCTS: Product[] = mergeStorefrontProducts(productsData as unknown as Product[]);
 
 export function getAllProducts(): Product[] {
   return ALL_PRODUCTS;
@@ -202,10 +198,6 @@ export function getAccessories(): Product[] {
   return getVisibleProducts().filter((p) => p.category === 'phu-kien');
 }
 
-export function getSausageProducts(): Product[] {
-  return getVisibleProducts().filter((p) => p.category === 'xuc-xich');
-}
-
 export function getRelatedBeers(excludeId: string, limit = 4): Product[] {
   return getBeerProducts().filter((product) => product.id !== excludeId).slice(0, limit);
 }
@@ -218,23 +210,4 @@ export function getFeaturedBeers(limit = 3): Product[] {
 
 export function getProductsByCategory(category: string): Product[] {
   return getVisibleProducts().filter((p) => p.category === category);
-}
-
-export function getComboProducts(): Product[] {
-  return getVisibleProducts().filter((p) => p.category === 'combo');
-}
-
-export function getRelatedCombo(beerNameOrSlug: string): Product | null {
-  const nameLower = beerNameOrSlug.toLowerCase();
-  const combos = getComboProducts();
-
-  if (nameLower.includes('bitburger')) {
-    return combos.find((combo) => combo.slug.includes('bitburger')) ?? null;
-  }
-
-  if (nameLower.includes('benediktiner')) {
-    return combos.find((combo) => combo.slug.includes('benediktiner')) ?? null;
-  }
-
-  return null;
 }

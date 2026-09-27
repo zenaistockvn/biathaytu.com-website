@@ -7,9 +7,15 @@ const RETIRED_BEER_ARTICLE_SLUGS = [
   'mua-bia-thay-tu-chimay-la-trappe-o-dau-chinh-hang-ha-noi',
 ];
 
-const RETIRED_BEER_PRODUCT_SLUGS = [
+// Sản phẩm đã gỡ; xúc xích The Wurst và combo tặng xúc xích ngừng cung cấp từ 09/2026.
+const RETIRED_PRODUCT_SLUGS = [
   'kostritzer-schwarzbier-bom-5l',
   'combo-oktoberfest-keg-kostritzer-xuc-xich',
+  'combo-match-night-bitburger-football-edition-xuc-xich',
+  'combo-bavaria-party-benediktiner-weissbier-xuc-xich',
+  'the-wurst-wiener-hun-khoi-500g',
+  'the-wurst-thuringer-bratwurst-500g',
+  'the-wurst-combo-cold-cut-150g',
 ];
 
 const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
@@ -52,7 +58,7 @@ const nextConfig = {
         destination: '/bia-benediktiner-chinh-hang',
         statusCode: 301,
       })),
-      ...RETIRED_BEER_PRODUCT_SLUGS.map((slug) => ({
+      ...RETIRED_PRODUCT_SLUGS.map((slug) => ({
         source: `/san-pham/${slug}`,
         destination: '/san-pham',
         statusCode: 301,

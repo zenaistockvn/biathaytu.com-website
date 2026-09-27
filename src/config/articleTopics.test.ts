@@ -13,7 +13,8 @@ describe('chủ đề bài Kiến thức (audit L3)', () => {
   });
 
   it('xếp đúng vài bài tiêu biểu', () => {
-    expect(getArticleTopic('Top 3 loại xúc xích Đức nhập khẩu ăn kèm bia ngon nhất').id).toBe('mon-an-kem');
+    expect(getArticleTopic('Top 7 món Việt kết hợp hoàn hảo với bia Đức: hướng dẫn food pairing').id).toBe('mon-an-kem');
+    expect(getArticleTopic('Vì sao càng tìm hiểu về bia, người ta càng trân trọng sự nguyên bản?').id).toBe('dong-bia');
     expect(getArticleTopic('Tại sao bia lúa mì phải uống bằng ly cổ cao chân loe?').id).toBe('thuong-thuc');
     expect(getArticleTopic('Nguồn gốc Bia Thầy Tu: Lịch sử bị lãng quên của tu viện Ettal').id).toBe('lich-su');
     expect(getArticleTopic('Phân biệt các dòng bia Đức: Weissbier, Dunkel và Festbier').id).toBe('dong-bia');
