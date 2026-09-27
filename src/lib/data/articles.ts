@@ -311,6 +311,10 @@ function sanitizeArticleContent(content: string | null, slug?: string | null): s
       /659A\s+Lạc Long Quân(?:,\s*(?:Phường\s+)?Xuân La)?(?:,\s*(?:Quận\s+)?Tây Hồ)?(?:,\s*Hà Nội)?/gi,
       COMPANY_CONFIG.showroomAddress,
     )
+    // Website không bán hàng trực tuyến (chưa đăng ký với Bộ Công Thương).
+    .replace(/\s+hoặc đặt trực tuyến tại website chính thức (?:www\.)?biathaytu\.com(?:\.vn)?/gi, '')
+    // Địa chỉ showroom trước 27/09/2026; bài viết trong database vẫn ghi địa chỉ này.
+    .replace(/(?:số\s+)?26 Vạn Phúc,\s*Ba Đình,\s*Hà Nội/gi, COMPANY_CONFIG.showroomAddress)
     .replace(
       /Showroom Bia Thầy Tu Lạc Long Quân/gi,
       `Showroom Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}`,

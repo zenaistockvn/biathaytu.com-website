@@ -1,4 +1,4 @@
-import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
+import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl, getShowroomMapEmbedUrl } from '@/config/company';
 import { NAV } from '@/config/navigation';
 import styles from './GeoLocalCTA.module.css';
 
@@ -9,7 +9,7 @@ import styles from './GeoLocalCTA.module.css';
 export default function GeoLocalCTA() {
   const telHref = getCompanyTelHref() || NAV.contact.href;
   const zaloUrl = getCompanyZaloUrl();
-  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(COMPANY_CONFIG.showroomAddress)}&output=embed`;
+  const mapEmbedUrl = getShowroomMapEmbedUrl();
 
   return (
     <aside className={styles.card} data-surface="ink" aria-labelledby="geo-cta-title">

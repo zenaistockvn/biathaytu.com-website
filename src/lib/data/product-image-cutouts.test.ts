@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PRODUCT_IMAGE_CUTOUTS } from './productImageCutouts';
 import { resolveProductImage, hasWhiteCanvas } from './productImages';
-import { getVisibleProducts } from './products';
+import { getAllProducts, getVisibleProducts } from './products';
 
 function publicFileFor(url: string) {
   return path.join(process.cwd(), 'public', decodeURIComponent(url));
@@ -42,12 +42,21 @@ describe('ảnh sản phẩm đã tách nền trắng', () => {
     expect(stillOriginal).toEqual([]);
   });
 
-  it('chỉ ảnh Haravan còn lại mới cần hoà nền bằng mix-blend-mode', () => {
+  it('chỉ banner dựng sẵn mới cần hoà nền bằng mix-blend-mode', () => {
     const blended = getVisibleProducts()
       .flatMap((product) => product.images ?? [])
       .filter(hasWhiteCanvas);
 
-    expect(blended.every((image) => image.startsWith('https://product.hstatic.net/'))).toBe(true);
+    expect(blended.every((image) => image.startsWith('/images/products/official/benediktiner/banners/'))).toBe(true);
     expect(hasWhiteCanvas('/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.webp')).toBe(false);
+  });
+
+  it('không ảnh sản phẩm nào còn tải từ kho Haravan; mọi ảnh local đều có file', () => {
+    const images = getAllProducts().flatMap((product) => (product.images ?? []).map((image) => ({ slug: product.slug, image })));
+    expect(images.filter(({ image }) => /hstatic\.net|haravan/i.test(image)).map(({ slug, image }) => `${slug} → ${image}`)).toEqual([]);
+    const visible = getVisibleProducts().flatMap((product) => (product.images ?? []).map((image) => ({ slug: product.slug, image })));
+    expect(
+      visible.filter(({ image }) => image.startsWith('/') && !fs.existsSync(publicFileFor(image))).map(({ slug, image }) => `${slug} → ${image}`),
+    ).toEqual([]);
   });
 });

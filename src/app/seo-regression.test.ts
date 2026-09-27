@@ -169,7 +169,8 @@ describe('SEO and GEO regressions', () => {
 
     expect(consumers).not.toContain('0915 31 21 66');
     expect(consumers).not.toContain('0915312166');
-    expect(consumers).not.toContain('26 Vạn Phúc, Ba Đình, Hà Nội');
+    expect(consumers).not.toContain('22 Lô C, Ngõ 26 P. Vạn Phúc');
+    expect(consumers).not.toContain('maps.app.goo.gl');
   });
 
   it('root layout uses brand metadata, not the internal AMC tool name', () => {

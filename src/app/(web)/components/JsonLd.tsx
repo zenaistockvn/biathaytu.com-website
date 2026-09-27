@@ -35,7 +35,16 @@ export function getOrganizationSchema() {
     '@type': 'Organization',
     '@id': `${BASE_URL}/#organization`,
     name: 'Bia Thầy Tu',
-    ...(hasConfirmedLegalName ? { legalName: COMPANY_CONFIG.legalName } : {}),
+    ...(hasConfirmedLegalName
+      ? {
+          legalName: COMPANY_CONFIG.legalName,
+          parentOrganization: {
+            '@type': 'Organization',
+            name: COMPANY_CONFIG.legalName,
+            url: COMPANY_CONFIG.legalWebsite,
+          },
+        }
+      : {}),
     alternateName: ['Bia Thầy Tu', 'Benediktiner Vietnam'],
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
@@ -103,6 +112,12 @@ export function getStoreSchema() {
             streetAddress: COMPANY_CONFIG.showroomAddress,
             addressCountry: BUSINESS.addressCountry,
           },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: COMPANY_CONFIG.showroomGeo.latitude,
+            longitude: COMPANY_CONFIG.showroomGeo.longitude,
+          },
+          hasMap: COMPANY_CONFIG.showroomMapUrl,
         }
       : {}),
     ...(BUSINESS.zaloUrl ? { sameAs: [BUSINESS.zaloUrl] } : {}),

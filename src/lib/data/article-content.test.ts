@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import articlesData from '@/data/articles.json';
 import { getPublishedArticles, Article } from '@/lib/data/articles';
+import { getVisibleProducts } from '@/lib/data/products';
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, ' ');
@@ -46,6 +47,21 @@ describe('Phase C — Kiểm tra dọn dẹp nội dung thân bài', () => {
       console.error(`=== C1_BACKSLASH_N ===: ${violations.length} bài chứa \\n: ${violations.join(', ')}`);
     }
     expect(violations, `Có ${violations.length} bài chứa literal \\n`).toEqual([]);
+  });
+
+  it('không còn địa chỉ showroom cũ (26 Vạn Phúc, Ba Đình; Lạc Long Quân) trong bài và mô tả sản phẩm', () => {
+    const old = /26 Vạn Phúc,\s*Ba Đình|Lạc Long Quân/i;
+    const texts: Array<[string, string]> = [
+      ...publishedArticles.map((a): [string, string] => [a.slug ?? a.id, `${a.content ?? ''} ${a.meta_description ?? ''}`]),
+      ...getVisibleProducts().map((p): [string, string] => [p.slug, p.description ?? '']),
+    ];
+    expect(texts.filter(([, text]) => old.test(text)).map(([slug]) => slug)).toEqual([]);
+  });
+
+  it('không mời đặt hàng trực tuyến trên biathaytu (website không bán online)', () => {
+    const pattern = /(đặt|mua)[^.]{0,30}(?:trực tuyến|online)[^.]{0,40}biathaytu/i;
+    const violations = publishedArticles.filter((a) => pattern.test(stripHtml(a.content ?? ''))).map((a) => a.slug);
+    expect(violations).toEqual([]);
   });
 
   it('không chứa claim sức khỏe / dinh dưỡng', () => {

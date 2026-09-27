@@ -240,7 +240,8 @@ Không viết lại chuỗi hay link trong component; đọc từ các file sau.
 | --- | --- |
 | `src/config/navigation.ts` | `NAV` (tên chuẩn của mỗi route: Sản phẩm, Câu chuyện Ettal, Showroom cho `/lien-he`…), `PRODUCT_LINES`, `KEG_PAGE`, `isProductsPath()`, `breadcrumbTrail()` cho breadcrumb hiển thị và JSON-LD |
 | `src/config/productLines.ts` | Dòng bia (Naturtrüb, Dunkel, Festbier, Hộp mix 2 vị, Bitburger): mỗi SKU khớp đúng một dòng; quy cách Chai / Lon / Bom suy từ tên |
-| `src/config/company.ts` | Pháp nhân, địa chỉ, hotline, email, giờ hỗ trợ `supportHours` (8:00 - 22:00) |
+| `src/config/company.ts` | Pháp nhân (link `legalWebsite` germantaste.vn), địa chỉ showroom + `showroomMapUrl` + toạ độ `showroomGeo` (bản đồ nhúng, JSON-LD), hotline, email, giờ hỗ trợ `supportHours` (8:00 - 22:00) |
+| `src/config/legacy-haravan-products.json` | Đường dẫn `/products/<handle>` của cửa hàng Haravan cũ → trang SKU mới (301); ảnh sản phẩm lưu trong repo, không tải từ Haravan |
 | `src/config/articleTopics.ts` | Chủ đề bài Kiến thức theo từ khoá tiêu đề |
 
 ## Khả năng truy cập

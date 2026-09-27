@@ -1,15 +1,26 @@
 export const COMPANY_CONFIG = {
   legalName: 'CÔNG TY TNHH GERMAN TASTE',
+  /** Website doanh nghiệp nhập khẩu, phân phối; biathaytu.com.vn là trang thương hiệu của công ty. */
+  legalWebsite: 'https://www.germantaste.vn',
   taxCode: '0110870013',
   businessRegistrationCertificateNumber: '0110870013',
   registeredAddress: 'Nhà số 22 Lô C khu tái định cư, Số 218 Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội, Việt Nam',
-  showroomAddress: '26 Vạn Phúc, Ba Đình, Hà Nội',
+  /** Địa chỉ showroom theo ghim Google Maps "Bia Thầy Tu Đức - Benediktiner" (chủ dự án xác nhận 27/09/2026). */
+  showroomAddress: '22 Lô C, Ngõ 26 P. Vạn Phúc, Ngọc Hà, Hà Nội',
+  showroomMapUrl: 'https://maps.app.goo.gl/yFtdrLdX7983FxhX6',
+  showroomGeo: { latitude: 21.0334126, longitude: 105.8178728 },
   legalRepresentative: 'PHẠM THANH TUYỀN',
   hotline: '0915 31 21 66',
   email: 'info@biathaytu.com.vn',
   /** Giờ hỗ trợ hotline / Zalo hàng ngày (chủ dự án xác nhận 26/09/2026). Một nguồn cho mọi trang. */
   supportHours: '8:00 - 22:00',
 } as const;
+
+/** Bản đồ nhúng ghim đúng toạ độ showroom (link rút gọn maps.app.goo.gl không nhúng được). */
+export function getShowroomMapEmbedUrl(): string {
+  const { latitude, longitude } = COMPANY_CONFIG.showroomGeo;
+  return `https://maps.google.com/maps?q=${latitude},${longitude}&z=17&output=embed`;
+}
 
 export function isPendingCompanyValue(value: string): boolean {
   return value.startsWith('<<CAN_CAP_NHAT:');

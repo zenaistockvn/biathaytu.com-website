@@ -170,6 +170,17 @@
   margin: 0;
 }
 
+/* Tên pháp nhân dẫn sang germantaste.vn: giữ màu chữ, gạch chân mảnh để nhận ra là link. */
+.companyList a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.companyList a:hover {
+  color: var(--web-accent-on-ink);
+}
+
 .wine {
   font-family: var(--font-condensed), sans-serif;
   font-size: 14px;

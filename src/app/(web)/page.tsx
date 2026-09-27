@@ -92,7 +92,7 @@ const faqItems = [
 export default function LandingPage() {
   const telHref = getCompanyTelHref();
   const zaloUrl = getCompanyZaloUrl();
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_CONFIG.showroomAddress)}`;
+  const mapUrl = COMPANY_CONFIG.showroomMapUrl;
 
   return (
     <>

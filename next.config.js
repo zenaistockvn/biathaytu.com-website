@@ -15,6 +15,8 @@ const RETIRED_BEER_PRODUCT_SLUGS = [
 const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
 // Slug trong database bị mất dấu khi tạo ("mix-2-v-thng"); site dùng slug sửa lại, slug cũ chuyển 301.
 const RENAMED_PRODUCT_SLUGS = require('./src/config/renamed-product-slugs.json');
+// Domain từng chạy cửa hàng Haravan: /products/<handle> cũ chuyển 301 về trang SKU tương ứng (lấy từ haravan_url).
+const LEGACY_HARAVAN_PRODUCTS = require('./src/config/legacy-haravan-products.json');
 
 const nextConfig = {
   images: {
@@ -27,10 +29,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'product.hstatic.net',
-      },
+      // Không cho phép product.hstatic.net: ảnh sản phẩm lưu trong repo, không phụ thuộc kho Haravan cũ.
     ],
   },
   async redirects() {
@@ -117,6 +116,27 @@ const nextConfig = {
       {
         source: '/chinh-sach-doi-tra',
         destination: '/thong-tin-mua-hang',
+        statusCode: 301,
+      },
+      // Đường dẫn cửa hàng Haravan cũ: sản phẩm có ánh xạ về đúng SKU, còn lại về danh mục / Kiến thức.
+      ...Object.entries(LEGACY_HARAVAN_PRODUCTS).map(([handle, destination]) => ({
+        source: `/products/${handle}`,
+        destination,
+        statusCode: 301,
+      })),
+      {
+        source: '/products/:path*',
+        destination: '/san-pham',
+        statusCode: 301,
+      },
+      {
+        source: '/collections/:path*',
+        destination: '/san-pham',
+        statusCode: 301,
+      },
+      {
+        source: '/blogs/:path*',
+        destination: '/kien-thuc',
         statusCode: 301,
       },
       // Trùng nội dung với trang Câu chuyện Ettal; thông tin doanh nghiệp và liên hệ đã có ở footer (audit L8, 09/2026).

@@ -124,9 +124,11 @@ function sanitizeProductDescription(description: string | null): string | null {
     )
     .replace(
       /Đại lý bia nhập khẩu Tây Hồ/gi,
-      'Bia Thầy Tu tại Ba Đình, Hà Nội',
+      'Bia Thầy Tu tại Ngọc Hà, Hà Nội',
     )
-    // Showroom đã chuyển về Ba Đình; mô tả cũ còn nhắc Tây Hồ.
+    // Mô tả cũ ghi địa chỉ showroom cũ; mọi nơi đọc COMPANY_CONFIG.showroomAddress.
+    .replace(/(?:số\s+)?26 Vạn Phúc,\s*Ba Đình,\s*Hà Nội/gi, COMPANY_CONFIG.showroomAddress)
+    // Showroom đã chuyển về Ngọc Hà; mô tả cũ còn nhắc Tây Hồ.
     .replace(/tại Tây Hồ, Hà Nội/gi, 'tại Hà Nội');
 }
 

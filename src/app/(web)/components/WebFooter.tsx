@@ -45,7 +45,7 @@ export default function WebFooter() {
     : `${COMPANY_CONFIG.taxCode} / ${COMPANY_CONFIG.businessRegistrationCertificateNumber}`;
 
   const companyRows = [
-    ['Pháp nhân', COMPANY_CONFIG.legalName],
+    ['Pháp nhân', <a key="legal" href={COMPANY_CONFIG.legalWebsite} target="_blank" rel="noopener">{COMPANY_CONFIG.legalName}</a>],
     ['MST / ĐKKD', registrationValue],
     ['Trụ sở', COMPANY_CONFIG.registeredAddress],
     ['Đại diện pháp luật', COMPANY_CONFIG.legalRepresentative],

@@ -3,7 +3,7 @@ import { BUSINESS, getBrandInfo } from './business';
 
 describe('seo/business', () => {
   it('exposes the canonical NAP', () => {
-    expect(BUSINESS.streetAddress).toBe('26 Vạn Phúc, Ba Đình, Hà Nội');
+    expect(BUSINESS.streetAddress).toBe('22 Lô C, Ngõ 26 P. Vạn Phúc, Ngọc Hà, Hà Nội');
     expect(BUSINESS.phoneE164).toBe('+84915312166');
     expect(BUSINESS.phoneDisplay).toBe('0915 31 21 66');
   });
