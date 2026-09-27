@@ -4,6 +4,8 @@ export interface ConsultationInput {
   email?: string;
   content: string;
   productName?: string;
+  /** Trang khách đang xem khi gửi (đường dẫn tương đối). */
+  page?: string;
 }
 
 export interface ConsultationLead {
@@ -12,6 +14,7 @@ export interface ConsultationLead {
   email: string;
   content: string;
   productName: string;
+  page: string;
   createdAtISO: string;
   source: 'product-consultation';
 }

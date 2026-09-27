@@ -3,6 +3,8 @@ import type { ConsultationLead } from '@/lib/consultation/types';
 import {
   appendConsultationToSheet,
   buildConsultationTelegramMessage,
+  LEAD_WEBHOOK_CHANNEL,
+  sendConsultationToLeadWebhook,
   sendConsultationToTelegram,
 } from './consultation';
 
@@ -12,6 +14,7 @@ const lead: ConsultationLead = {
   email: 'customer@example.com',
   content: 'Tôi cần tư vấn sản phẩm.',
   productName: 'Benediktiner Weissbier',
+  page: '',
   createdAtISO: '2026-08-27T00:00:00.000Z',
   source: 'product-consultation',
 };
@@ -63,6 +66,36 @@ describe('consultation Google Sheets integration', () => {
       json: async () => ({ ok: false }),
     }));
     await expect(appendConsultationToSheet(lead)).rejects.toThrow('trạng thái thất bại');
+  });
+});
+
+describe('consultation email webhook (cùng webhook với gt.vn)', () => {
+  it('gửi đúng các trường của form gt.vn, ghi rõ nguồn biathaytu, email nằm trong ghi chú', async () => {
+    vi.stubEnv('LEAD_WEBHOOK_URL', 'https://script.google.com/macros/s/test/exec');
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200, headers: new Headers({ 'content-type': 'application/json' }) });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(sendConsultationToLeadWebhook({ ...lead, page: '/san-pham/abc' })).resolves.toBeUndefined();
+    const [url, request] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe('https://script.google.com/macros/s/test/exec');
+    const body = JSON.parse(request.body as string) as Record<string, string>;
+    expect(Object.keys(body).sort()).toEqual(['channel', 'location', 'name', 'note', 'page', 'phone', 'productInterest', 'submittedAt']);
+    expect(body.channel).toBe(LEAD_WEBHOOK_CHANNEL);
+    expect(body.productInterest).toBe(lead.productName);
+    expect(body.note).toContain(lead.content);
+    expect(body.note).toContain(lead.email);
+    expect(body.page).toBe('https://www.biathaytu.com.vn/san-pham/abc');
+  });
+
+  it('coi trang lỗi HTML của Apps Script (vẫn trả 200) là thất bại', async () => {
+    vi.stubEnv('LEAD_WEBHOOK_URL', 'https://script.google.com/macros/s/test/exec');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, headers: new Headers({ 'content-type': 'text/html' }) }));
+    await expect(sendConsultationToLeadWebhook(lead)).rejects.toThrow('Lead webhook lỗi');
+  });
+
+  it('báo lỗi rõ khi thiếu LEAD_WEBHOOK_URL', async () => {
+    vi.stubEnv('LEAD_WEBHOOK_URL', '');
+    await expect(sendConsultationToLeadWebhook(lead)).rejects.toThrow('chưa được cấu hình');
   });
 });
 

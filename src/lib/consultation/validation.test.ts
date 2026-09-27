@@ -35,8 +35,17 @@ describe('consultation validation', () => {
         email: 'customer@example.com',
         content: 'Cần tư vấn.',
         productName: 'Benediktiner',
+        page: '',
       },
     });
+  });
+
+  it('chỉ nhận trang là đường dẫn nội bộ', () => {
+    const base = { name: 'A', phone: '0915312166', content: 'x' };
+    const ok = validateConsultationInput({ ...base, page: '/san-pham/abc' });
+    const external = validateConsultationInput({ ...base, page: 'https://evil.example/x' });
+    expect(ok.ok && ok.data.page).toBe('/san-pham/abc');
+    expect(external.ok && external.data.page).toBe('');
   });
 
   it.each([

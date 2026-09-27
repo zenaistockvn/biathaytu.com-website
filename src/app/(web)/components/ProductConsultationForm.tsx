@@ -12,6 +12,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
   const [content, setContent] = useState(`Tôi muốn được tư vấn về ${productName}.`);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [feedback, setFeedback] = useState('');
@@ -29,7 +30,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
       const response = await fetch('/api/consultation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email, content, productName }),
+        body: JSON.stringify({ name, phone, email, content, productName, page: window.location.pathname, website }),
       });
       const result = await response.json().catch(() => null) as {
         message?: string;
@@ -102,6 +103,14 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
                 onChange={(event) => setPhone(event.target.value)}
                 className={styles.input}
               />
+            </label>
+          </div>
+
+          {/* Ô bẫy bot (giống form gt.vn): người dùng không thấy, bot tự điền thì yêu cầu bị bỏ qua. */}
+          <div className={styles.honeypot} aria-hidden="true">
+            <label>
+              Website
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
             </label>
           </div>
 

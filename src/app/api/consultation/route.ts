@@ -3,6 +3,7 @@ import { validateConsultationInput } from '@/lib/consultation/validation';
 import type { ConsultationLead } from '@/lib/consultation/types';
 import {
   appendConsultationToSheet,
+  sendConsultationToLeadWebhook,
   sendConsultationToTelegram,
 } from '@/lib/integrations/consultation';
 
@@ -13,6 +14,8 @@ function methodNotAllowed(): Response {
   );
 }
 
+const SUCCESS_MESSAGE = 'Yêu cầu tư vấn đã được ghi nhận. Đội ngũ Bia Thầy Tu sẽ liên hệ lại sớm.';
+
 export async function POST(request: Request): Promise<Response> {
   let body: unknown;
 
@@ -20,6 +23,11 @@ export async function POST(request: Request): Promise<Response> {
     body = await request.json();
   } catch {
     return Response.json({ error: 'Dữ liệu JSON không hợp lệ.' }, { status: 400 });
+  }
+
+  // Honeypot giống gt.vn: bot điền ô "website" ẩn thì trả thành công mà không gửi đi đâu.
+  if (body && typeof body === 'object' && (body as { website?: unknown }).website) {
+    return Response.json({ ok: true, message: SUCCESS_MESSAGE });
   }
 
   const validation = validateConsultationInput(body);
@@ -36,16 +44,32 @@ export async function POST(request: Request): Promise<Response> {
     source: 'product-consultation',
   };
 
-  try {
-    await appendConsultationToSheet(lead);
-  } catch (error) {
-    console.error('[CONSULTATION_SHEETS_ERROR]', error);
-    const missingConfiguration = error instanceof Error && error.message.includes('chưa được cấu hình');
-    const message = missingConfiguration
-      ? `Hệ thống tiếp nhận tư vấn chưa được cấu hình. Vui lòng gọi hotline ${COMPANY_CONFIG.hotline}.`
-      : `Chưa thể lưu yêu cầu tư vấn. Vui lòng gọi hotline ${COMPANY_CONFIG.hotline}.`;
+  // Hai kênh lưu yêu cầu: webhook email chung với gt.vn và Google Sheet riêng của biathaytu.
+  // Chỉ báo thành công khi ít nhất một kênh đã cấu hình nhận được yêu cầu.
+  const deliveries: Array<[string, boolean, () => Promise<void>]> = [
+    ['LEAD_WEBHOOK', Boolean(process.env.LEAD_WEBHOOK_URL), () => sendConsultationToLeadWebhook(lead)],
+    ['SHEETS', Boolean(process.env.SHEETS_WEBHOOK_URL && process.env.SHEETS_WEBHOOK_SECRET), () => appendConsultationToSheet(lead)],
+  ];
+  const configured = deliveries.filter(([, enabled]) => enabled);
 
-    return Response.json({ error: message }, { status: 502 });
+  if (configured.length === 0) {
+    console.error('[CONSULTATION_CONFIG_ERROR] Chưa cấu hình LEAD_WEBHOOK_URL hoặc SHEETS_WEBHOOK_URL');
+    return Response.json(
+      { error: `Hệ thống tiếp nhận tư vấn chưa được cấu hình. Vui lòng gọi hotline ${COMPANY_CONFIG.hotline}.` },
+      { status: 503 },
+    );
+  }
+
+  const results = await Promise.allSettled(configured.map(([, , send]) => send()));
+  results.forEach((result, index) => {
+    if (result.status === 'rejected') console.error(`[CONSULTATION_${configured[index][0]}_ERROR]`, result.reason);
+  });
+
+  if (!results.some((result) => result.status === 'fulfilled')) {
+    return Response.json(
+      { error: `Chưa thể gửi yêu cầu tư vấn. Vui lòng gọi hotline ${COMPANY_CONFIG.hotline}.` },
+      { status: 502 },
+    );
   }
 
   try {
@@ -54,10 +78,7 @@ export async function POST(request: Request): Promise<Response> {
     console.error('[CONSULTATION_TELEGRAM_WARN]', error);
   }
 
-  return Response.json({
-    ok: true,
-    message: 'Yêu cầu tư vấn đã được ghi nhận. Đội ngũ Bia Thầy Tu sẽ liên hệ lại sớm.',
-  });
+  return Response.json({ ok: true, message: SUCCESS_MESSAGE });
 }
 
 export const GET = methodNotAllowed;

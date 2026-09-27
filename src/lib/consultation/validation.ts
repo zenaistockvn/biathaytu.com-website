@@ -23,6 +23,9 @@ export function validateConsultationInput(input: unknown): ConsultationValidatio
   const email = typeof candidate.email === 'string' ? candidate.email.trim() : '';
   const content = typeof candidate.content === 'string' ? candidate.content.trim() : '';
   const productName = typeof candidate.productName === 'string' ? candidate.productName.trim() : '';
+  const rawPage = typeof candidate.page === 'string' ? candidate.page.trim() : '';
+  // Chỉ nhận đường dẫn nội bộ; không cho chèn URL ngoài vào email nội bộ.
+  const page = /^\/[^\s]{0,299}$/.test(rawPage) ? rawPage : '';
 
   if (!name) return { ok: false, field: 'name', error: 'Vui lòng nhập họ và tên.' };
   if (name.length > 120) return { ok: false, field: 'name', error: 'Họ và tên không được vượt quá 120 ký tự.' };
@@ -43,6 +46,7 @@ export function validateConsultationInput(input: unknown): ConsultationValidatio
       email,
       content,
       productName: productName.slice(0, 200) || 'Sản phẩm chưa xác định',
+      page,
     },
   };
 }
