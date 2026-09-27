@@ -61,11 +61,6 @@ function isBenediktinerArticle(article: Article): boolean {
  * Bỏ từ "số 1", "ngon nhất" không có căn cứ; bỏ câu chê bia khác, câu về dưỡng chất; sửa 400/700 năm.
  */
 export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_description?: string }> = {
-  'so-sanh-weissbier-vs-pilsner': {
-    title: 'So sánh Weissbier và Pilsner: dòng bia Đức nào hợp bàn tiệc của bạn?',
-    meta_description:
-      'So sánh Benediktiner Weissbier lúa mì mềm mượt và Bitburger Pilsner đắng thanh, giúp bạn chọn dòng bia Đức hợp gu cho bàn tiệc.',
-  },
   'bitburger-hanh-trinh-200-nam-bia-draft-so-1': {
     title: 'Bitburger Premium Pils: hơn 200 năm bia Pils vùng Eifel',
     meta_description:
@@ -76,33 +71,17 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
     meta_description:
       'Nên uống bia Đức ở nhiệt độ nào? Bảng nhiệt độ cho từng dòng bia và lý do không nên cho đá vào bia.',
   },
-  'nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan': {
-    title: 'Cách rót bia lúa mì (Weizen) đúng chuẩn',
-  },
   'dao-luat-tinh-khiet-1516-reinheitsgebot': {
     title: 'Đạo luật Tinh khiết 1516 (Reinheitsgebot): nền tảng của bia Đức',
     meta_description:
       'Tìm hiểu Đạo luật Tinh khiết 1516 (Reinheitsgebot), một trong những quy định về thực phẩm lâu đời nhất, và cách nó định hình bia Đức.',
   },
-  'food-pairing-bia-thay-tu-va-am-thuc': {
-    title: 'Food pairing: cách ghép bia Đức với món ăn',
-    meta_description:
-      'Cách ghép bia Đức với món ăn: Weissbier thanh nhẹ với hải sản, Dunkel đậm đà với sườn nướng BBQ, Pilsner với món chiên.',
-  },
   'huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi': {
     title: 'Giải mã hương chuối chín và đinh hương trong bia lúa mì',
-  },
-  'benediktiner-weissbier-400-nam-bia-tu-vien': {
-    meta_description:
-      'Benediktiner Weissbier và hơn 400 năm nấu bia của Tu viện Ettal, Bavaria: nguồn gốc, hương vị, cách thưởng thức và món ăn kèm.',
   },
   'nguon-goc-bia-thay-tu-tu-vien-ettal': {
     meta_description:
       'Khám phá lịch sử gần 700 năm của Tu viện Ettal, nơi khởi nguồn bia Benediktiner Weissbier. Từ sắc lệnh hoàng gia 1330 đến chai bia trên bàn tiệc Việt Nam.',
-  },
-  'bia-khong-con-bitburger-0-0-lua-chon-dang-cap': {
-    meta_description:
-      'Bitburger 0.0% Alkoholfrei: lựa chọn cho những buổi gặp mặt không cồn mà vẫn giữ hương vị Pilsner Đức.',
   },
   'su-tran-trong-nguyen-ban-bia-giao-thoa': {
     meta_description:
@@ -115,10 +94,6 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
   'su-that-ve-lop-men-van-duc-naturtrub': {
     meta_description:
       'Naturtrüb là gì? Vì sao lớp men sống làm bia lúa mì Đức đục mờ và đậm hương hơn bia đã lọc.',
-  },
-  'bia-lua-mi-duc-weissbier-la-gi': {
-    meta_description:
-      'Khám phá bia lúa mì Đức (Weissbier): bí ẩn đằng sau lớp bọt kem dày và hương chuối, đinh hương đặc trưng.',
   },
 };
 
@@ -228,15 +203,6 @@ export const ARTICLE_TEXT_PATCHES: Record<string, Array<{ find: string; replace:
     {
       find: 'lớp men sống chứa vitamin B tự nhiên và tạo nên vị béo mượt đặc trưng',
       replace: 'lớp men sống tạo nên vị béo mượt đặc trưng',
-    },
-    // Tu viện Ettal lập năm 1330 (gần 700 năm), nấu bia từ 1609 (hơn 400 năm).
-    {
-      find: 'sau khi tìm hiểu hành trình gần 700 năm của nhà máy bia này',
-      replace: 'sau khi tìm hiểu gần 700 năm của Tu viện Ettal và hơn 400 năm nấu bia ở đó',
-    },
-    {
-      find: 'Họ đã làm bia thủ công từ trước khi khái niệm đó tồn tại, gần 700 năm trước.',
-      replace: 'Các tu sĩ Ettal đã nấu bia thủ công từ năm 1609, rất lâu trước khi khái niệm đó ra đời.',
     },
   ],
   'top-3-loai-xuc-xich-duc-nhap-khau-an-kem-bia': [
