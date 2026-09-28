@@ -35,16 +35,16 @@ const COVER_DIR = '/images/articles/kien-thuc';
  */
 export const ARTICLE_COVERS: Record<string, { src: string; credit?: string }> = {
   'nguon-goc-bia-thay-tu-tu-vien-ettal': { src: '/images/brand/benediktiner-official/ettal-monastery.jpg' },
-  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': { src: `${COVER_DIR}/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel.webp` },
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': { src: `${COVER_DIR}/bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel-v2.webp` },
   'bitburger-hanh-trinh-200-nam-bia-draft-so-1': { src: `${COVER_DIR}/bitburger-hanh-trinh-200-nam-bia-draft-so-1.webp` },
-  'huong-dan-chon-bia-duc-cho-nguoi-moi': { src: `${COVER_DIR}/huong-dan-chon-bia-duc-cho-nguoi-moi.webp` },
+  'huong-dan-chon-bia-duc-cho-nguoi-moi': { src: `${COVER_DIR}/huong-dan-chon-bia-duc-cho-nguoi-moi-v2.webp` },
   'top-7-mon-viet-ket-hop-bia-duc-food-pairing': { src: `${COVER_DIR}/top-7-mon-viet-ket-hop-bia-duc-food-pairing.webp` },
   'cach-bao-quan-bia-nhap-khau-dung-cach': { src: `${COVER_DIR}/cach-bao-quan-bia-nhap-khau-dung-cach.webp` },
   'su-tran-trong-nguyen-ban-bia-giao-thoa': { src: `${COVER_DIR}/su-tran-trong-nguyen-ban-bia-giao-thoa.webp` },
   'ly-uong-bia-lua-mi-weizen-glass': { src: `${COVER_DIR}/ly-uong-bia-lua-mi-weizen-glass.webp` },
   'nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu': { src: `${COVER_DIR}/nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu.webp` },
   'huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi': { src: `${COVER_DIR}/huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi.webp` },
-  'phan-biet-weissbier-dunkel-festbier': { src: `${COVER_DIR}/phan-biet-weissbier-dunkel-festbier.webp` },
+  'phan-biet-weissbier-dunkel-festbier': { src: `${COVER_DIR}/phan-biet-weissbier-dunkel-festbier-v2.webp` },
   'su-that-ve-lop-men-van-duc-naturtrub': { src: `${COVER_DIR}/su-that-ve-lop-men-van-duc-naturtrub.webp` },
   'dao-luat-tinh-khiet-1516-reinheitsgebot': {
     src: `${COVER_DIR}/dao-luat-tinh-khiet-1516-reinheitsgebot.webp`,
