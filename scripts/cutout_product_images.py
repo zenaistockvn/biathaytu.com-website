@@ -110,7 +110,8 @@ DEFAULT_TARGETS = [
     PRODUCTS_DIR / "official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg",
     # Ảnh thương hiệu ở trang chủ. Đặt tên hậu tố -nobg vì /images/* được phục vụ
     # kèm cache một năm immutable: bản tách nền phải đi kèm đường dẫn mới.
-    ROOT / "public/images/brand/benediktiner-official/dunkel-glass-nobg.webp",
+    # Cốc Dunkel (dunkel-glass-cutout.webp) KHÔNG xử lý ở đây: bọt gần trắng chạm nền
+    # nên flood fill ăn khuyết đỉnh bọt. Ảnh đó tách theo hàng, xem SOURCES.md cùng thư mục.
     ROOT / "public/images/brand/benediktiner-official/festbier-keg-nobg.webp",
 ]
 

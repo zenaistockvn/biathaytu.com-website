@@ -50,7 +50,7 @@ const beers = [
   {
     name: 'Weissbier Dunkel',
     type: 'bia lúa mì đen',
-    image: '/images/brand/benediktiner-official/dunkel-glass-nobg.webp',
+    image: '/images/brand/benediktiner-official/dunkel-glass-cutout.webp',
     href: getLine('dunkel').href as string,
     meta: '5,4% vol. Nâu hổ phách, hương malt rang và caramel',
   },

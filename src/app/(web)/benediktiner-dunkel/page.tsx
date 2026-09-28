@@ -62,7 +62,7 @@ export default function Page() {
           title: 'Weissbier Dunkel',
           kicker: 'Bia lúa mì đen',
           meta: '5,4% vol. Thưởng thức ở 8 đến 10°C.',
-          cutout: { src: '/images/brand/benediktiner-official/dunkel-glass-nobg.webp', alt: 'Ly Benediktiner Weissbier Dunkel' },
+          cutout: { src: '/images/brand/benediktiner-official/dunkel-glass-cutout.webp', alt: 'Ly Benediktiner Weissbier Dunkel' },
         }}
         intro={{
           title: 'Lúa mì và mạch nha rang',
