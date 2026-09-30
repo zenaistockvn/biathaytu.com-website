@@ -100,7 +100,7 @@ export default function Page() {
             { term: 'Thị giác', text: 'Nâu hạt dẻ đậm, đục. Bọt màu caramel nhạt, xốp mịn.' },
             { term: 'Khứu giác', text: 'Mạch nha rang, kẹo bơ cứng, chocolate đen và thoảng chuối nướng.' },
             { term: 'Vị giác', text: 'Caramel và mật ong, xen vị bánh mì nướng và chút đắng nhẹ của hoa bia.' },
-            { term: 'Hậu vị', text: 'Ấm, mượt và sạch. Độ béo của lúa mì hòa quyện với mạch nha.' },
+            { term: 'Hậu vị', text: 'Ấm, mượt và sạch. Độ béo của lúa mì đi cùng vị mạch nha rang.' },
           ],
         }}
         story={{
@@ -124,7 +124,7 @@ export default function Page() {
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
+          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và điểm nhận hàng.',
           action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

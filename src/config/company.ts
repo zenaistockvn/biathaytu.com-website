@@ -13,7 +13,7 @@ export const COMPANY_CONFIG = {
   hotline: '0915 31 21 66',
   email: 'info@biathaytu.com.vn',
   /** Giờ hỗ trợ hotline / Zalo hàng ngày (chủ dự án xác nhận 26/09/2026). Một nguồn cho mọi trang. */
-  supportHours: '8:00 - 22:00',
+  supportHours: '8:00 - 22:30',
 } as const;
 
 /** Bản đồ nhúng ghim đúng toạ độ showroom (link rút gọn maps.app.goo.gl không nhúng được). */

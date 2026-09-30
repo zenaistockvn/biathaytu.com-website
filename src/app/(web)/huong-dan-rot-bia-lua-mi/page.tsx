@@ -5,11 +5,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
-  description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
+  description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt dày khoảng 3 ngón tay và rót được cả lớp men Naturtrüb dưới đáy chai.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi' },
   openGraph: {
     title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
-    description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
+    description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt dày khoảng 3 ngón tay và rót được cả lớp men Naturtrüb dưới đáy chai.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hướng dẫn rót bia lúa mì Đức (Weissbier) chuẩn xác',
-    description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt hoàn hảo 3 ngón tay và đánh thức men sống Naturtrüb dưới đáy chai.',
+    description: 'Học cách rót bia lúa mì Benediktiner Weissbier để có lớp bọt dày khoảng 3 ngón tay và rót được cả lớp men Naturtrüb dưới đáy chai.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -40,7 +40,7 @@ export default function Page() {
           eyebrow: 'Nghệ thuật thưởng thức',
           title: 'Cách rót bia lúa mì',
           kicker: 'Chuẩn Bavaria, bốn bước',
-          lead: 'Rót bia Weissbier không đơn giản là đổ ra ly. Đó là một nghi thức đánh thức hương vị men sống.',
+          lead: 'Rót Weissbier đúng cách thì bọt dày, bia đục đều và hương chuối chín rõ hơn. Có bốn bước.',
           image: { src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Ly Weizen và chai Benediktiner Weissbier trên bàn gỗ', position: '70% center' },
         }}
       >

@@ -10,7 +10,7 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
-  description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine và hành trình công thức nguyên bản được tiếp nối tại Lich, Đức.',
+  description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine, công thức gốc được tiếp nối tại Lich, Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/thuong-hieu' },
   openGraph: {
     title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 const principles = [
-  ['Tĩnh tại', 'Dành thời gian cho những điều tốt đẹp và một khoảnh khắc thưởng thức trọn vẹn.'],
+  ['Tĩnh tại', 'Dành thời gian cho những điều tốt đẹp, ngồi xuống và thưởng thức chậm rãi.'],
   ['Chăm chút', 'Cẩn trọng trong từng lựa chọn nguyên liệu, công thức và cách phục vụ.'],
   ['Tôn trọng', 'Tôn trọng con người, thiên nhiên và những giá trị đã được truyền lại qua nhiều thế hệ.'],
 ] as const;
@@ -108,7 +108,7 @@ export default function BrandStoryPage() {
 
       <section className={styles.cta} aria-labelledby="story-cta-title">
         <div className="container">
-          <TitleBlock id="story-cta-title" title="Tiếp tục hành trình" kicker="Khám phá hương vị Benediktiner" />
+          <TitleBlock id="story-cta-title" title="Tìm hiểu thêm" kicker="Các dòng bia Benediktiner" />
           <p>Từ Naturtrüb cân bằng đến Dunkel đậm malt và Festbier dành cho những dịp sum họp.</p>
           <div className={styles.actions}>
             <Button href="/san-pham" variant="primary">Xem các dòng bia</Button>

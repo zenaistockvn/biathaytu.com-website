@@ -91,7 +91,7 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
   'bitburger-hanh-trinh-200-nam-bia-draft-so-1': {
     title: 'Bitburger Premium Pils: hơn 200 năm bia Pils vùng Eifel',
     meta_description:
-      'Bitburger Premium Pils: hành trình hơn 200 năm từ xưởng bia nhỏ ở Bitburg, vùng Eifel. Tìm hiểu kỹ thuật Double Hopping và tasting notes.',
+      'Bitburger Premium Pils: hơn 200 năm từ xưởng bia nhỏ ở Bitburg, vùng Eifel. Lịch sử, hoa bia Siegelhopfen và tasting notes.',
   },
   'nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu': {
     title: 'Uống bia Đức ở nhiệt độ bao nhiêu là vừa?',
@@ -108,7 +108,7 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
   },
   'nguon-goc-bia-thay-tu-tu-vien-ettal': {
     meta_description:
-      'Khám phá lịch sử gần 700 năm của Tu viện Ettal, nơi khởi nguồn bia Benediktiner Weissbier. Từ sắc lệnh hoàng gia 1330 đến chai bia trên bàn tiệc Việt Nam.',
+      'Lịch sử gần 700 năm của Tu viện Ettal, nơi có công thức và men của bia Benediktiner Weissbier. Từ sắc lệnh hoàng gia 1330 đến chai bia trên bàn tiệc Việt Nam.',
   },
   'su-tran-trong-nguyen-ban-bia-giao-thoa': {
     meta_description:
@@ -117,6 +117,15 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
   'phan-biet-weissbier-dunkel-festbier': {
     meta_description:
       'Cẩm nang phân biệt 3 dòng bia nổi tiếng của Đức: Weissbier (lúa mì), Dunkel (bia đen) và Festbier (bia lễ hội Oktoberfest).',
+  },
+  'top-7-mon-viet-ket-hop-bia-duc-food-pairing': {
+    title: 'Top 7 món Việt hợp với bia Đức: hướng dẫn food pairing',
+    meta_description:
+      '7 món Việt hợp với bia Đức: phở gà với Weissbier, chả giò với Pilsner, bò lúc lắc với Dunkel. Vì sao hợp và cách dùng.',
+  },
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': {
+    meta_description:
+      'Benediktiner Dunkel: bia lúa mì sẫm màu, hương mạch nha rang và caramel, độ đắng thấp. Cách thưởng thức và món nướng hợp vị.',
   },
   'su-that-ve-lop-men-van-duc-naturtrub': {
     meta_description:
@@ -371,6 +380,223 @@ export const ARTICLE_TEXT_PATCHES: Record<string, Array<{ find: string; replace:
   ],
 };
 
+/**
+ * Rà soát tuân thủ 10/2026 (luật 44/2019, NĐ 24/2020, website không bán online, bảng sự thật).
+ * Benediktiner ủ tại Lich với men hầm tu viện Ettal, không dùng nước Alps (bitburger-international.com);
+ * xuất khẩu hơn 50 nước; Bitburger do gia đình Simon điều hành đời thứ bảy, đối tác DFB 1992-2018 và từ 04/2025
+ * (bitburger.de, báo chí ngành); craft beer ở Đức khoảng 1% thị trường; Séc, không phải Đức, uống bia nhiều nhất châu Âu.
+ * `find` khớp nội dung sau bước đổi tiêu đề con về dạng câu, trước bước viết lại link.
+ */
+const COMPLIANCE_PATCHES_2026_10: Record<string, Array<{ find: string; replace: string }>> = {
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': [
+    { find: 'lại là người bạn đồng hành hoàn hảo cho những buổi tối se lạnh', replace: 'lại hợp với những buổi tối se lạnh' },
+    {
+      find: '<p>Khác với các dòng bia đen công nghiệp vốn có vị đắng cháy gắt, Dunkel của tu viện Ettal mang lại vị mượt mà đầy miệng (full-bodied) and hậu vị rất êm, sạch sẽ nhờ sự cân bằng xuất sắc giữa mạch nha rang cao cấp và hoa bia đặc hữu của vùng Bavaria.</p>',
+      replace:
+        '<p>Benediktiner Dunkel có vị mượt, đầy miệng (full-bodied) và hậu vị êm, sạch nhờ cân bằng giữa mạch nha rang và hoa bia. Bia được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal.</p>',
+    },
+    { find: '<h2>Quy trình rang mạch nha thủ công độc bản</h2>', replace: '<h2>Quy trình rang mạch nha</h2>' },
+    { find: 'các tu sĩ dòng Benedict đã sử dụng kỹ thuật rang mạch nha', replace: 'nhà bia sử dụng kỹ thuật rang mạch nha' },
+    { find: 'bia chỉ sử dụng nước suối Alps, mạch nha, hoa bia và men sống.', replace: 'bia chỉ sử dụng nước, mạch nha, hoa bia và men.' },
+    {
+      find: 'Sự an tâm và độ sạch của dòng bia này là lý do khiến người sành bia luôn đánh giá cao ',
+      replace: 'Đó cũng là điều nhiều người tìm ở ',
+    },
+    { find: ' hơn các dòng bia đen pha tạp chất khác.', replace: '.' },
+    { find: '<h2>Món ăn kết hợp hoàn hảo cùng Benediktiner Dunkel</h2>', replace: '<h2>Món ăn hợp với Benediktiner Dunkel</h2>' },
+    {
+      find: 'là chương nhạc trầm ấm và có chiều sâu nhất trong bản giao hưởng bia tu viện Đức.',
+      replace: 'có vị đậm và sâu nhất trong các dòng Benediktiner.',
+    },
+    { find: '(IBU 12)', replace: '(IBU 13)' },
+    { find: ', đem lại cảm giác ấm áp vừa phải mà không gây mệt mỏi.', replace: '.' },
+  ],
+  'bitburger-hanh-trinh-200-nam-bia-draft-so-1': [
+    { find: 'Câu slogan huyền thoại này ra đời năm 1951', replace: 'Câu khẩu hiệu này ra đời năm 1951' },
+    { find: ', nguyên liệu hoàn hảo cho bia.', replace: '.' },
+    { find: '<h2>Kỹ thuật Double Hopping: Bí mật độc quyền</h2>', replace: '<h2>Hoa bia thêm hai lần</h2>' },
+    {
+      find: 'Điều khiến Bitburger khác biệt với hàng nghìn Pilsner khác trên thế giới là kỹ thuật <strong>Double Hopping</strong> hoa bia được thêm vào ở hai thời điểm khác nhau trong quá trình nấu:',
+      replace: 'Hoa bia Siegelhopfen của Bitburger, trồng ở vùng Hallertau (Bavaria) và Holsthum (Nam Eifel), được thêm vào ở hai thời điểm trong quá trình nấu:',
+    },
+    {
+      find: 'Mỗi ngụm Bitburger kết thúc bằng cảm giác "muốn uống thêm", điều mà ít Pilsner nào đạt được.',
+      replace: 'Hậu vị khô và sạch, vị đắng không đọng lại lâu.',
+    },
+    {
+      find: ' với hơn 1 triệu hectoliter bia keg được phân phối mỗi năm. Ở Đức, không có quán bia nào, sân vận động nào, hay nhà hàng lớn nào không có Bitburger trong menu.',
+      replace: ' (trên bitburger.de, hãng gọi là &quot;das meistgezapfte Premium Pils an deutschen Theken&quot;).',
+    },
+    {
+      find: '<p>Thương hiệu cũng là đối tác chính thức của Liên đoàn Bóng đá Đức (DFB), mỗi trận Bundesliga, hàng triệu cổ động viên nâng ly Bitburger.</p>',
+      replace:
+        '<p>Bitburger là đối tác của Liên đoàn Bóng đá Đức (DFB) từ năm 1992 đến 2018, và trở lại làm đối tác chính thức của các đội tuyển quốc gia Đức từ tháng 4/2025.</p>',
+    },
+    {
+      find: 'Sau hơn 200 năm và 8 thế hệ gia đình, Bitburger vẫn là nhà máy bia <strong>tư nhân gia đình</strong> không niêm yết, không bán cho tập đoàn lớn. Mọi quyết định vẫn đặt chất lượng lên trên sản lượng.',
+      replace: 'Sau hơn 200 năm, Bitburger vẫn là nhà bia <strong>của gia đình Simon</strong>, nay do thế hệ thứ bảy điều hành.',
+    },
+  ],
+  'huong-dan-chon-bia-duc-cho-nguoi-moi': [
+    { find: 'để lần sau bước vào quán hoặc chọn mua online, bạn biết', replace: 'để lần sau bước vào quán hoặc ghé showroom, bạn biết' },
+    { find: ' Nam giới thường thích Pilsner hơn Weissbier.', replace: '' },
+    {
+      find: 'Đây là dòng bia lager đen truyền thống của Munich, thực ra còn lâu đời hơn cả Pilsner. Màu tối đến từ malt đại mạch rang kỹ',
+      replace: 'Benediktiner Dunkel là bia lúa mì sẫm màu (Dunkelweizen), lên men trên giống Weissbier. Màu tối đến từ malt rang kỹ',
+    },
+    { find: '<tr><td>Nhiệt độ</td><td>6-8°C</td><td>4-7°C</td><td>8-10°C</td></tr>', replace: '<tr><td>Nhiệt độ</td><td>7-9°C</td><td>4-6°C</td><td>8-10°C</td></tr>' },
+    {
+      find: 'Đừng chỉ uống một loại. Cách tốt nhất để tìm bia yêu thích là thử cả ba.',
+      replace: 'Mỗi người một gu, nên có thể nếm từng dòng để tìm loại hợp với mình.',
+    },
+    {
+      find: 'Mỗi dòng sẽ cho bạn một trải nghiệm hoàn toàn khác biệt, và đó mới là vẻ đẹp thực sự của bia Đức.',
+      replace: 'Ba dòng khác nhau rõ về màu, hương và độ đắng.',
+    },
+    { find: 'Dòng 1: Weissbier (Bia Lúa Mì): Êm dịu, dễ uống', replace: 'Dòng 1: Weissbier (bia lúa mì): êm dịu, dễ uống' },
+    { find: 'Dòng 2: Pilsner (Bia Vàng Sáng): Sắc nét, sảng khoái', replace: 'Dòng 2: Pilsner (bia vàng sáng): sắc nét, đắng thanh' },
+    { find: 'Dòng 3: Dunkel (Bia Đen): Đậm đà, phức hợp', replace: 'Dòng 3: Dunkel (bia sẫm màu): đậm, nhiều tầng hương' },
+  ],
+  'top-7-mon-viet-ket-hop-bia-duc-food-pairing': [
+    { find: 'Food Pairing là gì và tại sao nó quan trọng?', replace: 'Food pairing là gì và tại sao nó quan trọng?' },
+    {
+      find: 'có khả năng nâng tầm bữa ăn theo những cách mà nhiều người chưa từng nghĩ đến.',
+      replace: 'cũng có thể đi cùng món ăn theo những cách nhiều người chưa nghĩ tới.',
+    },
+    { find: '<h2>7 Cặp đôi hoàn hảo Việt-Đức</h2>', replace: '<h2>7 cặp món Việt và bia Đức</h2>' },
+    {
+      find: 'Uống một ngụm bia giữa mỗi lần húp nước dùng. Bạn sẽ nhận ra nước phở ngọt hơn hẳn.',
+      replace: 'Nếm nước dùng trước rồi mới nhấp bia, vị ngọt của nước phở sẽ rõ hơn.',
+    },
+    { find: 'Vị chua-ngọt-đắng tạo thành bộ ba hoàn hảo.', replace: 'Vị chua, ngọt và đắng đi cùng nhau khá hợp.' },
+    { find: ', kiểu complement hoàn hảo.', replace: ', kiểu kết hợp bổ sung (complement).' },
+    { find: '<p><em>Mẹo:</em> Đây là cặp đôi yêu thích nhất của nhiều nhà hàng hải sản Hà Nội khi phục vụ bia Đức.</p>', replace: '' },
+    { find: ' Lý tưởng cho ngày hè nóng.', replace: '' },
+    { find: 'Nghe lạ nhưng thử sẽ ghiền!', replace: 'Nghe lạ nhưng khá hợp.' },
+    { find: 'Đặt bia Đức chính hãng cho bữa tiệc tiếp theo', replace: 'Xem các dòng bia Đức chính hãng' },
+  ],
+  'cach-bao-quan-bia-nhap-khau-dung-cach': [
+    { find: '<td>4-8°C</td><td>6-8°C</td>', replace: '<td>4-8°C</td><td>7-9°C</td>' },
+    { find: 'Khám phá bộ sưu tập bia Đức chính hãng tại Bia Thầy Tu', replace: 'Xem các dòng bia Đức chính hãng tại Bia Thầy Tu' },
+  ],
+  'su-tran-trong-nguyen-ban-bia-giao-thoa': [
+    {
+      find: '**Bia có phụ gia** giống như nấu ăn với nhiều gia vị, dễ giấu khuyết điểm. Chanh dây, cà phê, vani sẽ lấn át mọi sai sót trong nguyên liệu gốc và quy trình nấu.',
+      replace: '**Bia chỉ từ bốn nguyên liệu** thì không có gì để che: vị của nước, mạch nha, hoa bia và men hiện ra rõ.',
+    },
+    { find: 'đủ để tạo ra thứ tuyệt hảo.', replace: 'đủ để tạo ra một ly bia ngon.' },
+    {
+      find: 'Điều này lặp lại ở nhiều thị trường. Tại Đức, dù craft beer bùng nổ toàn cầu, bia truyền thống vẫn chiếm **hơn 90% thị phần**. Người Đức, quốc gia uống bia nhiều nhất châu Âu, đã thử hết rồi, và họ quay về với nguyên bản.',
+      replace: 'Ở Đức, craft beer theo nghĩa hẹp chỉ chiếm khoảng 1% thị trường, còn Pils vẫn là loại bia bán chạy nhất.',
+    },
+  ],
+  'ly-uong-bia-lua-mi-weizen-glass': [
+    { find: '## Chiếc ly Weizenglas huyền thoại', replace: '## Chiếc ly Weizenglas' },
+    { find: 'Hai mũi vào ly, rồi hương chuối', replace: 'Đưa mũi vào ly, rồi hương chuối' },
+    { find: 'hương thoát tán loạng', replace: 'hương thoát tán loạn' },
+    { find: '| **Ly Weizenglas** | Weissbier | Hoàn hảo |', replace: '| **Ly Weizenglas** | Weissbier | Rất tốt |' },
+    { find: '| Bia công nghiệp |', replace: '| Bia thông thường |' },
+  ],
+  'nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu': [
+    { find: '| 6-8°C | 3-4 giờ | Đủ mát để sảng khoái, đủ ấm', replace: '| 7-9°C | 3-4 giờ | Đủ mát, đủ ấm' },
+    { find: '(khoảng 6-8°C, nhiệt độ vàng)', replace: '(khoảng 7-9°C, nhiệt độ vàng)' },
+    { find: 'rồi đạt 6-8°C nhanh hơn tủ lạnh', replace: 'rồi đạt 7-9°C nhanh hơn tủ lạnh' },
+    { find: '- Uống trong vòng 15-20 phút sau khi rót, đó là "cửa sổ vàng" của hương vị', replace: '- Hương rõ nhất trong ít phút đầu sau khi rót' },
+  ],
+  'huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi': [
+    {
+      find: 'Chỉ các dòng men Weissbier của Bavaria mới có khả năng này',
+      replace: 'Các chủng men bia lúa mì kiểu Đức mới tạo ra hương này rõ',
+    },
+    { find: 'Ủ lâu hơn giúp các hương vị hòa quyện mượt mà hơn', replace: 'Ủ lâu hơn giúp hương vị tròn hơn' },
+    { find: '### Benediktiner: cân bằng hoàn hảo giữa hai hương', replace: '### Benediktiner: cân bằng giữa hai hương' },
+    { find: ', rồi sau đó không muốn quay lại uống Lager thông thường nữa.', replace: '.' },
+    {
+      find: 'sinh ra đủ loại hợp chất phụ tạo nên bản giao hưởng hương vị đặc trưng.',
+      replace: 'sinh ra nhiều hợp chất phụ tạo nên hương đặc trưng.',
+    },
+    { find: '**Để ly bia ấm đến 8-10°C**', replace: '**Để ly bia ở 7-9°C**' },
+  ],
+  'phan-biet-weissbier-dunkel-festbier': [
+    {
+      find: 'dưới đây là 3 trường phái kinh điển nhất bạn bắt buộc phải biết:',
+      replace: 'có 3 dòng nên biết trước:',
+    },
+    { find: 'Weissbier là linh hồn của vùng Bavaria.', replace: 'Weissbier là dòng bia lúa mì gắn với vùng Bavaria.' },
+    {
+      find: 'Naturtrüb, 400 năm từ Tu viện Ettal, Bavaria.',
+      replace: 'Naturtrüb, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal, ủ tại Lich.',
+    },
+    { find: ', đây là dòng bia dành cho những khoảnh khắc chỉn chu.', replace: '.' },
+    { find: 'Cân bằng hoàn hảo giữa ngọt malt', replace: 'Cân bằng giữa ngọt malt' },
+    { find: 'Và khi sẵn sàng cho một cuộc phiêu lưu, Festbier sẽ chờ bạn.', replace: 'Festbier để dành cho mùa lễ hội.' },
+  ],
+  'su-that-ve-lop-men-van-duc-naturtrub': [
+    {
+      find: 'Chúc mừng, bạn đang thưởng thức một ly bia tuyệt hảo.',
+      replace: 'Không sao cả, bia lúa mì Naturtrüb vốn đục như vậy.',
+    },
+    { find: 'Bia công nghiệp thông thường trong vắt vì đã trải qua quá trình lọc kỹ', replace: 'Nhiều loại bia trong vắt vì đã qua quá trình lọc kỹ' },
+    { find: 'Nói cách khác: lọc bia là bỏ đi linh hồn của nó.', replace: '' },
+    {
+      find: 'từ quá trình lên men tại nhà máy bia tu viện.',
+      replace: 'từ quá trình lên men, theo công thức gốc dòng Biển Đức với men hầm tu viện Ettal.',
+    },
+    { find: 'Đó là Naturtrüb, không cần lọc, vì bản gốc đã hoàn hảo.', replace: 'Đó là Naturtrüb: không lọc, giữ nguyên men.' },
+  ],
+  'dao-luat-tinh-khiet-1516-reinheitsgebot': [
+    {
+      find: 'là quy định về chất lượng thực phẩm và đồ uống lâu đời nhất thế giới còn hiệu lực. Hơn 500 năm trôi qua, luật này vẫn là xương sống của ngành bia Đức, và là lý do vì sao mỗi ly bia Đức bạn uống đều khác biệt so với phần còn lại của thế giới.',
+      replace: 'là một trong những quy định về thực phẩm lâu đời nhất còn được nhắc tới. Hơn 500 năm sau, tinh thần của luật vẫn là nền tảng của ngành bia Đức.',
+    },
+    {
+      find: 'Men được bổ sung chính thức vào luật sau khi Louis Pasteur phát hiện vai trò của vi sinh vật năm 1857.',
+      replace: 'Men được đưa vào quy định về sau, khi vai trò của men trong quá trình lên men đã được hiểu rõ.',
+    },
+    {
+      find: 'Sau này, các tu viện được đặc cách nấu bia lúa mì (Weissbier), và dòng bia này trở thành đặc sản.',
+      replace: 'Sau này, bia lúa mì (Weissbier) được nấu theo đặc quyền riêng của nhà cầm quyền Bavaria, và dòng bia này trở thành đặc sản.',
+    },
+    { find: 'nước tinh khiết từ dãy Alps Bavaria, malt lúa mì + lúa mạch', replace: 'nước, malt lúa mì và lúa mạch' },
+  ],
+  'nguon-goc-bia-thay-tu-tu-vien-ettal': [
+    {
+      find: 'Nơi đây là cái nôi của một trong những dòng bia lâu đời nhất nước Đức, ',
+      replace: 'Truyền thống nấu bia của tu viện, có từ năm 1609, là gốc của ',
+    },
+    {
+      find: 'Trong khi hàng nghìn nhà máy bia trên thế giới chạy đua công nghệ, tối ưu sản lượng, thêm hương liệu nhân tạo để giảm chi phí, Benediktiner vẫn giữ nguyên phương pháp ủ truyền thống:',
+      replace: 'Benediktiner giữ phương pháp ủ truyền thống:',
+    },
+    {
+      find: '<li><strong>Nước suối Alps</strong> nguồn nước ngầm từ dãy Ammergau, đã được lọc tự nhiên qua các tầng đá vôi hàng triệu năm</li>',
+      replace: '<li><strong>Men hầm Ettal</strong> chủng men lấy từ hầm tu viện Ettal; bia được ủ tại Lich, bang Hessen</li>',
+    },
+    { find: '<h2>Từ Bavaria đến Việt Nam</h2>', replace: '<h2>Từ Đức đến Việt Nam</h2>' },
+    {
+      find: 'được xuất khẩu đến hơn 40 quốc gia. Tại Việt Nam, dòng bia này được nhập khẩu trực tiếp và phân phối độc quyền bởi <strong>German Taste</strong> đơn vị',
+      replace: 'được xuất khẩu đến hơn 50 quốc gia. Tại Việt Nam, dòng bia này được nhập khẩu trực tiếp và phân phối bởi <strong>German Taste</strong>, đơn vị',
+    },
+    {
+      find: 'từ nhà máy Đức đến kho hàng tại Hà Nội. Không qua trung gian. Không pha trộn. 100% nguyên chai từ Bavaria.',
+      replace: 'từ nhà máy ở Đức đến kho hàng tại Hà Nội. Nhập khẩu nguyên chai từ Đức.',
+    },
+    {
+      find: '<p>Bia Thầy Tu Benediktiner được sản xuất và nhập khẩu nguyên chai 100% từ tu viện Ettal (Bavaria, Đức) hoặc theo công thức nhượng quyền kiểm soát nghiêm ngặt của tu viện Ettal tại xưởng bia chuyên dụng của hãng tại Đức, đảm bảo chất lượng nguyên bản toàn cầu.</p>',
+      replace:
+        '<p>Bia Thầy Tu Benediktiner được ủ tại Lich (Hessen, Đức) theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal, rồi nhập khẩu nguyên chai về Việt Nam.</p>',
+    },
+  ],
+};
+
+for (const [slug, patches] of Object.entries(COMPLIANCE_PATCHES_2026_10)) {
+  ARTICLE_TEXT_PATCHES[slug] = [...(ARTICLE_TEXT_PATCHES[slug] ?? []), ...patches];
+}
+
+/** Lời khách không kiểm chứng được trong bài này (rà soát 10/2026): bỏ cả câu dẫn lẫn trích dẫn. */
+const UNVERIFIED_TESTIMONIAL_PATTERN =
+  /Rất nhiều người tìm đến Bia Thầy Tu sau một hành trình dài:\s*\*\*"Mình từng uống craft beer[\s\S]*?feedback thực tế từ một khách hàng thường xuyên\.\s*/;
+
 export function sanitizeArticleContent(content: string | null, slug?: string | null): string | null {
   if (!content) return content;
 
@@ -398,6 +624,10 @@ export function sanitizeArticleContent(content: string | null, slug?: string | n
         sanitized = sanitized.split(patch.find).join(patch.replace);
       }
     }
+  }
+
+  if (slug === 'su-tran-trong-nguyen-ban-bia-giao-thoa') {
+    sanitized = sanitized.replace(UNVERIFIED_TESTIMONIAL_PATTERN, '');
   }
 
   // C.2.3 (đặc biệt cho su-that-ve-lop-men-van-duc-naturtrub): cắt đoạn Men Sống.

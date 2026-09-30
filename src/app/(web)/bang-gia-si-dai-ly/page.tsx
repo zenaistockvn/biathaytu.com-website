@@ -58,7 +58,7 @@ export default function Page() {
             { title: 'Mức chiết khấu hấp dẫn', text: 'Lợi nhuận gộp lên đến 20-35% tùy theo mốc sản lượng cam kết hàng tháng (Tier 1, Tier 2, Tier 3).' },
             { title: 'Bảo vệ giá và khu vực', text: 'Chính sách quản lý giá bán lẻ nghiêm ngặt (MAP) giúp đại lý không bị phá giá, bảo vệ lợi ích kinh doanh lâu dài.' },
             { title: 'Hỗ trợ marketing, POSM', text: 'Ấn phẩm truyền thông (ảnh, video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
-            { title: 'Logistics chuyên nghiệp', text: 'Kho bãi tiêu chuẩn tại Hà Nội. Hỗ trợ phí vận chuyển cho đơn hàng sỉ ra các tỉnh thành, giao hàng nhanh chóng.' },
+            { title: 'Logistics chuyên nghiệp', text: 'Kho bãi tiêu chuẩn tại Hà Nội. Phương án vận chuyển thống nhất theo từng hợp đồng đại lý.' },
           ]}
         />
 

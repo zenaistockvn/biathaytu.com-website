@@ -51,7 +51,7 @@ export default function Page() {
         }}
       >
         <Summary>
-          <p><strong>Lợi thế cạnh tranh:</strong> menu đồ uống (Beverage Menu) chiếm đến 30% lợi nhuận của một nhà hàng cao cấp. Đưa các thương hiệu bia Đức lâu đời như Benediktiner hay Bitburger vào menu không chỉ tăng trải nghiệm food pairing mà còn định vị không gian của bạn.</p>
+          <p><strong>Lợi thế cạnh tranh:</strong> menu đồ uống là một phần quan trọng trong doanh thu của nhà hàng. Đưa các thương hiệu bia Đức lâu đời như Benediktiner hay Bitburger vào menu giúp thực khách có thêm lựa chọn đi cùng món ăn và làm rõ phong cách của nhà hàng.</p>
         </Summary>
 
         <h2>Vì sao chọn chúng tôi?</h2>
@@ -59,9 +59,9 @@ export default function Page() {
           columns={2}
           items={[
             { title: 'Đối tác phân phối', text: 'Nguồn hàng nhập khẩu chính ngạch, hóa đơn VAT đầy đủ, giá gốc không qua trung gian.' },
-            { title: 'Chính sách chiết khấu sâu', text: 'Mức chiết khấu thương mại linh hoạt dựa trên sản lượng cam kết, giúp tối ưu lợi nhuận cho HORECA.' },
+            { title: 'Chính sách chiết khấu sâu', text: 'Mức chiết khấu thương mại linh hoạt theo sản lượng cam kết.' },
             { title: 'Hỗ trợ POSM trọn gói', text: 'Ly bia chuyên dụng (ly Weizen, ly Pilsner), đế lót ly (coaster), tháp bia, ô dù và các ấn phẩm menu.' },
-            { title: 'Giao hàng hỏa tốc', text: 'Đội ngũ xe tải lạnh riêng, cam kết giao hàng trong 2 đến 4 tiếng khu vực nội thành để không gián đoạn vận hành.' },
+            { title: 'Kho tại Hà Nội', text: 'Kho bảo quản tại Hà Nội, lịch giao nhận thống nhất theo từng hợp đồng để không gián đoạn vận hành.' },
           ]}
         />
 

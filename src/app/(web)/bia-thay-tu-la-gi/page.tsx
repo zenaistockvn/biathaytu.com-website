@@ -6,11 +6,11 @@ import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-  description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
+  description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' },
   openGraph: {
     title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-    description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
+    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi',
     images: [
@@ -25,21 +25,21 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-    description: 'Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì Benediktiner Weissbier, được ủ từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Tìm hiểu lịch sử 400 năm.',
+    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
 export default function Page() {
   const faqs = [
-    { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của dòng bia lúa mì Đức Benediktiner Weissbier, được ủ theo truyền thống tu viện Ettal (Bavaria) từ năm 1609, tuân thủ Luật Tinh Khiết Reinheitsgebot 1516.' },
-    { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Vì bia Benediktiner gắn với phương pháp ủ bia của các tu sĩ dòng Benedictine tại Tu Viện Ettal, nơi gìn giữ công thức và tiêu chuẩn ủ bia suốt hơn 400 năm.' },
+    { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Đức Benediktiner Weissbier. Bia được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal (Bavaria), nơi nấu bia từ năm 1609.' },
+    { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Benediktiner là tên tiếng Đức của dòng tu Biển Đức (Benedictine). Công thức và men bia đến từ tu viện Ettal của dòng tu này, nơi có truyền thống nấu bia hơn 400 năm. Còn bia ngày nay được ủ tại nhà bia ở Lich, bang Hessen.' },
     { question: 'Tìm hiểu Bia Thầy Tu ở đâu?', answer: `Xem thông tin sản phẩm tại biathaytu.com.vn, liên hệ Zalo/Hotline ${COMPANY_CONFIG.hotline} hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}.` },
   ];
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu là gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc và lịch sử Bia Thầy Tu Benediktiner từ Tu Viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu là gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc Bia Thầy Tu Benediktiner: công thức và men từ Tu viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-thay-tu-la-gi', label: 'Bia Thầy Tu là gì?' }))} />
 
@@ -48,37 +48,37 @@ export default function Page() {
           eyebrow: 'Kiến thức bia Đức',
           title: 'Bia Thầy Tu là gì?',
           kicker: 'Benediktiner Weissbier',
-          lead: 'Câu chuyện về dòng bia lúa mì được ủ bởi các tu sĩ dòng Benedictine từ năm 1609 tại chân dãy Alps.',
+          lead: 'Tên gọi, nguồn gốc và nơi ủ của dòng bia lúa mì mang tên dòng tu Biển Đức.',
         }}
         after={<FaqSection items={faqs} />}
       >
         <Summary>
-          <p><strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, được ủ theo truyền thống tu viện từ năm 1609 tại Tu Viện Ettal, Bavaria (Đức). Bia tuân thủ Luật Tinh Khiết 1516, chỉ dùng 4 nguyên liệu: nước, malt lúa mì, hoa bia và men.</p>
+          <p><strong>Tóm tắt:</strong> Bia Thầy Tu là tên gọi phổ biến tại Việt Nam cho dòng bia lúa mì <strong>Benediktiner Weissbier</strong>, theo công thức gốc dòng Biển Đức, với men từ hầm Tu viện Ettal, Bavaria, nơi nấu bia từ năm 1609. Bia được ủ tại Lich, bang Hessen, chỉ từ nước, malt lúa mì và đại mạch, hoa bia và men.</p>
         </Summary>
 
         <h2>Vì sao gọi là &quot;Bia Thầy Tu&quot;?</h2>
-        <p>Cái tên &quot;Bia Thầy Tu&quot; bắt nguồn từ việc dòng bia này được các tu sĩ (thầy tu) dòng Benedictine ủ trong tu viện. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ, các tu sĩ coi bia là &quot;bánh mì lỏng&quot; giúp duy trì sức lực trong những ngày ăn chay dài.</p>
-        <p>Tu Viện Ettal được thành lập năm 1330 bởi Hoàng đế Ludwig IV. Đến năm 1609, các tu sĩ tại đây bắt đầu ủ bia lúa mì theo phương pháp lên men đỉnh truyền thống. Hơn 400 năm qua, công thức gần như không thay đổi.</p>
+        <p>&quot;Benediktiner&quot; là tên tiếng Đức của dòng tu Biển Đức (Benedictine), nên người Việt quen gọi là &quot;Bia Thầy Tu&quot;. Nhiều người nghĩ bia do các thầy tu nấu, nhưng không phải vậy: bia ủ theo công thức gốc của dòng tu, men lấy từ hầm tu viện Ettal, còn nơi nấu là nhà bia ở thị trấn Lich, bang Hessen. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ.</p>
+        <p>Tu viện Ettal ở Bavaria do Hoàng đế Ludwig IV lập năm 1330. Tu viện nấu bia từ năm 1609. Benediktiner tiếp nối truyền thống đó bằng công thức gốc của dòng tu và men hầm Ettal.</p>
 
         <h2>Luật Tinh Khiết 1516, Reinheitsgebot</h2>
-        <p>Benediktiner tuân thủ Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, luật an toàn thực phẩm lâu đời nhất thế giới. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.</p>
+        <p>Benediktiner tuân thủ Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, một trong những quy định về thực phẩm lâu đời nhất. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.</p>
         <p>Không phụ gia. Không chất bảo quản. Không hương liệu nhân tạo.</p>
 
-        <h2>Các dòng bia Thầy Tu tại Việt Nam</h2>
+        <h2>Các dòng bia Đức tại Bia Thầy Tu</h2>
         <InfoGrid
           items={[
             { title: 'Weissbier Naturtrüb', text: 'Bia lúa mì không lọc. Hương chuối chín, đinh hương, bọt trắng dày.', meta: '5,4% vol.' },
             { title: 'Benediktiner Dunkel', text: 'Bia đen lúa mì. Hương caramel, mật ong, mạch nha rang.', meta: '5,4% vol.' },
-            { title: 'Bitburger Premium Pils', text: 'Pilsner chuẩn Đức. Hoa bia Hallertau, đắng thanh, sạch miệng.', meta: '4,8% vol.' },
+            { title: 'Bitburger Premium Pils', text: 'Pilsner Đức. Hoa bia Siegelhopfen, đắng thanh, hậu vị khô.', meta: '4,8% vol.' },
           ]}
         />
 
-        <h2>Bia Thầy Tu khác gì bia thông thường?</h2>
-        <p>Bia thương mại thường sản xuất hàng loạt với phụ gia, chất tạo bọt, hương liệu nhân tạo. Bia Thầy Tu Benediktiner thì ngược lại: lên men tự nhiên trong chai (bottle-conditioned), giữ nguyên lớp men sống tạo nên sắc vàng hổ phách đục đặc trưng. Đó cũng là lý do bia có chữ &quot;Naturtrüb&quot;, nghĩa là &quot;tự nhiên không lọc&quot; trong tiếng Đức.</p>
+        <h2>Vì sao Naturtrüb có màu đục?</h2>
+        <p>Benediktiner Weissbier Naturtrüb không qua lọc, nên men vẫn còn trong chai và làm bia có màu vàng đục. &quot;Naturtrüb&quot; trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;. Rót gần hết chai thì xoay nhẹ phần còn lại cho tan lớp men dưới đáy rồi rót nốt.</p>
 
         <CtaBand
           title="Sẵn sàng trải nghiệm?"
-          text="Xem các dòng Bia Thầy Tu Benediktiner chính hãng và liên hệ để được tư vấn giao hàng."
+          text="Xem các dòng Bia Thầy Tu Benediktiner chính hãng và liên hệ để được tư vấn quy cách, giá và điểm nhận hàng."
           action={{ href: '/san-pham', label: 'Xem sản phẩm' }}
         />
       </EditorialPage>
