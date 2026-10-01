@@ -1,5 +1,6 @@
 import articlesData from '@/data/articles.json';
 import retiredArticlesData from '@/config/retired-articles.json';
+import renamedArticleSlugs from '@/config/renamed-article-slugs.json';
 import { toBrochureMetadataCopy } from '@/lib/seo/metadataCopy';
 import { COMPANY_CONFIG } from '@/config/company';
 import { getArticleTopic } from '@/config/articleTopics';
@@ -10,6 +11,12 @@ export const DEFAULT_TENANT_ID = 'biathaytu';
 
 const RETIRED_ARTICLE_MAP: Record<string, string> = retiredArticlesData;
 const RETIRED_ARTICLE_SLUGS = new Set(Object.keys(RETIRED_ARTICLE_MAP));
+
+/**
+ * Slug database → slug hiển thị; slug cũ chuyển 301 trong next.config.js. Các bảng vá, ảnh bìa, mô tả
+ * trong file này vẫn khoá theo slug database.
+ */
+export const RENAMED_ARTICLE_SLUGS: Readonly<Record<string, string>> = renamedArticleSlugs;
 
 export interface Article {
   id: string;
@@ -129,7 +136,7 @@ export const ARTICLE_META_OVERRIDES: Record<string, { title?: string; meta_descr
   },
   'su-that-ve-lop-men-van-duc-naturtrub': {
     meta_description:
-      'Naturtrüb là gì? Vì sao lớp men sống làm bia lúa mì Đức đục mờ và đậm hương hơn bia đã lọc.',
+      'Naturtrüb là gì? Vì sao lớp men làm bia lúa mì Đức đục mờ và đậm hương hơn bia đã lọc.',
   },
 };
 
@@ -537,7 +544,10 @@ const COMPLIANCE_PATCHES_2026_10: Record<string, Array<{ find: string; replace: 
       replace: 'Không sao cả, bia lúa mì Naturtrüb vốn đục như vậy.',
     },
     { find: 'Bia công nghiệp thông thường trong vắt vì đã trải qua quá trình lọc kỹ', replace: 'Nhiều loại bia trong vắt vì đã qua quá trình lọc kỹ' },
-    { find: 'Nói cách khác: lọc bia là bỏ đi linh hồn của nó.', replace: '' },
+    {
+      find: 'Nói cách khác: lọc bia là bỏ đi linh hồn của nó.',
+      replace: 'Lọc hay không lọc là hai cách làm khác nhau: bia đã lọc trong và nhẹ hương hơn, còn bia không lọc đục, bọt dày và hương chuối chín, đinh hương rõ hơn.',
+    },
     {
       find: 'từ quá trình lên men tại nhà máy bia tu viện.',
       replace: 'từ quá trình lên men, theo công thức gốc dòng Biển Đức với men hầm tu viện Ettal.',
@@ -589,9 +599,241 @@ const COMPLIANCE_PATCHES_2026_10: Record<string, Array<{ find: string; replace: 
   ],
 };
 
-for (const [slug, patches] of Object.entries(COMPLIANCE_PATCHES_2026_10)) {
-  ARTICLE_TEXT_PATCHES[slug] = [...(ARTICLE_TEXT_PATCHES[slug] ?? []), ...patches];
+/**
+ * Đợt 2 (rà lại 10/2026): lỗi sót, câu vỡ do lần thay "→"/"—" trước đây, số liệu lệch giữa các bài,
+ * không có chuỗi lạnh (chủ site xác nhận), không khẳng định men "sống"/lên men tiếp trong chai vì hãng không công bố.
+ * Áp sau đợt 1 nên `find` có thể khớp chữ do đợt 1 tạo ra.
+ */
+const COMPLIANCE_PATCHES_2026_10_ROUND_2: Record<string, Array<{ find: string; replace: string }>> = {
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': [
+    { find: 'là đối tác tuyệt vời cho các món thịt đỏ nướng', replace: 'hợp với các món thịt đỏ nướng' },
+    { find: ', làm bùng nổ hương vị đậm đà trong khoang miệng.', replace: ', làm vị thịt nướng rõ hơn.' },
+    { find: 'Bia Dunkel có bán theo thùng hay lon lẻ không?', replace: 'Benediktiner Dunkel có những quy cách nào?' },
+  ],
+  'bitburger-hanh-trinh-200-nam-bia-draft-so-1': [
+    {
+      find: 'Kết quả: vị đắng không gắt mà thanh, không khô mà sạch. Hậu vị khô và sạch, vị đắng không đọng lại lâu.',
+      replace: 'Kết quả: vị đắng thanh, không gắt; hậu vị khô và sạch.',
+    },
+    {
+      find: 'Bitburger là <strong>bia tươi (draft) được rót nhiều nhất tại Đức</strong> (trên bitburger.de, hãng gọi là &quot;das meistgezapfte Premium Pils an deutschen Theken&quot;).',
+      replace:
+        'Bitburger là <strong>Premium Pils được rót nhiều nhất tại các quầy bia ở Đức</strong> (trên bitburger.de: &quot;das meistgezapfte Premium Pils an deutschen Theken&quot;).',
+    },
+    {
+      find: ' Mỗi lô hàng được vận chuyển trong container lạnh chuyên dụng, đảm bảo bia đến tay bạn với chất lượng tương đương chai bia bạn gọi tại một quán bia ở Berlin.',
+      replace: '',
+    },
+    {
+      find: 'Về mặt kỹ thuật, Bitburger là nhà máy bia lớn. Nhưng với 200+ năm gia đình điều hành, tuân thủ Reinheitsgebot 1516, và quy trình Double Hopping thủ công, nhiều chuyên gia coi đây là "craft beer ở quy mô lớn".',
+      replace: 'Không. Bitburger là nhà máy bia lớn của gia đình Simon, nấu theo Luật Tinh khiết 1516, hoa bia thêm hai lần trong quá trình nấu.',
+    },
+  ],
+  'huong-dan-chon-bia-duc-cho-nguoi-moi': [
+    { find: 'là dòng bia đặc trưng nhất của vùng Bavaria', replace: 'là dòng bia lúa mì gắn với vùng Bavaria' },
+    { find: 'Nồng độ cồn: 5.0-5.5% ABV', replace: 'Nồng độ cồn: 5,4% ABV (Benediktiner)' },
+    {
+      find: 'Người thích bia "truyền thống", quen uống bia lon/bia hơi nhưng muốn nâng cấp.',
+      replace: 'Người thích bia vàng đắng thanh, hậu vị khô.',
+    },
+    { find: 'Vị đầy đặn, ngọt malt, đắng vừa phải', replace: 'Vị đầy đặn, ngọt malt, độ đắng thấp' },
+    { find: '<td>Mug / Stein</td>', replace: '<td>Weizenglas</td>' },
+    { find: '<h2>Flowchart: Bạn nên uống bia nào?</h2>', replace: '<h2>Nên chọn bia nào?</h2>' },
+    { find: '<h2>Flowchart: bạn nên uống bia nào?</h2>', replace: '<h2>Nên chọn bia nào?</h2>' },
+    { find: ' Chắc chắn không thất vọng.', replace: '' },
+    { find: 'là lựa chọn lý tưởng nhất cho người mới bắt đầu', replace: 'dễ uống với người mới bắt đầu' },
+    { find: ' và hoàn toàn không có vị đắng gắt như bia lager thông thường.', replace: ' và gần như không đắng.' },
+    { find: 'có nồng độ cồn trung bình khoảng 5.0% - 5.5% ABV', replace: 'có nồng độ cồn khoảng 5,4% ABV (Benediktiner Dunkel)' },
+    { find: ', không hề đắng gắt hay nặng đô như dòng bia đen Stout.', replace: ', ít đắng.' },
+  ],
+  'top-7-mon-viet-ket-hop-bia-duc-food-pairing': [
+    {
+      find: 'Luôn uống bia ở nhiệt độ phù hợp (6-10°C)',
+      replace: 'Uống đúng nhiệt độ từng dòng (Pils 4-6°C, Weissbier 7-9°C, Dunkel 8-10°C)',
+    },
+  ],
+  'cach-bao-quan-bia-nhap-khau-dung-cach': [
+    { find: 'đặc biệt là các dòng bia không qua xử lý nhiệt như ', replace: 'đặc biệt là các dòng bia không lọc như ' },
+    {
+      find: ' Naturtrüb, là sản phẩm "sống". Bên trong mỗi chai vẫn còn men hoạt động, tiếp tục lên men nhẹ ngay cả sau khi đóng chai. Điều này tạo nên',
+      replace: ' Naturtrüb, vẫn còn men trong chai. Điều này tạo nên',
+    },
+    {
+      find: 'Đây là lý do bia Đức chất lượng cao luôn đóng trong <strong>chai thủy tinh nâu</strong> màu nâu chặn được hơn 98% tia UV. Chai xanh lá hoặc trong suốt bảo vệ kém hơn nhiều.',
+      replace:
+        'Đây là lý do nhiều loại bia Đức đóng trong <strong>chai thủy tinh nâu</strong>: thủy tinh nâu chặn phần lớn tia UV, tốt hơn hẳn chai xanh lá hoặc chai trong.',
+    },
+    { find: '<td>3-7°C</td><td>4-7°C</td>', replace: '<td>3-7°C</td><td>4-6°C</td>' },
+    { find: 'đúng như cách người Bavaria thưởng thức', replace: 'đúng như nhà bia muốn bạn nếm' },
+  ],
+  'su-tran-trong-nguyen-ban-bia-giao-thoa': [
+    { find: '## Cuộc thập tự chinh tìm sự nguyên bản', replace: '## Đi tìm sự nguyên bản' },
+    { find: 'người tiêu dùng đang bị bội thực bởi sự "mới lạ"', replace: 'không ít người thấy có quá nhiều lựa chọn' },
+    { find: '**Bia chỉ từ bốn nguyên liệu** thì không có gì để che: vị của nước, mạch nha, hoa bia và men hiện ra rõ.', replace: '' },
+    {
+      find: 'Nước không sạch, rồi vị bia "phẳng". Malt không đều, rồi hương bị lệch. Men kém chất lượng, rồi bia chua, đắng gắt.',
+      replace: 'Nước không sạch thì vị bia "phẳng". Malt không đều thì hương bị lệch. Men kém chất lượng thì bia chua, đắng gắt.',
+    },
+    { find: '### Câu chuyện của những người "quay về"', replace: '### Người Đức vẫn chọn Pils' },
+    {
+      find: 'còn Pils vẫn là loại bia bán chạy nhất.',
+      replace: 'còn Pils vẫn là loại bia bán chạy nhất (theo số liệu thị trường bia Đức năm 2024).',
+    },
+    { find: '**1. Nhất quán, Mỗi chai đều giống nhau**', replace: '**1. Nhất quán: mỗi chai đều giống nhau**' },
+    { find: '**3. An toàn, Biết chính xác mình uống gì**', replace: '**3. Minh bạch: biết rõ thành phần**' },
+    { find: '**5. Chọn kỹ = thể hiện gu**', replace: '**5. Hợp với người thích hương vị truyền thống**' },
+    {
+      find: 'Trong thời đại mọi người chạy theo trend, người chọn nguyên bản đang nói: *"Tôi biết mình muốn gì. Tôi không cần cái mới nhất. Tôi cần cái đúng nhất."*',
+      replace: 'Không cần hương liệu lạ, chỉ cần bốn nguyên liệu được nấu kỹ.',
+    },
+  ],
+  'ly-uong-bia-lua-mi-weizen-glass': [
+    { find: ', rồi tạo ra lớp bọt dày', replace: ' và tạo ra lớp bọt dày' },
+    { find: '- Weissbier chứa nhiều protein từ lúa mì, rồi tạo bọt nhiều hơn Lager', replace: '- Weissbier chứa nhiều protein từ lúa mì nên tạo nhiều bọt' },
+    {
+      find: '- Men sống còn trong bia tiếp tục sản sinh CO₂, rồi bọt liên tục được "nạp"',
+      replace: '- Bia không lọc, men và protein còn trong bia giúp bọt bền hơn',
+    },
+    {
+      find: 'Đưa mũi vào ly, rồi hương chuối rõ ràng, đinh hương ấm, lúa mì ngọt',
+      replace: 'Đưa mũi vào ly: hương chuối rõ, đinh hương ấm, lúa mì ngọt',
+    },
+    { find: 'Đưa mũi vào, rồi hương thoát tán loạn, khó nhận diện rõ từng nốt', replace: 'Đưa mũi vào: hương tản đi, khó nhận rõ từng nốt' },
+    {
+      find: 'Tại các nhà hàng bia ở Munich, nếu ly bia không đủ 500ml bia lỏng (không tính bọt), khách có quyền yêu cầu rót thêm. Đây là quy định pháp luật, không phải chuyện vui.',
+      replace:
+        'Ở Đức, ly phục vụ trong nhà hàng phải có vạch đo; nếu bọt tan sau khoảng một phút mà bia thấp hơn vạch, khách có quyền yêu cầu rót thêm. Đây là quy định về đo lường, không phải chuyện vui.',
+    },
+    { find: '**Rót ⅔ chai**', replace: '**Rót khoảng 3/4 chai**' },
+    {
+      find: 'Bộ ly này thường được tặng kèm khi mua két bia, không phải phụ kiện bán riêng. Vì người Đức tin rằng: *bán bia mà không cho ly uống đúng chuẩn, là bán thiếu.*',
+      replace:
+        'Bộ ly Benediktiner có bán lẻ, và tùy thời điểm còn là quà tặng kèm khi mua bia theo chương trình của German Taste; liên hệ hotline hoặc Zalo để biết thể lệ.',
+    },
+  ],
+  'nhiet-do-vang-thuong-thuc-bia-la-bao-nhieu': [
+    { find: 'khoảng nhiệt độ mà hương vị bùng nổ đầy đủ nhất', replace: 'khoảng nhiệt độ mà hương vị rõ nhất' },
+    { find: '1. Lấy 3 lon ', replace: '1. Chuẩn bị 3 lon ' },
+    { find: 'Rót cả 3 ra ly, nếm thử:', replace: 'Rót mỗi lon một ít ra ly nhỏ, nếm so sánh cùng vài người:' },
+    { find: ', rồi đạt 7-9°C nhanh hơn tủ lạnh', replace: ': bia mát tới 7-9°C nhanh hơn để tủ lạnh' },
+    { find: ', rồi hiệu ứng bay hơi giữ nhiệt ổn định', replace: ': hơi nước bay đi giúp giữ lạnh' },
+  ],
+  'huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi': [
+    { find: '## Phép màu từ quá trình lên men', replace: '## Hương chuối đến từ quá trình lên men' },
+    { find: '(18-24°C), Men "hào hứng" hơn ở nhiệt độ ấm', replace: '(18-24°C): men hoạt động mạnh hơn ở nhiệt độ ấm' },
+    { find: '**Chủng men lúa mì truyền thống**, Không phải', replace: '**Chủng men lúa mì truyền thống**: không phải' },
+    { find: '**Tỷ lệ lúa mì cao**, Lúa mì', replace: '**Tỷ lệ lúa mì cao**: lúa mì' },
+    { find: '**Chủng men cụ thể**, Mỗi', replace: '**Chủng men cụ thể**: mỗi' },
+    {
+      find: '**Nhiệt độ lên men**, Lên men ấm hơn, rồi nhiều chuối hơn. Lên men mát hơn, rồi nhiều đinh hương hơn',
+      replace: '**Nhiệt độ lên men**: lên men ấm hơn thì nhiều chuối hơn, mát hơn thì nhiều đinh hương hơn',
+    },
+    { find: '| Nhiều, rồi hương trái cây | Rất ít, rồi vị "sạch" |', replace: '| Nhiều, nên hương trái cây | Rất ít, nên vị "sạch" |' },
+    { find: '### Tại sao bia Lager thông thường không có hương này?', replace: '### Tại sao bia Lager không có hương này?' },
+    { find: '| Yếu tố | Weissbier (Ale) | Lager thông thường |', replace: '| Yếu tố | Weissbier (Ale) | Lager |' },
+  ],
+  'phan-biet-weissbier-dunkel-festbier': [
+    { find: '### Weissbier (bia lúa mì): "nàng thơ" của Bavaria', replace: '### Weissbier (bia lúa mì)' },
+    { find: '- **ABV**: 5.0-5.5%', replace: '- **ABV**: 5,4% (Benediktiner)' },
+    { find: '### Festbier (bia lễ hội): "linh hồn" của Oktoberfest', replace: '### Festbier (bia lễ hội)' },
+    { find: '| ABV | 5.0-5.4% | 5.0-5.4% | 5.8-6.3% |', replace: '| ABV | 5,4% | 5,4% | 5,8% |' },
+    { find: 'chỉ 4 nguyên liệu, không phụ gia, không shortcuts.', replace: 'chỉ từ nước, malt, hoa bia và men, không phụ gia.' },
+  ],
+  'su-that-ve-lop-men-van-duc-naturtrub': [
+    { find: 'vì hàng triệu tế bào men sống đang "bay lơ lửng" trong bia', replace: 'vì men còn lơ lửng trong bia' },
+    {
+      find: 'khiến men phân tán đều, rồi tạo ra lớp bọt kem trắng dày đặc hơn',
+      replace: 'khiến men phân tán đều và bọt dày hơn',
+    },
+    {
+      find: '**Bọt bền**, men sống tạo protein bề mặt giúp bọt giữ form lâu hơn so với bia lọc',
+      replace: '**Bọt bền**: men và protein lúa mì giúp bọt giữ lâu hơn',
+    },
+    { find: 'đó là phiên bản lọc sạch men, mất đi phần lớn hương vị.', replace: 'đó là phiên bản đã lọc, trong và nhẹ hương hơn.' },
+    { find: 'rót chậm khoảng ⅔ ly', replace: 'rót chậm khoảng 3/4 chai' },
+    { find: 'Và hàng triệu tế bào men sống đang "nhảy" trong ly bạn.', replace: 'Và lớp men lơ lửng trong ly.' },
+  ],
+  'dao-luat-tinh-khiet-1516-reinheitsgebot': [
+    { find: 'Nước, Lúa mạch đại mạch, và Hoa bia (Hopfen).', replace: 'Nước, đại mạch và hoa bia (Hopfen).' },
+    { find: '### 4 nguyên liệu thiêng: không hơn, không kém', replace: '### Bốn nguyên liệu' },
+    {
+      find: 'Sấy nhẹ, rồi malt vàng nhạt (Pils). Sấy mạnh hơn, rồi malt hổ phách (Weissbier). Rang đậm, rồi malt đen (Dunkel).',
+      replace: 'Sấy nhẹ cho malt vàng nhạt (Pils), sấy mạnh hơn cho malt hổ phách (Weissbier), rang đậm cho malt đen (Dunkel).',
+    },
+    { find: 'Sinh vật nhỏ bé làm nên phép màu: chuyển đường thành cồn và CO₂.', replace: 'Men chuyển đường thành cồn và CO₂.' },
+    { find: '**Loại bỏ bia độc hại**, Người dân', replace: '**Loại bỏ bia độc hại**: người dân' },
+    { find: '**Buộc nhà nấu bia sáng tạo trong giới hạn**, Khi', replace: '**Buộc nhà nấu bia sáng tạo trong giới hạn**: khi' },
+    { find: '**Bảo vệ lúa mì cho lương thực**, Ban đầu', replace: '**Bảo vệ lúa mì cho lương thực**: ban đầu' },
+    {
+      find: 'Đây là sự khác biệt cốt lõi giữa bia Đức và craft beer hiện đại: bia Đức chứng minh rằng sự vĩ đại không đến từ nguyên liệu lạ, mà từ việc master nguyên liệu cơ bản.',
+      replace: 'Bia Đức theo Reinheitsgebot cho thấy chỉ với nguyên liệu cơ bản vẫn nấu ra được nhiều phong cách bia.',
+    },
+    {
+      find: 'chỉ có nước, lúa mạch, hoa bia, và men. Không hơn. Không kém. Suốt 500 năm.',
+      replace: 'chỉ có nước, malt, hoa bia và men. Không hơn, không kém.',
+    },
+  ],
+  'nguon-goc-bia-thay-tu-tu-vien-ettal': [
+    { find: 'tu viện Ettal hiện ra như một thánh đường thời gian.', replace: 'tu viện Ettal hiện ra giữa núi.' },
+    {
+      find: 'tiếng chuông ngân vang mỗi sáng sớm đúng 6 giờ, như đã vang suốt gần 7 thế kỷ qua.',
+      replace: 'tiếng chuông vẫn ngân mỗi sáng sớm.',
+    },
+    {
+      find: 'một dòng tu có truyền thống lao động thủ công lâu đời nhất châu Âu',
+      replace: 'một trong những dòng tu lâu đời của châu Âu',
+    },
+    { find: '<strong>"Ora et Labora"</strong> Cầu nguyện và Lao động.', replace: '<strong>"Ora et Labora"</strong>: cầu nguyện và lao động.' },
+    {
+      find: 'Và một trong những hình thức lao động thiêng liêng nhất của họ chính là nấu bia.',
+      replace: 'Nấu bia là một trong những công việc lao động ấy.',
+    },
+    {
+      find: 'Họ nấu bia vì đó là nhu cầu sinh tồn, là một phần của đời sống cộng đồng',
+      replace: 'Họ nấu bia như một phần của đời sống cộng đồng',
+    },
+    {
+      find: '<p>Không có máy móc tăng tốc. Không hóa chất điều chỉnh. Tất cả phụ thuộc vào nhịp điệu của thời gian, và đó chính là thứ mà bạn nếm được trong từng ngụm bia.</p>',
+      replace: '',
+    },
+    { find: '<h2>Qua lửa chiến tranh và tái sinh</h2>', replace: '<h2>Hỏa hoạn, thế tục hóa và tái lập</h2>' },
+    {
+      find: '<p>Mỗi chai bia đến tay bạn đều được vận chuyển trong container lạnh chuyên dụng, đảm bảo nhiệt độ ổn định từ nhà máy ở Đức đến kho hàng tại Hà Nội. Nhập khẩu nguyên chai từ Đức.</p>',
+      replace: '<p>Bia được nhập khẩu nguyên chai từ Đức về kho hàng tại Hà Nội.</p>',
+    },
+    { find: '<h2>Không chỉ là bia: mà là di sản</h2>', replace: '<h2>Không chỉ là bia, mà là di sản</h2>' },
+    {
+      find: 'bạn đang cầm kết tinh của gần 700 năm kỷ luật tu viện, sự tôn trọng nguyên liệu, và lòng kiên nhẫn không thỏa hiệp với thời gian.',
+      replace: 'bạn đang cầm một loại bia theo công thức gắn với gần 700 năm lịch sử của tu viện Ettal.',
+    },
+    {
+      find: 'quy định bia chỉ được phép nấu từ 4 nguyên liệu tự nhiên tinh khiết nhất: Nước suối tự nhiên, lúa mạch/lúa mì (malt), hoa bia (hops) và men bia (yeast), tuyệt đối không chứa hóa chất bảo quản.',
+      replace:
+        'ban đầu (1516) chỉ cho phép nước, đại mạch và hoa bia; men được đưa vào quy định về sau. Ngày nay bia Đức theo quy định này chỉ dùng nước, malt, hoa bia và men.',
+    },
+  ],
+};
+
+for (const round of [COMPLIANCE_PATCHES_2026_10, COMPLIANCE_PATCHES_2026_10_ROUND_2]) {
+  for (const [slug, patches] of Object.entries(round)) {
+    ARTICLE_TEXT_PATCHES[slug] = [...(ARTICLE_TEXT_PATCHES[slug] ?? []), ...patches];
+  }
 }
+
+/**
+ * Sửa cần biểu thức chính quy vì câu gốc có tên miền hay link ở giữa (được viết lại sau bước vá).
+ * Áp ngay sau ARTICLE_TEXT_PATCHES.
+ */
+const ARTICLE_REGEX_PATCHES: Record<string, Array<{ pattern: RegExp; replace: string }>> = {
+  'bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel': [
+    {
+      // Đọc như website có bán hàng; thiếu quy cách thùng 12 lon.
+      pattern: /Bia đen Thầy Tu Benediktiner Dunkel hiện được phân phối chính hãng dưới dạng[\s\S]*?quà biếu trang trọng\./,
+      replace:
+        'Benediktiner Dunkel hiện có thùng 12 chai 500ml, thùng 12 lon 500ml và két 24 lon 500ml. Liên hệ hotline, Zalo hoặc ghé showroom Bia Thầy Tu để được tư vấn.',
+    },
+  ],
+};
 
 /** Lời khách không kiểm chứng được trong bài này (rà soát 10/2026): bỏ cả câu dẫn lẫn trích dẫn. */
 const UNVERIFIED_TESTIMONIAL_PATTERN =
@@ -626,6 +868,10 @@ export function sanitizeArticleContent(content: string | null, slug?: string | n
     }
   }
 
+  for (const patch of (slug && ARTICLE_REGEX_PATCHES[slug]) || []) {
+    sanitized = sanitized.replace(patch.pattern, patch.replace);
+  }
+
   if (slug === 'su-tran-trong-nguyen-ban-bia-giao-thoa') {
     sanitized = sanitized.replace(UNVERIFIED_TESTIMONIAL_PATTERN, '');
   }
@@ -639,6 +885,10 @@ export function sanitizeArticleContent(content: string | null, slug?: string | n
       sanitized = sanitized.slice(0, start.index) + sanitized.slice(end.index);
     }
   }
+
+  // Hãng chỉ công bố "Hefetrübung" (bia đục vì men), không nói men còn sống hay bia không thanh trùng.
+  // Chạy sau bước cắt đoạn "Men sống" ở trên vì bước đó tìm theo đúng tiêu đề.
+  sanitized = sanitized.replace(/\b([Mm])en sống\b/g, '$1en');
 
   // C.2.4: Sau khi vá, xóa các khối rỗng còn lại
   sanitized = sanitized
@@ -713,6 +963,13 @@ export function sanitizeArticleContent(content: string | null, slug?: string | n
     },
   );
 
+  for (const [oldSlug, newSlug] of Object.entries(RENAMED_ARTICLE_SLUGS)) {
+    sanitized = sanitized.replace(
+      new RegExp(`((?:https?://(?:www\\.)?biathaytu\\.com(?:\\.vn)?)?/(?:kien-thuc|blog)/)${oldSlug}(?=[/#?\\s"')>]|$)`, 'g'),
+      `/kien-thuc/${newSlug}`,
+    );
+  }
+
   // Phase B: Viết lại link tới các bài viết đã gỡ/gộp sang đích tương ứng
   for (const [retiredSlug, dest] of Object.entries(RETIRED_ARTICLE_MAP)) {
     sanitized = sanitized.replace(
@@ -749,6 +1006,7 @@ const PUBLISHED_ARTICLES: Article[] = (articlesData as unknown as Article[])
     const cover = ARTICLE_COVERS[article.slug ?? ''];
     return {
       ...article,
+      slug: RENAMED_ARTICLE_SLUGS[article.slug ?? ''] ?? article.slug,
       thumbnail_url: cover?.src ?? article.thumbnail_url,
       image_credit: cover?.credit ?? null,
       title: override?.title ?? toSentenceCase(toBrochureMetadataCopy(article.title) || article.title),

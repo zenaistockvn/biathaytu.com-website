@@ -55,6 +55,9 @@ export function getBrandInfo(name: string, category?: string | null): BrandInfo 
   if (n.includes('köstritzer') || n.includes('kostritzer')) {
     return { brand: 'Köstritzer', manufacturer: 'Köstritzer Schwarzbierbrauerei', manufacturerCountry: 'DE', manufacturerRegion: 'Thüringen', isBeer: true, isAwardWinner: false };
   }
+  if (category === 'phu-kien') {
+    return { brand: 'Benediktiner', manufacturer: null, manufacturerCountry: 'DE', isBeer: false, isAwardWinner: false };
+  }
   if (isWine) {
     let brand = 'Rượu vang Đức';
     if (n.includes('rappenhof')) brand = 'Rappenhof';

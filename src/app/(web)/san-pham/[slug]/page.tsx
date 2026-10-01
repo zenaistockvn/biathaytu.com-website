@@ -99,7 +99,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   // Dung tích đã có dòng riêng nên quy cách chỉ ghi "Két 24 lon".
   const packagingFormat = product.volume ? packWithoutVolume(pack) : pack;
   const abvText = formatAbv(product.abv);
-  const tastingNote = getTastingNotes(product.name);
+  // Phụ kiện (cốc, đồ mở bia) không có hương vị.
+  const tastingNote = product.category === 'phu-kien' ? null : getTastingNotes(product.name);
 
   const isBeer = product.category === 'bia';
 
@@ -195,9 +196,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
         {/* Một cột: hương vị, mô tả, câu hỏi thường gặp; món nhắm thu thành một dòng link (audit L2). */}
         <div className={styles.details}>
-          <p className={styles.tastingInline}>
-            <strong>Hương vị nổi bật:</strong> {tastingNote}
-          </p>
+          {tastingNote && (
+            <p className={styles.tastingInline}>
+              <strong>Hương vị nổi bật:</strong> {tastingNote}
+            </p>
+          )}
           <div className={`product-description ${styles.description}`}>
             {product.description || (
               <p>

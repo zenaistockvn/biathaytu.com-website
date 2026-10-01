@@ -136,9 +136,9 @@ const DESCRIPTION_OVERRIDES: Record<string, string> = {
   'rappenhof-riesling-kabinett':
     'Vang trắng Đức: giống nho Riesling, 750ml, nồng độ 11,5%. Nhà sản xuất Rappenhof ở Alsheim (Rheinhessen), gia đình Hirsch-Muth thành lập năm 1604, thành viên VDP từ năm 1971. Hương đào trắng, chanh, khoáng. Vị bán khô, acid tươi kéo dài. Bán lẻ chai.',
   'bo-6-coc-benediktiner-chinh-hang-500ml':
-    'Bộ 6 cốc Benediktiner chính hãng, dáng ly Weizen truyền thống, thủy tinh dày, dung tích 500ml, in logo Benediktiner. Hiện là quà tặng kèm khi mua bia theo chương trình của German Taste; liên hệ hotline hoặc Zalo để biết thể lệ.',
+    'Bộ 6 cốc Benediktiner chính hãng, dáng ly Weizen truyền thống, thủy tinh dày, dung tích 500ml, in logo Benediktiner. Có bán lẻ; tùy thời điểm còn là quà tặng kèm khi mua bia theo chương trình của German Taste, liên hệ hotline hoặc Zalo để biết thể lệ.',
   'mo-bia-chinh-hang-benediktiner':
-    'Dụng cụ mở bia Benediktiner chính hãng bằng kim loại, in logo Benediktiner. Hiện là quà tặng kèm khi mua bia theo chương trình của German Taste; liên hệ hotline hoặc Zalo để biết thể lệ.',
+    'Dụng cụ mở bia Benediktiner chính hãng bằng kim loại, in logo Benediktiner. Có bán lẻ; tùy thời điểm còn là quà tặng kèm khi mua bia theo chương trình của German Taste, liên hệ hotline hoặc Zalo để biết thể lệ.',
 };
 
 /** Tên hiển thị viết hoa đầu câu (database ghi Hoa Mỗi Chữ). */

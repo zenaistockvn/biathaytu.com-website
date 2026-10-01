@@ -7,11 +7,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
-  description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
+  description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu theo sản lượng.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san' },
   openGraph: {
     title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
-    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
+    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu theo sản lượng.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
-    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu hấp dẫn.',
+    description: 'Đối tác phân phối sỉ bia Đức (Benediktiner, Bitburger) chính hãng cho nhà hàng, khách sạn, bar. Hỗ trợ setup, POSM, menu pairing, chiết khấu theo sản lượng.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -59,7 +59,7 @@ export default function Page() {
           columns={2}
           items={[
             { title: 'Đối tác phân phối', text: 'Nguồn hàng nhập khẩu chính ngạch, hóa đơn VAT đầy đủ, giá gốc không qua trung gian.' },
-            { title: 'Chính sách chiết khấu sâu', text: 'Mức chiết khấu thương mại linh hoạt theo sản lượng cam kết.' },
+            { title: 'Chiết khấu theo sản lượng', text: 'Mức chiết khấu thương mại linh hoạt theo sản lượng cam kết.' },
             { title: 'Hỗ trợ POSM trọn gói', text: 'Ly bia chuyên dụng (ly Weizen, ly Pilsner), đế lót ly (coaster), tháp bia, ô dù và các ấn phẩm menu.' },
             { title: 'Kho tại Hà Nội', text: 'Kho bảo quản tại Hà Nội, lịch giao nhận thống nhất theo từng hợp đồng để không gián đoạn vận hành.' },
           ]}
@@ -70,7 +70,7 @@ export default function Page() {
         <ul>
           <li><strong>Thiết kế menu pairing:</strong> ghép món đặc trưng của quán với bia (ví dụ BBQ và Dunkel, hải sản và Weissbier).</li>
           <li><strong>Đào tạo nhân viên:</strong> cách rót bia lúa mì, nhiệt độ phục vụ, cách giới thiệu câu chuyện bia cho thực khách.</li>
-          <li><strong>Sự kiện trải nghiệm:</strong> hỗ trợ tổ chức các buổi &quot;Beer Tasting Night&quot; thu hút khách mới.</li>
+          <li><strong>Sự kiện trải nghiệm:</strong> hỗ trợ tổ chức buổi giới thiệu sản phẩm (&quot;Beer Tasting Night&quot;) cho khách của nhà hàng.</li>
         </ul>
 
         <CtaBand

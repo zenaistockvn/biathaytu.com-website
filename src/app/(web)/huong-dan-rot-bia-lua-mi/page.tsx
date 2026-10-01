@@ -45,7 +45,7 @@ export default function Page() {
         }}
       >
         <Summary>
-          <p><strong>Tại sao phải rót đúng cách?</strong> Bia lúa mì không lọc (Naturtrüb) như Benediktiner chứa lớp men sống lắng dưới đáy chai. Nếu rót như bia thường, bạn sẽ bỏ lỡ phần tinh túy nhất của hương vị và mất đi lớp bọt đặc trưng của bia Đức.</p>
+          <p><strong>Tại sao phải rót đúng cách?</strong> Bia lúa mì không lọc (Naturtrüb) như Benediktiner còn lớp men lắng dưới đáy chai. Nếu rót như bia thường, bạn sẽ bỏ lỡ phần men tạo nên màu đục và hương vị và mất đi lớp bọt đặc trưng của bia Đức.</p>
         </Summary>
 
         <h2>Nghi thức bốn bước</h2>
@@ -53,7 +53,7 @@ export default function Page() {
           steps={[
             { title: 'Chuẩn bị ly Weizen, tráng nước lạnh', text: <>Dùng ly Weizen đặc trưng (dáng cao, chân thuôn, miệng loe) để có không gian cho lớp bọt. <strong>Quan trọng:</strong> tráng ly qua nước lạnh trước khi rót; lớp nước đọng trên thành ly giảm ma sát, giúp bọt không trào quá nhanh.</> },
             { title: 'Rót 3/4 chai, nghiêng 45 độ', text: 'Nghiêng ly 45 độ, đưa miệng chai sát thành ly. Rót từ từ, đều đặn theo thành ly đến khi hết khoảng 3/4 chai (hoặc lon) thì dừng.' },
-            { title: 'Đánh thức men sống', text: <>Với 1/4 lượng bia còn lại, <strong>lắc xoay tròn</strong> đáy chai vài lần để hòa tan lớp men sống bám ở đáy vào bia.</> },
+            { title: 'Hòa lớp men đáy chai', text: <>Với 1/4 lượng bia còn lại, <strong>lắc xoay tròn</strong> đáy chai vài lần để hòa tan lớp men bám ở đáy vào bia.</> },
             { title: 'Tạo lớp bọt vương miện', text: 'Dựng thẳng ly, rót phần bia đã hòa men còn lại vào giữa ly. Lớp bọt trắng sẽ dâng lên nhô cao khỏi miệng ly, thơm mùi chuối chín.' },
           ]}
         />

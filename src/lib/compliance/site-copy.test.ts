@@ -19,6 +19,11 @@ const BANNED: Array<[string, RegExp]> = [
   ['chê bia khác', /bia đen công nghiệp|pha tạp chất|linh hồn của nó/i],
   ['khẳng định không nguồn', /độc quyền|số 1 nước Đức|bán chạy nhất nước Đức|8 thế hệ|nhiều nhất châu Âu|40 quốc gia/i],
   ['gạch nối dài', /[–—]/],
+  // Đợt 2: không có chuỗi lạnh; hãng không công bố men còn sống; không hiện tỷ suất lợi nhuận, không ấn định giá bán lại.
+  ['chuỗi lạnh', /container lạnh|kho lạnh|xe tải lạnh/i],
+  ['men sống', /men sống|tiếp tục lên men|tế bào men/i],
+  ['số liệu lợi nhuận, MAP', /lợi nhuận gộp|\(MAP\)|30% lợi nhuận/i],
+  ['chê bia khác (đợt 2)', /bia lager thông thường|muốn nâng cấp|nặng đô như dòng bia đen Stout|bội thực/i],
 ];
 
 function offenders(texts: Array<[string, string]>) {
@@ -63,6 +68,26 @@ describe('rà soát tuân thủ 10/2026', () => {
     expect(getBrandInfo('Benediktiner Naturtrüb, thùng 12 chai 500ml').isAwardWinner).toBe(true);
     expect(getBrandInfo('Benediktiner Weissbier Dunkel').isAwardWinner).toBe(false);
     expect(getBrandInfo('Benediktiner Festbier Bom 5L').isAwardWinner).toBe(false);
+  });
+
+  it('bài Bitburger không còn "so-1" trên URL, slug cũ chuyển 301 về slug mới', async () => {
+    const slugs = getPublishedArticles().map((a) => a.slug);
+    expect(slugs).toContain('bitburger-premium-pils-200-nam-bia-pils-vung-eifel');
+    expect(slugs.filter((s) => /so-1|hanh-trinh/.test(s ?? ''))).toEqual([]);
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const redirects: Array<{ source: string; destination: string }> = await require('../../../next.config.js').redirects();
+    expect(redirects).toContainEqual(
+      expect.objectContaining({
+        source: '/kien-thuc/bitburger-hanh-trinh-200-nam-bia-draft-so-1',
+        destination: '/kien-thuc/bitburger-premium-pils-200-nam-bia-pils-vung-eifel',
+      }),
+    );
+  });
+
+  it('trang phụ kiện không mang thông tin về bia', () => {
+    const info = getBrandInfo('Bộ 6 cốc Benediktiner chính hãng 500ml', 'phu-kien');
+    expect(info.isBeer).toBe(false);
+    expect(info.manufacturer).toBeNull();
   });
 
   it('llms-full.txt mô tả đúng thùng Mix và không trỏ tới URL mua hàng cũ', () => {

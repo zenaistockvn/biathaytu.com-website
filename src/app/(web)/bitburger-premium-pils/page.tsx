@@ -100,7 +100,7 @@ export default function Page() {
             { term: 'Thị giác', text: 'Vàng rơm, trong. Lớp bọt trắng mịn, lâu tan.' },
             { term: 'Khứu giác', text: 'Thảo mộc tươi mát và hương hoa cỏ tinh tế của hoa bia.' },
             { term: 'Vị giác', text: 'Mở đầu bằng vị ngọt nhẹ của mạch nha, tiếp theo là vị đắng thanh, sắc nét.' },
-            { term: 'Hậu vị', text: 'Khô, sạch miệng, đọng lại vị đắng dịu kéo dài.' },
+            { term: 'Hậu vị', text: 'Khô, sạch miệng, vị đắng dịu.' },
           ],
         }}
         story={{

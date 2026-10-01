@@ -61,7 +61,7 @@ export default function Page() {
         <p>Tu viện Ettal ở Bavaria do Hoàng đế Ludwig IV lập năm 1330. Tu viện nấu bia từ năm 1609. Benediktiner tiếp nối truyền thống đó bằng công thức gốc của dòng tu và men hầm Ettal.</p>
 
         <h2>Luật Tinh Khiết 1516, Reinheitsgebot</h2>
-        <p>Benediktiner tuân thủ Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, một trong những quy định về thực phẩm lâu đời nhất. Luật quy định bia chỉ được sản xuất từ đúng 4 nguyên liệu: nước, malt đại mạch (sau bổ sung lúa mì), hoa bia và men.</p>
+        <p>Benediktiner tuân thủ Luật Tinh Khiết (Reinheitsgebot) do Công tước Wilhelm IV ban hành năm 1516, một trong những quy định về thực phẩm lâu đời nhất. Bản gốc năm 1516 cho phép nước, đại mạch và hoa bia; men và lúa mì được đưa vào quy định về sau. Ngày nay bia Đức theo quy định này chỉ dùng nước, malt, hoa bia và men.</p>
         <p>Không phụ gia. Không chất bảo quản. Không hương liệu nhân tạo.</p>
 
         <h2>Các dòng bia Đức tại Bia Thầy Tu</h2>

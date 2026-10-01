@@ -52,7 +52,7 @@ const beers = [
     type: 'bia lúa mì đen',
     image: '/images/brand/benediktiner-official/dunkel-glass-cutout.webp',
     href: getLine('dunkel').href as string,
-    meta: '5,4% vol. Nâu hổ phách, hương malt rang và caramel',
+    meta: '5,4% vol. Nâu đồng, hương malt rang và caramel',
   },
   {
     name: 'Festbier',
@@ -60,7 +60,7 @@ const beers = [
     image: '/images/brand/benediktiner-official/festbier-keg-nobg.webp',
     // Thẻ này giới thiệu Festbier bom 5 lít (ảnh bom, chữ om 5 lít) nên trỏ đúng SKU bom, không trỏ đích chung của dòng.
     href: '/san-pham/benediktiner-festbier-bom-5l',
-    meta: '5,8% vol. Vàng sáng, hương malt chín và hoa bia nhẹ',
+    meta: '5,8% vol. Vàng hổ phách, hương malt chín và hoa bia nhẹ',
   },
 ] as const;
 

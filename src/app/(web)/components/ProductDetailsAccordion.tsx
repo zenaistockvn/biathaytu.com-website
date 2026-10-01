@@ -14,6 +14,7 @@ export default function ProductDetailsAccordion({
 }: ProductDetailsAccordionProps) {
   const [openSection, setOpenSection] = useState<string | null>('story');
   const isWine = category === 'vang';
+  const isAccessory = category === 'phu-kien';
   const lowerName = productName.toLowerCase();
 
   const toggleSection = (section: string) => {
@@ -22,7 +23,7 @@ export default function ProductDetailsAccordion({
 
   const getStory = () => {
     if (lowerName.includes('bitburger')) {
-      return "Ra đời từ năm 1817 tại Bitburg, Đức, Bitburger là một trong những nhà máy bia gia đình lâu đời nhất nước Đức. Với hơn 200 năm kinh nghiệm, Bitburger tuân thủ Luật Tinh Khiết năm 1516 (Reinheitsgebot), sử dụng hoa bia, mạch nha lúa mạch, nước tinh khiết và men bia để tạo nên phong cách Pilsner đặc trưng.";
+      return "Ra đời từ năm 1817 tại Bitburg, Đức, Bitburger là nhà bia gia đình, nay do thế hệ thứ bảy của gia đình Simon điều hành. Với hơn 200 năm kinh nghiệm, Bitburger tuân thủ Luật Tinh Khiết năm 1516 (Reinheitsgebot), sử dụng hoa bia, mạch nha lúa mạch, nước tinh khiết và men bia để tạo nên phong cách Pilsner đặc trưng.";
     }
     if (lowerName.includes('benediktiner')) {
       return "Benediktiner được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal. Tu viện Ettal ở Bavaria có từ năm 1330.";
@@ -77,7 +78,25 @@ export default function ProductDetailsAccordion({
     return ['Pretzel và phô mai', 'Hải sản hấp hoặc nướng', 'Xúc xích trắng và các món Bavaria'];
   })();
 
-  const sections = [
+  const accessorySections = [
+    {
+      id: 'story',
+      title: 'Về sản phẩm',
+      content: <p>Phụ kiện chính hãng in logo Benediktiner, dùng kèm các dòng bia Benediktiner.</p>,
+    },
+    {
+      id: 'storage',
+      title: 'Sử dụng và vệ sinh',
+      content: (
+        <ul>
+          <li>Rửa bằng nước ấm và nước rửa chén nhẹ, tráng sạch, để khô tự nhiên.</li>
+          <li>Ly thủy tinh: tránh đổ nước sôi đột ngột vào ly đang lạnh.</li>
+        </ul>
+      ),
+    },
+  ];
+
+  const sections = isAccessory ? accessorySections : [
     { id: 'story', title: 'Câu chuyện sản phẩm', content: <p>{getStory()}</p> },
     { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul>{pairingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
     { id: 'storage', title: 'Hướng dẫn bảo quản', content: <ul>{storageItems.map((item) => <li key={item}>{item}</li>)}</ul> },

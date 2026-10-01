@@ -64,7 +64,7 @@ export default function Page() {
           photo: { src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Ly và chai Benediktiner Weissbier Naturtrüb trước Tu viện Ettal và dãy Alps', position: '68% center' },
         }}
         intro={{
-          title: 'Tinh túy từ lớp men sống',
+          title: 'Lớp men trong chai',
           image: { src: '/images/products/official/benediktiner/bottle_removebg.png', alt: 'Chai Benediktiner Weissbier Naturtrüb' },
           body: (
             <>
@@ -117,7 +117,7 @@ export default function Page() {
           steps: [
             ['Ướp lạnh', 'Ướp lạnh chai ở 7 đến 9°C, tráng ly Weizen bằng nước lạnh trước khi rót.'],
             ['Rót nghiêng 45°', 'Rót chậm dọc thành ly nghiêng cho đến khi trong chai còn khoảng một phần tư.'],
-            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men sống dưới đáy hòa tan.'],
+            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men dưới đáy hòa tan.'],
             ['Phủ bọt', 'Rót phần men còn lại vào giữa ly để tạo lớp bọt dày mịn.'],
           ],
         }}
