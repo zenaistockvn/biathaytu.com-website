@@ -100,13 +100,13 @@ export default function Page() {
             { term: 'Thị giác', text: 'Vàng rơm, trong. Lớp bọt trắng mịn, lâu tan.' },
             { term: 'Khứu giác', text: 'Thảo mộc tươi mát và hương hoa cỏ tinh tế của hoa bia.' },
             { term: 'Vị giác', text: 'Mở đầu bằng vị ngọt nhẹ của mạch nha, tiếp theo là vị đắng thanh, sắc nét.' },
-            { term: 'Hậu vị', text: 'Khô, sạch miệng, đọng lại vị đắng dịu kéo dài.' },
+            { term: 'Hậu vị', text: 'Khô, sạch miệng, vị đắng dịu.' },
           ],
         }}
         story={{
           title: 'Hop Siegelhopfen',
           body: (
-            <p>Hoa bia Siegelhopfen được trồng riêng cho Bitburger tại vùng Holsthum, gần Bitburg, trong Vườn quốc gia Südeifel. Nhà máy có truyền thống nấu bia từ năm 1817.</p>
+            <p>Hoa bia Siegelhopfen được trồng riêng cho Bitburger tại vùng Holsthum, gần Bitburg, trong Công viên tự nhiên Nam Eifel (Naturpark Südeifel), cùng hoa bia Siegelhopfen từ vùng Hallertau, Bavaria. Nhà máy có truyền thống nấu bia từ năm 1817.</p>
           ),
         }}
         formats={{ products: formats }}
@@ -123,7 +123,7 @@ export default function Page() {
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu nguyên chai, lon từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
+          text: 'Nhập khẩu nguyên chai, lon từ Đức. Liên hệ để được tư vấn quy cách, giá và điểm nhận hàng.',
           action: { href: linkGeneral, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

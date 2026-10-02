@@ -40,7 +40,7 @@ export default function LandingHero() {
         alt: 'Benediktiner Weissbier Naturtrüb bên ly bia, phía sau là Tu viện Ettal và dãy Alps',
         position: '68% center',
       }}
-      eyebrow="Tu viện Ettal, Bavaria, từ 1330"
+      eyebrow="Công thức tu viện Ettal, ủ tại Lich"
       title={t('hero.title.line1')}
       kicker={t('hero.title.line2')}
       actions={(

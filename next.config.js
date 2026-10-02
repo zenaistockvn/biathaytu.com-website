@@ -19,6 +19,8 @@ const RETIRED_PRODUCT_SLUGS = [
 ];
 
 const RETIRED_ARTICLES = require('./src/config/retired-articles.json');
+// Slug bài có "so-1", "hanh-trinh" trên URL (rà soát tuân thủ 10/2026); database giữ slug cũ, site dùng slug mới.
+const RENAMED_ARTICLE_SLUGS = require('./src/config/renamed-article-slugs.json');
 // Slug trong database bị mất dấu khi tạo ("mix-2-v-thng"); site dùng slug sửa lại, slug cũ chuyển 301.
 const RENAMED_PRODUCT_SLUGS = require('./src/config/renamed-product-slugs.json');
 // Domain từng chạy cửa hàng Haravan: /products/<handle> cũ chuyển 301 về trang SKU tương ứng (lấy từ haravan_url).
@@ -46,6 +48,11 @@ const nextConfig = {
         source: '/:path*',
         has: [{ type: 'host', value: host }],
         destination: 'https://www.biathaytu.com.vn/:path*',
+        statusCode: 301,
+      })),
+      ...Object.entries(RENAMED_ARTICLE_SLUGS).map(([slug, newSlug]) => ({
+        source: `/kien-thuc/${slug}`,
+        destination: `/kien-thuc/${newSlug}`,
         statusCode: 301,
       })),
       ...Object.entries(RETIRED_ARTICLES).map(([slug, destination]) => ({

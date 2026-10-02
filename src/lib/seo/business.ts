@@ -36,6 +36,8 @@ export interface BrandInfo {
   brand: string;
   manufacturer: string | null;
   manufacturerCountry: string;
+  /** Bang nơi đặt trụ sở nhà sản xuất (Benediktiner Weißbräu GmbH ở Ettal, Bayern; bia ủ tại Lich, Hessen). */
+  manufacturerRegion?: string;
   isBeer: boolean;
   isAwardWinner: boolean;
 }
@@ -48,10 +50,13 @@ export function getBrandInfo(name: string, category?: string | null): BrandInfo 
     /riesling|spätburgunder|spatburgunder|sauvignon|kabinett|auslese|trocken|rappenhof|thörle|thorle|austernkalk|\bvang\b/.test(n);
 
   if (n.includes('bitburger')) {
-    return { brand: 'Bitburger', manufacturer: 'Bitburger Braugruppe GmbH', manufacturerCountry: 'DE', isBeer: true, isAwardWinner: false };
+    return { brand: 'Bitburger', manufacturer: 'Bitburger Braugruppe GmbH', manufacturerCountry: 'DE', manufacturerRegion: 'Rheinland-Pfalz', isBeer: true, isAwardWinner: false };
   }
   if (n.includes('köstritzer') || n.includes('kostritzer')) {
-    return { brand: 'Köstritzer', manufacturer: 'Köstritzer Schwarzbierbrauerei', manufacturerCountry: 'DE', isBeer: true, isAwardWinner: false };
+    return { brand: 'Köstritzer', manufacturer: 'Köstritzer Schwarzbierbrauerei', manufacturerCountry: 'DE', manufacturerRegion: 'Thüringen', isBeer: true, isAwardWinner: false };
+  }
+  if (category === 'phu-kien') {
+    return { brand: 'Benediktiner', manufacturer: null, manufacturerCountry: 'DE', isBeer: false, isAwardWinner: false };
   }
   if (isWine) {
     let brand = 'Rượu vang Đức';
@@ -60,6 +65,8 @@ export function getBrandInfo(name: string, category?: string | null): BrandInfo 
     else if (n.includes('austernkalk')) brand = 'Austernkalk';
     return { brand, manufacturer: null, manufacturerCountry: 'DE', isBeer: false, isAwardWinner: false };
   }
-  const isAwardWinner = n.includes('naturtrüb') || n.includes('naturtrub') || n.includes('weissbier');
-  return { brand: 'Benediktiner', manufacturer: 'Benediktiner Weißbräu GmbH', manufacturerCountry: 'DE', isBeer: true, isAwardWinner };
+  // Giải iTQi Superior Taste Award 2022 chỉ trao cho Weissbier Naturtrüb, không cho Dunkel hay Festbier.
+  const isAwardWinner =
+    (n.includes('naturtrüb') || n.includes('naturtrub') || n.includes('weissbier')) && !/dunkel|festbier|mix/.test(n);
+  return { brand: 'Benediktiner', manufacturer: 'Benediktiner Weißbräu GmbH', manufacturerCountry: 'DE', manufacturerRegion: 'Bayern', isBeer: true, isAwardWinner };
 }

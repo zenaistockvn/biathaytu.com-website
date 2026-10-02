@@ -35,7 +35,7 @@ export default function Page() {
     name: 'Bom Bia 5L Benediktiner',
     slug: 'bom-bia-5l-benediktiner',
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
-    description: 'Bom bia Đức 5 lít, phù hợp tiệc tùng và quà tặng doanh nghiệp.',
+    description: 'Bom bia Đức 5 lít có vòi rót sẵn, phù hợp tiệc gia đình và quà tặng doanh nghiệp.',
     abv: '5.4',
     volume: '5000ml',
   };
@@ -76,7 +76,7 @@ export default function Page() {
           title: 'Sử dụng và bảo quản',
           kicker: 'Bốn bước',
           steps: [
-            ['Làm lạnh sâu', 'Để bom trong tủ lạnh ít nhất 10 tiếng trước khi dùng. Không để ngăn đá.'],
+            ['Làm lạnh sâu', 'Để bom trong ngăn mát tủ lạnh 6-8 tiếng trước khi dùng. Không để ngăn đá.'],
             ['Thông khí', 'Xoay van thông khí trên đỉnh bom theo hướng dẫn để giảm áp suất trước khi rót.'],
             ['Mở vòi rót', 'Kéo vòi ở hông bom ra, xoay xuống để bia chảy. Điều chỉnh lực xoay để kiểm soát bọt.'],
             ['Dùng trong 48 giờ', 'Ngon nhất khi dùng hết trong 48 giờ sau khi mở để giữ bọt và độ tươi.'],

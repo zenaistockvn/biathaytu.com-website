@@ -28,8 +28,8 @@ describe('link điều hướng và footer', () => {
     expect(hrefs.filter((h) => !routeExists(h))).toEqual([]);
   });
 
-  it('footer có ba cột Sản phẩm, Tìm hiểu, Mua hàng và giữ thông tin doanh nghiệp (audit A7)', () => {
-    for (const title of ["title: 'Sản phẩm'", "title: 'Tìm hiểu'", "title: 'Mua hàng'"]) {
+  it('footer có ba cột Sản phẩm, Tìm hiểu, Hợp tác và liên hệ và giữ thông tin doanh nghiệp (audit A7)', () => {
+    for (const title of ["title: 'Sản phẩm'", "title: 'Tìm hiểu'", "title: 'Hợp tác và liên hệ'"]) {
       expect(FOOTER).toContain(title);
     }
     expect(FOOTER).toContain('const productLinks = [...PRODUCT_LINES, KEG_PAGE]');

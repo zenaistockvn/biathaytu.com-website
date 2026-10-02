@@ -58,7 +58,7 @@ function mostCommon(values: string[]): string | null {
 const SECTION_COPY: Record<LineGroup, { kicker: string; lead: string }> = {
   benediktiner: {
     kicker: 'Bia lúa mì tu viện',
-    lead: 'Bia lúa mì của tu viện Ettal: vàng đục Naturtrüb, đen Dunkel và Festbier mùa lễ hội, có dạng chai, lon và bom 5 lít.',
+    lead: 'Bia lúa mì theo công thức tu viện Ettal: vàng đục Naturtrüb, nâu Dunkel và Festbier mùa lễ hội, có dạng chai, lon và bom 5 lít.',
   },
   selected: {
     kicker: 'Bitburger và các dòng bổ sung',

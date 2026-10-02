@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
-    description: 'Bia lúa mì Đức nguyên bản từ tu viện Ettal (Bavaria) nấu theo Luật Tinh Khiết 1516. Đạt giải iTQi 3 Sao danh giá.',
+    description: 'Bia lúa mì Đức ủ tại Lich theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal. Đạt iTQi Superior Taste Award 3 sao năm 2022.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
@@ -39,7 +39,7 @@ export default function Page() {
     name: 'Benediktiner Weissbier Naturtrüb',
     slug: 'benediktiner-weissbier-naturtrub',
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
-    description: 'Bia lúa mì Đức nguyên bản, không lọc, giữ trọn vẹn hương vị men sống tự nhiên từ tu viện Ettal.',
+    description: 'Bia lúa mì Đức nguyên bản, không lọc, giữ men trong chai, công thức gốc dòng Biển Đức với men hầm tu viện Ettal.',
     abv: '5.4',
     volume: '500ml',
   };
@@ -60,16 +60,16 @@ export default function Page() {
           eyebrow: 'Benediktiner Weissbräu Ettal',
           title: 'Weissbier Naturtrüb',
           kicker: 'Bia lúa mì không lọc',
-          meta: '5,4% vol. Thưởng thức ở 6 đến 8°C.',
+          meta: '5,4% vol. Thưởng thức ở 7 đến 9°C.',
           photo: { src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Ly và chai Benediktiner Weissbier Naturtrüb trước Tu viện Ettal và dãy Alps', position: '68% center' },
         }}
         intro={{
-          title: 'Tinh túy từ lớp men sống',
+          title: 'Lớp men trong chai',
           image: { src: '/images/products/official/benediktiner/bottle_removebg.png', alt: 'Chai Benediktiner Weissbier Naturtrüb' },
           body: (
             <>
-              <p>Naturtrüb trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;. Thay vì lọc sạch men như bia công nghiệp phổ thông, Benediktiner Weissbier giữ lại lớp men sống nguyên bản.</p>
-              <p>Lớp men tiếp tục lên men trong chai, tạo nên màu hổ phách đục, lớp bọt dày mịn và hương vị trọn vẹn nhất của bia lúa mì Bavaria.</p>
+              <p>Naturtrüb trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;. Benediktiner Weissbier không qua lọc nên men vẫn còn trong bia.</p>
+              <p>Chính lớp men đó làm bia có màu vàng đục, bọt dày và hương chuối chín, đinh hương rõ hơn.</p>
             </>
           ),
           actions: [
@@ -78,7 +78,7 @@ export default function Page() {
           ],
         }}
         profile={{
-          serving: '5,4% vol. Nhiệt độ 6 đến 8°C. Ly Weizen cao.',
+          serving: '5,4% vol. Nhiệt độ 7 đến 9°C. Ly Weizen cao.',
           flavors: [
             { label: 'Trái cây', value: 5 },
             { label: 'Gia vị', value: 4 },
@@ -106,7 +106,7 @@ export default function Page() {
           title: 'Một chút lịch sử',
           body: (
             <>
-              <p>Tu viện Ettal được các tu sĩ dòng Benedictine thành lập năm 1330, ở độ cao 877 m dưới chân dãy Alps, Bavaria. Truyền thống bia lúa mì của tu viện là nền tảng của công thức Benediktiner.</p>
+              <p>Tu viện Ettal của dòng Biển Đức do Hoàng đế Ludwig IV lập năm 1330, ở độ cao 877 m dưới chân dãy Alps, Bavaria. Truyền thống bia lúa mì của tu viện là nền tảng của công thức Benediktiner.</p>
               <p>Ngày nay bia được nấu tại Lich theo công thức Benedictine nguyên bản và Luật Tinh Khiết 1516.</p>
             </>
           ),
@@ -115,9 +115,9 @@ export default function Page() {
           title: 'Nghi thức rót',
           kicker: 'Chuẩn Bavaria, bốn bước',
           steps: [
-            ['Ướp lạnh', 'Ủ lạnh chai và ly Weizen thon dài ở 6 đến 8°C trước khi rót.'],
+            ['Ướp lạnh', 'Ướp lạnh chai ở 7 đến 9°C, tráng ly Weizen bằng nước lạnh trước khi rót.'],
             ['Rót nghiêng 45°', 'Rót chậm dọc thành ly nghiêng cho đến khi trong chai còn khoảng một phần tư.'],
-            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men sống dưới đáy hòa tan.'],
+            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men dưới đáy hòa tan.'],
             ['Phủ bọt', 'Rót phần men còn lại vào giữa ly để tạo lớp bọt dày mịn.'],
           ],
         }}
@@ -136,7 +136,7 @@ export default function Page() {
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và giao hàng.',
+          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và điểm nhận hàng.',
           action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

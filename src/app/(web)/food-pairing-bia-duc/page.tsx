@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function Page() {
   const faqs = [
     { question: 'Bia Đức ăn với món gì ngon?', answer: 'Weissbier hợp hải sản hấp, gà nướng, phô mai mềm; Dunkel hợp steak, sườn BBQ, chocolate đen; Pilsner hợp pizza, đồ nhắm, BBQ. Bia lúa mì Đức cũng rất hợp món Việt như phở và hải sản.' },
-    { question: 'Uống bia Đức ở nhiệt độ nào ngon nhất?', answer: 'Weissbier và Dunkel ngon nhất ở 6–8°C; Pilsner ở 4–6°C. Dùng đúng loại ly (ly Weizen cao cho bia lúa mì) để giữ bọt và hương.' },
+    { question: 'Uống bia Đức ở nhiệt độ nào ngon nhất?', answer: 'Weissbier nên để 7-9°C, Dunkel 8-10°C, Pilsner 4-6°C. Dùng đúng loại ly (ly Weizen cao cho bia lúa mì) để giữ bọt và hương.' },
     { question: 'Bia lúa mì khác bia thường thế nào?', answer: 'Bia lúa mì (Weissbier) dùng nhiều malt lúa mì, lên men đỉnh, thường không lọc (Naturtrüb) nên đục tự nhiên, hương chuối chín và đinh hương đặc trưng, bọt dày.' },
   ];
 
@@ -52,7 +52,7 @@ export default function Page() {
         after={<FaqSection items={faqs} />}
       >
         <Summary>
-          <p><strong>Food pairing là gì?</strong> Đó là nghệ thuật &quot;ghép đôi&quot; đồ uống và món ăn sao cho chúng tôn vinh lẫn nhau. Một ly bia Đức phù hợp có thể làm giảm độ ngấy của món ăn, làm bật vị tươi ngọt của hải sản, hoặc hòa quyện cùng vị đậm đà của thịt nướng.</p>
+          <p><strong>Food pairing là gì?</strong> Đó là nghệ thuật &quot;ghép đôi&quot; đồ uống và món ăn sao cho chúng tôn vinh lẫn nhau. Một ly bia Đức phù hợp có thể làm giảm độ ngấy của món ăn, làm bật vị tươi ngọt của hải sản, hoặc đi cùng vị đậm của thịt nướng.</p>
         </Summary>
 
         <h2>1. Bia lúa mì (Weissbier)</h2>
@@ -76,7 +76,7 @@ export default function Page() {
         />
 
         <h2>3. Pilsner (bia vàng)</h2>
-        <p><strong>Đặc điểm:</strong> trong, giải khát. Vị đắng thanh của hoa bia và hậu vị khô, sạch miệng.</p>
+        <p><strong>Đặc điểm:</strong> trong, vàng sáng. Vị đắng thanh của hoa bia và hậu vị khô, sạch miệng.</p>
         <InfoGrid
           items={[
             { title: 'Đồ chiên rán', text: 'Gà rán, mực chiên xù, khoai tây chiên. Vị đắng và độ lạnh cắt cảm giác ngấy mỡ.' },

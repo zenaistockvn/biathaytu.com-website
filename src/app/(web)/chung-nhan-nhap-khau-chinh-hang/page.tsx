@@ -59,7 +59,7 @@ export default function Page() {
 
         <h2>Giải thưởng quốc tế iTQi</h2>
         <h3>Superior Taste Award (3 sao)</h3>
-        <p>Năm 2022, Benediktiner Weissbier Naturtrüb nhận giải thưởng <strong>hương vị 3 sao (mức cao nhất, Exceptional)</strong> từ Viện Hương vị Chất lượng Quốc tế (International Taste Institute, iTQi) tại Brussels, Bỉ. Giải thưởng được đánh giá mù (blind-tasting) bởi hội đồng 200 chuyên gia ẩm thực và sommelier hàng đầu thế giới.</p>
+        <p>Năm 2022, Benediktiner Weissbier Naturtrüb nhận <strong>Superior Taste Award 3 sao</strong> của Viện Hương vị Quốc tế (International Taste Institute, iTQi) tại Brussels, Bỉ. Theo iTQi, 3 sao là mức &quot;exceptional&quot;, dành cho sản phẩm đạt 90 đến 100% điểm trong buổi nếm mù của hội đồng đầu bếp và sommelier. Tra cứu tại <a href="https://www.taste-institute.com/en/awarded-products/product-details/9022846" target="_blank" rel="noopener noreferrer">taste-institute.com</a>.</p>
 
         <CtaBand
           title="Yên tâm nhập sỉ và kinh doanh"

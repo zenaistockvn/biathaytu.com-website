@@ -28,7 +28,7 @@ const policyLinks = [
 const linkColumns = [
   { id: 'footer-products', title: 'Sản phẩm', links: productLinks },
   { id: 'footer-learn', title: 'Tìm hiểu', links: learnLinks },
-  { id: 'footer-buy', title: 'Mua hàng', links: buyLinks },
+  { id: 'footer-buy', title: 'Hợp tác và liên hệ', links: buyLinks },
 ];
 
 /**

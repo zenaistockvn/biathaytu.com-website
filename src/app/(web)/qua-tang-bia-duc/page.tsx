@@ -9,11 +9,11 @@ import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-  description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+  description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/qua-tang-bia-duc' },
   openGraph: {
     title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-    description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+    description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-    description: 'Hộp quà tặng bia Đức sang trọng, đẳng cấp. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+    description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -53,11 +53,11 @@ export default function Page() {
           eyebrow: 'Quà tặng doanh nghiệp',
           title: 'Quà tặng bia Đức',
           kicker: 'Lễ, Tết và tri ân đối tác',
-          lead: 'Món quà mang 400 năm nghệ thuật ủ bia từ Bavaria.',
+          lead: 'Món quà bia lúa mì Đức theo công thức hơn 400 năm của tu viện Ettal.',
         }}
       >
         <Summary>
-          <p><strong>Khác với vang hay rượu mạnh</strong> vốn đã quá phổ biến, bia Đức nhập khẩu là làn gió mới trong văn hóa tặng quà doanh nghiệp: sang trọng, độc đáo, dễ tiếp cận trong các bữa tiệc tri ân cuối năm. Xem toàn bộ <Link href="/san-pham">danh mục bia Đức</Link>.</p>
+          <p><strong>Bia Đức nhập khẩu</strong> là một lựa chọn quà tặng doanh nghiệp dễ dùng trong các bữa tiệc tri ân cuối năm, hợp cả người thích bia lúa mì lẫn Pilsner. Xem toàn bộ <Link href="/san-pham">danh mục bia Đức</Link>.</p>
         </Summary>
 
         <h2>Các lựa chọn quà tặng</h2>
@@ -74,11 +74,11 @@ export default function Page() {
           <li><strong>Chiết khấu:</strong> chính sách giá ưu đãi cho đơn hàng số lượng lớn dịp Lễ, Tết.</li>
           <li><strong>Hóa đơn VAT:</strong> đầy đủ chứng từ hợp lệ, CO/CQ, hóa đơn VAT theo yêu cầu doanh nghiệp.</li>
           <li><strong>Tùy biến quà tặng:</strong> hỗ trợ in logo doanh nghiệp lên bao bì, thiệp chúc mừng thiết kế riêng theo nhận diện thương hiệu.</li>
-          <li><strong>Giao hàng đa điểm:</strong> vận chuyển tận tay đến các đối tác của bạn trên toàn quốc, an toàn, đúng hẹn.</li>
+          <li><strong>Nhiều điểm nhận:</strong> trao đổi phương án gửi quà theo danh sách đối tác của bạn.</li>
         </ul>
 
         <CtaBand
-          title="Đặt quà tặng"
+          title="Tư vấn quà tặng"
           text="Để nhận catalog quà tặng mới nhất và báo giá chiết khấu, vui lòng liên hệ."
           action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: 'Hotline tư vấn quà tặng' }}

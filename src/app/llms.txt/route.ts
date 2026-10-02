@@ -49,11 +49,12 @@ export async function GET() {
   if (products && products.length > 0) {
     (products as ProductItem[]).forEach((product) => {
       const productUrl = `${baseUrl}/san-pham/${product.slug || product.id}`;
-      const abvText = product.abv ? `, nồng độ ${product.abv}%` : '';
-      const volumeText = product.volume ? `, dung tích ${product.volume}` : '';
-      
+      const specs = [product.volume ? `dung tích ${product.volume}` : null, product.abv ? `nồng độ ${product.abv}%` : null]
+        .filter(Boolean)
+        .join(', ');
+
       markdown += `### [${product.name}](${productUrl})\n`;
-      markdown += `- **Quy cách:** ${volumeText}${abvText} (Xuất xứ: ${product.origin || 'Đức'})\n`;
+      markdown += `- **Quy cách:** ${specs ? `${specs} ` : ''}(Xuất xứ: ${product.origin || 'Đức'})\n`;
       if (product.description) {
         markdown += `- **Mô tả:** ${product.description}\n`;
       }
@@ -73,13 +74,13 @@ export async function GET() {
     });
   } else {
     markdown += `- [Bia Thầy Tu là gì?](${baseUrl}/bia-thay-tu-la-gi): Lịch sử sản xuất bia từ Tu viện Ettal từ năm 1609.\n`;
-    markdown += `- [Hướng dẫn rót bia lúa mì](${baseUrl}/huong-dan-rot-bia-lua-mi): Nghệ thuật rót bia Weissbier chuẩn Đức giữ trọn men sống.\n`;
+    markdown += `- [Hướng dẫn rót bia lúa mì](${baseUrl}/huong-dan-rot-bia-lua-mi): Cách rót bia Weissbier để có bọt dày và hòa lớp men dưới đáy chai.\n`;
     markdown += `- [Chứng nhận nhập khẩu](${baseUrl}/chung-nhan-nhap-khau-chinh-hang): Tính minh bạch và giấy tờ pháp lý nhập khẩu bia Đức.\n`;
   }
 
   markdown += `\n## Các Câu Hỏi Thường Gặp (FAQs)\n`;
   markdown += `1. **Bia Thầy Tu Benediktiner Weissbier có vị gì?**\n`;
-  markdown += `   - Vị chuối chín, đinh hương tự nhiên kết hợp với lớp bọt mịn dày và hậu vị ngọt dịu nguyên bản từ men sống, không qua lọc (Naturtrüb).\n`;
+  markdown += `   - Vị chuối chín, đinh hương tự nhiên kết hợp với lớp bọt mịn dày và hậu vị ngọt dịu; bia không lọc nên có màu đục tự nhiên (Naturtrüb).\n`;
   markdown += `2. **Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?**\n`;
   markdown += `   - Không. Bia được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.\n`;
   markdown += `3. **Tìm hiểu sản phẩm tại đâu ở Hà Nội?**\n`;

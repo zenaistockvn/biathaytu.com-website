@@ -36,7 +36,7 @@ describe('public product data regressions', () => {
     expect(productCard).toContain('formatPrice');
     expect(productCard).toContain('Giá bán lẻ');
     expect(productCard).not.toContain('card-price-current');
-    expect(productCard).toContain('Khám phá sản phẩm');
+    expect(productCard).toContain('Xem sản phẩm');
   });
 
   it('does not request product columns that are absent from the Supabase schema', () => {

@@ -163,7 +163,11 @@ export function getProductSchema(product: {
           manufacturer: {
             '@type': 'Organization',
             name: info.manufacturer,
-            address: { '@type': 'PostalAddress', addressCountry: info.manufacturerCountry, addressRegion: 'Bavaria' },
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: info.manufacturerCountry,
+              ...(info.manufacturerRegion ? { addressRegion: info.manufacturerRegion } : {}),
+            },
           },
         }
       : {}),
