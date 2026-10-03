@@ -11,7 +11,7 @@ Kho media Bitburger Braugruppe: https://www.bitburger-international.com/en/media
 | File | Ảnh gốc | Giấy phép |
 | --- | --- | --- |
 | `bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel-v2.webp` | `public/images/brand/benediktiner-official/dunkel-glass-cutout.webp` trên nền #E9E1D0 | Ảnh sản phẩm chính hãng |
-| `bitburger-hanh-trinh-200-nam-bia-draft-so-1.webp` | Bitburger press photo, uid 386083 (hash 7aa52c52dcf1473f871cfe7c27afad8b) | Chính hãng, editorial only; chủ website duyệt dùng 2026-09-28 |
+| `bitburger-hanh-trinh-200-nam-bia-draft-so-1-v2.webp` | Bitburger press photo, uid 386083 (hash 7aa52c52dcf1473f871cfe7c27afad8b); bản -v2 (2026-10-04) cắt lấy góc trên trái 1500x1000 rồi phóng về 1600x1067, bỏ mảng trắng mặt quầy ở góc dưới phải vốn lộ ra như vết cắt trong khung 16:9 | Chính hãng, editorial only; chủ website duyệt dùng 2026-09-28 |
 | `huong-dan-chon-bia-duc-cho-nguoi-moi-v2.webp` | Ghép: Benediktiner Naturtrüb 0.5 l glass (uid 282675), Bitburger Beer Glass (uid 386064), dunkel-glass-cutout.webp; nền trắng | Pack shot chính hãng, international |
 | `top-7-mon-viet-ket-hop-bia-duc-food-pairing.webp` | https://commons.wikimedia.org/wiki/File:Beef_noodle_soup_(Ph%E1%BB%9F_b%C3%B2)_-_Pho_Hanoi_Authentic_2024-12-01.jpg (Andy Li) | CC0 |
 | `cach-bao-quan-bia-nhap-khau-dung-cach.webp` | Benediktiner press photo, uid 388476 (hash bd5b47b918be45468f06fe7c27afad8b) | Chính hãng, editorial only; chủ website duyệt dùng 2026-09-28 |

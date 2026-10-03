@@ -116,7 +116,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.knowledge, { href: articleUrl, label: article.title }))} />
 
       <header className={`${styles.hero} ${article.thumbnail_url ? styles.withCover : ''}`} data-surface="ink">
-        <div className={`container ${styles.heroInner}`}>
+        <div className={styles.column}>
           <nav className={styles.breadcrumb} aria-label="Đường dẫn">
             <Link href={NAV.home.href}>{NAV.home.label}</Link>
             <span aria-hidden="true">/</span>
@@ -130,7 +130,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       </header>
 
       {article.thumbnail_url && (
-        <div className={`container ${styles.coverWrap}`}>
+        <div className={`${styles.column} ${styles.coverWrap}`}>
           <div className={styles.cover}>
             <Image
               src={article.thumbnail_url}

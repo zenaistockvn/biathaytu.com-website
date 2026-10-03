@@ -9,9 +9,23 @@
   padding-bottom: clamp(96px, 12vw, 160px);
 }
 
-.heroInner {
-  max-width: 900px;
+/*
+ * Tiêu đề và ảnh bìa chung một cột 1000px giữa trang, thân bài 800px nằm giữa cột đó.
+ * Không dùng class `container`: `.web-app .container` (0,2,0) đè max-width và margin của module.
+ */
+.column {
+  max-width: calc(1000px + 2 * var(--column-pad));
+  margin-inline: auto;
+  padding-inline: var(--column-pad);
+  --column-pad: 16px;
 }
+
+@media (min-width: 769px) {
+  .column {
+    --column-pad: 24px;
+  }
+}
+
 
 .breadcrumb {
   display: flex;
@@ -32,6 +46,7 @@
 
 /* `.hero .title` (0,2,0) thắng `.web-app h1` (0,1,1). Tiêu đề bài dài: chữ thường. */
 .hero .title {
+  max-width: 900px;
   margin: 0;
   font-size: clamp(28px, 3.6vw, 46px);
   line-height: 1.25;
@@ -55,7 +70,6 @@
 
 .cover {
   position: relative;
-  max-width: 1000px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--web-bg-section);
@@ -67,7 +81,6 @@
 
 /* Ghi nguồn ảnh theo giấy phép CC BY-SA. */
 .coverCredit {
-  max-width: 1000px;
   margin: 8px 0 0;
   font-size: 13px;
   color: var(--web-text-secondary);
