@@ -8,7 +8,8 @@ function localFileFor(url: string) {
 }
 
 const LOCAL_IMAGE_PATH = /\/images\/[^"'<>]+?\.(?:png|jpe?g|webp|svg|avif)/gi;
-const SAFE_LOCAL_IMAGE_PATH = /^\/[a-z0-9\/_.-]+$/;
+// Chỉ ký tự ASCII an toàn cho URL; chữ hoa được phép vì tên file ảnh chính hãng của nhà máy có chữ hoa.
+const SAFE_LOCAL_IMAGE_PATH = /^\/[A-Za-z0-9\/_.-]+$/;
 
 // Product data still contains official filenames supplied by the breweries and
 // one intentionally missing hidden SKU image. Keep that existing debt visible

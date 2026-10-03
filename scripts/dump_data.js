@@ -1,3 +1,8 @@
+/**
+ * Tải bảng products và seo_articles từ database ra .audit/db-dump/ để đối chiếu với src/data.
+ * Không còn chạy khi build: src/data/products.json và articles.json là nguồn chính (10/2026).
+ * Chạy tay: npm run dump-data (cần DATABASE_URL).
+ */
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
@@ -116,8 +121,9 @@ async function dump() {
       `Fetched ${aResult.rows.length} articles; keeping ${inScopeArticles.length} articles in the Benediktiner scope.`,
     );
 
-    // Save to files
-    const dataDir = path.join(__dirname, '..', 'src', 'data');
+    // Từ 10/2026 src/data/*.json là nguồn chính, không còn đổ lại từ database khi build.
+    // Script chỉ ghi bản database ra .audit/db-dump/ để đối chiếu, không ghi đè src/data.
+    const dataDir = path.join(__dirname, '..', '.audit', 'db-dump');
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }

@@ -2,12 +2,12 @@
   {
     "id": "ecd0f2c4-190f-42b2-8046-e0da747e6318",
     "name": "Bitburger Premium Pils, thùng 12 chai 330ml",
-    "description": "Bia Đức nhập khẩu chính hãng: Bitburger Premium Pils dạng thùng 12 chai thủy tinh 330ml. Dòng bia đắng (Pilsner) số 1 nước Đức được nấu từ hoa bia quý tộc Hallertau và nước nguồn tinh khiết vùng Eifel. Vị đắng thanh thoát rõ rệt, sảng khoái tột độ, hậu vị sạch sẽ. Thích hợp cho tiếp khách sang trọng, các bữa tiệc nướng BBQ tại Hà Nội. Ship hỏa tốc 2 giờ nội thành.",
+    "description": "Bitburger Premium Pils thùng 12 chai thủy tinh 330ml. Pilsner của nhà bia gia đình Bitburger, thành lập năm 1817 tại Bitburg, vùng Eifel, nấu theo Luật Tinh khiết 1516 với hoa bia Siegelhopfen. Màu vàng sáng, bọt mịn, vị đắng hoa bia rõ, hậu vị khô. Phục vụ lạnh 4-6 °C, hợp món chiên, nướng và hải sản.",
     "price": 650000,
     "category": "bia",
     "usp": null,
     "images": [
-      "/images/products/official/bitburger/bitburger_flasche_05l_frontal_betaut_V12.webp"
+      "/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -16,18 +16,18 @@
     "updated_at": "2026-06-02T16:50:09.403Z",
     "slug": "bitburger-premium-pils-thung-12-chai-330ml",
     "abv": "4.8",
-    "ibu": null,
+    "ibu": 33,
     "volume": "330ml",
     "origin": "Đức",
     "brewing_method": null,
     "is_featured": false,
-    "sort_order": 0,
+    "sort_order": 10,
     "haravan_url": null
   },
   {
     "id": "0c72481f-a9a5-4724-94f5-3c20dc57b9f7",
     "name": "Benediktiner Festbier, két 24 lon 500ml",
-    "description": "Bia tu viện Đức nhập khẩu: Benediktiner Festbier két 24 lon 500ml. Phiên bản bia lễ hội đặc biệt của vùng Bavaria, ủ theo công thức cổ truyền của tu viện Ettal. Nồng độ cồn 5.8% ABV đậm đà, màu vàng hổ phách óng ả, hương vị hài hòa giữa vị ngọt của mạch nha chín và vị đắng nhẹ của hoa bia. Sản phẩm lý tưởng cho các buổi tiệc tùng, liên hoan và làm quà tặng ý nghĩa.",
+    "description": "Benediktiner Festbier két 24 lon 500ml. Dòng bia mùa lễ hội của Benediktiner, ủ tại Lich (Hessen) theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal. Nồng độ 5,8%, màu vàng hổ phách, thân và vị mạch nha đậm hơn Naturtrüb, hoa bia đắng nhẹ. Phục vụ 6-8 °C, hợp món nướng, thịt heo quay, khoai tây.",
     "price": 1500000,
     "category": "bia",
     "usp": null,
@@ -46,13 +46,13 @@
     "origin": "Đức",
     "brewing_method": null,
     "is_featured": false,
-    "sort_order": 0,
+    "sort_order": 9,
     "haravan_url": null
   },
   {
     "id": "b9188276-8858-448f-892c-f77a1e29dd7c",
     "name": "Köstritzer Schwarzbier Bom 5L",
-    "description": "Bia đen Đức nhập khẩu nguyên bom: Köstritzer Schwarzbier Bom 5L. Dòng bia đen huyền thoại lâu đời nhất nước Đức từ năm 1543. Sở hữu màu đen tuyền quyến rũ, lớp bọt mịn dày, hương thơm nồng nàn của mạch nha rang, cà phê và socola đen. Bom bia 5L có vòi rót tự động tiện lợi, là lựa chọn đẳng cấp cho các buổi tụ họp cuối tuần, tiệc nướng ngoài trời hoặc làm quà biếu tặng đối tác sang trọng tại Hà Nội.",
+    "description": "Köstritzer Schwarzbier bom 5L. Bia đen của nhà bia Köstritzer ở Bad Köstritz, bang Thüringen. Màu nâu đen, hương mạch nha rang, thân nhẹ, vị khô, không ngọt nặng. Bom có van xả khí và vòi rót sẵn, ướp tủ mát 6-8 tiếng trước khi dùng. Phục vụ 7-9 °C.",
     "price": 850000,
     "category": "bia",
     "usp": null,
@@ -77,7 +77,7 @@
   {
     "id": "67bd4a3a-bee6-4e4e-8227-40fde05cae58",
     "name": "Benediktiner Festbier Bom 5L",
-    "description": "Bom bia lễ hội Đức nhập khẩu: Benediktiner Festbier Bom 5L. Dòng bia lễ hội đặc trưng vùng Bavaria với nồng độ 5.8% ABV đậm vị. Thiết kế bom 5L sang trọng có sẵn vòi rót tiện lợi, giữ lạnh lâu và tạo không khí tiệc tùng sảng khoái. Vị bia đầy đặn, mượt mà từ tu viện Ettal trứ danh. Thích hợp làm quà biếu cao cấp hoặc tiệc gia đình cuối tuần tại Hà Nội.",
+    "description": "Benediktiner Festbier bom 5L. Dòng bia mùa lễ hội của Benediktiner, nồng độ 5,8%, thân và vị mạch nha đậm hơn Naturtrüb. Bom có van xả khí ở nắp và vòi rót ở chân, không cần máy hay bình CO2; ướp tủ mát 6-8 tiếng trước khi rót. Phục vụ 6-8 °C, hợp món nướng và thịt heo quay.",
     "price": 920000,
     "category": "bia",
     "usp": null,
@@ -96,18 +96,18 @@
     "origin": "Đức",
     "brewing_method": null,
     "is_featured": false,
-    "sort_order": 0,
+    "sort_order": 9.5,
     "haravan_url": null
   },
   {
     "id": "3df124ca-4974-4500-a215-87aeda751a92",
     "name": "Vang Trắng Thorle Sauvignon Blanc 1,5L",
-    "description": "Vang trắng Đức: Giống nho Sauvignon Blanc, Magnum 1.5L. Nhà sản xuất Thörle, vùng Rheinhessen. Sauvignon Blanc kiểu Đức, khác biệt hoàn toàn với dòng New World. Hương cỏ tươi, bưởi, lá cây, khoáng chất. Vị sắc nét, acid tươi sáng, hậu vị sạch. Chai Magnum 1.5L, quà biếu ấn tượng.",
+    "description": "Vang trắng Đức: giống nho Sauvignon Blanc, chai Magnum 1,5L. Nhà sản xuất Thörle, vùng Rheinhessen. Hương cỏ tươi, bưởi, lá cây, khoáng. Vị sắc nét, acid tươi sáng, hậu vị sạch. Chai lớn hợp làm quà biếu.",
     "price": 2500000,
     "category": "vang",
     "usp": "Sauvignon Blanc Magnum: Dòng SB kiểu Đức hiếm, chai 1.5L",
     "images": [
-      "https://product.hstatic.net/200000919029/product/37_96f13f655e1e4889a99e3a5ba481cef9_grande.jpg"
+      "/images/products/official/thorle/sauvignon_blanc_magnum_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -132,7 +132,7 @@
     "category": "vang",
     "usp": "Thorle Riesling Magnum: Chai 1.5L cho tiệc và tiếp khách",
     "images": [
-      "https://product.hstatic.net/200000919029/product/39_a92d1e96ff494d00bacc4de70b3ba5ca_grande.jpg"
+      "/images/products/official/thorle/riesling_magnum_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -152,12 +152,12 @@
   {
     "id": "3415bfd3-7216-491b-a449-5dbc9744c477",
     "name": "Vang Trắng Rappenhof Riesling Auslese 2014",
-    "description": "Vang trắng Đức: Giống nho Riesling, 750ml, nồng độ 7.5%, vintage 2014. Nhà sản xuất Rappenhof. Auslese, cấp phân loại cao nhất của Rappenhof, nho chín muộn tuyển chọn từng chùm. Hương mật ong, mơ chín, quýt, hoa nhài. Vị ngọt tự nhiên cân bằng acid sắc, phức hợp, hậu vị kéo dài. Lý tưởng cho tráng miệng, foie gras, phô mai xanh. Bán lẻ chai.",
+    "description": "Vang trắng Đức: giống nho Riesling, 750ml, nồng độ 7,5%, vintage 2014. Nhà sản xuất Rappenhof. Auslese là cấp Prädikat dành cho nho chín muộn tuyển chọn từng chùm. Hương mật ong, mơ chín, quýt, hoa nhài. Vị ngọt tự nhiên cân bằng với acid, hậu vị kéo dài. Hợp tráng miệng, gan ngỗng, phô mai xanh. Bán lẻ chai.",
     "price": 1880000,
     "category": "vang",
     "usp": "Riesling Auslese 2014: Nho tuyển chọn chín muộn, cấp cao nhất Rappenhof",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_auslese_a286249fbffb40c5b2ed798abe388ca2_grande.png"
+      "/images/products/official/rappenhof/riesling_auslese_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -177,12 +177,12 @@
   {
     "id": "1b8c99d5-0017-4f55-b656-c93d9ec08f2a",
     "name": "Vang Trắng Thorle Kabinett 750ml",
-    "description": "Vang trắng Đức: Giống nho Riesling, 750ml. Nhà sản xuất Thörle, vùng Rheinhessen. Kabinett, vang bán khô nhẹ nhàng. Hương táo xanh, lê, hoa cúc, khoáng đá vôi. Vị tươi mát, ngọt nhẹ tự nhiên, acid cân bằng hoàn hảo. Phù hợp aperitif, hải sản nhẹ, salad, dim sum. Bán lẻ chai.",
+    "description": "Vang trắng Đức: giống nho Riesling, 750ml. Nhà sản xuất Thörle, vùng Rheinhessen. Kabinett, vang bán khô nhẹ. Hương táo xanh, lê, hoa cúc, khoáng đá vôi. Vị tươi, ngọt nhẹ tự nhiên, acid cân bằng. Hợp khai vị, hải sản nhẹ, salad, dim sum. Bán lẻ chai.",
     "price": 595000,
     "category": "vang",
     "usp": "Thorle Kabinett: Vang trắng bán khô tươi mát từ đất đá vôi Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/6_343530997b684b809e3e2d570d7197c1_grande.png"
+      "/images/products/official/thorle/kabinett_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -202,12 +202,12 @@
   {
     "id": "340f30ef-2750-4e5f-a264-158ea97ce538",
     "name": "Vang Trắng Austernkalk Riesling Trocken Magnum 1,5L",
-    "description": "Vang trắng Đức: Giống nho Riesling, Magnum 1.5L. Nhà sản xuất Thörle, dòng Austernkalk (đá hàu). Trocken (khô). Đất trồng nho giàu hóa thạch hàu triệu năm tạo nên vị khoáng đặc trưng không nơi nào có. Hương chanh, bưởi đào, đá ướt, oyster shell. Chai Magnum 1.5L, dung tích lớn phù hợp tiệc, sự kiện, quà biếu.",
+    "description": "Vang trắng Đức: giống nho Riesling, chai Magnum 1,5L. Nhà sản xuất Thörle, dòng Austernkalk (đá vôi hóa thạch hàu), khô (Trocken). Đất trồng nhiều hóa thạch hàu cho vị khoáng rõ. Hương chanh, bưởi, đào, đá ướt. Chai lớn hợp tiệc và quà biếu.",
     "price": 2500000,
     "category": "vang",
     "usp": "Austernkalk Magnum: Riesling khô từ đất hóa thạch hàu, chai 1.5L",
     "images": [
-      "https://product.hstatic.net/200000919029/product/48_b9080ea57a1740e480c7d8fbcd61bbf4_grande.jpg"
+      "/images/products/official/thorle/austernkalk_magnum_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -232,7 +232,7 @@
     "category": "vang",
     "usp": "Thorle Riesling: Vang Riesling khô sắc nét từ Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/9_587336c129e1466391e80e0f5273bcb4_grande.png"
+      "/images/products/official/thorle/riesling_750_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -252,12 +252,12 @@
   {
     "id": "433d892e-b39e-423d-8917-20d5bb92168f",
     "name": "Vang Trắng Rappenhof Riesling Kabinett 750ml",
-    "description": "Vang trắng Đức: Giống nho Riesling, 750ml, nồng độ 11.5%. Nhà sản xuất Rappenhof, gia đình 12 đời với hơn 400 năm truyền thống. Thành viên VDP, Hiệp hội danh giá nhất ngành vang Đức. Hương đào trắng, chanh, khoáng chất tinh tế. Vị bán khô thanh nhã, acid tươi sáng kéo dài. Bán lẻ chai.",
+    "description": "Vang trắng Đức: giống nho Riesling, 750ml, nồng độ 11,5%. Nhà sản xuất Rappenhof ở Alsheim (Rheinhessen), gia đình Hirsch-Muth thành lập năm 1604, thành viên VDP từ năm 1971. Hương đào trắng, chanh, khoáng. Vị bán khô, acid tươi kéo dài. Bán lẻ chai.",
     "price": 780000,
     "category": "vang",
     "usp": "Riesling Kabinett: Vang trắng bán khô hương đào từ gia đình 400 năm truyền thống",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_kabinett_2f5a9c2ff1874c91b3ee1765b6814e3e_grande.png"
+      "/images/products/official/rappenhof/riesling_kabinett_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -282,7 +282,7 @@
     "category": "vang",
     "usp": "Spätburgunder: Pinot Noir phiên bản Đức từ vùng Rheinhessen",
     "images": [
-      "https://product.hstatic.net/200000919029/product/1_c3ac6d2d42134f4984a3145fc430d49b_grande.png"
+      "/images/products/official/thorle/spatburgunder_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -307,7 +307,7 @@
     "category": "vang",
     "usp": "Riesling Trocken: Vang trắng khô sắc nét kiểu Đức chính thống",
     "images": [
-      "https://product.hstatic.net/200000919029/product/riesling_trocken_d50b8e7cdd8540f9a290fd83ea36ca75_grande.png"
+      "/images/products/official/rappenhof/riesling_trocken_bottle.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -327,12 +327,12 @@
   {
     "id": "71a6ca18-6106-4021-af83-136daa88ffe4",
     "name": "Benediktiner Naturtrüb, thùng 12 chai 500ml",
-    "description": "Bia lúa mì Đức tu viện Ettal: Benediktiner Weissbier Naturtrüb thùng 12 chai 500ml. Dòng bia vàng đục tự nhiên (không lọc) giữ nguyên men sống quý giá, đạt giải thưởng iTQi 3 Sao quốc tế. Hương vị mềm mại, creamy với hương chuối chín ngọt ngào và đinh hương dịu nhẹ. Thích hợp kết hợp với các món hải sản hấp, tôm nướng muối ớt. Phân phối chính hãng tại Tây Hồ, Hà Nội.",
+    "description": "Benediktiner Weissbier Naturtrüb thùng 12 chai 500ml. Bia lúa mì đục tự nhiên, không lọc nên còn men trong chai, ủ tại Lich (Hessen) theo công thức gốc dòng Biển Đức với men từ hầm tu viện Ettal. Đạt iTQi Superior Taste Award 3 sao năm 2022. Hương chuối chín và đinh hương, bọt dày, thân mềm, nồng độ 5,4%. Phục vụ 7-9 °C trong ly Weizen, hợp hải sản hấp, salad, món ít gia vị.",
     "price": 1080000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-1_d6fbd33c3762488db373ec581fe72a85.png"
+      "/images/products/official/benediktiner/86480_Benediktiner_Weiss_NT_Flasche_05l_betaut.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -347,7 +347,7 @@
     "updated_at": "2026-06-02T16:50:10.211Z",
     "slug": "benediktiner-naturtrub-thung-12-chai-500ml",
     "abv": "5.4",
-    "ibu": null,
+    "ibu": 13,
     "volume": "500ml",
     "origin": "Đức",
     "brewing_method": null,
@@ -358,12 +358,12 @@
   {
     "id": "4a850bc2-a011-4b20-aaad-cc08cce234f1",
     "name": "Benediktiner Dunkel, thùng 12 chai 500ml",
-    "description": "Bia đen lúa mì Đức tu viện: Benediktiner Dunkel thùng 12 chai 500ml. Được ủ dưới sự giám sát nghiêm ngặt của các thầy tu tu viện Ettal, Bavaria. Sở hữu màu nâu cánh gián đậm đà, bọt kem dày mịn, vị ngọt ngào từ caramel và mạch nha rang kết hợp tinh tế cùng hương chuối chín. Vị bia êm ái, trôi mượt qua cuống họng. Phù hợp cho bữa tiệc thịt nướng BBQ, sườn heo.",
+    "description": "Benediktiner Weissbier Dunkel thùng 12 chai 500ml. Bia lúa mì sẫm màu, ủ tại Lich (Hessen) theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal. Màu nâu đồng, hương mạch nha rang, caramel, bánh mì nướng; độ đắng thấp, nồng độ 5,4%. Phục vụ 8-10 °C, hợp thịt nướng, sườn heo, phô mai lâu năm.",
     "price": 1080000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-dunkel-1_13c8182e69d04b45942a07a157ccbb09.png"
+      "/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -389,12 +389,12 @@
   {
     "id": "57a41bad-c521-4124-b990-6338570061ca",
     "name": "Benediktiner Mix 2 Vị, thùng 12 chai 500ml",
-    "description": "Thùng bia Đức mix vị cao cấp: Thùng 12 chai 500ml gồm 6 chai Benediktiner Naturtrüb (bia vàng lúa mì) và 6 chai Benediktiner Dunkel (bia đen lúa mì). Bộ đôi hoàn hảo mang đến trải nghiệm đầy đủ hai thái cực hương vị tu viện Ettal trứ danh nước Đức. Món quà biếu sang trọng, đẳng cấp cho người sành bia ngoại tại Hà Nội. Hỗ trợ giao nhanh hỏa tốc.",
+    "description": "Thùng 12 chai 500ml gồm 6 chai Benediktiner Weissbier Naturtrüb và 6 chai Benediktiner Weissbier Dunkel. Một bên vàng đục, hương chuối chín và đinh hương; một bên nâu đồng, hương mạch nha rang và caramel. Hợp để nếm cả hai dòng, hoặc làm quà biếu.",
     "price": 1080000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-12mix-0_61ad00ab3f694954a7e087f1e9a8d869.png"
+      "/images/products/official/benediktiner/mix_naturtrub_dunkel_chai_05l.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -407,9 +407,9 @@
     "tenant_id": "demo-tenant",
     "created_at": "2026-03-30T03:19:36.556Z",
     "updated_at": "2026-03-30T03:19:36.556Z",
-    "slug": "benediktiner-mix-2-v-thng-12-chai-500ml",
+    "slug": "benediktiner-mix-2-vi-thung-12-chai-500ml",
     "abv": "5.4",
-    "ibu": null,
+    "ibu": 13,
     "volume": "500ml",
     "origin": "Đức",
     "brewing_method": null,
@@ -420,12 +420,12 @@
   {
     "id": "07a50fcc-5f5a-4bca-b51f-3230ea555d7f",
     "name": "Benediktiner Naturtrüb, thùng 12 lon 500ml",
-    "description": "Bia lon lúa mì Đức chính hãng: Benediktiner Weissbier Naturtrüb thùng 12 lon 500ml. Phiên bản đóng lon tiện lợi, dễ dàng mang đi du lịch, dã ngoại. Hương vị bia lúa mì vàng đục tự nhiên nguyên bản từ tu viện Ettal, giữ trọn men sống thơm ngon. Nồng độ cồn 5.4% êm nhẹ, creamy vị chuối chín. Phân phối chính hãng, uy tín tại Hà Nội.",
+    "description": "Benediktiner Weissbier Naturtrüb thùng 12 lon 500ml. Cùng loại bia lúa mì đục tự nhiên như bản chai, đóng lon nhẹ và gọn hơn khi mang đi. Hương chuối chín và đinh hương, bọt dày, nồng độ 5,4%. Rót gần hết thì lắc nhẹ lon cho tan lớp men dưới đáy rồi rót nốt. Phục vụ 7-9 °C.",
     "price": 790000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/130_22efcb56465d471581d518a0ce0f1b3e.png"
+      "/images/products/official/benediktiner/87205_Bene_Weissbier_05l_Dose_frontal_Export.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -440,7 +440,7 @@
     "updated_at": "2026-06-02T16:50:10.751Z",
     "slug": "benediktiner-naturtrub-thung-12-lon-500ml",
     "abv": "5.4",
-    "ibu": null,
+    "ibu": 13,
     "volume": "500ml",
     "origin": "Đức",
     "brewing_method": null,
@@ -451,12 +451,12 @@
   {
     "id": "26d9b013-f69e-43c1-9037-54939bdb8c51",
     "name": "Benediktiner Dunkel, thùng 12 lon 500ml",
-    "description": "Bia lon đen lúa mì Đức: Benediktiner Dunkel thùng 12 lon 500ml. Quy cách đóng lon 500ml tiện dụng, giữ trọn hương vị caramel đậm đà và mạch nha rang thơm nồng từ tu viện Ettal. Nồng độ 5.4% ABV dễ uống, hậu vị ngọt thanh sảng khoái. Đại lý bia nhập khẩu Tây Hồ cam kết hàng chính hãng 100%, có đầy đủ chứng nhận.",
+    "description": "Benediktiner Weissbier Dunkel thùng 12 lon 500ml. Bia lúa mì sẫm màu đóng lon, hương mạch nha rang và caramel, độ đắng thấp, nồng độ 5,4%. Đừng ướp quá lạnh: 8-10 °C là vừa, lạnh hơn thì mùi caramel mất. Hợp thịt nướng và sườn heo.",
     "price": 790000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/118_cdb208ef8c9e432586505d5cc0247e84.png"
+      "/images/products/official/benediktiner/439144_Bene_Weissbier_Dunkel_05l_Can_front.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -482,12 +482,12 @@
   {
     "id": "6e910536-9ff1-4d79-938c-5e0cf4fa56a6",
     "name": "Benediktiner Naturtrüb Bom 5L",
-    "description": "Bom bia lúa mì Đức cao cấp: Benediktiner Weissbier Naturtrüb Bom 5L. Dòng bia vàng đục tự nhiên đạt giải iTQi 3 Sao. Thiết kế bom 5L tiện lợi có vòi tự động gạt, giúp bạn trải nghiệm bia tươi tu viện Ettal ngay tại nhà. Vị bia creamy êm ái, hương trái cây chuối chín nồng nàn. Lựa chọn tuyệt vời cho tiệc tiếp khách, liên hoan gia đình.",
+    "description": "Benediktiner Weissbier Naturtrüb bom 5L. Bia lúa mì đục tự nhiên, đạt iTQi Superior Taste Award 3 sao năm 2022. Bom có van xả khí ở nắp và vòi rót ở chân, không cần máy chiết hay bình CO2; ướp tủ mát 6-8 tiếng trước khi dùng. Hương chuối chín và đinh hương, nồng độ 5,4%, phục vụ 7-9 °C.",
     "price": 960000,
     "category": "bia",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-bom-1_3cbfd80e556342fcbc59e5f701f3d3fe.png"
+      "/images/products/official/benediktiner/438775_Bene_Weissbier_NT_5l_Keg_front.webp"
     ],
     "ai_analysis": {
       "abv": "5.4%",
@@ -502,7 +502,7 @@
     "updated_at": "2026-06-02T16:50:11.029Z",
     "slug": "benediktiner-naturtrub-bom-5l",
     "abv": "5.4",
-    "ibu": null,
+    "ibu": 13,
     "volume": "5L",
     "origin": "Đức",
     "brewing_method": null,
@@ -513,12 +513,12 @@
   {
     "id": "7762cae3-0392-4a0e-bd27-c21cbfd23e9e",
     "name": "Benediktiner Naturtrüb, két 24 lon 500ml",
-    "description": "Bia két lúa mì Đức nhập khẩu: Benediktiner Weissbier Naturtrüb két 24 lon 500ml. Quy cách đóng két lớn tiết kiệm cho các bữa tiệc đông người, nhà hàng, khách sạn hoặc sự kiện. Hương vị lúa mì vàng đục tự nhiên nguyên bản từ tu viện Ettal, đạt chuẩn Luật Tinh Khiết 1516. Hậu vị ngọt thanh, bọt kem dày mịn cực kỳ sảng khoái.",
+    "description": "Benediktiner Weissbier Naturtrüb két 24 lon 500ml, quy cách cho nhà hàng, khách sạn và các buổi tiếp khách đông người. Bia lúa mì đục tự nhiên, hương chuối chín và đinh hương, bọt dày, nồng độ 5,4%. Phục vụ 7-9 °C trong ly Weizen.",
     "price": 1590000,
     "category": "bia",
     "usp": "Bia tu viện 400 năm: \"Dem Himmel so nah\", Gần hơn với thiên đường",
     "images": [
-      "https://product.hstatic.net/200000919029/product/benediktiner-natutrub-lon-1_a69ea226e5394f01aeca3efb96a3cfd9.png"
+      "/images/products/official/benediktiner/87205_Bene_Weissbier_05l_Dose_frontal_Export.webp"
     ],
     "ai_analysis": {
       "season": "Quanh năm, đặc biệt thu-đông",
@@ -550,12 +550,12 @@
   {
     "id": "2d73c93a-b3c1-4fcd-aff9-aadd2865c8b3",
     "name": "Benediktiner Dunkel, két 24 lon 500ml",
-    "description": "Bia két đen Đức tu viện: Benediktiner Dunkel két 24 lon 500ml. Két lớn 24 lon dành cho nhà hàng, khách sạn cao cấp hoặc các bữa tiệc nướng BBQ gia đình lớn. Hương caramel thơm nồng kết hợp mạch nha rang đậm vị, mang phong cách tu viện Ettal trứ danh. Đại lý bia nhập khẩu Hà Nội cam kết date mới, bảo quản lạnh tiêu chuẩn.",
+    "description": "Benediktiner Weissbier Dunkel két 24 lon 500ml, quy cách cho nhà hàng, khách sạn và tiệc đông người. Bia lúa mì sẫm màu, hương mạch nha rang, caramel và bánh mì nướng, độ đắng thấp, nồng độ 5,4%. Phục vụ 8-10 °C, hợp các món nướng.",
     "price": 1590000,
     "category": "bia",
     "usp": "Dark Wheat Beer: Bia tối tu viện dành cho dân sành",
     "images": [
-      "https://product.hstatic.net/200000919029/product/113_cbaf0be4ae9d4e8486a5e81de930bc46.png"
+      "/images/products/official/benediktiner/439144_Bene_Weissbier_Dunkel_05l_Can_front.webp"
     ],
     "ai_analysis": {
       "season": "Thu-đông, buổi tối",
@@ -587,12 +587,12 @@
   {
     "id": "dec9889f-ea3c-4235-a281-7b0c27843719",
     "name": "Bitburger Premium Pils, két 24 lon 330ml",
-    "description": "Bia lon đắng Đức nhập khẩu: Bitburger Premium Pils két 24 lon 330ml. Dòng bia vàng Pilsner bán chạy nhất nước Đức. Sử dụng dòng hoa bia độc quyền Siegelhopfen và nước nguồn Eifel tinh khiết, mang lại vị đắng thanh thoát đặc trưng và kết thúc sảng khoái tột độ. Thích hợp cho các buổi liên hoan, BBQ ngoài trời sôi động.",
+    "description": "Bitburger Premium Pils két 24 lon 330ml. Theo nhà sản xuất, đây là Premium Pils được rót nhiều nhất tại các quầy bia ở Đức. Nấu theo Luật Tinh khiết 1516 với hoa bia Siegelhopfen trồng ở vùng Hallertau (Bavaria) và Holsthum (Nam Eifel). Màu vàng sáng, đắng hoa bia rõ, hậu vị khô. Phục vụ 4-6 °C.",
     "price": 870000,
     "category": "bia",
     "usp": null,
     "images": [
-      "/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp"
+      "/images/products/official/bitburger/490201_Bitb_Pils_033l_Can_front_Europe.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -601,7 +601,7 @@
     "updated_at": "2026-06-02T16:50:09.716Z",
     "slug": "bitburger-premium-pils-ket-24-lon-330ml",
     "abv": "4.8",
-    "ibu": 25,
+    "ibu": 33,
     "volume": "330ml",
     "origin": "Đức",
     "brewing_method": "Bottom-fermented Pilsner",
@@ -612,7 +612,7 @@
   {
     "id": "18e5513b-491e-4661-b93d-04eb3a672dbe",
     "name": "Bitburger Premium Pils Football Edition 2026, két 24 lon 500ml",
-    "description": "Bia lon Đức phiên bản giới hạn: Bitburger Premium Pils Football Edition két 24 lon 500ml. Thiết kế lon lớn đặc biệt cho mùa bóng đá, mang tính sưu tầm cao. Vị đắng pilsner thanh sảng khoái nguyên bản nước Đức, giữ gas tốt. Sự kết hợp hoàn hảo cùng các món thịt nướng, steak, chả mực cho các buổi xem bóng đá tụ họp tại Hà Nội.",
+    "description": "Bitburger Premium Pils két 24 lon 500ml, bao bì Football Edition 2026. Bên trong là Bitburger Premium Pils quen thuộc: vàng sáng, bọt mịn, đắng hoa bia rõ, hậu vị khô. Phục vụ 4-6 °C, hợp món nướng và hải sản.",
     "price": 1190000,
     "category": "bia",
     "usp": null,
@@ -626,7 +626,7 @@
     "updated_at": "2026-06-02T16:50:04.612Z",
     "slug": "bitburger-football-edition-2026",
     "abv": "4.8",
-    "ibu": 25,
+    "ibu": 33,
     "volume": "500ml",
     "origin": "Đức",
     "brewing_method": "Bottom-fermented Pilsner",
@@ -637,12 +637,12 @@
   {
     "id": "596f7089-60a6-445c-b703-96fd6de72c02",
     "name": "Bitburger 0.0% Alkoholfrei, két 24 lon 330ml",
-    "description": "Bia không cồn nhập khẩu Đức: Bitburger 0.0% Alkoholfrei két 24 lon 330ml. Sử dụng công nghệ tách cồn chân không hiện đại giúp giữ nguyên vẹn hương vị hoa bia đắng thanh sảng khoái của dòng Pilsner truyền thống nhưng hoàn toàn không chứa cồn. Lựa chọn tuyệt vời cho người lái xe, tập thể thao, ăn kiêng hoặc trong các dịp xã giao.",
+    "description": "Bitburger 0,0% Alkoholfrei két 24 lon 330ml. Pilsner không cồn của Bitburger, vị hoa bia đắng thanh và hậu vị khô gần với Bitburger Premium Pils. Phục vụ lạnh 4-6 °C.",
     "price": 780000,
     "category": "bia",
     "usp": null,
     "images": [
-      "/images/products/official/bitburger/20201006_bitburger_flasche_033l_export_drive.webp"
+      "/images/products/official/bitburger/387930_Bitb_00_Pils_033l_Can_front_Europe.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -651,7 +651,7 @@
     "updated_at": "2026-04-16T13:27:13.502Z",
     "slug": "bitburger-00-alkoholfrei-ket-24-lon-330ml",
     "abv": "0",
-    "ibu": 20,
+    "ibu": 23,
     "volume": "330ml",
     "origin": "Đức",
     "brewing_method": "Vacuum de-alcoholization",
@@ -662,12 +662,12 @@
   {
     "id": "88d2296f-5a77-4158-bf86-1a650075f312",
     "name": "Bitburger Premium Pils",
-    "description": "Bia lon vàng Pilsner Đức: Bitburger Premium Pils lon 500ml lẻ. Dòng bia tươi (draft beer) trứ danh nước Đức nấu theo Luật Tinh Khiết 1516. Nổi bật với vị đắng thanh tao từ hoa bia Siegelhopfen, sủi tăm sành điệu, hậu vị sạch sẽ gọn gàng. Phù hợp thưởng thức lạnh ở 6-8°C cùng các món nướng đậm vị.",
+    "description": "Bitburger Premium Pils lon 500ml. Pilsner của nhà bia gia đình Bitburger ở Bitburg, vùng Eifel, nấu theo Luật Tinh khiết 1516 với hoa bia Siegelhopfen. Màu vàng sáng, bọt mịn, đắng hoa bia rõ, hậu vị khô. Phục vụ 4-6 °C, hợp món nướng đậm vị.",
     "price": null,
     "category": "bia",
     "usp": null,
     "images": [
-      "/images/products/official/bitburger/74560_Bitb_Pils_05l_Flasche_Pokal_frontal_betaut_142x291mm.jpg"
+      "/images/products/official/bitburger/90160_Bitburger_05l_Dose_frontal_unbetaut_LG.webp"
     ],
     "ai_analysis": null,
     "last_posted_at": null,
@@ -676,7 +676,7 @@
     "updated_at": "2026-04-16T13:27:13.502Z",
     "slug": "bitburger-premium-pils",
     "abv": "4.8",
-    "ibu": 25,
+    "ibu": 33,
     "volume": "500ml",
     "origin": "Đức",
     "brewing_method": "Bottom-fermented Pilsner",
@@ -687,7 +687,7 @@
   {
     "id": "e64c8760-7179-46f4-9e6e-82a529bdac0b",
     "name": "Bitburger Premium Pils Bom 5L",
-    "description": "Bom bia tươi Đức nhập khẩu: Bitburger Premium Pils Bom 5L. Bom gạt vòi rót tiện lợi giúp mang không khí quầy bar bia tươi Đức về phòng khách nhà bạn. Vị đắng thanh thoát tươi mát từ hoa bia Hallertau tinh túy, lớp bọt trắng phau sủi tăm đẹp mắt. Thích hợp làm quà tặng thiết thực hoặc tiệc liên hoan cuối tuần tại Tây Hồ, Hà Nội.",
+    "description": "Bitburger Premium Pils bom 5L. Bom có van xả khí và vòi rót sẵn, không cần máy hay bình CO2; ướp tủ mát 6-8 tiếng trước khi rót. Màu vàng sáng, bọt mịn, đắng hoa bia Siegelhopfen rõ, hậu vị khô. Phục vụ 4-6 °C.",
     "price": 830000,
     "category": "bia",
     "usp": null,
@@ -701,7 +701,7 @@
     "updated_at": "2026-06-02T16:50:09.939Z",
     "slug": "bitburger-premium-pils-bom-5l",
     "abv": "4.8",
-    "ibu": 25,
+    "ibu": 33,
     "volume": "5L",
     "origin": "Đức",
     "brewing_method": "Bottom-fermented Pilsner",
@@ -711,13 +711,13 @@
   },
   {
     "id": "24c971fa-5f75-4746-adf3-3a46d150a24a",
-    "name": "Bộ 6 Cốc Benediktiner Chính Hãng 500ml",
-    "description": "Bộ 6 cốc bia tu viện chính hãng Benediktiner: thiết kế lúa mì truyền thống, thủy tinh dày, dung tích 500ml. Quà tặng kèm khi mua bia. Dành cho thưởng thức đúng chuẩn Bavaria. Quà tặng kèm khi mua bia. Món quà sang trọng cho người sành bia. Quà tặng kèm khi mua bia.",
+    "name": "Bộ 6 cốc Benediktiner chính hãng 500ml",
+    "description": "Bộ 6 cốc Benediktiner chính hãng, dáng ly Weizen truyền thống, thủy tinh dày, dung tích 500ml, in logo Benediktiner. Có bán lẻ; tùy thời điểm còn là quà tặng kèm khi mua bia theo chương trình của German Taste, liên hệ hotline hoặc Zalo để biết thể lệ.",
     "price": 1500000,
     "category": "phu-kien",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/ly-benediktiner-chinh-hang-1_16a95d30eaa24ad0a6df3dc4c82ec1d1.png"
+      "/images/products/official/benediktiner/banners/benediktiner-bo-6-coc.webp"
     ],
     "ai_analysis": {
       "type": "Glassware",
@@ -728,7 +728,7 @@
     "tenant_id": "demo-tenant",
     "created_at": "2026-03-30T03:19:51.158Z",
     "updated_at": "2026-03-30T03:19:51.158Z",
-    "slug": "b-6-cc-benediktiner-chnh-hng-500ml",
+    "slug": "bo-6-coc-benediktiner-chinh-hang-500ml",
     "abv": null,
     "ibu": null,
     "volume": "500ml",
@@ -740,13 +740,13 @@
   },
   {
     "id": "b425913a-0ce7-4366-900a-e2c8fe3b18ff",
-    "name": "Mở Bia Chính Hãng Benediktiner",
-    "description": "Dụng cụ mở bia chính hãng Benediktiner: thiết kế kim loại cao cấp, in logo tu viện. Quà tặng kèm khi mua bia. Phụ kiện không thể thiếu cho bộ sưu tập bia Đức. Quà tặng kèm khi mua bia.",
+    "name": "Mở bia Benediktiner chính hãng",
+    "description": "Dụng cụ mở bia Benediktiner chính hãng bằng kim loại, in logo Benediktiner. Có bán lẻ; tùy thời điểm còn là quà tặng kèm khi mua bia theo chương trình của German Taste, liên hệ hotline hoặc Zalo để biết thể lệ.",
     "price": 100000,
     "category": "phu-kien",
     "usp": null,
     "images": [
-      "https://product.hstatic.net/200000919029/product/124_43ed2d310d7b45a6a7c3cd065e139b25.png"
+      "/images/products/official/benediktiner/banners/benediktiner-mo-bia.webp"
     ],
     "ai_analysis": {
       "type": "Opener",
@@ -757,10 +757,10 @@
     "tenant_id": "demo-tenant",
     "created_at": "2026-03-30T03:19:51.158Z",
     "updated_at": "2026-03-30T03:19:51.158Z",
-    "slug": "m-bia-chnh-hng-benediktiner",
+    "slug": "mo-bia-chinh-hang-benediktiner",
     "abv": null,
     "ibu": null,
-    "volume": "500ml / 330ml / 5L",
+    "volume": null,
     "origin": "Đức",
     "brewing_method": null,
     "is_featured": false,

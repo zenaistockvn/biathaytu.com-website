@@ -11,8 +11,8 @@ Trả lời bằng tiếng Việt. Chủ site xưng "anh". Đây là kiểm tra 
 ## Phạm vi đầu vào
 
 - Một đoạn văn được dán vào, một file, một slug bài, hoặc diff hiện tại (`git diff`, `git diff main...HEAD`).
-- Nội dung bài lấy từ database nằm ở `src/data/articles.json` (ảnh chụp lúc build), đã được sửa thêm lúc render bởi `ARTICLE_TEXT_PATCHES` và `ARTICLE_META_OVERRIDES` trong `src/lib/data/articles.ts`. Khi duyệt một bài, đọc cả hai để biết câu nào thực sự hiển thị. Nếu cần chắc chắn, kiểm bản live bằng `curl.exe -sL <url>` (trên PowerShell dùng `curl.exe`).
-- Chữ hiển thị trong trang tĩnh nằm trong các `page.tsx` dưới `src/app/(web)/`, trong `src/config/*.ts` và `src/lib/data/products.ts` (`PRODUCT_OVERRIDES`).
+- Nội dung bài và sản phẩm nằm thẳng trong `src/data/articles.json` và `products.json` (nguồn chính từ 10/2026). `sanitizeArticleContent` trong `src/lib/data/articles.ts` chỉ áp vài quy tắc chung. Nếu cần chắc chắn câu nào đang hiển thị, kiểm bản live bằng `curl.exe -sL <url>` (trên PowerShell dùng `curl.exe`).
+- Chữ hiển thị trong trang tĩnh nằm trong các `page.tsx` dưới `src/app/(web)/`, trong component dùng chung và `src/config/*.ts`.
 
 ## Mức lỗi
 

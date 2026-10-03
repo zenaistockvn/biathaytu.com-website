@@ -1,6 +1,6 @@
 # Ảnh bìa bài Kiến thức: nguồn và giấy phép
 
-Tạo ngày 2026-09-28, 1600x1067 (3:2), WebP. Gán theo slug trong `ARTICLE_COVERS` (src/lib/data/articles.ts).
+Tạo ngày 2026-09-28, 1600x1067 (3:2), WebP. Gán ở trường `thumbnail_url` của bài trong `src/data/articles.json` (trước 10/2026 gán qua `ARTICLE_COVERS` trong src/lib/data/articles.ts).
 Không dùng ảnh AI.
 
 Ba ảnh hậu tố `-v2` (bia đen Dunkel, hướng dẫn chọn bia, phân biệt Weissbier/Dunkel/Festbier) sửa ngày 2026-09-28: bản đầu ghép từ `dunkel-glass-nobg.webp` bị khuyết đỉnh bọt. Chỉ thay vùng cốc Dunkel bằng `dunkel-glass-cutout.webp` cùng vị trí, cùng bề rộng, đáy thẳng hàng; phần còn lại giữ nguyên. Đổi tên vì `/images/*` cache một năm immutable. Riêng `huong-dan-chon-bia-duc-cho-nguoi-moi-v2.webp` có thêm bóng đổ nhẹ (xám, dịch xuống 4px, mờ sigma 5, đậm tối đa 22%) quanh vòng giấy thấm giọt ở chân ly Bitburger: mép răng cưa của vòng giấy là thiết kế thật, bóng chỉ để nó tách khỏi nền trắng.

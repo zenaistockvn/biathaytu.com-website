@@ -25,7 +25,7 @@ Trả lời và viết báo cáo bằng tiếng Việt. Chủ site xưng "anh".
   - `src/app/(web)/components/JsonLd.tsx`: Organization, LocalBusiness, WebSite, Product, Article, FAQPage, BreadcrumbList. `sameAs` hiện chỉ có Zalo.
   - `src/lib/seo/business.ts` (`getBrandInfo`): thương hiệu và nhà sản xuất theo tên sản phẩm.
   - FAQ đặt theo từng trang: `src/app/(web)/page.tsx`, `bia-thay-tu-la-gi/page.tsx`, `food-pairing-bia-duc/page.tsx`.
-- Dữ liệu bài và sản phẩm bị `scripts/dump_data.js` ghi đè từ database mỗi lần build. Sửa bài tại `ARTICLE_TEXT_PATCHES` và `ARTICLE_META_OVERRIDES` trong `src/lib/data/articles.ts`; sửa sản phẩm tại `PRODUCT_OVERRIDES` trong `src/lib/data/products.ts`. Không sửa `src/data/*.json`.
+- Dữ liệu bài và sản phẩm: `src/data/articles.json` và `products.json` là nguồn chính (từ 10/2026, build không còn tải từ database). Sửa thẳng trong JSON.
 - Cổng tuổi chạy phía trình duyệt; HTML SSR vẫn đủ nội dung. Danh sách bot được bỏ qua cổng tuổi (`isSearchCrawlerUserAgent` trong `src/utils/ageVerification.ts`) chỉ gồm bot Google và Bing. Bot AI không chạy JavaScript vẫn đọc được HTML; bot có render JavaScript có thể thấy lớp phủ cổng tuổi. Khi audit, kiểm cả hai trường hợp.
 - Xúc xích The Wurst đã ngừng: không nhắc lại ở bất kỳ bề mặt nào.
 

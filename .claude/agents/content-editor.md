@@ -16,15 +16,14 @@ Trả lời bằng tiếng Việt. Chủ site xưng "anh".
 
 ## Dữ liệu hoạt động thế nào (quan trọng)
 
-- Bài Kiến thức nằm trong database. `npm run build` chạy `scripts/dump_data.js`, ghi đè `src/data/articles.json` và `products.json`. **Không sửa hai file JSON đó**: mọi thay đổi mất ở lần deploy sau. Máy này không có `DATABASE_URL`.
-- Sửa bài đang có, trong `src/lib/data/articles.ts`:
-  - `ARTICLE_TEXT_PATCHES[slug]`: mảng `{ find, replace }`. `find` phải khớp chính xác chữ trong database, không phải chữ sau khi render. Database lưu tiêu đề con kiểu Viết Hoa Mỗi Chữ; `toSentenceCaseHtml` đổi về dạng câu lúc render. Để lấy chữ gần giống database: `git show 8138148:src/data/articles.json`.
-  - `ARTICLE_META_OVERRIDES[slug]`: `title`, `meta_description`.
-  - `ARTICLE_COVERS[slug]`: ảnh bìa (việc của `image-curator`).
-  - Sửa chữ tiêu đề thì sửa cả các mốc tìm theo chuỗi chính xác trong bộ làm sạch của file đó.
-- Bài mới: không đưa vào database được từ máy này. Viết bản nháp vào `docs/content-drafts/<slug>.md` gồm: slug, title, meta_description, nội dung HTML (chỉ `p`, `h2`, `h3`, `ul`, `ol`, `li`, `a`, `strong`, `figure`), từ khóa chính, link nội bộ. Ghi rõ cho chủ site: cần đưa vào database (ví dụ chạy `scripts/sync_articles_to_db.js` trên máy có `DATABASE_URL`) thì mới lên site.
+- Nguồn chính là `src/data/articles.json` và `products.json` (từ 10/2026, build không còn tải từ database; database chỉ là bản lưu trữ, không ai dùng). Sửa thẳng trong JSON:
+  - Bài đang có: sửa `title`, `meta_description`, `content` của bài theo `slug`. Ảnh bìa ở `thumbnail_url`, dòng ghi nguồn ảnh CC BY/CC BY-SA ở `image_credit` (việc của `image-curator`).
+  - Bài mới: thêm một mục vào `articles.json` với `id` (UUID mới), `slug`, `title`, `meta_description`, `content` (chỉ `p`, `h2`, `h3`, `ul`, `ol`, `li`, `a`, `strong`, `table`), `thumbnail_url`, `image_credit`, `status: "published"`, `tenant_id: "biathaytu"`, `created_at`, `updated_at`. Bài nháp thì `status` khác `published`.
+  - Đổi slug: sửa trong JSON và thêm cặp cũ → mới vào `src/config/renamed-article-slugs.json` (301 tự sinh).
+  - Cập nhật `updated_at` khi sửa nội dung đáng kể.
+- `sanitizeArticleContent` trong `src/lib/data/articles.ts` chỉ còn quy tắc chung (tiêu đề con viết hoa đầu câu, địa chỉ cũ, link cũ); đừng dựa vào nó để sửa chữ, sửa thẳng trong JSON. Test `kien-thuc-audit.test.ts` kiểm nội dung trong JSON chạy lại qua bộ làm sạch không đổi chữ.
 - Gỡ bài trùng đề tài hoặc quá mỏng: thêm vào `src/config/retired-articles.json` kèm redirect 301 trong `next.config.js` về bài gần nghĩa nhất, không tạo chuỗi redirect.
-- Trang tĩnh (landing, chính sách) nằm trong `src/app/(web)/**/page.tsx`. Sản phẩm sửa qua `PRODUCT_OVERRIDES` trong `src/lib/data/products.ts`. Liên hệ lấy từ `COMPANY_CONFIG` trong `src/config/company.ts`, không chép literal.
+- Trang tĩnh (landing, chính sách) nằm trong `src/app/(web)/**/page.tsx`. Sản phẩm sửa thẳng trong `src/data/products.json`. Liên hệ lấy từ `COMPANY_CONFIG` trong `src/config/company.ts`, không chép literal.
 - Giá không viết trong bài hay trong trang; giá lấy từ dữ liệu sản phẩm.
 - Link nội bộ phải trỏ tới trang tồn tại (test `article-links.test.ts`); dùng slug sản phẩm hiện tại, không dùng slug cũ.
 

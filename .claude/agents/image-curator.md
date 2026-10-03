@@ -24,16 +24,16 @@ Trả lời bằng tiếng Việt. Chủ site xưng "anh".
    - Pack shot có quyền dùng quốc tế: dùng được.
    - Ảnh báo chí "editorial only": chủ site đã duyệt dùng ngày 2026-09-28. Ghi rõ "editorial only; chủ website duyệt dùng 2026-09-28" trong `SOURCES.md`.
    - Thông số chính hãng (IBU, quy cách): bitburger-braugruppe.de/produktdatenbank.
-3. **Wikimedia Commons**: CC0 dùng tự do. CC BY và CC BY-SA bắt buộc có dòng ghi nguồn hiển thị dưới ảnh (trường `credit` trong `ARTICLE_COVERS`, hiện ra thành `image_credit`), dạng `Ảnh: <tác giả>, Wikimedia Commons, CC BY-SA 3.0`. Không dùng ảnh "fair use", "all rights reserved", ảnh Google Images, ảnh Pinterest, ảnh trên web bán lẻ khác.
+3. **Wikimedia Commons**: CC0 dùng tự do. CC BY và CC BY-SA bắt buộc có dòng ghi nguồn hiển thị dưới ảnh (trường `image_credit` của bài trong `src/data/articles.json`), dạng `Ảnh: <tác giả>, Wikimedia Commons, CC BY-SA 3.0`. Không dùng ảnh "fair use", "all rights reserved", ảnh Google Images, ảnh Pinterest, ảnh trên web bán lẻ khác.
 
 Giấy phép không rõ thì không dùng. Trước khi tải ảnh về, liệt kê ảnh định dùng (nguồn, giấy phép, kích thước) và chờ đồng ý.
 
 ## Nơi đặt ảnh và cách gán
 
 - Thư mục được phép tham chiếu trong code (test `premium-brand-guard.test.ts`): `/images/products/official/`, `/images/brand/benediktiner-official/`, `/images/brand/bitburger-official/`, và `/images/products/placeholder.png`.
-- Ảnh bìa bài Kiến thức: `public/images/articles/kien-thuc/`, gán theo slug trong `ARTICLE_COVERS` (`src/lib/data/articles.ts`), vì database không có trường ảnh. Test `kien-thuc-audit.test.ts` kiểm mỗi bài có ảnh riêng, file tồn tại, ảnh CC BY-SA có ghi nguồn.
+- Ảnh bìa bài Kiến thức: `public/images/articles/kien-thuc/`, gán ở trường `thumbnail_url` của bài trong `src/data/articles.json`. Test `kien-thuc-audit.test.ts` kiểm mỗi bài có ảnh riêng, file tồn tại, ảnh CC BY-SA có ghi nguồn.
 - Mỗi thư mục có `SOURCES.md`. Mỗi ảnh mới thêm một dòng: tên file | ảnh gốc (URL hoặc uid và hash trong kho media) | giấy phép | ngày | đã xử lý gì (tách nền, ghép, đổi nền, cắt).
-- Ảnh sản phẩm: `src/lib/data/productImages.ts`, `productImageCutouts.ts`, và `PRODUCT_OVERRIDES` trong `src/lib/data/products.ts` (dữ liệu sản phẩm bị build ghi đè từ database, nên sửa ảnh qua override, không sửa `src/data/products.json`).
+- Ảnh sản phẩm: trường `images` trong `src/data/products.json` (nguồn chính). `src/lib/data/productImages.ts` và `productImageCutouts.ts` còn đổi đường dẫn ảnh cũ sang bản tách nền khi render.
 
 ## Xử lý ảnh
 

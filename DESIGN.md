@@ -161,7 +161,7 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 
 ## Nội dung
 
-Không dùng emoji, mũi tên `→` hay gạch ngang dài `—` trong nội dung hiển thị. Bài viết và sản phẩm lấy từ database được làm sạch tự động trong `scripts/dump_data.js` (xem `scripts/lib/editorial-clean.cjs`).
+Không dùng emoji, mũi tên `→` hay gạch ngang dài `—` trong nội dung hiển thị. Bài viết và sản phẩm nằm thẳng trong `src/data/articles.json` và `products.json` (nguồn chính từ 10/2026, không còn tải từ database khi build); test `premium-brand-guard.test.ts` kiểm hai file này.
 
 ## Hiệu ứng
 

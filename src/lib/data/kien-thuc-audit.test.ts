@@ -20,14 +20,24 @@ function titleCaseHeadings(content: string): string {
 }
 
 describe('audit /kien-thuc 09/2026', () => {
-  it('build đổ lại dữ liệu từ database (tiêu đề con Viết Hoa) vẫn cắt được đoạn "vitamin" và không còn claim dinh dưỡng', () => {
-    const raw = (articlesData as Array<{ slug: string; content: string | null }>).find(
-      (a) => a.slug === 'su-that-ve-lop-men-van-duc-naturtrub',
-    );
-    const fromDatabase = titleCaseHeadings(raw!.content!);
-    expect(fromDatabase).toContain('Men Sống: "Vitamin Bia"');
-    const text = stripHtml(sanitizeArticleContent(fromDatabase, raw!.slug) ?? '');
-    expect(text).not.toMatch(/vitamin|axit amin|khoáng chất|dinh dưỡng|bánh mì lỏng/i);
+  it('src/data/articles.json là nguồn chính: build không đổ lại từ database, bài public không còn claim dinh dưỡng', () => {
+    expect(JSON.parse(read('package.json')).scripts.build).not.toContain('dump_data');
+    expect(read('scripts/dump_data.js')).not.toMatch(/path\.join\(__dirname, '\.\.', 'src', 'data'\)/);
+    const published = new Set(getPublishedArticles().map((a) => a.id));
+    const raw = (articlesData as Array<{ id: string; slug: string; content: string | null }>).filter((a) => published.has(a.id));
+    expect(raw.length).toBe(published.size);
+    for (const article of raw) {
+      // Nội dung trong JSON đã sạch sẵn, kể cả khi tiêu đề con bị Viết Hoa lại.
+      const text = stripHtml(sanitizeArticleContent(titleCaseHeadings(article.content ?? ''), article.slug) ?? '');
+      expect(text, article.slug).not.toMatch(/vitamin|axit amin|khoáng chất|dinh dưỡng|bánh mì lỏng/i);
+    }
+  });
+
+  it('chạy lại bộ làm sạch trên nội dung đã có trong JSON không làm đổi chữ', () => {
+    const published = new Set(getPublishedArticles().map((a) => a.id));
+    for (const article of (articlesData as Array<{ id: string; slug: string; content: string | null }>).filter((a) => published.has(a.id))) {
+      expect(sanitizeArticleContent(article.content, article.slug), article.slug).toBe(article.content);
+    }
   });
 
   it('tiêu đề con Viết Hoa Mỗi Chữ được đổi về dạng câu khi render', () => {

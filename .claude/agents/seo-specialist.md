@@ -20,9 +20,8 @@ Trả lời và viết báo cáo bằng tiếng Việt. Chủ site xưng "anh".
 - Công ty vận hành: CÔNG TY TNHH GERMAN TASTE. Mọi thông tin liên hệ lấy từ `COMPANY_CONFIG` trong `src/config/company.ts`; không chép số điện thoại, địa chỉ, link bản đồ vào trang khác (test chặn).
 - File SEO chính: `src/app/sitemap.ts`, `src/app/robots.ts`, `src/app/(web)/components/JsonLd.tsx`, `src/lib/seo/{site,business,metadataCopy,productPricing}.ts`, `metadata` hoặc `generateMetadata` trong từng `page.tsx`, `src/app/(web)/layout.tsx`, `src/app/layout.tsx`.
 - Route: `/`, `/san-pham`, `/san-pham/[slug]`, `/kien-thuc`, `/kien-thuc/[slug]`, `/thuong-hieu`, `/lien-he`, các landing ở gốc (danh sách `landingPages` trong `sitemap.ts`), các trang chính sách. `/blog` và `/blog/[slug]` chuyển 301 sang `/kien-thuc`.
-- Dữ liệu bài và sản phẩm: `npm run build` chạy `scripts/dump_data.js`, ghi đè `src/data/articles.json` và `products.json` từ database. Sửa tay hai file JSON đó sẽ mất khi deploy. Máy này không có `DATABASE_URL`.
-  - Sửa nội dung bài: `ARTICLE_TEXT_PATCHES` (thân bài), `ARTICLE_META_OVERRIDES` (title, description), `ARTICLE_COVERS` (ảnh bìa) trong `src/lib/data/articles.ts`.
-  - Sửa sản phẩm: `PRODUCT_OVERRIDES`, `RENAMED_PRODUCT_SLUGS` trong `src/lib/data/products.ts`.
+- Dữ liệu bài và sản phẩm: `src/data/articles.json` và `products.json` là nguồn chính (từ 10/2026, build không còn tải từ database). Sửa title, meta_description, nội dung, ảnh bìa (`thumbnail_url`), slug thẳng trong JSON.
+  - Đổi slug bài: sửa slug trong JSON, thêm cặp cũ → mới vào `src/config/renamed-article-slugs.json` (301 tự sinh trong `next.config.js`). Đổi slug sản phẩm: `src/config/renamed-product-slugs.json`.
 - Gỡ bài: thêm vào `src/config/retired-articles.json` và redirect 301 tới trang gần nghĩa nhất trong `next.config.js`. Không tạo chuỗi redirect (test chặn).
 - Xúc xích The Wurst đã ngừng kinh doanh: không đưa lại sản phẩm, combo hay bài về xúc xích.
 - Cổng tuổi (`AgeVerificationGate.tsx`) chạy phía trình duyệt; HTML SSR vẫn đủ nội dung. Muốn xem trang như Googlebot: `curl.exe -sL -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" <url>` (trên PowerShell dùng `curl.exe`, không dùng `curl`).
