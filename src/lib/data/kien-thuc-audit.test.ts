@@ -43,7 +43,7 @@ describe('audit /kien-thuc 09/2026', () => {
   it('tiêu đề con Viết Hoa Mỗi Chữ được đổi về dạng câu khi render', () => {
     const html = sanitizeArticleContent('<h2>Chiếc Ly Weizenglas Huyền Thoại</h2>\n<p>x</p>\n### Bia Lọc vs. Bia Không Lọc: Khác Nhau Thế Nào?', 'x');
     expect(html).toContain('<h2>Chiếc ly Weizenglas huyền thoại</h2>');
-    expect(html).toContain('### Bia lọc vs. bia không lọc: khác nhau thế nào?');
+    expect(html).toContain('### Bia lọc vs. bia không lọc: Khác nhau thế nào?');
     expect(sanitizeArticleContent('<h2>Weissbier Là Gì?</h2>', 'x')).toBe('<h2>Weissbier là gì?</h2>');
     expect(toSentenceCaseHtml('Ly <a href="/san-pham/a">Benediktiner</a> Chính Hãng Của Tu Viện')).toBe(
       'Ly <a href="/san-pham/a">Benediktiner</a> chính hãng của tu viện',

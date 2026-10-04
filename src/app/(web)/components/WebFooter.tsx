@@ -122,7 +122,7 @@ export default function WebFooter() {
               ))}
             </dl>
             <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
-              Từ German Taste: khám phá rượu vang Đức
+              Từ German Taste: Khám phá rượu vang Đức
             </a>
           </div>
         </section>

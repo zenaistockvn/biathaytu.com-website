@@ -9,11 +9,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
-  description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
+  description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: Nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' },
   openGraph: {
     title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
-    description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
+    description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: Nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
     images: [

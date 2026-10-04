@@ -15,7 +15,7 @@ export function getTastingNotes(name: string): string {
   if (l.includes('riesling')) return 'Riesling Đức, khoáng, acid tươi.';
 
   // Beer
-  if (l.includes('mix')) return 'Thùng mix Naturtrüb và Dunkel: một chai vàng đục hương chuối chín, một chai nâu đồng hương mạch nha rang.';
+  if (l.includes('mix')) return 'Thùng mix Naturtrüb và Dunkel: Một chai vàng đục hương chuối chín, một chai nâu đồng hương mạch nha rang.';
   if (l.includes('festbier')) return 'Mạch nha chín, hoa bia nhẹ, thân đậm hơn Naturtrüb.';
   if (l.includes('dunkel')) return 'Mạch nha rang đậm đà, thoảng vị caramel & chocolate đen.';
   if (l.includes('weissbier') || l.includes('natur')) return 'Hương chuối chín, đinh hương & hậu vị ngọt dịu.';

@@ -1,7 +1,6 @@
 /**
  * `npm run build` đổ lại articles.json từ database, nơi tiêu đề bài và tiêu đề con còn Viết Hoa Mỗi Chữ,
- * nên phải đổi khi render. Quy tắc (DESIGN.md): viết hoa chữ đầu, chữ đầu sau "?" "!" "." và tên riêng;
- * sau dấu ":" viết thường.
+ * nên phải đổi khi render. Quy tắc (DESIGN.md): viết hoa chữ đầu, chữ đầu sau "?" "!" "." ":" và tên riêng.
  */
 const PROPER_PHRASES: Array<[string, string]> = [
   ['Đạo Luật Tinh Khiết', 'Đạo luật Tinh khiết'],
@@ -35,9 +34,9 @@ function isTitleCase(text: string): boolean {
   return capitalised / words.length >= 0.7;
 }
 
-/** Hết câu khi từ kết thúc bằng ? ! . nhưng không phải "vs." hay dấu ba chấm. */
+/** Chữ sau giữ hoa khi từ kết thúc bằng ? ! . : nhưng không phải "vs." hay dấu ba chấm. */
 function endsSentence(token: string): boolean {
-  return /[?!.]$/.test(token) && !/\.\.\.$|…$/.test(token) && !/^vs\.$/i.test(token);
+  return /[?!.:]$/.test(token) && !/\.\.\.$|…$/.test(token) && !/^vs\.$/i.test(token);
 }
 
 /** Đổi một đoạn chữ; `state.start` nối qua các đoạn khi tiêu đề có thẻ HTML xen giữa. */

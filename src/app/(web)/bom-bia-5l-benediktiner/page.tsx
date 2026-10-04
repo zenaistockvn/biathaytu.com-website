@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' },
   openGraph: {
     title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu cho tiệc',
-    description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
+    description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: Nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
     images: [

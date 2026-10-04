@@ -6,11 +6,11 @@ import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-  description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
+  description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: Công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi' },
   openGraph: {
     title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
+    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: Công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
-    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
+    description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: Công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -39,7 +39,7 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu là gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc Bia Thầy Tu Benediktiner: công thức và men từ Tu viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Thầy Tu là gì?', slug: 'bia-thay-tu-la-gi', url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi', description: 'Nguồn gốc Bia Thầy Tu Benediktiner: Công thức và men từ Tu viện Ettal.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="faq" data={getFaqSchema(faqs)} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-thay-tu-la-gi', label: 'Bia Thầy Tu là gì?' }))} />
 
@@ -57,7 +57,7 @@ export default function Page() {
         </Summary>
 
         <h2>Vì sao gọi là &quot;Bia Thầy Tu&quot;?</h2>
-        <p>&quot;Benediktiner&quot; là tên tiếng Đức của dòng tu Biển Đức (Benedictine), nên người Việt quen gọi là &quot;Bia Thầy Tu&quot;. Nhiều người nghĩ bia do các thầy tu nấu, nhưng không phải vậy: bia ủ theo công thức gốc của dòng tu, men lấy từ hầm tu viện Ettal, còn nơi nấu là nhà bia ở thị trấn Lich, bang Hessen. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ.</p>
+        <p>&quot;Benediktiner&quot; là tên tiếng Đức của dòng tu Biển Đức (Benedictine), nên người Việt quen gọi là &quot;Bia Thầy Tu&quot;. Nhiều người nghĩ bia do các thầy tu nấu, nhưng không phải vậy: Bia ủ theo công thức gốc của dòng tu, men lấy từ hầm tu viện Ettal, còn nơi nấu là nhà bia ở thị trấn Lich, bang Hessen. Ở châu Âu, truyền thống ủ bia trong tu viện có từ thời Trung Cổ.</p>
         <p>Tu viện Ettal ở Bavaria do Hoàng đế Ludwig IV lập năm 1330. Tu viện nấu bia từ năm 1609. Benediktiner tiếp nối truyền thống đó bằng công thức gốc của dòng tu và men hầm Ettal.</p>
 
         <h2>Luật Tinh Khiết 1516, Reinheitsgebot</h2>

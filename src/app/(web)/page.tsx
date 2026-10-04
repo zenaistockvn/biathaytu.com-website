@@ -17,7 +17,7 @@ import { getLine } from '@/config/productLines';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
-  description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, các dòng Naturtrüb, Dunkel, Festbier, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam.',
+  description: 'Khám phá Benediktiner Weissbier: Nguồn gốc Ettal, các dòng Naturtrüb, Dunkel, Festbier, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam.',
   alternates: { canonical: 'https://www.biathaytu.com.vn' },
   openGraph: {
     title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
@@ -146,7 +146,7 @@ export default function LandingPage() {
 
 
       <SplitBlock
-        image={{ src: '/images/brand/benediktiner-official/so-close-to-heaven.jpg', alt: 'Poster chiến dịch Benediktiner So close to heaven: ly bia và lon Weissbier trước Tu viện Ettal', position: 'center 100%' }}
+        image={{ src: '/images/brand/benediktiner-official/so-close-to-heaven.jpg', alt: 'Poster chiến dịch Benediktiner So close to heaven: Ly bia và lon Weissbier trước Tu viện Ettal', position: 'center 100%' }}
         tone="mist"
         reverse
         title="Thưởng thức"

@@ -6,11 +6,11 @@ import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-  description: 'Bia Benediktiner chính hãng: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+  description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' },
   openGraph: {
     title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-    description: 'Bia Benediktiner chính hãng: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+    description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-    description: 'Bia Benediktiner chính hãng: dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+    description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };

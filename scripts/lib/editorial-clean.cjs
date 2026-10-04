@@ -65,7 +65,7 @@ function replaceArrows(s) {
 function replaceDashes(s, mode) {
   let out = s.replace(/(^|\n)([ \t]*)[—–][ \t]+/g, '$1$2');
   out = mode === 'title'
-    ? out.replace(/\s+[—–]\s+/g, ': ').replace(/—/g, ': ')
+    ? out.replace(/\s+[—–]\s+/g, ': ').replace(/—/g, ': ').replace(/: (\p{Ll})(?!\p{L}*\p{Lu})/gu, (m, c) => ': ' + c.toUpperCase())
     : out.replace(/\s+[—–]\s+/g, ', ').replace(/—/g, ', ');
   return out;
 }

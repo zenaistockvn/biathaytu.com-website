@@ -48,15 +48,15 @@ export default function ProductDetailsAccordion({
 
   const servingItems = isWine
       ? [
-          'Riesling và Sauvignon Blanc: phục vụ mát để làm nổi bật độ tươi và tính khoáng.',
-          'Spätburgunder: có thể để chai nghỉ vài phút sau khi mở để hương trái cây và gia vị rõ hơn.',
+          'Riesling và Sauvignon Blanc: Phục vụ mát để làm nổi bật độ tươi và tính khoáng.',
+          'Spätburgunder: Có thể để chai nghỉ vài phút sau khi mở để hương trái cây và gia vị rõ hơn.',
           'Dùng ly vang sạch, không ám mùi và tránh rót quá đầy để giữ không gian cho hương thơm phát triển.',
         ]
       : [
           'Nhiệt độ phục vụ: Pilsner 4-6 °C, Weissbier 7-9 °C, Dunkel 8-10 °C, Festbier 6-8 °C.',
           'Không dùng đá để tránh làm loãng cấu trúc và hương vị của bia.',
           'Sử dụng ly sạch, phù hợp với phong cách bia để giữ bọt và hương thơm tốt hơn.',
-          'Với Weissbier: rót nghiêng ly 45°, sau đó xoay nhẹ phần bia cuối chai để hòa lớp men tự nhiên trước khi rót nốt.',
+          'Với Weissbier: Rót nghiêng ly 45°, sau đó xoay nhẹ phần bia cuối chai để hòa lớp men tự nhiên trước khi rót nốt.',
         ];
 
   const pairingItems = (() => {
@@ -90,7 +90,7 @@ export default function ProductDetailsAccordion({
       content: (
         <ul>
           <li>Rửa bằng nước ấm và nước rửa chén nhẹ, tráng sạch, để khô tự nhiên.</li>
-          <li>Ly thủy tinh: tránh đổ nước sôi đột ngột vào ly đang lạnh.</li>
+          <li>Ly thủy tinh: Tránh đổ nước sôi đột ngột vào ly đang lạnh.</li>
         </ul>
       ),
     },

@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     default: 'Bia Thầy Tu Benediktiner, bia Đức nhập khẩu chính hãng',
     template: '%s | Bia Thầy Tu',
   },
-  description: 'Khám phá Bia Thầy Tu Benediktiner: nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và thông tin tư vấn tại Việt Nam.',
+  description: 'Khám phá Bia Thầy Tu Benediktiner: Nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và thông tin tư vấn tại Việt Nam.',
   keywords: [
     'bia đức nhập khẩu', 'bia nhập khẩu', 'bia thầy tu', 'benediktiner', 'bia weissbier',
     'bia lúa mì đức', 'bia đen đức', 'german beer vietnam', 'bia đức chính hãng',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: 'Bia Thầy Tu',
     title: 'Bia Thầy Tu Benediktiner, bia Đức nhập khẩu chính hãng',
-    description: 'Khám phá Benediktiner Weissbier: nguồn gốc Ettal, hương vị, cách thưởng thức và thông tin tư vấn tại Việt Nam.',
+    description: 'Khám phá Benediktiner Weissbier: Nguồn gốc Ettal, hương vị, cách thưởng thức và thông tin tư vấn tại Việt Nam.',
     images: [
       {
         url: '/images/brand/benediktiner-official/home-hero.jpg',

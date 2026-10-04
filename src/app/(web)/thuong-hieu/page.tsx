@@ -65,7 +65,7 @@ export default function BrandStoryPage() {
         kicker="Tu viện Ettal, giữa dãy Alps Bavaria"
       >
         <p>Tu viện Ettal được thành lập năm 1330. Khoảng bốn thế kỷ trước, các tu sĩ Benedictine tại đây đã phát triển truyền thống bia lúa mì mà Benediktiner tiếp tục tôn vinh ngày nay.</p>
-        <p>Điều được truyền lại không chỉ là một công thức, mà còn là cách tiếp cận: bình tĩnh, cẩn trọng và tôn trọng nguyên liệu.</p>
+        <p>Điều được truyền lại không chỉ là một công thức, mà còn là cách tiếp cận: Bình tĩnh, cẩn trọng và tôn trọng nguyên liệu.</p>
         <dl className={styles.facts}>
           <div><dt>1330</dt><dd>Tu viện Ettal thành lập</dd></div>
           <div><dt>400+</dt><dd>Năm truyền thống bia lúa mì</dd></div>

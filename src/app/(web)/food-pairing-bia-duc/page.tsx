@@ -4,11 +4,11 @@ import EditorialPage, { CtaBand, FaqSection, InfoGrid, Summary } from '../compon
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Nghệ thuật food pairing: bia Đức kết hợp cùng ẩm thực',
+  title: 'Nghệ thuật food pairing: Bia Đức kết hợp cùng ẩm thực',
   description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/food-pairing-bia-duc' },
   openGraph: {
-    title: 'Nghệ thuật food pairing: bia Đức kết hợp cùng ẩm thực',
+    title: 'Nghệ thuật food pairing: Bia Đức kết hợp cùng ẩm thực',
     description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Nghệ thuật food pairing: bia Đức kết hợp cùng ẩm thực',
+        alt: 'Nghệ thuật food pairing: Bia Đức kết hợp cùng ẩm thực',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nghệ thuật food pairing: bia Đức kết hợp cùng ẩm thực',
+    title: 'Nghệ thuật food pairing: Bia Đức kết hợp cùng ẩm thực',
     description: 'Khám phá bí quyết kết hợp (food pairing) các dòng bia Đức như Weissbier, Dunkel, Pilsner với các món ăn Việt Nam, món Âu và đồ nướng BBQ.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
@@ -61,7 +61,7 @@ export default function Page() {
           items={[
             { title: 'Hải sản', text: 'Tôm hấp, mực nướng, sushi. Vị ngọt của bia làm bật độ tươi của hải sản mà không lấn át.' },
             { title: 'Gia cầm và đồ chua', text: 'Gà nướng mật ong, salad chua ngọt, nem chua. Độ sủi cắt ngang vị béo ngậy.' },
-            { title: 'Món Việt truyền thống', text: 'Thú vị nhất là cùng phở: sự thanh của Weissbier hợp với nước dùng xương.' },
+            { title: 'Món Việt truyền thống', text: 'Thú vị nhất là cùng phở: Sự thanh của Weissbier hợp với nước dùng xương.' },
           ]}
         />
 
