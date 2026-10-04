@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import styles from './ArticleBody.module.css';
+import { noBreakHeadingsHtml } from '@/lib/vn-text';
 
 /**
  * Improved content format detection:
@@ -46,7 +47,7 @@ export default function ArticleBody({ content }: ArticleBodyProps) {
   return (
     <div
       className={`markdown-content ${styles.body}`}
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
+      dangerouslySetInnerHTML={{ __html: noBreakHeadingsHtml(htmlContent) }}
     />
   );
 }

@@ -15,6 +15,7 @@ import ArticleCard, { ArticleGrid, articleImage } from '../../components/ui/Arti
 import TitleBlock from '../../components/ui/TitleBlock'
 import styles from './page.module.css';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
+import { noBreak } from '@/lib/vn-text';
 
 export const revalidate = 3600;
 
@@ -122,7 +123,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             <span aria-hidden="true">/</span>
             <Link href={NAV.knowledge.href}>{NAV.knowledge.label}</Link>
           </nav>
-          <h1 className={`article-detail-title ${styles.title}`}>{article.title}</h1>
+          <h1 className={`article-detail-title ${styles.title}`}>{noBreak(article.title)}</h1>
           <p className={styles.meta}>
             {formatArticleDate(article.created_at)} · {readingMinutes(article.word_count)} phút đọc
           </p>

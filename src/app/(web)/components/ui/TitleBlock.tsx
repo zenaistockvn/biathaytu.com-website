@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TitleBlock.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 interface TitleBlockProps {
   title: React.ReactNode;
@@ -35,7 +36,7 @@ export default function TitleBlock({
       {icon ? <span className={styles.icon}>{icon}</span> : null}
       <div>
         {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
-        <Tag id={id} className={`${styles.title} ${sizeClass}`}>{title}</Tag>
+        <Tag id={id} className={`${styles.title} ${sizeClass}`}>{noBreakNode(title)}</Tag>
         {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
       </div>
     </div>

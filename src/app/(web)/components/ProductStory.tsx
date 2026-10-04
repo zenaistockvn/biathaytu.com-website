@@ -9,6 +9,7 @@ import ProfileScale from './ui/ProfileScale';
 import SplitBlock from './ui/SplitBlock';
 import TitleBlock from './ui/TitleBlock';
 import styles from './ProductStory.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 type Img = { src: string; alt: string; position?: string };
 type Action = { href: string; label: string; external?: boolean };
@@ -183,7 +184,7 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
               {ritual.steps.map(([title, text], i) => (
                 <li key={title}>
                   <span className={styles.ritualNumber} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                  <h3>{title}</h3>
+                  <h3>{noBreakNode(title)}</h3>
                   <p>{text}</p>
                 </li>
               ))}

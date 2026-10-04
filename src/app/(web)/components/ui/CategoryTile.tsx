@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { BlockTone } from './SplitBlock';
 import styles from './CategoryTile.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 interface CategoryTileProps {
   href: string;
@@ -31,7 +32,7 @@ export default function CategoryTile({ href, image, title, kicker, icon, tone = 
       <span className={`${styles.panel} ${styles[tone]}`} data-surface={onInk ? 'ink' : undefined}>
         {icon ? <span className={styles.icon}>{icon}</span> : null}
         <span>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 className={styles.title}>{noBreakNode(title)}</h3>
           {kicker ? <span className={styles.kicker}>{kicker}</span> : null}
         </span>
       </span>

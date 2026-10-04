@@ -14,6 +14,7 @@ import {
 import styles from './Home.module.css';
 import { breadcrumbTrail } from '@/config/navigation';
 import { getLine } from '@/config/productLines';
+import { noBreakNode } from '@/lib/vn-text';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
@@ -158,7 +159,7 @@ export default function LandingPage() {
             <li key={title}>
               <span className={styles.stepNumber} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div>
-                <h3>{title}</h3>
+                <h3>{noBreakNode(title)}</h3>
                 <p>{description}</p>
               </div>
             </li>

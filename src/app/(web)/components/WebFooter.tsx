@@ -11,6 +11,7 @@ import {
   getCompanyZaloUrl,
 } from '@/config/company';
 import { KEG_PAGE, NAV, PRODUCT_LINES } from '@/config/navigation';
+import { noBreakNode } from '@/lib/vn-text';
 
 // Ba cột điều hướng (audit A7): mỗi cột một loại link, tên lấy từ NAV/PRODUCT_LINES.
 const productLinks = [...PRODUCT_LINES, KEG_PAGE];
@@ -77,7 +78,7 @@ export default function WebFooter() {
 
           {linkColumns.map((column) => (
             <section key={column.id} aria-labelledby={column.id}>
-              <h2 id={column.id} className={styles.columnTitle}>{column.title}</h2>
+              <h2 id={column.id} className={styles.columnTitle}>{noBreakNode(column.title)}</h2>
               <ul className={styles.linkList}>
                 {column.links.map((link) => (
                   <li key={link.href}><Link href={link.href}>{link.label}</Link></li>

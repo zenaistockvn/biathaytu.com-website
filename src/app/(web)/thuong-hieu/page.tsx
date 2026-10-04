@@ -7,6 +7,7 @@ import TitleBlock from '../components/ui/TitleBlock';
 import { AbbeyIcon } from '../components/ui/LineIcons';
 import styles from './page.module.css';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
+import { noBreakNode } from '@/lib/vn-text';
 
 export const metadata: Metadata = {
   title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
@@ -87,7 +88,7 @@ export default function BrandStoryPage() {
             {principles.map(([title, description], index) => (
               <li key={title}>
                 <span className={styles.number} aria-hidden="true">0{index + 1}</span>
-                <h3>{title}</h3>
+                <h3>{noBreakNode(title)}</h3>
                 <p>{description}</p>
               </li>
             ))}

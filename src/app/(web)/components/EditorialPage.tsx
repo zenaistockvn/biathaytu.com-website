@@ -3,6 +3,7 @@ import { Button } from './ui/Button';
 import PhotoHero from './ui/PhotoHero';
 import TitleBlock from './ui/TitleBlock';
 import styles from './EditorialPage.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 type Img = { src: string; alt: string; position?: string };
 
@@ -80,7 +81,7 @@ export function InfoGrid({ items, columns = 3 }: { items: { title: React.ReactNo
     <ul className={`${styles.grid} ${styles[`cols${columns}`]}`}>
       {items.map((item, i) => (
         <li key={i}>
-          <h3>{item.title}</h3>
+          <h3>{noBreakNode(item.title)}</h3>
           <p>{item.text}</p>
           {item.meta ? <p className={styles.meta}>{item.meta}</p> : null}
         </li>
@@ -97,7 +98,7 @@ export function StepList({ steps }: { steps: readonly { title: React.ReactNode; 
         <li key={i}>
           <span className={styles.stepNumber} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <div>
-            <h3>{step.title}</h3>
+            <h3>{noBreakNode(step.title)}</h3>
             <p>{step.text}</p>
           </div>
         </li>

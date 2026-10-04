@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatArticleDate, readingMinutes } from '@/lib/data/articleFormat';
 import styles from './ArticleCard.module.css';
+import { noBreak } from '@/lib/vn-text';
 
 export interface ArticleSummary {
   id: string;
@@ -52,7 +53,7 @@ export default function ArticleCard({ article, position }: { article: ArticleSum
       </span>
       <span className={styles.body}>
         <span className={styles.meta}>{meta(article)}</span>
-        <h3 className={styles.title}>{article.title}</h3>
+        <h3 className={styles.title}>{noBreak(article.title)}</h3>
         {article.meta_description ? <span className={styles.excerpt}>{article.meta_description}</span> : null}
         <span className={styles.cue} aria-hidden="true">
           Đọc tiếp
@@ -72,7 +73,7 @@ export function FeaturedArticle({ article }: { article: ArticleSummary }) {
       </span>
       <span className={styles.featuredBody}>
         <span className={styles.meta}>Bài nổi bật · {meta(article)}</span>
-        <h2 className={styles.featuredTitle}>{article.title}</h2>
+        <h2 className={styles.featuredTitle}>{noBreak(article.title)}</h2>
         {article.meta_description ? <span className={styles.excerpt}>{article.meta_description}</span> : null}
         <span className={`btn-dark ${styles.featuredButton}`}>Đọc bài viết</span>
       </span>

@@ -1,4 +1,5 @@
 import styles from './FlavorWheel.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 export interface FlavorAxis {
   label: string;
@@ -35,7 +36,7 @@ export default function FlavorWheel({ axes, title = 'Bánh xe hương vị', not
 
   return (
     <figure className={styles.figure}>
-      <h3 className={styles.title} id={`${id}-title`}>{title}</h3>
+      <h3 className={styles.title} id={`${id}-title`}>{noBreakNode(title)}</h3>
       <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className={styles.svg} role="img" aria-labelledby={`${id}-title ${id}-desc`}>
         <desc id={`${id}-desc`}>{summary}</desc>
         {Array.from({ length: LEVELS }, (_, level) => (

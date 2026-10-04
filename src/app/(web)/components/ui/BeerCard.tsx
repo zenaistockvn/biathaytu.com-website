@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './BeerCard.module.css';
+import { noBreakNode } from '@/lib/vn-text';
 
 interface BeerCardProps {
   href: string;
@@ -21,7 +22,7 @@ export default function BeerCard({ href, image, fit = 'cover', name, type, meta 
         <Image src={image.src} alt={image.alt} fill sizes="(max-width: 767px) 100vw, 33vw" className={styles.image} />
       </span>
       <span className={styles.body}>
-        <h3 className={styles.name}>{name}</h3>
+        <h3 className={styles.name}>{noBreakNode(name)}</h3>
         <span className={styles.type}>{type}</span>
         {meta ? <span className={styles.meta}>{meta}</span> : null}
       </span>
