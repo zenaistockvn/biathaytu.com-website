@@ -152,6 +152,22 @@ const nextConfig = {
         destination: '/kien-thuc',
         statusCode: 301,
       },
+      // Trang tĩnh Haravan cũ còn lượt nhấp trên Google (Search Console 10/2026).
+      {
+        source: '/pages/restaurant',
+        destination: '/lien-he',
+        statusCode: 301,
+      },
+      {
+        source: '/pages/benediktiner-oktoberfest2024',
+        destination: '/bia-benediktiner-chinh-hang',
+        statusCode: 301,
+      },
+      {
+        source: '/pages/:path*',
+        destination: '/',
+        statusCode: 301,
+      },
       // Trùng nội dung với trang Câu chuyện Ettal; thông tin doanh nghiệp và liên hệ đã có ở footer (audit L8, 09/2026).
       {
         source: '/ve-chung-toi',
