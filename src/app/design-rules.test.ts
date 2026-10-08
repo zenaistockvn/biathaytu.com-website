@@ -16,7 +16,7 @@ function walk(dir: string, match: RegExp): string[] {
 }
 
 // Tên riêng được phép viết hoa giữa câu; không tính khi đo tiêu đề Viết Hoa Mỗi Chữ.
-const PROPER_NOUNS = new Set(['Bia', 'Thầy', 'Tu', 'Benediktiner', 'Bitburger', 'Reinheitsgebot', 'Đức', 'Weissbier', 'Dunkel', 'Naturtrüb', 'Ettal', 'Bavaria']);
+const PROPER_NOUNS = new Set(['Bia', 'Thầy', 'Tu', 'Benediktiner', 'Bitburger', 'Reinheitsgebot', 'Đức', 'Weissbier', 'Dunkel', 'Naturtrüb', 'Festbier', 'Ettal', 'Bavaria']);
 
 describe('quy tắc DESIGN.md áp cho mọi component', () => {
   it('component đã dọn không còn style inline', () => {

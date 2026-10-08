@@ -83,6 +83,12 @@ export default function WebFooter() {
                 {column.links.map((link) => (
                   <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
                 ))}
+                {column.id === 'footer-buy' ? (
+                  <>
+                    <li key={NAV.restaurant.href}><Link href={NAV.restaurant.href}>{NAV.restaurant.label}</Link></li>
+                    <li key={NAV.franchise.href}><Link href={NAV.franchise.href}>{NAV.franchise.label}</Link></li>
+                  </>
+                ) : null}
               </ul>
             </section>
           ))}

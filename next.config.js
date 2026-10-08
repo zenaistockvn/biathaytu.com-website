@@ -95,6 +95,11 @@ const nextConfig = {
         destination: '/san-pham/benediktiner-naturtrub-bom-5l',
         statusCode: 301,
       },
+      {
+        source: '/benediktiner-festbier-ket-24-lon-500ml',
+        destination: '/san-pham/benediktiner-festbier-ket-24-lon-500ml',
+        statusCode: 301,
+      },
       // Trang chiến dịch đã gỡ (09/2026); danh mục sản phẩm thay thế.
       {
         source: '/nhan-uu-dai',

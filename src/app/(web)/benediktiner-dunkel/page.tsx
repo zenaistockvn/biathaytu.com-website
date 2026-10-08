@@ -63,6 +63,8 @@ export default function Page() {
           kicker: 'Bia lúa mì đen',
           meta: '5,4% vol. Thưởng thức ở 8 đến 10°C.',
           cutout: { src: '/images/brand/benediktiner-official/dunkel-glass-cutout.webp', alt: 'Ly Benediktiner Weissbier Dunkel' },
+          bottle: { src: '/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp', alt: 'Chai bia Benediktiner Weissbier Dunkel 500ml' },
+          backdrop: { src: '/images/brand/benediktiner-official/ettal-monastery.jpg', alt: 'Tu viện Ettal' },
         }}
         intro={{
           title: 'Lúa mì và mạch nha rang',
@@ -110,6 +112,16 @@ export default function Page() {
               <p>Cùng truyền thống Benedictine từ Tu viện Ettal (thành lập năm 1330) như Weissbier Naturtrüb, Dunkel được nấu tại Lich theo Luật Tinh Khiết 1516.</p>
             </>
           ),
+        }}
+        ritual={{
+          title: 'Nghi thức rót bia',
+          kicker: 'Đúng điệu Bavaria',
+          steps: [
+            ['Nghiêng ly', 'Để ly nghiêng 45 độ, rót bia chầm chậm dọc thành ly.'],
+            ['Giữ bọt', 'Để lại khoảng 1 đến 2 cm bia trong chai trước khi hết.'],
+            ['Lắc men', 'Lăn hoặc lắc nhẹ chai theo chuyển động tròn để hòa tan men đọng dưới đáy.'],
+            ['Tạo vương miện', 'Rót hết phần men còn lại lên trên cùng để có lớp bọt caramel hoàn hảo.'],
+          ],
         }}
         formats={{ products: formats }}
         pairing={{

@@ -17,6 +17,7 @@ const DARK_HERO_PATHS = new Set([
   '/benediktiner-weissbier-naturtrub',
   '/bitburger-premium-pils',
   '/benediktiner-dunkel',
+  '/benediktiner-festbier',
   '/bang-gia-si-dai-ly',
   '/qua-tang-bia-duc',
   '/thuong-hieu',
@@ -27,6 +28,8 @@ const DARK_HERO_PATHS = new Set([
   '/bia-thay-tu-la-gi',
   '/huong-dan-rot-bia-lua-mi',
   '/bia-duc-cho-nha-hang-khach-san',
+  NAV.restaurant.href,
+  NAV.franchise.href,
 ]);
 
 function isDarkHeroPath(pathname: string): boolean {
@@ -40,6 +43,7 @@ function isDarkHeroPath(pathname: string): boolean {
 // Menu chính theo ngữ pháp Chimay (Nos bières, Depuis 1850, Recettes...): "Sản phẩm" mở panel,
 // các mục nội dung đi sau. Tên route lấy từ NAV.
 const CONTENT_LINKS = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.horeca];
+const DINING_LINKS = [NAV.restaurant];
 const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts, NAV.buyingInfo];
 const BENEDIKTINER_LINES = PRODUCT_LINES.filter((line) => line.group === 'benediktiner');
 const SELECTED_LINES = PRODUCT_LINES.filter((line) => line.group === 'selected');
@@ -128,7 +132,10 @@ export default function WebHeader() {
   const headerOnDark = isDarkHeroPath(pathname) && !scrolled && !menuOpen && !productsOpen;
   const zaloUrl = getCompanyZaloUrl();
   const telHref = getCompanyTelHref();
-  const isCurrentPath = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isCurrentPath = (href: string) =>
+    pathname === href ||
+    pathname.startsWith(`${href}/`) ||
+    (href === NAV.restaurant.href && pathname === NAV.franchise.href);
   const productsActive = isProductsPath(pathname);
   const closeMenu = () => setMenuOpenPath(null);
 
@@ -241,6 +248,17 @@ export default function WebHeader() {
               </div>
             </div>
 
+            {DINING_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.navLink}
+                aria-current={isCurrentPath(link.href) ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             {CONTENT_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -302,6 +320,18 @@ export default function WebHeader() {
                 ))}
               </ul>
             </div>
+
+            {DINING_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className={styles.mobileLink}
+                aria-current={isCurrentPath(link.href) ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
 
             {CONTENT_LINKS.map((link) => (
               <Link

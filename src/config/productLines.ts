@@ -28,7 +28,7 @@ export interface BeerLine {
 export const BEER_LINES: readonly BeerLine[] = [
   { id: 'naturtrub', label: 'Weissbier Naturtrüb', short: 'Naturtrüb', group: 'benediktiner', href: '/benediktiner-weissbier-naturtrub', hasPage: true, inNav: true, match: /naturtr[uü]b/i },
   { id: 'dunkel', label: 'Weissbier Dunkel', short: 'Dunkel', group: 'benediktiner', href: '/benediktiner-dunkel', hasPage: true, inNav: true, match: /dunkel/i },
-  { id: 'festbier', label: 'Festbier', short: 'Festbier', group: 'benediktiner', href: '/san-pham/benediktiner-festbier-ket-24-lon-500ml', hasPage: false, inNav: true, match: /festbier/i },
+  { id: 'festbier', label: 'Festbier', short: 'Festbier', group: 'benediktiner', href: '/benediktiner-festbier', hasPage: true, inNav: true, match: /festbier/i },
   { id: 'mix', label: 'Hộp mix 2 vị', short: 'Mix', group: 'benediktiner', href: null, hasPage: false, inNav: false, match: /\bmix\b/i },
   { id: 'bitburger', label: 'Bitburger Premium Pils', short: 'Bitburger', group: 'selected', href: '/bitburger-premium-pils', hasPage: true, inNav: true, match: /bitburger/i },
 ];

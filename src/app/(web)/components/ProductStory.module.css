@@ -30,21 +30,34 @@
 /* ─── Hero khi không có ảnh lifestyle: ảnh chai tách nền trên khối xanh đêm ─── */
 .cutoutHero {
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(460px, 70svh, 700px);
   overflow: hidden;
-  background: var(--web-ink);
+  background:
+    radial-gradient(ellipse 65% 60% at 75% 55%, rgb(var(--web-accent-rgb) / 0.22) 0%, rgb(var(--web-ink-rgb) / 0) 70%),
+    linear-gradient(180deg, var(--web-ink-deep) 0%, var(--web-ink) 100%);
   color: var(--web-on-ink);
 }
 
 .cutoutInner {
   position: relative;
   z-index: 1;
-  padding: calc(var(--web-header-h) + 40px) 0 calc(10vw + 32px);
+  width: 100%;
+  padding-top: calc(var(--web-header-h) + 48px);
+  padding-bottom: max(88px, calc(10.2vw + 32px));
+}
+
+@media (min-width: 1024px) {
+  .cutoutInner {
+    padding-top: calc(var(--web-header-h) + 72px);
+  }
 }
 
 .cutoutGrid {
   display: grid;
   gap: 24px;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .heroMeta {
@@ -53,13 +66,80 @@
   font-size: 17px;
 }
 
+.backdropWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.backdropImage {
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0.55;
+}
+
+.backdropOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, var(--web-ink) 0%, rgb(var(--web-ink-rgb) / 0.75) 45%, rgb(var(--web-ink-rgb) / 0.5) 100%),
+    linear-gradient(90deg, var(--web-ink) 0%, rgb(var(--web-ink-rgb) / 0.88) 38%, rgb(var(--web-ink-rgb) / 0.45) 70%, rgb(var(--web-ink-rgb) / 0.15) 100%);
+}
+
 .cutoutMedia {
   position: relative;
-  height: clamp(260px, 42vw, 500px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: clamp(340px, 54svh, 600px);
+}
+
+@media (min-width: 768px) {
+  .cutoutMedia {
+    justify-content: flex-end;
+  }
+}
+
+.cutoutPair {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .cutoutPair {
+    justify-content: flex-end;
+  }
+}
+
+.cutoutBottleWrap {
+  position: relative;
+  height: 94%;
+  width: clamp(120px, 16vw, 190px);
+  margin-right: -24px;
+  z-index: 1;
+}
+
+.cutoutGlassWrap {
+  position: relative;
+  height: 100%;
+  width: clamp(140px, 20vw, 240px);
+  z-index: 2;
 }
 
 .cutoutImage {
   object-fit: contain;
+  object-position: bottom center;
+}
+
+@media (min-width: 768px) {
+  .cutoutImage {
+    object-position: bottom right;
+  }
 }
 
 .cutoutWordmark {
@@ -68,6 +148,7 @@
   width: 102%;
   bottom: 0;
   opacity: 0.9;
+  pointer-events: none;
 }
 
 /* ─── Giới thiệu ─── */
@@ -299,7 +380,8 @@
 
 @media (min-width: 768px) {
   .cutoutGrid {
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
   }
 
   .ritual {

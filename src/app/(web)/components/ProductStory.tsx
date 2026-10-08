@@ -28,6 +28,8 @@ export interface ProductStoryProps {
     /** Ảnh lifestyle tràn màn hình. Không có thì dùng `cutout` trên khối xanh đêm. */
     photo?: Img;
     cutout?: Img;
+    bottle?: Img;
+    backdrop?: Img;
   };
   intro: {
     title: string;
@@ -94,6 +96,19 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
         </PhotoHero>
       ) : (
         <section className={styles.cutoutHero} data-surface="ink" aria-labelledby="product-hero-title">
+          {hero.backdrop ? (
+            <div className={styles.backdropWrap}>
+              <Image
+                src={hero.backdrop.src}
+                alt=""
+                fill
+                priority
+                sizes="100vw"
+                className={styles.backdropImage}
+              />
+              <div className={styles.backdropOverlay} aria-hidden="true" />
+            </div>
+          ) : null}
           <div className={styles.cutoutInner}>
             <div className={`container ${styles.cutoutGrid}`}>
               <div>
@@ -102,7 +117,18 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
               </div>
               {hero.cutout ? (
                 <div className={styles.cutoutMedia}>
-                  <Image src={hero.cutout.src} alt={hero.cutout.alt} fill priority fetchPriority="high" sizes="(max-width: 767px) 80vw, 40vw" className={styles.cutoutImage} />
+                  {hero.bottle ? (
+                    <div className={styles.cutoutPair}>
+                      <div className={styles.cutoutBottleWrap}>
+                        <Image src={hero.bottle.src} alt={hero.bottle.alt} fill priority fetchPriority="high" sizes="(max-width: 767px) 40vw, 20vw" className={styles.cutoutImage} />
+                      </div>
+                      <div className={styles.cutoutGlassWrap}>
+                        <Image src={hero.cutout.src} alt={hero.cutout.alt} fill priority fetchPriority="high" sizes="(max-width: 767px) 50vw, 25vw" className={styles.cutoutImage} />
+                      </div>
+                    </div>
+                  ) : (
+                    <Image src={hero.cutout.src} alt={hero.cutout.alt} fill priority fetchPriority="high" sizes="(max-width: 767px) 80vw, 40vw" className={styles.cutoutImage} />
+                  )}
                 </div>
               ) : null}
             </div>
