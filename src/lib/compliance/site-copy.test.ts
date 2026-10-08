@@ -15,7 +15,7 @@ const BANNED: Array<[string, RegExp]> = [
   ['kêu gọi đặt mua', /đặt mua|đặt bia|đặt quà|mua online|mua ngay/i],
   ['khuyến khích uống', /muốn uống thêm|thử sẽ ghiền|không say|cạn ly|thả ga/i],
   ['gắn bia với cơ thể', /không gây mệt mỏi|sức lực|bổ dưỡng|tốt cho sức khỏe|giải độc/i],
-  ['sai nơi ủ', /thầy tu tu viện|nguyên chai từ Bavaria|nhượng quyền|suối Alps|nước tinh khiết từ dãy Alps|nhà máy bia tu viện|ủ bởi các tu sĩ|ủ từ năm 1609 tại/i],
+  ['sai nơi ủ', /thầy tu tu viện|nguyên chai từ Bavaria|nhượng quyền (?:nấu|sản xuất|ủ)|suối Alps|nước tinh khiết từ dãy Alps|nhà máy bia tu viện|ủ bởi các tu sĩ|ủ từ năm 1609 tại/i],
   ['chê bia khác', /bia đen công nghiệp|pha tạp chất|linh hồn của nó/i],
   ['khẳng định không nguồn', /độc quyền|số 1 nước Đức|bán chạy nhất nước Đức|8 thế hệ|nhiều nhất châu Âu|40 quốc gia/i],
   ['gạch nối dài', /[–—]/],

@@ -40,6 +40,7 @@ describe('quan hệ Sản phẩm → Dòng bia → Quy cách (audit A2)', () => 
     for (const [file, id] of [
       ['src/app/(web)/benediktiner-weissbier-naturtrub/page.tsx', 'naturtrub'],
       ['src/app/(web)/benediktiner-dunkel/page.tsx', 'dunkel'],
+      ['src/app/(web)/benediktiner-festbier/page.tsx', 'festbier'],
       ['src/app/(web)/bitburger-premium-pils/page.tsx', 'bitburger'],
     ]) {
       const src = read(file);

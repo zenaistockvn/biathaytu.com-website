@@ -12,7 +12,7 @@ import {
   getCompanyZaloUrl,
 } from '@/config/company';
 import styles from './Home.module.css';
-import { breadcrumbTrail } from '@/config/navigation';
+import { NAV, breadcrumbTrail } from '@/config/navigation';
 import { getLine } from '@/config/productLines';
 import { noBreakNode } from '@/lib/vn-text';
 
@@ -79,6 +79,14 @@ const faqItems = [
   {
     question: 'Bia Thầy Tu hiện giới thiệu những dòng Benediktiner nào?',
     answer: 'Các dòng nổi bật gồm Weissbier Naturtrüb, Weissbier Dunkel và Festbier, với nhiều quy cách chai, lon hoặc bom tùy từng thời điểm.',
+  },
+  {
+    question: 'Bia Thầy Tu có nhà hàng phục vụ ẩm thực trực tiếp không?',
+    answer: `Có, nhà hàng Bia Thầy Tu đón tiếp thực khách tại ${COMPANY_CONFIG.showroomAddress} với thực đơn món Đức và không gian vườn bia thoáng đãng.`,
+  },
+  {
+    question: 'Mô hình nhượng quyền nhà hàng Bia Thầy Tu hướng tới các khu vực nào?',
+    answer: 'Mô hình nhượng quyền ưu tiên phát triển tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn trên cả nước, với lợi thế nguồn bia nhập khẩu trực tiếp giá gốc.',
   },
   {
     question: 'Có thể đến đâu để tìm hiểu và trải nghiệm sản phẩm?',
@@ -165,6 +173,26 @@ export default function LandingPage() {
             </li>
           ))}
         </ol>
+      </SplitBlock>
+
+      <SplitBlock
+        image={{
+          src: '/images/restaurant/phong-vip-benediktiner.jpg',
+          alt: 'Không gian Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc Hà Nội',
+          position: 'center center',
+        }}
+        tone="ink"
+        title="Nhà hàng"
+        kicker="Bavarian Brauhaus & Beer Garden"
+        action={{ href: NAV.restaurant.href, label: 'Khám phá nhà hàng' }}
+      >
+        <p>Không gian ẩm thực bia tu viện Đức tọa lạc tại 26 Vạn Phúc, Ba Đình, Hà Nội. Nơi thực khách thưởng thức bia Benediktiner ướp lạnh chuẩn vị cùng các món ăn Bavaria đặc trưng: Giò heo muối giòn da, xúc xích nướng than hoa và sườn nướng thảo mộc.</p>
+        <p>Đồng thời mở ra cơ hội hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn trên cả nước.</p>
+        <dl className={styles.facts}>
+          <div><dt>26 Vạn Phúc</dt><dd>Cơ sở mẫu tại Hà Nội</dd></div>
+          <div><dt>Bếp Âu</dt><dd>Thực đơn Pairing chuẩn vị</dd></div>
+          <div><dt>Nhượng quyền</dt><dd>Nguồn bia chính ngạch từ Đức</dd></div>
+        </dl>
       </SplitBlock>
 
       <section className={styles.visit} aria-label="Showroom và khách hàng doanh nghiệp">

@@ -13,6 +13,8 @@ export interface NavItem {
 export const NAV = {
   home: { href: '/', label: 'Trang chủ' },
   products: { href: '/san-pham', label: 'Sản phẩm' },
+  restaurant: { href: '/nha-hang', label: 'Nhà hàng & Nhượng quyền' },
+  franchise: { href: '/nhuong-quyen', label: 'Nhượng quyền' },
   story: { href: '/thuong-hieu', label: 'Câu chuyện Ettal' },
   enjoy: { href: '/huong-dan-rot-bia-lua-mi', label: 'Thưởng thức' },
   knowledge: { href: '/kien-thuc', label: 'Kiến thức' },

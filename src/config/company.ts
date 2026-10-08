@@ -14,6 +14,8 @@ export const COMPANY_CONFIG = {
   email: 'info@biathaytu.com.vn',
   /** Giờ hỗ trợ hotline / Zalo hàng ngày (chủ dự án xác nhận 26/09/2026). Một nguồn cho mọi trang. */
   supportHours: '8:00 - 22:30',
+  /** Giờ phục vụ của Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc */
+  restaurantHours: '10:00 - 23:00',
 } as const;
 
 /** Bản đồ nhúng ghim đúng toạ độ showroom (link rút gọn maps.app.goo.gl không nhúng được). */
