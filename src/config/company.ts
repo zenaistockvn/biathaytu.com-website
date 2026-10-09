@@ -16,6 +16,8 @@ export const COMPANY_CONFIG = {
   supportHours: '8:00 - 22:00',
   /** Giờ phục vụ của Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, trùng giờ hỗ trợ (chủ dự án chốt 09/10/2026). */
   restaurantHours: '8:00 - 22:00',
+  /** Thực đơn có giá của Nhà hàng Bia Thầy Tu, cùng link gắn trên Google Business Profile. */
+  restaurantMenuUrl: 'https://menu.biathaytu.com.vn/',
 } as const;
 
 /** Bản đồ nhúng ghim đúng toạ độ showroom (link rút gọn maps.app.goo.gl không nhúng được). */

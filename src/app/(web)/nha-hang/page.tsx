@@ -179,6 +179,9 @@ export default function RestaurantPage() {
             },
           ]}
         />
+        <p>
+          <a href={COMPANY_CONFIG.restaurantMenuUrl} target="_blank" rel="noopener noreferrer"><strong>Xem thực đơn đầy đủ và giá &rarr;</strong></a>
+        </p>
 
         <h2>Thông tin ghé thăm và đặt bàn</h2>
         <p>
@@ -188,6 +191,7 @@ export default function RestaurantPage() {
           <li><strong>Địa chỉ:</strong> {COMPANY_CONFIG.showroomAddress} (gần ngã tư Vạn Phúc - Kim Mã - Liễu Giai)</li>
           <li><strong>Giờ phục vụ:</strong> {COMPANY_CONFIG.restaurantHours} hàng ngày</li>
           <li><strong>Hotline đặt bàn:</strong> {COMPANY_CONFIG.hotline}</li>
+          <li><strong>Thực đơn:</strong> <a href={COMPANY_CONFIG.restaurantMenuUrl} target="_blank" rel="noopener noreferrer">menu.biathaytu.com.vn</a></li>
         </ul>
 
         <CtaBand
