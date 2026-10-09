@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const restaurantFaqs = [
   {
     question: 'Nhà hàng Bia Thầy Tu tại Hà Nội nằm ở vị trí nào?',
-    answer: `Nhà hàng tọa lạc tại ${COMPANY_CONFIG.showroomAddress}. Không gian có khu vực đỗ xe thuận tiện và tiếp đón khách hàng từ ${COMPANY_CONFIG.restaurantHours} hàng ngày.`,
+    answer: `Nhà hàng tọa lạc tại ${COMPANY_CONFIG.showroomAddress}. Có chỗ đỗ xe miễn phí cho khách và tiếp đón khách hàng từ ${COMPANY_CONFIG.restaurantHours} hàng ngày.`,
   },
   {
     question: 'Nhà hàng có không gian phòng riêng để tiếp khách hoặc tổ chức tiệc không?',

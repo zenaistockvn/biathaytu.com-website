@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { COMPANY_CONFIG } from '@/config/company';
 
@@ -43,7 +43,7 @@ const translations: Translations = {
     'footer.company.policy': 'Chính Sách & Tuân Thủ',
     'footer.contact.title': 'Liên Hệ',
     'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
-    'footer.contact.time': 'Thứ 2 - Chủ Nhật (8:00 - 22:30)',
+    'footer.contact.time': 'Thứ 2 - Chủ Nhật (8:00 - 22:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
   },
@@ -79,7 +79,7 @@ const translations: Translations = {
     'footer.company.policy': 'Policies & Compliance',
     'footer.contact.title': 'Contact',
     'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
-    'footer.contact.time': 'Mon - Sun (8:00 - 22:30)',
+    'footer.contact.time': 'Mon - Sun (8:00 - 22:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'All rights reserved.',
   },
@@ -115,7 +115,7 @@ const translations: Translations = {
     'footer.company.policy': 'Richtlinien & Compliance',
     'footer.contact.title': 'Kontakt',
     'footer.contact.hotline': `Hotline: ${COMPANY_CONFIG.hotline}`,
-    'footer.contact.time': 'Mo - So (8:00 - 22:30)',
+    'footer.contact.time': 'Mo - So (8:00 - 22:00)',
     'footer.contact.email': 'info@biathaytu.com.vn',
     'footer.reserved': 'Alle Rechte vorbehalten.',
   }

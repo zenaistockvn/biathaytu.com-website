@@ -41,8 +41,9 @@ describe('gộp trang và trang chủ (audit L5, L8)', () => {
     expect(home).toContain('title="Các dòng bia"');
   });
 
-  it('giờ hỗ trợ một nguồn: 8:00 - 22:30, không còn 9:00 - 21:00', () => {
-    expect(read('src/config/company.ts')).toContain("supportHours: '8:00 - 22:30'");
+  it('giờ hỗ trợ một nguồn: 8:00 - 22:00, không còn 9:00 - 21:00', () => {
+    expect(read('src/config/company.ts')).toContain("supportHours: '8:00 - 22:00'");
+    expect(read('src/config/company.ts')).toContain("restaurantHours: '8:00 - 22:00'");
     expect(read('src/app/(web)/lien-he/page.tsx')).toContain('COMPANY_CONFIG.supportHours');
     expect(read('src/app/(web)/components/GeoLocalCTA.tsx')).toContain('COMPANY_CONFIG.supportHours');
     for (const file of ['src/app/(web)/context/LanguageContext.tsx', 'src/app/(web)/lien-he/page.tsx']) {
