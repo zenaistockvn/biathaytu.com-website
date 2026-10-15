@@ -178,7 +178,7 @@ export default function LandingPage() {
       <SplitBlock
         image={{
           src: '/images/restaurant/phong-vip-benediktiner.jpg',
-          alt: 'Không gian Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc Hà Nội',
+          alt: 'Không gian Nhà hàng Bia Thầy Tu tại Ngõ 26 Vạn Phúc, Hà Nội',
           position: 'center center',
         }}
         tone="ink"
@@ -186,10 +186,10 @@ export default function LandingPage() {
         kicker="Bavarian Brauhaus & Beer Garden"
         action={{ href: NAV.restaurant.href, label: 'Khám phá nhà hàng' }}
       >
-        <p>Không gian ẩm thực bia tu viện Đức tọa lạc tại 26 Vạn Phúc, Ba Đình, Hà Nội. Nơi thực khách thưởng thức bia Benediktiner ướp lạnh chuẩn vị cùng các món ăn Bavaria đặc trưng: Giò heo muối giòn da, xúc xích nướng than hoa và sườn nướng thảo mộc.</p>
+        <p>Không gian ẩm thực bia tu viện Đức ở {COMPANY_CONFIG.showroomAddress}. Nơi thực khách thưởng thức bia Benediktiner ướp lạnh chuẩn vị cùng các món ăn Bavaria đặc trưng: Giò heo muối giòn da, xúc xích nướng than hoa và sườn nướng thảo mộc.</p>
         <p>Đồng thời mở ra cơ hội hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn trên cả nước.</p>
         <dl className={styles.facts}>
-          <div><dt>26 Vạn Phúc</dt><dd>Cơ sở mẫu tại Hà Nội</dd></div>
+          <div><dt>Ngõ 26 Vạn Phúc</dt><dd>Cơ sở mẫu tại Hà Nội</dd></div>
           <div><dt>Bếp Âu</dt><dd>Thực đơn Pairing chuẩn vị</dd></div>
           <div><dt>Nhượng quyền</dt><dd>Nguồn bia chính ngạch từ Đức</dd></div>
         </dl>

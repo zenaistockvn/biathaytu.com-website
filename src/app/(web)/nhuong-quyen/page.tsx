@@ -143,7 +143,7 @@ export default function FranchisePage() {
             },
             {
               title: 'Cơ sở mẫu tại Hà Nội chứng thực hiệu quả',
-              text: 'Mô hình đã được thử nghiệm và vận hành thực tế tại cơ sở mẫu (26 Vạn Phúc, Ba Đình, Hà Nội), giúp quy trình hóa mọi mắt xích từ bếp, quầy bar đến dịch vụ khách hàng.',
+              text: `Mô hình đã được thử nghiệm và vận hành thực tế tại cơ sở mẫu (${COMPANY_CONFIG.showroomAddress}), giúp quy trình hóa mọi mắt xích từ bếp, quầy bar đến dịch vụ khách hàng.`,
             },
           ]}
         />

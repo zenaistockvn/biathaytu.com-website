@@ -9,11 +9,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-  description: 'Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria: Giò heo muối, xúc xích nướng, sườn bò nướng.',
+  description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria: Giò heo muối, xúc xích nướng, sườn bò nướng.`,
   alternates: { canonical: 'https://www.biathaytu.com.vn/nha-hang' },
   openGraph: {
     title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-    description: 'Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria.',
+    description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria.`,
     type: 'article',
     url: 'https://www.biathaytu.com.vn/nha-hang',
     images: [
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
         url: '/images/restaurant/phong-vip-benediktiner.jpg',
         width: 1600,
         height: 1067,
-        alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu 26 Vạn Phúc',
+        alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu, Ngõ 26 Vạn Phúc',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-    description: 'Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.',
+    description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.`,
     images: ['/images/restaurant/phong-vip-benediktiner.jpg'],
   },
 };
@@ -65,7 +65,7 @@ export default function RestaurantPage() {
           title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
           slug: 'nha-hang',
           url: 'https://www.biathaytu.com.vn/nha-hang',
-          description: 'Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.',
+          description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.`,
           datePublished: '2026-10-01',
           dateModified: '2026-10-01',
         })}
@@ -82,7 +82,7 @@ export default function RestaurantPage() {
           lead: 'Không gian văn hóa bia tu viện Đức và trải nghiệm ẩm thực Bavaria nguyên bản ngay tại trung tâm Hà Nội.',
           image: {
             src: '/images/restaurant/phong-vip-benediktiner.jpg',
-            alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu 26 Vạn Phúc',
+            alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu, Ngõ 26 Vạn Phúc',
             position: 'center center',
           },
         }}
@@ -92,11 +92,11 @@ export default function RestaurantPage() {
 
         <Summary>
           <p>
-            <strong>Điểm hẹn ẩm thực độc bản:</strong> Tọa lạc tại Ngõ 26 Vạn Phúc, Ba Đình, Nhà hàng Bia Thầy Tu là nơi hội tụ tinh hoa bia tu viện Benediktiner hơn 400 năm truyền thống kết hợp cùng nghệ thuật ẩm thực Bavaria nguyên bản. Không gian tái hiện phong cách Brauhaus ấm cúng, sang trọng và tách biệt khỏi nhịp sống ồn ào đô thị.
+            <strong>Điểm hẹn ẩm thực độc bản:</strong> Tọa lạc tại {COMPANY_CONFIG.showroomAddress}, Nhà hàng Bia Thầy Tu là nơi hội tụ tinh hoa bia tu viện Benediktiner hơn 400 năm truyền thống kết hợp cùng nghệ thuật ẩm thực Bavaria nguyên bản. Không gian tái hiện phong cách Brauhaus ấm cúng, sang trọng và tách biệt khỏi nhịp sống ồn ào đô thị.
           </p>
         </Summary>
 
-        <h2>Không gian thực tế tại 26 Vạn Phúc</h2>
+        <h2>Không gian thực tế tại Ngõ 26 Vạn Phúc</h2>
         <p>
           Nhà hàng gồm 2 tầng được thiết kế chỉn chu theo phong cách ẩm thực châu Âu sang trọng, kết hợp hài hòa giữa văn hóa thưởng bia tu viện và nghệ thuật bài trí hiện đại.
         </p>

@@ -23,7 +23,7 @@ export default function DiningSubNav({ current }: DiningSubNavProps) {
             className={`${styles.link} ${isRestaurant ? styles.active : ''}`}
             aria-current={isRestaurant ? 'page' : undefined}
           >
-            Không gian và ẩm thực 26 Vạn Phúc
+            Không gian và ẩm thực Ngõ 26 Vạn Phúc
             <span className={styles.badge}>Cơ sở mẫu</span>
           </Link>
         </li>

@@ -65,7 +65,7 @@ const RESTAURANT_PHOTOS: readonly GalleryPhoto[] = [
   },
   {
     src: '/images/restaurant/ban-tiec-tiep-khach.jpg',
-    alt: 'Bàn tiệc dài tiếp khách riêng tư tại nhà hàng 26 Vạn Phúc',
+    alt: 'Bàn tiệc dài tiếp khách riêng tư tại nhà hàng Ngõ 26 Vạn Phúc',
     title: 'Bàn tiệc tiếp khách sang trọng',
     caption: 'Ghế bọc da êm ái, ánh sáng vàng dịu nhẹ tạo bầu không khí thư thái và phong thái lịch thiệp chuẩn châu Âu.',
     floor: 2,
