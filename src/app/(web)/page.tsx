@@ -18,7 +18,7 @@ import { noBreakNode } from '@/lib/vn-text';
 
 export const metadata: Metadata = {
   title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
-  description: 'Khám phá Benediktiner Weissbier: Nguồn gốc Ettal, các dòng Naturtrüb, Dunkel, Festbier, nghệ thuật thưởng thức và thông tin tư vấn tại Việt Nam.',
+  description: 'Bia Thầy Tu là tên gọi ở Việt Nam của Benediktiner, bia lúa mì Đức ủ tại Lich theo công thức dòng Biển Đức. Ba dòng: Naturtrüb, Dunkel, Festbier.',
   alternates: { canonical: 'https://www.biathaytu.com.vn' },
   openGraph: {
     title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
@@ -46,7 +46,7 @@ const beers = [
     type: 'bia lúa mì không lọc',
     image: '/images/products/official/benediktiner/glass_removebg.png',
     href: getLine('naturtrub').href as string,
-    meta: '5,4% vol. Vàng hổ phách, hương chuối chín và đinh hương',
+    meta: '5,4% vol. Vàng đục tự nhiên, hương chuối chín và đinh hương',
   },
   {
     name: 'Weissbier Dunkel',
@@ -61,36 +61,36 @@ const beers = [
     image: '/images/brand/benediktiner-official/festbier-keg-nobg.webp',
     // Thẻ này giới thiệu Festbier bom 5 lít (ảnh bom, chữ om 5 lít) nên trỏ đúng SKU bom, không trỏ đích chung của dòng.
     href: '/san-pham/benediktiner-festbier-bom-5l',
-    meta: '5,8% vol. Vàng hổ phách, hương malt chín và hoa bia nhẹ',
+    meta: '5,8% vol. Dòng mùa lễ hội, vị mạch nha đậm hơn',
   },
 ] as const;
 
 const tastingSteps = [
-  ['Làm lạnh đúng mức', 'Ướp lạnh vừa đủ để bia vẫn giữ được hương lúa mì, malt và men đặc trưng.'],
-  ['Dùng đúng loại ly', 'Ly Weissbier cao giúp giữ lớp bọt, gom hương và thể hiện trọn màu sắc của bia.'],
-  ['Rót chậm, chừa men', 'Nghiêng ly khi rót; xoay nhẹ phần bia cuối chai nếu muốn thưởng thức trọn lớp men tự nhiên.'],
+  ['Làm lạnh đúng mức', 'Naturtrüb ngon ở 7 - 9 °C, Dunkel 8 - 10 °C. Lạnh quá thì bia bớt thơm.'],
+  ['Dùng đúng loại ly', 'Ly Weizen cao, thành cong. Ly này giữ lớp bọt dày và gom mùi chuối chín, đinh hương.'],
+  ['Rót chậm, chừa men', 'Nghiêng ly, rót chậm tới khoảng 3/4 chai. Xoay nhẹ phần còn lại cho men dưới đáy tan ra rồi rót nốt.'],
 ] as const;
 
 const faqItems = [
   {
     question: 'Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?',
-    answer: 'Benediktiner được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Tu viện Ettal là cội nguồn của truyền thống và triết lý thương hiệu.',
+    answer: 'Không. Benediktiner ủ tại Lich, bang Hessen, theo công thức gốc của dòng Biển Đức, cho Benediktiner Weissbräu GmbH, Ettal. Men lấy từ hầm tu viện Ettal.',
   },
   {
-    question: 'Bia Thầy Tu hiện giới thiệu những dòng Benediktiner nào?',
-    answer: 'Các dòng nổi bật gồm Weissbier Naturtrüb, Weissbier Dunkel và Festbier, với nhiều quy cách chai, lon hoặc bom tùy từng thời điểm.',
+    question: 'Bia Thầy Tu hiện có những dòng Benediktiner nào?',
+    answer: 'Weissbier Naturtrüb, Weissbier Dunkel và Festbier. Quy cách chai, lon hay bom 5L tùy từng dòng và từng lô hàng.',
   },
   {
-    question: 'Bia Thầy Tu có nhà hàng phục vụ ẩm thực trực tiếp không?',
-    answer: `Có, nhà hàng Bia Thầy Tu đón tiếp thực khách tại ${COMPANY_CONFIG.showroomAddress} với thực đơn món Đức và không gian vườn bia thoáng đãng.`,
+    question: 'Bia Thầy Tu có nhà hàng không?',
+    answer: `Có. Nhà hàng Bia Thầy Tu ở ${COMPANY_CONFIG.showroomAddress}, mở ${COMPANY_CONFIG.restaurantHours} mỗi ngày. Có món Đức như chân giò, xúc xích kiểu Đức và phòng riêng tầng 2.`,
   },
   {
-    question: 'Mô hình nhượng quyền nhà hàng Bia Thầy Tu hướng tới các khu vực nào?',
-    answer: 'Mô hình nhượng quyền ưu tiên phát triển tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn trên cả nước, với lợi thế nguồn bia nhập khẩu trực tiếp giá gốc.',
+    question: 'Nhượng quyền nhà hàng Bia Thầy Tu ưu tiên khu vực nào?',
+    answer: 'Hà Nội, TP. Hồ Chí Minh và các thành phố lớn. Bia cho nhà hàng nhượng quyền lấy trực tiếp từ công ty nhập khẩu.',
   },
   {
-    question: 'Có thể đến đâu để tìm hiểu và trải nghiệm sản phẩm?',
-    answer: `Anh/chị có thể liên hệ trước hoặc ghé ${COMPANY_CONFIG.showroomAddress} để được giới thiệu sản phẩm và tư vấn phù hợp.`,
+    question: 'Muốn xem sản phẩm tận nơi thì đến đâu?',
+    answer: `Đến ${COMPANY_CONFIG.showroomAddress}. Anh chị gọi trước để bên mình chuẩn bị đúng dòng bia cần xem.`,
   },
 ] as const;
 
@@ -111,7 +111,7 @@ export default function LandingPage() {
 
       <LandingHero />
 
-      {/* Một lối vào sản phẩm duy nhất ngay sau hero; bỏ khối "Bia của chúng tôi" trùng ý (audit L5). */}
+      {/* Chỉ một lối vào sản phẩm ngay sau hero; bỏ khối "Bia của chúng tôi" trùng ý (audit L5). */}
       <section className={styles.section} aria-labelledby="home-beers-title">
         <div className="container">
           <TitleBlock id="home-beers-title" align="center" icon={<WeizenGlassIcon size={72} />} title="Các dòng bia" kicker="Benediktiner Weissbräu Ettal" />
@@ -140,16 +140,16 @@ export default function LandingPage() {
         image={{ src: '/images/brand/benediktiner-official/ettal-monastery.jpg', alt: 'Toàn cảnh Tu viện Ettal tại Bavaria, Đức' }}
         tone="ink"
         wordmark
-        title="Khám phá"
+        title="Nguồn gốc"
         kicker="Tu viện Ettal, 1330"
         action={{ href: '/thuong-hieu', label: 'Đọc câu chuyện đầy đủ' }}
       >
-        <p>Tu viện Ettal được thành lập năm 1330 giữa thung lũng Bavaria. Truyền thống bia lúa mì của các tu sĩ Benedictine hình thành hơn 400 năm trước và vẫn là nền tảng của Benediktiner ngày nay.</p>
-        <p>Bia hiện được nấu tại Lich theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal.</p>
+        <p>Tu viện Ettal của dòng Biển Đức lập năm 1330, ở Bavaria. Benediktiner mang hơn 400 năm truyền thống bia lúa mì của dòng tu này.</p>
+        <p>Bia không ủ trong tu viện. Benediktiner ủ tại Lich, bang Hessen, theo công thức gốc cho Benediktiner Weissbräu GmbH, Ettal, men lấy từ hầm tu viện Ettal.</p>
         <dl className={styles.facts}>
           <div><dt>1330</dt><dd>Tu viện Ettal thành lập</dd></div>
           <div><dt>400+</dt><dd>Năm truyền thống ủ bia</dd></div>
-          <div><dt>Lich</dt><dd>Nơi nấu theo công thức gốc</dd></div>
+          <div><dt>Lich</dt><dd>Nơi ủ bia, bang Hessen</dd></div>
         </dl>
       </SplitBlock>
 
@@ -158,7 +158,7 @@ export default function LandingPage() {
         image={{ src: '/images/brand/benediktiner-official/so-close-to-heaven.jpg', alt: 'Poster chiến dịch Benediktiner So close to heaven: Ly bia và lon Weissbier trước Tu viện Ettal', position: 'center 100%' }}
         tone="mist"
         reverse
-        title="Thưởng thức"
+        title="Cách rót"
         kicker="Ly Weizen, rót nghiêng"
         action={{ href: '/huong-dan-rot-bia-lua-mi', label: 'Xem hướng dẫn chi tiết' }}
       >
@@ -183,15 +183,15 @@ export default function LandingPage() {
         }}
         tone="ink"
         title="Nhà hàng"
-        kicker="Bavarian Brauhaus & Beer Garden"
-        action={{ href: NAV.restaurant.href, label: 'Khám phá nhà hàng' }}
+        kicker="Ngõ 26 Vạn Phúc, Hà Nội"
+        action={{ href: NAV.restaurant.href, label: 'Xem nhà hàng' }}
       >
-        <p>Không gian ẩm thực bia tu viện Đức ở {COMPANY_CONFIG.showroomAddress}. Nơi thực khách thưởng thức bia Benediktiner ướp lạnh chuẩn vị cùng các món ăn Bavaria đặc trưng: Giò heo muối giòn da, xúc xích nướng than hoa và sườn nướng thảo mộc.</p>
-        <p>Đồng thời mở ra cơ hội hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn trên cả nước.</p>
+        <p>Nhà hàng của German Taste ở {COMPANY_CONFIG.showroomAddress}, mở {COMPANY_CONFIG.restaurantHours}. Bia Benediktiner rót ly Weizen, ăn cùng chân giò nướng giòn, xúc xích kiểu Đức hoặc sườn nướng. Tầng 2 có phòng riêng 10 - 12 chỗ cho bàn tiếp khách.</p>
+        <p>Nhà hàng này cũng là mẫu để nhượng quyền tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn.</p>
         <dl className={styles.facts}>
-          <div><dt>Ngõ 26 Vạn Phúc</dt><dd>Cơ sở mẫu tại Hà Nội</dd></div>
-          <div><dt>Bếp Âu</dt><dd>Thực đơn Pairing chuẩn vị</dd></div>
-          <div><dt>Nhượng quyền</dt><dd>Nguồn bia chính ngạch từ Đức</dd></div>
+          <div><dt>Ngõ 26 Vạn Phúc</dt><dd>Nhà hàng mẫu tại Hà Nội</dd></div>
+          <div><dt>Món Đức</dt><dd>Chân giò, xúc xích, salami</dd></div>
+          <div><dt>Nhượng quyền</dt><dd>Bia lấy thẳng từ nhà nhập khẩu</dd></div>
         </dl>
       </SplitBlock>
 
@@ -199,7 +199,7 @@ export default function LandingPage() {
         <div className={`${styles.visitPanel} ${styles.visitAccent}`} data-surface="ink">
           <div className={styles.visitContent}>
             <TitleBlock title="Ghé thăm" kicker="Showroom German Taste" />
-            <p>Không gian giới thiệu và tư vấn các dòng Bia Thầy Tu. Vui lòng liên hệ trước để được hỗ trợ đúng nhu cầu.</p>
+            <p>Nơi xem tận tay các dòng Bia Thầy Tu và hỏi về quy cách chai, lon, bom 5L. Anh chị gọi trước để bên mình chuẩn bị đúng dòng cần xem.</p>
             <address className={styles.address}>
               <span>{COMPANY_CONFIG.showroomAddress}</span>
               {telHref ? <a href={telHref}>Hotline {COMPANY_CONFIG.hotline}</a> : null}
@@ -210,7 +210,7 @@ export default function LandingPage() {
         <div className={`${styles.visitPanel} ${styles.visitGold}`}>
           <div className={styles.visitContent}>
             <TitleBlock title="Cho nhà hàng" kicker="HORECA và đại lý" />
-            <p>Tư vấn danh mục, quy cách chai, lon, bom và giải pháp giới thiệu sản phẩm phù hợp với mô hình nhà hàng, khách sạn và sự kiện.</p>
+            <p>Nhà hàng, khách sạn hay đơn vị làm sự kiện cần chọn dòng bia và quy cách chai, lon hay bom 5L thì bên mình tư vấn theo thực đơn và số khách.</p>
             <div className={styles.visitActions}>
               <Button href="/bia-duc-cho-nha-hang-khach-san" variant="dark">Giải pháp HORECA</Button>
               {zaloUrl ? <Button href={zaloUrl} variant="link" target="_blank" rel="noopener noreferrer">Mở Zalo</Button> : null}
@@ -223,7 +223,7 @@ export default function LandingPage() {
         <div className={`container ${styles.faqGrid}`}>
           <div>
             <TitleBlock id="faq-title" title="Câu hỏi thường gặp" />
-            <p className={styles.faqIntro}>Các câu trả lời ngắn, ưu tiên thông tin có thể kiểm chứng từ hãng và đơn vị tư vấn tại Việt Nam.</p>
+            <p className={styles.faqIntro}>Trả lời ngắn, theo thông tin của hãng Benediktiner và German Taste.</p>
           </div>
           <div className={styles.faqList}>
             {faqItems.map((item) => (

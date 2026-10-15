@@ -28,8 +28,8 @@ export default function AgeControlPolicyPage() {
           <h2>2. Quy trình khai báo độ tuổi</h2>
           <p>
             - Người truy cập chưa có trạng thái xác nhận hợp lệ được yêu cầu tự khai báo mình đã từ đủ 18 tuổi trước khi tiếp tục truy cập nội dung website.<br />
-            - Người từ đủ 18 tuổi chọn “Tôi đã đủ 18 tuổi”; website lưu cookie trạng thái xác nhận trong 30 ngày để tránh yêu cầu lặp lại ở mỗi lần truy cập.<br />
-            - Người chưa đủ 18 tuổi chọn “Tôi chưa đủ 18 tuổi” và nhận thông báo “Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.”<br />
+            - Người từ đủ 18 tuổi chọn &quot;Tôi đã đủ 18 tuổi&quot;; website lưu cookie trạng thái xác nhận trong 30 ngày để không hỏi lại ở mỗi lần truy cập.<br />
+            - Người chưa đủ 18 tuổi chọn &quot;Tôi chưa đủ 18 tuổi&quot; và nhận thông báo &quot;Rất tiếc, nội dung này chỉ dành cho người từ đủ 18 tuổi.&quot;<br />
             - Cổng kiểm soát không yêu cầu nhập họ tên, ngày sinh, số giấy tờ hoặc dữ liệu định danh.
           </p>
         </section>

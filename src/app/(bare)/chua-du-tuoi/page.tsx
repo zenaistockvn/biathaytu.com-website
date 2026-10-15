@@ -34,7 +34,7 @@ export default function UnderagePage() {
         </div>
 
         <p className={styles.small}>
-          Nếu có nhầm lẫn trong quá trình xác nhận, bạn có thể đóng trình duyệt và quay lại sau khi đã đáp ứng đủ yêu cầu về độ tuổi theo luật định.
+          Nếu chọn nhầm, có thể đóng trình duyệt rồi mở lại trang và xác nhận lại độ tuổi.
         </p>
       </div>
     </div>

@@ -79,8 +79,8 @@ export default function CookieConsent() {
       <p className={styles.title}>Cookie và quyền riêng tư</p>
 
       <p className={styles.text}>
-        Website sử dụng Cookie cần thiết để vận hành và Cookie tùy chọn để phân tích lượt truy cập, hỗ trợ tiếp thị. Bạn có thể tự do lựa chọn và tùy chỉnh quyền riêng tư của mình.{' '}
-        <Link href="/chinh-sach-cookie">Chính sách Cookie</Link>
+        Website dùng cookie cần thiết để chạy trang và cookie tùy chọn để đo lượt truy cập, hỗ trợ tiếp thị. Anh chị chọn bật hay tắt cookie tùy chọn.{' '}
+        <Link href="/chinh-sach-cookie">Chính sách cookie</Link>
       </p>
 
       {showCustomize && (
@@ -95,7 +95,7 @@ export default function CookieConsent() {
           <label className={styles.option}>
             <span>
               <strong>Cookie phân tích</strong>
-              <span className={styles.hint}>Giúp cải thiện hiệu năng và trải nghiệm người dùng</span>
+              <span className={styles.hint}>Đếm lượt xem trang để sửa trang chậm hoặc khó dùng</span>
             </span>
             <input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} />
           </label>

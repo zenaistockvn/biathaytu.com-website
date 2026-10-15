@@ -9,11 +9,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
-  description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: Nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
+  description: 'Benediktiner Weissbier Naturtrüb 5,4%, bia lúa mì không lọc: Vàng đục, bọt dày, hương chuối chín và đinh hương. Uống 7 - 9 °C trong ly Weizen.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub' },
   openGraph: {
     title: 'Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
-    description: 'Khám phá Benediktiner Weissbier Naturtrüb 5,4%: Nguồn gốc Ettal, hương chuối và đinh hương, cách rót và thưởng thức bia lúa mì Đức.',
+    description: 'Benediktiner Weissbier Naturtrüb 5,4%, bia lúa mì không lọc: Vàng đục, bọt dày, hương chuối chín và đinh hương. Uống 7 - 9 °C trong ly Weizen.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
     images: [
@@ -39,7 +39,7 @@ export default function Page() {
     name: 'Benediktiner Weissbier Naturtrüb',
     slug: 'benediktiner-weissbier-naturtrub',
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
-    description: 'Bia lúa mì Đức nguyên bản, không lọc, giữ men trong chai, công thức gốc dòng Biển Đức với men hầm tu viện Ettal.',
+    description: 'Bia lúa mì Đức không lọc, còn men trong chai, ủ tại Lich theo công thức gốc dòng Biển Đức với men từ hầm tu viện Ettal.',
     abv: '5.4',
     volume: '500ml',
   };
@@ -60,7 +60,7 @@ export default function Page() {
           eyebrow: 'Benediktiner Weissbräu Ettal',
           title: 'Weissbier Naturtrüb',
           kicker: 'Bia lúa mì không lọc',
-          meta: '5,4% vol. Thưởng thức ở 7 đến 9°C.',
+          meta: '5,4% vol. Uống ở 7 đến 9°C.',
           photo: { src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Ly và chai Benediktiner Weissbier Naturtrüb trước Tu viện Ettal và dãy Alps', position: '68% center' },
         }}
         intro={{
@@ -68,8 +68,10 @@ export default function Page() {
           image: { src: '/images/products/official/benediktiner/bottle_removebg.png', alt: 'Chai Benediktiner Weissbier Naturtrüb' },
           body: (
             <>
-              <p>Naturtrüb trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;. Benediktiner Weissbier không qua lọc nên men vẫn còn trong bia.</p>
-              <p>Chính lớp men đó làm bia có màu vàng đục, bọt dày và hương chuối chín, đinh hương rõ hơn.</p>
+              <p>Rót ra ly thấy đục là đúng. Naturtrüb trong tiếng Đức nghĩa là &quot;đục tự nhiên&quot;: Benediktiner Weissbier không qua lọc nên men vẫn lơ lửng trong bia.</p>
+              <p>Lớp men đó làm bia vàng đục và hương chuối chín, đinh hương rõ hơn. Men cùng protein của lúa mì cũng giữ bọt dày, lâu tan.</p>
+              <p>Trên nhãn bia Đức, chữ Hefe (như Hefeweizen) nghĩa là có men, tức bia không lọc. Chữ Kristall là bản đã lọc: Trong, nhẹ hương hơn, bọt mỏng và tan nhanh hơn.</p>
+              <p>Phần men lắng dưới đáy chai là phần nên rót vào ly, đừng bỏ lại. Cách rót có ở mục bên dưới.</p>
             </>
           ),
           actions: [
@@ -96,10 +98,10 @@ export default function Page() {
         notes={{
           title: 'Hương vị cảm nhận',
           items: [
-            { term: 'Thị giác', text: 'Vàng hổ phách đục. Lớp bọt trắng dày, lâu tan, bám chặt thành ly.' },
-            { term: 'Khứu giác', text: 'Hương chuối chín ngọt tự nhiên, đinh hương cay nhẹ và lúa mì nướng ấm.' },
-            { term: 'Vị giác', text: 'Êm, mượt và tròn trong khoang miệng. Vị ngọt nhẹ của trái cây cân bằng, không đắng gắt.' },
-            { term: 'Hậu vị', text: 'Nhẹ nhàng, ngọt thanh của mạch nha, hương trái cây kéo dài.' },
+            { term: 'Thị giác', text: 'Vàng đục. Bọt trắng dày, lâu tan, bám thành ly.' },
+            { term: 'Khứu giác', text: 'Chuối chín, đinh hương cay nhẹ và mùi lúa mì.' },
+            { term: 'Vị giác', text: 'Thân mềm. Ngọt nhẹ kiểu trái cây, không đắng gắt.' },
+            { term: 'Hậu vị', text: 'Nhẹ, ngọt thanh của mạch nha, mùi trái cây còn lại khá lâu.' },
           ],
         }}
         story={{
@@ -107,17 +109,17 @@ export default function Page() {
           body: (
             <>
               <p>Tu viện Ettal của dòng Biển Đức do Hoàng đế Ludwig IV lập năm 1330, ở độ cao 877 m dưới chân dãy Alps, Bavaria. Truyền thống bia lúa mì của tu viện là nền tảng của công thức Benediktiner.</p>
-              <p>Ngày nay bia được nấu tại Lich theo công thức Benedictine nguyên bản và Luật Tinh Khiết 1516.</p>
+              <p>Ngày nay bia ủ tại Lich, bang Hessen, bởi nhà bia tư nhân Ihring-Melchior, theo công thức gốc dòng Biển Đức và Luật Tinh Khiết 1516. Men vẫn lấy từ hầm tu viện Ettal.</p>
             </>
           ),
         }}
         ritual={{
           title: 'Nghi thức rót',
-          kicker: 'Chuẩn Bavaria, bốn bước',
+          kicker: 'Bốn bước',
           steps: [
             ['Ướp lạnh', 'Ướp lạnh chai ở 7 đến 9°C, tráng ly Weizen bằng nước lạnh trước khi rót.'],
             ['Rót nghiêng 45°', 'Rót chậm dọc thành ly nghiêng cho đến khi trong chai còn khoảng một phần tư.'],
-            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng để lớp men dưới đáy hòa tan.'],
+            ['Xoay nhẹ chai', 'Lăn nhẹ chai vài vòng cho lớp men dưới đáy tan vào phần bia còn lại.'],
             ['Phủ bọt', 'Rót phần men còn lại vào giữa ly để tạo lớp bọt dày mịn.'],
           ],
         }}
@@ -125,10 +127,10 @@ export default function Page() {
         pairing={{
           image: { src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier trên bàn gỗ ngoài vườn', position: '70% center' },
           title: 'Món ăn kèm',
-          kicker: 'Nghệ thuật kết hợp',
-          intro: 'Vị lúa mì ngọt mát và độ sủi mượt giúp Weissbier tôn lên nhiều món ăn:',
+          kicker: 'Món thanh, ít gia vị',
+          intro: 'Bia nhẹ, ngọt dịu, nhiều ga nên hợp món thanh và hải sản:',
           items: [
-            { title: 'Hải sản', text: 'Tôm hấp sả, cua, mực nướng sa tế và lẩu hải sản chua ngọt.' },
+            { title: 'Hải sản', text: 'Tôm hấp sả, cua hấp, mực nướng và lẩu hải sản chua ngọt.' },
             { title: 'Đồ nướng và gia cầm', text: 'Gà quay mật ong, xá xíu, salad ức gà nướng và xúc xích trắng kiểu Đức.' },
             { title: 'Phô mai mềm và tráng miệng', text: 'Phô mai dê, Gouda mềm, tart táo và panna cotta trái cây.' },
           ],
@@ -136,7 +138,7 @@ export default function Page() {
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu nguyên chai từ Đức. Liên hệ để được tư vấn quy cách, giá và điểm nhận hàng.',
+          text: 'Có chai 500ml, lon 500ml và bom 5L, nhập khẩu nguyên chai từ Đức. Nhắn Zalo để hỏi giá và điểm nhận hàng.',
           action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

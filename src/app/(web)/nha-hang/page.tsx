@@ -8,12 +8,12 @@ import RestaurantGallery from '../components/RestaurantGallery';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-  description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria: Giò heo muối, xúc xích nướng, sườn bò nướng.`,
+  title: 'Nhà hàng Bia Thầy Tu, bia Đức và món Đức ở Ngõ 26 Vạn Phúc',
+  description: `Nhà hàng Bia Thầy Tu, ${COMPANY_CONFIG.showroomAddress}, mở ${COMPANY_CONFIG.restaurantHours}. Bia Benediktiner, Bitburger, chân giò và xúc xích kiểu Đức, phòng riêng 10 - 12 chỗ.`,
   alternates: { canonical: 'https://www.biathaytu.com.vn/nha-hang' },
   openGraph: {
-    title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-    description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Trải nghiệm bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria.`,
+    title: 'Nhà hàng Bia Thầy Tu, bia Đức và món Đức ở Ngõ 26 Vạn Phúc',
+    description: `Nhà hàng Bia Thầy Tu, ${COMPANY_CONFIG.showroomAddress}. Bia Benediktiner rót ly Weizen, chân giò, xúc xích kiểu Đức, phòng riêng tầng 2.`,
     type: 'article',
     url: 'https://www.biathaytu.com.vn/nha-hang',
     images: [
@@ -21,34 +21,34 @@ export const metadata: Metadata = {
         url: '/images/restaurant/phong-vip-benediktiner.jpg',
         width: 1600,
         height: 1067,
-        alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu, Ngõ 26 Vạn Phúc',
+        alt: 'Phòng riêng tầng 2 Nhà hàng Bia Thầy Tu, bàn gỗ dài và tranh Benediktiner, Ngõ 26 Vạn Phúc',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
-    description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.`,
+    title: 'Nhà hàng Bia Thầy Tu, bia Đức và món Đức ở Ngõ 26 Vạn Phúc',
+    description: `Nhà hàng Bia Thầy Tu, ${COMPANY_CONFIG.showroomAddress}. Bia Benediktiner rót ly Weizen, chân giò, xúc xích kiểu Đức, phòng riêng tầng 2.`,
     images: ['/images/restaurant/phong-vip-benediktiner.jpg'],
   },
 };
 
 const restaurantFaqs = [
   {
-    question: 'Nhà hàng Bia Thầy Tu tại Hà Nội nằm ở vị trí nào?',
-    answer: `Nhà hàng tọa lạc tại ${COMPANY_CONFIG.showroomAddress}. Có chỗ đỗ xe miễn phí cho khách và tiếp đón khách hàng từ ${COMPANY_CONFIG.restaurantHours} hàng ngày.`,
+    question: 'Nhà hàng Bia Thầy Tu ở đâu, mở cửa lúc nào?',
+    answer: `Ở ${COMPANY_CONFIG.showroomAddress}, mở ${COMPANY_CONFIG.restaurantHours} mỗi ngày. Có chỗ đỗ xe miễn phí cho khách.`,
   },
   {
-    question: 'Nhà hàng có không gian phòng riêng để tiếp khách hoặc tổ chức tiệc không?',
-    answer: 'Nhà hàng bố trí hệ thống phòng VIP riêng tư yên tĩnh dành cho gặp gỡ đối tác, tiệc gia đình cùng khu vực Beer Garden thoáng đãng ngoài trời. Anh/chị nên liên hệ đặt bàn trước để chuẩn bị chu đáo nhất.',
+    question: 'Nhà hàng có phòng riêng để tiếp khách hoặc làm tiệc không?',
+    answer: 'Có. Tầng 2 có phòng riêng máy lạnh, bàn gỗ dài 10 - 12 chỗ và màn hình lớn, hợp bữa tiếp đối tác hay tiệc gia đình. Ngoài ra có khu Beer Garden ngoài trời. Anh chị nên gọi đặt trước để giữ phòng.',
   },
   {
-    question: 'Các món ăn đặc trưng nhất của nhà hàng là gì?',
-    answer: 'Thực đơn nổi bật với ẩm thực phong cách Đức và châu Âu như giò heo muối chiên giòn (Schweinshaxe), xúc xích nướng than hoa (Bratwurst), sườn nướng thảo mộc, bò nướng tảng sốt tiêu, kết hợp cùng các dòng bia lúa mì Benediktiner tươi mát.',
+    question: 'Món Đức ở nhà hàng có những món nào?',
+    answer: 'Chân giò Đức nướng giòn, chân giò hầm kiểu Đức, xúc xích kiểu Đức và salami Đức. Thực đơn còn có sườn nướng, steak, hải sản, món Việt và lẩu cho bàn đông người.',
   },
   {
-    question: 'Tôi có thể thưởng thức những dòng bia nào tại nhà hàng?',
-    answer: 'Nhà hàng phục vụ đầy đủ các dòng bia chính hãng gồm Benediktiner Weissbier Naturtrüb (bia vàng không lọc), Weissbier Dunkel (bia đen mạch nha rang), bom bia Festbier 5L và các dòng bia Đức hảo hạng khác.',
+    question: 'Nhà hàng có những bia nào?',
+    answer: 'Benediktiner Weissbier Naturtrüb và Dunkel (chai, lon 500ml), Benediktiner Festbier, Bitburger Pilsener và bom 5L Köstritzer Schwarzbier. Bom 5L có cả Naturtrüb, Festbier và Bitburger. Ngoài bia có vang Đức Thörle và Rappenhof.',
   },
 ] as const;
 
@@ -62,12 +62,12 @@ export default function RestaurantPage() {
       <JsonLd
         type="article"
         data={getArticleSchema({
-          title: 'Nhà hàng Bia Thầy Tu - Không gian ẩm thực và bia Đức tại Hà Nội',
+          title: 'Nhà hàng Bia Thầy Tu, bia Đức và món Đức ở Ngõ 26 Vạn Phúc',
           slug: 'nha-hang',
           url: 'https://www.biathaytu.com.vn/nha-hang',
-          description: `Nhà hàng Bia Thầy Tu tại ${COMPANY_CONFIG.showroomAddress}. Thưởng thức bia tu viện Benediktiner chuẩn Đức cùng ẩm thực Bavaria nguyên bản.`,
+          description: `Nhà hàng Bia Thầy Tu, ${COMPANY_CONFIG.showroomAddress}. Bia Benediktiner rót ly Weizen, chân giò, xúc xích kiểu Đức, phòng riêng tầng 2.`,
           datePublished: '2026-10-01',
-          dateModified: '2026-10-01',
+          dateModified: '2026-10-16',
         })}
       />
       <JsonLd
@@ -78,11 +78,11 @@ export default function RestaurantPage() {
       <EditorialPage
         hero={{
           title: 'Nhà hàng Bia Thầy Tu',
-          kicker: 'Bavarian Brauhaus & Beer Garden',
-          lead: 'Không gian văn hóa bia tu viện Đức và trải nghiệm ẩm thực Bavaria nguyên bản ngay tại trung tâm Hà Nội.',
+          kicker: 'Bia Đức, món Đức, Ngõ 26 Vạn Phúc',
+          lead: 'Bia Benediktiner rót đúng ly Weizen, chân giò nướng giòn và phòng riêng cho bàn tiếp khách, ngay trong Ngõ 26 Vạn Phúc.',
           image: {
             src: '/images/restaurant/phong-vip-benediktiner.jpg',
-            alt: 'Không gian phòng tiệc VIP sang trọng tại Nhà hàng Bia Thầy Tu, Ngõ 26 Vạn Phúc',
+            alt: 'Phòng riêng tầng 2 Nhà hàng Bia Thầy Tu, bàn gỗ dài và tranh Benediktiner, Ngõ 26 Vạn Phúc',
             position: 'center center',
           },
         }}
@@ -92,90 +92,90 @@ export default function RestaurantPage() {
 
         <Summary>
           <p>
-            <strong>Điểm hẹn ẩm thực độc bản:</strong> Tọa lạc tại {COMPANY_CONFIG.showroomAddress}, Nhà hàng Bia Thầy Tu là nơi hội tụ tinh hoa bia tu viện Benediktiner hơn 400 năm truyền thống kết hợp cùng nghệ thuật ẩm thực Bavaria nguyên bản. Không gian tái hiện phong cách Brauhaus ấm cúng, sang trọng và tách biệt khỏi nhịp sống ồn ào đô thị.
+            <strong>Phòng riêng cho bàn tiếp khách:</strong> Bàn mười người có khách đối tác, cần phòng riêng và bia Đức rót đúng ly thì lên tầng 2 của Nhà hàng Bia Thầy Tu. Bia chính là Benediktiner, bia lúa mì theo công thức gốc của dòng Biển Đức, hơn 400 năm truyền thống. Đi cùng có Bitburger và bom Köstritzer 5L. Nhà hàng mở {COMPANY_CONFIG.restaurantHours} mỗi ngày, tại {COMPANY_CONFIG.showroomAddress}.
           </p>
         </Summary>
 
-        <h2>Không gian thực tế tại Ngõ 26 Vạn Phúc</h2>
+        <h2>Hai tầng ở Ngõ 26 Vạn Phúc</h2>
         <p>
-          Nhà hàng gồm 2 tầng được thiết kế chỉn chu theo phong cách ẩm thực châu Âu sang trọng, kết hợp hài hòa giữa văn hóa thưởng bia tu viện và nghệ thuật bài trí hiện đại.
+          Nhà hàng có hai tầng. Tầng 1 là sảnh bàn tiệc và quầy trưng bày, tầng 2 là phòng riêng. Ảnh chụp tại nhà hàng.
         </p>
 
-        <h3>Tầng 1: Sảnh tiệc và quầy biểu tượng German Taste</h3>
+        <h3>Tầng 1: Sảnh bàn tiệc và vòm chai German Taste</h3>
         <p>
-          Điểm nhấn kiến trúc độc bản với quầy vòm chai rượu phát sáng logo GT German Taste, không gian bàn tiệc gỗ ấm cúng và tranh di sản Benediktiner nguyên bản.
+          Giữa sảnh là vòm đá ốp hình chai, đèn logo GT German Taste. Hai bên là kệ vang Đức và bia Bitburger. Bàn gỗ, ghế bọc da, trên tường có poster Benediktiner chụp tu viện Ettal dưới chân núi Alps.
         </p>
         <RestaurantGallery floor={1} />
 
-        <h3>Tầng 2: Phòng tiệc VIP và di sản Benediktiner</h3>
+        <h3>Tầng 2: Phòng riêng 10 - 12 chỗ</h3>
         <p>
-          Phòng tiệc máy lạnh riêng biệt và yên tĩnh, bàn gỗ sồi dài 10-12 chỗ ngồi phục vụ các cuộc tiếp khách đối tác ngoại giao, doanh nghiệp hay họp mặt gia đình cao cấp.
+          Phòng riêng có máy lạnh, bàn gỗ dài 10 - 12 chỗ và màn hình lớn. Hợp bữa tiếp đối tác, họp mặt công ty hay tiệc gia đình. Trên tường là bộ tranh đen trắng của Benediktiner vẽ các công đoạn làm bia.
         </p>
         <RestaurantGallery floor={2} />
 
-        <h2>Không gian bia tu viện Bavaria</h2>
+        <h2>Chọn chỗ ngồi theo số người</h2>
         <p>
-          Lấy cảm hứng từ những xưởng ủ bia tu viện Ettal miền nam nước Đức, Nhà hàng Bia Thầy Tu mang tới một không gian thưởng bia độc đáo và chỉn chu:
+          Nhà hàng có ba kiểu chỗ ngồi:
         </p>
         <InfoGrid
           columns={3}
           items={[
             {
-              title: 'Nội thất gỗ mộc',
-              text: 'Thiết kế bàn ghế gỗ tự nhiên, ánh sáng vàng ấm áp, tạo cảm giác thư thái, mộc mạc và lịch thiệp như đang ngồi giữa Munich.',
+              title: 'Sảnh tầng 1',
+              text: 'Bàn gỗ, ghế bọc da, đèn vàng. Hợp nhóm bạn bè hoặc gia đình, gọi bom 5L rót ngay tại bàn.',
             },
             {
-              title: 'Vườn bia thoáng đãng',
-              text: 'Không gian Beer Garden ngoài trời trong lành, rợp bóng cây xanh mát, lý tưởng cho những buổi hội ngộ bạn bè cuối ngày.',
+              title: 'Beer Garden',
+              text: 'Khu ngồi ngoài trời có cây xanh, hợp nhóm đồng nghiệp ngồi sau giờ làm.',
             },
             {
-              title: 'Phòng VIP riêng tư',
-              text: 'Phòng tiệc máy lạnh riêng biệt, yên tĩnh và sang trọng dành cho các cuộc tiếp đãi đối tác ngoại giao, doanh nghiệp hay họp mặt gia đình.',
+              title: 'Phòng riêng tầng 2',
+              text: 'Máy lạnh, bàn dài 10 - 12 chỗ, màn hình lớn. Dùng cho bữa tiếp đối tác, họp mặt công ty. Nên gọi đặt trước.',
             },
           ]}
         />
 
-        <h2>Nghi thức thưởng bia chuẩn Đức</h2>
+        <h2>Bia ở đây rót thế nào</h2>
         <p>
-          Tại Nhà hàng Bia Thầy Tu, mỗi ly bia được phục vụ như một nghi thức ẩm thực thiêng liêng:
+          Bia lúa mì rót sai ly hay lạnh quá thì mất bọt, mất mùi. Nhà hàng rót theo bốn điều:
         </p>
         <ul>
           <li>
-            <strong>Nhiệt độ phục vụ chuẩn 6-8°C:</strong> Bia luôn được giữ lạnh ổn định trong kho bảo quản tiêu chuẩn để giữ trọn vẹn tầng hương tinh tế của men tươi và hoa bia.
+            <strong>Nhiệt độ:</strong> Bia giữ lạnh sẵn. Naturtrüb hợp 7 - 9 °C, Dunkel 8 - 10 °C, Festbier 6 - 8 °C. Lạnh quá thì bia bớt thơm.
           </li>
           <li>
-            <strong>Ly Weizen cao cổ chuyên dụng:</strong> Chiếc ly Weizen thủy tinh miệng rộng giúp nâng niu lớp bọt kem tuyết dày dặn, gom trọn vẹn hương chuối chín và đinh hương đặc trưng.
+            <strong>Ly Weizen:</strong> Ly cao, thành cong, miệng rộng hơn đáy. Ly này giữ lớp bọt dày và gom mùi chuối chín, đinh hương của Naturtrüb.
           </li>
           <li>
-            <strong>Rót chậm nghiêng 45 độ:</strong> Kỹ thuật rót bia kinh điển đánh thức lớp men tự nhiên dưới đáy chai, tạo nên màu bia vàng óng ả sóng sánh ánh hổ phách.
+            <strong>Rót nghiêng 45 độ:</strong> Rót chậm theo thành ly tới khoảng 3/4 chai. Xoay nhẹ phần còn lại cho lớp men dưới đáy tan ra rồi rót nốt, bia sẽ đục đều.
           </li>
           <li>
-            <strong>Đa dạng quy cách trải nghiệm:</strong> Phục vụ bia chai, bia lon ướp lạnh, và bom bia Festbier 5L chia sẻ tại bàn tiệc cùng bạn hữu.
+            <strong>Chai, lon hay bom 5L:</strong> Có bia chai, lon 500ml và bom 5L. Bom 5L rót ngay tại bàn, hợp bàn đông người.
           </li>
         </ul>
 
-        <h2>Thực đơn Beer Pairing đặc sắc</h2>
+        <h2>Món Đức gọi kèm bia</h2>
         <p>
-          Ẩm thực tại nhà hàng được bếp trưởng thiết kế riêng để cộng hưởng và tôn vinh hương vị của từng dòng bia tu viện:
+          Thực đơn có cả món Việt, lẩu và sushi cho bàn đông. Nhóm món Đức hợp với bia nhất là:
         </p>
         <InfoGrid
           columns={2}
           items={[
             {
-              title: 'Giò heo muối chiên giòn (Schweinshaxe)',
-              text: 'Món ăn biểu tượng Bavaria với lớp da giòn rụm bên ngoài, thịt mềm thơm ngọt bên trong, dùng kèm bắp cải muối chua Sauerkraut và sốt mù tạt Đức. Tuyệt hảo khi dùng kèm Weissbier Dunkel.',
+              title: 'Chân giò Đức nướng giòn',
+              text: 'Da giòn, thịt mềm, phần lớn để cả bàn chia nhau. Bếp cần khoảng 30 - 40 phút, nên gọi ngay khi ngồi xuống. Hợp với Weissbier Dunkel.',
             },
             {
-              title: 'Xúc xích Đức nướng than hoa',
-              text: 'Xúc xích Nürnberger và Bratwurst truyền thống nướng xém cạnh, thơm mùi thảo mộc thiên nhiên, bùng nổ hương vị khi nâng ly cùng Weissbier Naturtrüb.',
+              title: 'Xúc xích kiểu Đức',
+              text: 'Xúc xích nướng, vỏ săn, ăn khi còn nóng. Lên món nhanh, gọi trước trong lúc chờ món chính. Hợp với Weissbier Naturtrüb.',
             },
             {
-              title: 'Bò nướng sốt tiêu & sườn nướng',
-              text: 'Từng thớ thịt bò mềm mọng nướng vừa chín tới, sốt tiêu đen cay nhẹ hòa quyện cùng vị mạch nha rang sâu lắng và hậu vị caramel dịu ngọt.',
+              title: 'Sườn nướng và steak',
+              text: 'Sườn BBQ nướng chậm, sườn cừu nướng thảo mộc, bò Fuji áp chảo, steak bò Úc. Món nướng thì gọi Dunkel, vị mạch nha rang hợp thịt nướng.',
             },
             {
-              title: 'Cold cuts & phô mai nhập khẩu',
-              text: 'Đĩa khai vị tinh tế với xúc xích khô, giăm bông hun khói và phô mai thượng hạng, mở đầu hoàn hảo cho cuộc trò chuyện rôm rả.',
+              title: 'Salami Đức và phô mai',
+              text: 'Salami Đức cắt lát mỏng, có phần nhỏ và phần lớn, thêm phô mai sợi. Món nguội, lên bàn ngay khi cả bàn vừa ngồi.',
             },
           ]}
         />
@@ -183,33 +183,33 @@ export default function RestaurantPage() {
           <a href={COMPANY_CONFIG.restaurantMenuUrl} target="_blank" rel="noopener noreferrer"><strong>Xem thực đơn đầy đủ và giá &rarr;</strong></a>
         </p>
 
-        <h2>Thông tin ghé thăm và đặt bàn</h2>
+        <h2>Địa chỉ, giờ mở cửa, đặt bàn</h2>
         <p>
-          Nhà hàng mở cửa đón tiếp quý thực khách vào tất cả các ngày trong tuần:
+          Nhà hàng mở mọi ngày trong tuần:
         </p>
         <ul>
           <li><strong>Địa chỉ:</strong> {COMPANY_CONFIG.showroomAddress} (gần ngã tư Vạn Phúc - Kim Mã - Liễu Giai)</li>
-          <li><strong>Giờ phục vụ:</strong> {COMPANY_CONFIG.restaurantHours} hàng ngày</li>
+          <li><strong>Giờ mở cửa:</strong> {COMPANY_CONFIG.restaurantHours} mỗi ngày</li>
           <li><strong>Hotline đặt bàn:</strong> {COMPANY_CONFIG.hotline}</li>
           <li><strong>Thực đơn:</strong> <a href={COMPANY_CONFIG.restaurantMenuUrl} target="_blank" rel="noopener noreferrer">menu.biathaytu.com.vn</a></li>
         </ul>
 
         <CtaBand
-          title="Đặt bàn trải nghiệm hôm nay"
-          text={<>Nhận đặt bàn trước cho nhóm khách, tiệc sinh nhật, tiếp khách VIP. Xem chỉ đường tại <Link href={mapUrl} target="_blank" rel="noopener noreferrer">Google Maps</Link>.</>}
+          title="Đặt bàn trước"
+          text={<>Đặt trước cho bàn đông, tiệc sinh nhật hoặc phòng riêng tầng 2. Xem chỉ đường trên <Link href={mapUrl} target="_blank" rel="noopener noreferrer">Google Maps</Link>.</>}
           action={{ href: telHref, label: 'Gọi hotline đặt bàn' }}
           secondary={{ href: zaloUrl, label: 'Nhắn tin qua Zalo' }}
         />
 
-        <h2>Cơ hội hợp tác nhượng quyền</h2>
+        <h2>Mở nhà hàng Bia Thầy Tu ở nơi khác</h2>
         <p>
-          Bạn ấn tượng với mô hình Nhà hàng Bia Thầy Tu và mong muốn mang không gian văn hóa ẩm thực bia tu viện độc đáo này về địa phương của mình?
+          German Taste đang tìm đối tác mở nhà hàng Bia Thầy Tu theo mô hình nhượng quyền, lấy nhà hàng ở Ngõ 26 Vạn Phúc làm mẫu.
         </p>
         <p>
-          Chúng tôi đang tìm kiếm các đối tác đầu tư tâm huyết tại <strong>Hà Nội, TP. Hồ Chí Minh</strong> và các thành phố lớn trên toàn quốc để cùng phát triển chuỗi nhà hàng nhượng quyền Bia Thầy Tu với lợi thế nguồn bia chính ngạch trực tiếp từ công ty nhập khẩu.
+          Ưu tiên <strong>Hà Nội, TP. Hồ Chí Minh</strong> và các thành phố lớn. Bia cho nhà hàng nhượng quyền lấy trực tiếp từ công ty nhập khẩu, không qua đại lý.
         </p>
         <p>
-          <Link href={NAV.franchise.href}><strong>Khám phá chính sách nhượng quyền nhà hàng Bia Thầy Tu &rarr;</strong></Link>
+          <Link href={NAV.franchise.href}><strong>Xem cách hợp tác nhượng quyền &rarr;</strong></Link>
         </p>
       </EditorialPage>
     </>

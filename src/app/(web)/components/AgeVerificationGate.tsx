@@ -158,7 +158,7 @@ export default function AgeVerificationGate() {
         <span className={styles.badge} aria-label="Chỉ dành cho người từ đủ 18 tuổi">18+</span>
 
         <h2 id="age-gate-title" className={styles.title}>
-          Bạn đã đủ 18 tuổi?
+          Anh chị đã đủ 18 tuổi?
         </h2>
 
         <p id="age-gate-description" className={styles.description}>
@@ -181,7 +181,7 @@ export default function AgeVerificationGate() {
         )}
 
         <p className={styles.policy}>
-          Khi tiếp tục, bạn xác nhận mình từ đủ 18 tuổi. Xem{' '}
+          Khi tiếp tục, anh chị xác nhận mình từ đủ 18 tuổi. Xem{' '}
           <Link href="/chinh-sach-kiem-soat-do-tuoi" target="_blank" rel="noopener noreferrer">
             Chính sách kiểm soát độ tuổi
           </Link>.

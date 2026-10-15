@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const productUrl = `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}`;
 
   const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
-  const pageDescription = product.description || `Khám phá hương vị và thông tin chi tiết của ${product.name}. Liên hệ Bia Thầy Tu để được tư vấn sản phẩm.`;
+  const pageDescription = product.description || `${product.name}: Hương vị, quy cách và giá bán lẻ. Gọi hoặc nhắn Zalo Bia Thầy Tu để hỏi điểm nhận hàng.`;
 
   return {
     title: product.name,
@@ -198,13 +198,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className={styles.details}>
           {tastingNote && (
             <p className={styles.tastingInline}>
-              <strong>Hương vị nổi bật:</strong> {tastingNote}
+              <strong>Hương vị:</strong> {tastingNote}
             </p>
           )}
           <div className={`product-description ${styles.description}`}>
             {product.description || (
               <p>
-                Sản phẩm {product.name} được tuyển chọn với thông tin nguồn gốc rõ ràng, phù hợp cho nhu cầu thưởng thức, biếu tặng hoặc phục vụ tại nhà hàng và sự kiện.
+                {product.name}, nhập khẩu từ Đức. Gọi hoặc nhắn Zalo để hỏi quy cách, giá và điểm nhận hàng.
               </p>
             )}
           </div>
@@ -229,7 +229,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
         {relatedProductsData && relatedProductsData.length > 0 && (
           <section className={styles.related} aria-labelledby="related-title">
-            <TitleBlock id="related-title" align="center" title="Có thể bạn sẽ thích" kicker="Gợi ý thêm" />
+            <TitleBlock id="related-title" align="center" title="Sản phẩm khác" kicker="Gợi ý thêm" />
             <div className={`grid-featured-products ${styles.relatedGrid}`}>
               {(relatedProductsData as unknown as ProductCardProps[])?.map((relatedProduct) => (
                 <ProductCard

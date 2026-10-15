@@ -17,10 +17,10 @@ export function getTastingNotes(name: string): string {
   // Beer
   if (l.includes('mix')) return 'Thùng mix Naturtrüb và Dunkel: Một chai vàng đục hương chuối chín, một chai nâu đồng hương mạch nha rang.';
   if (l.includes('festbier')) return 'Mạch nha chín, hoa bia nhẹ, thân đậm hơn Naturtrüb.';
-  if (l.includes('dunkel')) return 'Mạch nha rang đậm đà, thoảng vị caramel & chocolate đen.';
+  if (l.includes('dunkel')) return 'Mạch nha rang, thoảng vị caramel và chocolate đen.';
   if (l.includes('weissbier') || l.includes('natur')) return 'Hương chuối chín, đinh hương & hậu vị ngọt dịu.';
   if (l.includes('bom') || l.includes('5l')) return 'Bom 5 lít có vòi rót sẵn, không cần máy hay bình CO2.';
-  if (l.includes('pils') || l.includes('lager')) return 'Hoa bia tươi mát, hậu vị đắng thanh sạch.';
+  if (l.includes('pils') || l.includes('lager')) return 'Đắng hoa bia rõ, hậu vị khô.';
   if (l.includes('keller')) return 'Bia chưa lọc, hương mạch nha rõ.';
 
   // Fallback (wine/other)

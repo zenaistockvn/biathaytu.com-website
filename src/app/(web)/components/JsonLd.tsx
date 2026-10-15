@@ -84,8 +84,8 @@ export function getWebsiteSchema() {
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
-    name: 'Bia Thầy Tu | Bia Đức Nhập Khẩu Benediktiner',
-    description: 'Website giới thiệu Bia Thầy Tu Benediktiner, nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và nghệ thuật thưởng thức.',
+    name: 'Bia Thầy Tu | Bia Đức nhập khẩu Benediktiner',
+    description: 'Website giới thiệu Bia Thầy Tu Benediktiner: Nguồn gốc Ettal, hơn 400 năm truyền thống, các dòng Naturtrüb, Dunkel, Festbier và cách rót bia lúa mì.',
     publisher: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -214,23 +214,23 @@ export function getLandingFAQSchema() {
   const faqs = [
     {
       question: 'Bia Thầy Tu là bia gì?',
-      answer: 'Bia Thầy Tu là cách gọi thân thuộc tại Việt Nam dành cho Benediktiner, thương hiệu bia Đức có nguồn gốc truyền thống từ Tu viện Ettal và hơn 400 năm di sản bia lúa mì Benedictine.',
+      answer: 'Bia Thầy Tu là tên gọi ở Việt Nam của Benediktiner, bia lúa mì Đức theo công thức dòng Biển Đức, gắn với Tu viện Ettal và hơn 400 năm truyền thống.',
     },
     {
       question: 'Benediktiner có được nấu trực tiếp tại Tu viện Ettal không?',
-      answer: 'Benediktiner được nấu tại Lich, Đức theo công thức Benedictine nguyên bản cho Benediktiner Weissbräu GmbH, Ettal. Tu viện Ettal là cội nguồn của truyền thống và triết lý thương hiệu.',
+      answer: 'Không. Benediktiner ủ tại Lich, bang Hessen, theo công thức gốc của dòng Biển Đức, cho Benediktiner Weissbräu GmbH, Ettal. Men lấy từ hầm tu viện Ettal.',
     },
     {
       question: 'Bia Benediktiner Weissbier Naturtrüb có vị gì?',
-      answer: 'Benediktiner Weissbier Naturtrüb nổi bật với hương chuối chín và đinh hương, màu vàng hổ phách tự nhiên, lớp bọt trắng mịn và cảm giác êm cân bằng.',
+      answer: 'Hương chuối chín và đinh hương, thân mềm. Bia không lọc nên vàng đục tự nhiên, bọt dày. Uống ngon ở 7 - 9 °C.',
     },
     {
-      question: 'Có thể tìm hiểu Bia Thầy Tu tại đâu ở Hà Nội?',
-      answer: `Vui lòng liên hệ trước hoặc ghé điểm giới thiệu tại ${COMPANY_CONFIG.showroomAddress}. Thông tin hotline và email được công bố thống nhất trên website.`,
+      question: 'Ở Hà Nội xem Bia Thầy Tu ở đâu?',
+      answer: `Tại ${COMPANY_CONFIG.showroomAddress}. Anh chị gọi trước để bên mình chuẩn bị đúng dòng bia cần xem.`,
     },
     {
-      question: 'Bia Thầy Tu hiện giới thiệu những dòng Benediktiner nào?',
-      answer: 'Các dòng nổi bật gồm Weissbier Naturtrüb, Weissbier Dunkel và Festbier, với nhiều quy cách chai, lon hoặc bom tùy từng thời điểm.',
+      question: 'Bia Thầy Tu hiện có những dòng Benediktiner nào?',
+      answer: 'Weissbier Naturtrüb, Weissbier Dunkel và Festbier. Quy cách chai, lon hay bom 5L tùy từng dòng và từng lô hàng.',
     },
   ];
 

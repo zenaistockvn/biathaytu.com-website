@@ -155,7 +155,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       {suggestedProducts && suggestedProducts.length > 0 && (
         <section className={styles.products} aria-labelledby="article-products-title">
           <div className="container">
-            <TitleBlock id="article-products-title" align="center" title="Tìm hiểu thêm về các dòng bia" kicker="Nhập khẩu chính hãng" />
+            <TitleBlock id="article-products-title" align="center" title="Tìm hiểu thêm về các dòng bia" kicker="Nhập khẩu từ Đức" />
             <p className={styles.productsLead}>Thông tin chi tiết về các dòng bia Đức nhập khẩu chính hãng do Bia Thầy Tu phân phối.</p>
             <div className="grid-featured-products">
               {(suggestedProducts as unknown as ProductCardProps[]).map((product) => (

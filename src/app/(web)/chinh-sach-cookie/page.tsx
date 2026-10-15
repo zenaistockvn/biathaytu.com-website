@@ -34,7 +34,7 @@ export default function CookiePolicyPage() {
 
         <section>
           <h2>3. Quản lý và thay đổi lựa chọn</h2>
-          <p>Bạn có thể mở lại giao diện tùy chọn cookie hoặc yêu cầu xác minh lại độ tuổi bằng các công cụ dưới đây:</p>
+          <p>Anh chị có thể mở lại bảng tùy chọn cookie hoặc yêu cầu xác minh lại độ tuổi bằng hai nút sau:</p>
           <CookieResetButtons />
         </section>
 

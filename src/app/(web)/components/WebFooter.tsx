@@ -69,7 +69,7 @@ export default function WebFooter() {
               <span className={styles.brandTitle}>Bia Thầy Tu</span>
             </Link>
             <p className={styles.brandDesc}>
-              Khám phá Benediktiner tại Việt Nam, câu chuyện Ettal, hương vị bia Đức và nghệ thuật thưởng thức.
+              Benediktiner ở Việt Nam: Các dòng bia, câu chuyện tu viện Ettal và cách rót bia lúa mì.
             </p>
             <p className={styles.brochureNote}>
               Website giới thiệu sản phẩm, không bán hàng trực tuyến.
@@ -129,7 +129,7 @@ export default function WebFooter() {
               ))}
             </dl>
             <a href="https://vangducnhapkhau.com" target="_blank" rel="noopener noreferrer" className={styles.wine}>
-              Từ German Taste: Khám phá rượu vang Đức
+              Vang Đức của German Taste: Thörle, Rappenhof
             </a>
           </div>
         </section>

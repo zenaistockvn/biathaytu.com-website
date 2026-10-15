@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: 'Bia Thầy Tu, bia Đức nhập khẩu chính hãng',
   description:
-    'Khám phá Bia Thầy Tu Benediktiner: Nguồn gốc Ettal, hơn 400 năm truyền thống, hương vị bia Đức và thông tin tư vấn tại Việt Nam.',
+    'Bia Thầy Tu là tên gọi ở Việt Nam của Benediktiner, bia lúa mì Đức ủ tại Lich theo công thức dòng Biển Đức. Ba dòng: Naturtrüb, Dunkel, Festbier.',
 };
 
 export default function RootLayout({

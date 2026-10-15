@@ -8,12 +8,12 @@ import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Benediktiner Festbier, bia lễ hội Đức 5.8%',
-  description: 'Bia mùa lễ hội Benediktiner Festbier nồng độ 5,8%, màu vàng hổ phách, thân bia đậm đà mạch nha và hoa bia đắng nhẹ. Nhập khẩu Đức chính hãng.',
+  title: 'Benediktiner Festbier, bia mùa lễ hội 5.8%',
+  description: 'Benediktiner Festbier 5,8%, dòng mùa lễ hội: Vàng hổ phách, thân và vị mạch nha đậm hơn Naturtrüb, hoa bia đắng nhẹ. Có két 24 lon và bom 5L.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/benediktiner-festbier' },
   openGraph: {
-    title: 'Benediktiner Festbier, bia lễ hội Đức 5.8%',
-    description: 'Bia mùa lễ hội Benediktiner Festbier nồng độ 5,8%, màu vàng hổ phách, thân bia đậm đà mạch nha và hoa bia đắng nhẹ. Nhập khẩu Đức chính hãng.',
+    title: 'Benediktiner Festbier, bia mùa lễ hội 5.8%',
+    description: 'Benediktiner Festbier 5,8%, dòng mùa lễ hội: Vàng hổ phách, thân và vị mạch nha đậm hơn Naturtrüb, hoa bia đắng nhẹ. Có két 24 lon và bom 5L.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/benediktiner-festbier',
     images: [
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
         url: '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp',
         width: 1200,
         height: 630,
-        alt: 'Benediktiner Festbier, bia lễ hội Đức',
+        alt: 'Bom 5L Benediktiner Festbier',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Benediktiner Festbier, bia lễ hội Đức 5.8%',
-    description: 'Bia mùa lễ hội Benediktiner Festbier nồng độ 5,8%, màu vàng hổ phách, thân bia đậm đà mạch nha và hoa bia đắng nhẹ.',
+    title: 'Benediktiner Festbier, bia mùa lễ hội 5.8%',
+    description: 'Benediktiner Festbier 5,8%, dòng mùa lễ hội: Vàng hổ phách, vị mạch nha đậm hơn Naturtrüb, hoa bia đắng nhẹ.',
     images: ['/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp'],
   },
 };
@@ -39,7 +39,7 @@ export default function Page() {
     name: 'Benediktiner Festbier',
     slug: 'benediktiner-festbier',
     url: 'https://www.biathaytu.com.vn/benediktiner-festbier',
-    description: 'Bia mùa lễ hội Oktoberfest từ Đức, sắc vàng hổ phách, vị mạch nha đậm đà.',
+    description: 'Dòng bia mùa lễ hội của Benediktiner, vàng hổ phách, thân và vị mạch nha đậm hơn Naturtrüb.',
     abv: '5.8',
     volume: '500ml, 5L',
     images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp'],
@@ -61,17 +61,17 @@ export default function Page() {
           eyebrow: 'Benediktiner Weissbräu Ettal',
           title: 'Festbier',
           kicker: 'Bia mùa lễ hội',
-          meta: '5,8% vol. Thưởng thức ở 6 đến 8°C.',
+          meta: '5,8% vol. Uống ở 6 đến 8°C.',
           cutout: { src: '/images/brand/benediktiner-official/festbier-keg-nobg.webp', alt: 'Bom bia Benediktiner Festbier dung tích 5 lít' },
           backdrop: { src: '/images/brand/benediktiner-official/ettal-monastery.jpg', alt: 'Tu viện Ettal' },
         }}
         intro={{
-          title: 'Hương vị mùa lễ hội Oktoberfest',
+          title: 'Dòng mùa lễ hội',
           image: { src: '/images/products/official/benediktiner/86312_Bene_Festbier_Dosenkarton_4x05l_schraeg_links.webp', alt: 'Két 24 lon Benediktiner Festbier 500ml' },
           body: (
             <>
-              <p>Festbier là dòng bia biểu tượng gắn liền với các mùa lễ hội rực rỡ tại xứ Bavaria. Khác với dòng bia lúa mì thông thường, Festbier được ủ theo phương pháp lên men đáy với thời gian ủ lạnh dài hơn.</p>
-              <p>Bia sở hữu sắc vàng hổ phách óng ả, vị mạch nha đậm đà hòa quyện cùng vị đắng êm dịu của hoa bia, tạo nên cảm giác tròn vị và sảng khoái.</p>
+              <p>Festbier đậm mạch nha hơn Naturtrüb và trong chứ không đục. Đây là dòng mùa lễ hội của Benediktiner: Khác hai dòng bia lúa mì, Festbier lên men đáy và ủ lạnh lâu hơn.</p>
+              <p>Màu vàng hổ phách. Thân dày hơn, vị mạch nha rõ, hoa bia đắng nhẹ. Cồn 5,8%, cao hơn Naturtrüb và Dunkel một chút.</p>
             </>
           ),
           actions: [
@@ -80,7 +80,7 @@ export default function Page() {
           ],
         }}
         profile={{
-          serving: '5,8% vol. Nhiệt độ 6 đến 8°C. Thích hợp ly vại đá hoặc ly Weizen cao.',
+          serving: '5,8% vol. Nhiệt độ 6 đến 8°C. Rót vại hoặc ly chân thấp.',
           flavors: [
             { label: 'Trái cây', value: 2 },
             { label: 'Gia vị', value: 1 },
@@ -98,44 +98,44 @@ export default function Page() {
         notes={{
           title: 'Hương vị cảm nhận',
           items: [
-            { term: 'Thị giác', text: 'Vàng hổ phách óng ánh, trong vắt. Lớp bọt trắng mịn, giữ bọt tốt.' },
-            { term: 'Khứu giác', text: 'Mạch nha ngọt ngào, thoảng hương bánh mì nướng và hoa bia nhẹ nhàng.' },
-            { term: 'Vị giác', text: 'Tròn trịa và đậm đà; vị ngọt thanh của malt hòa cùng vị đắng êm của hoa bia.' },
-            { term: 'Hậu vị', text: 'Sạch sẽ, tươi mới và sảng khoái. Lưu lại hậu vị ấm nồng của nồng độ 5,8%.' },
+            { term: 'Thị giác', text: 'Vàng hổ phách, trong. Bọt trắng mịn, giữ lâu.' },
+            { term: 'Khứu giác', text: 'Mạch nha ngọt, thoảng bánh mì nướng và hoa bia.' },
+            { term: 'Vị giác', text: 'Thân dày, ngọt nhẹ của mạch nha, cuối ngụm có vị đắng của hoa bia.' },
+            { term: 'Hậu vị', text: 'Sạch, hơi ấm vì cồn 5,8%.' },
           ],
         }}
         story={{
           title: 'Một chút lịch sử',
           body: (
             <>
-              <p>Benediktiner Festbier được nấu tại Lich theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal và Luật Tinh Khiết 1516.</p>
+              <p>Benediktiner Festbier ủ tại Lich, bang Hessen, bởi nhà bia tư nhân Ihring-Melchior, theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal và Luật Tinh Khiết 1516.</p>
             </>
           ),
         }}
         ritual={{
-          title: 'Rót bia đúng điệu',
-          kicker: 'Thưởng thức trọn vẹn',
+          title: 'Cách rót',
+          kicker: 'Bốn bước',
           steps: [
-            ['Ướp lạnh', 'Ướp lạnh bia ở nhiệt độ 6 đến 8°C trước khi thưởng thức.'],
+            ['Ướp lạnh', 'Ướp lạnh bia ở 6 đến 8°C trước khi rót.'],
             ['Nghiêng ly', 'Đặt ly nghiêng 45 độ, rót bia chầm chậm dọc theo thành ly.'],
             ['Dựng thẳng', 'Khi bia đạt hai phần ba ly, dựng thẳng và rót vào giữa để tạo lớp bọt mịn.'],
-            ['Tận hưởng', 'Lớp bọt trắng dày vừa phải giúp giữ trọn vẹn hương thơm mạch nha và hoa bia.'],
+            ['Để bọt', 'Lớp bọt trắng dày vừa phải giữ mùi mạch nha và hoa bia lâu hơn.'],
           ],
         }}
         formats={{ products: formats }}
         pairing={{
           title: 'Món ăn kèm',
-          kicker: 'Ẩm thực lễ hội',
+          kicker: 'Món nướng, thịt quay',
           items: [
             { title: 'Thịt nướng', text: 'Đùi heo nướng giòn da, sườn nướng và bò bít tết.' },
             { title: 'Gà quay', text: 'Gà quay thảo mộc với lớp da vàng giòn.' },
-            { title: 'Xúc xích Đức', text: 'Xúc xích nướng ăn kèm bánh pretzel xoắn và mù tạt.' },
+            { title: 'Xúc xích Đức', text: 'Xúc xích nướng ăn với bánh pretzel, mù tạt và khoai tây.' },
           ],
         }}
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu chính hãng từ Đức. Liên hệ để được tư vấn quy cách két 24 lon, bom 5L và nhận thông tin chi tiết.',
+          text: 'Có két 24 lon 500ml và bom 5L, nhập khẩu từ Đức. Nhắn Zalo để hỏi giá và điểm nhận hàng.',
           action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

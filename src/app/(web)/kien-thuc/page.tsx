@@ -13,13 +13,13 @@ const FEATURED_ARTICLE_SLUG = 'nguon-goc-bia-thay-tu-tu-vien-ettal';
 
 export const metadata: Metadata = {
   title: 'Kiến thức bia Đức',
-  description: 'Khám phá thế giới bia Đức: Từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
+  description: 'Cách rót bia lúa mì, món Việt ăn với bia Đức, chuyện tu viện Ettal và các dòng bia Đức khác nhau ra sao. Bài viết của Bia Thầy Tu.',
   alternates: {
     canonical: 'https://www.biathaytu.com.vn/kien-thuc',
   },
   openGraph: {
     title: 'Kiến thức bia Đức',
-    description: 'Khám phá thế giới bia Đức: Từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
+    description: 'Cách rót bia lúa mì, món Việt ăn với bia Đức, chuyện tu viện Ettal và các dòng bia Đức khác nhau ra sao. Bài viết của Bia Thầy Tu.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/kien-thuc',
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kiến thức bia Đức',
-    description: 'Khám phá thế giới bia Đức: Từ cách thưởng thức, food pairing đến lịch sử và văn hoá.',
+    description: 'Cách rót bia lúa mì, món Việt ăn với bia Đức, chuyện tu viện Ettal và các dòng bia Đức khác nhau ra sao. Bài viết của Bia Thầy Tu.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -47,9 +47,9 @@ export default async function KienThucPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Tạp chí văn hóa"
+        eyebrow="Kiến thức"
         title="Kiến thức bia Đức"
-        lead="Từ nghệ thuật rót bia, kết hợp món ăn đến những câu chuyện lịch sử đằng sau các tu viện Bavaria."
+        lead="Rót bia lúa mì sao cho bọt dày, món nào ăn với Dunkel, vì sao bia mang tên thầy tu lại ủ ở Lich."
       />
 
       <div className={styles.body}>

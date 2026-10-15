@@ -6,11 +6,11 @@ import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
   title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu cho tiệc',
-  description: 'Bom bia 5L Benediktiner Weissbier, bia Đức nhập khẩu chính hãng, phù hợp tiệc tại nhà và sự kiện. Thông tin sản phẩm, cách dùng, bảo quản và tư vấn.',
+  description: 'Bom 5L Benediktiner rót được khoảng 15 ly, có van xả khí và vòi rót sẵn, không cần máy hay bình CO2. Ướp tủ mát 6 - 8 tiếng, mở rồi nên dùng hết trong 48 giờ.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner' },
   openGraph: {
     title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu cho tiệc',
-    description: 'Tìm hiểu bom bia 5L Benediktiner Weissbier: Nguồn gốc Đức, dung tích, cách làm lạnh, sử dụng, bảo quản và thông tin tư vấn sản phẩm.',
+    description: 'Bom 5L Benediktiner rót được khoảng 15 ly, có van xả khí và vòi rót sẵn, không cần máy hay bình CO2. Ướp tủ mát 6 - 8 tiếng, mở rồi nên dùng hết trong 48 giờ.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu',
-    description: 'Thông tin bom bia 5L Benediktiner Weissbier, cách dùng, bảo quản và tư vấn sản phẩm.',
+    description: 'Bom 5L Benediktiner: Ướp lạnh bao lâu, mở van thế nào, rót và giữ bia sau khi mở.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -35,7 +35,7 @@ export default function Page() {
     name: 'Bom Bia 5L Benediktiner',
     slug: 'bom-bia-5l-benediktiner',
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
-    description: 'Bom bia Đức 5 lít có vòi rót sẵn, phù hợp tiệc gia đình và quà tặng doanh nghiệp.',
+    description: 'Bom bia Đức 5 lít có van xả khí và vòi rót sẵn, dùng cho tiệc gia đình hoặc làm quà biếu.',
     abv: '5.4',
     volume: '5000ml',
   };
@@ -63,8 +63,8 @@ export default function Page() {
           image: { src: '/images/products/official/benediktiner/438775_Bene_Weissbier_NT_5l_Keg_front.webp', alt: 'Bom Benediktiner Weissbier Naturtrüb 5 lít' },
           body: (
             <>
-              <p>Bom 5 lít làm điểm nhấn cho bàn tiệc gia đình, dã ngoại hay sự kiện. Vỏ kim loại chuyên dụng giữ lạnh tốt và bảo quản chất lượng bia.</p>
-              <p>Vòi rót tích hợp sẵn cho phép tự rót bia tươi ngay tại bàn.</p>
+              <p>Một bom 5 lít rót được khoảng 15 ly, đủ cho bàn tiệc gia đình hay một buổi dã ngoại. Vỏ kim loại giữ lạnh tốt.</p>
+              <p>Van xả khí ở nắp, vòi rót ở chân bom. Không cần máy chiết hay bình CO2, đặt lên bàn là tự rót được.</p>
             </>
           ),
           actions: [
@@ -76,17 +76,17 @@ export default function Page() {
           title: 'Sử dụng và bảo quản',
           kicker: 'Bốn bước',
           steps: [
-            ['Làm lạnh sâu', 'Để bom trong ngăn mát tủ lạnh 6-8 tiếng trước khi dùng. Không để ngăn đá.'],
+            ['Ướp lạnh', 'Để bom trong ngăn mát tủ lạnh 6-8 tiếng trước khi dùng. Không để ngăn đá.'],
             ['Thông khí', 'Xoay van thông khí trên đỉnh bom theo hướng dẫn để giảm áp suất trước khi rót.'],
             ['Mở vòi rót', 'Kéo vòi ở hông bom ra, xoay xuống để bia chảy. Điều chỉnh lực xoay để kiểm soát bọt.'],
-            ['Dùng trong 48 giờ', 'Ngon nhất khi dùng hết trong 48 giờ sau khi mở để giữ bọt và độ tươi.'],
+            ['Dùng trong 48 giờ', 'Nên dùng hết trong 48 giờ sau khi mở để giữ bọt và độ tươi.'],
           ],
         }}
         formats={{ title: 'Các bom 5 lít', products: kegs }}
         cta={{
           title: 'Quà tặng',
           kicker: 'Doanh nghiệp và dịp lễ',
-          text: 'Bom bia 5 lít còn là món quà tặng đối tác, bạn bè trong các dịp lễ, Tết.',
+          text: 'Bom 5 lít cũng dùng làm quà biếu đối tác dịp lễ, Tết. Xem các set quà và giá.',
           action: { href: '/qua-tang-bia-duc', label: 'Xem các set quà tặng' },
         }}
       />

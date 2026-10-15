@@ -5,12 +5,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-  description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+  title: 'Bia Benediktiner chính hãng: Cách nhận biết hàng nhập khẩu',
+  description: 'Ba chỗ cần xem trên chai Benediktiner nhập khẩu: Nhãn phụ tiếng Việt, mã vạch 400 - 440 cùng tên nhà sản xuất, và màu đục tự nhiên của Naturtrüb.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang' },
   openGraph: {
-    title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-    description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+    title: 'Bia Benediktiner chính hãng: Cách nhận biết hàng nhập khẩu',
+    description: 'Ba chỗ cần xem trên chai Benediktiner nhập khẩu: Nhãn phụ tiếng Việt, mã vạch 400 - 440 cùng tên nhà sản xuất, và màu đục tự nhiên của Naturtrüb.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang',
     images: [
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bia Benediktiner chính hãng là gì? Cách nhận biết hàng thật',
-    description: 'Bia Benediktiner chính hãng: Dấu hiệu nhận biết hàng nhập khẩu nguyên chai, phân biệt thật và giả, công thức gốc dòng Biển Đức với men hầm Tu viện Ettal.',
+    title: 'Bia Benediktiner chính hãng: Cách nhận biết hàng nhập khẩu',
+    description: 'Ba chỗ cần xem trên chai Benediktiner nhập khẩu: Nhãn phụ tiếng Việt, mã vạch 400 - 440 cùng tên nhà sản xuất, và màu đục tự nhiên của Naturtrüb.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -33,42 +33,42 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Bia Benediktiner chính hãng', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner chính hãng.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Cách nhận biết bia Benediktiner nhập khẩu', slug: 'bia-benediktiner-chinh-hang', url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang', description: 'Cách nhận biết bia Benediktiner nhập khẩu qua nhãn phụ, mã vạch và màu bia.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/bia-benediktiner-chinh-hang', label: 'Bia Benediktiner chính hãng' }))} />
 
       <EditorialPage
         hero={{
-          eyebrow: 'Chất lượng Đức',
+          eyebrow: 'Trước khi mua',
           title: 'Benediktiner chính hãng',
           kicker: 'Cách nhận biết',
-          lead: 'Nguồn gốc, nhãn sản phẩm và những thông tin cần kiểm tra trên một chai Benediktiner tại Việt Nam.',
+          lead: 'Nhãn phụ, mã vạch, tên nhà sản xuất và màu bia: Những chỗ cần xem trên một chai Benediktiner bán tại Việt Nam.',
         }}
       >
         <Summary>
-          <p><strong>Cam kết chính hãng:</strong> mọi sản phẩm Bia Thầy Tu Benediktiner được phân phối qua hệ thống của chúng tôi đều có nguồn gốc rõ ràng, đầy đủ giấy tờ hải quan (CO/CQ), và được bảo quản trong kho, tránh nắng và nhiệt độ cao.</p>
+          <p><strong>Nguồn hàng:</strong> Benediktiner bên mình bán do German Taste nhập khẩu trực tiếp, có tờ khai hải quan, CO/CQ, và được giữ trong kho tránh nắng, tránh nóng.</p>
         </Summary>
 
         <h2>Ba cách nhận biết</h2>
-        <h3>1. Nhãn mác và ngôn ngữ</h3>
-        <p>Bia nhập khẩu nguyên chai từ Đức luôn có nhãn phụ tiếng Việt (theo quy định của pháp luật Việt Nam) dán đè hoặc in kèm, ghi rõ đơn vị nhập khẩu, nồng độ cồn, thành phần và cảnh báo sức khỏe. Ngày sản xuất (MFG) và hạn sử dụng (EXP) được in laser trên chai, lon.</p>
-        <h3>2. Nguồn gốc xuất xứ</h3>
-        <p>Mã vạch của bia Đức thường bắt đầu bằng đầu số 400 đến 440. Trên nhãn chai, lon bắt buộc có thông tin nhà sản xuất: <strong>Benediktiner Weißbräu GmbH</strong> (Ettal, Bavaria).</p>
-        <h3>3. Chất lượng bia bên trong</h3>
-        <p>Với dòng Weissbier Naturtrüb, bia thật có độ đục tự nhiên (do men còn trong bia, không lọc) và màu vàng hổ phách đậm. Bọt bia trắng, mịn, giữ lâu trên miệng ly. Hương chuối chín và đinh hương rõ.</p>
+        <h3>1. Nhãn phụ tiếng Việt</h3>
+        <p>Bia nhập khẩu nguyên chai từ Đức phải có nhãn phụ tiếng Việt (theo quy định của pháp luật Việt Nam), dán đè hoặc in kèm. Nhãn ghi đơn vị nhập khẩu, nồng độ cồn, thành phần và cảnh báo sức khỏe. Ngày sản xuất (MFG) và hạn sử dụng (EXP) in laser trên chai, lon.</p>
+        <h3>2. Mã vạch và nhà sản xuất</h3>
+        <p>Mã vạch của bia Đức thường bắt đầu bằng đầu số 400 đến 440. Trên nhãn chai, lon phải có tên nhà sản xuất: <strong>Benediktiner Weißbräu GmbH</strong>, Ettal. Bia ủ tại Lich, bang Hessen.</p>
+        <h3>3. Bia trong ly</h3>
+        <p>Weissbier Naturtrüb thật có màu vàng, đục tự nhiên vì men còn trong bia, không lọc. Bọt trắng, mịn, giữ lâu trên miệng ly. Mùi chuối chín và đinh hương rõ.</p>
 
-        <h2>Vì sao nên chọn nguồn nhập khẩu rõ ràng?</h2>
+        <h2>Vì sao nên mua nơi có giấy tờ nhập khẩu?</h2>
         <InfoGrid
           items={[
-            { title: 'Bảo quản đúng cách', text: 'Bia lúa mì không lọc nhạy cảm với nhiệt độ và ánh sáng; hàng được bảo quản trong kho, tránh nắng và nhiệt độ cao.' },
-            { title: 'Hạn sử dụng rõ ràng', text: 'Nhập hàng theo lô, hạn sử dụng in rõ trên từng chai, lon.' },
-            { title: 'Hỗ trợ B2B', text: 'Hóa đơn VAT đầy đủ cho doanh nghiệp, nhà hàng, khách sạn.' },
+            { title: 'Bảo quản đúng cách', text: 'Bia lúa mì không lọc nhạy với nhiệt độ và ánh sáng. Hàng được giữ trong kho, tránh nắng và nhiệt độ cao.' },
+            { title: 'Hạn sử dụng rõ', text: 'Nhập hàng theo lô, hạn sử dụng in trên từng chai, lon.' },
+            { title: 'Hoá đơn cho doanh nghiệp', text: 'Xuất hoá đơn VAT cho doanh nghiệp, nhà hàng, khách sạn.' },
           ]}
         />
-        <p>Muốn tìm hiểu quy cách đang được giới thiệu? Xem <Link href="/san-pham">bộ sưu tập Benediktiner</Link>.</p>
+        <p>Các quy cách chai, lon, bom đang bán có trong <Link href="/san-pham">danh mục Benediktiner</Link>.</p>
 
         <CtaBand
-          title="Yên tâm thưởng thức"
-          text="Trao đổi với đội ngũ Bia Thầy Tu về sản phẩm, cách thưởng thức hoặc nhu cầu hợp tác."
+          title="Hỏi trước khi đặt"
+          text="Gọi hoặc nhắn Bia Thầy Tu nếu anh chị muốn xem nhãn phụ, hạn dùng hoặc hoá đơn trước khi đặt hàng."
           action={{ href: '/lien-he', label: 'Liên hệ tư vấn' }}
         />
       </EditorialPage>

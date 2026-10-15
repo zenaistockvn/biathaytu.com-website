@@ -39,7 +39,7 @@ export default function Page() {
     name: 'Bitburger Premium Pils',
     slug: 'bitburger-premium-pils',
     url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
-    description: 'Bia Pilsner tươi mát chuẩn Đức, lên men đáy với hoa bia Siegelhopfen.',
+    description: 'Pilsner của nhà bia Bitburger, lên men đáy, nấu với hoa bia Siegelhopfen. Vàng sáng, đắng rõ, hậu vị khô.',
     abv: '4.8',
     volume: '330ml, 500ml',
   };
@@ -61,16 +61,16 @@ export default function Page() {
           eyebrow: 'Bitburger, từ 1817',
           title: 'Premium Pils',
           kicker: 'Bia vàng lên men đáy',
-          meta: '4,8% vol. "Bitte ein Bit", dòng pilsner được yêu thích tại Đức.',
+          meta: '4,8% vol. "Bitte ein Bit", theo hãng là Pils được rót nhiều nhất ở quầy bia Đức.',
           photo: { src: '/images/brand/bitburger-official/siegelhopfen-field.jpg', alt: 'Người trồng hoa bia Siegelhopfen cho Bitburger giữa vùng hop Holsthum', position: 'center 30%' },
         }}
         intro={{
-          title: 'Vị đắng thanh khiết',
+          title: 'Đắng rõ, hậu vị khô',
           image: { src: '/images/products/official/bitburger/flasche_longneck_033l_pils_frontal_betaut_V8.webp', alt: 'Chai Bitburger Premium Pils 330ml' },
           body: (
             <>
               <p>Nấu theo Luật Tinh Khiết 1516, Bitburger dùng nước mềm vùng Eifel, lúa mạch chọn lọc, hoa bia và men bia riêng của nhà máy.</p>
-              <p>Bia vàng trong, vị đắng sắc nét dễ chịu, làm sạch khoang miệng, hợp với các món nướng đậm vị.</p>
+              <p>Vàng sáng, bọt mịn, đắng hoa bia rõ và hậu vị khô. Một ngụm sau miếng mực nướng hay heo quay là miệng hết ngấy.</p>
             </>
           ),
           actions: [
@@ -79,7 +79,7 @@ export default function Page() {
           ],
         }}
         profile={{
-          serving: '4,8% vol. Thưởng thức lạnh, ly Pokal chân cao.',
+          serving: '4,8% vol. Uống lạnh 4 đến 6°C, ly Pokal chân cao.',
           flavors: [
             { label: 'Trái cây', value: 1 },
             { label: 'Gia vị', value: 0 },
@@ -98,8 +98,8 @@ export default function Page() {
           title: 'Hương vị cảm nhận',
           items: [
             { term: 'Thị giác', text: 'Vàng rơm, trong. Lớp bọt trắng mịn, lâu tan.' },
-            { term: 'Khứu giác', text: 'Thảo mộc tươi mát và hương hoa cỏ tinh tế của hoa bia.' },
-            { term: 'Vị giác', text: 'Mở đầu bằng vị ngọt nhẹ của mạch nha, tiếp theo là vị đắng thanh, sắc nét.' },
+            { term: 'Khứu giác', text: 'Thảo mộc và hoa cỏ, mùi của hoa bia.' },
+            { term: 'Vị giác', text: 'Ngọt nhẹ của mạch nha trước, rồi tới vị đắng rõ của hoa bia.' },
             { term: 'Hậu vị', text: 'Khô, sạch miệng, vị đắng dịu.' },
           ],
         }}
@@ -112,8 +112,8 @@ export default function Page() {
         formats={{ products: formats }}
         pairing={{
           title: 'Món ăn kèm',
-          kicker: 'Nghệ thuật kết hợp',
-          intro: 'Vị đắng thanh và khả năng làm sạch vòm họng giúp Pils hợp với bữa tiệc nhiều món:',
+          kicker: 'Món chiên nướng, nhiều gia vị',
+          intro: 'Đắng và khô nên Pils hợp mâm nhiều món chiên nướng, nhiều dầu mỡ:',
           items: [
             { title: 'Món Việt đậm vị', text: 'Mực nướng muối ớt, tôm rang muối, heo quay và lẩu Thái.' },
             { title: 'Đồ nướng và xúc xích', text: 'Xúc xích Đức nướng, steak bò và sườn cừu sốt BBQ.' },
@@ -123,7 +123,7 @@ export default function Page() {
         cta={{
           title: 'Liên hệ tư vấn',
           kicker: 'Tư vấn qua Zalo',
-          text: 'Nhập khẩu nguyên chai, lon từ Đức. Liên hệ để được tư vấn quy cách, giá và điểm nhận hàng.',
+          text: 'Có chai 330ml, lon 330ml, lon 500ml và bom 5L, nhập khẩu từ Đức. Nhắn Zalo để hỏi giá và điểm nhận hàng.',
           action: { href: linkGeneral, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
         }}
       />

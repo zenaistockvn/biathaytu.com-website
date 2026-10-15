@@ -8,12 +8,12 @@ import { formatPrice } from '@/utils/formatPrice';
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-  description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+  title: 'Quà tặng bia Đức cho doanh nghiệp: Thùng mix, bom 5L',
+  description: 'Thùng 12 chai Benediktiner mix Naturtrüb và Dunkel, bom 5L có vòi rót sẵn, set 6 chai kèm ly Weizen. In logo lên bao bì, có hoá đơn VAT cho doanh nghiệp.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/qua-tang-bia-duc' },
   openGraph: {
-    title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-    description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+    title: 'Quà tặng bia Đức cho doanh nghiệp: Thùng mix, bom 5L',
+    description: 'Thùng 12 chai Benediktiner mix Naturtrüb và Dunkel, bom 5L có vòi rót sẵn, set 6 chai kèm ly Weizen. In logo lên bao bì, có hoá đơn VAT cho doanh nghiệp.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc',
     images: [
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
         width: 1200,
         height: 630,
-        alt: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
+        alt: 'Quà tặng bia Đức cho doanh nghiệp',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quà tặng bia Đức cao cấp dành cho doanh nghiệp',
-    description: 'Hộp quà tặng bia Đức nhập khẩu. Combo bia Benediktiner, Bitburger dành cho doanh nghiệp, đối tác dịp Lễ, Tết. Có xuất hóa đơn VAT.',
+    title: 'Quà tặng bia Đức cho doanh nghiệp: Thùng mix, bom 5L',
+    description: 'Thùng 12 chai Benediktiner mix Naturtrüb và Dunkel, bom 5L có vòi rót sẵn, set 6 chai kèm ly Weizen. In logo lên bao bì, có hoá đơn VAT cho doanh nghiệp.',
     images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -45,7 +45,7 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd type="article" data={getArticleSchema({ title: 'Quà tặng bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Giải pháp quà tặng bia Đức cho doanh nghiệp.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
+      <JsonLd type="article" data={getArticleSchema({ title: 'Quà tặng bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Các set quà bia Đức cho doanh nghiệp: Thùng mix, bom 5L, set kèm ly.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail({ href: '/qua-tang-bia-duc', label: 'Quà tặng bia Đức' }))} />
 
       <EditorialPage
@@ -53,33 +53,33 @@ export default function Page() {
           eyebrow: 'Quà tặng doanh nghiệp',
           title: 'Quà tặng bia Đức',
           kicker: 'Lễ, Tết và tri ân đối tác',
-          lead: 'Món quà bia lúa mì Đức theo công thức hơn 400 năm của tu viện Ettal.',
+          lead: 'Bia lúa mì Benediktiner, men từ hầm tu viện Ettal, hơn 400 năm truyền thống. Có thùng mix, bom 5 lít và set kèm ly.',
         }}
       >
         <Summary>
-          <p><strong>Bia Đức nhập khẩu</strong> là một lựa chọn quà tặng doanh nghiệp dễ dùng trong các bữa tiệc tri ân cuối năm, hợp cả người thích bia lúa mì lẫn Pilsner. Xem toàn bộ <Link href="/san-pham">danh mục bia Đức</Link>.</p>
+          <p><strong>Chọn theo người nhận:</strong> Người thích bia lúa mì thì thùng Mix 2 vị, nhà hay có tiệc thì bom 5 lít, người quen Pilsner thì Bitburger. Xem toàn bộ <Link href="/san-pham">danh mục bia Đức</Link>.</p>
         </Summary>
 
-        <h2>Các lựa chọn quà tặng</h2>
+        <h2>Các set quà</h2>
         <InfoGrid
           items={[
             { title: <Link href="/san-pham/benediktiner-mix-2-vi-thung-12-chai-500ml">Hộp Mix 2 vị</Link>, text: 'Thùng 12 chai gồm 6 Weissbier (bia lúa mì) và 6 Dunkel (bia đen). Hộp cứng, quai xách.', meta: priceOf('benediktiner-mix-2-vi-thung-12-chai-500ml') },
-            { title: <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5 lít lễ hội</Link>, text: 'Bom 5 lít có vòi rót sẵn, để đối tác dùng ngay trong các bữa tiệc tụ họp.', meta: priceOf('benediktiner-naturtrub-bom-5l') },
-            { title: 'Set quà kèm ly', text: 'Combo 6 chai bia nhập khẩu kèm 1 ly Weizen tiêu chuẩn Đức.', meta: 'Liên hệ B2B' },
+            { title: <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5 lít Naturtrüb</Link>, text: 'Bom 5 lít có vòi rót sẵn, người nhận mở ra rót được ngay trong bữa tiệc.', meta: priceOf('benediktiner-naturtrub-bom-5l') },
+            { title: 'Set quà kèm ly', text: '6 chai bia nhập khẩu kèm 1 ly Weizen.', meta: 'Liên hệ báo giá' },
           ]}
         />
 
-        <h2>Đặc quyền khách hàng doanh nghiệp</h2>
+        <h2>Dành cho doanh nghiệp</h2>
         <ul>
-          <li><strong>Chiết khấu:</strong> chính sách giá ưu đãi cho đơn hàng số lượng lớn dịp Lễ, Tết.</li>
-          <li><strong>Hóa đơn VAT:</strong> đầy đủ chứng từ hợp lệ, CO/CQ, hóa đơn VAT theo yêu cầu doanh nghiệp.</li>
-          <li><strong>Tùy biến quà tặng:</strong> hỗ trợ in logo doanh nghiệp lên bao bì, thiệp chúc mừng thiết kế riêng theo nhận diện thương hiệu.</li>
-          <li><strong>Nhiều điểm nhận:</strong> trao đổi phương án gửi quà theo danh sách đối tác của bạn.</li>
+          <li><strong>Chiết khấu:</strong> Giá ưu đãi cho đơn số lượng lớn dịp lễ, Tết.</li>
+          <li><strong>Hoá đơn VAT:</strong> Chứng từ hợp lệ, CO/CQ, hoá đơn VAT theo yêu cầu doanh nghiệp.</li>
+          <li><strong>In logo:</strong> In logo doanh nghiệp lên bao bì, thiệp chúc mừng thiết kế theo nhận diện thương hiệu.</li>
+          <li><strong>Nhiều điểm nhận:</strong> Gửi quà theo danh sách đối tác của anh chị, cách giao trao đổi khi đặt.</li>
         </ul>
 
         <CtaBand
           title="Tư vấn quà tặng"
-          text="Để nhận catalog quà tặng mới nhất và báo giá chiết khấu, vui lòng liên hệ."
+          text="Nhắn Zalo để nhận catalog quà mới nhất và báo giá theo số lượng."
           action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: 'Hotline tư vấn quà tặng' }}
         />

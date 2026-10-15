@@ -11,11 +11,11 @@ import { noBreakNode } from '@/lib/vn-text';
 
 export const metadata: Metadata = {
   title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
-  description: 'Tu viện Ettal thành lập năm 1330, hơn 400 năm truyền thống bia lúa mì Benedictine, công thức gốc được tiếp nối tại Lich, Đức.',
+  description: 'Tu viện Ettal lập năm 1330, hơn 400 năm truyền thống bia lúa mì. Benediktiner ngày nay ủ tại Lich, bang Hessen, bởi nhà bia tư nhân Ihring-Melchior.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/thuong-hieu' },
   openGraph: {
     title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
-    description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
+    description: 'Tu viện Ettal, các nguyên tắc của dòng Biển Đức và nhà bia ở Lich ủ Benediktiner ngày nay.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/thuong-hieu',
     images: [{
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
-    description: 'Nguồn gốc Ettal, triết lý Benedictine và hơn 400 năm truyền thống bia lúa mì.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    description: 'Tu viện Ettal, các nguyên tắc của dòng Biển Đức và nhà bia ở Lich ủ Benediktiner ngày nay.',
+    images:['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
 const principles = [
-  ['Tĩnh tại', 'Dành thời gian cho những điều tốt đẹp, ngồi xuống và thưởng thức chậm rãi.'],
-  ['Chăm chút', 'Cẩn trọng trong từng lựa chọn nguyên liệu, công thức và cách phục vụ.'],
-  ['Tôn trọng', 'Tôn trọng con người, thiên nhiên và những giá trị đã được truyền lại qua nhiều thế hệ.'],
+  ['Tĩnh tại', 'Dành thời gian cho bữa ăn, ngồi xuống và uống chậm.'],
+  ['Chăm chút', 'Cẩn thận từ nguyên liệu, công thức đến cách phục vụ.'],
+  ['Tôn trọng', 'Tôn trọng con người, thiên nhiên và những gì thế hệ trước để lại.'],
 ] as const;
 
 /** Câu chuyện thương hiệu theo ngữ pháp chimay.com ("Depuis 1850"): hero ảnh, khối chia đôi, ba nguyên tắc, nguồn chính thức. */
@@ -49,12 +49,12 @@ export default function BrandStoryPage() {
         size="medium"
         titleId="story-title"
         image={{ src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal', position: '68% center' }}
-        eyebrow="Từ Ettal đến thế giới"
+        eyebrow="Câu chuyện thương hiệu"
         title="Từ 1330"
-        kicker="Một tinh thần nguyên bản"
+        kicker="Bia lúa mì dòng Biển Đức"
         credit={{ href: 'https://www.benediktiner-weissbier.de/en/', label: 'Hình ảnh: Benediktiner Weissbräu' }}
       >
-        <p>Câu chuyện Benediktiner không bắt đầu từ một chiến dịch quảng cáo, mà từ những nguyên tắc sống và làm việc của các tu sĩ Benedictine.</p>
+        <p>Câu chuyện Benediktiner bắt đầu ở một tu viện dòng Biển Đức dưới chân dãy Alps, với cách sống và làm việc của các tu sĩ ở đó.</p>
       </PhotoHero>
 
       <SplitBlock
@@ -65,8 +65,8 @@ export default function BrandStoryPage() {
         title="Nơi khởi nguồn"
         kicker="Tu viện Ettal, giữa dãy Alps Bavaria"
       >
-        <p>Tu viện Ettal được thành lập năm 1330. Khoảng bốn thế kỷ trước, các tu sĩ Benedictine tại đây đã phát triển truyền thống bia lúa mì mà Benediktiner tiếp tục tôn vinh ngày nay.</p>
-        <p>Điều được truyền lại không chỉ là một công thức, mà còn là cách tiếp cận: Bình tĩnh, cẩn trọng và tôn trọng nguyên liệu.</p>
+        <p>Tu viện Ettal được thành lập năm 1330. Hơn 400 năm truyền thống bia lúa mì của Benediktiner bắt đầu từ các tu sĩ dòng Biển Đức ở đây, và men bia ngày nay vẫn lấy từ hầm tu viện.</p>
+        <p>Đi cùng công thức là một cách làm: Chậm, cẩn thận, tôn trọng nguyên liệu.</p>
         <dl className={styles.facts}>
           <div><dt>1330</dt><dd>Tu viện Ettal thành lập</dd></div>
           <div><dt>400+</dt><dd>Năm truyền thống bia lúa mì</dd></div>
@@ -83,7 +83,7 @@ export default function BrandStoryPage() {
             title="Triết lý"
             kicker="Các nguyên tắc Benedictine"
           />
-          <p className={styles.lead}>Ba nguyên tắc được hãng nhấn mạnh xuyên suốt câu chuyện thương hiệu và nghệ thuật nấu bia.</p>
+          <p className={styles.lead}>Ba nguyên tắc hãng nhắc lại nhiều lần khi kể về Benediktiner và cách nấu bia.</p>
           <ol className={styles.principles}>
             {principles.map(([title, description], index) => (
               <li key={title}>
@@ -101,19 +101,19 @@ export default function BrandStoryPage() {
         tone="mist"
         reverse
         title="Ngày nay"
-        kicker="Được nấu tại Lich"
+        kicker="Ủ tại Lich, bang Hessen"
         action={{ href: 'https://www.benediktiner-weissbier.de/en/our-history', label: 'Xem nguồn chính thức', external: true }}
       >
-        <p>Để gìn giữ và đưa truyền thống ấy tới nhiều người hơn, công thức đã được chia sẻ với Licher Privatbrauerei. Benediktiner ngày nay được nấu tại Lich cho Benediktiner Weissbräu GmbH, Ettal, thông tin được công bố trực tiếp trên website và bao bì của hãng.</p>
+        <p>Để bia đến được với nhiều người hơn, công thức được chia sẻ với nhà bia tư nhân Ihring-Melchior ở Lich, bang Hessen. Benediktiner ngày nay ủ tại đó cho Benediktiner Weissbräu GmbH, Ettal. Thông tin này in trên bao bì và website của hãng.</p>
       </SplitBlock>
 
       <section className={styles.cta} aria-labelledby="story-cta-title">
         <div className="container">
-          <TitleBlock id="story-cta-title" title="Tìm hiểu thêm" kicker="Các dòng bia Benediktiner" />
-          <p>Từ Naturtrüb cân bằng đến Dunkel đậm malt và Festbier dành cho những dịp sum họp.</p>
+          <TitleBlock id="story-cta-title" title="Các dòng bia" kicker="Benediktiner" />
+          <p>Naturtrüb vàng đục, hương chuối chín. Dunkel nâu, mạch nha rang. Festbier là dòng mùa lễ hội, vị mạch nha đậm hơn.</p>
           <div className={styles.actions}>
             <Button href="/san-pham" variant="primary">Xem các dòng bia</Button>
-            <Button href="/huong-dan-rot-bia-lua-mi" variant="link">Nghệ thuật thưởng thức</Button>
+            <Button href="/huong-dan-rot-bia-lua-mi" variant="link">Cách rót bia lúa mì</Button>
           </div>
         </div>
       </section>

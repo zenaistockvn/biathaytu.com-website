@@ -5,12 +5,12 @@ import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/Editori
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
-  description: 'Thông tin hợp tác phân phối Bia Thầy Tu Benediktiner và Bitburger dành cho đại lý, nhà hàng và khách sạn. Tư vấn sản phẩm, quy cách, chính sách hợp tác và hỗ trợ bán hàng.',
+  title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
+  description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; bảng giá sỉ gửi qua Zalo.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly' },
   openGraph: {
-    title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
-    description: 'Thông tin sản phẩm, quy cách và chương trình hợp tác dành cho đối tác phân phối Benediktiner và Bitburger. Liên hệ để được tư vấn.',
+    title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
+    description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; bảng giá sỉ gửi qua Zalo.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly',
     images: [
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
         url: '/images/brand/benediktiner-official/home-hero.jpg',
         width: 1200,
         height: 630,
-        alt: 'Thông tin sỉ & đại lý bia Đức nhập khẩu',
+        alt: 'Đại lý bia Đức nhập khẩu Benediktiner, Bitburger',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thông tin sỉ & đại lý bia Đức nhập khẩu, Benediktiner',
-    description: 'Tìm hiểu sản phẩm và chương trình hợp tác dành cho đối tác phân phối Bia Thầy Tu Benediktiner và Bitburger.',
+    title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
+    description: 'Đại lý Benediktiner và Bitburger: Chiết khấu theo sản lượng, hỗ trợ ly, standee, bảng giá sỉ gửi qua Zalo.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
@@ -44,21 +44,21 @@ export default function Page() {
           eyebrow: 'Hợp tác kinh doanh',
           title: 'Đại lý và giá sỉ',
           kicker: 'Benediktiner và Bitburger',
-          lead: 'Kinh doanh bia nhập khẩu cao cấp cùng nhà phân phối Bia Thầy Tu.',
+          lead: 'Bảng giá sỉ gửi riêng qua Zalo. Trang này nói đại lý được gì và nhập được những quy cách nào.',
         }}
       >
         <Summary>
-          <p><strong>Chào mừng các đối tác:</strong> chúng tôi tìm kiếm đại lý phân phối, siêu thị mini, cửa hàng đồ uống nhập khẩu và cộng tác viên bán sỉ trên toàn quốc cho 2 nhãn hiệu bia Đức: Benediktiner Weissbier và Bitburger Premium Pils.</p>
+          <p><strong>Bên mình đang tìm:</strong> Đại lý phân phối, siêu thị mini, cửa hàng đồ uống nhập khẩu và cộng tác viên bán sỉ trên toàn quốc cho 2 nhãn bia Đức: Benediktiner Weissbier và Bitburger Premium Pils. German Taste nhập khẩu trực tiếp cả hai nhãn.</p>
         </Summary>
 
-        <h2>Quyền lợi đại lý</h2>
+        <h2>Đại lý được gì</h2>
         <InfoGrid
           columns={2}
           items={[
-            { title: 'Chiết khấu theo sản lượng', text: 'Mức chiết khấu theo mốc sản lượng cam kết hàng tháng. Liên hệ qua Zalo để nhận bảng chiết khấu chi tiết.' },
-            { title: 'Giá bán lẻ khuyến nghị', text: 'Chính sách giá bán lẻ khuyến nghị và hỗ trợ đại lý theo khu vực.' },
-            { title: 'Hỗ trợ marketing, POSM', text: 'Ấn phẩm truyền thông (ảnh, video HD), ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
-            { title: 'Logistics chuyên nghiệp', text: 'Kho bãi tiêu chuẩn tại Hà Nội. Phương án vận chuyển thống nhất theo từng hợp đồng đại lý.' },
+            { title: 'Chiết khấu theo sản lượng', text: 'Mức chiết khấu theo mốc sản lượng cam kết hàng tháng. Nhắn Zalo để nhận bảng chiết khấu chi tiết.' },
+            { title: 'Giá bán lẻ khuyến nghị', text: 'Có giá bán lẻ khuyến nghị và chính sách hỗ trợ đại lý theo khu vực.' },
+            { title: 'Ảnh, ly, standee', text: 'Ảnh và video HD để đăng bán, ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
+            { title: 'Kho ở Hà Nội', text: 'Hàng xuất từ kho tại Hà Nội. Cách vận chuyển thống nhất trong từng hợp đồng đại lý.' },
           ]}
         />
 
@@ -70,14 +70,14 @@ export default function Page() {
           <tbody>
             <tr><td><strong>Benediktiner Weissbier Naturtrüb</strong></td><td>Lon 500ml, chai 500ml</td></tr>
             <tr><td><strong>Benediktiner Dunkel</strong></td><td>Lon 500ml, chai 500ml</td></tr>
-            <tr><td><strong>Bom 5 lít Benediktiner</strong></td><td>Phân khúc quà tặng, lễ Tết</td></tr>
+            <tr><td><strong>Bom 5 lít Benediktiner</strong></td><td>Bom 5 lít, hay dùng làm quà lễ, Tết</td></tr>
             <tr><td><strong>Bitburger Premium Pils</strong></td><td>Lon 330ml, lon 500ml</td></tr>
           </tbody>
         </table>
 
         <CtaBand
           title="Nhận bảng giá sỉ"
-          text="Để nhận file PDF báo giá sỉ chi tiết và chính sách chiết khấu, vui lòng liên hệ trực tiếp giám đốc kinh doanh."
+          text="File PDF giá sỉ và chính sách chiết khấu do giám đốc kinh doanh gửi trực tiếp. Nhắn Zalo hoặc gọi hotline."
           action={{ href: zaloUrl, label: 'Mở Zalo nhận bảng giá', external: zaloUrl.startsWith('https://') }}
           secondary={{ href: telHref, label: `Hotline ${COMPANY_CONFIG.hotline}` }}
         />

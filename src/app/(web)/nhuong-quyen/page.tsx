@@ -8,12 +8,12 @@ import FranchiseConsultationForm from '../components/FranchiseConsultationForm';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
-  title: 'Nhượng quyền nhà hàng Bia Thầy Tu - Cơ hội đầu tư chuỗi F&B đẳng cấp',
-  description: 'Hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP.HCM và các tỉnh thành phố lớn. Nguồn bia Đức Benediktiner chính ngạch từ công ty nhập khẩu, biên lợi nhuận cao, chuyển giao trọn gói.',
+  title: 'Nhượng quyền nhà hàng Bia Thầy Tu: Mô hình, hỗ trợ, các bước',
+  description: 'Mở nhà hàng Bia Thầy Tu theo nhượng quyền tại Hà Nội, TP.HCM và các thành phố lớn. Bia Benediktiner, Bitburger lấy thẳng từ German Taste, đơn vị nhập khẩu.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/nhuong-quyen' },
   openGraph: {
-    title: 'Nhượng quyền nhà hàng Bia Thầy Tu - Cơ hội đầu tư chuỗi F&B đẳng cấp',
-    description: 'Hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP.HCM và các tỉnh thành phố lớn. Nguồn bia Đức chính ngạch trực tiếp từ công ty nhập khẩu.',
+    title: 'Nhượng quyền nhà hàng Bia Thầy Tu: Mô hình, hỗ trợ, các bước',
+    description: 'Mở nhà hàng Bia Thầy Tu theo nhượng quyền tại Hà Nội, TP.HCM và các thành phố lớn. Bia lấy thẳng từ công ty nhập khẩu.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/nhuong-quyen',
     images: [
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nhượng quyền nhà hàng Bia Thầy Tu - Cơ hội đầu tư chuỗi F&B đẳng cấp',
-    description: 'Hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP.HCM và các thành phố lớn.',
+    title: 'Nhượng quyền nhà hàng Bia Thầy Tu: Mô hình, hỗ trợ, các bước',
+    description: 'Mở nhà hàng Bia Thầy Tu theo nhượng quyền tại Hà Nội, TP.HCM và các thành phố lớn.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
@@ -36,46 +36,46 @@ export const metadata: Metadata = {
 const franchiseSteps = [
   {
     title: 'Đăng ký thông tin và tư vấn ban đầu',
-    text: 'Đối tác gửi thông tin đăng ký tư vấn qua website hoặc liên hệ hotline. Đội ngũ phát triển dự án trao đổi sơ bộ về định hướng, năng lực tài chính và mục tiêu đầu tư.',
+    text: 'Đối tác gửi thông tin qua form trên trang này hoặc gọi hotline. Bên mình hỏi về định hướng, khả năng tài chính và mục tiêu đầu tư.',
   },
   {
-    title: 'Khảo sát mặt bằng và đánh giá P&L',
-    text: 'Chuyên viên tiến hành khảo sát vị trí mặt bằng thực tế tại Hà Nội, TP.HCM hoặc tỉnh thành mục tiêu; lập bảng dự toán doanh thu, chi phí vận hành và thời gian hoàn vốn.',
+    title: 'Khảo sát mặt bằng, dự toán lãi lỗ',
+    text: 'Bên mình đến xem mặt bằng tại Hà Nội, TP.HCM hoặc tỉnh đối tác chọn, rồi lập bảng dự toán doanh thu, chi phí vận hành và thời gian hoàn vốn.',
   },
   {
-    title: 'Ký kết hợp đồng nhượng quyền thương hiệu',
-    text: 'Hai bên thống nhất các điều khoản hợp tác, ký hợp đồng nhượng quyền chính thức và kích hoạt quy trình triển khai setup nhà hàng.',
+    title: 'Ký hợp đồng nhượng quyền',
+    text: 'Hai bên thống nhất điều khoản, ký hợp đồng và bắt đầu dựng nhà hàng.',
   },
   {
-    title: 'Thiết kế 3D và thi công không gian',
-    text: 'Đội ngũ kiến trúc sư lên bản vẽ thiết kế 3D chuẩn nhận diện Bavaria Brauhaus, bố trí công năng quầy bar bia, khu vực bếp Âu và không gian bàn tiệc.',
+    title: 'Thiết kế 3D và thi công',
+    text: 'Kiến trúc sư vẽ bản 3D theo nhận diện Bia Thầy Tu, bố trí quầy bar bia, bếp Âu và khu bàn tiệc.',
   },
   {
     title: 'Đào tạo nhân sự và chuyển giao công thức',
-    text: 'Đào tạo quản lý vận hành, kỹ thuật rót bia Weizen chuẩn tu viện Đức, chuyển giao quy trình bếp món ăn Âu và hướng dẫn sử dụng phần mềm quản lý.',
+    text: 'Đào tạo quản lý vận hành, cách rót bia Weizen, quy trình bếp món Âu và cách dùng phần mềm quản lý.',
   },
   {
-    title: 'Khai trương và đồng hành dài hạn',
-    text: 'Hỗ trợ tổ chức chiến dịch truyền thông ra mắt nhà hàng, cung cấp nguồn bia nhập khẩu ổn định giá gốc và đồng hành tối ưu hóa kinh doanh định kỳ.',
+    title: 'Khai trương và hỗ trợ sau đó',
+    text: 'Hỗ trợ truyền thông ngày ra mắt, giao bia nhập khẩu đều đặn và cùng đối tác xem lại số liệu kinh doanh định kỳ.',
   },
 ] as const;
 
 const franchiseFaqs = [
   {
     question: 'Chi phí nhượng quyền nhà hàng Bia Thầy Tu gồm những khoản nào?',
-    answer: 'Tổng mức đầu tư bao gồm phí nhượng quyền thương hiệu ban đầu, chi phí thiết kế và thi công nội thất theo chuẩn Bavaria, trang thiết bị quầy bar bia, bếp Âu, hệ thống POSM và lượng hàng hóa lưu kho ban đầu. Chi phí cụ thể tùy thuộc vào diện tích mặt bằng và mô hình lựa chọn.',
+    answer: 'Gồm phí nhượng quyền ban đầu, thiết kế và thi công nội thất, thiết bị quầy bar bia và bếp Âu, vật dụng có logo hãng và lượng hàng tồn kho ban đầu. Con số cụ thể tùy diện tích mặt bằng và mô hình đối tác chọn, bên mình báo sau khi khảo sát.',
   },
   {
-    question: 'Nguồn bia cung cấp cho nhà hàng nhượng quyền được đảm bảo thế nào?',
-    answer: 'Nhà hàng nhượng quyền được ký hợp đồng cung ứng bia chính ngạch trực tiếp từ Công ty TNHH German Taste - đơn vị nhập khẩu chính ngạch các dòng bia Benediktiner và Bitburger từ Đức. Nguồn hàng luôn ổn định, đầy đủ chứng nhận chất lượng, hóa đơn VAT và giá gốc ưu đãi tối đa.',
+    question: 'Bia cho nhà hàng nhượng quyền lấy từ đâu?',
+    answer: 'Từ Công ty TNHH German Taste, đơn vị nhập khẩu chính ngạch Benediktiner và Bitburger từ Đức. Nhà hàng ký hợp đồng mua bia trực tiếp, hàng có giấy tờ nhập khẩu và hóa đơn VAT.',
   },
   {
-    question: 'Thời gian từ lúc ký hợp đồng đến khi khai trương mất bao lâu?',
-    answer: 'Thông thường quy trình thiết kế, thi công, lắp đặt trang thiết bị và đào tạo nhân sự hoàn thiện trong khoảng 30 đến 45 ngày tùy theo hiện trạng mặt bằng thực tế.',
+    question: 'Từ lúc ký hợp đồng đến khi khai trương mất bao lâu?',
+    answer: 'Thường khoảng 30 đến 45 ngày cho thiết kế, thi công, lắp thiết bị và đào tạo nhân sự. Mặt bằng cần sửa nhiều thì lâu hơn.',
   },
   {
-    question: 'Đối tác chưa có kinh nghiệm trong ngành F&B có thể tham gia nhượng quyền không?',
-    answer: 'Hoàn toàn được. Mô hình nhà hàng Bia Thầy Tu được chuẩn hóa toàn diện từ quy trình bếp, quản lý kho bia, đào tạo nhân viên phục vụ đến phần mềm quản lý, giúp đối tác dễ dàng vận hành dù chưa từng làm F&B.',
+    question: 'Chưa làm F&B bao giờ có nhận nhượng quyền được không?',
+    answer: 'Được. Quy trình bếp, quản lý kho bia, đào tạo nhân viên và phần mềm quản lý đều đã chạy thật ở nhà hàng mẫu, đối tác học theo từng bước.',
   },
 ] as const;
 
@@ -88,12 +88,12 @@ export default function FranchisePage() {
       <JsonLd
         type="article"
         data={getArticleSchema({
-          title: 'Nhượng quyền nhà hàng Bia Thầy Tu - Cơ hội đầu tư F&B đẳng cấp',
+          title: 'Nhượng quyền nhà hàng Bia Thầy Tu: Mô hình, hỗ trợ, các bước',
           slug: 'nhuong-quyen',
           url: 'https://www.biathaytu.com.vn/nhuong-quyen',
-          description: 'Hợp tác nhượng quyền chuỗi nhà hàng Bia Thầy Tu tại Hà Nội, TP.HCM và các thành phố lớn.',
+          description: 'Mở nhà hàng Bia Thầy Tu theo nhượng quyền tại Hà Nội, TP.HCM và các thành phố lớn.',
           datePublished: '2026-10-01',
-          dateModified: '2026-10-01',
+          dateModified: '2026-10-16',
         })}
       />
       <JsonLd
@@ -104,11 +104,11 @@ export default function FranchisePage() {
       <EditorialPage
         hero={{
           title: 'Nhượng quyền nhà hàng',
-          kicker: 'Cơ hội hợp tác đầu tư F&B',
-          lead: 'Đồng hành cùng đơn vị nhập khẩu chính ngạch, phát triển chuỗi nhà hàng bia tu viện Đức đẳng cấp và sinh lời bền vững tại Việt Nam.',
+          kicker: 'Hợp tác mở nhà hàng Bia Thầy Tu',
+          lead: 'Mở nhà hàng bia Đức theo mô hình đang chạy ở Ngõ 26 Vạn Phúc, bia lấy thẳng từ công ty nhập khẩu.',
           image: {
             src: '/images/brand/benediktiner-official/home-hero.jpg',
-            alt: 'Cội nguồn bia tu viện Benediktiner Đức và không gian nhượng quyền ẩm thực',
+            alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal',
             position: 'center center',
           },
         }}
@@ -118,96 +118,96 @@ export default function FranchisePage() {
 
         <Summary>
           <p>
-            <strong>Đón đầu xu hướng F&B văn minh:</strong> Người tiêu dùng Việt Nam ngày càng tìm kiếm những không gian ẩm thực có chiều sâu văn hóa, đồ uống cao cấp nhập khẩu chính ngạch và chất lượng phục vụ lịch thiệp. Chuỗi <strong>Nhà hàng Bia Thầy Tu</strong> mang đến mô hình kinh doanh F&B độc bản: Kết hợp di sản bia tu viện Đức hơn 400 năm với ẩm thực Bavaria đặc sắc, mở ra cơ hội đầu tư sinh lời vượt trội cho các đối tác nhượng quyền.
+            <strong>Mô hình đã có nhà hàng mẫu:</strong> Nhà hàng Bia Thầy Tu ở {COMPANY_CONFIG.showroomAddress} là nơi bên mình chạy mô hình trước khi nhượng quyền. Đối tác mở nhà hàng cùng tên, nhận công thức bếp, và lấy bia <strong>Benediktiner, Bitburger</strong> trực tiếp từ Công ty TNHH German Taste, đơn vị nhập khẩu. Chi phí và thời gian hoàn vốn tính riêng theo mặt bằng của từng đối tác, sau khi khảo sát.
           </p>
         </Summary>
 
-        <h2>Lợi thế khác biệt của mô hình Bia Thầy Tu</h2>
+        <h2>Đối tác nhận được gì</h2>
         <p>
-          Trở thành đối tác nhượng quyền của Bia Thầy Tu, bạn nắm trong tay những lợi thế cạnh tranh mà các mô hình F&B thông thường không thể có được:
+          Bốn điều đối tác có ngay từ đầu:
         </p>
         <InfoGrid
           columns={2}
           items={[
             {
-              title: 'Nguồn bia gốc từ đơn vị nhập khẩu',
-              text: 'Được bảo hộ nguồn cung cấp trực tiếp từ Công ty TNHH German Taste. Giá nhập hàng tận gốc không qua trung gian thương mại, đảm bảo biên lợi nhuận đồ uống luôn ở mức tối ưu.',
+              title: 'Bia lấy thẳng từ đơn vị nhập khẩu',
+              text: 'Benediktiner và Bitburger do Công ty TNHH German Taste nhập khẩu và giao thẳng cho nhà hàng, không qua đại lý trung gian. Có hóa đơn VAT.',
             },
             {
-              title: 'Thương hiệu di sản 400 năm',
-              text: 'Sức mạnh từ thương hiệu Benediktiner có nguồn gốc từ Tu viện Ettal (thành lập 1330). Câu chuyện lịch sử sâu sắc tạo niềm tin tuyệt đối cho khách hàng cao cấp và giới sành bia.',
+              title: 'Thương hiệu hơn 400 năm truyền thống',
+              text: 'Benediktiner ủ tại Lich, bang Hessen, theo công thức gốc của dòng Biển Đức, men lấy từ hầm tu viện Ettal (lập năm 1330). Nhân viên có sẵn câu chuyện để kể với khách tại bàn.',
             },
             {
-              title: 'Thị trường ngách ít cạnh tranh trực tiếp',
-              text: 'Tách biệt khỏi sự cạnh tranh gay gắt của các quán nhậu bình dân hay beer club ồn ào. Mô hình hướng đến giới trung lưu, doanh nhân, tiệc gia đình với giá trị đơn hàng trung bình cao.',
+              title: 'Khách tiếp đối tác và tiệc gia đình',
+              text: 'Mô hình nhắm tới khách văn phòng, doanh nhân và tiệc gia đình. Không cạnh tranh giá với quán nhậu bình dân hay beer club.',
             },
             {
-              title: 'Cơ sở mẫu tại Hà Nội chứng thực hiệu quả',
-              text: `Mô hình đã được thử nghiệm và vận hành thực tế tại cơ sở mẫu (${COMPANY_CONFIG.showroomAddress}), giúp quy trình hóa mọi mắt xích từ bếp, quầy bar đến dịch vụ khách hàng.`,
+              title: 'Nhà hàng mẫu ở Hà Nội',
+              text: `Quy trình bếp, quầy bar và phục vụ được làm thật tại ${COMPANY_CONFIG.showroomAddress} trước khi chuyển giao. Đối tác có thể ghé ăn như khách thường để xem tận nơi.`,
             },
           ]}
         />
 
-        <h2>Thị trường mục tiêu ưu tiên phát triển</h2>
+        <h2>Khu vực đang tìm đối tác</h2>
         <p>
-          Nhằm xây dựng mạng lưới chuỗi nhà hàng vững mạnh và đồng bộ, chúng tôi ưu tiên tìm kiếm đối tác hợp tác tại các khu vực trọng điểm:
+          Bên mình ưu tiên các khu vực sau:
         </p>
         <ul>
           <li>
-            <strong>Hà Nội và vùng kinh tế phía Bắc:</strong> Các quận Ba Đình, Cầu Giấy, Tây Hồ, Hoàn Kiếm, Đống Đa, Nam Từ Liêm, cũng như Hải Phòng, Quảng Ninh, Bắc Ninh.
+            <strong>Hà Nội và các tỉnh phía Bắc:</strong> Các quận Ba Đình, Cầu Giấy, Tây Hồ, Hoàn Kiếm, Đống Đa, Nam Từ Liêm, cùng Hải Phòng, Quảng Ninh, Bắc Ninh.
           </li>
           <li>
             <strong>TP. Hồ Chí Minh và Đông Nam Bộ:</strong> Quận 1, Quận 2 (Thảo Điền / An Phú), Quận 7, Bình Thạnh, TP. Thủ Đức, Bình Dương, Đồng Nai, Vũng Tàu.
           </li>
           <li>
-            <strong>Các thành phố du lịch và trung tâm kinh tế lớn:</strong> Đà Nẵng, Nha Trang, Cần Thơ, Buôn Ma Thuột.
+            <strong>Thành phố du lịch và trung tâm kinh tế:</strong> Đà Nẵng, Nha Trang, Cần Thơ, Buôn Ma Thuột.
           </li>
         </ul>
 
-        <h2>Hai mô hình nhượng quyền linh hoạt</h2>
+        <h2>Hai mô hình theo diện tích</h2>
         <p>
-          Tùy theo diện tích mặt bằng và quy mô vốn của nhà đầu tư, chúng tôi cung cấp hai định dạng kinh doanh tiêu chuẩn:
+          Chọn mô hình theo mặt bằng và số vốn:
         </p>
         <InfoGrid
           columns={2}
           items={[
             {
               title: 'Mô hình 1: Monastic Beer Bistro (80 - 150m²)',
-              text: 'Phù hợp với nhà phố trung tâm, shophouse khu đô thị mới. Không gian tập trung vào trải nghiệm bia chai, bia lon ướp lạnh, bia bom 5L và thực đơn món nhắm Âu gọn nhẹ. Vốn đầu tư linh hoạt, thu hồi vốn nhanh.',
+              text: 'Hợp nhà phố trung tâm, shophouse khu đô thị mới. Bán bia chai, lon, bom 5L và món nhắm Âu gọn. Vốn ban đầu thấp hơn mô hình 2.',
             },
             {
-              title: 'Mô hình 2: Bavarian Beer Garden & Restaurant (200 - 500m²+)',
-              text: 'Phù hợp mặt bằng biệt thự hoặc khu đất có sân vườn. Tích hợp không gian vườn bia thoáng đãng ngoài trời, quầy bar trung tâm và hệ thống phòng VIP tiếp khách riêng tư. Sản lượng tiêu thụ bia và doanh thu tiệc lớn.',
+              title: 'Mô hình 2: Beer Garden và nhà hàng (200 - 500m²+)',
+              text: 'Hợp biệt thự hoặc khu đất có sân vườn. Có vườn bia ngoài trời, quầy bar ở giữa và phòng riêng tiếp khách.',
             },
           ]}
         />
 
-        <h2>Gói hỗ trợ toàn diện từ thương hiệu</h2>
+        <h2>Bên mình hỗ trợ những gì</h2>
         <p>
-          Đối tác nhượng quyền được hỗ trợ trọn gói theo tiêu chuẩn chuyên nghiệp nhất:
+          Từ lúc chọn mặt bằng tới ngày khai trương:
         </p>
         <ul>
-          <li><strong>Khảo sát mặt bằng:</strong> Đánh giá vị trí, lưu lượng khách tiềm năng và phân tích tính khả thi tài chính.</li>
-          <li><strong>Thiết kế nhận diện:</strong> Cung cấp hồ sơ bản vẽ thiết kế 2D và 3D mang đậm phong cách Bavarian Brauhaus truyền thống.</li>
-          <li><strong>Đào tạo nhân sự:</strong> Khóa đào tạo chuẩn hóa cho quản lý, nhân viên phục vụ về văn hóa bia Đức, kỹ thuật rót bia Weizen và tư vấn món ăn.</li>
-          <li><strong>Chuyển giao công nghệ bếp:</strong> Định lượng nguyên vật liệu, công thức chế biến các món ăn đặc trưng của ẩm thực Đức - Âu.</li>
-          <li><strong>Hỗ trợ POSM chính hãng:</strong> Cung cấp ly Weizen thủy tinh chính hãng, tháp bia, lót ly, tạp dề, thực đơn in ấn tiêu chuẩn cao cấp.</li>
-          <li><strong>Marketing và truyền thông:</strong> Hỗ trợ kế hoạch truyền thông ngày khai trương, định vị thương hiệu trên các nền tảng số và bản đồ ẩm thực.</li>
+          <li><strong>Khảo sát mặt bằng:</strong> Xem vị trí, lượng khách qua lại và tính thử bài toán tài chính.</li>
+          <li><strong>Thiết kế nhận diện:</strong> Bản vẽ 2D và 3D theo kiểu Brauhaus Đức.</li>
+          <li><strong>Đào tạo nhân sự:</strong> Đào tạo quản lý và nhân viên phục vụ về bia Đức, cách rót bia Weizen và cách gợi ý món cho khách.</li>
+          <li><strong>Chuyển giao công thức bếp:</strong> Định lượng nguyên liệu và công thức các món Đức, món Âu trong thực đơn.</li>
+          <li><strong>Vật dụng có logo hãng:</strong> Ly Weizen thủy tinh chính hãng, tháp bia, lót ly, tạp dề, thực đơn in sẵn.</li>
+          <li><strong>Truyền thông:</strong> Kế hoạch truyền thông ngày khai trương, đưa nhà hàng lên Google Maps và các trang đánh giá món ăn.</li>
         </ul>
 
-        <h2>Quy trình 6 bước hợp tác nhượng quyền</h2>
+        <h2>Sáu bước từ đăng ký tới khai trương</h2>
         <StepList steps={franchiseSteps} />
 
-        <h2>Đăng ký tư vấn đầu tư nhượng quyền</h2>
+        <h2>Đăng ký tư vấn nhượng quyền</h2>
         <p>
-          Hãy để lại thông tin để nhận hồ sơ năng lực dự án, bảng dự toán doanh thu chi tiết và xếp lịch hẹn làm việc trực tiếp với ban lãnh đạo:
+          Để lại thông tin, bên mình gửi hồ sơ dự án, bảng dự toán doanh thu và hẹn lịch gặp trực tiếp ban lãnh đạo.
         </p>
 
         <FranchiseConsultationForm />
 
         <CtaBand
-          title="Kết nối trực tiếp ban phát triển dự án"
-          text={<>Trao đổi bảo mật về cơ hội đầu tư và hợp tác kinh doanh chuỗi nhà hàng Bia Thầy Tu tại Việt Nam. Hotline ưu tiên: {COMPANY_CONFIG.hotline}.</>}
+          title="Gọi thẳng ban phát triển dự án"
+          text={<>Trao đổi riêng về mặt bằng, số vốn và mô hình hợp với anh chị. Hotline: {COMPANY_CONFIG.hotline}.</>}
           action={{ href: telHref, label: 'Gọi hotline dự án' }}
           secondary={{ href: zaloUrl, label: 'Nhắn tin Zalo' }}
         />

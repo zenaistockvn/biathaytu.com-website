@@ -157,7 +157,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
 
           <div>
             <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Đang gửi yêu cầu…' : 'Gửi yêu cầu tư vấn'}
+              {status === 'submitting' ? 'Đang gửi yêu cầu...' : 'Gửi yêu cầu tư vấn'}
             </button>
           </div>
         </form>

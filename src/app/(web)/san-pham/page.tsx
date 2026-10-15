@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.biathaytu.com.vn/san-pham' },
   openGraph: {
     title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
-    description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
+    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít và giá bán lẻ.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/san-pham',
     images: [{
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
-    description: 'Khám phá Benediktiner, Bitburger và danh mục bia Đức tuyển chọn tại German Taste.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít và giá bán lẻ.',
+    images:['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
 
@@ -62,7 +62,7 @@ const SECTION_COPY: Record<LineGroup, { kicker: string; lead: string }> = {
   },
   selected: {
     kicker: 'Bitburger và các dòng bổ sung',
-    lead: 'Benediktiner vẫn là danh mục chính của Bia Thầy Tu. Các sản phẩm tại đây là lựa chọn bổ sung cho người yêu bia Đức và nhu cầu HORECA.',
+    lead: 'Bitburger Premium Pils cho người thích bia đắng, khô hơn bia lúa mì, cùng vài dòng bia Đức khác German Taste nhập thêm.',
   },
 };
 
@@ -111,7 +111,7 @@ export default function ProductsPage() {
         title="Bia của chúng tôi"
         kicker="Benediktiner và bia Đức tuyển chọn"
       >
-        <p>Naturtrüb, Dunkel, Festbier cùng Bitburger và những dòng bia Đức bổ sung được German Taste lựa chọn.</p>
+        <p>Ba dòng Benediktiner: Naturtrüb vàng đục, Dunkel nâu, Festbier mùa lễ hội. Thêm Bitburger và vài dòng bia Đức khác do German Taste nhập.</p>
       </PhotoHero>
 
       <p className={styles.note}>
@@ -125,10 +125,10 @@ export default function ProductsPage() {
       <section className={styles.help} aria-labelledby="catalog-help-title">
         <div className={`container ${styles.helpInner}`}>
           <TitleBlock id="catalog-help-title" title="Cho nhà hàng" kicker="HORECA và đại lý" />
-          <p>Tư vấn sản phẩm, quy cách, chính sách và giải pháp phục vụ nhà hàng, khách sạn, pub, beer club hoặc đại lý tỉnh.</p>
+          <p>Nhà hàng, khách sạn, pub hay đại lý tỉnh cần giá sỉ, quy cách két, bom hoặc hoá đơn VAT: Gọi hoặc nhắn để bên mình báo giá.</p>
           <div className={styles.helpActions}>
             <Button href="/lien-he" variant="primary">Liên hệ tư vấn</Button>
-            <Button href="/bia-duc-cho-nha-hang-khach-san" variant="link">Giải pháp HORECA</Button>
+            <Button href="/bia-duc-cho-nha-hang-khach-san" variant="link">Bia cho nhà hàng</Button>
           </div>
         </div>
       </section>

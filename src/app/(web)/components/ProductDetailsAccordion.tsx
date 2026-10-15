@@ -29,16 +29,16 @@ export default function ProductDetailsAccordion({
       return "Benediktiner được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal. Tu viện Ettal ở Bavaria có từ năm 1330.";
     }
     if (isWine) {
-      return "Các dòng vang Đức trên Bia Thầy Tu được tuyển chọn từ những nhà sản xuất thuộc vùng Rheinhessen, nổi bật với phong cách Riesling, Sauvignon Blanc và Spätburgunder giàu tính khoáng, acid cân bằng và hương vị thanh lịch.";
+      return "Vang Đức trên Bia Thầy Tu đến từ các điền trang vùng Rheinhessen, gồm Riesling, Sauvignon Blanc và Spätburgunder.";
     }
-    return "Sản phẩm được tuyển chọn kỹ lưỡng để mang đến trải nghiệm hương vị Đức nguyên bản và chất lượng cao cho người thưởng thức.";
+    return "Hàng nhập khẩu từ Đức, do Công ty TNHH German Taste phân phối tại Việt Nam. Cần thông số chi tiết, anh chị nhắn Zalo hoặc gọi hotline.";
   };
 
   const storageItems = isWine
       ? [
           'Bảo quản chai ở nơi khô ráo, tránh ánh nắng trực tiếp và nguồn nhiệt mạnh.',
-          'Vang trắng nên được làm mát trước khi thưởng thức; vang đỏ nên phục vụ ở nhiệt độ phù hợp với từng phong cách.',
-          'Sau khi mở chai, nên bảo quản lạnh và sử dụng trong thời gian hợp lý để giữ hương vị.',
+          'Riesling, Sauvignon Blanc uống ở 8 - 10 °C; Spätburgunder 14 - 16 °C.',
+          'Đã mở chai thì đậy nút, để tủ lạnh và dùng sớm để giữ mùi.',
         ]
       : [
           'Bảo quản ở nơi khô ráo, thoáng mát, tránh tiếp xúc trực tiếp với ánh nắng mặt trời.',
@@ -54,8 +54,8 @@ export default function ProductDetailsAccordion({
         ]
       : [
           'Nhiệt độ phục vụ: Pilsner 4-6 °C, Weissbier 7-9 °C, Dunkel 8-10 °C, Festbier 6-8 °C.',
-          'Không dùng đá để tránh làm loãng cấu trúc và hương vị của bia.',
-          'Sử dụng ly sạch, phù hợp với phong cách bia để giữ bọt và hương thơm tốt hơn.',
+          'Không thêm đá: Đá tan làm loãng bia.',
+          'Dùng ly sạch, đúng kiểu bia (ly Weizen cho bia lúa mì) để giữ bọt và mùi thơm.',
           'Với Weissbier: Rót nghiêng ly 45°, sau đó xoay nhẹ phần bia cuối chai để hòa lớp men tự nhiên trước khi rót nốt.',
         ];
 
@@ -75,7 +75,7 @@ export default function ProductDetailsAccordion({
     if (lowerName.includes('bitburger') || lowerName.includes('pils')) {
       return ['Gà nướng', 'Xúc xích Đức', 'Các món chiên hoặc BBQ'];
     }
-    return ['Pretzel và phô mai', 'Hải sản hấp hoặc nướng', 'Xúc xích trắng và các món Bavaria'];
+    return ['Pretzel và phô mai', 'Hải sản hấp hoặc nướng', 'Xúc xích trắng và món Đức'];
   })();
 
   const accessorySections = [
@@ -98,9 +98,9 @@ export default function ProductDetailsAccordion({
 
   const sections = isAccessory ? accessorySections : [
     { id: 'story', title: 'Câu chuyện sản phẩm', content: <p>{getStory()}</p> },
-    { id: 'pairing', title: 'Gợi ý Food Pairing', content: <ul>{pairingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'pairing', title: 'Món ăn kèm', content: <ul>{pairingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
     { id: 'storage', title: 'Hướng dẫn bảo quản', content: <ul>{storageItems.map((item) => <li key={item}>{item}</li>)}</ul> },
-    { id: 'drink', title: 'Cách thưởng thức', content: <ul>{servingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
+    { id: 'drink', title: 'Cách uống', content: <ul>{servingItems.map((item) => <li key={item}>{item}</li>)}</ul> },
   ];
 
   return (
