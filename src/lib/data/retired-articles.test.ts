@@ -22,9 +22,9 @@ function getRetiredArticlesConfig(): Record<string, string> {
 }
 
 describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
-  it('cấu hình có đủ 29 bài đã gỡ/gộp (09/2026: 3 bài xúc xích The Wurst, 7 bài trùng đề tài hoặc quá mỏng)', () => {
+  it('cấu hình có đủ 34 bài đã gỡ/gộp (09/2026: 29 bài; 16/10/2026: gộp thêm 5 bài trùng chủ đề)', () => {
     const retiredArticles = getRetiredArticlesConfig();
-    expect(Object.keys(retiredArticles).length).toBe(29);
+    expect(Object.keys(retiredArticles).length).toBe(34);
   });
 
   it('các bài đã gỡ/gộp không còn xuất hiện trên mọi bề mặt public và có redirect 301 hợp lệ', async () => {
@@ -73,8 +73,8 @@ describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
     }
   });
 
-  it('số lượng bài viết public sau khi gộp đúng bằng 13', () => {
-    expect(getPublishedArticles().length).toBe(13);
+  it('số lượng bài viết public sau khi gộp đúng bằng 8 (16/10/2026)', () => {
+    expect(getPublishedArticles().length).toBe(8);
   });
 
   it('đích redirect không phải bài đã gỡ (không tạo chuỗi redirect)', () => {

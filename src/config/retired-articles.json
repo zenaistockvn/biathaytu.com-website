@@ -14,7 +14,7 @@
   "nghe-thuat-rot-bia-lua-mi-benediktiner": "/huong-dan-rot-bia-lua-mi",
   "kham-pha-tu-vien-ettal-cong-thuc-bia-400-nam": "/kien-thuc/nguon-goc-bia-thay-tu-tu-vien-ettal",
   "bia-thay-tu-la-gi-giai-dap-thac-mac": "/bia-thay-tu-la-gi",
-  "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub": "/kien-thuc/phan-biet-weissbier-dunkel-festbier",
+  "su-khac-biet-giua-bia-den-dunkel-va-bia-vang-naturtrub": "/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi",
   "nghe-thuat-food-pairing-cung-bia-duc": "/food-pairing-bia-duc",
   "ket-hop-bia-duc-va-am-thuc-duong-dai": "/food-pairing-bia-duc",
   "nghe-thuat-chon-bia-nguoi-truong-thanh": "/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi",
@@ -27,5 +27,10 @@
   "food-pairing-bia-thay-tu-va-am-thuc": "/food-pairing-bia-duc",
   "nghe-thuat-rot-bia-lua-mi-weizen-dung-chuan": "/huong-dan-rot-bia-lua-mi",
   "bia-khong-con-bitburger-0-0-lua-chon-dang-cap": "/san-pham/bitburger-00-alkoholfrei-ket-24-lon-330ml",
-  "giai-thuong-itqi-3-sao-benediktiner-weissbier": "/benediktiner-weissbier-naturtrub"
+  "giai-thuong-itqi-3-sao-benediktiner-weissbier": "/benediktiner-weissbier-naturtrub",
+  "phan-biet-weissbier-dunkel-festbier": "/kien-thuc/huong-dan-chon-bia-duc-cho-nguoi-moi",
+  "bia-den-tu-vien-benediktiner-dunkel-mach-nha-rang-caramel": "/benediktiner-dunkel",
+  "su-that-ve-lop-men-van-duc-naturtrub": "/benediktiner-weissbier-naturtrub",
+  "ly-uong-bia-lua-mi-weizen-glass": "/huong-dan-rot-bia-lua-mi",
+  "su-tran-trong-nguyen-ban-bia-giao-thoa": "/kien-thuc/dao-luat-tinh-khiet-1516-reinheitsgebot"
 }
