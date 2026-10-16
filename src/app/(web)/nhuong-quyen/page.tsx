@@ -102,7 +102,7 @@ export default function FranchisePage() {
 
         <Summary>
           <p>
-            <strong>Nhà hàng mẫu:</strong> Nhà hàng Bia Thầy Tu ở {COMPANY_CONFIG.showroomAddress} là mô hình bên mình đang vận hành. Đối tác muốn mở nhà hàng cùng tên thì để lại thông tin, bên mình liên hệ trao đổi. Bia <strong>Benediktiner, Bitburger</strong> lấy trực tiếp từ Công ty TNHH German Taste, đơn vị nhập khẩu.
+            <strong>Nhà hàng mẫu:</strong> Nhà hàng Bia Thầy Tu ở {COMPANY_CONFIG.showroomAddress} là mô hình bên mình đang vận hành. Đối tác có thể mở nhà hàng trong nhà hoặc nhà hàng có vườn bia (Beer Garden), German Taste cung cấp bia cho cả hai mô hình. Để lại thông tin, bên mình liên hệ trao đổi. Bia <strong>Benediktiner, Bitburger</strong> lấy trực tiếp từ Công ty TNHH German Taste, đơn vị nhập khẩu.
           </p>
         </Summary>
 

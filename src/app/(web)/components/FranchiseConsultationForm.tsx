@@ -166,8 +166,8 @@ export default function FranchiseConsultationForm() {
               onChange={(e) => setModel(e.target.value)}
               className={styles.select}
             >
-              <option value="Monastic Beer Bistro (80 - 150m²)">Nhà hàng quy mô nhỏ</option>
-              <option value="Grand Bavarian Beer Garden (200 - 500m²)">Nhà hàng quy mô lớn</option>
+              <option value="Monastic Beer Bistro (80 - 150m²)">Nhà hàng trong nhà</option>
+              <option value="Grand Bavarian Beer Garden (200 - 500m²)">Nhà hàng có vườn bia (Beer Garden)</option>
               <option value="Cần tư vấn mô hình tối ưu">Chưa chọn, cần tư vấn</option>
             </select>
           </div>
