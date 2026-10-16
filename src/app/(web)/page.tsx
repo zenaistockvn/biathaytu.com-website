@@ -82,7 +82,7 @@ const faqItems = [
   },
   {
     question: 'Bia Thầy Tu có nhà hàng không?',
-    answer: `Có. Nhà hàng Bia Thầy Tu ở ${COMPANY_CONFIG.showroomAddress}, mở ${COMPANY_CONFIG.restaurantHours} mỗi ngày. Có món Đức như chân giò, xúc xích kiểu Đức và phòng riêng tầng 2.`,
+    answer: `Có. Nhà hàng Bia Thầy Tu ở ${COMPANY_CONFIG.showroomAddress}, mở ${COMPANY_CONFIG.restaurantHours} mỗi ngày. Có món Đức như chân giò, xúc xích và có phòng riêng.`,
   },
   {
     question: 'Nhượng quyền nhà hàng Bia Thầy Tu ưu tiên khu vực nào?',
@@ -186,7 +186,7 @@ export default function LandingPage() {
         kicker="Ngõ 26 Vạn Phúc, Hà Nội"
         action={{ href: NAV.restaurant.href, label: 'Xem nhà hàng' }}
       >
-        <p>Nhà hàng của German Taste ở {COMPANY_CONFIG.showroomAddress}, mở {COMPANY_CONFIG.restaurantHours}. Bia Benediktiner rót ly Weizen, ăn cùng chân giò nướng giòn, xúc xích kiểu Đức hoặc sườn nướng. Tầng 2 có phòng riêng 10 - 12 chỗ cho bàn tiếp khách.</p>
+        <p>Nhà hàng của German Taste ở {COMPANY_CONFIG.showroomAddress}, mở {COMPANY_CONFIG.restaurantHours}. Bia Benediktiner rót ly Weizen, ăn cùng chân giò nướng giòn, xúc xích kiểu Đức hoặc sườn nướng. Nhà hàng có 3 tầng, có phòng riêng cho bàn tiếp khách.</p>
         <p>Nhà hàng này cũng là mẫu để nhượng quyền tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn.</p>
         <dl className={styles.facts}>
           <div><dt>Ngõ 26 Vạn Phúc</dt><dd>Nhà hàng mẫu tại Hà Nội</dd></div>
