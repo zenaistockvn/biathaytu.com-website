@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './fonts.css';
 
 // Theo web chính hãng benediktiner-weissbier.de: Copperplate cho tiêu đề, Barlow Condensed cho chữ.
@@ -41,7 +42,10 @@ export default function RootLayout({
 
   return (
     <html lang="vi" suppressHydrationWarning className={`${barlow.variable} ${barlowCondensed.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
