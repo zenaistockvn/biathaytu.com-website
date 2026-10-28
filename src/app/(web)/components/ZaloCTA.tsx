@@ -9,15 +9,8 @@ interface ZaloCTAProps {
   variant?: 'gold' | 'outline';
 }
 
-export default function ZaloCTA({ productName, className = '', label = 'Mở Zalo', variant = 'gold' }: ZaloCTAProps) {
-  const zaloBaseUrl = getCompanyZaloUrl();
-  const defaultMessage = productName
-    ? `Chào Bia Thầy Tu, mình muốn được tư vấn về sản phẩm ${productName}`
-    : 'Chào Bia Thầy Tu, mình muốn được tư vấn về các sản phẩm bia Đức';
-
-  const zaloUrl = zaloBaseUrl
-    ? `${zaloBaseUrl}?text=${encodeURIComponent(defaultMessage)}`
-    : '/lien-he';
+export default function ZaloCTA({ className = '', label = 'Mở Zalo', variant = 'gold' }: ZaloCTAProps) {
+  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
 
   // Dùng chung kiểu nút của site (xem Button.tsx); 'gold' giữ tên cũ cho các chỗ gọi hiện có.
   const variantClass = variant === 'outline' ? 'btn-outline' : 'btn-primary';

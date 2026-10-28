@@ -4,16 +4,14 @@ import { FormEvent, useState } from 'react';
 import { COMPANY_CONFIG, getCompanyZaloUrl } from '@/config/company';
 import styles from './ProductConsultationForm.module.css';
 
-interface ProductConsultationFormProps {
-  productName: string;
-}
-
-export default function ProductConsultationForm({ productName }: ProductConsultationFormProps) {
+export default function ProductConsultationForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState('');
-  const [content, setContent] = useState(`Tôi muốn được tư vấn về ${productName}.`);
+  const [content, setContent] = useState('');
+  const [interest, setInterest] = useState('');
+  const [region, setRegion] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [feedback, setFeedback] = useState('');
   const [errorField, setErrorField] = useState<string | null>(null);
@@ -30,7 +28,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
       const response = await fetch('/api/consultation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email, content, productName, page: window.location.pathname, website }),
+        body: JSON.stringify({ name, phone, email, content: `Nhu cầu: ${interest}\nKhu vực: ${region}\n${content}`, productName: interest, page: window.location.pathname, website }),
       });
       const result = await response.json().catch(() => null) as {
         message?: string;
@@ -59,17 +57,17 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
 
   return (
     <section
-      id="tu-van-san-pham"
-      aria-labelledby="tu-van-san-pham-title"
+      id="dang-ky-hop-tac"
+      aria-labelledby="dang-ky-hop-tac-title"
       className={styles.section}
     >
       <div className={styles.inner}>
-        <span className="section-label">Tư Vấn Sản Phẩm</span>
-        <h2 id="tu-van-san-pham-title" className={`section-title ${styles.title}`}>
-          Để lại thông tin tư vấn
+        <span className="section-label">Hợp tác phân phối</span>
+        <h2 id="dang-ky-hop-tac-title" className={`section-title ${styles.title}`}>
+          Đăng ký hợp tác
         </h2>
         <p className={styles.lead}>
-          Gửi thông tin để đội ngũ Bia Thầy Tu tư vấn thêm về {productName}. Biểu mẫu này không tạo đơn hàng và không thu thập thông tin thanh toán.
+          Anh chị để lại thông tin nếu muốn làm đại lý, nhà phân phối hoặc phát triển hệ thống cùng Bia Thầy Tu.
         </p>
 
         <form onSubmit={handleSubmit} aria-busy={status === 'submitting'} className={styles.form}>
@@ -128,8 +126,26 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
             />
           </label>
 
+          <div className={styles.pair}>
+            <label className={styles.field}>
+              <span>Nhu cầu hợp tác <span aria-hidden="true">*</span></span>
+              <select name="interest" required value={interest} onChange={(event) => setInterest(event.target.value)} className={styles.input}>
+                <option value="">Chọn nhu cầu</option>
+                <option value="Đại lý">Đại lý</option>
+                <option value="Nhà phân phối">Nhà phân phối</option>
+                <option value="Phát triển hệ thống">Phát triển hệ thống</option>
+                <option value="Nhà hàng, khách sạn">Nhà hàng, khách sạn</option>
+                <option value="Hợp tác khác">Hợp tác khác</option>
+              </select>
+            </label>
+            <label className={styles.field}>
+              <span>Tỉnh, thành phố <span aria-hidden="true">*</span></span>
+              <input name="region" required value={region} onChange={(event) => setRegion(event.target.value)} className={styles.input} />
+            </label>
+          </div>
+
           <label className={styles.field}>
-            <span>Nội dung cần tư vấn <span aria-hidden="true">*</span></span>
+            <span>Thông tin về đơn vị và nhu cầu hợp tác <span aria-hidden="true">*</span></span>
             <textarea
               name="content"
               rows={4}
@@ -157,7 +173,7 @@ export default function ProductConsultationForm({ productName }: ProductConsulta
 
           <div>
             <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Đang gửi yêu cầu...' : 'Gửi yêu cầu tư vấn'}
+              {status === 'submitting' ? 'Đang gửi yêu cầu...' : 'Gửi đăng ký hợp tác'}
             </button>
           </div>
         </form>

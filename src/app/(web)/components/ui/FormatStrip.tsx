@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatPrice } from '@/utils/formatPrice';
 import { getDisplayProductImage } from '../../utils/productImages';
 import { getLineForName } from '@/config/productLines';
 import styles from './FormatStrip.module.css';
@@ -43,7 +42,6 @@ export default function FormatStrip({ products }: { products: FormatProduct[] })
               </span>
               {mixedLines ? <span className={styles.line}>{lineOf(product)?.short ?? product.name}</span> : null}
               <span className={styles.label}>{formatLabel(product)}</span>
-              {product.price ? <span className={styles.price}>{formatPrice(product.price)}</span> : null}
             </Link>
           </li>
         );

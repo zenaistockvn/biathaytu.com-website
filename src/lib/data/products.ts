@@ -94,6 +94,8 @@ function mergeStorefrontProducts(products: Product[]): Product[] {
     const slug = RENAMED_PRODUCT_SLUGS[product.slug] ?? product.slug;
     const item = {
       ...product,
+      // Website phân phối: không truyền giá nội bộ ra dữ liệu công khai.
+      price: null,
       slug,
       images: resolveProductImages(product.images),
       description: sanitizeProductDescription(toBrochureMetadataCopy(product.description) || product.description),

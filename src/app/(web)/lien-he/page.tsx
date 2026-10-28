@@ -1,4 +1,4 @@
-import ZaloCTA from '../components/ZaloCTA';
+import Link from 'next/link';
 import JsonLd, { getBreadcrumbSchema } from '../components/JsonLd';
 import { COMPANY_CONFIG, getCompanyMailtoHref, getCompanyTelHref } from '@/config/company';
 import type { Metadata } from 'next';
@@ -49,7 +49,7 @@ export default function ContactPage() {
         tone="light"
         eyebrow="Liên hệ"
         title="Kết nối với chúng tôi"
-        lead="Đội ngũ tư vấn luôn sẵn sàng về các dòng bia, hỗ trợ đại lý hoặc cung cấp cho sự kiện."
+        lead="Liên hệ Bia Thầy Tu hoặc đăng ký hợp tác phân phối."
       />
 
       <div className={styles.body}>
@@ -83,17 +83,11 @@ export default function ContactPage() {
           </section>
 
           <section className={styles.panel} data-surface="ink" aria-labelledby="contact-help-title">
-            <TitleBlock id="contact-help-title" as="h2" size="h3" title="Bạn cần hỗ trợ gì?" />
-            <p className={styles.panelText}>Chọn nhu cầu bên dưới để mở Zalo với lời nhắn soạn sẵn; chúng tôi phản hồi trong khoảng 30 phút.</p>
+            <TitleBlock id="contact-help-title" as="h2" size="h3" title="Hợp tác cùng Bia Thầy Tu" />
+            <p className={styles.panelText}>Anh chị quan tâm làm đại lý, nhà phân phối hoặc phát triển hệ thống có thể để lại thông tin để chúng tôi liên hệ.</p>
             <div className={styles.actions}>
-              <ZaloCTA label="Tư vấn dòng bia phù hợp" productName="Tư vấn sản phẩm" />
-              <ZaloCTA label="Báo giá sỉ / Đại lý" productName="Báo giá sỉ / Đại lý" variant="outline" />
-              <ZaloCTA label="Cung cấp cho sự kiện / nhà hàng" productName="Cung cấp sự kiện / nhà hàng" variant="outline" />
-              <ZaloCTA label="Câu hỏi khác" variant="outline" />
+              <Link href="/bang-gia-si-dai-ly#dang-ky-hop-tac" className="btn-primary">Đăng ký hợp tác</Link>
             </div>
-            <p className={styles.panelText}>
-              Hoặc gọi trực tiếp {telHref ? <a href={telHref}>{COMPANY_CONFIG.hotline}</a> : COMPANY_CONFIG.hotline}
-            </p>
           </section>
         </div>
       </div>

@@ -28,13 +28,13 @@ describe('public product data regressions', () => {
     expect(productsPage).not.toContain("getProductsByCategory('vang')");
   });
 
-  it('shows the approved retail price without promotional styling', () => {
+  it('keeps product cards free of public retail pricing', () => {
     const productsPage = readProjectFile('src/app/(web)/san-pham/page.tsx');
     const productCard = readProjectFile('src/app/(web)/components/ProductCard.tsx');
 
     expect(productsPage).not.toContain('highlightLabel');
-    expect(productCard).toContain('formatPrice');
-    expect(productCard).toContain('Giá bán lẻ');
+    expect(productCard).not.toContain('formatPrice');
+    expect(productCard).not.toContain('Giá bán lẻ');
     expect(productCard).not.toContain('card-price-current');
     expect(productCard).toContain('Xem sản phẩm');
   });

@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
@@ -32,9 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const telHref = getCompanyTelHref() ?? '/lien-he';
-  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
-
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Bia Đức cho nhà hàng, khách sạn', slug: 'bia-duc-cho-nha-hang-khach-san', url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san', description: 'Cung cấp bia Đức sỉ cho nhà hàng, khách sạn.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
@@ -74,10 +70,9 @@ export default function Page() {
         </ul>
 
         <CtaBand
-          title="Nhận báo giá sỉ"
-          text={<>Bên mình gọi lại trong vòng 2 giờ làm việc. Xem chi tiết <Link href="/bang-gia-si-dai-ly">chính sách giá sỉ cho đại lý</Link>.</>}
-          action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
-          secondary={{ href: telHref, label: 'Gọi hotline HORECA' }}
+          title="Hợp tác cùng Bia Thầy Tu"
+          text="Nhà hàng, khách sạn và đối tác phân phối có thể để lại thông tin để trao đổi."
+          action={{ href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' }}
         />
       </EditorialPage>
     </>

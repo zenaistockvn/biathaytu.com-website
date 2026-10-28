@@ -11,6 +11,7 @@ export const COMPANY_CONFIG = {
   showroomGeo: { latitude: 21.0334126, longitude: 105.8178728 },
   legalRepresentative: 'PHẠM THANH TUYỀN',
   hotline: '0915 31 21 66',
+  zaloOaUrl: 'https://zalo.me/632451641196018467',
   email: 'info@biathaytu.com.vn',
   /** Giờ hỗ trợ hotline / Zalo hàng ngày, khớp Google Business Profile (chủ dự án chốt 09/10/2026). Một nguồn cho mọi trang. */
   supportHours: '8:00 - 22:00',
@@ -42,7 +43,5 @@ export function getCompanyMailtoHref(): string | null {
 }
 
 export function getCompanyZaloUrl(): string | null {
-  if (isPendingCompanyValue(COMPANY_CONFIG.hotline)) return null;
-  const digits = COMPANY_CONFIG.hotline.replace(/\D/g, '');
-  return digits ? `https://zalo.me/${digits}` : null;
+  return COMPANY_CONFIG.zaloOaUrl || null;
 }

@@ -67,9 +67,9 @@ export default function Page() {
         <p>Các quy cách chai, lon, bom đang bán có trong <Link href="/san-pham">danh mục Benediktiner</Link>.</p>
 
         <CtaBand
-          title="Hỏi trước khi đặt"
-          text="Gọi hoặc nhắn Bia Thầy Tu nếu anh chị muốn xem nhãn phụ, hạn dùng hoặc hoá đơn trước khi đặt hàng."
-          action={{ href: '/lien-he', label: 'Liên hệ tư vấn' }}
+          title="Hợp tác phân phối"
+          text="Đại lý và nhà phân phối có thể để lại thông tin để trao đổi về sản phẩm."
+          action={{ href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' }}
         />
       </EditorialPage>
     </>

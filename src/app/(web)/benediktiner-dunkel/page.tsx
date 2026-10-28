@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
-import { getPriceRange } from '@/lib/seo/productPricing';
 import { getLineProducts } from '@/lib/data/products';
-import { getLineForName } from '@/config/productLines';
-import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
@@ -34,7 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.category === 'bia' && getLineForName(p.name)?.id === 'dunkel');
   const product = {
     name: 'Benediktiner Dunkel',
     slug: 'benediktiner-dunkel',
@@ -45,14 +41,11 @@ export default function Page() {
     images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp'],
   };
 
-  const zaloBaseUrl = getCompanyZaloUrl();
-  const msgOrder = 'Chào Bia Thầy Tu, mình muốn được tư vấn về bia đen lúa mì Benediktiner Dunkel.';
-  const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
   const formats = getLineProducts('dunkel');
 
   return (
     <>
-      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
+      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: '/benediktiner-dunkel', label: 'Benediktiner Dunkel' }))} />
 
       <ProductStory
@@ -77,7 +70,7 @@ export default function Page() {
             </>
           ),
           actions: [
-            { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
+            { href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' },
             { href: '/san-pham#benediktiner', label: 'Xem các quy cách' },
           ],
         }}
@@ -136,10 +129,10 @@ export default function Page() {
           ],
         }}
         cta={{
-          title: 'Liên hệ tư vấn',
-          kicker: 'Tư vấn qua Zalo',
-          text: 'Có thùng 12 chai, thùng 12 lon và két 24 lon 500ml, nhập khẩu từ Đức. Nhắn Zalo để hỏi giá và điểm nhận hàng.',
-          action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
+          title: 'Hợp tác phân phối',
+          kicker: 'Đại lý và nhà phân phối',
+          text: 'Có thùng 12 chai, thùng 12 lon và két 24 lon 500ml, nhập khẩu từ Đức. Đăng ký hợp tác để trao đổi về phân phối.',
+          action: { href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' },
         }}
       />
     </>

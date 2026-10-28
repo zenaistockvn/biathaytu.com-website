@@ -13,11 +13,11 @@ import { BEER_LINES, LINE_GROUPS, getLineForName, packFormatOf, type LineGroup }
 
 export const metadata: Metadata = {
   title: 'Benediktiner và bia Đức tuyển chọn',
-  description: 'Benediktiner là danh mục chính, bên cạnh Bitburger và các dòng bia Đức được German Taste tuyển chọn. Xem hương vị, quy cách và giá bán lẻ.',
+  description: 'Benediktiner là danh mục chính, bên cạnh Bitburger và các dòng bia Đức được German Taste tuyển chọn. Xem hương vị, quy cách.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/san-pham' },
   openGraph: {
     title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
-    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít và giá bán lẻ.',
+    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít.',
     type: 'website',
     url: 'https://www.biathaytu.com.vn/san-pham',
     images: [{
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
-    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít và giá bán lẻ.',
+    description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít.',
     images:['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
   },
 };
@@ -116,7 +116,7 @@ export default function ProductsPage() {
 
       <p className={styles.note}>
         <span className="container">
-          Website giới thiệu sản phẩm và cung cấp thông tin tư vấn; không thực hiện đặt hàng hoặc thanh toán trực tuyến.
+          Website giới thiệu thương hiệu và sản phẩm; không thực hiện đặt hàng hoặc thanh toán trực tuyến.
         </span>
       </p>
 
@@ -125,9 +125,9 @@ export default function ProductsPage() {
       <section className={styles.help} aria-labelledby="catalog-help-title">
         <div className={`container ${styles.helpInner}`}>
           <TitleBlock id="catalog-help-title" title="Cho nhà hàng" kicker="HORECA và đại lý" />
-          <p>Nhà hàng, khách sạn, pub hay đại lý tỉnh cần giá sỉ, quy cách két, bom hoặc hoá đơn VAT: Gọi hoặc nhắn để bên mình báo giá.</p>
+          <p>Anh chị muốn làm đại lý, phân phối hoặc đưa sản phẩm vào nhà hàng, khách sạn có thể để lại thông tin hợp tác.</p>
           <div className={styles.helpActions}>
-            <Button href="/lien-he" variant="primary">Liên hệ tư vấn</Button>
+            <Button href="/bang-gia-si-dai-ly#dang-ky-hop-tac" variant="primary">Đăng ký hợp tác</Button>
             <Button href="/bia-duc-cho-nha-hang-khach-san" variant="link">Bia cho nhà hàng</Button>
           </div>
         </div>

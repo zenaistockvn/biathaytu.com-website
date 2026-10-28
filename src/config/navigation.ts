@@ -19,9 +19,9 @@ export const NAV = {
   enjoy: { href: '/huong-dan-rot-bia-lua-mi', label: 'Thưởng thức' },
   knowledge: { href: '/kien-thuc', label: 'Kiến thức' },
   horeca: { href: '/bia-duc-cho-nha-hang-khach-san', label: 'HORECA và đại lý' },
-  // "Liên hệ" dành cho nút mở bảng kênh (Zalo, gọi, Messenger); trang /lien-he là showroom.
+  // "Liên hệ" dành cho nút mở bảng kênh (Zalo OA, gọi); trang /lien-he là showroom.
   contact: { href: '/lien-he', label: 'Showroom' },
-  priceList: { href: '/bang-gia-si-dai-ly', label: 'Bảng giá sỉ' },
+  priceList: { href: '/bang-gia-si-dai-ly', label: 'Hợp tác phân phối' },
   gifts: { href: '/qua-tang-bia-duc', label: 'Quà tặng' },
   buyingInfo: { href: '/thong-tin-mua-hang', label: 'Thông tin mua hàng' },
   certificate: { href: '/chung-nhan-nhap-khau-chinh-hang', label: 'Chứng nhận nhập khẩu' },

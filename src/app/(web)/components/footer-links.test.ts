@@ -34,7 +34,7 @@ describe('link điều hướng và footer', () => {
     }
     expect(FOOTER).toContain('const productLinks = [...PRODUCT_LINES, KEG_PAGE]');
     expect(FOOTER).toContain('const learnLinks = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.whatIs, NAV.authentic]');
-    expect(FOOTER).toContain('const buyLinks = [NAV.priceList, NAV.gifts, NAV.buyingInfo, NAV.certificate, NAV.contact]');
+    expect(FOOTER).toContain('const buyLinks = [NAV.priceList, NAV.gifts, NAV.certificate, NAV.contact]');
     expect(FOOTER).toContain('Thông tin doanh nghiệp');
     expect(FOOTER).toContain('<AlcoholWarning');
   });

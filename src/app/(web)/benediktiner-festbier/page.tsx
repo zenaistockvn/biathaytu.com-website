@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
 import JsonLd, { getBreadcrumbSchema, getProductSchema } from '../components/JsonLd';
 import ProductStory from '../components/ProductStory';
-import { getPriceRange } from '@/lib/seo/productPricing';
 import { getLineProducts } from '@/lib/data/products';
-import { getLineForName } from '@/config/productLines';
-import { getCompanyZaloUrl } from '@/config/company';
 import { NAV, breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
@@ -34,7 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const priceRange = getPriceRange((p) => p.category === 'bia' && getLineForName(p.name)?.id === 'festbier');
   const product = {
     name: 'Benediktiner Festbier',
     slug: 'benediktiner-festbier',
@@ -45,14 +41,11 @@ export default function Page() {
     images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp'],
   };
 
-  const zaloBaseUrl = getCompanyZaloUrl();
-  const msgOrder = 'Chào Bia Thầy Tu, mình muốn được tư vấn về bia mùa lễ hội Benediktiner Festbier.';
-  const linkOrder = zaloBaseUrl ? `${zaloBaseUrl}?text=${encodeURIComponent(msgOrder)}` : '/lien-he';
   const formats = getLineProducts('festbier');
 
   return (
     <>
-      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia', priceFrom: priceRange?.lowPrice, priceTo: priceRange?.highPrice, offerCount: priceRange?.offerCount })} />
+      <JsonLd type="product" data={getProductSchema({ ...product, category: 'bia' })} />
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products, { href: '/benediktiner-festbier', label: 'Festbier' }))} />
 
       <ProductStory
@@ -75,7 +68,7 @@ export default function Page() {
             </>
           ),
           actions: [
-            { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
+            { href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' },
             { href: '/san-pham#festbier', label: 'Xem các quy cách' },
           ],
         }}
@@ -133,10 +126,10 @@ export default function Page() {
           ],
         }}
         cta={{
-          title: 'Liên hệ tư vấn',
-          kicker: 'Tư vấn qua Zalo',
-          text: 'Có két 24 lon 500ml và bom 5L, nhập khẩu từ Đức. Nhắn Zalo để hỏi giá và điểm nhận hàng.',
-          action: { href: linkOrder, label: 'Mở Zalo', external: Boolean(zaloBaseUrl) },
+          title: 'Hợp tác phân phối',
+          kicker: 'Đại lý và nhà phân phối',
+          text: 'Có két 24 lon 500ml và bom 5L, nhập khẩu từ Đức. Đăng ký hợp tác để trao đổi về phân phối.',
+          action: { href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' },
         }}
       />
     </>

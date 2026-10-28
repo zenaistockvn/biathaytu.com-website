@@ -9,7 +9,6 @@ import MobileBottomNav from './components/MobileBottomNav';
 import CatalogStickyNav from './components/CatalogStickyNav';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
-import FacebookMessengerChat from './components/FacebookMessengerChat';
 import AgeVerificationGate from './components/AgeVerificationGate';
 import MobileUxEnhancer from './components/MobileUxEnhancer';
 import CookieConsent from './components/CookieConsent';
@@ -125,7 +124,6 @@ export default function WebLayout({ children }: { children: React.ReactNode }) {
           <ScrollRevealObserver />
           <Suspense fallback={null}>
             <FacebookPixel />
-            <FacebookMessengerChat />
           </Suspense>
           <CookieConsent />
           <AgeVerificationGate />

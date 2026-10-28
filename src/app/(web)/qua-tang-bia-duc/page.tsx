@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
 import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage'
-import { getProductBySlugOrId } from '@/lib/data/products'
-import { formatPrice } from '@/utils/formatPrice';
 import { breadcrumbTrail } from '@/config/navigation';
 
 export const metadata: Metadata = {
@@ -33,16 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-/** Giá lấy từ dữ liệu sản phẩm để luôn khớp trang chi tiết. */
-function priceOf(slug: string): string {
-  const product = getProductBySlugOrId(slug);
-  return product && !product.hidden && product.price ? `Giá bán lẻ ${formatPrice(product.price)}` : 'Liên hệ để báo giá';
-}
-
 export default function Page() {
-  const telHref = getCompanyTelHref() ?? '/lien-he';
-  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
-
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Quà tặng bia Đức', slug: 'qua-tang-bia-duc', url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc', description: 'Các set quà bia Đức cho doanh nghiệp: Thùng mix, bom 5L, set kèm ly.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
@@ -63,9 +51,9 @@ export default function Page() {
         <h2>Các set quà</h2>
         <InfoGrid
           items={[
-            { title: <Link href="/san-pham/benediktiner-mix-2-vi-thung-12-chai-500ml">Hộp Mix 2 vị</Link>, text: 'Thùng 12 chai gồm 6 Weissbier (bia lúa mì) và 6 Dunkel (bia đen). Hộp cứng, quai xách.', meta: priceOf('benediktiner-mix-2-vi-thung-12-chai-500ml') },
-            { title: <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5 lít Naturtrüb</Link>, text: 'Bom 5 lít có vòi rót sẵn, người nhận mở ra rót được ngay trong bữa tiệc.', meta: priceOf('benediktiner-naturtrub-bom-5l') },
-            { title: 'Set quà kèm ly', text: '6 chai bia nhập khẩu kèm 1 ly Weizen.', meta: 'Liên hệ báo giá' },
+            { title: <Link href="/san-pham/benediktiner-mix-2-vi-thung-12-chai-500ml">Hộp Mix 2 vị</Link>, text: 'Thùng 12 chai gồm 6 Weissbier (bia lúa mì) và 6 Dunkel (bia đen). Hộp cứng, quai xách.', meta: 'Quà tặng doanh nghiệp' },
+            { title: <Link href="/san-pham/benediktiner-naturtrub-bom-5l">Bom 5 lít Naturtrüb</Link>, text: 'Bom 5 lít có vòi rót sẵn, người nhận mở ra rót được ngay trong bữa tiệc.', meta: 'Quà tặng doanh nghiệp' },
+            { title: 'Set quà kèm ly', text: '6 chai bia nhập khẩu kèm 1 ly Weizen.', meta: 'Quà tặng doanh nghiệp' },
           ]}
         />
 
@@ -78,10 +66,9 @@ export default function Page() {
         </ul>
 
         <CtaBand
-          title="Tư vấn quà tặng"
-          text="Nhắn Zalo để nhận catalog quà mới nhất và báo giá theo số lượng."
-          action={{ href: zaloUrl, label: 'Mở Zalo', external: zaloUrl.startsWith('https://') }}
-          secondary={{ href: telHref, label: 'Hotline tư vấn quà tặng' }}
+          title="Hợp tác phân phối"
+          text="Đại lý và đối tác phân phối có thể để lại thông tin để trao đổi về sản phẩm."
+          action={{ href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' }}
         />
       </EditorialPage>
     </>

@@ -144,8 +144,6 @@ describe('mobile-first responsive regressions', () => {
     const page = readProjectFile('src/app/(web)/san-pham/[slug]/page.tsx');
     const pageCss = readProjectFile('src/app/(web)/san-pham/[slug]/page.module.css');
     const bottomNav = readProjectFile('src/app/(web)/components/MobileBottomNav.tsx');
-    const bar = readProjectFile('src/app/(web)/components/SkuActionBar.tsx');
-    const barCss = readProjectFile('src/app/(web)/components/SkuActionBar.module.css');
     const gallery = readProjectFile('src/app/(web)/components/ProductGallery.tsx');
 
     expect(page).toContain('className={styles.backLink}');
@@ -155,10 +153,9 @@ describe('mobile-first responsive regressions', () => {
     expect(pageCss).toMatch(/\.priceRow\s*\{[^}]*border-top:\s*1px[^}]*border-bottom:\s*1px/);
     expect(readProjectFile('src/app/web.css')).toMatch(/@media \(max-width: 767px\)\s*\{\s*\.web-app \.product-gallery-main\s*\{\s*height:\s*300px/);
     expect(gallery).toContain('className={styles.dot}');
-    expect(bottomNav).toMatch(/pathname\.startsWith\(`\$\{NAV\.products\.href\}\/`\)\) return null/);
-    expect(page).toContain('<SkuActionBar');
-    expect(bar).toContain('Mở Zalo');
-    expect(barCss).toMatch(/\.bar\s*\{[^}]*position:\s*fixed[^}]*min-height:\s*var\(--web-mobile-bottom-nav-height\)[^}]*safe-area-inset-bottom/);
+    expect(bottomNav).not.toContain('return null');
+    expect(page).not.toContain('<SkuActionBar');
+    expect(page).toContain('Đăng ký hợp tác phân phối');
   });
 
   it('giữ câu "không bán hàng trực tuyến": website chưa đăng ký bán hàng với Bộ Công Thương (A6)', () => {

@@ -1,8 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getLineProducts, getProductBySlugOrId, getRelatedBeers, getVisibleProducts } from '@/lib/data/products';
-import ProductOrderActions from '../../components/ProductOrderActions';
-import ProductConsultationForm from '../../components/ProductConsultationForm';
 import ProductDetailsAccordion from '../../components/ProductDetailsAccordion';
 import ProductGallery from '../../components/ProductGallery';
 import JsonLd, { getProductSchema, getBreadcrumbSchema } from '../../components/JsonLd';
@@ -11,9 +9,7 @@ import TitleBlock from '../../components/ui/TitleBlock';
 import { getTastingNotes } from '../../utils/getTastingNotes';
 import { formatAbv, packWithoutVolume, splitProductName } from '../../utils/productName';
 import { toAbsoluteSiteUrl } from '@/lib/seo/site';
-import SkuActionBar from '../../components/SkuActionBar';
 import FormatStrip, { formatLabel } from '../../components/ui/FormatStrip';
-import { formatPrice } from '@/utils/formatPrice';
 import styles from './page.module.css';
 import { NAV, breadcrumbTrail, type NavItem } from '@/config/navigation';
 import { getLineForName, lineAnchor } from '@/config/productLines';
@@ -53,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const productUrl = `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}`;
 
   const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
-  const pageDescription = product.description || `${product.name}: Hương vị, quy cách và giá bán lẻ. Gọi hoặc nhắn Zalo Bia Thầy Tu để hỏi điểm nhận hàng.`;
+  const pageDescription = product.description || `${product.name}: Hương vị, quy cách. Thông tin về sản phẩm và quy cách.`;
 
   return {
     title: product.name,
@@ -85,7 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-/** Trang chi tiết: ảnh trên nền xám bên trái, tên, giá, thông số dạng bảng bên phải (như trang sản phẩm Chimay). */
+/** Trang chi tiết: ảnh trên nền xám bên trái, tên, thông số dạng bảng bên phải (như trang sản phẩm Chimay). */
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = getProductBySlugOrId(slug) as ProductData | null;
@@ -111,7 +107,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const parentCrumb = lineCrumb ?? NAV.products;
   const priceSpecs = [abvText ? `${abvText} vol.` : null, product.ibu ? `IBU ${product.ibu}` : null].filter(Boolean).join(' · ');
 
-  // Bảng thông số chỉ giữ dòng chưa hiện phía trên: ABV/IBU đã ở hàng giá, dung tích và quy cách đã ở dưới tên (audit L2).
+  // Bảng thông số chỉ giữ dòng chưa hiện phía trên: ABV/IBU đã ở hàng thông số, dung tích và quy cách đã ở dưới tên (audit L2).
   const specs = [
     abvText && !priceSpecs ? ['Nồng độ cồn', abvText] : null,
     product.ibu && !priceSpecs ? ['Độ đắng (IBU)', String(product.ibu)] : null,
@@ -166,14 +162,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               {productTitle}
               {pack && <span className={styles.pack}>{pack}</span>}
             </h1>
-            {product.price !== null || priceSpecs ? (
+            {priceSpecs ? (
               <div className={styles.priceRow}>
-                {product.price !== null ? (
-                  <p className={styles.price}>
-                    <span className={styles.priceLabel}>Giá bán lẻ</span>
-                    {formatPrice(product.price)}
-                  </p>
-                ) : null}
                 {priceSpecs ? <p className={styles.priceSpecs}>{priceSpecs}</p> : null}
               </div>
             ) : null}
@@ -181,7 +171,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <p className={styles.ageNote}>Sản phẩm chỉ dành cho người từ đủ 18 tuổi.</p>
             )}
 
-            <ProductOrderActions product={product} />
+            <p><Link href="/bang-gia-si-dai-ly#dang-ky-hop-tac" className="btn-primary">Đăng ký hợp tác phân phối</Link></p>
 
             <dl className={styles.specs}>
               {specs.map(([label, value]) => (
@@ -204,7 +194,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className={`product-description ${styles.description}`}>
             {product.description || (
               <p>
-                {product.name}, nhập khẩu từ Đức. Gọi hoặc nhắn Zalo để hỏi quy cách, giá và điểm nhận hàng.
+                {product.name}, nhập khẩu từ Đức. Tìm hiểu thông tin và quy cách sản phẩm.
               </p>
             )}
           </div>
@@ -244,9 +234,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
-        <ProductConsultationForm productName={product.name} />
       </div>
-      <SkuActionBar productId={product.id} productName={product.name} />
     </div>
   );
 }

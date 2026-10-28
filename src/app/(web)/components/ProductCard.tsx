@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatPrice } from '@/utils/formatPrice';
 import { hasWhiteCanvas } from '@/lib/data/productImages';
 import { getDisplayProductImage } from '../utils/productImages';
 import { formatAbv, splitProductName } from '../utils/productName';
@@ -32,7 +31,7 @@ export interface ProductCardProps {
   showReferencePriceNote?: boolean;
   /**
    * `compact`: thẻ nằm dưới tiêu đề dòng bia (danh mục /san-pham), tên dòng đã có ở tiêu đề nhóm nên
-   * thẻ chỉ ghi quy cách, thông số, giá; nhỏ gọn để xếp 2 cột trên mobile, 4 cột trên desktop.
+   * thẻ chỉ ghi quy cách, thông số; nhỏ gọn để xếp 2 cột trên mobile, 4 cột trên desktop.
    */
   variant?: 'default' | 'compact';
   /** Thẻ compact: tên riêng khi SKU khác tên chung của nhóm (vd. "Bitburger 0.0% Alkoholfrei"). */
@@ -41,10 +40,10 @@ export interface ProductCardProps {
 
 /**
  * Thẻ sản phẩm dùng chung (trang chủ, /san-pham, bài viết), theo kiểu danh sách bia của Chimay:
- * ảnh trên nền xám, tên dòng bia, quy cách, thông số một dòng, giá bán lẻ. Cả thẻ là một link duy nhất.
+ * ảnh trên nền xám, tên dòng bia, quy cách, thông số một dòng. Cả thẻ là một link duy nhất.
  */
 export default function ProductCard({
-  id, name, slug, images, price,
+  id, name, slug, images,
   abv, ibu, volume, category, highlightLabel, quickTags, cardId, showCTA = true, variant = 'default', variantLabel = null,
 }: ProductCardProps) {
   const compact = variant === 'compact';
@@ -94,13 +93,6 @@ export default function ProductCard({
 
         {quickTags && quickTags.length > 0 && (
           <p className={styles.tags}>{quickTags.join(' · ')}</p>
-        )}
-
-        {price !== null && (
-          <p className={styles.price}>
-            <span className={styles.priceLabel}>Giá bán lẻ</span>
-            {formatPrice(price)}
-          </p>
         )}
 
         {showCTA && !compact && (

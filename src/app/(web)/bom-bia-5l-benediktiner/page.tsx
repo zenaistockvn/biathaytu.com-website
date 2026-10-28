@@ -69,7 +69,7 @@ export default function Page() {
           ),
           actions: [
             { href: '/san-pham/benediktiner-naturtrub-bom-5l', label: 'Xem chi tiết sản phẩm' },
-            { href: '/lien-he', label: 'Liên hệ tư vấn' },
+            { href: '/bang-gia-si-dai-ly#dang-ky-hop-tac', label: 'Đăng ký hợp tác' },
           ],
         }}
         ritual={{
@@ -86,7 +86,7 @@ export default function Page() {
         cta={{
           title: 'Quà tặng',
           kicker: 'Doanh nghiệp và dịp lễ',
-          text: 'Bom 5 lít cũng dùng làm quà biếu đối tác dịp lễ, Tết. Xem các set quà và giá.',
+          text: 'Bom 5 lít cũng dùng làm quà biếu đối tác dịp lễ, Tết. Xem các set quà.',
           action: { href: '/qua-tang-bia-duc', label: 'Xem các set quà tặng' },
         }}
       />

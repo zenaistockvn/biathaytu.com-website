@@ -88,7 +88,7 @@ export default function Page() {
 
         <CtaBand
           title="Chọn bia cho bữa tiệc"
-          text="Đã có thực đơn thì xem chai nào hợp, kèm quy cách và giá bán lẻ."
+          text="Đã có thực đơn thì xem chai nào hợp, kèm quy cách."
           action={{ href: '/san-pham', label: 'Xem các dòng bia' }}
         />
       </EditorialPage>

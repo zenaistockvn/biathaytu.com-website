@@ -35,7 +35,7 @@ export default function Page() {
   const faqs = [
     { question: 'Bia Thầy Tu là bia gì?', answer: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Đức Benediktiner Weissbier. Bia được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, với men từ hầm tu viện Ettal (Bavaria).' },
     { question: 'Vì sao gọi là "bia thầy tu"?', answer: 'Benediktiner là tên tiếng Đức của dòng tu Biển Đức (Benedictine). Công thức và men bia đến từ tu viện Ettal của dòng tu này, nơi có truyền thống nấu bia hơn 400 năm. Còn bia ngày nay được ủ tại nhà bia tư nhân Ihring-Melchior ở Lich, bang Hessen.' },
-    { question: 'Mua Bia Thầy Tu ở đâu?', answer: `Gọi hoặc nhắn Zalo ${COMPANY_CONFIG.hotline}, hoặc ghé showroom ${COMPANY_CONFIG.showroomAddress}. Website này giới thiệu sản phẩm, không nhận đặt hàng trực tuyến.` },
+    { question: 'Bia Thầy Tu được phân phối như thế nào?', answer: 'German Taste nhập khẩu và phân phối Bia Thầy Tu tại Việt Nam. Đối tác có thể đăng ký hợp tác qua trang dành cho đại lý và nhà phân phối.' },
   ];
 
   return (
@@ -79,7 +79,7 @@ export default function Page() {
 
         <CtaBand
           title="Xem các dòng bia"
-          text="Naturtrüb, Dunkel, Festbier: Quy cách chai, lon, bom 5 lít và giá bán lẻ. Hỏi điểm nhận hàng qua Zalo hoặc hotline."
+          text="Naturtrüb, Dunkel, Festbier: Quy cách chai, lon, bom 5 lít. Tìm hiểu các dòng bia và quy cách."
           action={{ href: '/san-pham', label: 'Xem sản phẩm' }}
         />
       </EditorialPage>

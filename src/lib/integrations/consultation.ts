@@ -30,7 +30,7 @@ export async function appendConsultationToSheet(lead: ConsultationLead): Promise
 }
 
 /** Nhãn kênh để đội German Taste biết yêu cầu đến từ form tư vấn của biathaytu.com.vn. */
-export const LEAD_WEBHOOK_CHANNEL = 'Khách lẻ, biathaytu.com.vn';
+export const LEAD_WEBHOOK_CHANNEL = 'Hợp tác, biathaytu.com.vn';
 
 /**
  * Cùng webhook Google Apps Script với gt.vn (`LEAD_WEBHOOK_URL`): script ghi Google Sheet và gửi email

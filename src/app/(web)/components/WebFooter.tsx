@@ -16,14 +16,13 @@ import { noBreakNode } from '@/lib/vn-text';
 // Ba cột điều hướng (audit A7): mỗi cột một loại link, tên lấy từ NAV/PRODUCT_LINES.
 const productLinks = [...PRODUCT_LINES, KEG_PAGE];
 const learnLinks = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.whatIs, NAV.authentic];
-const buyLinks = [NAV.priceList, NAV.gifts, NAV.buyingInfo, NAV.certificate, NAV.contact];
+const buyLinks = [NAV.priceList, NAV.gifts, NAV.certificate, NAV.contact];
 
 const policyLinks = [
   { href: '/chinh-sach-kiem-soat-do-tuoi', label: 'Kiểm soát độ tuổi' },
   { href: '/chinh-sach-bao-mat', label: 'Chính sách bảo mật' },
   { href: '/chinh-sach-cookie', label: 'Chính sách cookie' },
   { href: '/dieu-khoan-su-dung', label: 'Điều khoản sử dụng' },
-  NAV.buyingInfo,
 ];
 
 const linkColumns = [

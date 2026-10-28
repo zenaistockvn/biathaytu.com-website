@@ -38,7 +38,7 @@ describe('WebHeader — menu mobile là hộp thoại', () => {
     expect(SRC).toContain('Gọi hotline');
     expect(SRC).toContain('Mở Zalo');
     expect(SRC).toContain('COMPANY_CONFIG.showroomAddress');
-    expect(SRC).toContain('const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts, NAV.buyingInfo]');
+    expect(SRC).toContain('const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts]');
     const css = fs.readFileSync(path.join(process.cwd(), 'src/app/(web)/components/WebHeader.module.css'), 'utf8');
     expect(css).toMatch(/\.chip\s*\{[^}]*min-height:\s*44px/);
   });

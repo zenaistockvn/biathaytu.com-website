@@ -19,11 +19,6 @@ export default function FloatingZaloCTA() {
   const zaloUrl = getCompanyZaloUrl();
   const telHref = getCompanyTelHref();
 
-  const isBitburger = pathname.includes('bitburger');
-  const messengerUrl = isBitburger
-    ? 'https://m.me/1042222495647480'
-    : 'https://m.me/1106668052525470';
-
   useEffect(() => {
     setIsExpanded(false);
   }, [pathname]);
@@ -63,13 +58,13 @@ export default function FloatingZaloCTA() {
         <div className={styles.panel} role="menu" aria-label="Các kênh liên hệ">
           <div className={styles.head}>
             <strong>Liên hệ Bia Thầy Tu</strong>
-            <span>Tư vấn sản phẩm &amp; hợp tác</span>
+            <span>Thông tin liên hệ &amp; hợp tác</span>
           </div>
 
           {zaloUrl ? (
             <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
               <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" /><path d="M9 8.5h6l-6 5h6" /></svg></span>
-              <span className={styles.text}><strong>Mở Zalo</strong><small>Chat tư vấn</small></span>
+              <span className={styles.text}><strong>Zalo OA</strong><small>Liên hệ</small></span>
             </a>
           ) : null}
 
@@ -79,11 +74,6 @@ export default function FloatingZaloCTA() {
               <span className={styles.text}><strong>Điện thoại</strong><small>{COMPANY_CONFIG.hotline}</small></span>
             </a>
           ) : null}
-
-          <a href={messengerUrl} target="_blank" rel="noopener noreferrer" className={styles.item} role="menuitem">
-            <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.3S17 3 12 3Z" /><path d="m7.5 13 3-3.2 2.3 2.2 3.7-3.2" /></svg></span>
-            <span className={styles.text}><strong>Messenger</strong><small>Nhắn tin fanpage</small></span>
-          </a>
 
           <Link href={NAV.contact.href} className={styles.item} role="menuitem">
             <span className={styles.mark} aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg></span>

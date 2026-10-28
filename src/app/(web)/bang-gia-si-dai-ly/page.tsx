@@ -1,16 +1,16 @@
 import { Metadata } from 'next';
 import JsonLd, { getArticleSchema, getBreadcrumbSchema } from '../components/JsonLd';
-import { COMPANY_CONFIG, getCompanyTelHref, getCompanyZaloUrl } from '@/config/company';
-import EditorialPage, { CtaBand, InfoGrid, Summary } from '../components/EditorialPage';
+import EditorialPage, { InfoGrid, Summary } from '../components/EditorialPage';
 import { breadcrumbTrail } from '@/config/navigation';
+import ProductConsultationForm from '../components/ProductConsultationForm';
 
 export const metadata: Metadata = {
   title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
-  description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; bảng giá sỉ gửi qua Zalo.',
+  description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; thông tin hợp tác dành cho đại lý và nhà phân phối.',
   alternates: { canonical: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly' },
   openGraph: {
     title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
-    description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; bảng giá sỉ gửi qua Zalo.',
+    description: 'German Taste tìm đại lý, cửa hàng đồ uống, siêu thị mini cho Benediktiner và Bitburger. Chiết khấu theo sản lượng, hỗ trợ ly, standee; thông tin hợp tác dành cho đại lý và nhà phân phối.',
     type: 'article',
     url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly',
     images: [
@@ -25,15 +25,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
-    description: 'Đại lý Benediktiner và Bitburger: Chiết khấu theo sản lượng, hỗ trợ ly, standee, bảng giá sỉ gửi qua Zalo.',
+    description: 'Đại lý Benediktiner và Bitburger: Chiết khấu theo sản lượng, hỗ trợ ly, standee, thông tin hợp tác dành cho đại lý và nhà phân phối.',
     images: ['/images/brand/benediktiner-official/home-hero.jpg'],
   },
 };
 
 export default function Page() {
-  const telHref = getCompanyTelHref() ?? '/lien-he';
-  const zaloUrl = getCompanyZaloUrl() ?? '/lien-he';
-
   return (
     <>
       <JsonLd type="article" data={getArticleSchema({ title: 'Chính sách đại lý & giá sỉ bia Đức', slug: 'bang-gia-si-dai-ly', url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly', description: 'Chính sách phân phối cho đại lý.', datePublished: '2026-04-24', dateModified: '2026-04-24' })} />
@@ -42,9 +39,9 @@ export default function Page() {
       <EditorialPage
         hero={{
           eyebrow: 'Hợp tác kinh doanh',
-          title: 'Đại lý và giá sỉ',
+          title: 'Hợp tác phân phối',
           kicker: 'Benediktiner và Bitburger',
-          lead: 'Bảng giá sỉ gửi riêng qua Zalo. Trang này nói đại lý được gì và nhập được những quy cách nào.',
+          lead: 'Thông tin dành cho đại lý, nhà phân phối và đối tác phát triển hệ thống Bia Thầy Tu.',
         }}
       >
         <Summary>
@@ -55,8 +52,8 @@ export default function Page() {
         <InfoGrid
           columns={2}
           items={[
-            { title: 'Chiết khấu theo sản lượng', text: 'Mức chiết khấu theo mốc sản lượng cam kết hàng tháng. Nhắn Zalo để nhận bảng chiết khấu chi tiết.' },
-            { title: 'Giá bán lẻ khuyến nghị', text: 'Có giá bán lẻ khuyến nghị và chính sách hỗ trợ đại lý theo khu vực.' },
+            { title: 'Chiết khấu theo sản lượng', text: 'Mức chiết khấu theo mốc sản lượng cam kết hàng tháng. Thông tin cụ thể được trao đổi khi hợp tác.' },
+            { title: 'Hỗ trợ theo khu vực', text: 'Chính sách hợp tác được trao đổi theo từng khu vực.' },
             { title: 'Ảnh, ly, standee', text: 'Ảnh và video HD để đăng bán, ly bia chuyên dụng, đế lót ly, standee trưng bày.' },
             { title: 'Kho ở Hà Nội', text: 'Hàng xuất từ kho tại Hà Nội. Cách vận chuyển thống nhất trong từng hợp đồng đại lý.' },
           ]}
@@ -75,12 +72,7 @@ export default function Page() {
           </tbody>
         </table>
 
-        <CtaBand
-          title="Nhận bảng giá sỉ"
-          text="File PDF giá sỉ và chính sách chiết khấu do giám đốc kinh doanh gửi trực tiếp. Nhắn Zalo hoặc gọi hotline."
-          action={{ href: zaloUrl, label: 'Mở Zalo nhận bảng giá', external: zaloUrl.startsWith('https://') }}
-          secondary={{ href: telHref, label: `Hotline ${COMPANY_CONFIG.hotline}` }}
-        />
+        <ProductConsultationForm />
       </EditorialPage>
     </>
   );

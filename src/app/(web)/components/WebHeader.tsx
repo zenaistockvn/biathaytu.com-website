@@ -44,7 +44,7 @@ function isDarkHeroPath(pathname: string): boolean {
 // các mục nội dung đi sau. Tên route lấy từ NAV.
 const CONTENT_LINKS = [NAV.story, NAV.enjoy, NAV.knowledge, NAV.horeca];
 const DINING_LINKS = [NAV.restaurant];
-const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts, NAV.buyingInfo];
+const MOBILE_SMALL_LINKS = [NAV.priceList, NAV.gifts];
 const BENEDIKTINER_LINES = PRODUCT_LINES.filter((line) => line.group === 'benediktiner');
 const SELECTED_LINES = PRODUCT_LINES.filter((line) => line.group === 'selected');
 
@@ -181,7 +181,7 @@ export default function WebHeader() {
                 {COMPANY_CONFIG.hotline}
               </a>
             ) : null}
-            {/* Mở cùng bảng kênh với nút liên hệ nổi (Zalo, gọi, Messenger, Showroom). */}
+            {/* Mở cùng bảng kênh với nút liên hệ nổi (Zalo OA, gọi, Showroom). */}
             <button type="button" className={styles.utilityBox} data-contact-toggle onClick={openContactPanel}>
               Liên hệ
             </button>

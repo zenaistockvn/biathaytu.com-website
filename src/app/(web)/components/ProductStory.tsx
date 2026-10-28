@@ -222,7 +222,7 @@ export default function ProductStory({ wordmark, hero, intro, profile, notes, st
       {formats && formats.products.length > 0 ? (
         <section className={`${styles.section} ${styles.formatsSection}`} aria-labelledby="product-formats-title">
           <div className="container">
-            <TitleBlock id="product-formats-title" align="center" title={formats.title ?? 'Các quy cách'} kicker="Giá bán lẻ tham khảo" />
+            <TitleBlock id="product-formats-title" align="center" title={formats.title ?? 'Các quy cách'} kicker="Quy cách sản phẩm" />
             <div className={styles.afterTitle}>
               <FormatStrip products={formats.products} />
             </div>
