@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/lien-he',
     images: [
       {
-        url: '/images/brand/benediktiner-official/home-hero.jpg',
-        width: 1920,
-        height: 969,
+        url: '/images/og/home.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Liên hệ và tư vấn Bia Thầy Tu Benediktiner',
       },
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Liên hệ & tư vấn Bia Thầy Tu Benediktiner',
     description: `Liên hệ Bia Thầy Tu, Hotline ${COMPANY_CONFIG.hotline}. Điểm giới thiệu ${COMPANY_CONFIG.showroomAddress}.`,
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
 };
 

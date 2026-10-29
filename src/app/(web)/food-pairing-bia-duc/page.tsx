@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/food-pairing-bia-duc',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Đức ăn với món gì',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Đức ăn với món gì: Weissbier, Dunkel, Pilsner',
     description: 'Weissbier hợp hải sản hấp, gà nướng; Dunkel hợp sườn nướng, bò kho; Pilsner hợp đồ chiên, món cay. Tóm tắt theo từng dòng, kèm 7 món Việt nên thử.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

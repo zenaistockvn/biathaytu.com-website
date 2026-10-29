@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bang-gia-si-dai-ly',
     images: [
       {
-        url: '/images/brand/benediktiner-official/home-hero.jpg',
+        url: '/images/og/home.jpg',
         width: 1200,
         height: 630,
         alt: 'Đại lý bia Đức nhập khẩu Benediktiner, Bitburger',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Đại lý bia Đức Benediktiner, Bitburger: Chiết khấu, quy cách',
     description: 'Đại lý Benediktiner và Bitburger: Chiết khấu theo sản lượng, hỗ trợ ly, standee, thông tin hợp tác dành cho đại lý và nhà phân phối.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
 };
 

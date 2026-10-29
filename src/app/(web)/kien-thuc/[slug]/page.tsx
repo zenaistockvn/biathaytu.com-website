@@ -52,8 +52,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return {};
 
   const articleUrl = `https://www.biathaytu.com.vn/kien-thuc/${article.slug || slug}`;
-  // Bài chưa có ảnh đại diện: dùng ảnh chính hãng như thẻ bài (1200x800) thay cho logo.
-  const ogImage = toAbsoluteSiteUrl(articleImage(article));
+  // Thẻ chia sẻ JPEG 1200x630 dựng từ ảnh bìa bài (public/images/og/articles/<slug>.jpg): Zalo, Facebook
+  // hiển thị JPEG ổn định hơn WebP. Bài mới phải có thẻ cùng tên (test share-images.test.ts).
+  const ogImage = toAbsoluteSiteUrl(`/images/og/articles/${article.slug || slug}.jpg`);
 
   return {
     title: article.title,
@@ -70,8 +71,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [
         {
           url: ogImage,
-          // Ảnh bìa bài viết 1600x1067 (3:2), xem ARTICLE_COVERS.
-          ...(article.thumbnail_url?.startsWith('/images/articles/') ? { width: 1600, height: 1067 } : {}),
+          width: 1200,
+          height: 630,
           alt: article.title,
         },
       ],

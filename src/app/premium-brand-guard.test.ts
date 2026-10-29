@@ -43,6 +43,8 @@ describe('ảnh: chỉ dùng ảnh chính hãng, không dùng ảnh AI', () => {
     /^\/images\/brand\/(benediktiner|bitburger)-official\//,
     // Ảnh thực tế Nhà hàng Bia Thầy Tu tại 26 Vạn Phúc, Ba Đình, Hà Nội.
     /^\/images\/restaurant\//,
+    // Thẻ chia sẻ 1200x630 cắt hoặc dựng từ ảnh chính hãng ở trên (nguồn ghi trong public/images/og/SOURCES.md).
+    /^\/images\/og\//,
     // Ảnh bìa bài Kiến thức (ảnh chính hãng hoặc giấy phép mở, nguồn ghi trong SOURCES.md cùng thư mục).
     /^\/images\/articles\/kien-thuc\//,
     /^\/images\/products\/placeholder\.png$/,

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bitburger-premium-pils',
     images: [
       {
-        url: '/images/brand/bitburger-official/siegelhopfen-field.jpg',
+        url: '/images/og/bitburger.jpg',
         width: 1200,
         height: 630,
         alt: 'Vùng trồng hop Holsthum của nhà máy bia Bitburger',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bitburger Premium Pils, bia Pilsner Đức từ 1817',
     description: 'Bitburger Premium Pils, pilsner Đức nấu với hoa bia Siegelhopfen từ 1817.',
-    images: ['/images/brand/bitburger-official/siegelhopfen-field.jpg'],
+    images: ['/images/og/bitburger.jpg'],
   },
 };
 

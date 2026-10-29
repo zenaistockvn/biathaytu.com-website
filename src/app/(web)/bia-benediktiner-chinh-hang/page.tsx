@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bia-benediktiner-chinh-hang',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Benediktiner chính hãng',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Benediktiner chính hãng: Cách nhận biết hàng nhập khẩu',
     description: 'Ba chỗ cần xem trên chai Benediktiner nhập khẩu: Nhãn phụ tiếng Việt, mã vạch 400 - 440 cùng tên nhà sản xuất, và màu đục tự nhiên của Naturtrüb.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

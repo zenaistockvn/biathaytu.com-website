@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/huong-dan-rot-bia-lua-mi',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Ly Weizen và chai Benediktiner Weissbier',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cách rót bia lúa mì Weissbier và chọn ly Weizen',
     description: 'Bốn bước rót Benediktiner Weissbier cho lớp bọt dày khoảng 3 ngón tay và rót được cả lớp men dưới đáy chai, kèm lý do bia lúa mì cần ly Weizen.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

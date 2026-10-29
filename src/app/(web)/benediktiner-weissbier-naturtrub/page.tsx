@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/benediktiner-weissbier-naturtrub',
     images: [
       {
-        url: '/images/brand/benediktiner-official/home-hero.jpg',
+        url: '/images/og/home.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner Weissbier Naturtrüb, nhập khẩu Đức',
     description: 'Bia lúa mì Đức ủ tại Lich theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal. Đạt iTQi Superior Taste Award 3 sao năm 2022.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
 };
 

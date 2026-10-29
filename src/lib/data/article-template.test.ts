@@ -44,17 +44,13 @@ describe('Phase D — Template trang bài viết và word count', () => {
     }
   });
 
-  it('D.3 OG image là ảnh bìa của bài; chỉ khai báo kích thước khi biết chắc (ảnh bìa 1600x1067)', async () => {
+  it('D.3 OG image là thẻ chia sẻ JPEG 1200x630 dựng từ ảnh bìa của bài (public/images/og/articles/<slug>.jpg)', async () => {
     for (const article of getPublishedArticles()) {
       const meta = await generateMetadata({ params: Promise.resolve({ slug: article.slug! }) });
       const ogImages = meta.openGraph?.images as Array<{ url: string; width?: number; height?: number }> | undefined;
-      expect(ogImages?.[0]?.url, article.slug!).toContain(article.thumbnail_url!);
-      if (article.thumbnail_url!.startsWith('/images/articles/')) {
-        expect(ogImages?.[0]?.width).toBe(1600);
-        expect(ogImages?.[0]?.height).toBe(1067);
-      } else {
-        expect(ogImages?.[0]?.width).toBeUndefined();
-      }
+      expect(ogImages?.[0]?.url, article.slug!).toContain(`/images/og/articles/${article.slug}.jpg`);
+      expect(ogImages?.[0]?.width).toBe(1200);
+      expect(ogImages?.[0]?.height).toBe(630);
     }
   });
 

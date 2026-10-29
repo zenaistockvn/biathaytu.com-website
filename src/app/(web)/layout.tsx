@@ -74,9 +74,9 @@ export const metadata: Metadata = {
     description: 'Benediktiner Weissbier, ở Việt Nam gọi là Bia Thầy Tu: Nguồn gốc Ettal, ba dòng Naturtrüb, Dunkel, Festbier và cách rót đúng ly.',
     images: [
       {
-        url: '/images/brand/benediktiner-official/home-hero.jpg',
-        width: 1920,
-        height: 969,
+        url: '/images/og/home.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal',
       },
     ],
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner, bia Đức nhập khẩu chính hãng',
     description: 'Thông tin về Bia Thầy Tu, Benediktiner và bia Đức nhập khẩu chính hãng tại Việt Nam.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
   robots: {
     index: true,

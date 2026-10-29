@@ -48,7 +48,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product || product.hidden) return {};
   const productUrl = `https://www.biathaytu.com.vn/san-pham/${product.slug || product.id}`;
 
-  const ogImageUrl = toAbsoluteSiteUrl(product.images?.[0] || '/images/brand/benediktiner-official/beer-garden-closeup.jpg');
+  // Ảnh sản phẩm tách nền cao và hẹp (tỉ lệ 1:4) bị cắt vụn khi chia sẻ qua Zalo, Facebook: dùng thẻ 1200x630
+  // đã dựng sẵn (sản phẩm giữa nền xanh đêm) trong public/images/og/products, mỗi SKU một file theo slug.
+  const ogImageUrl = toAbsoluteSiteUrl(`/images/og/products/${product.slug || product.id}.jpg`);
   const pageDescription = product.description || `${product.name}: Hương vị, quy cách. Thông tin về sản phẩm và quy cách.`;
 
   return {

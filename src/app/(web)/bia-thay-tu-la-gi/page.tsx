@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bia-thay-tu-la-gi',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner từ Tu viện Ettal',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu là gì? Nguồn gốc bia Benediktiner Đức',
     description: 'Bia Thầy Tu là tên gọi tại Việt Nam của bia lúa mì Benediktiner Weissbier: Công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal (Bavaria), ủ tại Lich, Đức.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bom-bia-5l-benediktiner',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bom bia 5L Benediktiner, bia Đức nhập khẩu',
     description: 'Bom 5L Benediktiner: Ướp lạnh bao lâu, mở van thế nào, rót và giữ bia sau khi mở.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

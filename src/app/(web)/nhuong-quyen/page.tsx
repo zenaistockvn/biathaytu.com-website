@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/nhuong-quyen',
     images: [
       {
-        url: '/images/brand/benediktiner-official/home-hero.jpg',
+        url: '/images/og/home.jpg',
         width: 1200,
         height: 630,
         alt: 'Nhượng quyền chuỗi nhà hàng Bia Thầy Tu Đức',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nhượng quyền nhà hàng Bia Thầy Tu',
     description: 'Tư vấn mở nhà hàng Bia Thầy Tu theo nhượng quyền.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
 };
 

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/benediktiner-festbier',
     images: [
       {
-        url: '/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp',
+        url: '/images/og/products/benediktiner-festbier-bom-5l.jpg',
         width: 1200,
         height: 630,
         alt: 'Bom 5L Benediktiner Festbier',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Benediktiner Festbier, bia mùa lễ hội 5.8%',
     description: 'Benediktiner Festbier 5,8%, dòng mùa lễ hội: Vàng hổ phách, vị mạch nha đậm hơn Naturtrüb, hoa bia đắng nhẹ.',
-    images: ['/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp'],
+    images: ['/images/og/products/benediktiner-festbier-bom-5l.jpg'],
   },
 };
 
@@ -38,7 +38,7 @@ export default function Page() {
     description: 'Dòng bia mùa lễ hội của Benediktiner, vàng hổ phách, thân và vị mạch nha đậm hơn Naturtrüb.',
     abv: '5.8',
     volume: '500ml, 5L',
-    images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/86492_Bene_Festbier_5l_Fass_Abbildung-Export.webp'],
+    images: ['/images/og/products/benediktiner-festbier-bom-5l.jpg'],
   };
 
   const formats = getLineProducts('festbier');

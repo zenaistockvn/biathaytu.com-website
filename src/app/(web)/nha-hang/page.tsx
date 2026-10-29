@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/nha-hang',
     images: [
       {
-        url: '/images/restaurant/phong-vip-benediktiner.jpg',
-        width: 1600,
-        height: 1067,
+        url: '/images/og/restaurant.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Phòng riêng Nhà hàng Bia Thầy Tu, bàn gỗ dài và tranh Benediktiner, Ngõ 26 Vạn Phúc',
       },
     ],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nhà hàng Bia Thầy Tu, bia Đức và món Đức ở Ngõ 26 Vạn Phúc',
     description: `Nhà hàng Bia Thầy Tu, ${COMPANY_CONFIG.showroomAddress}. Bia Benediktiner, Bitburger và món Đức, có phòng riêng.`,
-    images: ['/images/restaurant/phong-vip-benediktiner.jpg'],
+    images: ['/images/og/restaurant.jpg'],
   },
 };
 

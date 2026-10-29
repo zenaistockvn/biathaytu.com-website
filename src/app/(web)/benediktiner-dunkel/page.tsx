@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/benediktiner-dunkel',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/products/benediktiner-dunkel-thung-12-chai-500ml.jpg',
         width: 1200,
         height: 630,
         alt: 'Benediktiner Dunkel, bia đen lúa mì Đức',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Benediktiner Dunkel, bia đen lúa mì Đức 5.4%',
     description: 'Bia lúa mì sẫm màu Benediktiner Dunkel: Mạch nha rang, caramel, độ đắng thấp. Hợp món nướng.',
-    images:['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images:['/images/og/products/benediktiner-dunkel-thung-12-chai-500ml.jpg'],
   },
 };
 
@@ -38,7 +38,7 @@ export default function Page() {
     description: 'Bia lúa mì sẫm màu ủ tại Lich, Đức: Hương mạch nha rang, caramel, bánh mì nướng, độ đắng thấp.',
     abv: '5.4',
     volume: '500ml',
-    images: ['https://www.biathaytu.com.vn/images/products/official/benediktiner/57425_Benediktiner_Dunklel_VO_E-Hinweis.webp'],
+    images: ['/images/og/products/benediktiner-dunkel-thung-12-chai-500ml.jpg'],
   };
 
   const formats = getLineProducts('dunkel');

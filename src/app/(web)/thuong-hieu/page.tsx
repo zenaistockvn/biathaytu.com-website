@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.biathaytu.com.vn/thuong-hieu',
     images: [{
-      url: '/images/brand/benediktiner-official/home-hero.jpg',
-      width: 1920,
-      height: 969,
+      url: '/images/og/home.jpg',
+      width: 1200,
+      height: 630,
       alt: 'Benediktiner Weissbier và Tu viện Ettal',
     }],
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Câu chuyện Benediktiner, từ Tu viện Ettal đến ngày nay',
     description: 'Tu viện Ettal, các nguyên tắc của dòng Biển Đức và nhà bia ở Lich ủ Benediktiner ngày nay.',
-    images:['/images/brand/benediktiner-official/home-hero.jpg'],
+    images:['/images/og/home.jpg'],
   },
 };
 

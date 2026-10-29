@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/chung-nhan-nhap-khau-chinh-hang',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Giấy tờ nhập khẩu bia Đức: Tờ khai hải quan, CO, CQ',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Giấy tờ nhập khẩu bia Đức: Tờ khai hải quan, CO, CQ',
     description: 'Mỗi lô Benediktiner và Bitburger German Taste nhập về có tờ khai hải quan, giấy chứng nhận xuất xứ CO, chứng nhận CQ của nhà máy và bản tự công bố.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/kien-thuc',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Kiến thức bia Đức',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kiến thức bia Đức',
     description: 'Cách rót bia lúa mì, món Việt ăn với bia Đức, chuyện tu viện Ettal và các dòng bia Đức khác nhau ra sao. Bài viết của Bia Thầy Tu.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

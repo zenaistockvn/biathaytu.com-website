@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/bia-duc-cho-nha-hang-khach-san',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Bia Đức cho nhà hàng, khách sạn',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Đức cho nhà hàng, khách sạn (HORECA)',
     description: 'German Taste nhập khẩu trực tiếp Benediktiner, Bitburger cho nhà hàng, khách sạn, bar: Hoá đơn VAT, chiết khấu theo sản lượng, ly và đế lót, gợi ý món ăn kèm.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

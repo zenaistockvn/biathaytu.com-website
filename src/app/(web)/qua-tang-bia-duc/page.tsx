@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://www.biathaytu.com.vn/qua-tang-bia-duc',
     images: [
       {
-        url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
+        url: '/images/og/garden.jpg',
         width: 1200,
         height: 630,
         alt: 'Quà tặng bia Đức cho doanh nghiệp',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Quà tặng bia Đức cho doanh nghiệp: Thùng mix, bom 5L',
     description: 'Thùng 12 chai Benediktiner mix Naturtrüb và Dunkel, bom 5L có vòi rót sẵn, set 6 chai kèm ly Weizen. In logo lên bao bì, có hoá đơn VAT cho doanh nghiệp.',
-    images: ['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images: ['/images/og/garden.jpg'],
   },
 };
 

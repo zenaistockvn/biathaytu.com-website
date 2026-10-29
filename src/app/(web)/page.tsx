@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.biathaytu.com.vn',
     images: [{
-      url: '/images/brand/benediktiner-official/home-hero.jpg',
-      width: 1920,
-      height: 969,
+      url: '/images/og/home.jpg',
+      width: 1200,
+      height: 630,
       alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal',
     }],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bia Thầy Tu Benediktiner, hơn 400 năm truyền thống bia Đức',
     description: 'Câu chuyện Ettal, hương vị Benediktiner và điểm giới thiệu tại Việt Nam.',
-    images: ['/images/brand/benediktiner-official/home-hero.jpg'],
+    images: ['/images/og/home.jpg'],
   },
 };
 

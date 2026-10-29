@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.biathaytu.com.vn/san-pham',
     images: [{
-      url: '/images/brand/benediktiner-official/beer-garden-closeup.jpg',
-      width: 1100,
-      height: 700,
+      url: '/images/og/garden.jpg',
+      width: 1200,
+      height: 630,
       alt: 'Benediktiner Weissbier Naturtrüb trong không gian ngoài trời',
     }],
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Benediktiner và bia Đức tuyển chọn | Bia Thầy Tu',
     description: 'Benediktiner Naturtrüb, Dunkel, Festbier và Bitburger: Hương vị, quy cách chai, lon, bom 5 lít.',
-    images:['/images/brand/benediktiner-official/beer-garden-closeup.jpg'],
+    images:['/images/og/garden.jpg'],
   },
 };
 
