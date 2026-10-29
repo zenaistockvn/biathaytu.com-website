@@ -104,10 +104,10 @@ export default function ProductsPage() {
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.products))} />
 
       <PhotoHero
-        size="medium"
+        size="compact"
+        wordmark={false}
         titleId="catalog-title"
         image={{ src: '/images/brand/benediktiner-official/beer-garden-closeup.jpg', alt: 'Chai và ly Benediktiner Weissbier Naturtrüb', position: '70% center' }}
-        eyebrow="Bia Thầy Tu"
         title="Bia của chúng tôi"
         kicker="Benediktiner và bia Đức tuyển chọn"
       >

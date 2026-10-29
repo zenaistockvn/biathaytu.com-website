@@ -11,7 +11,7 @@
 .prose {
   margin-top: 20px;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--web-text-secondary);
 }
 
@@ -63,7 +63,7 @@
 .heroMeta {
   margin: 18px 0 0;
   color: var(--web-on-ink-muted);
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .backdropWrap {
@@ -158,6 +158,10 @@
   align-items: center;
 }
 
+.introGrid p {
+  max-width: 70ch;
+}
+
 .introMedia {
   position: relative;
   height: clamp(320px, 42vw, 540px);
@@ -199,7 +203,7 @@
   font-family: var(--font-condensed), sans-serif;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   color: var(--web-ink);
 }
 
@@ -272,9 +276,9 @@
   margin: 10px 0 8px;
   font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -336,7 +340,7 @@
 
 .pairingColumns dt {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;

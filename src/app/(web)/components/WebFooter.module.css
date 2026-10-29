@@ -49,7 +49,7 @@
 .brand .brandDesc {
   max-width: 340px;
   margin: 16px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--web-on-ink-muted);
 }
@@ -68,7 +68,7 @@
   border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.25);
   font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--web-accent-on-ink);
@@ -121,7 +121,7 @@
 
 .contactList dt {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -151,7 +151,7 @@
   flex-wrap: wrap;
   gap: 4px 20px;
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--web-on-ink-muted);
 }
@@ -242,7 +242,7 @@
 
 .bar .copyright {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--web-ink);
 }
 
@@ -278,4 +278,19 @@
   .bar {
     padding-bottom: calc(18px + var(--web-mobile-bottom-nav-height) + env(safe-area-inset-bottom));
   }
+}
+
+/* Link hotline, email, pháp nhân, vang: vùng chạm ảo nới lên 44px. */
+.contactList a,
+.companyList a,
+.wine {
+  position: relative;
+}
+
+.contactList a::after,
+.companyList a::after,
+.wine::after {
+  content: '';
+  position: absolute;
+  inset: -12px -4px;
 }

@@ -13,7 +13,8 @@ interface PhotoHeroProps {
   actions?: React.ReactNode;
   /** Chữ viền rỗng tràn đáy hero. Mặc định "BENEDIKTINER"; false để tắt. */
   wordmark?: string | false;
-  size?: 'full' | 'medium';
+  /** `compact`: đầu trang danh mục, thấp để sản phẩm hiện ngay trong màn hình đầu. */
+  size?: 'full' | 'medium' | 'compact';
   titleId?: string;
   /** Ghi nguồn ảnh chính hãng, hiện nhỏ ở góc. */
   credit?: { href: string; label: string };

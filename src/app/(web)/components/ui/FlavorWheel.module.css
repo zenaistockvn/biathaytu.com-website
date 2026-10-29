@@ -41,14 +41,14 @@
 
 .label {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   fill: var(--web-ink);
 }
 
 .note {
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--web-text-secondary);
 }

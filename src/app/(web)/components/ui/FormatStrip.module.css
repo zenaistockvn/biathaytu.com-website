@@ -39,7 +39,7 @@
 
 .line {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -50,7 +50,7 @@
   font-family: var(--font-condensed), sans-serif;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   line-height: 1.3;
 }
 

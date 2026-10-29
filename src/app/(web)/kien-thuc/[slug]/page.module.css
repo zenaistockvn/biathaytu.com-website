@@ -49,7 +49,7 @@
   max-width: 900px;
   margin: 0;
   font-size: clamp(28px, 3.6vw, 46px);
-  line-height: 1.25;
+  line-height: 1.28;
   text-transform: none;
   color: var(--web-on-ink);
 }
@@ -57,7 +57,7 @@
 .hero .meta {
   margin: 18px 0 0;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--web-on-ink-muted);
@@ -82,7 +82,7 @@
 /* Ghi nguồn ảnh theo giấy phép CC BY-SA. */
 .coverCredit {
   margin: 8px 0 0;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--web-text-secondary);
 }
 
@@ -116,4 +116,15 @@
 
 .relatedGrid {
   margin-top: clamp(28px, 4vw, 44px);
+}
+
+/* Vùng chạm ảo: link chữ nhỏ nới lên 44px mà không đổi kích thước nhìn thấy. */
+.breadcrumb a {
+  position: relative;
+}
+
+.breadcrumb a::after {
+  content: '';
+  position: absolute;
+  inset: -12px -3px;
 }

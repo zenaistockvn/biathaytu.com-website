@@ -130,3 +130,14 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* Tên dòng bia cao chừng 23px: vùng chạm ảo nới lên 44px. */
+.lineTitle a {
+  position: relative;
+}
+
+.lineTitle a::after {
+  content: '';
+  position: absolute;
+  inset: -11px 0;
+}

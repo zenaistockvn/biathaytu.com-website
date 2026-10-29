@@ -25,9 +25,9 @@
   gap: 8px;
   padding: 12px 4px 14px;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--web-text-secondary);
   text-decoration: none;
@@ -47,7 +47,7 @@
 .badge {
   display: inline-block;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   padding: 2px 6px;
   background: var(--web-bg-section);

@@ -17,7 +17,7 @@
 .body .kicker {
   margin: 0;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 
 .body .text {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--web-on-ink-muted);
 }
@@ -50,7 +50,7 @@
 
 .info dt {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -75,7 +75,7 @@
   align-items: center;
   min-height: 44px;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;

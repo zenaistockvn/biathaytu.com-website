@@ -46,9 +46,6 @@
   --web-card-bg: #ffffff;
   --web-surface: var(--web-bg-warm);
   --web-red: #C8202A;
-  --web-wine: #464E66;
-  --web-wine-bg: #ECECEA;
-  --web-star: #7A6230;
 
   /* Kênh RGB cho màu trong suốt: rgb(var(--web-ink-rgb) / 0.6). Luôn khớp với token hex cùng tên. */
   --web-ink-rgb: 28 49 87;               /* #1C3157 */
@@ -77,8 +74,8 @@
   /* Thang cỡ chữ. Chữ hoa bản rộng chiếm chỗ hơn chữ thường ~30%, nên cỡ nhỏ hơn thói quen
      (Chimay: h2 38px với font thường). */
   --web-fs-hero: clamp(38px, 6.2vw, 84px);
-  /* Hero trang con (size="medium"): tiêu đề 2–4 chữ phải nằm một dòng trong khung 760px. */
-  --web-fs-hero-page: clamp(34px, 4.4vw, 60px);
+  /* Hero trang con (size="medium"): tiêu đề 2–4 chữ phải nằm một dòng trong khung 960px. */
+  --web-fs-hero-page: clamp(32px, 3.9vw, 52px);
   --web-fs-h1: clamp(30px, 4vw, 52px);
   --web-fs-h2: clamp(24px, 2.7vw, 36px);
   --web-fs-h3: clamp(19px, 1.7vw, 24px);
@@ -99,10 +96,6 @@
   /* Thanh danh mục dính dưới header ở /san-pham; dưới 769px còn 50px (xem media query bên dưới). */
   --web-catalog-nav-h: 54px;
 
-  /* Backward Compatibility (Optional) */
-  --web-gap-sm: var(--web-spacing-md);
-  --web-gap-md: var(--web-spacing-lg);
-  --web-gap-lg: var(--web-spacing-xl);
 }
 
 /* ─── Base Reset (override globals.css) ─── */
@@ -226,6 +219,11 @@ body.overflow-hidden {
   max-width: 100%;
 }
 
+/* Barlow chỉ nạp 400 và 600: <strong> dùng 600 thật, không để trình duyệt tô đậm giả ở 700. */
+:where(.web-app) :is(strong, b) {
+  font-weight: 600;
+}
+
 /* :where() giữ specificity (0,0,1) để class của component (0,1,0) đặt được margin cho <p>. */
 :where(.web-app) p {
   margin: 0;
@@ -247,8 +245,6 @@ body.overflow-hidden {
   /* Không đặt padding-bottom cho main: footer nằm sau main và tự chừa chỗ cho thanh điều hướng dưới
      (WebFooter.module.css .bar). Đệm thêm ở main thành dải trắng 82px ngay trên footer. */
 }
-
-/* ─── Header / Navigation ─── */
 
 /* ─── Layout ─── */
 .web-app .container {
@@ -300,32 +296,14 @@ body.overflow-hidden {
 /* Page Title — sub-pages */
 .web-app .page-title {
   font-size: 32px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.01em;
   font-weight: 700;
   color: var(--web-ink);
   font-family: var(--font-display);
   font-stretch: var(--web-display-stretch);
   margin-bottom: 24px;
-  line-height: 1.1;
+  line-height: 1.2;
 }
-
-/* Split Section — 2 column image + text */
-
-/* Inline Divider (used in split sections) */
-
-/* USP Bar */
-
-/* Stat Card — floating overlay */
-
-/* Star Rating */
-
-/* Product Card — Unified */
-
-/* Wine card variant */
-
-/* Partnership Cards — Glass */
-
-/* Icon Circle */
 
 /* ─── Buttons ───
    Nút chữ nhật kiểu Chimay: góc vuông, Barlow Condensed in hoa, không nhấc lên khi hover.
@@ -344,7 +322,7 @@ body.overflow-hidden {
   border-radius: 0;
   box-shadow: none;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.2;
@@ -396,7 +374,7 @@ body.overflow-hidden {
   min-height: 44px;
   padding: 0;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -455,43 +433,6 @@ body.overflow-hidden {
   opacity: 1;
 }
 
-/* Floating Zalo CTA */
-
-/* Mobile bottom navigation: MobileBottomNav.module.css */
-
-/* ─── Product Card ─── */
-
-/* ─── Testimonial Card ─── */
-
-
-
-/* ─── Navigation — Mobile-first: hamburger visible, desktop nav hidden ─── */
-
-/* ─── Food Pairing Card ─── */
-
-/* ─── Hero Section — Dark Premium (mobile-first) ─── */
-
-/* Hero Trust Badges (mobile-first: hiển thị gọn 3 mục ở 390x844) */
-
-/* Hero Bottom Divider */
-
-/* Hero Outline Button — visible on dark bg */
-
-/* Hero Background Image */
-
-/* ─── Animations ─── */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Testimonial Carousel Scrollbar */
-
-/* Partnership & Food Pairing Card Hovers */
-
-/* Article Cards Hover Effects (Kien Thuc Page) */
-
-/* ─── Markdown Content (Article Detail) ─── */
 /* Tiêu đề con luôn nhỏ hơn H1 của bài (clamp(28px, 3.6vw, 46px)); trên mobile H2 32px từng lớn hơn H1 28px. */
 .web-app .markdown-content h2 {
   color: var(--web-ink);
@@ -521,6 +462,7 @@ body.overflow-hidden {
 
 .web-app .markdown-content p {
   margin-bottom: 24px;
+  max-width: 70ch;
 }
 
 .web-app .markdown-content ul,
@@ -531,11 +473,12 @@ body.overflow-hidden {
 
 .web-app .markdown-content li {
   margin-bottom: 12px;
+  max-width: 70ch;
 }
 
 .web-app .markdown-content strong {
   color: var(--web-ink);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .web-app .markdown-content blockquote {
@@ -564,7 +507,7 @@ body.overflow-hidden {
   width: 100%;
   border-collapse: collapse;
   margin: 40px 0;
-  font-size: 15px;
+  font-size: 16px;
   font-family: var(--font-sans);
   border-radius: var(--web-radius);
   overflow: hidden;
@@ -580,9 +523,9 @@ body.overflow-hidden {
 .web-app .markdown-content thead th {
   padding: 16px 20px;
   text-align: left;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-family: var(--font-sans);
   border-bottom: 3px solid var(--web-accent);
@@ -605,7 +548,7 @@ body.overflow-hidden {
 .web-app .markdown-content tbody td {
   padding: 14px 20px;
   color: var(--web-text-secondary);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   vertical-align: top;
 }
@@ -630,11 +573,6 @@ body.overflow-hidden {
   }
 }
 
-/* ─── Article Hero Image (full-width above content) ─── */
-
-/* ─── Article Thumbnail on Listing Cards ─── */
-
-/* ─── Responsive — MOBILE-FIRST ─── */
 /* 
   Strategy:
   - Base = Mobile (< 769px)
@@ -644,7 +582,6 @@ body.overflow-hidden {
 
 /* ── Tablet+ (≥ 769px) ── */
 @media (min-width: 769px) {
-  /* Show desktop nav, hide hamburger */
 
   /* Sections scale up */
   .web-app .section,
@@ -663,40 +600,13 @@ body.overflow-hidden {
 
   .web-app .page-title {
     font-size: clamp(36px, 5vw, 60px);
-    letter-spacing: -1.5px;
+    letter-spacing: -0.02em;
   }
 
-  /* Hero → 2 columns */
-
-  /* Cards scale */
-
-  /* Food pairing images */
-
-  /* Story blocks */
-
-  /* CTA Banner */
-
-  /* Product detail */
+/* Product detail */
   .web-app .product-img-box { height: 500px; }
 
-  /* iTQi section */
-
-  /* Footer */
 }
-
-/* ── Desktop (≥ 1025px) ── */
-
-/* ─── FAQ Accordion ─── */
-
-/* ─── Testimonial Carousel ─── */
-
-/* ─── Food Pairing ─── */
-
-/* ─── B2B / Partnership Section ─── */
-
-/* B2B card text colors based on glass-card context */
-
-/* ─── 18+ Disclaimer ─── */
 
 /* ─── Sub-page Wrapper ─── */
 .web-app .subpage-wrap {
@@ -711,12 +621,6 @@ body.overflow-hidden {
   }
 }
 
-/* ─── Story Blocks (thuong-hieu) ─── */
-
-/* ─── CTA Banner ─── */
-
-/* ─── Contact Page ─── */
-
 /* ─── Footer ─── */
 .web-app .footer-contact { display: flex; flex-direction: column; gap: 12px; opacity: 0.75; font-size: 14px; }
 .web-app .footer-contact p { margin: 0; line-height: 1.6; }
@@ -724,9 +628,7 @@ body.overflow-hidden {
 
 /* ─── Product Detail (mobile-first) ─── */
 .web-app .product-img-box { background-color: var(--web-card-bg); border-radius: var(--web-radius-lg); padding: 32px; height: 360px; position: relative; box-shadow: none; }
-.web-app .product-description { font-size: 16px; line-height: 1.8; color: var(--web-text-secondary); margin-bottom: 32px; }
-
-/* ─── iTQi Section (mobile-first) ─── */
+.web-app .product-description { font-size: 16px; line-height: 1.7; color: var(--web-text-secondary); margin-bottom: 32px; }
 
 /* Product gallery responsive sizing */
 .web-app .product-gallery-main {
@@ -758,10 +660,6 @@ body.overflow-hidden {
     height: 300px;
   }
 }
-
-/* Checkout responsive rows */
-
-/* ─── UI/UX Pro Max Enhancements ─── */
 
 /* 1. Smooth Scroll & Focus Visible */
 html {
@@ -825,54 +723,17 @@ html {
   border-color: var(--web-accent-strong);
 }
 
-/* 4. Reveal on Scroll Animations (Dynamic Design) */
-
-/* Safety-net: auto-reveal after 1.5s if GSAP/ScrollTrigger fails */
-@keyframes reveal-safety-net {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.web-app .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-  /* Fallback: reveal content even if JS fails to load */
-  animation: reveal-safety-net 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
-}
-
-/* Stagger delays (transition for GSAP, animation for fallback safety-net) */
-
-/* When GSAP activates, cancel fallback and let transition handle reveal */
-.web-app .reveal-on-scroll.reveal-visible {
-  animation: none;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
 /* ─── Standardized UI Kit Additions ─── */
 .web-app .btn-sm {
-  min-height: 36px;
+  min-height: 44px;
   padding: 6px 14px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .web-app .btn-lg {
   padding: 15px 34px;
   font-size: 16px;
 }
-
-/* ─── Hero Specific Classes ─── */
-
-/* ─── Zalo CTA Wrapper ─── */
-
-/* ─── Web Header Phase 2 Refactor ─── */
-
-/* ─── Knowledge Page Styles (Mobile-first) ─── */
 
 /* ═══════════════════════════════════════════
    PREMIUM 2026 & STANDARD UI LAYOUT KIT
@@ -885,22 +746,8 @@ html {
   gap: clamp(36px, 4vw, 56px) clamp(16px, 2vw, 24px);
 }
 
-/* Product Card Actions and Button overrides */
-
-/* Product Order Actions (Detail page) layout classes */
-
-/* Product Gallery Thumbnail Slider: ProductGallery.module.css */
-
-/* Zalo CTA component styles */
-
-/* Premium 2026 Shimmer Effect */
-
-/* Bỏ vệt sáng quét qua ảnh: hiệu ứng trang trí không hợp thương hiệu cao cấp. */
-
 /* Helper spacing classes */
 .web-app .text-muted { color: var(--web-text-muted); }
-
-/* Classes to support full removal of inline styles in pages and components */
 
 /* Chỉ chừa chỗ cho header cố định (thanh danh mục có spacer riêng). Không đệm đáy: trang kết thúc bằng
    dải xanh đêm nối liền footer, đệm đáy thành dải trắng kẹp giữa hai khối xanh. */
@@ -909,12 +756,6 @@ html {
   padding-bottom: 0;
   background-color: var(--web-bg);
 }
-
-/* ─── AEO & Design Standard Refactor Styles ─── */
-
-/* ─── Checkout & Order Page Styling ─── */
-
-/* Promo Code styles */
 
 /* Link Indicators (T07) */
 .web-app .markdown-content a {
@@ -937,15 +778,12 @@ html {
   letter-spacing: -0.01em;
 }
 
-
-/* 2. Premium Pill Navigation (under catalog header) */
-
 /* Article Details Page (T16b) */
 .web-app .article-detail-title {
   font-size: clamp(32px, 5vw, 52px);
   color: var(--web-on-ink);
   margin-bottom: 24px;
-  line-height: 1.25;
+  line-height: 1.28;
   font-family: var(--font-display);
   font-stretch: var(--web-display-stretch);
   font-weight: 700;
@@ -954,16 +792,6 @@ html {
   max-width: 800px;
   padding: 60px 20px 100px;
 }
-
-/* 3. Quick Tags on Product Cards */
-
-/* 4. Detail Page Tags */
-
-/* 5. Mobile-First Spacing Adjustments (Products Page) */
-
-/* 6. Anti-Overlap Scroll Margins (Account for fixed header) */
-
-/* 7. Combo Cold Cut Highlight styling (Restored) */
 
 /* Smooth scrolling for anchor targets */
 html {
@@ -979,7 +807,7 @@ html {
   background: var(--web-ink);
   color: var(--web-on-ink);
   border-radius: 0;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -993,7 +821,6 @@ html {
   left: 16px;
   bottom: calc(var(--web-mobile-bottom-nav-height) + 14px + env(safe-area-inset-bottom));
   z-index: 9998;
-  animation: slideInRight 0.3s ease;
 }
 
 @media (min-width: 769px) {
@@ -1007,16 +834,11 @@ html {
 /* Khối hành động trên trang sản phẩm nằm trong cột hẹp: xếp dọc để
    nút không bị bóp vỡ chữ. Số hotline không bao giờ được xuống dòng. */
 
-/* Breadcrumb trang sản phẩm: giữ 1 dòng để CTA không bị đẩy khỏi màn hình đầu. */
-
-
 /* ═══════════════════════════════════════════════════════════════
    Tinh chỉnh cảm giác cao cấp — thay hiệu ứng mềm/generic bằng
    nhịp điệu của một cuốn catalogue in: nét mảnh, bo góc chặt,
    chữ nhỏ giãn ký tự, và để sản phẩm tự nói.
    ═══════════════════════════════════════════════════════════════ */
-
-/* — Thẻ sản phẩm — */
 
 /* Khoang ảnh: nền đá ấm có chiều sâu nhẹ thay cho hộp trắng phẳng.
    Ảnh đã tách nền nên sản phẩm nổi trực tiếp trên nền thương hiệu. */
@@ -1027,4 +849,3 @@ html {
 /* Thông số: chữ nhỏ in hoa giãn ký tự, phân cách bằng nét mảnh —
    thay cho các viên pill xám kiểu UI-kit. */
 
-/* Gợi ý liên kết thay cho nút xanh full-width lặp lại trên mọi thẻ */

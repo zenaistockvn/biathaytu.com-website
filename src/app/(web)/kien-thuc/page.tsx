@@ -47,9 +47,10 @@ export default async function KienThucPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Kiến thức"
         title="Kiến thức bia Đức"
+        kicker="Rót bia, món ăn, nguồn gốc"
         lead="Rót bia lúa mì sao cho bọt dày, món nào ăn với Dunkel, vì sao bia mang tên thầy tu lại ủ ở Lich."
+        image={{ src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal', position: '68% center' }}
       />
 
       <div className={styles.body}>

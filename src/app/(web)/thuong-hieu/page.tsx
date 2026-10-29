@@ -49,7 +49,7 @@ export default function BrandStoryPage() {
         size="medium"
         titleId="story-title"
         image={{ src: '/images/brand/benediktiner-official/home-hero.jpg', alt: 'Benediktiner Weissbier trước khung cảnh Tu viện Ettal', position: '68% center' }}
-        eyebrow="Câu chuyện thương hiệu"
+        wordmark={false}
         title="Từ 1330"
         kicker="Bia lúa mì dòng Biển Đức"
         credit={{ href: 'https://www.benediktiner-weissbier.de/en/', label: 'Hình ảnh: Benediktiner Weissbräu' }}

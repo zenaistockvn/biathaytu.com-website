@@ -65,7 +65,7 @@
   margin-bottom: 2px;
   font-family: var(--font-condensed), sans-serif;
   font-stretch: normal;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -75,7 +75,7 @@
 .priceSpecs {
   margin: 0;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -110,7 +110,7 @@
 .kicker {
   margin: 0 0 8px;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -121,7 +121,7 @@
 .top .name {
   margin: 0;
   font-size: clamp(24px, 3vw, 38px);
-  line-height: 1.25;
+  line-height: 1.28;
   text-transform: none;
 }
 
@@ -132,7 +132,7 @@
   font-family: var(--font-sans), sans-serif;
   font-stretch: normal;
   font-size: clamp(18px, 1.6vw, 21px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0;
   color: var(--web-text-secondary);
@@ -140,7 +140,7 @@
 
 .ageNote {
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--web-text-secondary);
 }
@@ -160,7 +160,7 @@
 
 .specs dt {
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -197,7 +197,7 @@
 }
 
 .description {
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--web-text-secondary);
 }
 
@@ -222,6 +222,9 @@
 }
 
 .pairingLinks a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--web-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -248,4 +251,14 @@
     grid-template-columns: 7fr 5fr;
     gap: 56px;
   }
+}
+/* Vùng chạm ảo: link chữ nhỏ nới lên 44px mà không đổi kích thước nhìn thấy. */
+.breadcrumb a {
+  position: relative;
+}
+
+.breadcrumb a::after {
+  content: '';
+  position: absolute;
+  inset: -12px -3px;
 }

@@ -47,11 +47,14 @@
 }
 
 .note {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .inlineLink {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-condensed), sans-serif;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -73,7 +76,7 @@
 
 .panelText a {
   color: var(--web-on-ink);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .actions {

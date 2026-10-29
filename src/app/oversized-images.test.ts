@@ -50,7 +50,6 @@ const KNOWN_OVERSIZED = [
   "products/macro_pour_v2.png",
   "products/official/benediktiner/124_43ed2d310d7b45a6a7c3cd065e139b25.png",
   "products/official/benediktiner/86480_bottle_nobg.png",
-  "products/official/benediktiner/glass_nobg.png",
   "products/premium_ugc/benediktiner_beach.png",
   "products/premium_ugc/benediktiner_chill.png",
   "products/premium_ugc/benediktiner_cigar.png",
@@ -159,7 +158,7 @@ describe('public image size budget', () => {
     const known = new Set<string>(KNOWN_OVERSIZED);
     const unexpected = oversizedPngs.filter((path) => !known.has(path));
 
-    expect(KNOWN_OVERSIZED).toHaveLength(127);
+    expect(KNOWN_OVERSIZED).toHaveLength(126);
     expect(unexpected).toEqual([]);
   });
 

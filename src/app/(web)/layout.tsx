@@ -7,10 +7,8 @@ import Toast from './components/Toast';
 import FloatingZaloCTA from './components/FloatingZaloCTA';
 import MobileBottomNav from './components/MobileBottomNav';
 import CatalogStickyNav from './components/CatalogStickyNav';
-import ScrollRevealObserver from './components/ScrollRevealObserver';
 import FacebookPixel from './components/FacebookPixel';
 import AgeVerificationGate from './components/AgeVerificationGate';
-import MobileUxEnhancer from './components/MobileUxEnhancer';
 import CookieConsent from './components/CookieConsent';
 import { LanguageProvider } from './context/LanguageContext';
 import JsonLd, { getOrganizationSchema, getWebsiteSchema } from './components/JsonLd';
@@ -121,13 +119,11 @@ export default function WebLayout({ children }: { children: React.ReactNode }) {
           <FloatingZaloCTA />
           <MobileBottomNav />
           <Toast />
-          <ScrollRevealObserver />
           <Suspense fallback={null}>
             <FacebookPixel />
           </Suspense>
           <CookieConsent />
           <AgeVerificationGate />
-          <MobileUxEnhancer />
         </LanguageProvider>
       </div>
     </>

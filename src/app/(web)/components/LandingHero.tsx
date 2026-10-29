@@ -1,38 +1,15 @@
 'use client';
 
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import { Button } from './ui/Button';
 import PhotoHero from './ui/PhotoHero';
 import { useLanguage } from '../context/LanguageContext';
 
-/** Hero trang chủ: PhotoHero kiểu Chimay, các khối chữ hiện dần bằng GSAP (tắt khi giảm chuyển động). */
+/** Hero trang chủ: PhotoHero kiểu Chimay, các khối chữ hiện dần bằng CSS (tắt khi giảm chuyển động). */
 export default function LandingHero() {
   const { t } = useLanguage();
-  const heroRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const items = gsap.utils.selector(heroRef)('[data-hero-reveal]');
-
-    if (reduceMotion) {
-      gsap.set(items, { autoAlpha: 1, y: 0 });
-      return;
-    }
-
-    const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    timeline.from(items, {
-      autoAlpha: 0,
-      y: 24,
-      duration: 0.72,
-      stagger: 0.09,
-    });
-  }, { scope: heroRef });
 
   return (
     <PhotoHero
-      ref={heroRef}
       reveal
       titleId="home-hero-title"
       image={{

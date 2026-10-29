@@ -84,7 +84,7 @@ describe('mobile-first responsive regressions', () => {
     }
     expect(bottomNav).not.toContain('...NAV.home');
     // Nhãn Barlow Condensed in hoa; trạng thái chọn là vạch trên 3px, không đổi nền.
-    expect(css).toMatch(/\.nav \.item \{[^}]*font-family:\s*var\(--font-condensed\)[^}]*font-size:\s*13px[^}]*text-transform:\s*uppercase/);
+    expect(css).toMatch(/\.nav \.item \{[^}]*font-family:\s*var\(--font-condensed\)[^}]*font-size:\s*14px[^}]*text-transform:\s*uppercase/);
     expect(css).toMatch(/\.nav \.item\.active::before\s*\{[^}]*background:\s*var\(--web-accent\)/);
     expect(css).toMatch(/\.nav \.item::before\s*\{[^}]*height:\s*3px/);
     expect(css).not.toMatch(/\.active\s*\{[^}]*background:\s*var\(--web-accent-bg\)/);
@@ -165,28 +165,23 @@ describe('mobile-first responsive regressions', () => {
     expect(readProjectFile('src/app/(web)/components/SkuActionBar.tsx')).not.toMatch(/>\s*Gọi đặt hàng/);
   });
 
-  it('uses GSAP ScrollTrigger for class-based scroll reveal with reduced motion support', () => {
-    const reveal = readProjectFile('src/app/(web)/components/ScrollRevealObserver.tsx');
+  it('reveals the landing hero with CSS only (no animation library), off under reduced motion', () => {
+    const hero = readProjectFile('src/app/(web)/components/LandingHero.tsx');
+    const heroCss = readProjectFile('src/app/(web)/components/ui/PhotoHero.module.css');
+    const layout = readProjectFile('src/app/(web)/layout.tsx');
 
-    expect(reveal).toContain("import gsap from 'gsap'");
-    expect(reveal).toContain("import { ScrollTrigger } from 'gsap/ScrollTrigger'");
-    expect(reveal).toContain("import { useGSAP } from '@gsap/react'");
-    expect(reveal).toContain('gsap.registerPlugin(ScrollTrigger)');
-    expect(reveal).toContain("prefers-reduced-motion: reduce");
-    expect(reveal).toContain("'.reveal-on-scroll'");
-    expect(reveal).toContain('once: true');
+    expect(hero).not.toContain('gsap');
+    expect(layout).not.toContain('ScrollRevealObserver');
+    // Các khối chữ hiện dần được đánh dấu qua PhotoHero (reveal) và chạy bằng CSS keyframes.
+    expect(hero).toMatch(/<PhotoHero[\s\S]*\breveal\b/);
+    expect(heroCss).toMatch(/@keyframes heroReveal/);
+    expect(heroCss).toMatch(/@media \(prefers-reduced-motion: reduce\)\s*\{\s*\.copy > \[data-hero-reveal\]\s*\{\s*animation:\s*none/);
   });
 
-  it('uses a scoped GSAP timeline for the landing hero', () => {
-    const hero = readProjectFile('src/app/(web)/components/LandingHero.tsx');
+  it('shrinks the header crest with transform, not layout properties', () => {
+    const css = readProjectFile('src/app/(web)/components/WebHeader.module.css');
 
-    expect(hero).toContain("import gsap from 'gsap'");
-    expect(hero).toContain("import { useGSAP } from '@gsap/react'");
-    expect(hero).toContain('const heroRef = useRef<HTMLElement>(null)');
-    expect(hero).toContain('scope: heroRef');
-    expect(hero).toContain('gsap.timeline');
-    expect(hero).toContain("prefers-reduced-motion: reduce");
-    // Các khối chữ hiện dần được đánh dấu qua PhotoHero (reveal) thay cho class CSS cũ.
-    expect(hero).toMatch(/<PhotoHero[\s\S]*\breveal\b/);
+    expect(css).toMatch(/\.scrolled \.crest\s*\{[^}]*transform:\s*translateY\(-4px\) scale\(0\.8333\)/);
+    expect(css).not.toMatch(/transition:[^;]*\b(width|height|margin)\b/);
   });
 });

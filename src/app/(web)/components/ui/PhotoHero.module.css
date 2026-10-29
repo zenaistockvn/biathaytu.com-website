@@ -11,8 +11,10 @@
   min-height: min(900px, 100svh);
 }
 
-.medium {
-  min-height: clamp(460px, 70svh, 700px);
+/* Mọi trang con (menu chính) dùng chung một chiều cao hero; chữ neo đáy để tiêu đề luôn ở cùng vị trí. */
+.medium,
+.compact {
+  min-height: clamp(380px, 48svh, 460px);
 }
 
 .image {
@@ -49,10 +51,10 @@
   }
 }
 
-/* 760px cho cụm chữ; hero trang con dùng cỡ --web-fs-hero-page để tiêu đề như "Cho nhà hàng"
+/* 960px cho cụm chữ; hero trang con dùng cỡ --web-fs-hero-page để tiêu đề như "Cho nhà hàng"
    nằm trọn một dòng (cỡ 84px của trang chủ làm gãy thành "CHO NHÀ / HÀNG"). Đoạn dẫn giữ 520px. */
 .copy {
-  max-width: 760px;
+  max-width: 960px;
 }
 
 .body {
@@ -87,10 +89,49 @@
   right: 16px;
   z-index: 2;
   font-family: var(--font-condensed), sans-serif;
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.04em;
   color: var(--web-on-ink);
   text-shadow: 0 0 1px rgb(var(--web-ink-rgb) / 0.9), 0 0 2px rgb(var(--web-ink-rgb) / 0.9);
+  /* Vùng chạm ảo cho dòng nguồn ảnh 12px. */
+}
+
+.credit::after {
+  content: '';
+  position: absolute;
+  inset: -14px -4px;
+}
+
+/* Các khối chữ (PhotoHero reveal) hiện dần lần lượt khi trang mở; chỉ dùng opacity và transform. */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.copy > [data-hero-reveal] {
+  animation: heroReveal 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.copy > [data-hero-reveal]:nth-child(2) {
+  animation-delay: 0.09s;
+}
+
+.copy > [data-hero-reveal]:nth-child(3) {
+  animation-delay: 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy > [data-hero-reveal] {
+    animation: none;
+  }
+}
+
+/* Hero trang danh mục: chiều cao theo nội dung, chữ bắt đầu dưới thanh danh mục dính (đè lên đầu hero). */
+.compact .inner {
+  padding-top: calc(var(--web-catalog-nav-h) + 32px);
 }
 
 /* Dưới 769px có thanh điều hướng đáy (MobileBottomNav) che mất phần cuối màn hình. */

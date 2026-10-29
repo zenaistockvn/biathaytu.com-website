@@ -38,7 +38,6 @@ export default function Page() {
 
       <EditorialPage
         hero={{
-          eyebrow: 'Rót bia',
           title: 'Cách rót bia lúa mì',
           kicker: 'Bốn bước và một chiếc ly',
           lead: 'Rót Weissbier đúng cách thì bọt dày, bia đục đều và hương chuối chín rõ hơn. Có bốn bước.',

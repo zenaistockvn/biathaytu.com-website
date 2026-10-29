@@ -46,10 +46,10 @@ export default function ContactPage() {
       <JsonLd type="breadcrumb" data={getBreadcrumbSchema(breadcrumbTrail(NAV.contact))} />
 
       <PageHeader
-        tone="light"
-        eyebrow="Liên hệ"
         title="Kết nối với chúng tôi"
+        kicker="Showroom và hợp tác phân phối"
         lead="Liên hệ Bia Thầy Tu hoặc đăng ký hợp tác phân phối."
+        image={{ src: '/images/restaurant/tang-1-quay-trung-bay-gt.jpg', alt: 'Cận cảnh quầy vòm trưng bày bia và rượu vang Đức tại showroom', position: 'center center' }}
       />
 
       <div className={styles.body}>

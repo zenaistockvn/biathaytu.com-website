@@ -188,7 +188,7 @@ export default function LandingPage() {
       >
         <p>Nhà hàng của German Taste ở {COMPANY_CONFIG.showroomAddress}, mở {COMPANY_CONFIG.restaurantHours}. Bia Benediktiner rót ly Weizen, ăn cùng chân giò nướng giòn, xúc xích kiểu Đức hoặc sườn nướng. Nhà hàng có 3 tầng, có phòng riêng cho bàn tiếp khách.</p>
         <p>Nhà hàng này cũng là mẫu để nhượng quyền tại Hà Nội, TP. Hồ Chí Minh và các thành phố lớn.</p>
-        <dl className={styles.facts}>
+        <dl className={`${styles.facts} ${styles.factsText}`}>
           <div><dt>Ngõ 26 Vạn Phúc</dt><dd>Nhà hàng mẫu tại Hà Nội</dd></div>
           <div><dt>Món Đức</dt><dd>Chân giò, xúc xích, salami</dd></div>
           <div><dt>Nhượng quyền</dt><dd>Bia lấy thẳng từ nhà nhập khẩu</dd></div>

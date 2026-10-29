@@ -57,7 +57,7 @@ Hệ thiết kế ghép hai nguồn, không tự phát minh:
 
 | Yếu tố | Nguồn |
 | --- | --- |
-| Xanh đêm `#1C3157` | Ảnh chiến dịch `Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf` |
+| Xanh đêm `#1C3157` | Ảnh chiến dịch `Bene_Weissbier_Kampagnenmotiv_EN_210x297_3.pdf` (lưu ở `assets-source/official/`) |
 | Xanh trời `#004787` | Ảnh hero `brand/benediktiner-official/home-hero.jpg` (benediktiner-weissbier.de) |
 | Vàng nhãn `#D6BD79`, đỏ `#C8202A` | Logo và nhãn chai Benediktiner |
 | Font | benediktiner-weissbier.de dùng Copperplate (tiêu đề) và Barlow Condensed (chữ). Copperplate không có ký tự tiếng Việt (thiếu cả `đ ư ơ`) nên thay bằng **Roboto Serif bản rộng** (`font-stretch: 125%`), gần nhất về độ rộng và nét. Barlow Condensed giữ nguyên. Đoạn văn dài dùng **Barlow** bản thường cùng họ cho dễ đọc. |
@@ -112,10 +112,10 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
    - Chỉ ở đầu trang tại các route có hero tối trong `DARK_HERO_PATHS` hoặc `/kien-thuc/*`.
    - Logo và menu hiển thị `--web-on-ink`; gradient bảo vệ ở đỉnh (`--web-ink-deep-rgb`) giữ tương phản AA trên ảnh.
 3. **Chiều cao:** `--web-header-h` là 72px, từ 1024px là 88px (hai hàng: tiện ích 26px + menu 32px, cách mép trên dưới ~12px). Huy hiệu 96px treo xuống dưới thanh header, thu còn 80px khi cuộn. Mọi chỗ đặt theo header (hero, thanh danh mục dính, trang không có hero, toast) đọc token này, không viết cứng px.
-4. **Menu desktop:** SẢN PHẨM ▾ · CÂU CHUYỆN ETTAL · THƯỞNG THỨC · KIẾN THỨC · HORECA VÀ ĐẠI LÝ. "Sản phẩm" sáng cho `/san-pham`, mọi SKU, trang dòng bia và trang bom 5L (`isProductsPath`). Panel "Sản phẩm" phẳng (nền trắng, viền 1px, không bóng) ba cột: Benediktiner, Bia Đức tuyển chọn + "Xem tất cả sản phẩm", ảnh; mở bằng rê chuột hoặc focus, đóng bằng Escape và trả focus về mục.
+4. **Menu desktop:** SẢN PHẨM ▾ · NHÀ HÀNG & NHƯỢNG QUYỀN · CÂU CHUYỆN ETTAL · THƯỞNG THỨC · KIẾN THỨC · HORECA VÀ ĐẠI LÝ. Từ 1024px đến 1180px nhãn menu hạ còn 14px và tên chữ cạnh huy hiệu ẩn đi để hàng menu không tràn. "Sản phẩm" sáng cho `/san-pham`, mọi SKU, trang dòng bia và trang bom 5L (`isProductsPath`). Panel "Sản phẩm" phẳng (nền trắng, viền 1px, không bóng) ba cột: Benediktiner, Bia Đức tuyển chọn + "Xem tất cả sản phẩm", ảnh; mở bằng rê chuột hoặc focus, đóng bằng Escape và trả focus về mục.
 5. **Hàng tiện ích:** hotline · [LIÊN HỆ] · ngôn ngữ. "Liên hệ" mở bảng kênh chung (Mở Zalo, Điện thoại, Messenger, Showroom) giống nút nổi và ô Liên hệ của bottom nav.
 6. **Menu mobile:** hộp thoại (`role="dialog"`, bẫy focus, Escape, trả focus về nút menu). Nhóm Sản phẩm có chip dòng bia; các mục nội dung; nhóm Liên hệ với hai nút Gọi hotline / Mở Zalo và địa chỉ showroom; dòng nhỏ Bảng giá sỉ · Quà tặng · Thông tin mua hàng · ngôn ngữ.
-7. **Thanh điều hướng dưới (mobile, `MobileBottomNav`):** SẢN PHẨM · KIẾN THỨC · SHOWROOM · LIÊN HỆ; cao `--web-mobile-bottom-nav-height` (74px); nền đặc, viền trên. Mục chọn: vạch trên 3px `--web-accent` + chữ xanh trời, không đổi nền. Trên `/san-pham/*` thay bằng `SkuActionBar` (Gọi tư vấn / Mở Zalo) cùng chiều cao.
+7. **Thanh điều hướng dưới (mobile, `MobileBottomNav`):** SẢN PHẨM · KIẾN THỨC · SHOWROOM · LIÊN HỆ; cao `--web-mobile-bottom-nav-height` (74px); nền đặc, viền trên. Mục chọn: vạch trên 3px `--web-accent` + chữ xanh trời, không đổi nền. Thanh này giữ nguyên trên cả `/san-pham/*`; `SkuActionBar` (Gọi tư vấn / Mở Zalo) còn trong mã nhưng không gắn vào trang SKU nào, và test `mobile-first-regression.test.ts` chặn việc gắn lại.
 
 ### Trạng thái tương tác (Interaction States)
 
@@ -142,20 +142,25 @@ Khi cần độ trong suốt (alpha), toàn bộ hệ thống sử dụng cú ph
 - **Tiêu đề `h1`, `h2` và logo chữ:** Roboto Serif 600, bản rộng (`font-stretch: var(--web-display-stretch)`), **in hoa** như Copperplate trên web Benediktiner. Line-height 1.28 để dấu chồng trên chữ hoa (`Ầ Ẫ Ỗ`) không chạm dòng trên.
 - **Mọi chỗ khai `font-family: var(--font-display)` phải kèm `font-stretch: var(--web-display-stretch)`**, nếu không chữ sẽ ra bản hẹp.
 - Roboto Serif được tự phục vụ từ `public/fonts/` (khai ở `src/app/fonts.css`), đã cắt gọn còn đúng độ rộng 125% và độ đậm 600–700: khoảng 56 KB thay vì 180 KB. Cần độ đậm hay độ rộng khác thì cắt lại theo `public/fonts/README.md`, đừng khai thêm trong CSS.
-- Barlow chỉ nạp 400 và 600, Barlow Condensed nạp 500, 600, 700. Thêm độ đậm mới thì nạp thêm trong `src/app/layout.tsx`.
+- Barlow chỉ nạp 400 và 600, Barlow Condensed nạp 500, 600, 700. Thêm độ đậm mới thì nạp thêm trong `src/app/layout.tsx`. Chữ Barlow thường chỉ dùng 400 hoặc 600: `<strong>` và `<b>` đã đặt 600 trong `web.css`, đừng viết 500, 700 hay 900 cho Barlow thường (trình duyệt sẽ tô đậm giả, nét chữ thô). Barlow Condensed không dùng 400.
+- **Thang cỡ chữ nhỏ chỉ có bốn bậc: 12 / 14 / 16 / 18px.** 12px chỉ cho chú thích và nguồn ảnh; 14px cho nhãn, thông số, chữ phụ; 16px cho nội dung, nút, menu; 18px cho dòng dẫn và tên thẻ. Trên 18px dùng token tiêu đề (`--web-fs-h1`…`--web-fs-hero`). Không thêm cỡ lẻ 13, 15, 17, 19px.
+- **Line-height:** 1.2 cho tiêu đề lớn một dòng, 1.28 cho tiêu đề in hoa (chừa chỗ dấu tiếng Việt), 1.3 cho tiêu đề nhỏ, 1.5 cho chữ giao diện, 1.6 đến 1.7 cho nội dung. Không dùng giá trị lẻ ở giữa (1.15, 1.35, 1.45, 1.75…).
+- **Giãn chữ:** 0.04em (tiêu đề nhỏ, nút), 0.06em (menu, nhãn), 0.08em (nhãn nhỏ in hoa). Giá trị lớn hơn chỉ cho chữ trang trí (`kicker`, chữ viền rỗng).
 - **Tiêu đề dạng câu dài** (bài viết, thẻ bài viết, `h2` trong nội dung bài): chữ thường. Câu tiếng Việt dài in hoa rất khó đọc.
-- **`h3`:** Roboto Serif 600 bản rộng, chữ thường (tên sản phẩm, tiêu đề thẻ).
+- **`h3`:** Roboto Serif 600 bản rộng, chữ thường (tên sản phẩm, tiêu đề thẻ). Ngoại lệ có chủ đích: tên dòng bia trong `BeerCard` ở trang chủ và các tiêu đề h3 của hướng dẫn rót in hoa như nhãn chai.
 - **`h4`–`h6`:** Barlow Condensed 700, in hoa, giãn `0.04em`.
 - **Nội dung:** Barlow 400, 16px, line-height 1.65.
-- **Nhãn, nút, menu, tab, chip:** Barlow Condensed 600, in hoa, 13–15px, giãn `0.06em` (tối đa `0.08em` cho nhãn nhỏ).
+- **Nhãn, nút, menu, tab, chip:** Barlow Condensed 600, in hoa, 14–16px, giãn `0.06em` (tối đa `0.08em` cho nhãn nhỏ).
 - **Cỡ chữ tối thiểu 12px** ở mọi chỗ, kể cả nhãn phụ và dòng chú thích.
-- **Cỡ tiêu đề hero:** trang chủ `--web-fs-hero` (tối đa 84px); hero trang con (`PhotoHero size="medium"`) `--web-fs-hero-page` (tối đa 60px) để tiêu đề 2–4 chữ nằm một dòng.
+- **Cỡ tiêu đề hero:** trang chủ `--web-fs-hero` (tối đa 84px); hero trang con (`PhotoHero size="medium"`) `--web-fs-hero-page` (tối đa 52px) để tiêu đề 2–4 chữ nằm một dòng.
 - Không dùng chữ nghiêng cho tiêu đề (chỉ nạp bản đứng, trình duyệt sẽ nghiêng giả).
 - Độ đậm tối đa 700. Không dùng 800/900.
 
 ## Hình ảnh
 
 - Chỉ dùng ảnh chính hãng: `public/images/products/official/`, `public/images/brand/benediktiner-official/`, `public/images/brand/bitburger-official/`. Mỗi thư mục có `SOURCES.md`.
+- **Bản gốc nặng (EPS, PDF của hãng) nằm ở `assets-source/official/`, không đặt trong `public/`**: chúng chỉ dùng để xuất ảnh, không cần phục vụ qua URL (`.vercelignore` bỏ qua thư mục này khi deploy). Ảnh đưa vào `public/` phải đã nén (test `oversized-images.test.ts` chặn PNG trên 1 MB mới).
+- Favicon `src/app/icon.png` là 96×96 bảng màu 128, khoảng 7 KB.
 - **Không dùng ảnh do AI tạo.** Ảnh AI vẽ sai nhãn chai (chữ vô nghĩa, sai tên hãng, sai khuôn mặt thầy tu trên huy hiệu).
 - Ảnh sản phẩm tách nền đặt trên `--web-sky`, `object-fit: contain`, không cắt nhãn.
 
@@ -169,13 +174,17 @@ Không dùng: chữ gradient, quầng sáng (glow), vệt sáng quét (shimmer),
 
 Rê chuột chỉ đổi nền, màu chữ hoặc gạch chân; **không nhấc phần tử** (`translateY`). Ngoại lệ duy nhất: ảnh trong thẻ sản phẩm phóng nhẹ 4%.
 
+**Một khoảnh khắc chuyển động duy nhất:** các khối chữ ở hero trang chủ hiện dần lần lượt khi mở trang (`heroReveal` trong `PhotoHero.module.css`, 0,72 giây, chỉ `opacity` và `transform`, tắt khi người dùng chọn giảm chuyển động). Web không dùng thư viện hiệu ứng (đã bỏ GSAP); các phần còn lại không có hiệu ứng cuộn. Huy hiệu header thu nhỏ khi cuộn bằng `transform`, không đổi `width`/`height` (test `mobile-first-regression.test.ts` chặn).
+
 ## Bố cục
 
 - **Container:** tối đa 1200px, lề 16px trên mobile.
 - **Khoảng cách section:** mọi section dùng `--web-section-py` (`clamp(56px, 6vw, 80px)`: 80px desktop, 56px mobile), kể cả đệm trong khối màu của `SplitBlock` và đáy hero trang con. Không viết clamp riêng trong module (test `spacing.test.ts` chặn 96/104/112px).
 - **Hai section cùng nền đứng liền nhau** không được để dải trắng cộng dồn; dải cuối trang không dùng nền xanh đêm vì dính liền footer (dùng nền trắng có kẻ trên hoặc xám).
+- **Đầu trang của mọi mục menu chính đồng nhất:** Sản phẩm, Nhà hàng & Nhượng quyền, Câu chuyện Ettal, Thưởng thức, Kiến thức, HORECA, Showroom đều dùng `PhotoHero` (`medium`, riêng `/san-pham` là `compact` vì có thanh danh mục dính), ảnh chính hãng, không chữ viền rỗng, cao `clamp(380px, 48svh, 460px)`, chữ neo đáy, tiêu đề `--web-fs-hero-page`, theo thứ tự tiêu đề, dòng phụ (`kicker`), một câu dẫn. Không có nhãn `eyebrow` phía trên tiêu đề vì menu đã đánh dấu mục đang xem. Trang pháp lý (cookie, bảo mật, điều khoản, kiểm soát độ tuổi) giữ dải tiêu đề nền trắng. Trang mới trong menu phải theo mẫu này, đừng dựng dải xanh phẳng riêng.
 - **`main` không có `padding-bottom`:** footer tự chừa chỗ cho thanh điều hướng dưới.
-- **Nút và mọi phần tử bấm được:** góc vuông, vùng chạm tối thiểu 44px (hàng tiện ích header dùng vùng chạm ảo `::after`).
+- **Nút và mọi phần tử bấm được:** góc vuông, vùng chạm tối thiểu 44px, kể cả nút nhỏ `btn-sm`. Link chữ nhỏ (hàng tiện ích header, breadcrumb, tên dòng bia, link hotline/email/pháp nhân ở footer, dòng nguồn ảnh) dùng vùng chạm ảo `::after { inset: -12px … }` để không đổi kích thước nhìn thấy.
+- **Ô số liệu (`<dl>` trong khối chia đôi):** giá trị ngắn như `1330`, `400+` xếp ba cột. Giá trị là chữ (tên, cụm từ) dùng `.factsText`: xếp hàng, tên bên trái, mô tả bên phải, vì ba cột hẹp làm chữ gãy ba dòng.
 
 | Token | Giá trị | Dùng cho |
 | --- | --- | --- |
@@ -183,7 +192,7 @@ Rê chuột chỉ đổi nền, màu chữ hoặc gạch chân; **không nhấc 
 | `--web-section-py` | `clamp(56px, 6vw, 80px)` | Đệm trên dưới mọi section |
 | `--web-mobile-bottom-nav-height` | 74px | Bottom nav, `SkuActionBar`, đệm đáy footer |
 | `--web-catalog-nav-h` | 54px, 50px dưới 769px | Thanh danh mục dính ở `/san-pham` |
-| `--web-fs-hero` / `--web-fs-hero-page` | tối đa 84px / 60px | Tiêu đề hero trang chủ / trang con |
+| `--web-fs-hero` / `--web-fs-hero-page` | tối đa 84px / 52px | Tiêu đề hero trang chủ / trang con |
 
 Mỗi token chỉ khai trong `web.css` (test `design-tokens.test.ts` chặn file CSS khác khai lại `--web-radius*`, `--web-shadow*`).
 - **Ngữ pháp Chimay:** hero ảnh tràn màn hình; section chia đôi nửa ảnh, nửa khối màu phẳng; ô danh mục lớn; thẻ sản phẩm là ảnh ngữ cảnh kèm tên, không viền, không bóng.
@@ -194,7 +203,7 @@ Nằm trong `src/app/(web)/components/ui/`, mỗi component có CSS module riên
 
 | Component | Dùng cho | Tương ứng trên chimay.com |
 | --- | --- | --- |
-| `PhotoHero` | Hero ảnh tràn màn hình, chữ viền rỗng "BENEDIKTINER" tràn đáy | Hero trang chủ, trang Chimay Bleue |
+| `PhotoHero` | Hero ảnh tràn màn hình, chữ viền rỗng "BENEDIKTINER" tràn đáy. `size`: `full` (trang chủ), `medium` (trang con), `compact` (đầu trang danh mục `/san-pham`: không chữ viền rỗng, cao theo nội dung, chữ bắt đầu dưới thanh danh mục dính để sản phẩm hiện sớm trong màn hình đầu) | Hero trang chủ, trang Chimay Bleue |
 | `TitleBlock` | Tiêu đề kèm dòng phụ in hoa (`kicker`), icon nét mảnh tuỳ chọn | "Nos Bières / TRAPPISTES" |
 | `SplitBlock` | Nửa ảnh, nửa khối màu phẳng (`ink`, `accent`, `gold`, `mist`); `wordmark` thêm chữ viền dọc | "Découvrez l'Abbaye", "Visitez l'Espace" |
 | `CategoryTile` + `CategoryTileGrid` | Hai ô danh mục lớn: ảnh trên, khối màu có icon dưới | "Nos bières / Nos fromages" |
@@ -213,7 +222,7 @@ Component chức năng (trong `src/app/(web)/components/`, mỗi cái một CSS 
 | --- | --- |
 | `WebHeader`, `WebFooter`, `MobileBottomNav`, `CatalogStickyNav` | Khung điều hướng (xem mục Header và thanh điều hướng) |
 | `FloatingZaloCTA` | Bảng kênh liên hệ dùng chung (Mở Zalo, Điện thoại, Messenger, Showroom); icon nét mảnh, không khung tròn |
-| `SkuActionBar` | Thanh cố định Gọi tư vấn / Mở Zalo trên trang SKU dưới 769px |
+| `SkuActionBar` | Không còn gắn vào trang nào (xem mục Header và thanh điều hướng); trang SKU dùng `MobileBottomNav` |
 | `san-pham/ProductCatalog` | Danh mục ba cấp: nhóm → dòng bia (tên dòng link trang dòng) → thẻ compact 2/3/4 cột; hàng lọc Tất cả · Chai · Lon · Bom |
 | `kien-thuc/KnowledgeBrowser` | Chip chủ đề + 9 bài mỗi lượt, "Xem thêm"; bài chưa hiện vẫn có trong HTML |
 | `ProductGallery`, `ProductDetailsAccordion`, `ProductOrderActions`, `ProductConsultationForm` | Ảnh (chấm chỉ báo dưới 768px), câu hỏi thường gặp, khối liên hệ, form tư vấn trên trang SKU |

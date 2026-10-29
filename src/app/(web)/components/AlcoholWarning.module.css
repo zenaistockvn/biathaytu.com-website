@@ -4,7 +4,7 @@
   align-items: center;
   gap: 8px;
   color: inherit;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -21,7 +21,7 @@
   background: var(--web-ink);
   color: var(--web-accent-on-ink);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Khối cảnh báo đầu các trang pháp lý: nền xám, vạch trái vàng đồng. */
@@ -31,7 +31,7 @@
   border-left: 4px solid var(--web-heritage);
   background: var(--web-bg-section);
   color: var(--web-ink);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
 }

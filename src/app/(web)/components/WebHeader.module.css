@@ -56,7 +56,8 @@
   display: block;
   width: 56px;
   height: 56px;
-  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease;
+  transform-origin: top left;
+  transition: transform 0.3s ease;
 }
 
 .crest img {
@@ -70,11 +71,12 @@
 .wordmark {
   font-family: var(--font-display), Georgia, serif;
   font-stretch: var(--web-display-stretch);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: transform 0.3s ease;
 }
 
 /* ─── Desktop: hai hàng bên phải ─── */
@@ -88,7 +90,7 @@
   justify-content: flex-end;
   gap: 10px;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -246,7 +248,7 @@
 .panel .panelLabel {
   margin: 0;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -267,7 +269,7 @@
   min-height: 32px;
   font-family: var(--font-display), Georgia, serif;
   font-stretch: var(--web-display-stretch);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--web-ink);
   text-decoration: none;
@@ -392,7 +394,7 @@
   padding: 0 16px;
   background: var(--web-bg-section);
   font-family: var(--font-condensed), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -500,10 +502,13 @@
     font-size: 22px;
   }
 
+  /* Thu huy hiệu 96px còn 80px bằng transform (không đổi bố cục); tên kéo sát lại phần ô trống 16px. */
   .scrolled .crest {
-    width: 80px;
-    height: 80px;
-    margin-top: 6px;
+    transform: translateY(-4px) scale(0.8333);
+  }
+
+  .scrolled .wordmark {
+    transform: translateX(-16px);
   }
 }
 
@@ -513,7 +518,7 @@
   }
 
   .navLink {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .wordmark {

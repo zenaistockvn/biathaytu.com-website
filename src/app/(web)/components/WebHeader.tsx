@@ -30,6 +30,7 @@ const DARK_HERO_PATHS = new Set([
   '/bia-duc-cho-nha-hang-khach-san',
   NAV.restaurant.href,
   NAV.franchise.href,
+  NAV.contact.href,
 ]);
 
 function isDarkHeroPath(pathname: string): boolean {

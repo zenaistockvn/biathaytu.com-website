@@ -35,7 +35,32 @@
 .facts dd {
   margin: 4px 0 0;
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+/* Ô số liệu mang chữ (tên, cụm từ) không vừa ba cột hẹp: xếp thành hàng, tên bên trái, mô tả bên phải. */
+.factsText {
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-top: 0;
+}
+
+.factsText > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgb(var(--web-on-ink-rgb) / 0.25);
+}
+
+.factsText dt {
+  font-size: clamp(17px, 1.6vw, 20px);
+  text-wrap: balance;
+}
+
+.factsText dd {
+  margin: 0;
 }
 
 /* ─── Các bước thưởng thức ─── */
@@ -81,7 +106,7 @@
 
 .steps p {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -125,9 +150,9 @@
   margin: 20px 0 28px;
   font-style: normal;
   font-family: var(--font-condensed), sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .address a {

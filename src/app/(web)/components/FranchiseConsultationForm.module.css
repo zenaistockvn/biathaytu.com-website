@@ -17,7 +17,7 @@
 
 .description {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--web-text-secondary);
   line-height: 1.6;
 }
@@ -65,7 +65,7 @@
   background: var(--web-surface);
   color: var(--web-ink);
   font-family: inherit;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 0;
   transition: border-color 0.2s ease;
 }
