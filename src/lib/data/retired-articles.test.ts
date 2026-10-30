@@ -73,8 +73,8 @@ describe('Phase B & E — Kiểm tra các bài viết đã gỡ/gộp', () => {
     }
   });
 
-  it('số lượng bài viết public sau khi gộp đúng bằng 8 (16/10/2026)', () => {
-    expect(getPublishedArticles().length).toBe(8);
+  it('số lượng bài viết public đúng bằng 18 (8 bài sau khi gộp 16/10/2026, thêm 10 bài 31/10/2026)', () => {
+    expect(getPublishedArticles().length).toBe(18);
   });
 
   it('đích redirect không phải bài đã gỡ (không tạo chuỗi redirect)', () => {
