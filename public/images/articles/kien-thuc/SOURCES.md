@@ -21,6 +21,7 @@ Kho media Bitburger Braugruppe: https://www.bitburger-international.com/en/media
 | `huong-chuoi-chin-va-dinh-huong-trong-bia-lua-mi.webp` | Benediktiner press photo, uid 388474 (hash 6ddefb19ab3f4c6b9b4bfe7c27afad8b) | Chính hãng, editorial only; chủ website duyệt dùng 2026-09-28 |
 | `phan-biet-weissbier-dunkel-festbier-v2.webp` | Ghép: Naturtrüb 0.5 l glass (uid 282675), dunkel-glass-cutout.webp, festbier-keg-nobg.webp; nền trắng | Pack shot chính hãng |
 | `su-that-ve-lop-men-van-duc-naturtrub.webp` | Benediktiner press photo, uid 388472 (hash da3d02d7941643c38853fe7c27afad8b) | Chính hãng, editorial only; chủ website duyệt dùng 2026-09-28 |
+| `oktoberfest-benediktiner-festbier-bom-5l.webp` | `public/images/brand/benediktiner-official/festbier-keg-nobg.webp` cao 780px giữa nền #1C3157, 1600x900 (16:9) để khung bìa không cắt mất bom (2026-10-31) | Pack shot chính hãng |
 | `dao-luat-tinh-khiet-1516-reinheitsgebot.webp` | https://commons.wikimedia.org/wiki/File:20160516-Aldersbach_Bayerische_Landesausstellung_2016_Bier_in_Bayern_(Reinheitsgebot).JPG (Luidger) | CC BY-SA 3.0: phải ghi nguồn (dòng dưới ảnh bìa trên trang bài) |
 
 Bài `nguon-goc-bia-thay-tu-tu-vien-ettal` dùng `public/images/brand/benediktiner-official/ettal-monastery.jpg` (xem SOURCES.md ở thư mục đó).
