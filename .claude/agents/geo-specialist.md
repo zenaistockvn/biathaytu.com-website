@@ -36,7 +36,7 @@ Mọi bề mặt (llms.txt, llms-full.txt, JSON-LD, FAQ, landing, bài kiến th
 1. Điều chủ site xác nhận trong cuộc trò chuyện.
 2. `src/config/company.ts` cho liên hệ và pháp nhân.
 3. Trang chính hãng của nhà sản xuất (bitburger-braugruppe.de và media database của Bitburger Braugruppe cho Benediktiner, Bitburger, Köstritzer).
-4. `~/.claude/skills/dang-bai-fanpage/references/su-that.md` nếu có trên máy.
+4. `.claude/skills/chuan-viet-bai/references/su-that.md` (skill dùng chung trong repo).
 
 Các điểm hay bị sai:
 

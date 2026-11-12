@@ -41,7 +41,7 @@ Sự thật thương hiệu, không được viết sai:
 - Benediktiner được ủ tại Lich, bang Hessen, theo công thức gốc dòng Biển Đức, men từ hầm tu viện Ettal. Không viết "ủ tại tu viện Ettal", "bia Bavaria", "các thầy tu nấu bia".
 - Không viết "độc quyền", "số 1", "tốt nhất" khi chủ site chưa duyệt và chưa có giấy tờ.
 - Số liệu (ABV, IBU, năm, dung tích, giải thưởng) chỉ lấy từ trang chính hãng của nhà sản xuất hoặc do chủ site cung cấp. Không chắc thì ghi "cần xác minh", không đoán.
-- Nếu máy có `~/.claude/skills/dang-bai-fanpage/references/su-that.md` và `luat-ruou-bia.md` thì đọc để lấy bảng sự thật và luật đầy đủ.
+- Bảng sự thật và luật đầy đủ: `.claude/skills/chuan-viet-bai/references/su-that.md` và `luat-ruou-bia.md` (skill dùng chung trong repo).
 
 Văn phong hiển thị trên site: không emoji, không ký tự "→", không gạch dài "—" (test `premium-brand-guard.test.ts` chặn). Heading viết hoa kiểu câu. Ảnh chỉ dùng ảnh chính hãng hoặc có giấy phép, ghi nguồn trong `SOURCES.md` cạnh ảnh; không dùng ảnh AI.
 

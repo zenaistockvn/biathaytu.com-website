@@ -57,19 +57,19 @@ HỎI khi thiếu nguồn:
 - Giải thưởng (iTQi và các giải khác), năm, số liệu ABV, IBU, sản lượng, "hơn 400 năm", "gần 700 năm". Đối chiếu với trang chính hãng của nhà sản xuất (bitburger-braugruppe.de, kho media Bitburger Braugruppe) nếu cần.
 - Lời khách, số khách, "cháy hàng", "kín bàn" mà không có thật.
 
-Nếu máy có `~/.claude/skills/dang-bai-fanpage/references/su-that.md` thì đọc để lấy bảng sự thật đầy đủ.
+Bảng sự thật đầy đủ: `.claude/skills/chuan-viet-bai/references/su-that.md`; luật: `.claude/skills/chuan-viet-bai/references/luat-ruou-bia.md` (skill dùng chung, có sẵn trong repo). Bản trên máy ở `~/.claude/skills/dang-bai-fanpage/` nếu có thì chỉ để tham khảo thêm.
 
 ## 4. Quy tắc hiển thị của dự án (NHẮC, trừ khi test chặn)
 
 - Không emoji, không "→", không gạch dài "—" hay "–" trong chữ hiển thị (`premium-brand-guard.test.ts` chặn, nên là CHẶN).
 - Tiêu đề bài và h2 đến h4 viết hoa đầu câu, chỉ giữ hoa cho tên riêng.
 - Không viết cứng `biathaytu.com` không có `.vn` (test chặn, nên là CHẶN).
-- Văn quảng cáo kiểu AI: "hành trình", "tuyệt tác", "thăng hoa", "nâng tầm", "đích thực", "hoàn hảo", "hòa quyện", "bản giao hưởng", "trứ danh", "đẳng cấp", "thượng hạng", "tinh hoa", "huyền thoại", "đỉnh cao", "khám phá ngay", "đừng bỏ lỡ". Danh sách đầy đủ ở `~/.claude/skills/dang-bai-fanpage/scripts/quy-tac.json` nếu có trên máy.
+- Văn quảng cáo kiểu AI: "hành trình", "tuyệt tác", "thăng hoa", "nâng tầm", "đích thực", "hoàn hảo", "hòa quyện", "bản giao hưởng", "trứ danh", "đẳng cấp", "thượng hạng", "tinh hoa", "huyền thoại", "đỉnh cao", "khám phá ngay", "đừng bỏ lỡ". Danh sách đầy đủ ở `.claude/skills/chuan-viet-bai/scripts/quy-tac.json`.
 
 ## Cách kiểm
 
 1. Xác định chữ thực sự hiển thị (sau patch, sau làm sạch).
-2. Tìm nhanh bằng Grep theo các cụm ở trên (không phân biệt hoa thường, nhớ cả biến thể không dấu).
+2. Chạy máy quét `node .claude/skills/chuan-viet-bai/scripts/kiem-van.mjs <file> --kenh web-bia` (thêm `--diff main` để chỉ soi dòng mới), rồi Grep thêm theo các cụm ở trên (không phân biệt hoa thường, nhớ cả biến thể không dấu).
 3. Đọc lại toàn văn: cách nói vòng và ngữ cảnh thì Grep không bắt được.
 4. Với mỗi lỗi, đề xuất câu thay thế giữ nguyên ý hợp lệ, cùng giọng văn.
 

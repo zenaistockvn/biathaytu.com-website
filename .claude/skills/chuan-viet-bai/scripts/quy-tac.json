@@ -1,0 +1,52 @@
+{
+  "version": "2026-11-12",
+  "note": "Bộ từ cấm dùng chung cho Bia Thầy Tu, Vang Đức và AMC. bannedPhrases: có là phải sửa. watchPhrases: hạn chế, mỗi bài tối đa 2 lần. bannedByChannel: chỉ chặn ở kênh ghi tên.",
+  "bannedPhrases": {
+    "Luật rượu bia": [
+      "không say không về", "thả ga", "bao say", "trăm phần trăm", "cạn ly", "uống không say", "không lo say",
+      "tốt cho sức khỏe", "tốt cho sức khoẻ", "có lợi cho sức khỏe", "có lợi cho sức khoẻ", "giải độc", "bổ dưỡng",
+      "đẹp da", "ngủ ngon", "không đau đầu", "không nhức đầu", "giàu vitamin", "vitamin b", "axit amin", "dưỡng chất",
+      "lợi khuẩn", "tốt cho tiêu hóa", "tốt cho tiêu hoá", "tốt cho tim", "mùa thi", "ký túc xá", "tuổi teen",
+      "học sinh", "sinh viên", "mang thai", "uống cho đã", "uống thật nhiều"
+    ],
+    "Giọng nhậu": [
+      "bia nhậu", "đi nhậu", "dân nhậu", "mồi nhậu", "mồi bén", "lai rai", "dô dô", "chiến hữu", "ghiền", "quất", "làm vài lon", "làm vài chai"
+    ],
+    "Sai sự thật thương hiệu": [
+      "ủ tại tu viện ettal", "nấu tại tu viện ettal", "bia bavaria", "chuẩn bavaria", "đến từ bavaria", "km từ bavaria",
+      "thầy tu nấu bia", "tu sĩ nấu bia", "do tu sĩ làm", "do thầy tu làm", "the wurst", "12 đời", "bitburger wc"
+    ],
+    "Khoe không có nguồn": [
+      "số 1", "số một", "hàng đầu", "tốt nhất", "ngon nhất", "độc quyền", "bán chạy nhất", "cháy hàng", "kín bàn",
+      "nổi tiếng nhất", "danh giá nhất"
+    ],
+    "Văn quảng cáo kiểu AI": [
+      "hành trình", "tuyệt tác", "thăng hoa", "nâng tầm", "đích thực", "hoàn hảo", "hòa quyện", "hoà quyện",
+      "bản giao hưởng", "trứ danh", "đẳng cấp", "thượng hạng", "tinh hoa", "huyền thoại", "đỉnh cao", "khám phá ngay",
+      "đừng bỏ lỡ", "trọn vẹn", "tuyệt hảo", "tuyệt vời", "đánh thức vị giác", "chinh phục"
+    ],
+    "Câu dọn đường": [
+      "hãy cùng", "bạn có biết", "điều thú vị là", "tóm lại", "hơn thế nữa", "dưới đây là", "trong thế giới",
+      "trong thời đại", "không thể phủ nhận", "đáng chú ý", "bạn đã bao giờ", "có thể nói", "như chúng ta đã biết"
+    ],
+    "Ép mua và câu like": [
+      "giá sốc", "giá hủy diệt", "chốt đơn", "chốt nhanh", "số lượng có hạn", "hết là hết", "siêu rẻ", "giá tốt nhất",
+      "like nếu", "share nếu", "tag 3", "comment yes", "follow để không bỏ lỡ"
+    ]
+  },
+  "bannedByChannel": {
+    "web-bia": {
+      "Bán hàng trực tuyến": ["đặt hàng", "đặt mua", "mua ngay", "thêm vào giỏ", "giỏ hàng", "thanh toán", "cod", "checkout", "giao hàng", "phí ship", "freeship", "miễn phí ship"]
+    },
+    "facebook": {
+      "Bán hàng trực tuyến": ["đặt hàng", "đặt mua", "mua ngay", "giỏ hàng", "cod", "freeship", "miễn phí ship", "inbox đặt", "hotline"],
+      "Sản phẩm chờ anh xác nhận": ["alkoholfrei", "bia không cồn", "0.0%"]
+    },
+    "web-vang": {}
+  },
+  "watchPhrases": [
+    "thanh lịch", "tinh tế", "sang trọng", "phù hợp", "thưởng thức", "cao cấp", "đặc biệt", "nổi bật", "tươi mát",
+    "lựa chọn", "giải mã", "khám phá", "cẩm nang", "trải nghiệm", "xứng tầm", "chỉn chu", "duy nhất", "tuy nhiên",
+    "do đó", "ngoài ra", "mang đến", "mang lại"
+  ]
+}

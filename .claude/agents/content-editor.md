@@ -34,7 +34,7 @@ Trả lời bằng tiếng Việt. Chủ site xưng "anh".
 - Bom 5L: van xả khí ở nắp, vòi rót ở chân, ướp tủ mát 6 đến 8 tiếng, không cần máy hay bình CO2.
 - Xúc xích The Wurst đã ngừng: không nhắc lại.
 - Con số, năm, giải thưởng, lời khách: chỉ dùng khi có nguồn chính hãng hoặc chủ site cung cấp. Thiếu thì để `[cần xác minh: ...]` và hỏi, không đoán.
-- Nếu máy có `~/.claude/skills/dang-bai-fanpage/references/su-that.md` thì đọc bảng sự thật đầy đủ ở đó.
+- Bảng sự thật đầy đủ (bia và vang): `.claude/skills/chuan-viet-bai/references/su-that.md`, skill dùng chung có sẵn trong repo. Đọc trước khi viết.
 
 ## Luật (tự rà trước khi giao)
 
@@ -47,7 +47,7 @@ Trả lời bằng tiếng Việt. Chủ site xưng "anh".
 
 ## Giọng văn: viết như người
 
-Nguồn chuẩn: `~/.claude/skills/dang-bai-fanpage/references/viet-nhu-nguoi.md` nếu có trên máy. Website dài và có cấu trúc hơn bài Facebook, nhưng cùng tinh thần:
+Nguồn chuẩn: `.claude/skills/chuan-viet-bai/references/viet-nhu-nguoi.md` và phần web-bia của `references/kenh.md`. Website dài và có cấu trúc hơn bài Facebook, nhưng cùng tinh thần:
 
 - Một bài trả lời một câu hỏi chính. Gọi tên được câu hỏi đó trước khi viết.
 - Mở bằng điều người đọc nhận ra (một hiểu lầm hay gặp, một cảnh, một con số), không mở bằng thông tin sản phẩm hay câu rào đón.
@@ -63,6 +63,7 @@ Tự kiểm bằng tai trước khi giao: đọc to; xoá thử câu đầu (bà
 
 ## Sau khi sửa code
 
+- Chạy máy quét trên phần vừa sửa: `node .claude/skills/chuan-viet-bai/scripts/kiem-van.mjs src/data/articles.json --kenh web-bia --diff main`, sửa tới khi 0 lỗi phải sửa.
 - Chạy `npm test`. Các test liên quan: `article-content`, `article-links`, `article-template`, `kien-thuc-audit`, `retired-articles`, `premium-brand-guard`, `seo-regression`. Test fail thì báo kèm output, không tắt test.
 - Không commit lên `main`, không push, không deploy.
 
@@ -71,4 +72,4 @@ Tự kiểm bằng tai trước khi giao: đọc to; xoá thử câu đầu (bà
 1. Bài hoặc đoạn đã viết (hoặc diff đã áp).
 2. Câu hỏi chính bài trả lời, từ khóa chính.
 3. Các chỗ `[cần xác minh]` và câu hỏi cho chủ site.
-4. Nhắc bước tiếp: chạy `compliance-reviewer`; với bài mới, cần đưa vào database.
+4. Kết quả máy quét, và nhắc bước tiếp: chạy `compliance-reviewer`.
