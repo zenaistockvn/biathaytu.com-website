@@ -4,7 +4,7 @@ Chỉ dùng điều ghi ở đây và trong các file dữ liệu được chỉ
 
 ## Doanh nghiệp
 
-- CÔNG TY TNHH GERMAN TASTE nhập khẩu và phân phối. Bia Thầy Tu (www.biathaytu.com.vn, luôn có `.vn`) là trang thương hiệu bia Benediktiner. Vang Đức ở vangducnhapkhau.vn.
+- CÔNG TY TNHH GERMAN TASTE nhập khẩu và phân phối. Bia Thầy Tu (www.biathaytu.com.vn, luôn có `.vn`) là trang thương hiệu bia Benediktiner. Chuyên trang vang tên là "Vang Đức Nhập Khẩu"; địa chỉ web lấy từ `SITE_URL` trong `vangducnhapkhau.vn/src/data/site.ts`, không gõ tay.
 - Địa chỉ showroom, hotline, Zalo: lấy từ `biathaytu.com-website/src/config/company.ts` (`COMPANY_CONFIG`) hoặc `vangducnhapkhau.vn/src/data/site.ts`. Không chép tay, không dùng địa chỉ Đội Cấn, Liễu Giai, Ba Đình làm địa chỉ showroom.
 
 ## Giá
@@ -22,16 +22,18 @@ Giá vang trong `products.json` của site bia và `products.ts` của site vang
 ## Bia
 
 **Benediktiner**
-- Ủ tại Lich, bang Hessen, bởi nhà bia Ihring-Melchior, theo công thức gốc dòng Biển Đức. Men lấy từ hầm tu viện Ettal (Bavaria, lập năm 1330).
+- Ủ chủ yếu tại Lich, bang Hessen, bởi nhà bia tư nhân Ihring-Melchior, theo công thức gốc dòng Biển Đức. Men lấy từ hầm tu viện Ettal (Bavaria). Tu viện do Hoàng đế Ludwig IV lập năm 1330.
 - Không viết: "ủ tại tu viện Ettal", "bia Bavaria", "chuẩn Bavaria", "đến từ Bavaria", "các thầy tu nấu bia", "bia do tu sĩ làm".
-- "400 năm", "gần 700 năm" và mọi con số tuổi đời khác: chỉ dùng mốc 1330 của tu viện Ettal; con số khác phải có nguồn chính hãng.
+- "Hơn 400 năm truyền thống": site bia đang dùng cụm này (bài `nguon-goc-bia-thay-tu-tu-vien-ettal`). Được viết đúng như vậy, gắn với truyền thống nấu bia của tu viện, không viết thành "chai bia 400 năm tuổi" hay "công thức không đổi 400 năm". Mốc cụ thể 1609 (năm tu viện dựng nhà bia, theo tài liệu báo chí Bitburger Braugruppe) chưa có trên site: cần anh duyệt trước khi dùng. "Gần 700 năm" chỉ nói về tu viện (1330), không nói về bia.
 - Naturtrüb: bia lúa mì đục tự nhiên, hương chuối chín và đinh hương, phục vụ 7 đến 9 °C. Tên dòng trên site là Naturtrüb, không gọi lẫn thành tên khác trong cùng một bài.
 - Dunkel: nâu đồng, mạch nha rang, caramel, 8 đến 10 °C.
 - Festbier: lon 500ml và bom 5L, 6 đến 8 °C.
 
-**Bitburger Premium Pils**: Bitburg, vùng Eifel (Rheinland-Pfalz), từ năm 1817; 4 đến 6 °C. Bản bóng đá gọi là "Bitburger Football Edition" hoặc "Bitburger phiên bản bóng đá"; không viết tắt "WC".
+**Bitburger Premium Pils**: Bitburg, vùng Eifel (Rheinland-Pfalz); 4 đến 6 °C. Năm 1817 Johann Peter Wallenborn mở xưởng bia ở Bitburg; năm 1883 Theobald Simon, thế hệ thứ ba, chuyển sang lên men chìm kiểu Pilsner; khẩu hiệu "Bitte ein Bit" ra mắt năm 1951 tại hội chợ ANUGA; nhà bia thuộc gia đình Simon (đều đã có trong bài `bitburger-premium-pils-200-nam-bia-pils-vung-eifel`). Bản bóng đá gọi là "Bitburger Football Edition" hoặc "Bitburger phiên bản bóng đá"; không viết tắt "WC".
 
-**Köstritzer Schwarzbier**: Bad Köstritz, Thüringen; bom 5L. Không viết "bia đen số 1 tại Đức".
+**Köstritzer Schwarzbier**: Bad Köstritz, Thüringen; bom 5L. Không viết "bia đen số 1 tại Đức". Mốc 1543 và chuyện Goethe là lời của hãng, chưa có trên site: cần anh duyệt trước khi dùng.
+
+**Văn hóa bia Đức đã có bài trên site, dùng được**: Luật Tinh khiết ban hành 23/4/1516 tại Ingolstadt (nước, mạch nha, hoa bia, men); Oktoberfest bắt đầu từ lễ cưới Thái tử Ludwig và Công chúa Therese ngày 12/10/1810; tục Biergarten; cách nâng ly Prost.
 
 **Bom 5L**: van xả khí ở nắp, vòi rót ở chân; ướp tủ mát 6 đến 8 tiếng; không cần máy hay bình CO2.
 
